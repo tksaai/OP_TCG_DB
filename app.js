@@ -1,11 +1,12 @@
-// app.js (ID修正・最終版)
+// app.js (ID修正・機能完備・省略なし最終版)
 
-const db = new Dexie('OnePieceCardDB_v5');
+const db = new Dexie('OnePieceCardDB_v6'); // DB名を変更して完全にリセット
 db.version(1).stores({
   cards: 'uniqueId, cardNumber, cardName, *color, cardType, rarity, *features, effectText',
   meta: 'key, value'
 });
 
+// DOM要素の取得
 const statusMessageElement = document.getElementById('status-message');
 const cardListElement = document.getElementById('card-list');
 const searchBox = document.getElementById('search-box');
@@ -13,11 +14,13 @@ const changeColumnsBtn = document.getElementById('change-columns-btn');
 const cacheImagesBtn = document.getElementById('cache-images-btn');
 const clearCacheBtn = document.getElementById('clear-cache-btn');
 const settingsBtn = document.getElementById('settings-btn');
-const settingsModal = document.getElementById('settings-modal'); // これはモーダルの中身のウィンドウ用
+const settingsModal = document.getElementById('settings-modal');
 const closeModalBtn = document.getElementById('close-modal-btn');
-const modalOverlay = document.getElementById('modal-overlay'); // ★★★ IDを 'modal-overlay' に修正 ★★★
+const modalOverlay = document.getElementById('modal-overlay');
 const filterToolbar = document.querySelector('.filter-toolbar');
+const refreshBtn = document.getElementById('refresh-btn'); // refreshBtnを正しく取得
 
+// アプリケーションの状態を管理
 const state = {
   columns: parseInt(localStorage.getItem('columnCount') || '3', 10),
   filters: { color: 'all', cardType: 'all', rarity: 'all' }
@@ -25,10 +28,8 @@ const state = {
 
 async function initializeApp() {
   updateUI();
-  
   try {
     const cardCount = await db.cards.count();
-    
     if (cardCount > 0) {
       await setupFilters();
       await displayCards();
@@ -46,21 +47,27 @@ async function initializeApp() {
 async function syncData() {
   statusMessageElement.textContent = 'カードデータを読み込み中...';
   statusMessageElement.style.display = 'block';
-  
-  const response = await fetch('./cards.json');
-  if (!response.ok) throw new Error('cards.jsonの読み込みに失敗');
-  
-  const allCards = await response.json();
-  
-  await db.transaction('rw', db.cards, db.meta, async () => {
-    await db.cards.clear();
-    await db.cards.bulkAdd(allCards);
-    await db.meta.put({ key: 'lastUpdated', value: new Date().toISOString() });
-  });
-  
-  await setupFilters();
-  await displayCards();
-  statusMessageElement.style.display = 'none';
+  console.log('ローカルのcards.jsonからデータを取得します...');
+
+  try {
+    const response = await fetch('./cards.json'); 
+    if (!response.ok) throw new Error('cards.jsonの読み込みに失敗しました。');
+    
+    const allCards = await response.json();
+    console.log(`${allCards.length} 件のカードデータをファイルから取得しました。`);
+    
+    await db.transaction('rw', db.cards, db.meta, async () => {
+      await db.cards.clear();
+      await db.cards.bulkAdd(allCards);
+      await db.meta.put({ key: 'lastUpdated', value: new Date().toISOString() });
+    });
+    
+    console.log('ローカルデータベースを更新しました。');
+    await setupFilters();
+    await displayCards();
+  } finally {
+    statusMessageElement.style.display = 'none';
+  }
 }
 
 async function setupFilters() {
@@ -131,19 +138,79 @@ function updateUI() {
   cardListElement.className = `card-grid cols-${state.columns}`;
 }
 
-async function cacheAllImages() { /* 省略 */ }
-async function clearAllCaches() { /* 省略 */ }
+async function cacheAllImages() {
+  if (!('serviceWorker' in navigator) || !navigator.serviceWorker.controller) {
+    alert('Service Workerが有効ではありません。');
+    return;
+  }
+  statusMessageElement.textContent = '全画像のキャッシュを開始します...';
+  statusMessageElement.style.display = 'block';
+
+  try {
+    const allCards = await db.cards.toArray();
+    const imageUrls = allCards.map(card => {
+      const series = card.cardNumber.split('-')[0];
+      return `./Cards/${series}/${card.cardNumber}.jpg`;
+    });
+    
+    navigator.serviceWorker.controller.postMessage({
+      type: 'CACHE_IMAGES',
+      payload: imageUrls
+    });
+
+    navigator.serviceWorker.onmessage = (event) => {
+        if (event.data.type === 'CACHE_PROGRESS') {
+            const { processed, total } = event.data.payload;
+            statusMessageElement.textContent = `キャッシュ中... (${processed} / ${total})`;
+        }
+        if (event.data.type === 'CACHE_COMPLETE') {
+            statusMessageElement.textContent = '全画像のキャッシュが完了しました！';
+            setTimeout(() => { statusMessageElement.style.display = 'none'; }, 2000);
+        }
+    };
+  } catch (err) {
+    console.error('画像キャッシュエラー:', err);
+    statusMessageElement.textContent = '画像のキャッシュ中にエラーが発生しました。';
+  }
+}
+
+async function clearAllCaches() {
+  if (!('caches' in window)) {
+    alert('このブラウザはキャッシュ機能に対応していません。');
+    return;
+  }
+  if (confirm('保存されている全てのキャッシュとデータを削除します。よろしいですか？')) {
+    try {
+      const registration = await navigator.serviceWorker.getRegistration();
+      if (registration) await registration.unregister();
+      
+      const keys = await caches.keys();
+      await Promise.all(keys.map(key => caches.delete(key)));
+      
+      await db.delete();
+
+      alert('キャッシュとデータベースを削除しました。ページを再読み込みします。');
+      window.location.reload();
+    } catch (error) {
+      alert('キャッシュの削除に失敗しました。');
+      console.error(error);
+    }
+  }
+}
 
 // --- イベントリスナー ---
 searchBox.addEventListener('input', displayCards);
-document.getElementById('refresh-btn').addEventListener('click', () => {
+
+refreshBtn.addEventListener('click', () => {
     searchBox.value = '';
     document.querySelectorAll('.filter-toolbar select').forEach(s => s.value = 'all');
     Object.keys(state.filters).forEach(key => state.filters[key] = 'all');
     displayCards();
 });
+
 cacheImagesBtn.addEventListener('click', cacheAllImages);
 clearCacheBtn.addEventListener('click', clearAllCaches);
+
 changeColumnsBtn.addEventListener('click', () => {
   state.columns = (state.columns % 5) + 1;
   localStorage.setItem('columnCount', state.columns);
@@ -154,9 +221,11 @@ settingsBtn.addEventListener('click', (e) => {
   e.preventDefault();
   modalOverlay.style.display = 'flex';
 });
+
 closeModalBtn.addEventListener('click', () => {
   modalOverlay.style.display = 'none';
 });
+
 modalOverlay.addEventListener('click', (e) => {
   if (e.target === modalOverlay) {
     modalOverlay.style.display = 'none';
