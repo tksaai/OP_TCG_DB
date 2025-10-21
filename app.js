@@ -1,12 +1,12 @@
-// app.js (最終修正版)
+// app.js (JSONP対応・エラーログ強化・省略なし完全版)
 
-// ▼▼▼【重要】GASを再デプロイして取得した、あなたのウェブアプリURLに必ず置き換えてください ▼▼▼
-const CARD_API_URL = 'https://script.google.com/macros/s/AKfycbz52k9T2aUVI5IBoNB2waO9mhtcH7YAsMgRg4R2-3ZxfOtkp1mLl6hTemIA9LNZvZWe/exec';
+// ▼▼▼【最重要】GASを再デプロイして取得した、あなたのウェブアプリURLに必ず置き換えてください ▼▼▼
+const CARD_API_URL = 'https://script.google.com/macros/s/AKfycbyOqEM2gXAVpDJcp2QtOwPXrCCbhoh6FlZk1ITn0EWl6bwI0wTPN2cv2GaB_yf1Dit_/exec';
 
 // IndexedDBの準備
 const db = new Dexie('OnePieceCardDB');
-// DBのバージョンを上げます。これにより、古いデータ構造（画像IDマップなど）を持つDBが自動的に削除され、再構築されます。
-db.version(2).stores({
+// DBのバージョンを上げます。これにより、古いデータ構造を持つDBが自動的に削除され、再構築されます。
+db.version(3).stores({
   cards: 'cardNumber, cardName, *color, *features, effectText',
   meta: 'key'
 });
@@ -14,6 +14,47 @@ db.version(2).stores({
 const statusMessageElement = document.getElementById('status-message');
 const cardListElement = document.getElementById('card-list');
 const searchBox = document.getElementById('search-box');
+
+
+/**
+ * JSONPリクエストを実行する関数
+ * @param {string} url - リクエスト先のURL
+ * @returns {Promise<any>} - サーバーからのJSONデータを解決するPromise
+ */
+function jsonpRequest(url) {
+  return new Promise((resolve, reject) => {
+    // 毎回ユニークなコールバック関数名を生成
+    const callbackName = 'jsonp_callback_' + Math.round(100000 * Math.random());
+    
+    // グローバルスコープにコールバック関数を定義
+    window[callbackName] = function(data) {
+      // 成功したら後片付け
+      delete window[callbackName];
+      document.body.removeChild(script);
+      resolve(data);
+    };
+
+    // タイムアウト処理
+    const timeoutId = setTimeout(() => {
+        delete window[callbackName];
+        document.body.removeChild(script);
+        reject(new Error('JSONP request timed out.'));
+    }, 120000); // 2分でタイムアウト
+
+    // scriptタグを生成してリクエストを開始
+    const script = document.createElement('script');
+    script.src = url + (url.indexOf('?') >= 0 ? '&' : '?') + 'callback=' + callbackName;
+    script.onerror = (err) => {
+        clearTimeout(timeoutId);
+        delete window[callbackName];
+        document.body.removeChild(script);
+        reject(new Error('JSONP script error.'));
+    };
+
+    document.body.appendChild(script);
+  });
+}
+
 
 /**
  * アプリのメイン初期化処理
@@ -35,8 +76,10 @@ async function initializeApp() {
       });
     }
   } catch (error) {
-    console.error("【重大なエラー】アプリケーションの初期化に失敗しました:", error);
-    statusMessageElement.textContent = `エラー: ${error.message}。オフラインで起動します。`;
+    console.error("【重大なエラー】アプリケーションの初期化に失敗しました。");
+    console.error("エラーの種類:", error.name);
+    console.error("エラーメッセージ:", error.message);
+    statusMessageElement.textContent = `初期化エラー: ${error.message}。オフラインで再試行します。`;
     // エラーが起きても、ローカルにデータがあれば表示を試みる
     await displayCards();
   } finally {
@@ -51,18 +94,13 @@ async function syncFullData() {
   statusMessageElement.textContent = '初回データ取得中...（数分かかる場合があります）';
   console.log('初回データ取得を開始します...');
   
-  const response = await fetch(CARD_API_URL);
+  const allCards = await jsonpRequest(CARD_API_URL);
 
-  if (!response.ok) {
-    throw new Error(`APIへの接続に失敗しました。ステータス: ${response.status}`);
+  if (allCards.error) {
+    throw new Error(`APIエラー: ${allCards.message}`);
   }
-
-  const allCards = await response.json();
-  if (allCards.error) { // GAS側でエラーが発生した場合
-    throw new Error(`APIエラー: ${allCards.error}`);
-  }
+  
   console.log(`APIから ${allCards.length} 件のカードデータを取得しました。`);
-
   await db.cards.clear();
   await db.cards.bulkAdd(allCards);
   await db.meta.put({ key: 'initialSyncDone', value: true });
@@ -78,14 +116,10 @@ async function syncDifferentialData() {
     
     const requestUrl = `${CARD_API_URL}?knownPCards=${knownPCards.join(',')}`;
     
-    const response = await fetch(requestUrl);
-    if (!response.ok) {
-        throw new Error(`差分更新APIへの接続に失敗しました。ステータス: ${response.status}`);
-    }
+    const newCards = await jsonpRequest(requestUrl);
 
-    const newCards = await response.json();
     if (newCards.error) {
-      throw new Error(`APIエラー: ${newCards.error}`);
+      throw new Error(`APIエラー: ${newCards.message}`);
     }
 
     if (newCards.length > 0) {
@@ -125,8 +159,7 @@ async function displayCards() {
       const cardDiv = document.createElement('div');
       cardDiv.className = 'card-item';
       
-      // GASから渡された正しいURLをそのまま使用するだけ
-      const imageUrl = card.imageUrlSmall || 'https://via.placeholder.com/100x140?text=No+Image'; // 画像URLがない場合の代替
+      const imageUrl = card.imageUrlSmall || 'https://via.placeholder.com/100x140?text=No+Image';
 
       cardDiv.innerHTML = `<img src="${imageUrl}" alt="${card.cardName}" loading="lazy">`;
       
