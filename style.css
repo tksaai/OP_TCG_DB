@@ -30,4 +30,23 @@ header {
 #loading {
   text-align: center;
   padding: 20px;
+
+}
+
+/* style.css の末尾に追記 */
+#refresh-btn {
+  display: block;
+  width: calc(100% - 2rem);
+  padding: 0.8rem;
+  margin: 1rem auto 0;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #3498db;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+#refresh-btn:hover {
+  background-color: #2980b9;
 }
