@@ -9,8 +9,8 @@ const urlsToCache = [
   './style.css',
   './app.js',
   'https://unpkg.com/dexie@3/dist/dexie.js',
-  './icons/icon-192x192.png',
-  './icons/icon-512x512.png'
+  './icons/iconx192.png',
+  './icons/iconx512.png'
 ];
 
 // 1. インストールイベント：App Shellをキャッシュする
@@ -76,3 +76,4 @@ self.addEventListener('fetch', event => {
       })
   );
 });
+
