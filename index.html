@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ワンピースカードDB</title>
+  <!-- パスを修正 -->
+  <link rel="stylesheet" href="./style.css">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="apple-touch-icon" href="./icons/icon-192x192.png">
+</head>
+<body>
+  <header>
+    <h1>ワンピースカードDB</h1>
+    <div class="search-container">
+      <input type="text" id="search-box" placeholder="カード名、効果、特徴...">
+    </div>
+  </header>
+
+  <main>
+    <div id="status-message">データ読み込み中...</div>
+    <div id="card-list" class="card-grid"></div>
+  </main>
+
+  <script src="https://unpkg.com/dexie@3/dist/dexie.js"></script>
+  <!-- パスを修正 -->
+  <script src="./app.js"></script>
+</body>
+</html>
