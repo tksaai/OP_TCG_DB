@@ -2,33 +2,70 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>ワンピースカードDB</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="./style.css">
   <link rel="manifest" href="./manifest.json">
   <link rel="apple-touch-icon" href="./icons/iconx192.png">
 </head>
 <body>
-  <header>
-    <h1>ワンピースカードDB</h1>
-    <div class="search-container">
-      <input type="text" id="search-box" placeholder="カード名、効果、特徴...">
-    </div>
-    <div class="filter-toolbar">
-      <!-- フィルタリングUIはapp.jsによって動的にここに生成されます -->
-    </div>
-    <div class="toolbar">
-      <button id="change-columns-btn">表示列数: 3</button>
-      <button id="refresh-btn">表示リセット</button>
-      <button id="cache-images-btn">全画像キャッシュ</button>
-      <button id="clear-cache-btn">全キャッシュ削除</button>
-    </div>
-  </header>
+  <div class="app-container">
+    
+    <header class="app-header">
+      <div class="search-bar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="search-box" placeholder="検索">
+      </div>
+      <div class="header-actions">
+        <button id="filter-btn"><i class="fa-solid fa-filter"></i></button>
+        <button id="sort-btn"><i class="fa-solid fa-arrow-up-down"></i></button>
+      </div>
+    </header>
 
-  <main>
-    <div id="status-message">データ読み込み中...</div>
-    <div id="card-list" class="card-grid cols-3"></div>
-  </main>
+    <main class="app-content">
+      <div id="status-message">データを読み込み中...</div>
+      <div id="card-list" class="card-grid cols-3"></div>
+    </main>
+
+    <footer class="app-footer">
+      <nav>
+        <a href="#" class="nav-item active">
+          <i class="fa-solid fa-clone"></i>
+          <span>Card List</span>
+        </a>
+        <a href="#" class="nav-item">
+          <i class="fa-solid fa-layer-group"></i>
+          <span>Decks</span>
+        </a>
+        <a href="#" class="nav-item">
+          <i class="fa-solid fa-flask"></i>
+          <span>SimLab</span>
+        </a>
+        <a href="#" class="nav-item">
+          <i class="fa-solid fa-box-archive"></i>
+          <span>8Pack</span>
+        </a>
+        <a href="#" class="nav-item" id="settings-btn">
+          <i class="fa-solid fa-gear"></i>
+          <span>Settings</span>
+        </a>
+      </nav>
+    </footer>
+
+    <!-- 設定モーダルウィンドウ -->
+    <div id="settings-modal" class="modal-overlay" style="display:none;">
+        <div class="modal-content">
+            <h2>設定</h2>
+            <div class="settings-options">
+                <button id="change-columns-btn">表示列数: 3</button>
+                <button id="cache-images-btn">全画像キャッシュ</button>
+                <button id="clear-cache-btn">全キャッシュ削除</button>
+            </div>
+            <button id="close-modal-btn">閉じる</button>
+        </div>
+    </div>
+  </div>
 
   <script src="https://unpkg.com/dexie@3/dist/dexie.js"></script>
   <script src="./app.js"></script>
