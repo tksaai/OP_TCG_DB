@@ -1,12 +1,11 @@
-// app.js (ID修正・機能完備・省略なし最終版)
+// app.js (画像キャッシュ改善・表示改善版)
 
-const db = new Dexie('OnePieceCardDB_v6'); // DB名を変更して完全にリセット
+const db = new Dexie('OnePieceCardDB_v6');
 db.version(1).stores({
   cards: 'uniqueId, cardNumber, cardName, *color, cardType, rarity, *features, effectText',
   meta: 'key, value'
 });
 
-// DOM要素の取得
 const statusMessageElement = document.getElementById('status-message');
 const cardListElement = document.getElementById('card-list');
 const searchBox = document.getElementById('search-box');
@@ -18,9 +17,8 @@ const settingsModal = document.getElementById('settings-modal');
 const closeModalBtn = document.getElementById('close-modal-btn');
 const modalOverlay = document.getElementById('modal-overlay');
 const filterToolbar = document.querySelector('.filter-toolbar');
-const refreshBtn = document.getElementById('refresh-btn'); // refreshBtnを正しく取得
+const refreshBtn = document.getElementById('refresh-btn');
 
-// アプリケーションの状態を管理
 const state = {
   columns: parseInt(localStorage.getItem('columnCount') || '3', 10),
   filters: { color: 'all', cardType: 'all', rarity: 'all' }
@@ -47,27 +45,21 @@ async function initializeApp() {
 async function syncData() {
   statusMessageElement.textContent = 'カードデータを読み込み中...';
   statusMessageElement.style.display = 'block';
-  console.log('ローカルのcards.jsonからデータを取得します...');
-
-  try {
-    const response = await fetch('./cards.json'); 
-    if (!response.ok) throw new Error('cards.jsonの読み込みに失敗しました。');
-    
-    const allCards = await response.json();
-    console.log(`${allCards.length} 件のカードデータをファイルから取得しました。`);
-    
-    await db.transaction('rw', db.cards, db.meta, async () => {
-      await db.cards.clear();
-      await db.cards.bulkAdd(allCards);
-      await db.meta.put({ key: 'lastUpdated', value: new Date().toISOString() });
-    });
-    
-    console.log('ローカルデータベースを更新しました。');
-    await setupFilters();
-    await displayCards();
-  } finally {
-    statusMessageElement.style.display = 'none';
-  }
+  
+  const response = await fetch('./cards.json');
+  if (!response.ok) throw new Error('cards.jsonの読み込みに失敗');
+  
+  const allCards = await response.json();
+  
+  await db.transaction('rw', db.cards, db.meta, async () => {
+    await db.cards.clear();
+    await db.cards.bulkAdd(allCards);
+    await db.meta.put({ key: 'lastUpdated', value: new Date().toISOString() });
+  });
+  
+  await setupFilters();
+  await displayCards();
+  statusMessageElement.style.display = 'none';
 }
 
 async function setupFilters() {
@@ -119,12 +111,20 @@ async function displayCards() {
     statusMessageElement.style.display = 'none';
     cardListElement.innerHTML = '';
     const fragment = document.createDocumentFragment();
+
     filteredCards.forEach(card => {
       const cardDiv = document.createElement('div');
       cardDiv.className = 'card-item';
+      
       const series = card.cardNumber.split('-')[0];
       const imageUrl = `./Cards/${series}/${card.cardNumber}.jpg`;
-      cardDiv.innerHTML = `<img src="${imageUrl}" alt="${card.cardName}" loading="lazy" onerror="this.style.display='none'">`;
+      
+      // ▼▼▼ 表示するHTMLの構造を変更 ▼▼▼
+      cardDiv.innerHTML = `
+        <img src="${imageUrl}" alt="${card.cardName}" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <div class="card-placeholder">${card.cardNumber}</div>
+      `;
+      
       fragment.appendChild(cardDiv);
     });
     cardListElement.appendChild(fragment);
@@ -138,9 +138,13 @@ function updateUI() {
   cardListElement.className = `card-grid cols-${state.columns}`;
 }
 
+/**
+ * 全ての画像をキャッシュする（修正版）
+ */
 async function cacheAllImages() {
+  // Service Workerが準備完了しているか確認
   if (!('serviceWorker' in navigator) || !navigator.serviceWorker.controller) {
-    alert('Service Workerが有効ではありません。');
+    alert('Service Workerが有効ではありません。ページを再読み込みしてから再度お試しください。');
     return;
   }
   statusMessageElement.textContent = '全画像のキャッシュを開始します...';
@@ -151,13 +155,15 @@ async function cacheAllImages() {
     const imageUrls = allCards.map(card => {
       const series = card.cardNumber.split('-')[0];
       return `./Cards/${series}/${card.cardNumber}.jpg`;
-    });
-    
+    }).filter(url => url); // 空のURLを除外
+
+    // Service Workerにキャッシュを依頼するメッセージを送信
     navigator.serviceWorker.controller.postMessage({
       type: 'CACHE_IMAGES',
       payload: imageUrls
     });
 
+    // Service Workerからの進捗報告を受け取るリスナー
     navigator.serviceWorker.onmessage = (event) => {
         if (event.data.type === 'CACHE_PROGRESS') {
             const { processed, total } = event.data.payload;
@@ -200,32 +206,26 @@ async function clearAllCaches() {
 
 // --- イベントリスナー ---
 searchBox.addEventListener('input', displayCards);
-
 refreshBtn.addEventListener('click', () => {
     searchBox.value = '';
     document.querySelectorAll('.filter-toolbar select').forEach(s => s.value = 'all');
     Object.keys(state.filters).forEach(key => state.filters[key] = 'all');
     displayCards();
 });
-
 cacheImagesBtn.addEventListener('click', cacheAllImages);
 clearCacheBtn.addEventListener('click', clearAllCaches);
-
 changeColumnsBtn.addEventListener('click', () => {
   state.columns = (state.columns % 5) + 1;
   localStorage.setItem('columnCount', state.columns);
   updateUI();
 });
-
 settingsBtn.addEventListener('click', (e) => {
   e.preventDefault();
   modalOverlay.style.display = 'flex';
 });
-
 closeModalBtn.addEventListener('click', () => {
   modalOverlay.style.display = 'none';
 });
-
 modalOverlay.addEventListener('click', (e) => {
   if (e.target === modalOverlay) {
     modalOverlay.style.display = 'none';
@@ -233,11 +233,13 @@ modalOverlay.addEventListener('click', (e) => {
 });
 
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./service-worker.js').then(reg => {
-      console.log('ServiceWorker登録成功');
-    }).catch(err => console.error('ServiceWorker登録失敗:', err));
-  });
+  navigator.serviceWorker.register('./service-worker.js').then(reg => {
+    console.log('ServiceWorker登録成功');
+    // Service Workerが完全にアクティブになるのを待つ
+    return navigator.serviceWorker.ready;
+  }).then(() => {
+    console.log('ServiceWorker準備完了');
+  }).catch(err => console.error('ServiceWorker登録失敗:', err));
 }
 
 initializeApp();

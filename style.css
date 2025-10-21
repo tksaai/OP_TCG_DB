@@ -171,3 +171,16 @@ body, html {
     margin-top: 1rem;
     background-color: var(--accent-color);
 }
+
+/* style.css の末尾に追記 */
+
+.card-placeholder {
+  display: none; /* 通常は非表示 */
+  color: #fff;
+  background-color: #555;
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 3px;
+  text-align: center;
+}
