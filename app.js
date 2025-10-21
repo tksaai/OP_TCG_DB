@@ -63,7 +63,7 @@ async function syncDifferentialData() {
     const knownPCards = await db.cards.where('cardNumber').startsWith('P-').primaryKeys();
     
     // バッククォート(`)を使ったテンプレートリテラルでURLを構築
-    const requestUrl = `${CARD_API_URL}?knownPCards=${knownPCards.join(',')}`;
+    const requestUrl = CARD_API_URL + '?knownPCards=' + knownPCards.join(',');
     
     const response = await fetch(requestUrl);
     if (!response.ok) throw new Error(`API returned status ${response.status} for diff sync`);
@@ -124,3 +124,4 @@ if ('serviceWorker' in navigator) {
 
 // アプリケーション開始
 initializeApp();
+
