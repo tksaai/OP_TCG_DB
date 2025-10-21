@@ -1,47 +1,37 @@
-// service-worker.js (最終修正版)
+const CACHE_NAME = 'op-card-db-v7'; // ★★★ さらにキャッシュ名を新しいバージョンに変更 ★★★
 
-const CACHE_NAME = 'op-card-db-v4'; // ★★★ キャッシュ名を新しいバージョンに変更 ★★★
-
-// アプリの骨格となる基本的なファイルのみをキャッシュ対象とする
 const urlsToCache = [
   './',
   './index.html',
   './style.css',
   './app.js',
   'https://unpkg.com/dexie@3/dist/dexie.js',
+  // ▼▼▼ icons/ を追記 ▼▼▼
   './icons/iconx192.png',
   './icons/iconx512.png'
 ];
 
-// 1. インストールイベント：App Shellをキャッシュする
 self.addEventListener('install', event => {
-  console.log('Service Worker: Installイベント発生');
+  console.log(`Service Worker: Installイベント発生 (${CACHE_NAME})`);
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => {
         console.log('Service Worker: App Shellをキャッシュ中...');
-        // addAllは一つでも失敗すると全体が失敗するため、個別にキャッシュする方が堅牢
-        return Promise.all(
-          urlsToCache.map(url => {
-            return cache.add(url).catch(error => {
-              console.error(`キャッシュ追加失敗: ${url}`, error);
-            });
-          })
-        );
+        return cache.addAll(urlsToCache);
+      })
+      .catch(err => {
+        console.error('App Shellのキャッシュに失敗:', err);
       })
   );
 });
 
-// 2. アクティベートイベント：古いキャッシュを削除する
 self.addEventListener('activate', event => {
-  console.log('Service Worker: Activateイベント発生');
+  console.log(`Service Worker: Activateイベント発生 (${CACHE_NAME})`);
   event.waitUntil(
     caches.keys().then(cacheNames => {
       return Promise.all(
-        cacheNames.filter(cacheName => {
-          // CACHE_NAMEと異なる名前のキャッシュは古いものと判断して削除
-          return cacheName !== CACHE_NAME;
-        }).map(cacheName => {
+        cacheNames.filter(cacheName => cacheName !== CACHE_NAME)
+        .map(cacheName => {
           console.log(`Service Worker: 古いキャッシュ '${cacheName}' を削除中`);
           return caches.delete(cacheName);
         })
@@ -50,20 +40,15 @@ self.addEventListener('activate', event => {
   );
 });
 
-// 3. フェッチイベント：リクエストを横取りしてキャッシュを返す
 self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request)
       .then(response => {
-        // キャッシュヒット：キャッシュからレスポンスを返す
         if (response) {
           return response;
         }
-
-        // キャッシュミス：ネットワークから取得し、画像なら動的にキャッシュする
         return fetch(event.request).then(
           networkResponse => {
-            // Google Driveの画像レスポンスのみを動的にキャッシュ
             if (networkResponse && networkResponse.status === 200 && event.request.url.includes('drive.google.com')) {
               const responseToCache = networkResponse.clone();
               caches.open(CACHE_NAME).then(cache => {
@@ -76,4 +61,17 @@ self.addEventListener('fetch', event => {
       })
   );
 });
+```*   `CACHE_NAME`を`v7`に更新しました。
 
+---
+
+### 次のステップ
+
+1.  GitHub上で、`icons` フォルダの中に `iconx192.png` と `iconx512.png` が存在することを最終確認してください。
+2.  `index.html`, `manifest.json`, `service-worker.js` の3ファイルを、上記の内容で更新します。
+3.  **5分ほど待ちます。**
+4.  ブラウザでサイトにアクセスし、**開発者ツールの「Application」タブ → 「Storage」 → 「Clear site data」を必ず実行**してください。
+5.  **スーパーリロード**（`Ctrl+Shift+R`）を実行します。
+
+これでファイルパスが完全に一致し、Service Workerのインストールが成功するはずです。
+コンソールのエラーがすべて消え、カード一覧が表示されれば、ついに完成となります。
