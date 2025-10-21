@@ -3,10 +3,7 @@
 // ▼▼▼【最重要】GASを再デプロイして取得した、あなたの新しいウェブアプリURLに必ず置き換えてください ▼▼▼
 const CARD_API_URL = 'https://script.google.com/macros/s/AKfycbyOqEM2gXAVpDJcp2QtOwPXrCCbhoh6FlZk1ITn0EWl6bwI0wTPN2cv2GaB_yf1Dit_/exec';
 
-// ▼▼▼ データベース名を 'OnePieceCardDB_v2' に変更 ▼▼▼
 const db = new Dexie('OnePieceCardDB_v2');
-
-// ▼▼▼ バージョンを1に戻し、主キーを'uniqueId'に設定 ▼▼▼
 db.version(1).stores({
   cards: 'uniqueId, cardNumber, cardName, *color, *features, effectText',
   meta: 'key'
@@ -44,18 +41,15 @@ function jsonpRequest(url) {
 
 async function initializeApp() {
   try {
-    const cardCount = await db.cards.count();
-    if (cardCount > 0) {
-      statusMessageElement.style.display = 'none';
-      await displayCards();
-      syncData().catch(error => console.warn("バックグラウンド更新に失敗:", error.message));
-    } else {
-      await syncData();
-    }
-  } catch (error) {
-    console.error("【重大なエラー】初期化に失敗:", error);
-    statusMessageElement.textContent = `エラー: ${error.message}。`;
+    // まずローカルDBのデータを表示（あれば）
     await displayCards();
+
+    // その後、必ずバックグラウンドで最新データを取得・更新する
+    await syncData();
+    
+  } catch (error) {
+    console.error("【重大なエラー】初期化またはデータ同期に失敗:", error);
+    statusMessageElement.textContent = `エラー: ${error.message}。オフラインデータで表示しています。`;
   }
 }
 
@@ -65,7 +59,6 @@ async function syncData() {
   console.log('APIから全件データを取得します...');
   
   const allCards = await jsonpRequest(CARD_API_URL);
-
   if (allCards.error) throw new Error(`APIエラー: ${allCards.message}`);
   
   console.log(`APIから ${allCards.length} 件取得しました。`);
@@ -76,7 +69,8 @@ async function syncData() {
   });
   
   console.log('ローカルデータベースを更新しました。');
-  await displayCards();
+  // ★★★ データ更新後に、再度displayCardsを呼び出す ★★★
+  await displayCards(); 
   statusMessageElement.style.display = 'none';
 }
 
@@ -96,6 +90,8 @@ async function displayCards() {
     if (filteredCards.length === 0 && (await db.cards.count()) === 0) {
         statusMessageElement.textContent = 'カードデータがありません。オンラインで再読み込みしてください。';
         statusMessageElement.style.display = 'block';
+    } else {
+        statusMessageElement.style.display = 'none';
     }
 
     cardListElement.innerHTML = '';
@@ -108,6 +104,7 @@ async function displayCards() {
       fragment.appendChild(cardDiv);
     });
     cardListElement.appendChild(fragment);
+    console.log(`${filteredCards.length}件のカードを表示しました。`);
   } catch(error) {
     console.error("カード表示処理エラー:", error);
   }
