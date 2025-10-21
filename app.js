@@ -40,16 +40,25 @@ async function initializeApp() {
 }
 
 // 差分更新処理
+// app.js の中のこの関数を置き換えてください
+
 async function syncDifferentialData() {
     console.log('Checking for new P-cards...');
+    
+    // IndexedDBから既存のP-カードの番号リストを取得
     const knownPCards = await db.cards.where('cardNumber').startsWith('P-').primaryKeys();
+
+    // ★★★ ここのバッククォート（`）が正しいか確認 ★★★
     const response = await fetch(`${CARD_API_URL}?knownPCards=${knownPCards.join(',')}`);
     const newCards = await response.json();
 
     if (newCards.length > 0) {
-      console.log(`Found ${newCards.length} new cards.`);
+      console.log(`Found ${newCards.length} new cards. Updating local database...`);
+      // 差分データ（新しいP-カード）だけを追加
       await db.cards.bulkAdd(newCards);
-      displayCards(); // 新データを反映して再表示
+
+      // 画面を再描画
+      displayCards();
     } else {
       console.log('No new cards found.');
     }
@@ -126,4 +135,5 @@ self.addEventListener('fetch', event => {
       return response || fetch(event.request);
     })
   );
+
 });
