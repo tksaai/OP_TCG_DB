@@ -16,45 +16,60 @@ const cardListElement = document.getElementById('card-list');
 const searchBox = document.getElementById('search-box');
 
 
+// app.js のこの関数を置き換えてください
+
 /**
- * JSONPリクエストを実行する関数
+ * JSONPリクエストを実行する関数 (レスポンスの先頭にundefinedが付く問題に対応)
  * @param {string} url - リクエスト先のURL
  * @returns {Promise<any>} - サーバーからのJSONデータを解決するPromise
  */
 function jsonpRequest(url) {
   return new Promise((resolve, reject) => {
-    // 毎回ユニークなコールバック関数名を生成
     const callbackName = 'jsonp_callback_' + Math.round(100000 * Math.random());
     
-    // グローバルスコープにコールバック関数を定義
     window[callbackName] = function(data) {
-      // 成功したら後片付け
-      delete window[callbackName];
-      document.body.removeChild(script);
+      // こちらは正常に呼ばれた場合の処理
       resolve(data);
     };
 
-    // タイムアウト処理
-    const timeoutId = setTimeout(() => {
-        delete window[callbackName];
-        document.body.removeChild(script);
-        reject(new Error('JSONP request timed out.'));
-    }, 120000); // 2分でタイムアウト
-
-    // scriptタグを生成してリクエストを開始
     const script = document.createElement('script');
-    script.src = url + (url.indexOf('?') >= 0 ? '&' : '?') + 'callback=' + callbackName;
-    script.onerror = (err) => {
-        clearTimeout(timeoutId);
-        delete window[callbackName];
-        document.body.removeChild(script);
-        reject(new Error('JSONP script error.'));
-    };
-
-    document.body.appendChild(script);
+    const fullUrl = url + (url.indexOf('?') >= 0 ? '&' : '?') + 'callback=' + callbackName;
+    
+    // fetchを使ってテキストとして取得し、手動でパースする
+    fetch(fullUrl)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Network response was not ok: ${response.statusText}`);
+        }
+        return response.text();
+      })
+      .then(text => {
+        // "undefined(" で始まり ")" で終わる部分を探す
+        const match = text.match(/^undefined\((.*)\)$/);
+        if (match && match[1]) {
+          try {
+            const jsonData = JSON.parse(match[1]);
+            resolve(jsonData);
+          } catch (e) {
+            reject(new Error('Failed to parse JSON from response.'));
+          }
+        } else {
+          // 通常のJSONPレスポンスの場合 (2回目以降の呼び出し)
+          try {
+             // 応答テキストから関数呼び出し部分を抽出し、JSON部分だけを取り出す
+             const jsonString = text.substring(text.indexOf('(') + 1, text.lastIndexOf(')'));
+             const jsonData = JSON.parse(jsonString);
+             resolve(jsonData);
+          } catch(e) {
+             reject(new Error('Failed to parse standard JSONP response.'));
+          }
+        }
+      })
+      .catch(error => {
+        reject(error);
+      });
   });
 }
-
 
 /**
  * アプリのメイン初期化処理
@@ -185,3 +200,4 @@ if ('serviceWorker' in navigator) {
 
 // アプリケーション開始
 initializeApp();
+
