@@ -61,17 +61,3 @@ self.addEventListener('fetch', event => {
       })
   );
 });
-```*   `CACHE_NAME`を`v7`に更新しました。
-
----
-
-### 次のステップ
-
-1.  GitHub上で、`icons` フォルダの中に `iconx192.png` と `iconx512.png` が存在することを最終確認してください。
-2.  `index.html`, `manifest.json`, `service-worker.js` の3ファイルを、上記の内容で更新します。
-3.  **5分ほど待ちます。**
-4.  ブラウザでサイトにアクセスし、**開発者ツールの「Application」タブ → 「Storage」 → 「Clear site data」を必ず実行**してください。
-5.  **スーパーリロード**（`Ctrl+Shift+R`）を実行します。
-
-これでファイルパスが完全に一致し、Service Workerのインストールが成功するはずです。
-コンソールのエラーがすべて消え、カード一覧が表示されれば、ついに完成となります。
