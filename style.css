@@ -1,45 +1,45 @@
 body {
-  font-family: sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   margin: 0;
-  background-color: #f0f0f0;
+  background-color: #f4f4f9;
 }
+
 header {
-  background-color: #333;
+  background-color: #2c3e50;
   color: white;
-  padding: 10px;
+  padding: 1rem;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-.search-container input {
-  width: 95%;
-  padding: 10px;
-  margin: 10px auto;
-  display: block;
-}
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* スマホでは3列表示 */
-  gap: 8px;
-  padding: 10px;
-}
-.card-item img {
-  width: 100%;
-  border-radius: 5px;
-}
-#loading {
+
+h1 {
   text-align: center;
-  padding: 20px;
-
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
 }
 
-/* style.css の末尾に追記 */
-#refresh-btn {
-  display: block;
+.search-container input {
   width: calc(100% - 2rem);
   padding: 0.8rem;
-  margin: 1rem auto 0;
   font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  display: block;
+  margin: 0 auto;
+}
+
+/* ▼▼▼ ツールバーのスタイルを追加 ▼▼▼ */
+.toolbar {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.toolbar button {
+  padding: 0.6rem;
+  font-size: 0.9rem;
   font-weight: bold;
   color: white;
   background-color: #3498db;
@@ -47,18 +47,46 @@ header {
   border-radius: 8px;
   cursor: pointer;
 }
-#refresh-btn:hover {
+.toolbar button:hover {
   background-color: #2980b9;
 }
+#clear-cache-btn {
+  background-color: #e74c3c;
+}
+#clear-cache-btn:hover {
+  background-color: #c0392b;
+}
 
-/* style.css の末尾に追記 */
+
+main {
+  padding: 1rem;
+}
+
+#status-message {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.card-grid {
+  display: grid;
+  /* ▼▼▼ カード間のgapを0に ▼▼▼ */
+  gap: 0; 
+}
+
+/* ▼▼▼ 列数変更用のクラス ▼▼▼ */
+.card-grid.cols-1 { grid-template-columns: repeat(1, 1fr); }
+.card-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+.card-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.card-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+.card-grid.cols-5 { grid-template-columns: repeat(5, 1fr); }
+
 
 .card-item {
-  /* アスペクト比をカードの比率（約1.4）に固定 */
   aspect-ratio: 63 / 88; 
-  background-color: #ccc; /* 画像読み込み中の背景色 */
-  border-radius: 5px;
-  overflow: hidden; /* はみ出した部分を隠す */
+  background-color: #ccc;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -67,6 +95,5 @@ header {
 .card-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* アスペクト比を維持しつつ領域を埋める */
+  object-fit: cover;
 }
-
