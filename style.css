@@ -3,7 +3,6 @@ body {
   margin: 0;
   background-color: #f4f4f9;
 }
-
 header {
   background-color: #2c3e50;
   color: white;
@@ -13,13 +12,11 @@ header {
   z-index: 1000;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-
 h1 {
   text-align: center;
   margin: 0 0 1rem 0;
   font-size: 1.5rem;
 }
-
 .search-container input {
   width: calc(100% - 2rem);
   padding: 0.8rem;
@@ -29,8 +26,28 @@ h1 {
   display: block;
   margin: 0 auto;
 }
-
-/* ▼▼▼ ツールバーのスタイルを追加 ▼▼▼ */
+.filter-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 1rem 0;
+  justify-content: center;
+}
+.filter-group {
+  display: flex;
+  flex-direction: column;
+}
+.filter-group label {
+  font-size: 0.8rem;
+  margin-bottom: 0.2rem;
+  padding-left: 0.2rem;
+}
+.filter-group select {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: white;
+}
 .toolbar {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -46,6 +63,10 @@ h1 {
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent; /* スマホでのタップ時のハイライトを無効化 */
+}
+.toolbar button:active {
+  transform: translateY(1px);
 }
 .toolbar button:hover {
   background-color: #2980b9;
@@ -56,44 +77,34 @@ h1 {
 #clear-cache-btn:hover {
   background-color: #c0392b;
 }
-
-
 main {
-  padding: 1rem;
+  padding: 0;
 }
-
 #status-message {
   text-align: center;
   padding: 2rem;
   font-size: 1.2rem;
   color: #555;
 }
-
 .card-grid {
   display: grid;
-  /* ▼▼▼ カード間のgapを0に ▼▼▼ */
   gap: 0; 
 }
-
-/* ▼▼▼ 列数変更用のクラス ▼▼▼ */
 .card-grid.cols-1 { grid-template-columns: repeat(1, 1fr); }
 .card-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
 .card-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
 .card-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
 .card-grid.cols-5 { grid-template-columns: repeat(5, 1fr); }
 
-
 .card-item {
   aspect-ratio: 63 / 88; 
   background-color: #ccc;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
 }
-
 .card-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }

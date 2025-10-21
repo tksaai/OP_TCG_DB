@@ -14,12 +14,14 @@
     <div class="search-container">
       <input type="text" id="search-box" placeholder="カード名、効果、特徴...">
     </div>
-    <!-- ▼▼▼ ツールバーを追加 ▼▼▼ -->
+    <div class="filter-toolbar">
+      <!-- フィルタリングUIはapp.jsによって動的にここに生成されます -->
+    </div>
     <div class="toolbar">
       <button id="change-columns-btn">表示列数: 3</button>
-      <button id="refresh-btn">表示更新</button>
+      <button id="refresh-btn">表示リセット</button>
       <button id="cache-images-btn">全画像キャッシュ</button>
-      <button id="clear-cache-btn">キャッシュ削除</button>
+      <button id="clear-cache-btn">全キャッシュ削除</button>
     </div>
   </header>
 
