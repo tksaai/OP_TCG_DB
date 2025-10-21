@@ -39,27 +39,52 @@ function jsonpRequest(url) {
   });
 }
 
+/**
+ * アプリのメイン初期化処理（修正版）
+ */
 async function initializeApp() {
   try {
-    // まずローカルDBのデータを表示（あれば）
-    await displayCards();
+    const cardCount = await db.cards.count();
 
-    // その後、必ずバックグラウンドで最新データを取得・更新する
-    await syncData();
-    
+    if (cardCount > 0) {
+      // DBにデータがあれば、まずそれを表示して高速起動
+      console.log(`ローカルDBから${cardCount}件のカードを読み込み、表示します。`);
+      await displayCards();
+      statusMessageElement.style.display = 'none';
+      
+      // その後、バックグラウンドで静かにデータ更新を試みる
+      console.log("バックグラウンドでデータ更新を開始します。");
+      syncData().catch(err => {
+        // バックグラウンドでの失敗は警告に留める
+        console.warn("バックグラウンドでのデータ更新に失敗しました:", err.message);
+      });
+
+    } else {
+      // DBが空の場合（初回起動）
+      console.log("ローカルDBは空です。初回同期を開始します。");
+      statusMessageElement.textContent = '初回データ取得中...';
+      statusMessageElement.style.display = 'block';
+      
+      // データ同期が完了するのを待ってから、メッセージを消す
+      await syncData();
+      statusMessageElement.style.display = 'none';
+    }
   } catch (error) {
-    console.error("【重大なエラー】初期化またはデータ同期に失敗:", error);
-    statusMessageElement.textContent = `エラー: ${error.message}。オフラインデータで表示しています。`;
+    console.error("【重大なエラー】初期化処理中に失敗しました:", error);
+    statusMessageElement.textContent = `エラー: ${error.message}。`;
   }
 }
 
+/**
+ * APIから全データを取得し、ローカルDBを更新する
+ */
 async function syncData() {
-  statusMessageElement.textContent = '最新データを取得中...';
-  statusMessageElement.style.display = 'block';
   console.log('APIから全件データを取得します...');
-  
   const allCards = await jsonpRequest(CARD_API_URL);
-  if (allCards.error) throw new Error(`APIエラー: ${allCards.message}`);
+
+  if (allCards.error) {
+    throw new Error(`APIエラー: ${allCards.message}`);
+  }
   
   console.log(`APIから ${allCards.length} 件取得しました。`);
   
@@ -69,11 +94,14 @@ async function syncData() {
   });
   
   console.log('ローカルデータベースを更新しました。');
-  // ★★★ データ更新後に、再度displayCardsを呼び出す ★★★
-  await displayCards(); 
-  statusMessageElement.style.display = 'none';
+  
+  // ★★★ データ更新後に、必ず画面を再描画する ★★★
+  await displayCards();
 }
 
+/**
+ * IndexedDBからカードデータを読み込み、画面に表示する
+ */
 async function displayCards() {
   try {
     const searchTerm = searchBox.value.toLowerCase().trim();
@@ -90,8 +118,6 @@ async function displayCards() {
     if (filteredCards.length === 0 && (await db.cards.count()) === 0) {
         statusMessageElement.textContent = 'カードデータがありません。オンラインで再読み込みしてください。';
         statusMessageElement.style.display = 'block';
-    } else {
-        statusMessageElement.style.display = 'none';
     }
 
     cardListElement.innerHTML = '';
@@ -104,12 +130,14 @@ async function displayCards() {
       fragment.appendChild(cardDiv);
     });
     cardListElement.appendChild(fragment);
-    console.log(`${filteredCards.length}件のカードを表示しました。`);
+
+    console.log(`${filteredCards.length}件のカードを表示しました。`); // 確認用のログ
   } catch(error) {
     console.error("カード表示処理エラー:", error);
   }
 }
 
+// イベントリスナーとService Worker登録
 searchBox.addEventListener('input', displayCards);
 
 if ('serviceWorker' in navigator) {
@@ -122,4 +150,5 @@ if ('serviceWorker' in navigator) {
   });
 }
 
+// アプリケーション開始
 initializeApp();
