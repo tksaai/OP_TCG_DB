@@ -44,34 +44,18 @@ function jsonpRequest(url) {
  */
 async function initializeApp() {
   try {
-    const cardCount = await db.cards.count();
+    // まずローカルDBのデータを表示試行（初回は空でもOK）
+    await displayCards();
 
-    if (cardCount > 0) {
-      // DBにデータがあれば、まずそれを表示して高速起動
-      console.log(`ローカルDBから${cardCount}件のカードを読み込み、表示します。`);
-      await displayCards();
-      statusMessageElement.style.display = 'none';
-      
-      // その後、バックグラウンドで静かにデータ更新を試みる
-      console.log("バックグラウンドでデータ更新を開始します。");
-      syncData().catch(err => {
-        // バックグラウンドでの失敗は警告に留める
-        console.warn("バックグラウンドでのデータ更新に失敗しました:", err.message);
-      });
-
-    } else {
-      // DBが空の場合（初回起動）
-      console.log("ローカルDBは空です。初回同期を開始します。");
-      statusMessageElement.textContent = '初回データ取得中...';
-      statusMessageElement.style.display = 'block';
-      
-      // データ同期が完了するのを待ってから、メッセージを消す
-      await syncData();
-      statusMessageElement.style.display = 'none';
-    }
+    // その後、バックグラウンドで最新データを取得してDBを更新する
+    // この処理が終わったら、再度表示関数が呼ばれる
+    await syncData();
+    
   } catch (error) {
-    console.error("【重大なエラー】初期化処理中に失敗しました:", error);
-    statusMessageElement.textContent = `エラー: ${error.message}。`;
+    console.error("【重大なエラー】初期化またはデータ同期に失敗:", error);
+    statusMessageElement.textContent = `エラー: ${error.message}。オフラインデータで表示しています。`;
+    // エラーが起きても、最終的にもう一度表示を試みる
+    await displayCards();
   }
 }
 
@@ -79,15 +63,16 @@ async function initializeApp() {
  * APIから全データを取得し、ローカルDBを更新する
  */
 async function syncData() {
+  statusMessageElement.textContent = '最新データを取得中...';
+  statusMessageElement.style.display = 'block';
   console.log('APIから全件データを取得します...');
+  
   const allCards = await jsonpRequest(CARD_API_URL);
-
-  if (allCards.error) {
-    throw new Error(`APIエラー: ${allCards.message}`);
-  }
+  if (allCards.error) throw new Error(`APIエラー: ${allCards.message}`);
   
   console.log(`APIから ${allCards.length} 件取得しました。`);
   
+  // トランザクション内でクリアと一括追加を行う
   await db.transaction('rw', db.cards, async () => {
     await db.cards.clear();
     await db.cards.bulkAdd(allCards);
@@ -95,8 +80,9 @@ async function syncData() {
   
   console.log('ローカルデータベースを更新しました。');
   
-  // ★★★ データ更新後に、必ず画面を再描画する ★★★
-  await displayCards();
+  // データ更新後に、画面を再描画する
+  await displayCards(); 
+  statusMessageElement.style.display = 'none';
 }
 
 /**
@@ -104,8 +90,16 @@ async function syncData() {
  */
 async function displayCards() {
   try {
+    const cardCount = await db.cards.count();
+    if (cardCount === 0) {
+      // DBが空の場合は何もしない（syncDataが終わるのを待つ）
+      console.log("DBは空です。表示するカードがありません。");
+      return;
+    }
+
     const searchTerm = searchBox.value.toLowerCase().trim();
     let collection = db.cards;
+
     if (searchTerm) {
       const searchWords = searchTerm.split(/\s+/).filter(word => word.length > 0);
       collection = collection.filter(card => {
@@ -113,12 +107,10 @@ async function displayCards() {
         return searchWords.every(word => targetText.includes(word));
       });
     }
+
     const filteredCards = await collection.toArray();
     
-    if (filteredCards.length === 0 && (await db.cards.count()) === 0) {
-        statusMessageElement.textContent = 'カードデータがありません。オンラインで再読み込みしてください。';
-        statusMessageElement.style.display = 'block';
-    }
+    statusMessageElement.style.display = 'none';
 
     cardListElement.innerHTML = '';
     const fragment = document.createDocumentFragment();
@@ -131,7 +123,7 @@ async function displayCards() {
     });
     cardListElement.appendChild(fragment);
 
-    console.log(`${filteredCards.length}件のカードを表示しました。`); // 確認用のログ
+    console.log(`${filteredCards.length}件のカードを表示しました。`);
   } catch(error) {
     console.error("カード表示処理エラー:", error);
   }
@@ -139,6 +131,7 @@ async function displayCards() {
 
 // イベントリスナーとService Worker登録
 searchBox.addEventListener('input', displayCards);
+document.getElementById('refresh-btn').addEventListener('click', displayCards); // ボタンのイベントリスナー
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
