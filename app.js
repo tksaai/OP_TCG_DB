@@ -1,10 +1,9 @@
-// app.js (全機能実装・省略なし最終版)
+// app.js (SPフィルタ除外・機能完備・省略なし最終版)
 
-// Dexie.js (IndexedDB) の設定
-const db = new Dexie('OnePieceCardDB_v8'); // DB名を変更して完全にリセット
+const db = new Dexie('OnePieceCardDB_v10'); // DB名を変更して完全にリセット
 db.version(1).stores({
   // uniqueIdを主キーに、検索対象のプロパティをインデックスとして設定
-  cards: 'uniqueId, cardNumber, cardName, *color, cardType, rarity, *features, getInfo',
+  cards: 'uniqueId, cardNumber, cardName, *color, cardType, rarity, seriesCode, *features, effectText',
   meta: 'key, value' // 最終更新日などを保存
 });
 
@@ -17,6 +16,7 @@ const columnsText = document.getElementById('columns-text');
 const settingsBtn = document.getElementById('settings-btn');
 const settingsModal = document.getElementById('settings-modal');
 const closeModalBtn = document.getElementById('close-settings-btn');
+const modalOverlay = document.getElementById('modal-overlay');
 const filterBtn = document.getElementById('filter-btn');
 const filterModal = document.getElementById('filter-modal');
 const closeFilterBtn = document.getElementById('close-filter-btn');
@@ -66,59 +66,77 @@ async function syncData() {
   statusMessageElement.textContent = 'カードデータを更新中...';
   statusMessageElement.style.display = 'block';
   
-  const response = await fetch('./cards.json');
-  if (!response.ok) throw new Error('cards.jsonの読み込みに失敗');
-  
-  const cards = await response.json();
-  
-  await db.transaction('rw', db.cards, async () => {
-    await db.cards.clear();
-    await db.cards.bulkAdd(cards);
-  });
-  
-  allCards = await db.cards.toArray();
-  
-  await setupFilters();
-  await displayCards();
-  statusMessageElement.style.display = 'none';
+  try {
+    const response = await fetch('./cards.json');
+    if (!response.ok) throw new Error('cards.jsonの読み込みに失敗');
+    
+    const cards = await response.json();
+    
+    await db.transaction('rw', db.cards, db.meta, async () => {
+      await db.cards.clear();
+      await db.cards.bulkAdd(cards);
+      await db.meta.put({ key: 'lastUpdated', value: new Date().toISOString() });
+    });
+    
+    allCards = await db.cards.toArray();
+    
+    await setupFilters();
+    await displayCards();
+  } finally {
+    statusMessageElement.style.display = 'none';
+  }
 }
 
 /**
- * DBからユニークな値を取得し、フィルタ選択肢を生成する
+ * DBからユニークな値を取得し、フィルタ選択肢を生成する（SP除外対応）
  */
 async function setupFilters() {
-    const filterOptions = document.getElementById('filter-options');
-    if (!filterOptions) return;
-    
-    const uniqueValues = {
-        color: new Set(), cardType: new Set(), attribute: new Set(),
-        rarity: new Set(), getInfo: new Set()
-    };
+    try {
+        const filterOptions = document.getElementById('filter-options');
+        if (!filterOptions) return;
+        
+        const uniqueValues = {
+            color: new Set(), cardType: new Set(), attribute: new Set(),
+            rarity: new Set(), series: new Map()
+        };
 
-    allCards.forEach(card => {
-        card.color.forEach(c => uniqueValues.color.add(c));
-        if(card.cardType) uniqueValues.cardType.add(card.cardType);
-        if(card.attribute && card.attribute !== '-') uniqueValues.attribute.add(card.attribute);
-        if(card.rarity) uniqueValues.rarity.add(card.rarity);
-        if(card.getInfo) uniqueValues.getInfo.add(card.getInfo.split('【')[0].trim());
-    });
+        allCards.forEach(card => {
+            card.color.forEach(c => uniqueValues.color.add(c));
+            if(card.cardType) uniqueValues.cardType.add(card.cardType);
+            if(card.attribute && card.attribute !== '-') uniqueValues.attribute.add(card.attribute);
+            if(card.rarity) uniqueValues.rarity.add(card.rarity);
+            if(card.seriesCode && !card.cardNumber.startsWith('P-')) {
+                uniqueValues.series.set(card.seriesCode, card.seriesTitle);
+            }
+        });
+        
+        // ★★★ レアリティのリストから 'SP' を除外 ★★★
+        const raritiesWithoutSP = Array.from(uniqueValues.rarity).filter(r => r !== 'SP');
 
-    const createButtons = (values, key) => Array.from(values).sort().map(val => 
-        `<button class="filter-option-btn ${state.filters[key]?.includes(val) ? 'active' : ''}" data-filter="${key}" data-value="${val}">${val}</button>`
-    ).join('');
-    
-    filterOptions.innerHTML = `
-        <div class="filter-section"><h3>TYPE</h3><div class="filter-buttons">${createButtons(uniqueValues.cardType, 'cardType')}</div></div>
-        <div class="filter-section"><h3>COLOR</h3><div class="filter-buttons color-filter">${createButtons(uniqueValues.color, 'color')}</div></div>
-        <div class="filter-section"><h3>COST</h3><div class="filter-buttons">${[...Array(11).keys()].map(i => `<button class="filter-option-btn ${state.filters.costLifeValue?.includes(String(i)) ? 'active' : ''}" data-filter="costLifeValue" data-value="${i}">${i}</button>`).join('')}</div></div>
-        <div class="filter-section"><h3>ATTRIBUTES</h3><div class="filter-buttons">${createButtons(uniqueValues.attribute, 'attribute')}</div></div>
-        <div class="filter-section"><h3>RARITY</h3><div class="filter-buttons">${createButtons(uniqueValues.rarity, 'rarity')}</div></div>
-        <div class="filter-section"><h3>SERIESフィルタ</h3><select class="series-select" id="filter-getInfo"><option value="all">SERIESを選択</option>${Array.from(uniqueValues.getInfo).sort().map(s => `<option value="${s}" ${state.filters.getInfo?.includes(s) ? 'selected' : ''}>${s}</option>`).join('')}</select></div>
-    `;
+        const createButtons = (values, key) => values.sort((a,b) => a.localeCompare(b, undefined, {numeric: true})).map(val => 
+            `<button class="filter-option-btn ${state.filters[key]?.includes(val) ? 'active' : ''}" data-filter="${key}" data-value="${val}">${val}</button>`
+        ).join('');
+        
+        const seriesOptions = Array.from(uniqueValues.series.entries())
+            .sort((a, b) => a[0].localeCompare(b[0]))
+            .map(([code, title]) => `<option value="${code}" ${state.filters.seriesCode?.includes(code) ? 'selected' : ''}>${code} ${title}</option>`)
+            .join('');
+        
+        filterOptions.innerHTML = `
+            <div class="filter-section"><h3>TYPE</h3><div class="filter-buttons">${createButtons(Array.from(uniqueValues.cardType), 'cardType')}</div></div>
+            <div class="filter-section"><h3>COLOR</h3><div class="filter-buttons color-filter">${createButtons(Array.from(uniqueValues.color), 'color')}</div></div>
+            <div class="filter-section"><h3>RARITY</h3><div class="filter-buttons">${createButtons(raritiesWithoutSP, 'rarity')}</div></div>
+            <div class="filter-section"><h3>SERIESフィルタ</h3><select class="series-select" id="filter-series"><option value="all">SERIESを選択</option>${seriesOptions}</select></div>
+            <div class="filter-section"><h3>ATTRIBUTES</h3><div class="filter-buttons">${createButtons(Array.from(uniqueValues.attribute), 'attribute')}</div></div>
+            <div class="filter-section"><h3>COST</h3><div class="filter-buttons">${[...Array(11).keys()].map(i => `<button class="filter-option-btn ${state.filters.costLifeValue?.includes(String(i)) ? 'active' : ''}" data-filter="costLifeValue" data-value="${i}">${i}</button>`).join('')}</div></div>
+        `;
 
-    filterOptions.querySelectorAll('.filter-option-btn').forEach(btn => {
-        btn.addEventListener('click', () => btn.classList.toggle('active'));
-    });
+        filterOptions.querySelectorAll('.filter-option-btn').forEach(btn => {
+            btn.addEventListener('click', () => btn.classList.toggle('active'));
+        });
+    } catch (error) {
+        console.error("フィルタのセットアップに失敗:", error);
+    }
 }
 
 /**
@@ -126,7 +144,8 @@ async function setupFilters() {
  */
 async function displayCards() {
   try {
-    if (allCards.length === 0) {
+    const cardCount = allCards.length;
+    if (cardCount === 0) {
       statusMessageElement.textContent = 'カードデータがありません。';
       statusMessageElement.style.display = 'block';
       return;
@@ -135,27 +154,29 @@ async function displayCards() {
     let filtered = [...allCards];
 
     // フィルタリング処理
-    Object.keys(state.filters).forEach(key => {
-        const values = state.filters[key];
-        if (values && values.length > 0) {
-            filtered = filtered.filter(card => {
-                if (key === 'getInfo') {
-                    return values.some(v => card.getInfo.startsWith(v));
+    if (Object.keys(state.filters).length > 0) {
+        filtered = allCards.filter(card => {
+            return Object.keys(state.filters).every(key => {
+                const values = state.filters[key];
+                if (!values || values.length === 0) return true;
+                
+                if (key === 'seriesCode') {
+                    return values.some(v => card.seriesCode === v);
                 }
                 if(Array.isArray(card[key])) {
                     return values.some(v => card[key].includes(v));
                 }
                 return values.includes(String(card[key]));
             });
-        }
-    });
+        });
+    }
 
     // 検索処理
     const searchTerm = searchBox.value.toLowerCase().trim();
     if (searchTerm) {
       const searchWords = searchTerm.split(/\s+/).filter(Boolean);
       filtered = filtered.filter(card => {
-        const targetText = [card.cardName, card.effectText, ...(card.features || [])].join(' ').toLowerCase();
+        const targetText = [card.cardName, card.effectText, card.cardNumber, ...(card.features || [])].join(' ').toLowerCase();
         return searchWords.every(word => targetText.includes(word));
       });
     }
@@ -163,13 +184,11 @@ async function displayCards() {
     statusMessageElement.style.display = 'none';
     cardListElement.innerHTML = '';
     const fragment = document.createDocumentFragment();
-
     filtered.forEach(card => {
       const cardDiv = document.createElement('div');
       cardDiv.className = 'card-item';
       const series = card.cardNumber.split('-')[0];
-      const imageUrl = `./Cards/${series}/${card.cardNumber}.jpg`; // 通常版画像
-      
+      const imageUrl = `./Cards/${series}/${card.cardNumber}.jpg`;
       cardDiv.innerHTML = `
         <img src="${imageUrl}" alt="${card.cardName}" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
         <div class="card-placeholder">${card.cardNumber}</div>
@@ -177,7 +196,6 @@ async function displayCards() {
       cardDiv.addEventListener('click', () => openLightbox(imageUrl));
       fragment.appendChild(cardDiv);
     });
-
     cardListElement.appendChild(fragment);
   } catch(error) {
     console.error("カード表示エラー:", error);
@@ -196,9 +214,11 @@ function updateUI() {
 
 async function cacheAllImages() {
   if (!('serviceWorker' in navigator) || !navigator.serviceWorker.controller) {
-    alert('Service Workerが有効ではありません。ページを再読み込みしてから再度お試しください。');
+    alert('Service Workerが有効ではありません。ページを再読み込み後、再度お試しください。');
     return;
   }
+  cacheImagesBtn.disabled = true;
+  cacheImagesBtn.textContent = 'キャッシュ中...';
   statusMessageElement.textContent = '全画像のキャッシュを開始します...';
   statusMessageElement.style.display = 'block';
 
@@ -218,20 +238,21 @@ async function cacheAllImages() {
         if (event.data.type === 'CACHE_COMPLETE') {
             statusMessageElement.textContent = '全画像のキャッシュが完了しました！';
             setTimeout(() => { statusMessageElement.style.display = 'none'; }, 2000);
+            cacheImagesBtn.disabled = false;
+            cacheImagesBtn.textContent = '全画像キャッシュ';
         }
     };
   } catch (err) {
     console.error('画像キャッシュエラー:', err);
     statusMessageElement.textContent = '画像のキャッシュ中にエラーが発生しました。';
+    cacheImagesBtn.disabled = false;
+    cacheImagesBtn.textContent = '全画像キャッシュ';
   }
 }
 
 async function clearAllCaches() {
-  if (!('caches' in window)) {
-    alert('このブラウザはキャッシュ機能に対応していません。');
-    return;
-  }
-  if (confirm('保存されている全てのキャッシュとデータを削除します。よろしいですか？')) {
+  if (!('caches' in window)) return;
+  if (confirm('保存されている全てのキャッシュとデータを削除しますか？')) {
     try {
       const registration = await navigator.serviceWorker.getRegistration();
       if (registration) await registration.unregister();
@@ -241,16 +262,15 @@ async function clearAllCaches() {
       
       await db.delete();
 
-      alert('キャッシュとデータベースを削除しました。ページを再読み込みします。');
+      alert('キャッシュとデータを削除しました。ページを再読み込みします。');
       window.location.reload();
     } catch (error) {
-      alert('キャッシュの削除に失敗しました。');
-      console.error(error);
+      alert('削除に失敗しました。');
     }
   }
 }
 
-// --- イベントリスナー設定 ---
+// --- イベントリスナー ---
 searchBox.addEventListener('input', displayCards);
 
 filterBtn.addEventListener('click', () => filterModal.style.display = 'flex');
@@ -266,9 +286,9 @@ applyFilterBtn.addEventListener('click', () => {
         if (!state.filters[key]) state.filters[key] = [];
         state.filters[key].push(btn.dataset.value);
     });
-    const seriesSelect = document.getElementById('filter-getInfo');
+    const seriesSelect = document.getElementById('filter-series');
     if (seriesSelect.value !== 'all') {
-        state.filters.getInfo = [seriesSelect.value];
+        state.filters.seriesCode = [seriesSelect.value];
     }
     localStorage.setItem('filters', JSON.stringify(state.filters));
     displayCards();
@@ -277,9 +297,10 @@ applyFilterBtn.addEventListener('click', () => {
 
 clearFilterBtn.addEventListener('click', () => {
     filterModal.querySelectorAll('.filter-buttons button.active').forEach(btn => btn.classList.remove('active'));
-    document.getElementById('filter-getInfo').value = 'all';
+    document.getElementById('filter-series').value = 'all';
     state.filters = {};
     localStorage.removeItem('filters');
+    displayCards(); // クリア後すぐに表示を更新
 });
 
 changeColumnsBtn.addEventListener('click', (e) => {
@@ -297,23 +318,23 @@ settingsBtn.addEventListener('click', (e) => {
 closeModalBtn.addEventListener('click', () => {
     settingsModal.style.display = 'none';
 });
-settingsModal.addEventListener('click', (e) => {
-    if(e.target === settingsModal) settingsModal.style.display = 'none';
-});
 
+[settingsModal, lightboxModal].forEach(modal => {
+    modal.addEventListener('click', (e) => {
+        if(e.target === modal) modal.style.display = 'none';
+    });
+});
 closeLightboxBtn.addEventListener('click', () => lightboxModal.style.display = 'none');
-lightboxModal.addEventListener('click', (e) => {
-    if (e.target === lightboxModal) lightboxModal.style.display = 'none';
-});
 
-// Service Worker登録
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('./service-worker.js').then(reg => {
       console.log('ServiceWorker登録成功');
+      return navigator.serviceWorker.ready;
+    }).then(() => {
+      console.log('ServiceWorker準備完了');
     }).catch(err => console.error('ServiceWorker登録失敗:', err));
   });
 }
 
-// アプリケーション開始
 initializeApp();
