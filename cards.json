@@ -8965,81 +8965,6 @@
     "seriesCode": "OP-03"
   },
   {
-    "uniqueId": "ST01-012_1DTMiW0Ag5KexiMQ43LQ0vabXqkKGge5A",
-    "cardNumber": "ST01-012",
-    "cardName": "モンキー・D・ルフィ",
-    "rarity": "SPカード",
-    "cardType": "CHARACTER",
-    "color": [
-      "赤"
-    ],
-    "costLifeType": "コスト",
-    "costLifeValue": 5,
-    "power": 6000,
-    "counter": "-",
-    "attribute": "打",
-    "features": [
-      "超新星",
-      "麦わらの一味"
-    ],
-    "block": 1,
-    "effectText": "【速攻】(このカードは登場したターンにアタックできる)【ドン!!×2】【アタック時】相手は、このバトル中、【ブロッカー】を発動できない。",
-    "trigger": "",
-    "getInfo": "強大な敵【OP-03】",
-    "seriesTitle": "強大な敵",
-    "seriesCode": "OP-03"
-  },
-  {
-    "uniqueId": "ST03-009_1vNwKJ8wO4uHxOJjIDfRXRY94b2l7sbO1",
-    "cardNumber": "ST03-009",
-    "cardName": "ドンキホーテ・ドフラミンゴ",
-    "rarity": "SPカード",
-    "cardType": "CHARACTER",
-    "color": [
-      "青"
-    ],
-    "costLifeType": "コスト",
-    "costLifeValue": 7,
-    "power": 7000,
-    "counter": "-",
-    "attribute": "特",
-    "features": [
-      "王下七武海",
-      "ドンキホーテ海賊団"
-    ],
-    "block": 1,
-    "effectText": "【登場時】コスト7以下のキャラ1枚までを、持ち主の手札に戻す。",
-    "trigger": "",
-    "getInfo": "強大な敵【OP-03】",
-    "seriesTitle": "強大な敵",
-    "seriesCode": "OP-03"
-  },
-  {
-    "uniqueId": "ST04-003_1IQ6xID7fVcPgOsdODESak2R8067d8nbR",
-    "cardNumber": "ST04-003",
-    "cardName": "カイドウ",
-    "rarity": "SPカード",
-    "cardType": "CHARACTER",
-    "color": [
-      "紫"
-    ],
-    "costLifeType": "コスト",
-    "costLifeValue": 9,
-    "power": 10000,
-    "counter": "-",
-    "attribute": "打",
-    "features": [
-      "四皇",
-      "百獣海賊団"
-    ],
-    "block": 1,
-    "effectText": "【登場時】ドン!!-5(自分の場のドン!!を指定の数ドン!!デッキに戻すことができる)：相手のコスト6以下のキャラ1枚までを、KOし、このキャラは、このターン中、【速攻】を得る。(このカードは登場したターンにアタックできる)",
-    "trigger": "",
-    "getInfo": "強大な敵【OP-03】",
-    "seriesTitle": "強大な敵",
-    "seriesCode": "OP-03"
-  },
-  {
     "uniqueId": "OP04-001_1BeuDxcB49Yn3LX39lVfTgk81J9a11hhB",
     "cardNumber": "OP04-001",
     "cardName": "ネフェルタリ・ビビ",
@@ -14844,6 +14769,31 @@
     "seriesCode": "OP-05"
   },
   {
+    "uniqueId": "ST01-012_1DTMiW0Ag5KexiMQ43LQ0vabXqkKGge5A",
+    "cardNumber": "ST01-012",
+    "cardName": "モンキー・D・ルフィ",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "color": [
+      "赤"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 5,
+    "power": 6000,
+    "counter": "-",
+    "attribute": "打",
+    "features": [
+      "超新星",
+      "麦わらの一味"
+    ],
+    "block": 1,
+    "effectText": "【速攻】(このカードは登場したターンにアタックできる)【ドン!!×2】【アタック時】相手は、このバトル中、【ブロッカー】を発動できない。",
+    "trigger": "",
+    "getInfo": "新時代の主役【OP-05】",
+    "seriesTitle": "新時代の主役",
+    "seriesCode": "OP-05"
+  },
+  {
     "uniqueId": "OP06-001_1iQ64YGdza2FFLswUVus3ULOmFvHlA20Y",
     "cardNumber": "OP06-001",
     "cardName": "ウタ",
@@ -19648,7 +19598,7 @@
   {
     "uniqueId": "OP07-077_10fZYgKQofdUoBPMbhCN5q25yTjRmJf-B",
     "cardNumber": "OP07-077",
-    "cardName": "\"ひとつなぎの大秘宝\"を獲りに行くぞ!!!",
+    "cardName": "ひとつなぎの大秘宝を獲りに行くぞ!!!",
     "rarity": "R",
     "cardType": "EVENT",
     "color": [
@@ -23617,104 +23567,6 @@
     "seriesCode": "OP-08"
   },
   {
-    "uniqueId": "ST02-007_10YMzuSo8JtxDleCwXKtpq1_kD5hcYZrM",
-    "cardNumber": "ST02-007",
-    "cardName": "ジュエリー・ボニー",
-    "rarity": "SPカード",
-    "cardType": "CHARACTER",
-    "color": [
-      "緑"
-    ],
-    "costLifeType": "コスト",
-    "costLifeValue": 1,
-    "power": 1000,
-    "counter": 1000,
-    "attribute": "特",
-    "features": [
-      "超新星",
-      "ボニー海賊団"
-    ],
-    "block": 1,
-    "effectText": "【起動メイン】①(コストエリアのドン‼を指定の数レストにできる)，このキャラをレストにできる：自分のデッキの上から5枚を見て、特徴《超新星》を持つカード1枚までを公開し、手札に加える。その後、残りを好きな順番でデッキの下に置く。",
-    "trigger": "",
-    "getInfo": "ブースターパック 二つの伝説【OP-08】",
-    "seriesTitle": "ブースターパック 二つの伝説",
-    "seriesCode": "OP-08"
-  },
-  {
-    "uniqueId": "ST03-004_1tztu9SjBREO0Ev5a0zG22jspQQ5Tx405",
-    "cardNumber": "ST03-004",
-    "cardName": "ゲッコー・モリア",
-    "rarity": "SPカード",
-    "cardType": "CHARACTER",
-    "color": [
-      "青"
-    ],
-    "costLifeType": "コスト",
-    "costLifeValue": 4,
-    "power": 5000,
-    "counter": 1000,
-    "attribute": "特",
-    "features": [
-      "王下七武海",
-      "スリラーバーク海賊団"
-    ],
-    "block": 1,
-    "effectText": "【登場時】自分のトラッシュの「ゲッコー・モリア」以外のコスト4以下の特徴《王下七武海》か《スリラーバーク海賊団》を持つキャラカード1枚までを、手札に加える。",
-    "trigger": "",
-    "getInfo": "ブースターパック 二つの伝説【OP-08】",
-    "seriesTitle": "ブースターパック 二つの伝説",
-    "seriesCode": "OP-08"
-  },
-  {
-    "uniqueId": "ST04-005_12mc0l6RixFmqm3TDSm3ZTQjGnCZ3j55t",
-    "cardNumber": "ST04-005",
-    "cardName": "クイーン",
-    "rarity": "SPカード",
-    "cardType": "CHARACTER",
-    "color": [
-      "紫"
-    ],
-    "costLifeType": "コスト",
-    "costLifeValue": 5,
-    "power": 6000,
-    "counter": 1000,
-    "attribute": "打",
-    "features": [
-      "百獣海賊団"
-    ],
-    "block": 1,
-    "effectText": "【ブロッカー】(相手のアタックの後、このカードをレストにし、アタックの対象をこのカードにできる)【登場時】ドン‼-1(自分の場のドン‼を指定の数ドン‼デッキに戻すことができる)：カード2枚を引き、自分の手札1枚を捨てる。",
-    "trigger": "",
-    "getInfo": "ブースターパック 二つの伝説【OP-08】",
-    "seriesTitle": "ブースターパック 二つの伝説",
-    "seriesCode": "OP-08"
-  },
-  {
-    "uniqueId": "ST06-006_1w1w_LSAKhd29dKL0WqKdg4OtLgX_Sgzq",
-    "cardNumber": "ST06-006",
-    "cardName": "たしぎ",
-    "rarity": "SPカード",
-    "cardType": "CHARACTER",
-    "color": [
-      "黒"
-    ],
-    "costLifeType": "コスト",
-    "costLifeValue": 3,
-    "power": 4000,
-    "counter": 2000,
-    "attribute": "斬",
-    "features": [
-      "海軍"
-    ],
-    "block": 1,
-    "effectText": "【起動メイン】このキャラをレストにできる：相手のキャラ1枚までを、このターン中、コスト-2。",
-    "trigger": "",
-    "getInfo": "ブースターパック 二つの伝説【OP-08】",
-    "seriesTitle": "ブースターパック 二つの伝説",
-    "seriesCode": "OP-08"
-  },
-  {
     "uniqueId": "OP09-001_1bvsan9u-4gjNt0ElP70oNYUBqDUbw-W9",
     "cardNumber": "OP09-001",
     "cardName": "シャンクス",
@@ -23839,7 +23691,7 @@
   {
     "uniqueId": "OP09-006_1-mmUgCR_T1BRaG8VtmwRO4UBOPhhk41H",
     "cardNumber": "OP09-006",
-    "cardName": "\"ハウリング\"ガブ",
+    "cardName": "ハウリングガブ",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -29601,127 +29453,6 @@
     "seriesCode": "OP-10"
   },
   {
-    "uniqueId": "EB01-056_1iaiPxuBSN_d3HuM_2x9EzabZSiK75mNW",
-    "cardNumber": "EB01-056",
-    "cardName": "シャーロット・フランペ",
-    "rarity": "SPカード",
-    "cardType": "CHARACTER",
-    "color": [
-      "黄"
-    ],
-    "costLifeType": "コスト",
-    "costLifeValue": 1,
-    "power": 1000,
-    "counter": 2000,
-    "attribute": "特",
-    "features": [
-      "ビッグ・マム海賊団"
-    ],
-    "block": 2,
-    "effectText": "【登場時】自分のライフの上か下から1枚を手札に加えることができる：カード1枚を引く。",
-    "trigger": "",
-    "getInfo": "ブースターパック 王族の血統【OP-10】",
-    "seriesTitle": "ブースターパック 王族の血統",
-    "seriesCode": "OP-10"
-  },
-  {
-    "uniqueId": "ST12-012_1dx0Ui6zp_tSSDaGcVPSNq4UfB4MJVWXq",
-    "cardNumber": "ST12-012",
-    "cardName": "シャーロット・プリン",
-    "rarity": "SPカード",
-    "cardType": "CHARACTER",
-    "color": [
-      "青"
-    ],
-    "costLifeType": "コスト",
-    "costLifeValue": 2,
-    "power": 2000,
-    "counter": 2000,
-    "attribute": "知",
-    "features": [
-      "ビッグ・マム海賊団"
-    ],
-    "block": 2,
-    "effectText": "【起動メイン】このキャラを持ち主の手札に戻す。",
-    "trigger": "",
-    "getInfo": "ブースターパック 王族の血統【OP-10】",
-    "seriesTitle": "ブースターパック 王族の血統",
-    "seriesCode": "OP-10"
-  },
-  {
-    "uniqueId": "ST14-003_1R_jwg8jh5Am_3EQqaQokzosSRx-vFOKO",
-    "cardNumber": "ST14-003",
-    "cardName": "サンジ",
-    "rarity": "SPカード",
-    "cardType": "CHARACTER",
-    "color": [
-      "黒"
-    ],
-    "costLifeType": "コスト",
-    "costLifeValue": 5,
-    "power": 6000,
-    "counter": "-",
-    "attribute": "打",
-    "features": [
-      "麦わらの一味"
-    ],
-    "block": 2,
-    "effectText": "【登場時】自分のコスト6以上のキャラがいる場合、相手のコスト5以下のキャラ1枚までを、KOする。",
-    "trigger": "",
-    "getInfo": "ブースターパック 王族の血統【OP-10】",
-    "seriesTitle": "ブースターパック 王族の血統",
-    "seriesCode": "OP-10"
-  },
-  {
-    "uniqueId": "ST15-002_1lOYs6aaME2puaX5CfQERwFwNrL5NUpQL",
-    "cardNumber": "ST15-002",
-    "cardName": "エドワード・ニューゲート",
-    "rarity": "SPカード",
-    "cardType": "CHARACTER",
-    "color": [
-      "赤"
-    ],
-    "costLifeType": "コスト",
-    "costLifeValue": 7,
-    "power": 8000,
-    "counter": "-",
-    "attribute": "特",
-    "features": [
-      "四皇",
-      "白ひげ海賊団"
-    ],
-    "block": 3,
-    "effectText": "【登場時】自分のリーダーかキャラ1枚にレストのドン!!1枚までを、付与する。【起動メイン】このキャラをレストにできる：相手のパワー5000以下のキャラ1枚までを、KOする。",
-    "trigger": "",
-    "getInfo": "ブースターパック 王族の血統【OP-10】",
-    "seriesTitle": "ブースターパック 王族の血統",
-    "seriesCode": "OP-10"
-  },
-  {
-    "uniqueId": "ST18-001_1aFEeBared7fRf1gqpmyF1O694JXWhQoi",
-    "cardNumber": "ST18-001",
-    "cardName": "ウソ八",
-    "rarity": "SPカード",
-    "cardType": "CHARACTER",
-    "color": [
-      "紫"
-    ],
-    "costLifeType": "コスト",
-    "costLifeValue": 3,
-    "power": 3000,
-    "counter": 2000,
-    "attribute": "射",
-    "features": [
-      "麦わらの一味"
-    ],
-    "block": 3,
-    "effectText": "【登場時】自分の場のドン!!が8枚以上ある場合、相手のコスト5以下のキャラ1枚までを、レストにする。",
-    "trigger": "",
-    "getInfo": "ブースターパック 王族の血統【OP-10】",
-    "seriesTitle": "ブースターパック 王族の血統",
-    "seriesCode": "OP-10"
-  },
-  {
     "uniqueId": "OP11-001_184WdnmlPZYOCQOWqX-Xnh4HqHV9zy2kr",
     "cardNumber": "OP11-001",
     "cardName": "コビー",
@@ -32648,80 +32379,6 @@
     ],
     "block": 3,
     "effectText": "【登場時】自分のキャラ1枚までは、このターン中、アクティブのキャラにもアタックできる。【アタック時】自分のトラッシュからカード2枚を好きな順番でデッキの下に置くことができる：自分のリーダーかキャラ1枚までを、次の相手のターン終了時まで、パワー+1000。",
-    "trigger": "",
-    "getInfo": "ブースターパック 神速の拳【OP-11】",
-    "seriesTitle": "ブースターパック 神速の拳",
-    "seriesCode": "OP-11"
-  },
-  {
-    "uniqueId": "EB01-057_1Y16jlYHtfQQJGp3xvgZeGBQC08IrEIgB",
-    "cardNumber": "EB01-057",
-    "cardName": "しらほし",
-    "rarity": "SPカード",
-    "cardType": "CHARACTER",
-    "color": [
-      "黄"
-    ],
-    "costLifeType": "コスト",
-    "costLifeValue": 2,
-    "power": "-",
-    "counter": 1000,
-    "attribute": "知",
-    "features": [
-      "人魚族"
-    ],
-    "block": 2,
-    "effectText": "このキャラが相手の効果でKOされた時、自分のデッキの上から1枚までを、ライフの上に加える。【ブロッカー】(相手のアタックの後、このカードをレストにし、アタックの対象をこのカードにできる)",
-    "trigger": "",
-    "getInfo": "ブースターパック 神速の拳【OP-11】",
-    "seriesTitle": "ブースターパック 神速の拳",
-    "seriesCode": "OP-11"
-  },
-  {
-    "uniqueId": "ST16-004_1zrEagHc8slnXuqlz3ryDWsdm198RPazx",
-    "cardNumber": "ST16-004",
-    "cardName": "シャンクス",
-    "rarity": "SPカード",
-    "cardType": "CHARACTER",
-    "color": [
-      "緑"
-    ],
-    "costLifeType": "コスト",
-    "costLifeValue": 9,
-    "power": 11000,
-    "counter": "-",
-    "attribute": "斬",
-    "features": [
-      "FILM",
-      "四皇",
-      "赤髪海賊団"
-    ],
-    "block": 3,
-    "effectText": "【登場時】相手のレストのキャラ1枚までを、KOする。",
-    "trigger": "",
-    "getInfo": "ブースターパック 神速の拳【OP-11】",
-    "seriesTitle": "ブースターパック 神速の拳",
-    "seriesCode": "OP-11"
-  },
-  {
-    "uniqueId": "ST18-005_1RyNcGZxAq62NSSSlMY_Qiwds7wKUmSJ8",
-    "cardNumber": "ST18-005",
-    "cardName": "ルフィ太郎",
-    "rarity": "SPカード",
-    "cardType": "CHARACTER",
-    "color": [
-      "紫"
-    ],
-    "costLifeType": "コスト",
-    "costLifeValue": 7,
-    "power": 8000,
-    "counter": "-",
-    "attribute": "打",
-    "features": [
-      "麦わらの一味"
-    ],
-    "block": 3,
-    "effectText": "【登場時】ドン‼-1(自分の場のドン !!を指定の数ドン !!デッキに戻すことができる)：自分の手札からコスト5以下の紫の特徴《麦わらの一味》を持つキャラカード1枚までを、登場させる。",
     "trigger": "",
     "getInfo": "ブースターパック 神速の拳【OP-11】",
     "seriesTitle": "ブースターパック 神速の拳",
@@ -35664,54 +35321,6 @@
     ],
     "block": 3,
     "effectText": "【登場時】自分の手札1枚を捨てることができる：自分のデッキの上から1枚までを、ライフの上に加える。その後、このキャラは、次の相手のエンドフェイズ終了時まで、コスト+2。【相手のターン中】【KO時】自分のデッキの上から1枚までを、ライフの上に加える。",
-    "trigger": "",
-    "getInfo": "師弟の絆【OP-12】",
-    "seriesTitle": "師弟の絆",
-    "seriesCode": "OP-12"
-  },
-  {
-    "uniqueId": "ST13-011_1-PIMXAG-VqXfbl7MnhhTVNjBxYbzcIQ5",
-    "cardNumber": "ST13-011",
-    "cardName": "ポートガス・D・エース",
-    "rarity": "SPカード",
-    "cardType": "CHARACTER",
-    "color": [
-      "黄"
-    ],
-    "costLifeType": "コスト",
-    "costLifeValue": 5,
-    "power": 7000,
-    "counter": "-",
-    "attribute": "特",
-    "features": [
-      "白ひげ海賊団"
-    ],
-    "block": 2,
-    "effectText": "【登場時】自分のライフが2枚以下の場合、このキャラは【速攻】を得る。(このカードは登場したターンにアタックできる)",
-    "trigger": "",
-    "getInfo": "師弟の絆【OP-12】",
-    "seriesTitle": "師弟の絆",
-    "seriesCode": "OP-12"
-  },
-  {
-    "uniqueId": "ST18-004_1s9EcSgFFXC6kI5DUPl_RptcUZRDgkf1g",
-    "cardNumber": "ST18-004",
-    "cardName": "ゾロ十郎",
-    "rarity": "SPカード",
-    "cardType": "CHARACTER",
-    "color": [
-      "紫"
-    ],
-    "costLifeType": "コスト",
-    "costLifeValue": 4,
-    "power": 6000,
-    "counter": "-",
-    "attribute": "斬",
-    "features": [
-      "麦わらの一味"
-    ],
-    "block": 3,
-    "effectText": "【登場時】自分のデッキの上から5枚を見て、紫の特徴《麦わらの一味》を持つカード1枚までを公開し、手札に加える。その後、残りを好きな順番でデッキの下に置く。",
     "trigger": "",
     "getInfo": "師弟の絆【OP-12】",
     "seriesTitle": "師弟の絆",
@@ -38680,31 +38289,6 @@
     "seriesCode": "OP-13"
   },
   {
-    "uniqueId": "EB02-028_1HOZNIjtZ_vbYbMQiQHgCnf0dP0EyqSYC",
-    "cardNumber": "EB02-028",
-    "cardName": "ポートガス・D・エース",
-    "rarity": "SPカード",
-    "cardType": "CHARACTER",
-    "color": [
-      "青"
-    ],
-    "costLifeType": "コスト",
-    "costLifeValue": 5,
-    "power": 5000,
-    "counter": 1000,
-    "attribute": "特",
-    "features": [
-      "アラバスタ王国",
-      "白ひげ海賊団"
-    ],
-    "block": 3,
-    "effectText": "【登場時】自分のリーダーが『白ひげ海賊団』を含む特徴を持つ場合、自分のデッキの上から5枚を見て、コスト2のキャラカード1枚までを公開し、手札に加える。その後、残りを好きな順番でデッキの下に置き、自分の手札からコスト2のキャラカード1枚までを、レストで登場させる。",
-    "trigger": "",
-    "getInfo": "受け継がれる意志【OP-13】",
-    "seriesTitle": "受け継がれる意志",
-    "seriesCode": "OP-13"
-  },
-  {
     "uniqueId": "EB01-001_1j5vsNEB-K71v3NX9JpZfkg0dZj_GQ15u",
     "cardNumber": "EB01-001",
     "cardName": "光月おでん",
@@ -40053,6 +39637,54 @@
     "seriesCode": "EB-01"
   },
   {
+    "uniqueId": "EB01-056_1iaiPxuBSN_d3HuM_2x9EzabZSiK75mNW",
+    "cardNumber": "EB01-056",
+    "cardName": "シャーロット・フランぺ",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "color": [
+      "黄"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 1,
+    "power": 1000,
+    "counter": 2000,
+    "attribute": "特",
+    "features": [
+      "ビッグ・マム海賊団"
+    ],
+    "block": 2,
+    "effectText": "【登場時】自分のライフの上か下から1枚を手札に加えることができる：カード1枚を引く。",
+    "trigger": "",
+    "getInfo": "メモリアルコレクション【EB-01】",
+    "seriesTitle": "メモリアルコレクション",
+    "seriesCode": "EB-01"
+  },
+  {
+    "uniqueId": "EB01-057_1Y16jlYHtfQQJGp3xvgZeGBQC08IrEIgB",
+    "cardNumber": "EB01-057",
+    "cardName": "しらほし",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "color": [
+      "黄"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 2,
+    "power": "-",
+    "counter": 1000,
+    "attribute": "知",
+    "features": [
+      "人魚族"
+    ],
+    "block": 2,
+    "effectText": "このキャラが相手の効果でKOされた時、自分のデッキの上から1枚までを、ライフの上に加える。【ブロッカー】(相手のアタックの後、このカードをレストにし、アタックの対象をこのカードにできる)",
+    "trigger": "",
+    "getInfo": "メモリアルコレクション【EB-01】",
+    "seriesTitle": "メモリアルコレクション",
+    "seriesCode": "EB-01"
+  },
+  {
     "uniqueId": "EB01-058_1cm91B63AxEJo_DLL9zi-JWgT2_YK_Muz",
     "cardNumber": "EB01-058",
     "cardName": "モンブラン・クリケット",
@@ -40809,6 +40441,31 @@
     ],
     "block": 3,
     "effectText": "【登場時】相手のパワー1000以下のキャラ1枚までを、持ち主のデッキの下に置く。",
+    "trigger": "",
+    "getInfo": "エクストラブースター Anime 25th collection【EB-02】",
+    "seriesTitle": "エクストラブースター Anime 25th collection",
+    "seriesCode": "EB-02"
+  },
+  {
+    "uniqueId": "EB02-028_1HOZNIjtZ_vbYbMQiQHgCnf0dP0EyqSYC",
+    "cardNumber": "EB02-028",
+    "cardName": "ポートガス・D・エース",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "color": [
+      "青"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 5,
+    "power": 5000,
+    "counter": 1000,
+    "attribute": "特",
+    "features": [
+      "アラバスタ王国",
+      "白ひげ海賊団"
+    ],
+    "block": 3,
+    "effectText": "【登場時】自分のリーダーが『白ひげ海賊団』を含む特徴を持つ場合、自分のデッキの上から5枚を見て、コスト2のキャラカード1枚までを公開し、手札に加える。その後、残りを好きな順番でデッキの下に置き、自分の手札からコスト2のキャラカード1枚までを、レストで登場させる。",
     "trigger": "",
     "getInfo": "エクストラブースター Anime 25th collection【EB-02】",
     "seriesTitle": "エクストラブースター Anime 25th collection",
@@ -43668,6 +43325,31 @@
     "seriesCode": "ST-02"
   },
   {
+    "uniqueId": "ST02-007_10YMzuSo8JtxDleCwXKtpq1_kD5hcYZrM",
+    "cardNumber": "ST02-007",
+    "cardName": "ジュエリー・ボニー",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "緑"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 1,
+    "power": 1000,
+    "counter": 1000,
+    "attribute": "特",
+    "features": [
+      "超新星",
+      "ボニー海賊団"
+    ],
+    "block": 1,
+    "effectText": "【起動メイン】①(コストエリアのドン!!を指定の数レストにできる)，このキャラをレストにできる：自分のデッキの上から5枚を見て、特徴《超新星》を持つカード1枚までを公開し、手札に加える。その後、残りを好きな順番でデッキの下に置く。",
+    "trigger": "",
+    "getInfo": "最悪の世代【ST-02】",
+    "seriesTitle": "最悪の世代",
+    "seriesCode": "ST-02"
+  },
+  {
     "uniqueId": "ST02-008_1Fq6IM9QExbC71q4A9n5vQHKpt0sGE_r0",
     "cardNumber": "ST02-008",
     "cardName": "スクラッチメン・アプー",
@@ -43992,6 +43674,31 @@
     "seriesCode": "ST-03"
   },
   {
+    "uniqueId": "ST03-004_1tztu9SjBREO0Ev5a0zG22jspQQ5Tx405",
+    "cardNumber": "ST03-004",
+    "cardName": "ゲッコー・モリア",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "青"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 4,
+    "power": 5000,
+    "counter": 1000,
+    "attribute": "特",
+    "features": [
+      "王下七武海",
+      "スリラーバーク海賊団"
+    ],
+    "block": 1,
+    "effectText": "【登場時】自分のトラッシュの「ゲッコー・モリア」以外のコスト4以下の特徴《王下七武海》か《スリラーバーク海賊団》を持つキャラカード1枚までを、手札に加える。",
+    "trigger": "",
+    "getInfo": "王下七武海【ST-03】",
+    "seriesTitle": "王下七武海",
+    "seriesCode": "ST-03"
+  },
+  {
     "uniqueId": "ST03-005_1WphApOCp8W2-vnU646zOeFMhbAHLTlPr",
     "cardNumber": "ST03-005",
     "cardName": "ジュラキュール・ミホーク",
@@ -44085,6 +43792,31 @@
     ],
     "block": 1,
     "effectText": "【ブロッカー】(相手のアタックの後、このカードをレストにし、アタックの対象をこのカードにできる)",
+    "trigger": "",
+    "getInfo": "王下七武海【ST-03】",
+    "seriesTitle": "王下七武海",
+    "seriesCode": "ST-03"
+  },
+  {
+    "uniqueId": "ST03-009_1vNwKJ8wO4uHxOJjIDfRXRY94b2l7sbO1",
+    "cardNumber": "ST03-009",
+    "cardName": "ドンキホーテ・ドフラミンゴ",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "color": [
+      "青"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 7,
+    "power": 7000,
+    "counter": "-",
+    "attribute": "特",
+    "features": [
+      "王下七武海",
+      "ドンキホーテ海賊団"
+    ],
+    "block": 1,
+    "effectText": "【登場時】コスト7以下のキャラ1枚までを、持ち主の手札に戻す。",
     "trigger": "",
     "getInfo": "王下七武海【ST-03】",
     "seriesTitle": "王下七武海",
@@ -44340,6 +44072,31 @@
     "seriesCode": "ST-04"
   },
   {
+    "uniqueId": "ST04-003_1IQ6xID7fVcPgOsdODESak2R8067d8nbR",
+    "cardNumber": "ST04-003",
+    "cardName": "カイドウ",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "color": [
+      "紫"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 9,
+    "power": 10000,
+    "counter": "-",
+    "attribute": "打",
+    "features": [
+      "四皇",
+      "百獣海賊団"
+    ],
+    "block": 1,
+    "effectText": "【登場時】ドン!!-5(自分の場のドン!!を指定の数ドン!!デッキに戻すことができる)：相手のコスト6以下のキャラ1枚までを、KOし、このキャラは、このターン中、【速攻】を得る。(このカードは登場したターンにアタックできる)",
+    "trigger": "",
+    "getInfo": "百獣海賊団【ST-04】",
+    "seriesTitle": "百獣海賊団",
+    "seriesCode": "ST-04"
+  },
+  {
     "uniqueId": "ST04-004_1QXe-B56jP0Fr-MVTzaFFIDoqw8wkEbPK",
     "cardNumber": "ST04-004",
     "cardName": "キング",
@@ -44358,6 +44115,30 @@
     ],
     "block": 1,
     "effectText": "【登場時】ドン!!-1(自分の場のドン!!を指定の数ドン!!デッキに戻すことができる)：相手のコスト4以下のキャラ1枚までを、KOする。",
+    "trigger": "",
+    "getInfo": "百獣海賊団【ST-04】",
+    "seriesTitle": "百獣海賊団",
+    "seriesCode": "ST-04"
+  },
+  {
+    "uniqueId": "ST04-005_12mc0l6RixFmqm3TDSm3ZTQjGnCZ3j55t",
+    "cardNumber": "ST04-005",
+    "cardName": "クイーン",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "紫"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 5,
+    "power": 6000,
+    "counter": 1000,
+    "attribute": "打",
+    "features": [
+      "百獣海賊団"
+    ],
+    "block": 1,
+    "effectText": "【ブロッカー】(相手のアタックの後、このカードをレストにし、アタックの対象をこのカードにできる)【登場時】ドン!!-1(自分の場のドン!!を指定の数ドン!!デッキに戻すことができる)：カード2枚を引き、自分の手札1枚を捨てる。",
     "trigger": "",
     "getInfo": "百獣海賊団【ST-04】",
     "seriesTitle": "百獣海賊団",
@@ -45197,6 +44978,30 @@
     ],
     "block": 1,
     "effectText": "【アタック時】相手のキャラ1枚までを、このターン中、コスト-4。",
+    "trigger": "",
+    "getInfo": "海軍【ST-06】",
+    "seriesTitle": "海軍",
+    "seriesCode": "ST-06"
+  },
+  {
+    "uniqueId": "ST06-006_1w1w_LSAKhd29dKL0WqKdg4OtLgX_Sgzq",
+    "cardNumber": "ST06-006",
+    "cardName": "たしぎ",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "黒"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 3,
+    "power": 4000,
+    "counter": 2000,
+    "attribute": "斬",
+    "features": [
+      "海軍"
+    ],
+    "block": 1,
+    "effectText": "【起動メイン】このキャラをレストにできる：相手のキャラ1枚までを、このターン中、コスト-2。",
     "trigger": "",
     "getInfo": "海軍【ST-06】",
     "seriesTitle": "海軍",
@@ -47412,6 +47217,30 @@
     "seriesCode": "ST-12"
   },
   {
+    "uniqueId": "ST12-012_1dx0Ui6zp_tSSDaGcVPSNq4UfB4MJVWXq",
+    "cardNumber": "ST12-012",
+    "cardName": "シャーロット・プリン",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "青"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 2,
+    "power": 2000,
+    "counter": 2000,
+    "attribute": "知",
+    "features": [
+      "ビッグ・マム海賊団"
+    ],
+    "block": 2,
+    "effectText": "【起動メイン】このキャラを持ち主の手札に戻す。",
+    "trigger": "",
+    "getInfo": "ゾロ&サンジ【ST-12】",
+    "seriesTitle": "ゾロ&サンジ",
+    "seriesCode": "ST-12"
+  },
+  {
     "uniqueId": "ST12-013_1FJcDAEQzOT5YbJSYJ0of0wabWdYitWZf",
     "cardNumber": "ST12-013",
     "cardName": "ゼフ",
@@ -47780,6 +47609,30 @@
     "seriesCode": "ST-13"
   },
   {
+    "uniqueId": "ST13-011_1-PIMXAG-VqXfbl7MnhhTVNjBxYbzcIQ5",
+    "cardNumber": "ST13-011",
+    "cardName": "ポートガス・D・エース",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "color": [
+      "黄"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 5,
+    "power": 7000,
+    "counter": "-",
+    "attribute": "特",
+    "features": [
+      "白ひげ海賊団"
+    ],
+    "block": 2,
+    "effectText": "【登場時】自分のライフが2枚以下の場合、このキャラは【速攻】を得る。(このカードは登場したターンにアタックできる)",
+    "trigger": "",
+    "getInfo": "3兄弟の絆【ST-13】",
+    "seriesTitle": "3兄弟の絆",
+    "seriesCode": "ST-13"
+  },
+  {
     "uniqueId": "ST13-012_1eki3zsstlW21UF6UeGi3gB-Q4RWHV_4m",
     "cardNumber": "ST13-012",
     "cardName": "マキノ",
@@ -48017,6 +47870,30 @@
     ],
     "block": 2,
     "effectText": "【ドン‼×1】【アタック時】自分のコスト8以上のキャラがいる場合、相手のコスト4以下のキャラ1枚までを、KOする。",
+    "trigger": "",
+    "getInfo": "3D2Y【ST-14】",
+    "seriesTitle": "3D2Y",
+    "seriesCode": "ST-14"
+  },
+  {
+    "uniqueId": "ST14-003_1R_jwg8jh5Am_3EQqaQokzosSRx-vFOKO",
+    "cardNumber": "ST14-003",
+    "cardName": "サンジ",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "color": [
+      "黒"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 5,
+    "power": 6000,
+    "counter": "-",
+    "attribute": "打",
+    "features": [
+      "麦わらの一味"
+    ],
+    "block": 2,
+    "effectText": "【登場時】自分のコスト6以上のキャラがいる場合、相手のコスト5以下のキャラ1枚までを、KOする。",
     "trigger": "",
     "getInfo": "3D2Y【ST-14】",
     "seriesTitle": "3D2Y",
@@ -48385,6 +48262,31 @@
     "seriesCode": "ST-15"
   },
   {
+    "uniqueId": "ST15-002_1lOYs6aaME2puaX5CfQERwFwNrL5NUpQL",
+    "cardNumber": "ST15-002",
+    "cardName": "エドワード・ニューゲート",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "color": [
+      "赤"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 7,
+    "power": 8000,
+    "counter": "-",
+    "attribute": "特",
+    "features": [
+      "四皇",
+      "白ひげ海賊団"
+    ],
+    "block": 3,
+    "effectText": "【登場時】自分のリーダーかキャラ1枚にレストのドン!!1枚までを、付与する。【起動メイン】このキャラをレストにできる：相手のパワー5000以下のキャラ1枚までを、KOする。",
+    "trigger": "",
+    "getInfo": "スタートデッキ 赤 エドワード・ニューゲート【ST-15】",
+    "seriesTitle": "スタートデッキ 赤 エドワード・ニューゲート",
+    "seriesCode": "ST-15"
+  },
+  {
     "uniqueId": "ST15-003_1ype1lMCkfhowhCgG2d0iRWum1KVmbNsT",
     "cardNumber": "ST15-003",
     "cardName": "キングデュー",
@@ -48681,6 +48583,32 @@
     "seriesCode": "ST-16"
   },
   {
+    "uniqueId": "ST16-004_1zrEagHc8slnXuqlz3ryDWsdm198RPazx",
+    "cardNumber": "ST16-004",
+    "cardName": "シャンクス",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "color": [
+      "緑"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 9,
+    "power": 11000,
+    "counter": "-",
+    "attribute": "斬",
+    "features": [
+      "FILM",
+      "四皇",
+      "赤髪海賊団"
+    ],
+    "block": 3,
+    "effectText": "【登場時】相手のレストのキャラ1枚までを、KOする。",
+    "trigger": "",
+    "getInfo": "スタートデッキ 緑 ウタ【ST-16】",
+    "seriesTitle": "スタートデッキ 緑 ウタ",
+    "seriesCode": "ST-16"
+  },
+  {
     "uniqueId": "ST16-005_1s8MQLjiDPgzjh3zOn9Ff6KYndK6BHIm_",
     "cardNumber": "ST16-005",
     "cardName": "モンキー・D・ルフィ",
@@ -48883,6 +48811,30 @@
     "seriesCode": "ST-18"
   },
   {
+    "uniqueId": "ST18-001_1aFEeBared7fRf1gqpmyF1O694JXWhQoi",
+    "cardNumber": "ST18-001",
+    "cardName": "ウソ八",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "紫"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 3,
+    "power": 3000,
+    "counter": 2000,
+    "attribute": "射",
+    "features": [
+      "麦わらの一味"
+    ],
+    "block": 3,
+    "effectText": "【登場時】自分の場のドン!!が8枚以上ある場合、相手のコスト5以下のキャラ1枚までを、レストにする。",
+    "trigger": "",
+    "getInfo": "スタートデッキ 紫 モンキー・D・ルフィ【ST-18】",
+    "seriesTitle": "スタートデッキ 紫 モンキー・D・ルフィ",
+    "seriesCode": "ST-18"
+  },
+  {
     "uniqueId": "ST18-002_1LQK0AOW15B8AIQ4Ldk6sRrty24CWZ8mV",
     "cardNumber": "ST18-002",
     "cardName": "おナミ",
@@ -48925,6 +48877,54 @@
     ],
     "block": 3,
     "effectText": "【アタック時】【ターン1回】自分の場のドン!!が8枚以上ある場合、カード1枚を引く。",
+    "trigger": "",
+    "getInfo": "スタートデッキ 紫 モンキー・D・ルフィ【ST-18】",
+    "seriesTitle": "スタートデッキ 紫 モンキー・D・ルフィ",
+    "seriesCode": "ST-18"
+  },
+  {
+    "uniqueId": "ST18-004_1s9EcSgFFXC6kI5DUPl_RptcUZRDgkf1g",
+    "cardNumber": "ST18-004",
+    "cardName": "ゾロ十郎",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "color": [
+      "紫"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 4,
+    "power": 6000,
+    "counter": "-",
+    "attribute": "斬",
+    "features": [
+      "麦わらの一味"
+    ],
+    "block": 3,
+    "effectText": "【登場時】自分のデッキの上から5枚を見て、紫の特徴《麦わらの一味》を持つカード1枚までを公開し、手札に加える。その後、残りを好きな順番でデッキの下に置く。",
+    "trigger": "",
+    "getInfo": "スタートデッキ 紫 モンキー・D・ルフィ【ST-18】",
+    "seriesTitle": "スタートデッキ 紫 モンキー・D・ルフィ",
+    "seriesCode": "ST-18"
+  },
+  {
+    "uniqueId": "ST18-005_1RyNcGZxAq62NSSSlMY_Qiwds7wKUmSJ8",
+    "cardNumber": "ST18-005",
+    "cardName": "ルフィ太郎",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "color": [
+      "紫"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 7,
+    "power": 8000,
+    "counter": "-",
+    "attribute": "打",
+    "features": [
+      "麦わらの一味"
+    ],
+    "block": 3,
+    "effectText": "【登場時】ドン!!-1(自分の場のドン !!を指定の数ドン !!デッキに戻すことができる)：自分の手札からコスト5以下の紫の特徴《麦わらの一味》を持つキャラカード1枚までを、登場させる。",
     "trigger": "",
     "getInfo": "スタートデッキ 紫 モンキー・D・ルフィ【ST-18】",
     "seriesTitle": "スタートデッキ 紫 モンキー・D・ルフィ",
