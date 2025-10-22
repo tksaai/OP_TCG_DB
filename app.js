@@ -1,10 +1,9 @@
-// app.js (UI改善・機能完備・省略なし最終版)
+// app.js (全機能実装・全修正反映・省略なし最終版)
 
-const db = new Dexie('OnePieceCardDB_v11'); // DB名を変更して完全にリセット
+const db = new Dexie('OnePieceCardDB_v12'); // DB名を変更して完全にリセット
 db.version(1).stores({
-  // uniqueIdを主キーに、検索対象のプロパティをインデックスとして設定
   cards: 'uniqueId, cardNumber, cardName, *color, cardType, rarity, seriesCode, *features, effectText',
-  meta: 'key, value' // 最終更新日などを保存
+  meta: 'key, value'
 });
 
 // DOM要素の取得
@@ -38,9 +37,6 @@ const state = {
 
 let allCards = []; // 全カードデータをメモリにキャッシュして高速化
 
-/**
- * アプリのメイン初期化処理
- */
 async function initializeApp() {
   updateUI();
   try {
@@ -49,7 +45,6 @@ async function initializeApp() {
       allCards = await db.cards.toArray();
       await setupFilters();
       await displayCards();
-      // バックグラウンドで更新チェック
       syncData().catch(err => console.warn("バックグラウンド更新失敗:", err.message));
     } else {
       await syncData();
@@ -60,9 +55,6 @@ async function initializeApp() {
   }
 }
 
-/**
- * ローカルのJSONファイルからデータを取得し、DBを更新する
- */
 async function syncData() {
   statusMessageElement.textContent = 'カードデータを更新中...';
   statusMessageElement.style.display = 'block';
@@ -87,9 +79,6 @@ async function syncData() {
   }
 }
 
-/**
- * DBからユニークな値を取得し、フィルタ選択肢を生成する
- */
 async function setupFilters() {
     try {
         const filterOptions = document.getElementById('filter-options');
@@ -110,6 +99,7 @@ async function setupFilters() {
             }
         });
         
+        // ★★★ レアリティのリストから 'SP' を除外 ★★★
         const raritiesWithoutSP = Array.from(uniqueValues.rarity).filter(r => r !== 'SP');
 
         const createButtons = (values, key) => values.sort((a,b) => a.localeCompare(b, undefined, {numeric: true})).map(val => 
@@ -138,9 +128,6 @@ async function setupFilters() {
     }
 }
 
-/**
- * DBからカードを読み込み、画面に表示する
- */
 async function displayCards() {
   try {
     const cardCount = allCards.length;
@@ -180,6 +167,7 @@ async function displayCards() {
       });
     }
 
+    statusMessageElement.style.display = 'none';
     cardListElement.innerHTML = '';
     const fragment = document.createDocumentFragment();
     filtered.forEach(card => {
@@ -215,12 +203,11 @@ async function cacheAllImages() {
     alert('Service Workerが有効ではありません。ページを再読み込み後、再度お試しください。');
     return;
   }
-  
   cacheImagesBtn.disabled = true;
   cacheImagesBtn.textContent = 'キャッシュ中...';
   progressBarContainer.style.display = 'block';
   progressBar.style.width = '0%';
-  statusMessageElement.textContent = '全画像のキャッシュを開始...';
+  statusMessageElement.textContent = '全画像のキャッシュを開始します...';
   statusMessageElement.style.display = 'block';
 
   try {
@@ -232,22 +219,22 @@ async function cacheAllImages() {
     navigator.serviceWorker.controller.postMessage({ type: 'CACHE_IMAGES', payload: imageUrls });
 
     navigator.serviceWorker.onmessage = (event) => {
-      if (event.data.type === 'CACHE_PROGRESS') {
-        const { processed, total } = event.data.payload;
-        const percentage = total > 0 ? (processed / total) * 100 : 0;
-        progressBar.style.width = `${percentage}%`;
-        statusMessageElement.textContent = `キャッシュ中... (${processed} / ${total})`;
-      }
-      if (event.data.type === 'CACHE_COMPLETE') {
-        progressBar.style.width = '100%';
-        statusMessageElement.textContent = '全画像のキャッシュが完了しました！';
-        setTimeout(() => {
-          statusMessageElement.style.display = 'none';
-          progressBarContainer.style.display = 'none';
-        }, 2000);
-        cacheImagesBtn.disabled = false;
-        cacheImagesBtn.textContent = '全画像キャッシュ';
-      }
+        if (event.data.type === 'CACHE_PROGRESS') {
+            const { processed, total } = event.data.payload;
+            const percentage = total > 0 ? (processed / total) * 100 : 0;
+            progressBar.style.width = `${percentage}%`;
+            statusMessageElement.textContent = `キャッシュ中... (${processed} / ${total})`;
+        }
+        if (event.data.type === 'CACHE_COMPLETE') {
+            progressBar.style.width = '100%';
+            statusMessageElement.textContent = '全画像のキャッシュが完了しました！';
+            setTimeout(() => {
+              statusMessageElement.style.display = 'none';
+              progressBarContainer.style.display = 'none';
+            }, 2000);
+            cacheImagesBtn.disabled = false;
+            cacheImagesBtn.textContent = '全画像キャッシュ';
+        }
     };
   } catch (err) {
     console.error('画像キャッシュエラー:', err);
@@ -264,12 +251,9 @@ async function clearAllCaches() {
     try {
       const registration = await navigator.serviceWorker.getRegistration();
       if (registration) await registration.unregister();
-      
       const keys = await caches.keys();
       await Promise.all(keys.map(key => caches.delete(key)));
-      
       await db.delete();
-
       alert('キャッシュとデータを削除しました。ページを再読み込みします。');
       window.location.reload();
     } catch (error) {
