@@ -18,8 +18,7 @@
         <input type="text" id="search-box" placeholder="検索">
       </div>
       <div class="header-actions">
-        <button id="filter-btn"><i class="fa-solid fa-filter"></i></button>
-        <button id="sort-btn"><i class="fa-solid fa-arrow-up-down"></i></button>
+        <button id="filter-btn"><i class="fa-solid fa-filter"></i> フィルタ</button>
       </div>
     </header>
 
@@ -30,41 +29,45 @@
 
     <footer class="app-footer">
       <nav>
-        <a href="#" class="nav-item active">
-          <i class="fa-solid fa-clone"></i>
-          <span>Card List</span>
-        </a>
-        <a href="#" class="nav-item">
-          <i class="fa-solid fa-layer-group"></i>
-          <span>Decks</span>
-        </a>
-        <a href="#" class="nav-item">
-          <i class="fa-solid fa-flask"></i>
-          <span>SimLab</span>
-        </a>
-        <a href="#" class="nav-item">
-          <i class="fa-solid fa-box-archive"></i>
-          <span>8Pack</span>
-        </a>
-        <a href="#" class="nav-item" id="settings-btn">
-          <i class="fa-solid fa-gear"></i>
-          <span>Settings</span>
-        </a>
+        <a href="#" class="nav-item active"><i class="fa-solid fa-clone"></i><span>CardList</span></a>
+        <a href="#" class="nav-item"><i class="fa-solid fa-layer-group"></i><span>Decks</span></a>
+        <a href="#" class="nav-item" id="change-columns-btn"><i class="fa-solid fa-table-cells"></i><span id="columns-text">3列</span></a>
+        <a href="#" class="nav-item" id="settings-btn"><i class="fa-solid fa-gear"></i><span>Settings</span></a>
       </nav>
     </footer>
 
-    <!-- ▼▼▼ ID名を "modal-overlay" に修正 ▼▼▼ -->
-    <div id="modal-overlay" class="modal-overlay" style="display:none;">
+    <!-- フィルタ モーダル -->
+    <div id="filter-modal" class="modal-overlay" style="display:none;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>フィルタ</h2>
+          <button id="close-filter-btn" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div id="filter-options" class="modal-body">
+          <!-- フィルタオプションはJSで生成 -->
+        </div>
+        <div class="modal-footer">
+          <button id="clear-filter-btn">クリア</button>
+          <button id="apply-filter-btn">適用</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 画像拡大表示（ライトボックス） モーダル -->
+    <div id="lightbox-modal" class="modal-overlay" style="display:none;">
+      <span id="close-lightbox-btn" class="close-btn lightbox-close">&times;</span>
+      <img class="lightbox-content" id="lightbox-img">
+    </div>
+
+    <!-- 設定モーダル -->
+    <div id="settings-modal" class="modal-overlay" style="display:none;">
         <div class="modal-content">
             <h2>設定</h2>
             <div class="settings-options">
-                <button id="change-columns-btn">表示列数: 3</button>
-                <!-- ▼▼▼ "refresh-btn" をここに追加 ▼▼▼ -->
-                <button id="refresh-btn">表示リセット</button>
                 <button id="cache-images-btn">全画像キャッシュ</button>
                 <button id="clear-cache-btn">全キャッシュ削除</button>
             </div>
-            <button id="close-modal-btn">閉じる</button>
+            <button id="close-settings-btn" class="close-btn">閉じる</button>
         </div>
     </div>
   </div>
