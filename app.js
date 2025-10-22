@@ -198,16 +198,20 @@ function updateUI() {
   cardListElement.className = `card-grid cols-${state.columns}`;
 }
 
+// app.js の cacheAllImages 関数を置き換え
+
 async function cacheAllImages() {
   if (!('serviceWorker' in navigator) || !navigator.serviceWorker.controller) {
     alert('Service Workerが有効ではありません。ページを再読み込み後、再度お試しください。');
     return;
   }
+  
+  // ボタンを非活性化し、プログレスバーを表示
   cacheImagesBtn.disabled = true;
   cacheImagesBtn.textContent = 'キャッシュ中...';
   progressBarContainer.style.display = 'block';
   progressBar.style.width = '0%';
-  statusMessageElement.textContent = '全画像のキャッシュを開始します...';
+  statusMessageElement.textContent = '全画像のキャッシュを開始...'; // メッセージも併用
   statusMessageElement.style.display = 'block';
 
   try {
@@ -216,29 +220,35 @@ async function cacheAllImages() {
       return `./Cards/${series}/${card.cardNumber}.jpg`;
     }).filter(Boolean);
 
+    // Service Workerにキャッシュ実行を依頼
     navigator.serviceWorker.controller.postMessage({ type: 'CACHE_IMAGES', payload: imageUrls });
 
+    // Service Workerからの進捗報告を受け取る
     navigator.serviceWorker.onmessage = (event) => {
-        if (event.data.type === 'CACHE_PROGRESS') {
-            const { processed, total } = event.data.payload;
-            const percentage = total > 0 ? (processed / total) * 100 : 0;
-            progressBar.style.width = `${percentage}%`;
-            statusMessageElement.textContent = `キャッシュ中... (${processed} / ${total})`;
-        }
-        if (event.data.type === 'CACHE_COMPLETE') {
-            progressBar.style.width = '100%';
-            statusMessageElement.textContent = '全画像のキャッシュが完了しました！';
-            setTimeout(() => {
-              statusMessageElement.style.display = 'none';
-              progressBarContainer.style.display = 'none';
-            }, 2000);
-            cacheImagesBtn.disabled = false;
-            cacheImagesBtn.textContent = '全画像キャッシュ';
-        }
+      if (event.data.type === 'CACHE_PROGRESS') {
+        const { processed, total } = event.data.payload;
+        const percentage = total > 0 ? (processed / total) * 100 : 0;
+        // プログレスバーの幅を更新
+        progressBar.style.width = `${percentage}%`;
+        statusMessageElement.textContent = `キャッシュ中... (${processed} / ${total})`;
+      }
+      if (event.data.type === 'CACHE_COMPLETE') {
+        progressBar.style.width = '100%';
+        statusMessageElement.textContent = '全画像のキャッシュが完了しました！';
+        
+        // 完了後、少し待ってからUIを元に戻す
+        setTimeout(() => {
+          statusMessageElement.style.display = 'none';
+          progressBarContainer.style.display = 'none';
+          cacheImagesBtn.disabled = false;
+          cacheImagesBtn.textContent = '全画像キャッシュ';
+        }, 2000);
+      }
     };
   } catch (err) {
     console.error('画像キャッシュエラー:', err);
     statusMessageElement.textContent = '画像のキャッシュ中にエラーが発生しました。';
+    // エラー時もUIを元に戻す
     progressBarContainer.style.display = 'none';
     cacheImagesBtn.disabled = false;
     cacheImagesBtn.textContent = '全画像キャッシュ';
