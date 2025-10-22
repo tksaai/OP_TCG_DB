@@ -7,19 +7,19 @@
   --border-color: #444;
 }
 html {
-  /* iPhoneのホームバーとの干渉を防ぐ */
+  padding: 0;
+  /* iPhoneのノッチやホームバー領域まで描画範囲を広げる */
   padding-bottom: constant(safe-area-inset-bottom);
   padding-bottom: env(safe-area-inset-bottom);
 }
 body, html {
   margin: 0;
-  padding: 0;
   height: 100%;
   width: 100%;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   background-color: var(--primary-bg);
   color: var(--text-primary);
-  overscroll-behavior: none;
+  overscroll-behavior-y: contain; /* ページ全体のバウンススクロールを無効化 */
 }
 .app-container {
   display: flex;
@@ -32,8 +32,10 @@ body, html {
   padding: 10px 15px;
   background-color: var(--secondary-bg);
   display: flex;
+  flex-wrap: wrap; /* プログレスバーのために折り返しを許可 */
   align-items: center;
   gap: 10px;
+  position: relative; /* プログレスバーの基準位置 */
 }
 .search-bar {
   flex-grow: 1; display: flex; align-items: center; background-color: var(--primary-bg);
@@ -49,6 +51,22 @@ body, html {
   background: var(--accent-color); border: none; color: white; font-size: 0.9rem; cursor: pointer;
   padding: 10px 15px; border-radius: 8px; display: flex; align-items: center; gap: 5px;
 }
+/* ▼▼▼ プログレスバーのスタイル ▼▼▼ */
+#progress-bar-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--border-color);
+}
+#progress-bar {
+  width: 0%;
+  height: 100%;
+  background-color: var(--accent-color);
+  transition: width 0.2s ease-out;
+}
+
 /* メインコンテンツ */
 .app-content { flex-grow: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; }
 #status-message { text-align: center; padding: 2rem; font-size: 1.2rem; color: var(--text-secondary); }
@@ -66,9 +84,14 @@ body, html {
   padding: 5px; border-radius: 3px; text-align: center;
 }
 /* フッター */
-.app-footer { background-color: var(--secondary-bg); border-top: 1px solid var(--border-color); padding-bottom: constant(safe-area-inset-bottom); padding-bottom: env(safe-area-inset-bottom); }
+.app-footer { 
+  background-color: var(--secondary-bg);
+  border-top: 1px solid var(--border-color);
+  /* ▼▼▼ iPhoneのホームバー領域分のパディングを追加 ▼▼▼ */
+  padding-bottom: env(safe-area-inset-bottom);
+}
 .app-footer nav { display: flex; justify-content: space-around; padding: 5px 0; }
-.nav-item { display: flex; flex-direction: column; align-items: center; color: var(--text-secondary); text-decoration: none; font-size: 0.7rem; padding: 5px; border-radius: 5px; background: none; border: none; }
+.nav-item { display: flex; flex-direction: column; align-items: center; color: var(--text-secondary); text-decoration: none; font-size: 0.7rem; padding: 5px; border-radius: 5px; background: none; border: none; width: 60px; }
 .nav-item.active { color: var(--accent-color); }
 .nav-item i { font-size: 1.5rem; margin-bottom: 3px; }
 /* モーダル共通 */
@@ -80,7 +103,7 @@ body, html {
 .modal-body { padding: 15px; overflow-y: auto; }
 .modal-footer { display: flex; gap: 10px; padding: 15px; border-top: 1px solid var(--border-color); }
 .modal-footer button { flex: 1; padding: 1rem; font-size: 1rem; border: none; border-radius: 8px; }
-#apply-filter-btn, #close-settings-btn { background-color: var(--accent-color); color: white; }
+#apply-filter-btn { background-color: var(--accent-color); color: white; }
 #clear-filter-btn { background-color: #555; color: white; }
 /* フィルタオプション */
 .filter-section { margin-bottom: 20px; }
@@ -88,11 +111,12 @@ body, html {
 .filter-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
 .filter-buttons button { padding: 8px 12px; font-size: 0.9rem; border: 1px solid var(--border-color); border-radius: 20px; background: var(--primary-bg); color: var(--text-primary); cursor: pointer; }
 .filter-buttons button.active { background: var(--accent-color); border-color: var(--accent-color); }
-.color-filter button.color-R { color: #D32F2F; border-color: #D32F2F; } .color-filter button.color-R.active { background: #D32F2F; color: white; }
-/* 他の色のスタイルも同様に追加 */
 .series-select { width: 100%; padding: 10px; background: var(--primary-bg); color: white; border: 1px solid var(--border-color); border-radius: 8px; }
 /* ライトボックス */
 #lightbox-modal { align-items: center; }
-.lightbox-content { max-width: 90%; max-height: 80%; }
-.lightbox-close { position: absolute; top: 15px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; transition: 0.3s; }
-.lightbox-close:hover, .lightbox-close:focus { color: #bbb; text-decoration: none; cursor: pointer; }
+.lightbox-content { max-width: 90%; max-height: 80%; border-radius: 10px; }
+.lightbox-close { position: absolute; top: 15px; right: 35px; color: #f1f1f1; font-size: 40px; font-weight: bold; transition: 0.3s; cursor: pointer; }
+/* 設定モーダル */
+.settings-options { display: flex; flex-direction: column; gap: 10px; margin: 20px 0; }
+.modal-content button { width: 100%; padding: 1rem; font-size: 1rem; background-color: #333; color: white; border: 1px solid var(--border-color); border-radius: 8px; }
+#close-settings-btn { margin-top: 1rem; background-color: #555; }
