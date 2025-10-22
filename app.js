@@ -1,12 +1,11 @@
-// app.js (全機能実装・全修正反映・省略なし最終版)
+// app.js (全文・省略なし・最終版)
 
-const db = new Dexie('OnePieceCardDB_v12'); // DB名を変更して完全にリセット
+const db = new Dexie('OnePieceCardDB_v12'); 
 db.version(1).stores({
   cards: 'uniqueId, cardNumber, cardName, *color, cardType, rarity, seriesCode, *features, effectText',
   meta: 'key, value'
 });
 
-// DOM要素の取得
 const statusMessageElement = document.getElementById('status-message');
 const cardListElement = document.getElementById('card-list');
 const searchBox = document.getElementById('search-box');
@@ -15,7 +14,7 @@ const columnsText = document.getElementById('columns-text');
 const settingsBtn = document.getElementById('settings-btn');
 const settingsModal = document.getElementById('settings-modal');
 const closeModalBtn = document.getElementById('close-settings-btn');
-const modalOverlay = document.getElementById('modal-overlay');
+const modalOverlay = document.getElementById('modal-overlay'); // ここはsettingsModalと同じでOK
 const filterBtn = document.getElementById('filter-btn');
 const filterModal = document.getElementById('filter-modal');
 const closeFilterBtn = document.getElementById('close-filter-btn');
@@ -29,13 +28,11 @@ const closeLightboxBtn = document.getElementById('close-lightbox-btn');
 const progressBarContainer = document.getElementById('progress-bar-container');
 const progressBar = document.getElementById('progress-bar');
 
-// アプリケーションの状態管理オブジェクト
 const state = {
   columns: parseInt(localStorage.getItem('columnCount') || '3', 10),
   filters: JSON.parse(localStorage.getItem('filters')) || {}
 };
-
-let allCards = []; // 全カードデータをメモリにキャッシュして高速化
+let allCards = [];
 
 async function initializeApp() {
   updateUI();
@@ -65,7 +62,7 @@ async function syncData() {
     
     const cards = await response.json();
     
-    await db.transaction('rw', db.cards, async () => {
+    await db.transaction('rw', db.cards, db.meta, async () => {
       await db.cards.clear();
       await db.cards.bulkAdd(cards);
     });
@@ -88,7 +85,6 @@ async function setupFilters() {
             color: new Set(), cardType: new Set(), attribute: new Set(),
             rarity: new Set(), series: new Map()
         };
-
         allCards.forEach(card => {
             card.color.forEach(c => uniqueValues.color.add(c));
             if(card.cardType) uniqueValues.cardType.add(card.cardType);
@@ -99,13 +95,10 @@ async function setupFilters() {
             }
         });
         
-        // ★★★ レアリティのリストから 'SP' を除外 ★★★
         const raritiesWithoutSP = Array.from(uniqueValues.rarity).filter(r => r !== 'SP');
-
         const createButtons = (values, key) => values.sort((a,b) => a.localeCompare(b, undefined, {numeric: true})).map(val => 
             `<button class="filter-option-btn ${state.filters[key]?.includes(val) ? 'active' : ''}" data-filter="${key}" data-value="${val}">${val}</button>`
         ).join('');
-        
         const seriesOptions = Array.from(uniqueValues.series.entries())
             .sort((a, b) => a[0].localeCompare(b[0], undefined, {numeric: true}))
             .map(([code, title]) => `<option value="${code}" ${state.filters.seriesCode?.includes(code) ? 'selected' : ''}>${code} ${title}</option>`)
@@ -119,10 +112,7 @@ async function setupFilters() {
             <div class="filter-section"><h3>ATTRIBUTES</h3><div class="filter-buttons">${createButtons(Array.from(uniqueValues.attribute), 'attribute')}</div></div>
             <div class="filter-section"><h3>COST</h3><div class="filter-buttons">${[...Array(11).keys()].map(i => `<button class="filter-option-btn ${state.filters.costLifeValue?.includes(String(i)) ? 'active' : ''}" data-filter="costLifeValue" data-value="${i}">${i}</button>`).join('')}</div></div>
         `;
-
-        filterOptions.querySelectorAll('.filter-option-btn').forEach(btn => {
-            btn.addEventListener('click', () => btn.classList.toggle('active'));
-        });
+        filterOptions.querySelectorAll('.filter-option-btn').forEach(btn => btn.addEventListener('click', () => btn.classList.toggle('active')));
     } catch (error) {
         console.error("フィルタのセットアップに失敗:", error);
     }
@@ -130,34 +120,23 @@ async function setupFilters() {
 
 async function displayCards() {
   try {
-    const cardCount = allCards.length;
-    if (cardCount === 0) {
+    if (allCards.length === 0) {
       statusMessageElement.textContent = 'カードデータがありません。';
       statusMessageElement.style.display = 'block';
       return;
     }
-
     let filtered = [...allCards];
-
-    // フィルタリング処理
     if (Object.keys(state.filters).length > 0) {
         filtered = allCards.filter(card => {
             return Object.keys(state.filters).every(key => {
                 const values = state.filters[key];
                 if (!values || values.length === 0) return true;
-                
-                if (key === 'seriesCode') {
-                    return values.some(v => card.seriesCode === v);
-                }
-                if(Array.isArray(card[key])) {
-                    return values.some(v => card[key].includes(v));
-                }
+                if (key === 'seriesCode') return values.some(v => card.seriesCode === v);
+                if(Array.isArray(card[key])) return values.some(v => card[key].includes(v));
                 return values.includes(String(card[key]));
             });
         });
     }
-
-    // 検索処理
     const searchTerm = searchBox.value.toLowerCase().trim();
     if (searchTerm) {
       const searchWords = searchTerm.split(/\s+/).filter(Boolean);
@@ -166,7 +145,6 @@ async function displayCards() {
         return searchWords.every(word => targetText.includes(word));
       });
     }
-
     statusMessageElement.style.display = 'none';
     cardListElement.innerHTML = '';
     const fragment = document.createDocumentFragment();
@@ -198,20 +176,16 @@ function updateUI() {
   cardListElement.className = `card-grid cols-${state.columns}`;
 }
 
-// app.js の cacheAllImages 関数を置き換え
-
 async function cacheAllImages() {
   if (!('serviceWorker' in navigator) || !navigator.serviceWorker.controller) {
     alert('Service Workerが有効ではありません。ページを再読み込み後、再度お試しください。');
     return;
   }
-  
-  // ボタンを非活性化し、プログレスバーを表示
   cacheImagesBtn.disabled = true;
   cacheImagesBtn.textContent = 'キャッシュ中...';
   progressBarContainer.style.display = 'block';
   progressBar.style.width = '0%';
-  statusMessageElement.textContent = '全画像のキャッシュを開始...'; // メッセージも併用
+  statusMessageElement.textContent = '全画像のキャッシュを開始...';
   statusMessageElement.style.display = 'block';
 
   try {
@@ -220,35 +194,28 @@ async function cacheAllImages() {
       return `./Cards/${series}/${card.cardNumber}.jpg`;
     }).filter(Boolean);
 
-    // Service Workerにキャッシュ実行を依頼
     navigator.serviceWorker.controller.postMessage({ type: 'CACHE_IMAGES', payload: imageUrls });
-
-    // Service Workerからの進捗報告を受け取る
     navigator.serviceWorker.onmessage = (event) => {
       if (event.data.type === 'CACHE_PROGRESS') {
         const { processed, total } = event.data.payload;
         const percentage = total > 0 ? (processed / total) * 100 : 0;
-        // プログレスバーの幅を更新
         progressBar.style.width = `${percentage}%`;
         statusMessageElement.textContent = `キャッシュ中... (${processed} / ${total})`;
       }
       if (event.data.type === 'CACHE_COMPLETE') {
         progressBar.style.width = '100%';
         statusMessageElement.textContent = '全画像のキャッシュが完了しました！';
-        
-        // 完了後、少し待ってからUIを元に戻す
         setTimeout(() => {
           statusMessageElement.style.display = 'none';
           progressBarContainer.style.display = 'none';
-          cacheImagesBtn.disabled = false;
-          cacheImagesBtn.textContent = '全画像キャッシュ';
         }, 2000);
+        cacheImagesBtn.disabled = false;
+        cacheImagesBtn.textContent = '全画像キャッシュ';
       }
     };
   } catch (err) {
     console.error('画像キャッシュエラー:', err);
     statusMessageElement.textContent = '画像のキャッシュ中にエラーが発生しました。';
-    // エラー時もUIを元に戻す
     progressBarContainer.style.display = 'none';
     cacheImagesBtn.disabled = false;
     cacheImagesBtn.textContent = '全画像キャッシュ';
@@ -321,7 +288,7 @@ closeModalBtn.addEventListener('click', () => {
     settingsModal.style.display = 'none';
 });
 
-[settingsModal, lightboxModal].forEach(modal => {
+[settingsModal, lightboxModal, filterModal].forEach(modal => {
     modal.addEventListener('click', (e) => {
         if(e.target === modal) modal.style.display = 'none';
     });

@@ -2,7 +2,6 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <!-- ▼▼▼ viewportに "viewport-fit=cover" を追加 ▼▼▼ -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>ワンピースカードDB</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -21,7 +20,6 @@
       <div class="header-actions">
         <button id="filter-btn"><i class="fa-solid fa-filter"></i> フィルタ</button>
       </div>
-      <!-- ▼▼▼ プログレスバー用のHTMLを追加 ▼▼▼ -->
       <div id="progress-bar-container" style="display: none;">
         <div id="progress-bar"></div>
       </div>
@@ -48,7 +46,9 @@
           <h2>フィルタ</h2>
           <button id="close-filter-btn" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
         </div>
-        <div id="filter-options" class="modal-body"></div>
+        <div id="filter-options" class="modal-body">
+          <!-- フィルタオプションはJSで生成 -->
+        </div>
         <div class="modal-footer">
           <button id="clear-filter-btn">クリア</button>
           <button id="apply-filter-btn">適用</button>
