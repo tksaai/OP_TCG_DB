@@ -1,11 +1,13 @@
-// app.js (全文・省略なし・最終版)
+// app.js (プログレスバー対応・省略なし最終版)
 
-const db = new Dexie('OnePieceCardDB_v12'); 
+const db = new Dexie('OnePieceCardDB_v13'); // DB名を変更して完全にリセット
 db.version(1).stores({
+  // uniqueIdを主キーに、検索対象のプロパティをインデックスとして設定
   cards: 'uniqueId, cardNumber, cardName, *color, cardType, rarity, seriesCode, *features, effectText',
-  meta: 'key, value'
+  meta: 'key, value' // 最終更新日などを保存
 });
 
+// DOM要素の取得
 const statusMessageElement = document.getElementById('status-message');
 const cardListElement = document.getElementById('card-list');
 const searchBox = document.getElementById('search-box');
@@ -14,7 +16,7 @@ const columnsText = document.getElementById('columns-text');
 const settingsBtn = document.getElementById('settings-btn');
 const settingsModal = document.getElementById('settings-modal');
 const closeModalBtn = document.getElementById('close-settings-btn');
-const modalOverlay = document.getElementById('modal-overlay'); // ここはsettingsModalと同じでOK
+const modalOverlay = document.getElementById('settings-modal');
 const filterBtn = document.getElementById('filter-btn');
 const filterModal = document.getElementById('filter-modal');
 const closeFilterBtn = document.getElementById('close-filter-btn');
@@ -27,13 +29,19 @@ const lightboxImg = document.getElementById('lightbox-img');
 const closeLightboxBtn = document.getElementById('close-lightbox-btn');
 const progressBarContainer = document.getElementById('progress-bar-container');
 const progressBar = document.getElementById('progress-bar');
+const progressText = document.getElementById('progress-text');
 
+// アプリケーションの状態管理オブジェクト
 const state = {
   columns: parseInt(localStorage.getItem('columnCount') || '3', 10),
   filters: JSON.parse(localStorage.getItem('filters')) || {}
 };
-let allCards = [];
 
+let allCards = []; // 全カードデータをメモリにキャッシュして高速化
+
+/**
+ * アプリのメイン初期化処理
+ */
 async function initializeApp() {
   updateUI();
   try {
@@ -52,6 +60,9 @@ async function initializeApp() {
   }
 }
 
+/**
+ * ローカルのJSONファイルからデータを取得し、DBを更新する
+ */
 async function syncData() {
   statusMessageElement.textContent = 'カードデータを更新中...';
   statusMessageElement.style.display = 'block';
@@ -62,7 +73,7 @@ async function syncData() {
     
     const cards = await response.json();
     
-    await db.transaction('rw', db.cards, db.meta, async () => {
+    await db.transaction('rw', db.cards, async () => {
       await db.cards.clear();
       await db.cards.bulkAdd(cards);
     });
@@ -76,6 +87,9 @@ async function syncData() {
   }
 }
 
+/**
+ * DBからユニークな値を取得し、フィルタ選択肢を生成する
+ */
 async function setupFilters() {
     try {
         const filterOptions = document.getElementById('filter-options');
@@ -85,6 +99,7 @@ async function setupFilters() {
             color: new Set(), cardType: new Set(), attribute: new Set(),
             rarity: new Set(), series: new Map()
         };
+
         allCards.forEach(card => {
             card.color.forEach(c => uniqueValues.color.add(c));
             if(card.cardType) uniqueValues.cardType.add(card.cardType);
@@ -96,9 +111,11 @@ async function setupFilters() {
         });
         
         const raritiesWithoutSP = Array.from(uniqueValues.rarity).filter(r => r !== 'SP');
+
         const createButtons = (values, key) => values.sort((a,b) => a.localeCompare(b, undefined, {numeric: true})).map(val => 
             `<button class="filter-option-btn ${state.filters[key]?.includes(val) ? 'active' : ''}" data-filter="${key}" data-value="${val}">${val}</button>`
         ).join('');
+        
         const seriesOptions = Array.from(uniqueValues.series.entries())
             .sort((a, b) => a[0].localeCompare(b[0], undefined, {numeric: true}))
             .map(([code, title]) => `<option value="${code}" ${state.filters.seriesCode?.includes(code) ? 'selected' : ''}>${code} ${title}</option>`)
@@ -112,12 +129,18 @@ async function setupFilters() {
             <div class="filter-section"><h3>ATTRIBUTES</h3><div class="filter-buttons">${createButtons(Array.from(uniqueValues.attribute), 'attribute')}</div></div>
             <div class="filter-section"><h3>COST</h3><div class="filter-buttons">${[...Array(11).keys()].map(i => `<button class="filter-option-btn ${state.filters.costLifeValue?.includes(String(i)) ? 'active' : ''}" data-filter="costLifeValue" data-value="${i}">${i}</button>`).join('')}</div></div>
         `;
-        filterOptions.querySelectorAll('.filter-option-btn').forEach(btn => btn.addEventListener('click', () => btn.classList.toggle('active')));
+
+        filterOptions.querySelectorAll('.filter-option-btn').forEach(btn => {
+            btn.addEventListener('click', () => btn.classList.toggle('active'));
+        });
     } catch (error) {
         console.error("フィルタのセットアップに失敗:", error);
     }
 }
 
+/**
+ * DBからカードを読み込み、画面に表示する
+ */
 async function displayCards() {
   try {
     if (allCards.length === 0) {
@@ -125,18 +148,28 @@ async function displayCards() {
       statusMessageElement.style.display = 'block';
       return;
     }
+
     let filtered = [...allCards];
+
+    // フィルタリング処理
     if (Object.keys(state.filters).length > 0) {
         filtered = allCards.filter(card => {
             return Object.keys(state.filters).every(key => {
                 const values = state.filters[key];
                 if (!values || values.length === 0) return true;
-                if (key === 'seriesCode') return values.some(v => card.seriesCode === v);
-                if(Array.isArray(card[key])) return values.some(v => card[key].includes(v));
+                
+                if (key === 'seriesCode') {
+                    return values.some(v => card.seriesCode === v);
+                }
+                if(Array.isArray(card[key])) {
+                    return values.some(v => card[key].includes(v));
+                }
                 return values.includes(String(card[key]));
             });
         });
     }
+
+    // 検索処理
     const searchTerm = searchBox.value.toLowerCase().trim();
     if (searchTerm) {
       const searchWords = searchTerm.split(/\s+/).filter(Boolean);
@@ -145,6 +178,7 @@ async function displayCards() {
         return searchWords.every(word => targetText.includes(word));
       });
     }
+
     statusMessageElement.style.display = 'none';
     cardListElement.innerHTML = '';
     const fragment = document.createDocumentFragment();
@@ -181,12 +215,13 @@ async function cacheAllImages() {
     alert('Service Workerが有効ではありません。ページを再読み込み後、再度お試しください。');
     return;
   }
+  
   cacheImagesBtn.disabled = true;
   cacheImagesBtn.textContent = 'キャッシュ中...';
-  progressBarContainer.style.display = 'block';
+  settingsModal.style.display = 'none';
+  progressBarContainer.style.display = 'flex';
   progressBar.style.width = '0%';
-  statusMessageElement.textContent = '全画像のキャッシュを開始...';
-  statusMessageElement.style.display = 'block';
+  progressText.textContent = '0%';
 
   try {
     const imageUrls = allCards.map(card => {
@@ -195,22 +230,23 @@ async function cacheAllImages() {
     }).filter(Boolean);
 
     navigator.serviceWorker.controller.postMessage({ type: 'CACHE_IMAGES', payload: imageUrls });
+
     navigator.serviceWorker.onmessage = (event) => {
       if (event.data.type === 'CACHE_PROGRESS') {
         const { processed, total } = event.data.payload;
-        const percentage = total > 0 ? (processed / total) * 100 : 0;
+        const percentage = total > 0 ? Math.round((processed / total) * 100) : 0;
         progressBar.style.width = `${percentage}%`;
-        statusMessageElement.textContent = `キャッシュ中... (${processed} / ${total})`;
+        progressText.textContent = `${percentage}% (${processed}/${total})`;
       }
       if (event.data.type === 'CACHE_COMPLETE') {
         progressBar.style.width = '100%';
-        statusMessageElement.textContent = '全画像のキャッシュが完了しました！';
+        progressText.textContent = `キャッシュ完了！`;
+        
         setTimeout(() => {
-          statusMessageElement.style.display = 'none';
           progressBarContainer.style.display = 'none';
+          cacheImagesBtn.disabled = false;
+          cacheImagesBtn.textContent = '全画像キャッシュ';
         }, 2000);
-        cacheImagesBtn.disabled = false;
-        cacheImagesBtn.textContent = '全画像キャッシュ';
       }
     };
   } catch (err) {
@@ -228,9 +264,12 @@ async function clearAllCaches() {
     try {
       const registration = await navigator.serviceWorker.getRegistration();
       if (registration) await registration.unregister();
+      
       const keys = await caches.keys();
       await Promise.all(keys.map(key => caches.delete(key)));
+      
       await db.delete();
+
       alert('キャッシュとデータを削除しました。ページを再読み込みします。');
       window.location.reload();
     } catch (error) {
@@ -244,9 +283,6 @@ searchBox.addEventListener('input', displayCards);
 
 filterBtn.addEventListener('click', () => filterModal.style.display = 'flex');
 closeFilterBtn.addEventListener('click', () => filterModal.style.display = 'none');
-filterModal.addEventListener('click', (e) => {
-    if(e.target === filterModal) filterModal.style.display = 'none';
-});
 
 applyFilterBtn.addEventListener('click', () => {
     state.filters = {};
