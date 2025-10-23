@@ -10,71 +10,28 @@
   <link rel="apple-touch-icon" href="./icons/iconx192.png">
 </head>
 <body>
-  <div class="app-container">
-    
-    <header class="app-header">
-      <div class="search-bar">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" id="search-box" placeholder="検索">
-      </div>
-      <div class="header-actions">
-        <button id="filter-btn"><i class="fa-solid fa-filter"></i> フィルタ</button>
-      </div>
-      <!-- ▼▼▼ プログレスバー用のHTMLを追加 ▼▼▼ -->
-      <div id="progress-container" style="display: none;">
-        <div id="progress-bar"></div>
-        <span id="progress-text"></span>
-      </div>
-    </header>
-
-    <main class="app-content">
-      <div id="status-message">データ読み込み中...</div>
-      <div id="card-list" class="card-grid cols-3"></div>
-    </main>
-
-    <footer class="app-footer">
-      <nav>
-        <a href="#" class="nav-item active"><i class="fa-solid fa-clone"></i><span>Card List</span></a>
-        <a href="#" class="nav-item"><i class="fa-solid fa-layer-group"></i><span>Decks</span></a>
-        <a href="#" class="nav-item" id="change-columns-btn"><i class="fa-solid fa-table-cells"></i><span id="columns-text">3列</span></a>
-        <a href="#" class="nav-item" id="settings-btn"><i class="fa-solid fa-gear"></i><span>Settings</span></a>
-      </nav>
-    </footer>
-
-    <!-- フィルタ モーダル -->
-    <div id="filter-modal" class="modal-overlay" style="display:none;">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2>フィルタ</h2>
-          <button id="close-filter-btn" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div id="filter-options" class="modal-body"></div>
-        <div class="modal-footer">
-          <button id="clear-filter-btn">クリア</button>
-          <button id="apply-filter-btn">適用</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- 画像拡大表示（ライトボックス） モーダル -->
-    <div id="lightbox-modal" class="modal-overlay" style="display:none;">
-      <span id="close-lightbox-btn" class="close-btn lightbox-close">&times;</span>
-      <img class="lightbox-content" id="lightbox-img">
-    </div>
-
-    <!-- 設定モーダル -->
-    <div id="settings-modal" class="modal-overlay" style="display:none;">
-        <div class="modal-content">
-            <h2>設定</h2>
-            <div class="settings-options">
-                <button id="cache-images-btn">全画像キャッシュ</button>
-                <button id="clear-cache-btn">全キャッシュ削除</button>
-            </div>
-            <button id="close-settings-btn" class="close-btn">閉じる</button>
-        </div>
-    </div>
+  
+  <div id="update-notification" style="display: none;">
+    <span>新しいバージョンがあります</span>
+    <button id="update-button">更新</button>
   </div>
 
+  <div id="app-container">
+    <!-- 各画面はこの中にレンダリングされます -->
+  </div>
+
+  <footer class="app-footer">
+    <nav>
+      <a href="#card-list" class="nav-item active" data-screen="card-list"><i class="fa-solid fa-clone"></i><span>Card List</span></a>
+      <a href="#decks" class="nav-item" data-screen="decks"><i class="fa-solid fa-layer-group"></i><span>Decks</span></a>
+      <a href="#" class="nav-item" id="change-columns-btn"><i class="fa-solid fa-table-cells"></i><span id="columns-text">3列</span></a>
+      <a href="#" class="nav-item" id="settings-btn"><i class="fa-solid fa-gear"></i><span>Settings</span></a>
+    </nav>
+  </footer>
+
+  <!-- モーダルウィンドウ用のコンテナ -->
+  <div id="modal-container"></div>
+  
   <script src="https://unpkg.com/dexie@3/dist/dexie.js"></script>
   <script src="./app.js"></script>
 </body>
