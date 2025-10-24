@@ -11,7 +11,7 @@
     const CACHE_APP_SHELL = 'app-shell-v1'; // service-worker.jsと合わせる
     const CACHE_IMAGES = 'card-images-v1'; // service-worker.jsと合わせる
     const CARDS_JSON_PATH = './cards.json';
-    const APP_VERSION = '1.0.3'; // アプリバージョン更新 (バグ修正)
+    const APP_VERSION = '1.0.4'; // アプリバージョン更新 (画像パス修正)
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db; // IndexedDBインスタンス
@@ -177,7 +177,7 @@
                 console.log('Card data update detected.');
                 if (!localLastModified) {
                     console.log('First time load. Fetching card data...');
-                    dom.loadingIndicator.style.display = 'flex'; // ローディング表示
+                    dom.loadingIndicator.style.display = 'flex';
                     dom.loadingIndicator.querySelector('p').textContent = '初回カードデータを取得中...';
                     await fetchAndUpdateCardData(serverLastModified);
                 } else {
@@ -197,7 +197,7 @@
         } catch (error) {
             console.error('Failed to check card data version:', error);
             console.log('Attempting to load from local DB as fallback...');
-            dom.loadingIndicator.style.display = 'flex'; // フォールバック時もローディング表示
+            dom.loadingIndicator.style.display = 'flex';
             dom.loadingIndicator.querySelector('p').textContent = 'オフラインモードで起動中...';
             await loadCardsFromDB();
         }
@@ -302,13 +302,12 @@
             console.error('Failed to update card data:', error);
             dom.loadingIndicator.querySelector('p').textContent = `データ更新に失敗しました: ${error.message}`;
             showMessageToast('データ更新に失敗しました。オフラインデータを表示します。', 'error');
-            if (tx && tx.abort && !tx.done) { // Check if abort exists and transaction isn't already done
+            if (tx && tx.abort && !tx.done) {
                 try { tx.abort(); console.log('DB update transaction aborted due to error.'); }
                 catch (abortError) { console.error('Error aborting transaction:', abortError); }
             }
             await loadCardsFromDB();
         } finally {
-             // ローディング表示を確実に消す
              setTimeout(() => { dom.loadingIndicator.style.display = 'none'; }, 500);
         }
     }
@@ -319,7 +318,6 @@
     async function loadCardsFromDB() {
         if (!db) {
             console.error('DB not initialized. Cannot load cards.');
-             // DBがない場合はローディング表示のままメッセージ表示
             dom.loadingIndicator.style.display = 'flex';
             dom.loadingIndicator.textContent = 'データベースを開けません。';
             return;
@@ -328,7 +326,6 @@
             allCards = await db.getAll(STORE_CARDS);
             if (allCards.length === 0) {
                 console.log('No cards found in DB.');
-                // データがない場合もローディング表示のままメッセージ表示
                  if (dom.loadingIndicator.style.display === 'none' || dom.loadingIndicator.textContent.includes('オフライン')) {
                     dom.loadingIndicator.style.display = 'flex';
                     dom.loadingIndicator.querySelector('p').textContent = 'ローカルデータがありません。オンラインでデータを取得してください。';
@@ -337,14 +334,14 @@
                 dom.cardListContainer.innerHTML = '';
             } else {
                 console.log(`Loaded ${allCards.length} cards from DB.`);
-                dom.loadingIndicator.style.display = 'none'; // データがあればローディング非表示
+                dom.loadingIndicator.style.display = 'none';
                 dom.mainContent.style.display = 'block';
                 populateFilters();
                 applyFiltersAndDisplay();
             }
         } catch (error) {
             console.error('Failed to load cards from DB:', error);
-            dom.loadingIndicator.style.display = 'flex'; // エラー時も表示
+            dom.loadingIndicator.style.display = 'flex';
             dom.loadingIndicator.textContent = 'データの読み込みに失敗しました。';
             allCards = [];
             dom.filterOptionsContainer.innerHTML = '<p>データ読み込みエラー</p>';
@@ -364,7 +361,7 @@
         }
 
         const searchTerm = dom.searchBar.value.trim().toLowerCase();
-        const searchWords = searchTerm.replace(/　/g, ' ').split(' ').filter(w => w.length > 0);
+        const searchWords = searchTerm.replace(/S/g, ' ').split(' ').filter(w => w.length > 0);
 
         const filteredCards = allCards.filter(card => {
             if (!card || !card.cardNumber) return false;
@@ -412,6 +409,22 @@
     }
 
     /**
+     * card.imagePath が存在しない場合に、cardNumber からパスを推測して生成する
+     * @param {string} cardNumber - カード番号 (例: "OP01-001", "P-001")
+     * @returns {string} 推測された大画像パス (例: "Cards/OP01/OP01-001.jpg")
+     */
+    function getGeneratedImagePath(cardNumber) {
+        if (!cardNumber) return '';
+        const parts = cardNumber.split('-');
+        if (parts.length < 2) return ''; // "OP01", "001" のような形式を期待
+        
+        const seriesId = parts[0]; // "OP01" や "P"
+        const cardId = cardNumber; // "OP01-001" や "P-001"
+        
+        return `Cards/${seriesId}/${cardId}.jpg`;
+    }
+
+    /**
      * カード一覧をDOMに描画
      */
     function displayCards(cards) {
@@ -433,34 +446,36 @@
 
             const img = document.createElement('img');
             img.className = 'card-image';
-            const smallImagePath = card.imagePath ? card.imagePath.replace('.jpg', '_small.jpg') : '';
-            // --- 修正: パス生成ロジック ---
-            // smallImagePathが存在し、'Cards/'で始まる場合のみ './' を付与
+
+            // --- 修正: imagePath がない場合、cardNumber からパスを生成 ---
+            let largeImagePath = card.imagePath;
+            if (!largeImagePath) {
+                largeImagePath = getGeneratedImagePath(card.cardNumber);
+            }
+            // --- 修正ここまで ---
+
+            const smallImagePath = largeImagePath ? largeImagePath.replace('.jpg', '_small.jpg') : '';
             const relativeImagePath = (smallImagePath && smallImagePath.startsWith('Cards/')) ? `./${smallImagePath}` : smallImagePath;
 
-            img.src = relativeImagePath; // srcが空文字になる場合がある
+            img.src = relativeImagePath;
             img.alt = card.name || card.cardNumber;
             img.loading = 'lazy';
 
-            cardItem.addEventListener('click', () => showLightbox(card));
+            cardItem.addEventListener('click', () => showLightbox(card, largeImagePath)); // 生成したパスも渡す
 
             img.onerror = () => {
-                 // --- 修正: エラーログにカード番号を追加 ---
                 console.warn(`Failed to load image for card ${card.cardNumber}: ${relativeImagePath}`);
                 const fallback = document.createElement('div');
                 fallback.className = 'card-fallback';
                 fallback.textContent = card.cardNumber;
-                // img要素が既に存在する場合のみ置き換える
                 if(cardItem.contains(img)){
                     cardItem.replaceChild(fallback, img);
-                } else if (!cardItem.querySelector('.card-fallback')) { // Fallbackがまだなければ追加
+                } else if (!cardItem.querySelector('.card-fallback')) {
                      cardItem.appendChild(fallback);
                 }
-                // エラー後もクリックイベントを再設定
-                cardItem.onclick = () => showLightbox(card);
+                cardItem.onclick = () => showLightbox(card, largeImagePath); // 生成したパスも渡す
             };
 
-            // 画像パスが有効な場合のみimgを追加、そうでない場合は最初からフォールバック表示
             if (relativeImagePath) {
                  cardItem.appendChild(img);
             } else {
@@ -468,7 +483,7 @@
                  fallback.className = 'card-fallback';
                  fallback.textContent = card.cardNumber;
                  cardItem.appendChild(fallback);
-                 cardItem.onclick = () => showLightbox(card);
+                 cardItem.onclick = () => showLightbox(card, largeImagePath); // 生成したパスも渡す
             }
 
             fragment.appendChild(cardItem);
@@ -499,21 +514,31 @@
 
     /**
      * ライトボックスを表示
+     * @param {object} card - カードオブジェクト
+     * @param {string} [generatedPath] - displayCardsから渡された、生成済みの可能性のあるパス
      */
-    function showLightbox(card) {
+    function showLightbox(card, generatedPath = null) {
         if (!card || !card.cardNumber) return;
 
-        const largeImagePath = card.imagePath || '';
-         // --- 修正: パス生成ロジック ---
+        // --- 修正: imagePath がない場合、cardNumber からパスを生成 ---
+        let largeImagePath = card.imagePath;
+        // generatedPath が渡されていればそれを使う
+        if (generatedPath) {
+            largeImagePath = generatedPath;
+        } else if (!largeImagePath) {
+            // なければ再生成
+            largeImagePath = getGeneratedImagePath(card.cardNumber);
+        }
+        // --- 修正ここまで ---
+
         const relativeLargePath = (largeImagePath && largeImagePath.startsWith('Cards/')) ? `./${largeImagePath}` : largeImagePath;
 
-        dom.lightboxImage.src = relativeLargePath; // srcが空文字になる場合がある
+        dom.lightboxImage.src = relativeLargePath;
         dom.lightboxImage.style.display = 'block';
         dom.lightboxFallback.style.display = 'none';
         dom.lightboxFallback.textContent = '';
 
         dom.lightboxImage.onerror = () => {
-             // --- 修正: エラーログにカード番号を追加 ---
             console.warn(`Failed to load lightbox image for card ${card.cardNumber}: ${relativeLargePath}`);
             dom.lightboxImage.style.display = 'none';
             dom.lightboxFallback.style.display = 'flex';
@@ -672,14 +697,21 @@
         dom.cacheProgressContainer.style.display = 'flex';
         dom.cacheProgressBar.style.width = '0%';
 
-        const validCards = allCards.filter(card => card && card.imagePath);
+        // --- 修正: imagePath がない場合、cardNumber からパスを生成 ---
         const smallImageUrls = [...new Set(
-            validCards.map(card => {
-                const path = card.imagePath.replace('.jpg', '_small.jpg');
-                // --- 修正: パス生成ロジック ---
+            allCards.map(card => {
+                if (!card || !card.cardNumber) return null; // cardNumber がない場合は除外
+                
+                let largeImagePath = card.imagePath;
+                if (!largeImagePath) {
+                    largeImagePath = getGeneratedImagePath(card.cardNumber);
+                }
+                
+                const path = largeImagePath ? largeImagePath.replace('.jpg', '_small.jpg') : null;
                 return (path && path.startsWith('Cards/')) ? `./${path}` : path;
-            }).filter(path => path) // フィルターして空文字を除外
+            }).filter(path => path) // null や空文字を除外
         )];
+        // --- 修正ここまで ---
 
         const totalCount = smallImageUrls.length;
         dom.cacheProgressText.textContent = `0 / ${totalCount}`;
@@ -703,7 +735,7 @@
             const processQueue = async () => {
                 while(queue.length > 0) {
                     const url = queue.shift();
-                    if (!url) continue; // キューが空になった場合
+                    if (!url) continue;
 
                     try {
                         const existing = await cache.match(url);
