@@ -196,56 +196,78 @@
      * @param {string} serverLastModified - サーバーから取得したLast-Modifiedヘッダー
      */
     async function fetchAndUpdateCardData(serverLastModified) {
+        if (!db) {
+            console.error('DB not available for updating card data.');
+            showMessageToast('データベースエラーが発生しました。', 'error');
+            return;
+        }
+
         dom.loadingIndicator.style.display = 'flex';
         dom.loadingIndicator.querySelector('p').textContent = '最新カードデータをダウンロード中...';
 
         try {
             const response = await fetch(CARDS_JSON_PATH, { cache: 'no-store' });
-            if (!response.ok) throw new Error('Failed to download cards.json');
+            if (!response.ok) throw new Error(`Failed to download cards.json: ${response.statusText}`);
             
-            const cards = await response.json();
-            
-            dom.loadingIndicator.querySelector('p').textContent = 'データベースを更新中...';
+            const cardsData = await response.json();
+            let cardsArray = [];
 
-            // 2. DBを更新
-            const tx = db.transaction([STORE_CARDS, STORE_METADATA], 'readwrite');
-            
-            // 2a. 古いデータをクリア
-            await tx.objectStore(STORE_CARDS).clear();
-            
-            // 2b. 新しいデータを一括追加 (bulkPutがidbライブラリで使える)
-            // PUNKDBのデータ形式 (オブジェクトの配列) を想定
-            if (Array.isArray(cards)) {
-                await tx.objectStore(STORE_CARDS).bulkPut(cards);
+            // PUNKDBのデータ形式 (オブジェクトの配列) かどうかを確認
+            if (Array.isArray(cardsData)) {
+                cardsArray = cardsData;
+            } else if (typeof cardsData === 'object' && cardsData !== null) {
+                // オブジェクト形式 { "OP01": [...], "OP02": [...] } の場合、配列に展開
+                console.warn("JSON format is not a simple array. Extracting values.");
+                cardsArray = Object.values(cardsData).flat();
             } else {
-                // もし { "OP01": [...], "OP02": [...] } のような形式なら展開
-                console.warn("JSON format is not a simple array. Trying to extract values.");
-                const allCardsArray = Object.values(cards).flat();
-                await tx.objectStore(STORE_CARDS).bulkPut(allCardsArray);
+                throw new Error("Invalid cards.json format");
             }
 
-            // 2c. メタデータを更新
-            await tx.objectStore(STORE_METADATA).put({
+            // カードデータが空でないことを確認
+            if (cardsArray.length === 0) {
+                 throw new Error("Downloaded card data is empty.");
+            }
+
+            dom.loadingIndicator.querySelector('p').textContent = 'データベースを更新中...';
+
+            // --- DB更新処理 (修正箇所) ---
+            // 1. メタデータ更新用のトランザクションを開始
+            const metaTx = db.transaction(STORE_METADATA, 'readwrite');
+            
+            // 2. カードストアをクリア (db.clear は自身のトランザクションで実行)
+            await db.clear(STORE_CARDS);
+            console.log(`${STORE_CARDS} store cleared.`);
+
+            // 3. 新しいデータをバルクインサート (db.bulkPut は自身のトランザクションで実行)
+            await db.bulkPut(STORE_CARDS, cardsArray);
+            console.log(`${cardsArray.length} cards added using bulkPut.`);
+
+            // 4. メタデータを更新
+            await metaTx.store.put({
                 key: 'cardsLastModified',
                 value: serverLastModified
             });
+            console.log('Metadata updated.');
 
-            await tx.done;
+            // 5. メタデータトランザクションを完了
+            await metaTx.done;
+            // --- DB更新処理ここまで ---
             
             console.log('Card database updated successfully.');
             dom.cardDataVersionInfo.textContent = new Date(serverLastModified).toLocaleString('ja-JP');
-            showMessageToast('カードデータが更新されました。');
+            showMessageToast('カードデータが更新されました。', 'success');
 
-            // 3. 更新したデータをロード
+            // 6. 更新したデータをロードして表示
             await loadCardsFromDB();
 
         } catch (error) {
             console.error('Failed to update card data:', error);
-            dom.loadingIndicator.querySelector('p').textContent = 'データ更新に失敗しました。';
+            dom.loadingIndicator.querySelector('p').textContent = `データ更新に失敗しました: ${error.message}`;
             showMessageToast('データ更新に失敗しました。オフラインデータを表示します。', 'error');
             await loadCardsFromDB(); // 失敗したら古いデータでもいいからロード試行
         } finally {
-            dom.loadingIndicator.style.display = 'none';
+            // エラー時でもローディング表示は最終的に消す
+             setTimeout(() => { dom.loadingIndicator.style.display = 'none'; }, 1000);
         }
     }
 
@@ -269,6 +291,9 @@
                 if (dom.loadingIndicator.style.display !== 'none') {
                      dom.loadingIndicator.querySelector('p').textContent = 'ローカルデータがありません。オンラインでデータを取得してください。';
                 }
+                 // フィルタオプションとカードリストをクリア
+                dom.filterOptionsContainer.innerHTML = '<p>データがありません。</p>';
+                dom.cardListContainer.innerHTML = '';
             } else {
                 console.log(`Loaded ${allCards.length} cards from DB.`);
                 dom.loadingIndicator.style.display = 'none';
@@ -292,19 +317,28 @@
      * フィルタ条件に基づいてカードを抽出し、表示
      */
     function applyFiltersAndDisplay() {
+        if (allCards.length === 0) {
+            dom.cardListContainer.innerHTML = '<p class="no-results">カードデータが読み込まれていません。</p>';
+            return;
+        }
+
         const searchTerm = dom.searchBar.value.trim().toLowerCase();
         
         // フリーワード検索用の単語分割 (全角スペースを半角に)
         const searchWords = searchTerm.replace(/　/g, ' ').split(' ').filter(w => w.length > 0);
 
         const filteredCards = allCards.filter(card => {
+            // カードオブジェクトが存在しない、またはidがない場合はスキップ
+            if (!card || !card.id) return false;
+
             // 1. フリーワード検索
             if (searchWords.length > 0) {
+                // 検索対象テキストを結合 (null/undefined を空文字に)
                 const searchableText = [
-                    card.name,
-                    card.effect,
-                    card.traits?.join(' '), // 配列を文字列に
-                    card.id
+                    card.name || '',
+                    card.effect || '',
+                    (card.traits || []).join(' '),
+                    card.id || ''
                 ].join(' ').toLowerCase();
                 
                 // すべての検索語を含むか (AND検索)
@@ -318,7 +352,8 @@
             
             // 色 (AND検索)
             if (f.colors?.length > 0) {
-                // カードの持つ色(card.color)が、選択された色(f.colors)をすべて含んでいるか
+                // カードの色情報が配列でない場合はスキップ
+                if (!Array.isArray(card.color)) return false;
                 if (!f.colors.every(color => card.color.includes(color))) {
                     return false;
                 }
@@ -331,20 +366,25 @@
             if (f.rarities?.length > 0 && !f.rarities.includes(card.rarity)) {
                 return false;
             }
-            // コスト (OR検索)
-            if (f.costs?.length > 0 && !f.costs.includes(String(card.cost))) {
-                return false;
+            // コスト (OR検索) - card.cost が null や undefined でないことを確認
+            if (f.costs?.length > 0) {
+                if (card.cost === undefined || card.cost === null || !f.costs.includes(String(card.cost))) {
+                     return false;
+                }
             }
             // 属性 (AND検索)
             if (f.attributes?.length > 0) {
-                if (!f.attributes.every(attr => card.attribute?.includes(attr))) {
+                // カードの属性情報が配列でない場合はスキップ
+                if (!Array.isArray(card.attribute)) return false;
+                if (!f.attributes.every(attr => card.attribute.includes(attr))) {
                     return false;
                 }
             }
             // シリーズ (シリーズIDで比較)
             if (f.series) {
-                // card.series は "OP01 - ROMANCE DAWN" 形式を想定
-                const cardSeriesId = card.id?.split('-')[0];
+                // カードIDがない場合は比較できないので除外
+                if (!card.id) return false;
+                const cardSeriesId = card.id.split('-')[0];
                 if (cardSeriesId !== f.series) {
                     return false;
                 }
@@ -370,12 +410,18 @@
         }
 
         cards.forEach(card => {
+            // カードデータがおかしい場合はスキップ
+            if (!card || !card.id) {
+                console.warn('Skipping invalid card data:', card);
+                return;
+            }
+
             const cardItem = document.createElement('div');
             cardItem.className = 'card-item';
             
             const img = document.createElement('img');
             img.className = 'card-image';
-            // PUNKDBのimagePathをそのまま使う (例: Cards/OP01/OP01-001.jpg)
+            // imagePath が存在するか確認
             const smallImagePath = card.imagePath ? card.imagePath.replace('.jpg', '_small.jpg') : '';
             img.src = smallImagePath; 
             img.alt = card.name || card.id;
@@ -395,8 +441,17 @@
                 // エラー時もクリックイベントは維持（フォールバック表示をクリックできるように）
                 cardItem.onclick = () => showLightbox(card);
             };
+
+            // imagePath がない場合のフォールバック表示
+            if (!smallImagePath) {
+                 const fallback = document.createElement('div');
+                 fallback.className = 'card-fallback';
+                 fallback.textContent = card.id;
+                 cardItem.appendChild(fallback);
+            } else {
+                 cardItem.appendChild(img);
+            }
             
-            cardItem.appendChild(img);
             fragment.appendChild(cardItem);
         });
 
@@ -432,6 +487,9 @@
      * @param {object} card - カードオブジェクト
      */
     function showLightbox(card) {
+        // カードデータがない場合は何もしない
+        if (!card) return;
+
         const largeImagePath = card.imagePath || '';
         dom.lightboxImage.src = largeImagePath; // 大画像
         dom.lightboxImage.style.display = 'block';
@@ -442,9 +500,16 @@
             console.warn(`Failed to load lightbox image: ${largeImagePath}`);
             dom.lightboxImage.style.display = 'none';
             dom.lightboxFallback.style.display = 'flex';
-            dom.lightboxFallback.textContent = card.id;
+            dom.lightboxFallback.textContent = card.id || 'Error';
         };
         
+        // imagePathがない場合もフォールバック表示
+         if (!largeImagePath) {
+             dom.lightboxImage.style.display = 'none';
+             dom.lightboxFallback.style.display = 'flex';
+             dom.lightboxFallback.textContent = card.id || 'No Image';
+         }
+
         dom.lightboxModal.style.display = 'flex';
     }
 
@@ -454,6 +519,11 @@
      * DBデータからフィルタオプションを動的に生成
      */
     function populateFilters() {
+        if (allCards.length === 0) {
+             dom.filterOptionsContainer.innerHTML = '<p>カードデータがありません。</p>';
+             return;
+        }
+
         // 重複を除去しながら各項目を収集
         const colors = new Set();
         const types = new Set();
@@ -463,6 +533,9 @@
         const seriesSet = new Map(); // {id: 'name'}
 
         allCards.forEach(card => {
+            // 不正なカードデータはスキップ
+            if (!card) return;
+
             // card.color が存在し、かつ配列であることを確認
             if (Array.isArray(card.color)) {
                 card.color.forEach(c => colors.add(c));
@@ -611,26 +684,32 @@
         dom.cacheAllImagesBtn.textContent = 'キャッシュ実行中...';
         dom.cacheProgressContainer.style.display = 'flex';
         dom.cacheProgressBar.style.width = '0%';
-        // 初期表示を修正
-        const totalCount = allCards.length; 
-        dom.cacheProgressText.textContent = `0 / ${totalCount}`;
-
-        // imagePathが存在するカードのみ対象にする
-        const validCards = allCards.filter(card => card.imagePath);
-        const smallImageUrls = validCards.map(card => card.imagePath.replace('.jpg', '_small.jpg'));
-        const allImageUrls = [...new Set(smallImageUrls)]; // 重複除去
         
+        // imagePathが存在し、有効なカードのみ対象にする
+        const validCards = allCards.filter(card => card && card.imagePath);
+        // 小画像パスを生成し、重複を除去
+        const smallImageUrls = [...new Set(validCards.map(card => card.imagePath.replace('.jpg', '_small.jpg')))];
+        
+        const totalCount = smallImageUrls.length; // 実際のキャッシュ対象数
+        dom.cacheProgressText.textContent = `0 / ${totalCount}`; // 表示を更新
+
+        if (totalCount === 0) {
+             showMessageToast('キャッシュ対象の画像がありません。');
+             dom.cacheAllImagesBtn.disabled = false;
+             dom.cacheAllImagesBtn.textContent = '全画像キャッシュ実行';
+             dom.cacheProgressContainer.style.display = 'none';
+             return;
+        }
+
         let cachedCount = 0;
-        const actualTotalCount = allImageUrls.length; // 実際のキャッシュ対象数
-        dom.cacheProgressText.textContent = `0 / ${actualTotalCount}`; // 表示を更新
+        let errors = 0;
 
         try {
             const cache = await caches.open(CACHE_IMAGES);
             
             // 5並列でダウンロード
             const parallelLimit = 5;
-            // キューをコピーして、元の配列を変更しないようにする
-            const queue = [...allImageUrls]; 
+            const queue = [...smallImageUrls]; 
             
             const processQueue = async () => {
                 while(queue.length > 0) {
@@ -638,31 +717,37 @@
                     if (!url) continue; // URLが空の場合はスキップ
 
                     try {
-                        // 既にキャッシュにあるか確認
+                        // 既にキャッシュにあるか確認 (キャッシュがあればfetchしない)
                         const existing = await cache.match(url);
                         if (!existing) {
                             // cache.add() はリクエストとレスポンスの保存を一度に行う
-                            // 失敗する可能性があるのでtry...catchで囲む
                             await cache.add(url);
                         }
                     } catch (e) {
                         console.warn(`Failed to cache image: ${url}`, e);
-                        // 1つ失敗しても続行
+                        errors++; // エラーカウント
                     }
                     
                     cachedCount++;
-                    const progress = Math.round((cachedCount / actualTotalCount) * 100);
-                    // UI更新はメインスレッドで行う方が安全な場合があるが、
-                    // Service Workerではないので、ここでは直接更新
-                    dom.cacheProgressBar.style.width = `${progress}%`;
-                    dom.cacheProgressText.textContent = `${cachedCount} / ${actualTotalCount}`;
+                    // UI更新をメインスレッドに少し遅延させる (描画のブロックを防ぐ)
+                    requestAnimationFrame(() => {
+                        const progress = Math.round((cachedCount / totalCount) * 100);
+                        dom.cacheProgressBar.style.width = `${progress}%`;
+                        dom.cacheProgressText.textContent = `${cachedCount} / ${totalCount}`;
+                    });
+                     // 短い待機を入れてCPU負荷を下げる (任意)
+                    // await new Promise(resolve => setTimeout(resolve, 10)); 
                 }
             };
             
             const workers = Array(parallelLimit).fill(null).map(processQueue);
             await Promise.all(workers);
 
-            showMessageToast(`全${actualTotalCount}件の画像キャッシュが完了しました。`, 'success');
+            if (errors > 0) {
+                showMessageToast(`画像キャッシュ完了 (${totalCount - errors}/${totalCount} 成功、${errors}件エラー)`, 'info');
+            } else {
+                showMessageToast(`全${totalCount}件の画像キャッシュが完了しました。`, 'success');
+            }
 
         } catch (error) {
             console.error('Failed to cache all images:', error);
@@ -670,10 +755,10 @@
         } finally {
             dom.cacheAllImagesBtn.disabled = false;
             dom.cacheAllImagesBtn.textContent = '全画像キャッシュ実行';
-            // 進捗バーを隠す前に少し待つ (完了表示を見せるため)
+            // 進捗バーを隠す前に少し待つ
             setTimeout(() => {
                 dom.cacheProgressContainer.style.display = 'none';
-            }, 1000);
+            }, 1500);
         }
     }
 
@@ -714,11 +799,15 @@
             const cacheNames = await caches.keys();
             await Promise.all(
                 cacheNames.map(cacheName => {
-                    console.log(`Deleting cache: ${cacheName}`);
-                    return caches.delete(cacheName);
+                    // アプリケーションに関連するキャッシュのみ削除 (念のため)
+                     if (cacheName.startsWith('app-shell-') || cacheName.startsWith('card-data-') || cacheName.startsWith('card-images-')) {
+                        console.log(`Deleting cache: ${cacheName}`);
+                        return caches.delete(cacheName);
+                    }
+                    return Promise.resolve(); // 関係ないキャッシュは削除しない
                 })
             );
-            console.log('All caches deleted.');
+            console.log('App related caches deleted.');
 
             // 3. Service Worker 登録解除
             if (swRegistration) {
@@ -820,14 +909,15 @@
         const applyHandler = () => {
             dom.dbUpdateNotification.style.display = 'none';
             fetchAndUpdateCardData(serverLastModified);
-            dom.dbUpdateApplyBtn.removeEventListener('click', applyHandler);
-            dom.dbUpdateDismissBtn.removeEventListener('click', dismissHandler);
+            // リスナー削除はハンドラー内で行う (once: true と併用)
         };
         const dismissHandler = () => {
             dom.dbUpdateNotification.style.display = 'none';
-             dom.dbUpdateApplyBtn.removeEventListener('click', applyHandler);
-             dom.dbUpdateDismissBtn.removeEventListener('click', dismissHandler);
+             // リスナー削除はハンドラー内で行う (once: true と併用)
         };
+        // 古いリスナーを念のため削除
+        dom.dbUpdateApplyBtn.removeEventListener('click', applyHandler);
+        dom.dbUpdateDismissBtn.removeEventListener('click', dismissHandler);
 
         dom.dbUpdateApplyBtn.addEventListener('click', applyHandler, { once: true });
         dom.dbUpdateDismissBtn.addEventListener('click', dismissHandler, { once: true });
@@ -851,16 +941,22 @@
                 // SKIP_WAITING後、controllerchangeイベントが発火してリロードされるはず
                 dom.appUpdateNotification.style.display = 'none';
                 showMessageToast('アプリを更新中...');
-                // 念のためタイムアウトも設定しておくが、controllerchangeが優先される想定
-                setTimeout(() => window.location.reload(), 3000); 
+                // 念のためタイムアウトも設定
+                setTimeout(() => {
+                    if (!applyHandler.refreshed) window.location.reload(); 
+                }, 3000); 
             } else {
-                 console.warn('Could not find waiting Service Worker to send SKIP_WAITING.');
+                 console.warn('Could not find waiting Service Worker to send SKIP_WAITING. Reloading directly...');
                  // SWが見つからない場合は単純にリロード
                  window.location.reload();
             }
-             dom.appUpdateApplyBtn.removeEventListener('click', applyHandler);
         };
+        // リロード済みフラグ
+        applyHandler.refreshed = false; 
+        navigator.serviceWorker.addEventListener('controllerchange', () => { applyHandler.refreshed = true; }, { once: true });
 
+        // 古いリスナーを削除
+        dom.appUpdateApplyBtn.removeEventListener('click', applyHandler);
         dom.appUpdateApplyBtn.addEventListener('click', applyHandler, { once: true });
     }
 
@@ -960,8 +1056,9 @@
         });
         dom.resetFilterBtn.addEventListener('click', () => {
             resetFilters();
-            // applyFiltersAndDisplay(); // リセットも即時反映する場合はコメント解除
-            // リセット時は適用ボタンを押すまで反映しない仕様にする場合は上記をコメントアウト
+            // リセット後、適用ボタンを押さなくても即時反映させる場合
+            // applyFiltersAndDisplay();
+            // dom.filterModal.style.display = 'none'; 
         });
 
         // --- 設定モーダル ---
@@ -987,12 +1084,14 @@
         dom.lightboxCloseBtn.addEventListener('click', () => {
             dom.lightboxModal.style.display = 'none';
             dom.lightboxImage.src = ''; // メモリ解放
+            dom.lightboxImage.onerror = null; // エラーハンドラ解除
         });
         dom.lightboxModal.addEventListener('click', (e) => {
             // 画像以外の背景クリックでも閉じる
             if (e.target === dom.lightboxModal) {
                 dom.lightboxModal.style.display = 'none';
                 dom.lightboxImage.src = ''; // メモリ解放
+                dom.lightboxImage.onerror = null; // エラーハンドラ解除
             }
         });
     }
@@ -1003,3 +1102,4 @@
     window.addEventListener('load', initializeApp);
 
 })();
+
