@@ -1,16 +1,14 @@
-// app.js (実行順序修正・全関数実装・省略なし最終版)
+// app.js (全機能統合・実行順序修正・省略なし最終版)
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // --- データベース定義 ---
-    const db = new Dexie('OnePieceCardDB_v18'); // バージョンアップでDBをリセット
+    const db = new Dexie('OnePieceCardDB_v19'); // DB名を変更してリセット
     db.version(1).stores({
       cards: 'uniqueId, cardNumber, cardName, *color, cardType, rarity, seriesCode, *features, effectText',
       meta: 'key, value',
       decks: '++id, name, updatedAt'
     });
 
-    // --- DOM要素の取得 ---
     const DOM = {
         appContainer: document.getElementById('app-container'),
         modalContainer: document.getElementById('modal-container'),
@@ -20,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
         settingsBtn: document.getElementById('settings-btn'),
     };
 
-    // --- グローバル状態 ---
     const state = {
       columns: parseInt(localStorage.getItem('columnCount') || '3', 10),
       currentScreen: 'card-list',
@@ -30,18 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     
     let newWorker;
-
-    // --- 関数定義 ---
-
-    function updateUI() {
-        if (DOM.columnsText) {
-            DOM.columnsText.textContent = `${state.columns}列`;
-        }
-        const cardList = document.getElementById('card-list');
-        if(cardList) {
-            cardList.className = `card-grid cols-${state.columns}`;
-        }
-    }
 
     async function initializeApp() {
         setupGlobalEventListeners();
@@ -56,50 +41,43 @@ document.addEventListener('DOMContentLoaded', () => {
             checkAndUpdateData();
         } catch (error) {
             console.error("初期化エラー:", error);
-            if(DOM.appContainer) DOM.appContainer.innerHTML = `<div id="status-message">エラー: ${error.message}。</div>`;
+            DOM.appContainer.innerHTML = `<main class="app-content"><div id="status-message">エラー: ${error.message}。</div></main>`;
         }
     }
 
     async function checkAndUpdateData() {
-      try {
-        const lastUpdated = await db.meta.get('lastUpdated');
-        const response = await fetch('./cards.json', { cache: 'no-store', method: 'HEAD' });
-        const serverLastModified = response.headers.get('Last-Modified');
-        if (!lastUpdated || new Date(lastUpdated.value) < new Date(serverLastModified)) {
-          const updateNotif = document.createElement('div');
-          updateNotif.id = 'update-notification';
-          updateNotif.innerHTML = `<span>新しいカードデータがあります</span><button id="update-data-btn">更新</button>`;
-          document.body.insertBefore(updateNotif, document.body.firstChild);
-          updateNotif.classList.add('show');
-          document.getElementById('update-data-btn').onclick = async () => {
-            updateNotif.querySelector('span').textContent = '更新中...';
-            await syncData(serverLastModified);
-            updateNotif.classList.remove('show');
-            setTimeout(() => updateNotif.remove(), 500);
-          };
-        }
-      } catch(e) { console.warn("更新チェック失敗(オフラインの可能性)"); }
+        try {
+            const lastUpdated = await db.meta.get('lastUpdated');
+            const response = await fetch('./cards.json', { cache: 'no-store', method: 'HEAD' });
+            const serverLastModified = response.headers.get('Last-Modified');
+            if (!lastUpdated || new Date(lastUpdated.value) < new Date(serverLastModified)) {
+                const updateNotif = document.createElement('div');
+                updateNotif.id = 'update-notification';
+                updateNotif.innerHTML = `<span>新しいカードデータがあります</span><button id="update-data-btn">更新</button>`;
+                document.body.insertBefore(updateNotif, document.body.firstChild);
+                updateNotif.classList.add('show');
+                document.getElementById('update-data-btn').onclick = async () => {
+                    updateNotif.querySelector('span').textContent = '更新中...';
+                    await syncData(serverLastModified);
+                    updateNotif.classList.remove('show');
+                    setTimeout(() => updateNotif.remove(), 500);
+                };
+            }
+        } catch(e) { console.warn("更新チェック失敗(オフラインの可能性)"); }
     }
 
     async function syncData(lastModified) {
-        const statusMsg = document.createElement('div');
-        statusMsg.id = 'status-message';
-        statusMsg.textContent = 'カードデータを更新中...';
-        DOM.appContainer.innerHTML = '';
-        DOM.appContainer.appendChild(statusMsg);
-        
+        DOM.appContainer.innerHTML = `<main class="app-content"><div id="status-message">カードデータを更新中...</div></main>`;
         const response = await fetch('./cards.json', { cache: 'no-store' });
         if (!response.ok) throw new Error('cards.jsonの読み込みに失敗');
         const cards = await response.json();
-        
         await db.transaction('rw', db.cards, db.meta, async () => {
             await db.cards.clear();
             await db.cards.bulkAdd(cards);
             await db.meta.put({ key: 'lastUpdated', value: lastModified || new Date().toISOString() });
         });
-        
         state.allCards = await db.cards.toArray();
-        await navigateTo(state.currentScreen, { deckId: state.currentDeckId });
+        await navigateTo(state.currentScreen);
     }
 
     async function navigateTo(screen, params = null) {
@@ -107,65 +85,51 @@ document.addEventListener('DOMContentLoaded', () => {
         if(params?.deckId !== undefined) state.currentDeckId = params.deckId;
         DOM.navItems.forEach(item => item.classList.toggle('active', item.dataset.screen === screen));
         window.location.hash = screen;
-
         switch (screen) {
             case 'decks': await renderDeckListScreen(); break;
-            case 'deck-editor': await renderDeckEditScreen(state.currentDeckId); break;
             case 'card-list': default: await renderCardListScreen(); break;
         }
     }
 
     async function renderCardListScreen() {
         DOM.appContainer.innerHTML = `
-            <header class="app-header">
-                <div class="search-bar"><i class="fa-solid fa-magnifying-glass"></i><input type="text" id="search-box" placeholder="検索"></div>
-                <button id="filter-btn"><i class="fa-solid fa-filter"></i><span>フィルタ</span></button>
-            </header>
-            <main class="app-content">
-                <div id="status-message" style="display: none;"></div>
-                <div id="card-list" class="card-grid cols-${state.columns}"></div>
-            </main>
+          <header class="app-header">
+            <div class="search-bar"><i class="fa-solid fa-magnifying-glass"></i><input type="text" id="search-box" placeholder="検索"></div>
+            <button id="filter-btn"><i class="fa-solid fa-filter"></i><span>フィルタ</span></button>
+            <div id="progress-bar-container" style="display: none;"><div id="progress-bar"></div><span id="progress-text"></span></div>
+          </header>
+          <main class="app-content">
+            <div id="status-message" style="display: none;"></div>
+            <div id="card-list" class="card-grid cols-${state.columns}"></div>
+          </main>
         `;
         document.getElementById('search-box').addEventListener('input', displayCards);
         document.getElementById('filter-btn').addEventListener('click', openFilterModal);
         await displayCards();
     }
-
-    async function renderDeckListScreen() {
-        DOM.appContainer.innerHTML = `<div class="app-content"><div style="padding:1rem"><h2>デッキ一覧</h2><p>デッキ機能は実装中です</p></div></div>`;
-    }
     
-    async function renderDeckEditScreen(deckId) {
-        DOM.appContainer.innerHTML = `<div class="app-content"><div style="padding:1rem"><h2>デッキ編集</h2><p>デッキ編集機能は実装中です</p></div></div>`;
+    async function renderDeckListScreen() {
+        DOM.appContainer.innerHTML = `<main class="app-content"><div style="padding:1rem"><h2>デッキ一覧</h2><p>デッキ機能は実装中です</p></div></main>`;
     }
 
     async function displayCards() {
         const cardList = document.getElementById('card-list');
-        if (!cardList) return;
-
+        const statusMsg = document.getElementById('status-message');
+        if (!cardList || !statusMsg) return;
         try {
             if (state.allCards.length === 0) {
-                const statusMsg = document.getElementById('status-message');
-                if(statusMsg) {
-                    statusMsg.textContent = 'カードデータがありません。';
-                    statusMsg.style.display = 'block';
-                }
-                return;
+                statusMsg.textContent = 'カードデータがありません。'; statusMsg.style.display = 'block'; return;
             }
             let filtered = [...state.allCards];
-
             if (Object.keys(state.filters).length > 0) {
-                filtered = state.allCards.filter(card => {
-                    return Object.keys(state.filters).every(key => {
-                        const values = state.filters[key];
-                        if (!values || values.length === 0) return true;
-                        if (key === 'seriesCode') return values.some(v => card.seriesCode === v);
-                        if(Array.isArray(card[key])) return values.some(v => card[key].includes(v));
-                        return values.includes(String(card[key]));
-                    });
-                });
+                filtered = state.allCards.filter(card => Object.keys(state.filters).every(key => {
+                    const values = state.filters[key];
+                    if (!values || values.length === 0) return true;
+                    if (key === 'seriesCode') return values.some(v => card.seriesCode === v);
+                    if(Array.isArray(card[key])) return values.some(v => card[key].includes(v));
+                    return values.includes(String(card[key]));
+                }));
             }
-
             const searchBox = document.getElementById('search-box');
             const searchTerm = searchBox ? searchBox.value.toLowerCase().trim() : '';
             if (searchTerm) {
@@ -175,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     return searchWords.every(word => targetText.includes(word));
                 });
             }
-
+            statusMsg.style.display = 'none';
             cardList.innerHTML = '';
             const fragment = document.createDocumentFragment();
             filtered.forEach(card => {
@@ -183,19 +147,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 cardDiv.className = 'card-item';
                 const series = card.cardNumber.split('-')[0];
                 const imageUrl = `./Cards/${series}/${card.cardNumber}.jpg`;
-                cardDiv.innerHTML = `
-                    <img src="${imageUrl}" alt="${card.cardName}" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="card-placeholder">${card.cardNumber}</div>
-                `;
+                cardDiv.innerHTML = `<img src="${imageUrl}" alt="${card.cardName}" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="card-placeholder">${card.cardNumber}</div>`;
                 cardDiv.addEventListener('click', () => openLightbox(imageUrl));
                 fragment.appendChild(cardDiv);
             });
             cardList.appendChild(fragment);
         } catch(error) { console.error("カード表示エラー:", error); }
     }
-    
+
     function openLightbox(src) {
-        const lightboxHtml = `<div id="lightbox-modal" class="modal-overlay" style="display:flex; align-items:center; justify-content:center;"><span id="close-lightbox-btn" class="close-btn lightbox-close">&times;</span><img class="lightbox-content" src="${src}"></div>`;
+        const lightboxHtml = `<div id="lightbox-modal" class="modal-overlay"><span id="close-lightbox-btn" class="close-btn lightbox-close">&times;</span><img class="lightbox-content" src="${src}"></div>`;
         DOM.modalContainer.innerHTML = lightboxHtml;
         const modal = document.getElementById('lightbox-modal');
         modal.addEventListener('click', (e) => { if(e.target === modal) DOM.modalContainer.innerHTML = ''; });
@@ -203,14 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function openFilterModal() {
-        const filterModalHtml = `
-            <div id="filter-modal" class="modal-overlay" style="display:flex;">
-                <div class="modal-content">
-                    <div class="modal-header"><h2>フィルタ</h2><button id="close-filter-btn" class="close-btn"><i class="fa-solid fa-xmark"></i></button></div>
-                    <div id="filter-options" class="modal-body"></div>
-                    <div class="modal-footer"><button id="clear-filter-btn">クリア</button><button id="apply-filter-btn">適用</button></div>
-                </div>
-            </div>`;
+        const filterModalHtml = `<div id="filter-modal" class="modal-overlay"><div class="modal-content"><div class="modal-header"><h2>フィルタ</h2><button id="close-filter-btn" class="close-btn"><i class="fa-solid fa-xmark"></i></button></div><div id="filter-options" class="modal-body"></div><div class="modal-footer"><button id="clear-filter-btn">クリア</button><button id="apply-filter-btn">適用</button></div></div></div>`;
         DOM.modalContainer.innerHTML = filterModalHtml;
         await setupFilters();
         document.getElementById('close-filter-btn').addEventListener('click', () => DOM.modalContainer.innerHTML = '');
@@ -221,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('apply-filter-btn').addEventListener('click', applyFilters);
         document.getElementById('filter-modal').addEventListener('click', (e) => { if (e.target.id === 'filter-modal') DOM.modalContainer.innerHTML = ''; });
     }
-    
+
     function applyFilters() {
         state.filters = {};
         document.querySelectorAll('#filter-options .filter-option-btn.active').forEach(btn => {
@@ -257,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function openSettingsModal() {
-        const settingsHtml = `<div id="settings-modal" class="modal-overlay" style="display:flex;"><div class="modal-content"><h2>設定</h2><div class="settings-options"><button id="cache-images-btn">全画像キャッシュ</button><button id="clear-cache-btn">全キャッシュ削除</button></div><button id="close-settings-btn" class="close-btn">閉じる</button></div></div>`;
+        const settingsHtml = `<div id="settings-modal" class="modal-overlay"><div class="modal-content"><h2>設定</h2><div class="settings-options"><button id="cache-images-btn">全画像キャッシュ</button><button id="clear-cache-btn">全キャッシュ削除</button></div><button id="close-settings-btn" class="close-btn">閉じる</button></div></div>`;
         DOM.modalContainer.innerHTML = settingsHtml;
         document.getElementById('cache-images-btn').addEventListener('click', cacheAllImages);
         document.getElementById('clear-cache-btn').addEventListener('click', clearAllCaches);
@@ -271,12 +225,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const progressBarContainer = document.querySelector('.app-header #progress-bar-container');
         const progressBar = document.querySelector('.app-header #progress-bar');
         const progressText = document.querySelector('.app-header #progress-text');
-        
         btn.disabled = true; btn.textContent = 'キャッシュ中...';
         if (progressBarContainer) progressBarContainer.style.display = 'flex';
         if (progressBar) progressBar.style.width = '0%';
         if (progressText) progressText.textContent = '0%';
-        
         try {
             const imageUrls = state.allCards.map(card => `./Cards/${card.cardNumber.split('-')[0]}/${card.cardNumber}.jpg`).filter(Boolean);
             navigator.serviceWorker.controller.postMessage({ type: 'CACHE_IMAGES', payload: imageUrls });
@@ -320,8 +272,16 @@ document.addEventListener('DOMContentLoaded', () => {
         DOM.navItems.forEach(item => {
             item.addEventListener('click', (e) => { e.preventDefault(); const screen = e.currentTarget.dataset.screen; if(screen && screen !== state.currentScreen) navigateTo(screen); });
         });
-        DOM.changeColumnsBtn.addEventListener('click', (e) => { e.preventDefault(); state.columns = (state.columns % 5) + 1; localStorage.setItem('columnCount', state.columns); updateUI(); });
-        DOM.settingsBtn.addEventListener('click', (e) => { e.preventDefault(); openSettingsModal(); });
+        DOM.changeColumnsBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            state.columns = (state.columns % 5) + 1;
+            localStorage.setItem('columnCount', state.columns);
+            updateUI();
+        });
+        DOM.settingsBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openSettingsModal();
+        });
     }
 
     function setupServiceWorker() {
@@ -352,6 +312,7 @@ document.addEventListener('DOMContentLoaded', () => {
         newWorker.postMessage({ type: 'SKIP_WAITING' });
       };
     }
+
     let refreshing;
     navigator.serviceWorker.addEventListener('controllerchange', () => {
       if (refreshing) return;

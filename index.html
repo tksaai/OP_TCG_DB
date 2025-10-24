@@ -11,39 +11,27 @@
 </head>
 <body>
 
-  <!-- アプリ更新通知 -->
   <div id="update-notification">
     <span>新しいバージョンがあります</span>
     <button id="update-button">更新</button>
   </div>
 
-  <!-- ヘッダー -->
-  <header class="app-header">
-    <div class="search-bar">
-      <i class="fa-solid fa-magnifying-glass"></i>
-      <input type="text" id="search-box" placeholder="検索">
-    </div>
-    <button id="filter-btn"><i class="fa-solid fa-filter"></i><span>フィルタ</span></button>
-  </header>
+  <div id="app-container">
+    <!-- 各画面はこの中にレンダリングされます -->
+  </div>
 
-  <!-- メインコンテンツ (スクロール領域) -->
-  <main class="app-content">
-    <div id="status-message">データ読み込み中...</div>
-    <div id="card-list" class="card-grid"></div>
-  </main>
-
-  <!-- フッター -->
   <footer class="app-footer">
     <nav>
-      <a href="#" class="nav-item active" data-screen="card-list"><i class="fa-solid fa-clone"></i><span>Card List</span></a>
-      <a href="#" class="nav-item" data-screen="decks"><i class="fa-solid fa-layer-group"></i><span>Decks</span></a>
+      <a href="#card-list" class="nav-item active" data-screen="card-list"><i class="fa-solid fa-clone"></i><span>Card List</span></a>
+      <a href="#decks" class="nav-item" data-screen="decks"><i class="fa-solid fa-layer-group"></i><span>Decks</span></a>
       <a href="#" class="nav-item" id="change-columns-btn"><i class="fa-solid fa-table-cells"></i><span id="columns-text">3列</span></a>
       <a href="#" class="nav-item" id="settings-btn"><i class="fa-solid fa-gear"></i><span>Settings</span></a>
     </nav>
   </footer>
 
-  <!-- モーダルウィンドウ用のコンテナ -->
-  <div id="modal-container"></div>
+  <div id="modal-container">
+      <!-- モーダルウィンドウはJSでここに生成されます -->
+  </div>
   
   <script src="https://unpkg.com/dexie@3/dist/dexie.js"></script>
   <script src="./app.js"></script>
