@@ -1,6 +1,7 @@
 /*
  * Service Worker for OP-TCG DB PWA (GitHub Pages compatible)
  * ファイル名を元の名前に修正
+ * HEADリクエストで cache.put しないように修正
  */
 
 // === 1. 定数 ===
@@ -39,7 +40,9 @@ self.addEventListener('install', (event) => {
                         console.error('[SW] Failed to cache app shell files:', err, APP_SHELL_FILES);
                         // 個別のファイルキャッシュ失敗をログに出力
                         APP_SHELL_FILES.forEach(fileUrl => {
-                            fetch(fileUrl).catch(fetchErr => console.error(`[SW] Failed to fetch: ${fileUrl}`, fetchErr));
+                            // addAllが失敗した場合、個別にfetchして原因を探る
+                            fetch(new Request(fileUrl, { mode: 'no-cors' })) // CDN用 no-cors
+                                .catch(fetchErr => console.error(`[SW] Failed to fetch individually: ${fileUrl}`, fetchErr));
                         });
                         // インストール失敗として扱う
                         throw err; 
@@ -58,7 +61,6 @@ self.addEventListener('install', (event) => {
                 console.log('[SW] Install complete.');
                  // インストールが成功したらすぐに新しいSWをアクティブにする準備を促す
                  // ただし、即時アクティブ化はクライアント側で制御 (SKIP_WAITING)
-                // return self.skipWaiting(); // ここでは呼ばない
             })
             .catch(error => {
                 console.error('[SW] Installation failed:', error);
@@ -87,7 +89,6 @@ self.addEventListener('activate', (event) => {
         }).then(() => {
             console.log('[SW] Activation complete. Claiming clients...');
             // 新しいSWが即座にページを制御できるようにする
-            // これにより、更新後の初回リロードで新しいSWが使われる
             return self.clients.claim();
         })
     );
@@ -96,27 +97,26 @@ self.addEventListener('activate', (event) => {
 
 // === 4. フェッチ (Fetch) イベント ===
 self.addEventListener('fetch', (event) => {
+    // GETリクエスト以外は Service Worker で処理せず、そのままネットワークに流す
+    // これにより HEAD リクエストの問題を回避
+    if (event.request.method !== 'GET') {
+        // console.log(`[SW] Ignoring non-GET request: ${event.request.method} ${event.request.url}`);
+        return; // Service Worker は何もしない（ブラウザが通常通り処理）
+    }
+
     const url = new URL(event.request.url);
     const requestPath = url.pathname;
     
-    // GitHub Pagesのリポジトリ名を考慮 (例: /repo-name/index.html)
-    // Service Worker のスコープからの相対パスを使う
-    const basePath = new URL(self.registration.scope).pathname; // 例: /repo-name/
-    // リクエストパスがベースパスで始まっているか確認し、相対パスを生成
+    // GitHub Pagesのリポジトリ名を考慮
+    const basePath = new URL(self.registration.scope).pathname;
     let relativePath = './';
     if (requestPath.startsWith(basePath)) {
-         relativePath = './' + requestPath.substring(basePath.length); // 例: ./index.html
-    } else {
-         // Service Worker のスコープ外のリクエスト (CDNなど) はそのまま処理
-         // console.log(`[SW] Fetch: Outside scope - ${requestPath}`);
-         // event.respondWith(fetch(event.request)); // 下で処理するのでここでは何もしない
-    }
+         relativePath = './' + requestPath.substring(basePath.length);
+    } 
 
-
-    // console.log(`[SW] Fetching: ${requestPath}, Relative: ${relativePath}, Base: ${basePath}`);
+    // console.log(`[SW] Handling GET: ${requestPath}, Relative: ${relativePath}, Base: ${basePath}`);
 
     // 1. アプリシェル (Stale-While-Revalidate)
-    // APP_SHELL_FILES に含まれるか、 または CDN の URL かどうか
     if (APP_SHELL_FILES.includes(relativePath) || url.origin === 'https://cdn.jsdelivr.net') {
         event.respondWith(staleWhileRevalidate(event.request, CACHE_APP_SHELL));
         return;
@@ -129,24 +129,21 @@ self.addEventListener('fetch', (event) => {
     }
     
     // 3. カード画像 (Cards/) (Cache First)
-    // ベースパス + 'Cards/' で始まるか確認
     if (requestPath.startsWith(basePath + 'Cards/')) {
         event.respondWith(cacheFirst(event.request, CACHE_IMAGES));
         return;
     }
 
-    // 4. その他 (ネットワークのみ)
-    // console.log(`[SW] Fetch: Passing through ${requestPath}`);
-    // ここで respondWith を呼ばないと、ブラウザのデフォルト動作（ネットワークフェッチ）になる
-    // 明示的に書く場合は以下
-    // event.respondWith(fetch(event.request)); 
+    // 4. 上記以外 (キャッシュ対象外) のGETリクエストも、
+    //    デフォルト動作（ネットワーク）に任せる
+    //    明示的に書くなら event.respondWith(fetch(event.request));
 });
 
 // === 5. キャッシュ戦略 ===
 
 /**
- * Cache First (Cache, falling back to Network)
- * @param {Request} request
+ * Cache First (Cache, falling back to Network) - GETのみ対応
+ * @param {Request} request - GET Request
  * @param {string} cacheName
  */
 async function cacheFirst(request, cacheName) {
@@ -155,17 +152,13 @@ async function cacheFirst(request, cacheName) {
         const cachedResponse = await cache.match(request);
         
         if (cachedResponse) {
-            // console.log(`[SW] Cache First: Found ${request.url} in cache.`);
             return cachedResponse;
         }
         
-        // console.log(`[SW] Cache First: Not in cache. Fetching ${request.url}`);
         const networkResponse = await fetch(request);
-        // レスポンスが正常(2xx)ならキャッシュにも保存
-        // (リダイレクト(3xx)などはキャッシュしない方が安全な場合もある)
+        // GETリクエストの結果のみキャッシュする
         if (networkResponse && networkResponse.ok) {
-            // レスポンスはストリームなので、クローンして片方をキャッシュに
-            // putは非同期なのでawaitする
+            // cache.put は GET リクエストのみサポート
              await cache.put(request, networkResponse.clone());
         } else if (networkResponse) {
              console.warn(`[SW] Cache First: Received non-OK response for ${request.url}: ${networkResponse.status}`);
@@ -173,32 +166,26 @@ async function cacheFirst(request, cacheName) {
         return networkResponse;
     } catch (error) {
         console.error(`[SW] Cache First: Failed for ${request.url}`, error);
-        // オフライン時の画像フォールバックなどをここに追加可能
-        // 例: return caches.match('./icons/placeholder.png');
-        // エラーレスポンスを返す
         return new Response(null, { status: 404, statusText: 'Not Found (Offline or Error)' });
     }
 }
 
 /**
- * Network First (Network, falling back to Cache)
- * @param {Request} request
+ * Network First (Network, falling back to Cache) - GETのみ対応
+ * @param {Request} request - GET Request
  * @param {string} cacheName
  */
 async function networkFirst(request, cacheName) {
     try {
-        // console.log(`[SW] Network First: Fetching ${request.url}`);
         const networkResponse = await fetch(request);
         
-        // ネットワークが成功したら、キャッシュを更新
+        // ネットワークが成功した場合のみキャッシュを更新 (GETのみ)
         if (networkResponse && networkResponse.ok) {
             const cache = await caches.open(cacheName);
-            // 非同期でキャッシュ更新
-            await cache.put(request, networkResponse.clone());
+             await cache.put(request, networkResponse.clone());
         } else if (networkResponse) {
              console.warn(`[SW] Network First: Received non-OK response for ${request.url}: ${networkResponse.status}`);
-             // OKでないレスポンスでも、とりあえずそれを返す (サーバーエラーなど)
-             return networkResponse;
+             return networkResponse; // OKでなくてもレスポンスは返す
         }
         return networkResponse;
         
@@ -208,35 +195,30 @@ async function networkFirst(request, cacheName) {
         const cache = await caches.open(cacheName);
         const cachedResponse = await cache.match(request);
         if (cachedResponse) {
-            console.log(`[SW] Network First: Found ${request.url} in cache (fallback).`);
             return cachedResponse;
         } else {
             console.error(`[SW] Network First: Fetch failed and no cache available for ${request.url}`);
-             // オフライン用のJSONなどを返すことも検討
-            // return new Response(JSON.stringify({ error: "Offline" }), { headers: { 'Content-Type': 'application/json' }});
              return new Response(null, { status: 503, statusText: 'Service Unavailable (Offline)' });
         }
     }
 }
 
 /**
- * Stale-While-Revalidate
- * @param {Request} request
+ * Stale-While-Revalidate - GETのみ対応
+ * @param {Request} request - GET Request
  * @param {string} cacheName
  */
 async function staleWhileRevalidate(request, cacheName) {
     const cache = await caches.open(cacheName);
-    
-    // キャッシュからのレスポンスを試みるPromise
     const cachedResponsePromise = cache.match(request);
     
-    // ネットワークからのレスポンスを取得し、キャッシュを更新するPromise
+    // ネットワークからのレスポンスを取得し、キャッシュを更新するPromise (GETのみ)
     const networkUpdatePromise = fetch(request).then(async (networkResponse) => {
+        // GETリクエストの結果のみキャッシュする
         if (networkResponse && networkResponse.ok) {
-            // 正常なレスポンスならキャッシュを更新
            await cache.put(request, networkResponse.clone());
         } else if (networkResponse) {
-             console.warn(`[SW] SWR: Received non-OK response for ${request.url}: ${networkResponse.status}`);
+             // console.warn(`[SW] SWR: Received non-OK response for ${request.url}: ${networkResponse.status}`);
         }
         return networkResponse; // ネットワークレスポンスを返す
     }).catch(err => {
@@ -247,12 +229,10 @@ async function staleWhileRevalidate(request, cacheName) {
     // キャッシュがあればそれを返し、裏でネットワーク更新を実行
     const cachedResponse = await cachedResponsePromise;
     if (cachedResponse) {
-        // console.log(`[SW] SWR: Returning cached ${request.url} (stale).`);
         return cachedResponse;
     }
 
     // キャッシュがなければネットワークの結果を待つ
-    // console.log(`[SW] SWR: No cache. Waiting for network ${request.url}`);
     const networkResponse = await networkUpdatePromise;
     if (networkResponse) {
         return networkResponse;
@@ -260,8 +240,6 @@ async function staleWhileRevalidate(request, cacheName) {
 
     // 両方失敗した場合
     console.error(`[SW] SWR: Failed to get ${request.url} from cache and network.`);
-    // 適切なエラーレスポンスを返す (例: オフラインページ)
-    // return caches.match('./offline.html');
     return new Response(null, { status: 503, statusText: 'Service Unavailable (Offline or Error)' });
 }
 
@@ -270,7 +248,7 @@ async function staleWhileRevalidate(request, cacheName) {
 self.addEventListener('message', (event) => {
     if (event.data && event.data.type === 'SKIP_WAITING') {
         console.log('[SW] Received SKIP_WAITING message. Activating new SW...');
-        // skipWaiting() を呼ぶと、新しいSWが即座に Activate フェーズに入る
         self.skipWaiting();
     }
 });
+
