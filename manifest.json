@@ -1,20 +1,26 @@
 {
-  "short_name": "ワンピカードDB",
-  "name": "ワンピースカードデータベース",
-  "icons": [
-    {
-      "src": "./icons/iconx192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "./icons/iconx512.png",
-      "type": "image/png",
-      "sizes": "512x512"
-    }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#2c3e50",
-  "background_color": "#f4f4f9"
+    "name": "ワンピースカード DB PWA",
+    "short_name": "OP-TCG DB",
+    "description": "ワンピースカードゲームのオフライン対応データベースPWA",
+    "start_url": "./index.html",
+    "scope": ".",
+    "display": "standalone",
+    "background_color": "#121212",
+    "theme_color": "#1e1e1e",
+    "orientation": "portrait",
+    "icons": [
+        {
+            "src": "./icons/iconx192.png",
+            "type": "image/png",
+            "sizes": "192x192",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "./icons/iconx512.png",
+            "type": "image/png",
+            "sizes": "512x512",
+            "purpose": "any maskable"
+        }
+    ]
 }
+
