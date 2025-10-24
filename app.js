@@ -33,14 +33,14 @@
         filterBtn: $('#filter-btn'),
         settingsBtn: $('#settings-btn'),
         mainContent: $('#main-content'),
-        
+
         // モーダル: フィルタ
         filterModal: $('#filter-modal'),
         closeFilterModalBtn: $('#close-filter-modal-btn'),
         filterOptionsContainer: $('#filter-options-container'),
         applyFilterBtn: $('#apply-filter-btn'),
         resetFilterBtn: $('#reset-filter-btn'),
-        
+
         // モーダル: 設定
         settingsModal: $('#settings-modal'),
         closeSettingsModalBtn: $('#close-settings-modal-btn'),
@@ -55,7 +55,7 @@
         lightboxImage: $('#lightbox-image'),
         lightboxFallback: $('#lightbox-fallback'),
         lightboxCloseBtn: $('#lightbox-close-btn'),
-        
+
         // 通知
         dbUpdateNotification: $('#db-update-notification'),
         dbUpdateApplyBtn: $('#db-update-apply-btn'),
@@ -65,7 +65,7 @@
         messageToast: $('#message-toast'),
         messageToastText: $('#message-toast-text'),
         messageToastDismissBtn: $('#message-toast-dismiss-btn'),
-        
+
         // キャッシュ進捗
         cacheProgressContainer: $('#cache-progress-container'),
         cacheProgressBar: $('#cache-progress-bar'),
@@ -73,7 +73,7 @@
     };
 
     // === 3. 初期化処理 ===
-    
+
     /**
      * アプリケーションの初期化
      */
@@ -127,17 +127,16 @@
 
         try {
             // 1. サーバーからcards.jsonのヘッダー情報(Last-Modified)を取得
-            const response = await fetch(CARDS_JSON_PATH, { 
+            const response = await fetch(CARDS_JSON_PATH, {
                 method: 'HEAD',
                 cache: 'no-store' // 必ずサーバーに確認
             });
-            
+
             if (!response.ok) throw new Error(`Failed to fetch HEAD: ${response.statusText}`);
-            
+
             const serverLastModified = response.headers.get('Last-Modified');
             if (!serverLastModified) {
                 console.warn('Server did not provide Last-Modified header. Falling back to full fetch check.');
-                // HEADが使えない/Last-Modifiedがないサーバーの場合、フルフェッチで比較
                 await checkCardDataByFetching();
                 return;
             }
@@ -147,7 +146,7 @@
             const localLastModified = localMetadata ? localMetadata.value : null;
 
             dom.cardDataVersionInfo.textContent = localLastModified ? new Date(localLastModified).toLocaleString('ja-JP') : '未取得';
-            
+
             console.log('Server Last-Modified:', serverLastModified);
             console.log('Local Last-Modified:', localLastModified);
 
@@ -155,9 +154,9 @@
             if (serverLastModified !== localLastModified) {
                 // 更新がある場合
                 console.log('Card data update detected.');
-                
-                // 初回起動時（ローカルデータなし）は通知なしで即時更新
+
                 if (!localLastModified) {
+                    // 初回起動時（ローカルデータなし）は通知なしで即時更新
                     console.log('First time load. Fetching card data...');
                     dom.loadingIndicator.querySelector('p').textContent = '初回カードデータを取得中...';
                     await fetchAndUpdateCardData(serverLastModified);
@@ -168,9 +167,19 @@
                     await loadCardsFromDB();
                 }
             } else {
-                // 更新がない場合
-                console.log('Card data is up to date.');
+                // 更新がないと判断した場合
+                console.log('Card data is assumed up to date.');
                 await loadCardsFromDB();
+
+                // --- 追加のチェック ---
+                // データが最新のはずなのに、DBが空だったら強制的に再取得
+                if (allCards.length === 0 && localLastModified) {
+                    console.warn('DB is empty even though metadata indicates it is up to date. Forcing data fetch...');
+                    dom.loadingIndicator.style.display = 'flex'; // ローディング表示を再開
+                    dom.loadingIndicator.querySelector('p').textContent = 'データ整合性を確認中...';
+                    await fetchAndUpdateCardData(serverLastModified);
+                }
+                // --- 追加のチェックここまで ---
             }
         } catch (error) {
             console.error('Failed to check card data version:', error);
@@ -181,19 +190,26 @@
     }
 
     /**
-     * Last-Modifiedが使えない場合のフォールバック (実装は簡略化のため省略)
-     * 本来は ETag や JSON のハッシュ比較を行う
+     * Last-Modifiedが使えない場合のフォールバック
      */
     async function checkCardDataByFetching() {
         console.log('Checking card data by full fetch (fallback)...');
-        // ここでは簡略化し、常にローカルDBをロードする
+        // 常にローカルDBをロード試行
         await loadCardsFromDB();
+        // フォールバックの場合もDBが空だったら再取得を試みる (初回起動を想定)
+        if (allCards.length === 0) {
+            console.warn('DB is empty on fallback check. Attempting initial fetch...');
+            dom.loadingIndicator.style.display = 'flex';
+            dom.loadingIndicator.querySelector('p').textContent = '初回カードデータを取得中...';
+            // Last-Modifiedがないので、現在時刻を仮の識別子として渡す
+            await fetchAndUpdateCardData(new Date().toUTCString());
+        }
     }
 
 
     /**
      * サーバーから最新のcards.jsonを取得し、DBを更新
-     * @param {string} serverLastModified - サーバーから取得したLast-Modifiedヘッダー
+     * @param {string} serverLastModified - サーバーから取得したLast-Modifiedヘッダー (または代替のタイムスタンプ)
      */
     async function fetchAndUpdateCardData(serverLastModified) {
         if (!db) {
@@ -205,83 +221,103 @@
         dom.loadingIndicator.style.display = 'flex';
         dom.loadingIndicator.querySelector('p').textContent = '最新カードデータをダウンロード中...';
 
+        let tx; // トランザクションを早期に宣言
+
         try {
             const response = await fetch(CARDS_JSON_PATH, { cache: 'no-store' });
             if (!response.ok) throw new Error(`Failed to download cards.json: ${response.statusText}`);
-            
+
             const cardsData = await response.json();
             let cardsArray = [];
 
-            // PUNKDBのデータ形式 (オブジェクトの配列) かどうかを確認
+            // データ形式の確認と配列への変換
             if (Array.isArray(cardsData)) {
                 cardsArray = cardsData;
             } else if (typeof cardsData === 'object' && cardsData !== null) {
-                // オブジェクト形式 { "OP01": [...], "OP02": [...] } の場合、配列に展開
                 console.warn("JSON format is not a simple array. Extracting values.");
-                cardsArray = Object.values(cardsData).flat();
+                cardsArray = Object.values(cardsData).flat(); // オブジェクトの値をフラットな配列に
             } else {
                 throw new Error("Invalid cards.json format");
             }
 
-            // カードデータが空でないことを確認
             if (cardsArray.length === 0) {
                  throw new Error("Downloaded card data is empty.");
             }
 
             dom.loadingIndicator.querySelector('p').textContent = 'データベースを更新中...';
-            
-            // --- DB更新処理 (修正箇所) ---
-            // 'bulkPut' は idb の標準機能ではないため、
-            // トランザクション内でループ処理 'put' を行う確実な方法に変更
-            
-            // 1. カードとメタデータの両方を更新するトランザクションを開始
-            const tx = db.transaction([STORE_CARDS, STORE_METADATA], 'readwrite');
+
+            // --- DB更新処理 ---
+            tx = db.transaction([STORE_CARDS, STORE_METADATA], 'readwrite');
             const cardStore = tx.objectStore(STORE_CARDS);
             const metaStore = tx.objectStore(STORE_METADATA);
+            let count = 0;
+            let putErrors = 0;
 
-            // 2. カードストアをクリア
+            // 既存データをクリア
             await cardStore.clear();
             console.log(`${STORE_CARDS} store cleared.`);
 
-            // 3. 新しいデータを一件ずつ 'put' (add or update)
-            // (for...of ループは await との相性が良い)
-            let count = 0;
+            // 新データを一件ずつ追加
             for (const card of cardsArray) {
-                // 'id' がない不正なデータはスキップ
-                if (card && card.id) { 
-                    await cardStore.put(card);
-                    count++;
+                if (card && card.id) {
+                    try {
+                        await cardStore.put(card);
+                        count++;
+                    } catch (putError) {
+                        console.error(`Failed to put card ${card.id} into DB:`, putError);
+                        putErrors++;
+                        // エラーが発生しても処理を続行する（部分的な成功を目指す）
+                    }
                 } else {
                     console.warn('Skipping invalid card object during update:', card);
                 }
             }
-            console.log(`${count} cards added to DB.`);
+            console.log(`${count} cards attempted to add to DB.`);
+            if (putErrors > 0) {
+                console.error(`${putErrors} errors occurred during card put operations.`);
+                // 致命的なエラーとして扱う場合はここでエラーを投げる
+                // throw new Error(`${putErrors} errors occurred during DB update.`);
+            }
 
-            // 4. メタデータを更新 (同じトランザクション内)
+            // メタデータを更新 (カードのputが一部失敗しても、成功した分は反映するためメタデータは更新する)
             await metaStore.put({
                 key: 'cardsLastModified',
                 value: serverLastModified
             });
             console.log('Metadata updated.');
 
-            // 5. トランザクションを完了
+            // トランザクション完了を待つ
             await tx.done;
+            console.log('DB update transaction completed.');
             // --- DB更新処理ここまで ---
-            
-            console.log('Card database updated successfully.');
-            dom.cardDataVersionInfo.textContent = new Date(serverLastModified).toLocaleString('ja-JP');
-            showMessageToast('カードデータが更新されました。', 'success');
 
-            // 6. 更新したデータをロードして表示
+            console.log('Card database update process finished successfully.');
+            const savedMeta = await db.get(STORE_METADATA, 'cardsLastModified');
+            dom.cardDataVersionInfo.textContent = savedMeta ? new Date(savedMeta.value).toLocaleString('ja-JP') : '更新完了';
+            showMessageToast(`カードデータが更新されました (${count}件)。`, 'success');
+
+            // 更新したデータで再表示
             await loadCardsFromDB();
 
         } catch (error) {
             console.error('Failed to update card data:', error);
             dom.loadingIndicator.querySelector('p').textContent = `データ更新に失敗しました: ${error.message}`;
             showMessageToast('データ更新に失敗しました。オフラインデータを表示します。', 'error');
-            await loadCardsFromDB(); // 失敗したら古いデータでもいいからロード試行
+
+            // トランザクションが開始されていた場合、中断を試みる (エラー発生場所による)
+            if (tx && tx.abort) {
+                try {
+                    tx.abort();
+                    console.log('DB update transaction aborted due to error.');
+                } catch (abortError) {
+                    console.error('Error aborting transaction:', abortError);
+                }
+            }
+
+            // 失敗したら古いデータで表示試行
+            await loadCardsFromDB();
         } finally {
-            // エラー時でもローディング表示は最終的に消す
+             // 成功・失敗に関わらずローディング表示を消す
              setTimeout(() => { dom.loadingIndicator.style.display = 'none'; }, 1000);
         }
     }
@@ -298,31 +334,28 @@
 
         try {
             allCards = await db.getAll(STORE_CARDS);
-            
+
             if (allCards.length === 0) {
                 console.log('No cards found in DB.');
-                // 初回起動時などでDBが空だが、バージョンチェックで
-                // 「更新なし」と判断された場合（オフライン起動など）
-                if (dom.loadingIndicator.style.display !== 'none') {
+                // ローディング表示がまだ出ていて、かつ「取得中」とかでなければメッセージ更新
+                if (dom.loadingIndicator.style.display !== 'none' && !dom.loadingIndicator.textContent.includes('取得中') && !dom.loadingIndicator.textContent.includes('確認中')) {
                      dom.loadingIndicator.querySelector('p').textContent = 'ローカルデータがありません。オンラインでデータを取得してください。';
                 }
-                 // フィルタオプションとカードリストをクリア
                 dom.filterOptionsContainer.innerHTML = '<p>データがありません。</p>';
                 dom.cardListContainer.innerHTML = '';
             } else {
                 console.log(`Loaded ${allCards.length} cards from DB.`);
-                dom.loadingIndicator.style.display = 'none';
-                dom.mainContent.style.display = 'block'; // コンテンツ表示
-                
-                // フィルタオプションを生成
-                populateFilters();
-                
-                // カード一覧を表示
-                applyFiltersAndDisplay();
+                dom.loadingIndicator.style.display = 'none'; // データがあればローディング非表示
+                dom.mainContent.style.display = 'block'; // メインコンテンツ表示
+                populateFilters(); // フィルタ生成
+                applyFiltersAndDisplay(); // カード表示
             }
         } catch (error) {
             console.error('Failed to load cards from DB:', error);
             dom.loadingIndicator.textContent = 'データの読み込みに失敗しました。';
+            allCards = []; // エラー時は空にする
+            dom.filterOptionsContainer.innerHTML = '<p>データ読み込みエラー</p>';
+            dom.cardListContainer.innerHTML = '<p>データの読み込みに失敗しました。</p>';
         }
     }
 
@@ -333,79 +366,68 @@
      */
     function applyFiltersAndDisplay() {
         if (allCards.length === 0) {
-            dom.cardListContainer.innerHTML = '<p class="no-results">カードデータが読み込まれていません。</p>';
+            // DBが空の場合のメッセージは loadCardsFromDB で設定されるので、ここでは何もしないか、
+            // より具体的な「フィルタ結果なし」メッセージを表示するか選択
+            // dom.cardListContainer.innerHTML = '<p class="no-results">カードデータが読み込まれていません。</p>';
             return;
         }
 
         const searchTerm = dom.searchBar.value.trim().toLowerCase();
-        
-        // フリーワード検索用の単語分割 (全角スペースを半角に)
         const searchWords = searchTerm.replace(/　/g, ' ').split(' ').filter(w => w.length > 0);
 
         const filteredCards = allCards.filter(card => {
-            // カードオブジェクトが存在しない、またはidがない場合はスキップ
+            // 不正なデータは除外
             if (!card || !card.id) return false;
 
-            // 1. フリーワード検索
+            // 1. フリーワード検索 (AND)
             if (searchWords.length > 0) {
-                // 検索対象テキストを結合 (null/undefined を空文字に)
                 const searchableText = [
                     card.name || '',
                     card.effect || '',
-                    (card.traits || []).join(' '),
+                    (card.traits || []).join(' '), // 配列をスペース区切り文字列に
                     card.id || ''
                 ].join(' ').toLowerCase();
-                
-                // すべての検索語を含むか (AND検索)
+                // すべての検索語が含まれているか？
                 if (!searchWords.every(word => searchableText.includes(word))) {
                     return false;
                 }
             }
-            
+
             // 2. 詳細フィルタ
             const f = currentFilter;
-            
-            // 色 (AND検索)
+
+            // 色 (AND): 選択された色がすべてカードに含まれているか？
             if (f.colors?.length > 0) {
-                // カードの色情報が配列でない場合はスキップ
-                if (!Array.isArray(card.color)) return false;
-                if (!f.colors.every(color => card.color.includes(color))) {
+                 if (!Array.isArray(card.color) || !f.colors.every(color => card.color.includes(color))) {
                     return false;
                 }
             }
-            // 種別 (OR検索)
-            if (f.types?.length > 0 && !f.types.includes(card.type)) {
-                return false;
-            }
-            // レアリティ (OR検索)
-            if (f.rarities?.length > 0 && !f.rarities.includes(card.rarity)) {
-                return false;
-            }
-            // コスト (OR検索) - card.cost が null や undefined でないことを確認
+            // 種別 (OR): 選択された種別のいずれかにカードが一致するか？
+            if (f.types?.length > 0 && !f.types.includes(card.type)) return false;
+            // レアリティ (OR)
+            if (f.rarities?.length > 0 && !f.rarities.includes(card.rarity)) return false;
+            // コスト (OR) - 文字列で比較
             if (f.costs?.length > 0) {
+                // card.costがnullやundefinedの場合も考慮
                 if (card.cost === undefined || card.cost === null || !f.costs.includes(String(card.cost))) {
                      return false;
                 }
             }
-            // 属性 (AND検索)
-            if (f.attributes?.length > 0) {
-                // カードの属性情報が配列でない場合はスキップ
-                if (!Array.isArray(card.attribute)) return false;
-                if (!f.attributes.every(attr => card.attribute.includes(attr))) {
+            // 属性 (AND)
+             if (f.attributes?.length > 0) {
+                 if (!Array.isArray(card.attribute) || !f.attributes.every(attr => card.attribute.includes(attr))) {
                     return false;
                 }
             }
-            // シリーズ (シリーズIDで比較)
+            // シリーズ (完全一致)
             if (f.series) {
-                // カードIDがない場合は比較できないので除外
-                if (!card.id) return false;
-                const cardSeriesId = card.id.split('-')[0];
-                if (cardSeriesId !== f.series) {
-                    return false;
-                }
+                if (!card.id) return false; // IDがないと比較不可
+                const cardSeriesId = card.id.split('-')[0]; // 例: "OP01-001" -> "OP01"
+                if (cardSeriesId !== f.series) return false;
             }
 
-            return true; // すべてのフィルタを通過
+            // すべての条件を通過
+            return true;
         });
 
         displayCards(filteredCards);
@@ -416,72 +438,76 @@
      * @param {Array} cards - 表示するカードの配列
      */
     function displayCards(cards) {
-        // 高速化のため、一度 DocumentFragment にまとめてからDOMに追加
         const fragment = document.createDocumentFragment();
-        
+
         if (cards.length === 0) {
+            // フィルタ結果が0件の場合のメッセージ
             dom.cardListContainer.innerHTML = '<p class="no-results">該当するカードがありません。</p>';
             return;
         }
 
         cards.forEach(card => {
-            // カードデータがおかしい場合はスキップ
             if (!card || !card.id) {
-                console.warn('Skipping invalid card data:', card);
+                console.warn('Skipping invalid card data during display:', card);
                 return;
             }
 
             const cardItem = document.createElement('div');
             cardItem.className = 'card-item';
-            
+
             const img = document.createElement('img');
             img.className = 'card-image';
-            // imagePath が存在するか確認
+            // 小画像パス取得、なければ空文字
             const smallImagePath = card.imagePath ? card.imagePath.replace('.jpg', '_small.jpg') : '';
-            img.src = smallImagePath; 
-            img.alt = card.name || card.id;
-            img.loading = 'lazy'; // 遅延読み込み
+            // 相対パス './' を確実にする
+            const relativeImagePath = smallImagePath && smallImagePath.startsWith('Cards/') ? `./${smallImagePath}` : smallImagePath;
 
-            // 1. 画像クリックでライトボックス表示
+            img.src = relativeImagePath;
+            img.alt = card.name || card.id;
+            img.loading = 'lazy'; // 画像遅延読み込み
+
+            // クリックでライトボックス表示
             cardItem.addEventListener('click', () => showLightbox(card));
-            
-            // 2. 画像読み込みエラー時のフォールバック
+
+            // 画像読み込みエラー時の処理
             img.onerror = () => {
-                console.warn(`Failed to load image: ${smallImagePath}`);
+                console.warn(`Failed to load image: ${relativeImagePath}`);
                 const fallback = document.createElement('div');
                 fallback.className = 'card-fallback';
-                fallback.textContent = card.id;
-                cardItem.innerHTML = ''; // imgを削除
+                fallback.textContent = card.id; // カードIDを表示
+                cardItem.innerHTML = ''; // img要素を削除
                 cardItem.appendChild(fallback);
-                // エラー時もクリックイベントは維持（フォールバック表示をクリックできるように）
+                // フォールバック表示でもクリックイベントを設定
                 cardItem.onclick = () => showLightbox(card);
             };
 
-            // imagePath がない場合のフォールバック表示
-            if (!smallImagePath) {
+            // 画像パスがない、またはエラーハンドラでimgが削除された場合以外はimgを追加
+            if (relativeImagePath) {
+                 cardItem.appendChild(img);
+            } else {
+                 // 画像パス自体がない場合のフォールバック
                  const fallback = document.createElement('div');
                  fallback.className = 'card-fallback';
                  fallback.textContent = card.id;
                  cardItem.appendChild(fallback);
-            } else {
-                 cardItem.appendChild(img);
+                 cardItem.onclick = () => showLightbox(card); // クリックイベント
             }
-            
+
             fragment.appendChild(cardItem);
         });
 
-        // DOMの書き換えを1回に抑える
-        dom.cardListContainer.innerHTML = '';
+        // DOM操作は最後にまとめて行う
+        dom.cardListContainer.innerHTML = ''; // コンテナをクリア
         dom.cardListContainer.appendChild(fragment);
     }
 
     /**
      * グリッドの列数を変更
-     * @param {number | string} columns - 列数
      */
     function setGridColumns(columns) {
+        // CSS変数を更新
         document.documentElement.style.setProperty('--grid-columns', columns);
-        // アクティブなボタンを更新
+        // ボタンのアクティブ状態を更新
         $$('.column-btn').forEach(btn => {
             btn.classList.toggle('active', btn.dataset.columns === String(columns));
         });
@@ -490,41 +516,44 @@
     }
 
     /**
-     * 保存された列設定を読み込む
+     * 保存された列設定を読み込む（なければデフォルト3列）
      */
     function setDefaultColumnLayout() {
-        const savedColumns = localStorage.getItem('gridColumns') || 3; // デフォルト3列
+        const savedColumns = localStorage.getItem('gridColumns') || 3;
         setGridColumns(savedColumns);
     }
 
     /**
      * ライトボックスを表示
-     * @param {object} card - カードオブジェクト
      */
     function showLightbox(card) {
-        // カードデータがない場合は何もしない
         if (!card) return;
 
         const largeImagePath = card.imagePath || '';
-        dom.lightboxImage.src = largeImagePath; // 大画像
-        dom.lightboxImage.style.display = 'block';
-        dom.lightboxFallback.style.display = 'none';
+        // 相対パス './' を確実にする
+        const relativeLargePath = largeImagePath && largeImagePath.startsWith('Cards/') ? `./${largeImagePath}` : largeImagePath;
+
+        dom.lightboxImage.src = relativeLargePath; // 大画像パス設定
+        dom.lightboxImage.style.display = 'block'; // 画像表示
+        dom.lightboxFallback.style.display = 'none'; // フォールバック非表示
         dom.lightboxFallback.textContent = '';
-        
+
+        // 大画像読み込みエラー時の処理
         dom.lightboxImage.onerror = () => {
-            console.warn(`Failed to load lightbox image: ${largeImagePath}`);
-            dom.lightboxImage.style.display = 'none';
-            dom.lightboxFallback.style.display = 'flex';
-            dom.lightboxFallback.textContent = card.id || 'Error';
+            console.warn(`Failed to load lightbox image: ${relativeLargePath}`);
+            dom.lightboxImage.style.display = 'none'; // 画像非表示
+            dom.lightboxFallback.style.display = 'flex'; // フォールバック表示
+            dom.lightboxFallback.textContent = card.id || 'Error'; // カードID表示
         };
-        
-        // imagePathがない場合もフォールバック表示
-         if (!largeImagePath) {
+
+        // 画像パス自体がない場合
+         if (!relativeLargePath) {
              dom.lightboxImage.style.display = 'none';
              dom.lightboxFallback.style.display = 'flex';
              dom.lightboxFallback.textContent = card.id || 'No Image';
          }
 
+        // モーダル表示
         dom.lightboxModal.style.display = 'flex';
     }
 
@@ -539,63 +568,57 @@
              return;
         }
 
-        // 重複を除去しながら各項目を収集
+        // 各フィルタ項目のユニークな値を収集
         const colors = new Set();
         const types = new Set();
         const rarities = new Set();
         const costs = new Set();
         const attributes = new Set();
-        const seriesSet = new Map(); // {id: 'name'}
+        const seriesSet = new Map(); // { id => name } 形式で重複除去
 
         allCards.forEach(card => {
-            // 不正なカードデータはスキップ
-            if (!card) return;
-
-            // card.color が存在し、かつ配列であることを確認
-            if (Array.isArray(card.color)) {
-                card.color.forEach(c => colors.add(c));
-            }
+            if (!card) return; // 不正データスキップ
+            // 色 (配列であることを確認)
+            if (Array.isArray(card.color)) card.color.forEach(c => colors.add(c));
+            // 種別
             if(card.type) types.add(card.type);
-            // SPを除外
+            // レアリティ (SPは除外)
             if(card.rarity && card.rarity !== 'SP') rarities.add(card.rarity);
-            if(card.cost !== undefined && card.cost !== null) costs.add(card.cost); // nullチェック追加
-            // card.attribute が存在し、かつ配列であることを確認
-            if (Array.isArray(card.attribute)) {
-                card.attribute.forEach(a => attributes.add(a));
-            }
-            
-            // プロモ(P)を除外し、シリーズを収集 (card.id が存在することを確認)
+            // コスト (数値であることを確認)
+            if(card.cost !== undefined && card.cost !== null) costs.add(card.cost);
+            // 属性 (配列であることを確認)
+            if (Array.isArray(card.attribute)) card.attribute.forEach(a => attributes.add(a));
+            // シリーズ (プロモを除外し、IDと名前を取得)
             if(card.series && card.id && !card.id.startsWith('P-')) {
-                // PUNKDBのシリーズ名は "OP01 - ROMANCE DAWN" 形式
-                const seriesParts = card.series.split(' - ');
-                const seriesName = seriesParts[1] || card.series; // " - " がなければ全体
-                const seriesId = card.id.split('-')[0]; // OP01, EB01など
+                const seriesParts = card.series.split(' - '); // "OP01 - ROMANCE DAWN"
+                const seriesName = seriesParts[1] || card.series; // 名前部分 or 全体
+                const seriesId = card.id.split('-')[0]; // "OP01"
                 if (seriesId && !seriesSet.has(seriesId)) {
-                    seriesSet.set(seriesId, `${seriesId} - ${seriesName}`);
+                    seriesSet.set(seriesId, `${seriesId} - ${seriesName}`); // マップに追加
                 }
             }
         });
 
-        // ソート
+        // 収集した値をソート
         const sortedColors = [...colors].sort();
         const sortedTypes = [...types].sort();
-        // レアリティ順 (L, SEC, SR, R, UC, C)
+        // レアリティ順序定義
         const rarityOrder = ['L', 'SEC', 'SR', 'R', 'UC', 'C'];
         const sortedRarities = [...rarities].sort((a, b) => rarityOrder.indexOf(a) - rarityOrder.indexOf(b));
         // コストは数値としてソート
-        const sortedCosts = [...costs].map(Number).sort((a, b) => a - b); 
+        const sortedCosts = [...costs].map(Number).sort((a, b) => a - b);
         const sortedAttributes = [...attributes].sort();
-        // シリーズIDでソート (OP01, OP02, ..., EB01)
+        // シリーズはID (OP01, OP02, EB01...) でソート
         const sortedSeries = [...seriesSet.entries()]
             .sort(([idA], [idB]) => idA.localeCompare(idB, undefined, { numeric: true }))
-            .map(([, name]) => name);
+            .map(([, name]) => name); // 名前 ("ID - Name") の配列に戻す
 
-        // DOMを構築
+        // フィルタオプションのHTMLを生成して挿入
         dom.filterOptionsContainer.innerHTML = `
             ${createFilterGroup('colors', '色 (AND)', sortedColors, 'colors')}
             ${createFilterGroup('types', '種別', sortedTypes, 'types')}
             ${createFilterGroup('rarities', 'レアリティ', sortedRarities, 'rarities')}
-            ${createFilterGroup('costs', 'コスト', sortedCosts.map(String), 'costs')} 
+            ${createFilterGroup('costs', 'コスト', sortedCosts.map(String), 'costs')}
             ${createFilterGroup('attributes', '属性 (AND)', sortedAttributes, 'attributes')}
             ${createSeriesFilter(sortedSeries)}
         `;
@@ -603,21 +626,17 @@
 
     /**
      * フィルタ用のチェックボックスグループHTMLを生成
-     * @param {string} name - inputのname属性
-     * @param {string} legend - fieldsetのlegend
-     * @param {Array<string>} options - オプションの配列
-     * @param {string} gridClass - スタイル用のクラス (e.g., 'colors', 'costs')
      */
     function createFilterGroup(name, legend, options, gridClass = '') {
-        if (options.length === 0) return '';
-        
+        if (options.length === 0) return ''; // オプションがなければ何も返さない
+        // 各オプションのチェックボックスHTMLを生成
         const optionsHtml = options.map(option => `
             <label class="filter-checkbox-label" data-color="${name === 'colors' ? option : ''}">
                 <input type="checkbox" class="filter-checkbox" name="${name}" value="${option}">
                 <span class="filter-checkbox-ui" data-color="${name === 'colors' ? option : ''}">${option}</span>
             </label>
         `).join('');
-
+        // fieldsetでグループ化
         return `
             <fieldset class="filter-group">
                 <legend>${legend}</legend>
@@ -630,22 +649,20 @@
 
     /**
      * フィルタ用のシリーズ選択(select)HTMLを生成
-     * @param {Array<string>} seriesList - シリーズ名の配列 ("ID - Name"形式)
      */
     function createSeriesFilter(seriesList) {
         if (seriesList.length === 0) return '';
-
+        // 各シリーズのoptionタグHTMLを生成
         const optionsHtml = seriesList.map(seriesName => {
-            // "OP01 - ROMANCE DAWN" -> value="OP01"
-            const seriesId = seriesName.split(' - ')[0];
+            const seriesId = seriesName.split(' - ')[0]; // valueにはID ("OP01") を設定
             return `<option value="${seriesId}">${seriesName}</option>`;
         }).join('');
-
+        // select要素を含むfieldsetを生成
         return `
             <fieldset class="filter-group">
                 <legend>シリーズ</legend>
                 <select id="filter-series" class="filter-select">
-                    <option value="">すべて</option>
+                    <option value="">すべて</option> <!-- デフォルト選択肢 -->
                     ${optionsHtml}
                 </select>
             </fieldset>
@@ -656,27 +673,31 @@
      * フィルタモーダルから現在のフィルタ設定を読み込む
      */
     function readFiltersFromModal() {
-        const getCheckedValues = (name) => 
+        // チェックされたチェックボックスの値を取得するヘルパー関数
+        const getCheckedValues = (name) =>
             [...$$(`input[name="${name}"]:checked`)].map(cb => cb.value);
-
+        // 現在のフィルタ条件オブジェクトを更新
         currentFilter = {
             colors: getCheckedValues('colors'),
             types: getCheckedValues('types'),
             rarities: getCheckedValues('rarities'),
             costs: getCheckedValues('costs'),
             attributes: getCheckedValues('attributes'),
-            series: $('#filter-series')?.value || '', // select要素の値を取得
+            series: $('#filter-series')?.value || '', // select要素の値を取得 (なければ空文字)
         };
         console.log('Filters applied:', currentFilter);
     }
 
     /**
-     * フィルタモーダルのチェックをリセット
+     * フィルタモーダルのチェックと選択をリセット
      */
     function resetFilters() {
+        // 全チェックボックスのチェックを外す
         $$('.filter-checkbox').forEach(cb => cb.checked = false);
+        // シリーズ選択を「すべて」に戻す
         const seriesSelect = $('#filter-series');
         if (seriesSelect) seriesSelect.value = '';
+        // フィルタ条件オブジェクトを空にする
         currentFilter = {};
         console.log('Filters reset.');
     }
@@ -687,27 +708,33 @@
      * 全カード画像（小画像）をキャッシュ
      */
     async function cacheAllImages() {
+        // カードデータがなければ中断
         if (allCards.length === 0) {
             showMessageToast('カードデータがありません。', 'error');
             return;
         }
-
-        // 既に実行中か確認
+        // 既に実行中なら中断
         if (dom.cacheAllImagesBtn.disabled) return;
 
+        // UIを更新 (実行中表示)
         dom.cacheAllImagesBtn.disabled = true;
         dom.cacheAllImagesBtn.textContent = 'キャッシュ実行中...';
         dom.cacheProgressContainer.style.display = 'flex';
         dom.cacheProgressBar.style.width = '0%';
-        
-        // imagePathが存在し、有効なカードのみ対象にする
-        const validCards = allCards.filter(card => card && card.imagePath);
-        // 小画像パスを生成し、重複を除去
-        const smallImageUrls = [...new Set(validCards.map(card => card.imagePath.replace('.jpg', '_small.jpg')))];
-        
-        const totalCount = smallImageUrls.length; // 実際のキャッシュ対象数
-        dom.cacheProgressText.textContent = `0 / ${totalCount}`; // 表示を更新
 
+        // キャッシュ対象のURLリストを作成 (小画像パス、重複除去、相対パス化)
+        const validCards = allCards.filter(card => card && card.imagePath);
+        const smallImageUrls = [...new Set(
+            validCards.map(card => {
+                const path = card.imagePath.replace('.jpg', '_small.jpg');
+                return path.startsWith('Cards/') ? `./${path}` : path; // Ensure relative path
+            })
+        )];
+
+        const totalCount = smallImageUrls.length;
+        dom.cacheProgressText.textContent = `0 / ${totalCount}`;
+
+        // キャッシュ対象がなければ終了
         if (totalCount === 0) {
              showMessageToast('キャッシュ対象の画像がありません。');
              dom.cacheAllImagesBtn.disabled = false;
@@ -720,44 +747,46 @@
         let errors = 0;
 
         try {
+            // 画像用キャッシュを開く
             const cache = await caches.open(CACHE_IMAGES);
-            
-            // 5並列でダウンロード
-            const parallelLimit = 5;
-            const queue = [...smallImageUrls]; 
-            
+            const parallelLimit = 5; // 同時ダウンロード数
+            const queue = [...smallImageUrls]; // URLキュー
+
+            // キューを処理するワーカー関数
             const processQueue = async () => {
                 while(queue.length > 0) {
-                    const url = queue.shift();
-                    if (!url) continue; // URLが空の場合はスキップ
+                    const url = queue.shift(); // キューからURLを取得
+                    if (!url) continue;
 
                     try {
-                        // 既にキャッシュにあるか確認 (キャッシュがあればfetchしない)
+                        // 既にキャッシュに存在するか確認
                         const existing = await cache.match(url);
                         if (!existing) {
-                            // cache.add() はリクエストとレスポンスの保存を一度に行う
+                            // なければキャッシュに追加 (fetch + put)
                             await cache.add(url);
                         }
                     } catch (e) {
+                        // キャッシュ失敗
                         console.warn(`Failed to cache image: ${url}`, e);
-                        errors++; // エラーカウント
+                        errors++;
                     }
-                    
+
                     cachedCount++;
-                    // UI更新をメインスレッドに少し遅延させる (描画のブロックを防ぐ)
+                    // UI更新 (requestAnimationFrameで描画タイミングに合わせる)
                     requestAnimationFrame(() => {
                         const progress = Math.round((cachedCount / totalCount) * 100);
                         dom.cacheProgressBar.style.width = `${progress}%`;
                         dom.cacheProgressText.textContent = `${cachedCount} / ${totalCount}`;
                     });
-                     // 短い待機を入れてCPU負荷を下げる (任意)
-                    // await new Promise(resolve => setTimeout(resolve, 10)); 
+                     // await new Promise(resolve => setTimeout(resolve, 5)); // 必要ならスロットリング
                 }
             };
-            
+
+            // 指定数だけワーカーを起動し、完了を待つ
             const workers = Array(parallelLimit).fill(null).map(processQueue);
             await Promise.all(workers);
 
+            // 結果をトースト表示
             if (errors > 0) {
                 showMessageToast(`画像キャッシュ完了 (${totalCount - errors}/${totalCount} 成功、${errors}件エラー)`, 'info');
             } else {
@@ -768,9 +797,10 @@
             console.error('Failed to cache all images:', error);
             showMessageToast('画像キャッシュ中にエラーが発生しました。', 'error');
         } finally {
+            // UIを元に戻す
             dom.cacheAllImagesBtn.disabled = false;
             dom.cacheAllImagesBtn.textContent = '全画像キャッシュ実行';
-            // 進捗バーを隠す前に少し待つ
+            // 進捗バーを少し遅れて消す
             setTimeout(() => {
                 dom.cacheProgressContainer.style.display = 'none';
             }, 1500);
@@ -778,49 +808,43 @@
     }
 
     /**
-     * 全てのローカルデータを削除
+     * 全てのローカルデータを削除 (IndexedDB, Cache Storage, Service Worker, LocalStorage)
      */
     async function clearAllData() {
-        // カスタム確認モーダルを使うのが望ましいが、ここではconfirmを使用
+        // ユーザー確認 (iframe等でconfirmが使えない場合を考慮)
         let confirmed = false;
         try {
              confirmed = window.confirm('本当にすべてのデータを削除しますか？\nデータベースと画像キャッシュが消去され、アプリがリロードされます。');
         } catch (e) {
             console.warn("window.confirm maybe blocked. Using prompt as fallback.", e);
-            // confirmがブロックされる環境(iframeなど)のためのフォールバック
             const input = prompt("すべてのデータを削除しますか？ 'yes'と入力してください。");
             confirmed = input && input.toLowerCase() === 'yes';
         }
-
-        if (!confirmed) return;
+        if (!confirmed) return; // キャンセルされたら何もしない
 
         try {
-            // 0. 処理中表示
-            showMessageToast('全データを削除中...');
+            showMessageToast('全データを削除中...'); // 処理中メッセージ
 
-            // 1. IndexedDB削除
+            // 1. IndexedDB 削除
             if (db) {
-                db.close(); // DB接続を閉じてから削除
+                db.close(); // 開いていれば閉じる
                 await idb.deleteDB(DB_NAME);
-                db = null; // DBインスタンスをクリア
+                db = null; // インスタンス参照をクリア
                 console.log('IndexedDB deleted.');
             } else {
-                 await idb.deleteDB(DB_NAME); // dbインスタンスがなくても削除試行
+                 await idb.deleteDB(DB_NAME); // 開いてなくても削除試行
                  console.log('Attempted IndexedDB deletion.');
             }
 
-
-            // 2. キャッシュストレージ削除
+            // 2. Cache Storage 削除 (関連キャッシュのみ)
             const cacheNames = await caches.keys();
             await Promise.all(
-                cacheNames.map(cacheName => {
-                    // アプリケーションに関連するキャッシュのみ削除 (念のため)
-                     if (cacheName.startsWith('app-shell-') || cacheName.startsWith('card-data-') || cacheName.startsWith('card-images-')) {
-                        console.log(`Deleting cache: ${cacheName}`);
-                        return caches.delete(cacheName);
-                    }
-                    return Promise.resolve(); // 関係ないキャッシュは削除しない
-                })
+                cacheNames
+                    .filter(name => name.startsWith('app-shell-') || name.startsWith('card-data-') || name.startsWith('card-images-'))
+                    .map(name => {
+                        console.log(`Deleting cache: ${name}`);
+                        return caches.delete(name);
+                    })
             );
             console.log('App related caches deleted.');
 
@@ -830,21 +854,20 @@
                 console.log('Service Worker unregistered.');
                 swRegistration = null;
             } else {
-                // 登録情報がなくても解除を試みる
+                // 登録情報がなくても現在の登録を取得して解除試行
                 const registration = await navigator.serviceWorker.getRegistration();
                 if(registration) {
                     await registration.unregister();
                     console.log('Service Worker unregistered (fallback).');
                 }
             }
-            
-             // 4. ローカルストレージもクリア (列設定など)
+
+            // 4. LocalStorage クリア (列設定など)
             localStorage.clear();
             console.log('LocalStorage cleared.');
 
+            // 完了メッセージ表示後、リロード
             showMessageToast('全データを削除しました。アプリを再起動します。', 'success');
-            
-            // 5. リロード
             setTimeout(() => {
                 window.location.reload();
             }, 1500);
@@ -862,31 +885,34 @@
      * Service Workerの登録と更新チェック
      */
     async function registerServiceWorker() {
+        // Service Workerが利用可能か確認
         if ('serviceWorker' in navigator) {
             try {
-                // Service Worker のパスを定数から参照
+                // Service Workerを登録
                 const registration = await navigator.serviceWorker.register(SERVICE_WORKER_PATH);
-                swRegistration = registration;
+                swRegistration = registration; // 登録情報を保持
                 console.log('Service Worker registered:', registration.scope);
 
-                // アプリ更新通知のロジック
-                // 既に新しいSWが待機中(waiting)の場合
+                // --- 更新チェックロジック ---
+                // 1. 既に待機中の新しいWorkerがいるか？ (ページロード時)
                 if (registration.waiting) {
                     console.log('New Service Worker is waiting.');
-                    showAppUpdateNotification();
+                    showAppUpdateNotification(); // 更新通知を表示
                 }
 
-                // 新しいSWがインストールされたのを見張る
+                // 2. 新しいWorkerのインストールが始まったら検知
                 registration.onupdatefound = () => {
                     console.log('Service Worker update found.');
                     const installingWorker = registration.installing;
                     if (installingWorker) {
+                        // 新しいWorkerの状態変化を監視
                         installingWorker.onstatechange = () => {
-                            // インストール完了 -> 待機状態(waiting)になった
+                            // インストール完了 -> 待機状態になった かつ 現在ページがSWによって制御されている
                             if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
                                 console.log('New Service Worker is installed and waiting.');
-                                showAppUpdateNotification();
+                                showAppUpdateNotification(); // 更新通知を表示
                             } else {
+                                // その他の状態変化 (installing, activating, activated, redundant)
                                 console.log(`[SW State Change] New worker state: ${installingWorker.state}`);
                             }
                         };
@@ -896,112 +922,107 @@
             } catch (error) {
                 console.error('Service Worker registration failed:', error);
             }
-            
-            // ページがリロードされた際に、もし新しいSWがアクティブになっていたら通知
-            let refreshing = false;
+
+            // 3. Service Workerがアクティブ化され、ページ制御が変わった時 (更新適用後)
+            let refreshing = false; // 無限リロード防止フラグ
             navigator.serviceWorker.addEventListener('controllerchange', () => {
                 console.log('Service Worker controller changed.');
                  if (refreshing) return;
-                 // 更新完了メッセージを表示し、リロード（無限ループを防ぐフラグ付き）
+                 // 更新完了メッセージを表示し、ページリロード
                  showMessageToast('アプリが更新されました。再読み込みします。', 'success');
                  refreshing = true;
-                 setTimeout(() => window.location.reload(), 1500); 
+                 setTimeout(() => window.location.reload(), 1500);
             });
         }
     }
 
     /**
      * データベース更新通知を表示
-     * @param {string} serverLastModified - 更新ボタン押下時にfetchAndUpdateCardDataに渡す
      */
     function showDbUpdateNotification(serverLastModified) {
-        // 既存の通知があれば閉じる
-        dom.dbUpdateNotification.style.display = 'none';
-        
-        dom.dbUpdateNotification.style.display = 'flex';
-        
-        // イベントリスナーを一度削除してから再設定（重複防止）
+        dom.dbUpdateNotification.style.display = 'none'; // 念のため一旦隠す
+        dom.dbUpdateNotification.style.display = 'flex'; // 表示
+
+        // 更新ボタンの処理 (一度だけ実行)
         const applyHandler = () => {
-            dom.dbUpdateNotification.style.display = 'none';
-            fetchAndUpdateCardData(serverLastModified);
-            // リスナー削除はハンドラー内で行う (once: true と併用)
+            dom.dbUpdateNotification.style.display = 'none'; // 通知を隠す
+            fetchAndUpdateCardData(serverLastModified); // データ更新実行
         };
+        // 閉じるボタンの処理 (一度だけ実行)
         const dismissHandler = () => {
-            dom.dbUpdateNotification.style.display = 'none';
-             // リスナー削除はハンドラー内で行う (once: true と併用)
+            dom.dbUpdateNotification.style.display = 'none'; // 通知を隠す
         };
-        // 古いリスナーを念のため削除
+
+        // 古いリスナーを削除 (重要: 重複登録を防ぐ)
         dom.dbUpdateApplyBtn.removeEventListener('click', applyHandler);
         dom.dbUpdateDismissBtn.removeEventListener('click', dismissHandler);
 
+        // 新しいリスナーを登録 ({ once: true } で自動的に削除される)
         dom.dbUpdateApplyBtn.addEventListener('click', applyHandler, { once: true });
         dom.dbUpdateDismissBtn.addEventListener('click', dismissHandler, { once: true });
     }
-    
+
     /**
      * アプリ本体の更新通知を表示
      */
     function showAppUpdateNotification() {
-         // 既存の通知があれば閉じる
-        dom.appUpdateNotification.style.display = 'none';
+        dom.appUpdateNotification.style.display = 'none'; // 念のため一旦隠す
+        dom.appUpdateNotification.style.display = 'flex'; // 表示
 
-        dom.appUpdateNotification.style.display = 'flex';
-
-        // イベントリスナーを一度削除してから再設定（重複防止）
-         const applyHandler = () => {
-            // 待機中のService Workerに "skipWaiting" を指示
+        // 更新ボタンの処理
+        const applyHandler = () => {
+            // 待機中のService Workerが存在するか確認
             if (swRegistration && swRegistration.waiting) {
                 console.log('Sending SKIP_WAITING message to Service Worker.');
+                // 待機中のWorkerにアクティブ化を指示するメッセージを送信
                 swRegistration.waiting.postMessage({ type: 'SKIP_WAITING' });
-                // SKIP_WAITING後、controllerchangeイベントが発火してリロードされるはず
-                dom.appUpdateNotification.style.display = 'none';
-                showMessageToast('アプリを更新中...');
-                // 念のためタイムアウトも設定
+                dom.appUpdateNotification.style.display = 'none'; // 通知を隠す
+                showMessageToast('アプリを更新中...'); // 更新中メッセージ
+                // controllerchange イベントが発火してリロードされるのを期待するが、
+                // 念のためタイムアウトリロードも設定
                 setTimeout(() => {
-                    if (!applyHandler.refreshed) window.location.reload(); 
-                }, 3000); 
+                    if (!applyHandler.refreshed) { // controllerchangeが発火しなかった場合
+                         console.warn('Controller change event did not fire. Reloading manually.');
+                         window.location.reload();
+                    }
+                }, 3000);
             } else {
+                 // 待機中のWorkerが見つからない場合 (通常は起こらないはず)
                  console.warn('Could not find waiting Service Worker to send SKIP_WAITING. Reloading directly...');
-                 // SWが見つからない場合は単純にリロード
-                 window.location.reload();
+                 window.location.reload(); // 直接リロード
             }
         };
-        // リロード済みフラグ
-        applyHandler.refreshed = false; 
+
+        // controllerchangeが発火したらリロード済みフラグを立てる
+        applyHandler.refreshed = false;
         navigator.serviceWorker.addEventListener('controllerchange', () => { applyHandler.refreshed = true; }, { once: true });
 
         // 古いリスナーを削除
         dom.appUpdateApplyBtn.removeEventListener('click', applyHandler);
+        // 新しいリスナーを登録 ({ once: true } が望ましいが、リロード前に解除される可能性考慮)
+        // applyHandler内でリロードするので once: true でも問題ない
         dom.appUpdateApplyBtn.addEventListener('click', applyHandler, { once: true });
     }
 
     /**
      * 汎用メッセージトーストを表示
-     * @param {string} message - 表示するメッセージ
-     * @param {'info' | 'success' | 'error'} type - トーストのタイプ
+     * @param {string} message 表示メッセージ
+     * @param {'info'|'success'|'error'} type トースト種別
      */
     function showMessageToast(message, type = 'info') {
-        // 既存のトーストタイマーがあればクリア
-        if (showMessageToast.timeoutId) {
-            clearTimeout(showMessageToast.timeoutId);
-        }
-        
+        // 既存のタイマーがあればクリア
+        if (showMessageToast.timeoutId) clearTimeout(showMessageToast.timeoutId);
+
+        // メッセージ設定
         dom.messageToastText.textContent = message;
-        
-        // 色分け
-        dom.messageToast.style.backgroundColor = 'var(--color-on-surface)'; // default (info)
-        dom.messageToast.style.color = 'var(--color-background)';
-        if (type === 'success') {
-            dom.messageToast.style.backgroundColor = 'var(--color-success)';
-            dom.messageToast.style.color = 'var(--color-on-primary)';
-        } else if (type === 'error') {
-            dom.messageToast.style.backgroundColor = 'var(--color-error)';
-            dom.messageToast.style.color = 'var(--color-on-primary)';
-        }
-        
+
+        // タイプに応じて背景色・文字色を設定
+        dom.messageToast.className = `message-toast ${type}`; // CSSクラスで制御
+
+        // 表示
         dom.messageToast.style.display = 'flex';
-        
-        // 閉じるボタンのハンドラー
+
+        // 閉じるボタンの処理
         const dismissHandler = () => {
             dom.messageToast.style.display = 'none';
             dom.messageToastDismissBtn.removeEventListener('click', dismissHandler);
@@ -1010,110 +1031,85 @@
                 showMessageToast.timeoutId = null;
             }
         };
-        // 古いリスナーを削除してから追加
-        dom.messageToastDismissBtn.removeEventListener('click', dismissHandler); 
+        // 古いリスナー削除 -> 新しいリスナー登録
+        dom.messageToastDismissBtn.removeEventListener('click', dismissHandler);
         dom.messageToastDismissBtn.addEventListener('click', dismissHandler, { once: true });
 
-        // 5秒後に自動で消すタイマー
+        // 自動で消すタイマー (5秒)
         showMessageToast.timeoutId = setTimeout(dismissHandler, 5000);
     }
-    // トーストタイマーIDを保持するための静的プロパティ
-    showMessageToast.timeoutId = null;
+    showMessageToast.timeoutId = null; // タイマーID保持用
 
 
     // === 9. イベントリスナー設定 ===
     function setupEventListeners() {
-        
-        // --- ヘッダー ---
-        
-        // 検索バー (入力中に即時反映、デバウンス処理)
+        // --- 検索バー ---
         let searchTimeout;
         dom.searchBar.addEventListener('input', () => {
-            clearTimeout(searchTimeout);
+            clearTimeout(searchTimeout); // 入力中はタイマーリセット
             const hasValue = dom.searchBar.value.length > 0;
-            dom.clearSearchBtn.style.display = hasValue ? 'block' : 'none';
-            // 300ms待ってから検索実行
+            dom.clearSearchBtn.style.display = hasValue ? 'block' : 'none'; // クリアボタン表示制御
+            // 300ms後に検索実行 (デバウンス)
             searchTimeout = setTimeout(applyFiltersAndDisplay, 300);
         });
-
-        // 検索クリアボタン
         dom.clearSearchBtn.addEventListener('click', () => {
-            dom.searchBar.value = '';
-            dom.clearSearchBtn.style.display = 'none';
-            applyFiltersAndDisplay();
-            dom.searchBar.focus(); // クリア後に入力しやすいようにフォーカス
+            dom.searchBar.value = ''; // 入力クリア
+            dom.clearSearchBtn.style.display = 'none'; // ボタン非表示
+            applyFiltersAndDisplay(); // 再表示
+            dom.searchBar.focus(); // フォーカス戻す
         });
 
-        // フィルタボタン
-        dom.filterBtn.addEventListener('click', () => {
-            dom.filterModal.style.display = 'flex';
-        });
+        // --- ヘッダーボタン ---
+        dom.filterBtn.addEventListener('click', () => { dom.filterModal.style.display = 'flex'; });
+        dom.settingsBtn.addEventListener('click', () => { dom.settingsModal.style.display = 'flex'; });
 
-        // --- フッター ---
-        dom.settingsBtn.addEventListener('click', () => {
-            dom.settingsModal.style.display = 'flex';
-        });
-        
         // --- フィルタモーダル ---
-        dom.closeFilterModalBtn.addEventListener('click', () => {
-            dom.filterModal.style.display = 'none';
-        });
-        // モーダル背景クリックで閉じる
-        dom.filterModal.addEventListener('click', (e) => {
-             if (e.target === dom.filterModal) {
-                 dom.filterModal.style.display = 'none';
-             }
-        });
+        dom.closeFilterModalBtn.addEventListener('click', () => { dom.filterModal.style.display = 'none'; });
+        // 背景クリックで閉じる
+        dom.filterModal.addEventListener('click', (e) => { if (e.target === dom.filterModal) dom.filterModal.style.display = 'none'; });
+        // 適用ボタン
         dom.applyFilterBtn.addEventListener('click', () => {
-            readFiltersFromModal();
-            applyFiltersAndDisplay();
-            dom.filterModal.style.display = 'none';
+            readFiltersFromModal(); // フィルタ条件読み込み
+            applyFiltersAndDisplay(); // カード再表示
+            dom.filterModal.style.display = 'none'; // モーダル閉じる
         });
-        dom.resetFilterBtn.addEventListener('click', () => {
-            resetFilters();
-            // リセット後、適用ボタンを押さなくても即時反映させる場合
-            // applyFiltersAndDisplay();
-            // dom.filterModal.style.display = 'none'; 
-        });
+        // リセットボタン
+        dom.resetFilterBtn.addEventListener('click', resetFilters); // フィルタUIリセット
 
         // --- 設定モーダル ---
-        dom.closeSettingsModalBtn.addEventListener('click', () => {
-            dom.settingsModal.style.display = 'none';
-        });
-         // モーダル背景クリックで閉じる
-        dom.settingsModal.addEventListener('click', (e) => {
-             if (e.target === dom.settingsModal) {
-                 dom.settingsModal.style.display = 'none';
-             }
-        });
+        dom.closeSettingsModalBtn.addEventListener('click', () => { dom.settingsModal.style.display = 'none'; });
+        // 背景クリックで閉じる
+        dom.settingsModal.addEventListener('click', (e) => { if (e.target === dom.settingsModal) dom.settingsModal.style.display = 'none'; });
+        // 列数変更ボタン
         dom.columnSelector.addEventListener('click', (e) => {
-            const btn = e.target.closest('.column-btn');
-            if (btn && !btn.classList.contains('active')) { // アクティブでなければ処理
-                setGridColumns(btn.dataset.columns);
+            const btn = e.target.closest('.column-btn'); // ボタン要素取得
+            // ボタンが存在し、かつアクティブでない場合のみ処理
+            if (btn && !btn.classList.contains('active')) {
+                 setGridColumns(btn.dataset.columns); // 列数変更実行
             }
         });
+        // 画像キャッシュボタン
         dom.cacheAllImagesBtn.addEventListener('click', cacheAllImages);
+        // 全データ削除ボタン
         dom.clearAllDataBtn.addEventListener('click', clearAllData);
 
         // --- ライトボックス ---
-        dom.lightboxCloseBtn.addEventListener('click', () => {
+        dom.lightboxCloseBtn.addEventListener('click', () => { // 閉じるボタン
             dom.lightboxModal.style.display = 'none';
-            dom.lightboxImage.src = ''; // メモリ解放
+            dom.lightboxImage.src = ''; // 画像ソースクリア (メモリ解放)
             dom.lightboxImage.onerror = null; // エラーハンドラ解除
         });
-        dom.lightboxModal.addEventListener('click', (e) => {
-            // 画像以外の背景クリックでも閉じる
+        dom.lightboxModal.addEventListener('click', (e) => { // 背景クリック
             if (e.target === dom.lightboxModal) {
                 dom.lightboxModal.style.display = 'none';
-                dom.lightboxImage.src = ''; // メモリ解放
-                dom.lightboxImage.onerror = null; // エラーハンドラ解除
+                dom.lightboxImage.src = '';
+                dom.lightboxImage.onerror = null;
             }
         });
     }
 
     // === 10. アプリ起動 ===
-    // DOMContentLoadedではなく、window load を待つことで、
-    // Service Worker の準備などを含む完全な初期化を保証する（特に初回アクセス時）
+    // DOMだけでなく、画像などのリソース読み込みも待ってから初期化開始
     window.addEventListener('load', initializeApp);
 
 })();
