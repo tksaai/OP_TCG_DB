@@ -229,28 +229,43 @@
             }
 
             dom.loadingIndicator.querySelector('p').textContent = 'データベースを更新中...';
-
-            // --- DB更新処理 (修正箇所) ---
-            // 1. メタデータ更新用のトランザクションを開始
-            const metaTx = db.transaction(STORE_METADATA, 'readwrite');
             
-            // 2. カードストアをクリア (db.clear は自身のトランザクションで実行)
-            await db.clear(STORE_CARDS);
+            // --- DB更新処理 (修正箇所) ---
+            // 'bulkPut' は idb の標準機能ではないため、
+            // トランザクション内でループ処理 'put' を行う確実な方法に変更
+            
+            // 1. カードとメタデータの両方を更新するトランザクションを開始
+            const tx = db.transaction([STORE_CARDS, STORE_METADATA], 'readwrite');
+            const cardStore = tx.objectStore(STORE_CARDS);
+            const metaStore = tx.objectStore(STORE_METADATA);
+
+            // 2. カードストアをクリア
+            await cardStore.clear();
             console.log(`${STORE_CARDS} store cleared.`);
 
-            // 3. 新しいデータをバルクインサート (db.bulkPut は自身のトランザクションで実行)
-            await db.bulkPut(STORE_CARDS, cardsArray);
-            console.log(`${cardsArray.length} cards added using bulkPut.`);
+            // 3. 新しいデータを一件ずつ 'put' (add or update)
+            // (for...of ループは await との相性が良い)
+            let count = 0;
+            for (const card of cardsArray) {
+                // 'id' がない不正なデータはスキップ
+                if (card && card.id) { 
+                    await cardStore.put(card);
+                    count++;
+                } else {
+                    console.warn('Skipping invalid card object during update:', card);
+                }
+            }
+            console.log(`${count} cards added to DB.`);
 
-            // 4. メタデータを更新
-            await metaTx.store.put({
+            // 4. メタデータを更新 (同じトランザクション内)
+            await metaStore.put({
                 key: 'cardsLastModified',
                 value: serverLastModified
             });
             console.log('Metadata updated.');
 
-            // 5. メタデータトランザクションを完了
-            await metaTx.done;
+            // 5. トランザクションを完了
+            await tx.done;
             // --- DB更新処理ここまで ---
             
             console.log('Card database updated successfully.');
