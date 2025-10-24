@@ -5,14 +5,13 @@
 
     // === 1. グローバル変数と定数 ===
     const DB_NAME = 'OPCardDB';
-    // DBバージョンを上げる
     const DB_VERSION = 2;
     const STORE_CARDS = 'cards';
     const STORE_METADATA = 'metadata';
     const CACHE_APP_SHELL = 'app-shell-v1'; // service-worker.jsと合わせる
     const CACHE_IMAGES = 'card-images-v1'; // service-worker.jsと合わせる
     const CARDS_JSON_PATH = './cards.json';
-    const APP_VERSION = '1.0.2'; // アプリバージョン更新
+    const APP_VERSION = '1.0.3'; // アプリバージョン更新 (バグ修正)
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db; // IndexedDBインスタンス
@@ -81,16 +80,13 @@
         dom.appVersionInfo.textContent = APP_VERSION;
         registerServiceWorker();
         setupEventListeners();
-        // DB初期化を try-catch で囲み、失敗しても後続処理（データ取得など）を試みる
         try {
             await initDB();
         } catch (dbError) {
             console.error("Critical error during DB initialization:", dbError);
             dom.loadingIndicator.textContent = 'データベースの初期化に致命的なエラーが発生しました。';
-            // DBが開けない場合、これ以上進めない可能性が高い
             return;
         }
-        // DBが開けた場合のみデータチェックへ
         if (db) {
             await checkCardDataVersion();
         }
@@ -106,33 +102,25 @@
                 upgrade(db, oldVersion, newVersion, transaction) {
                     console.log(`Upgrading DB from ${oldVersion} to ${newVersion}`);
 
-                    // --- 修正: keyPath を 'cardNumber' に変更 ---
-                    if (db.objectStoreNames.contains(STORE_CARDS)) {
-                         // 旧バージョン(keyPath: 'id')のストアがあれば削除
+                    if (oldVersion < 2 && db.objectStoreNames.contains(STORE_CARDS)) {
+                        console.log(`Recreating ${STORE_CARDS} store for version 2 with keyPath 'cardNumber'.`);
                         try {
-                            // transactionから直接ではなくdbオブジェクトから削除する必要がある場合がある
-                            // しかし、upgrade内ではtransaction経由が推奨される
-                            // 既存ストアの keyPath を直接変更することはできないため、削除して再作成
                             db.deleteObjectStore(STORE_CARDS);
                             console.log(`Old object store ${STORE_CARDS} deleted.`);
                         } catch (deleteError) {
                              console.error(`Failed to delete old ${STORE_CARDS} store:`, deleteError);
-                             // 削除に失敗した場合、後続の作成も失敗する可能性が高い
-                             // エラーを再スローして upgrade を中断させる
                              throw deleteError;
                         }
                     }
-                    // 新しい keyPath でストアを作成
-                    db.createObjectStore(STORE_CARDS, { keyPath: 'cardNumber' });
-                    console.log(`Object store ${STORE_CARDS} created with keyPath 'cardNumber'.`);
-                    // --- 修正ここまで ---
+                    if (!db.objectStoreNames.contains(STORE_CARDS)) {
+                         db.createObjectStore(STORE_CARDS, { keyPath: 'cardNumber' });
+                         console.log(`Object store ${STORE_CARDS} created with keyPath 'cardNumber'.`);
+                    }
 
-                    // metadataストアは変更なし (なければ作成)
                     if (!db.objectStoreNames.contains(STORE_METADATA)) {
                         db.createObjectStore(STORE_METADATA, { keyPath: 'key' });
                         console.log(`Object store ${STORE_METADATA} created.`);
                     }
-                    // TODO: 将来インデックスを追加する場合
                 },
                 blocked() {
                     console.warn('IndexedDB upgrade blocked. Please close other tabs/windows using this app.');
@@ -140,7 +128,6 @@
                 },
                 blocking() {
                     console.warn('IndexedDB connection is blocking an upgrade. Closing connection.');
-                     // 他のタブからのリクエストがあれば接続を閉じる
                     db.close();
                 },
                 terminated() {
@@ -152,7 +139,6 @@
         } catch (error) {
             console.error('Failed to open IndexedDB:', error);
             dom.loadingIndicator.textContent = 'データベースの初期化に失敗しました。';
-             // エラーを再スローして initializeApp に伝える
              throw error;
         }
     }
@@ -163,7 +149,6 @@
      * cards.jsonのバージョンを確認し、必要に応じて更新
      */
     async function checkCardDataVersion() {
-        // DBが開けていない場合は処理中断
         if (!db) {
              console.error("DB not available, skipping card data version check.");
              dom.loadingIndicator.textContent = 'データベース接続エラー。';
@@ -192,6 +177,7 @@
                 console.log('Card data update detected.');
                 if (!localLastModified) {
                     console.log('First time load. Fetching card data...');
+                    dom.loadingIndicator.style.display = 'flex'; // ローディング表示
                     dom.loadingIndicator.querySelector('p').textContent = '初回カードデータを取得中...';
                     await fetchAndUpdateCardData(serverLastModified);
                 } else {
@@ -211,6 +197,7 @@
         } catch (error) {
             console.error('Failed to check card data version:', error);
             console.log('Attempting to load from local DB as fallback...');
+            dom.loadingIndicator.style.display = 'flex'; // フォールバック時もローディング表示
             dom.loadingIndicator.querySelector('p').textContent = 'オフラインモードで起動中...';
             await loadCardsFromDB();
         }
@@ -268,13 +255,9 @@
 
             dom.loadingIndicator.querySelector('p').textContent = 'データベースを更新中...';
 
-            // --- DB更新処理 ---
             tx = db.transaction([STORE_CARDS, STORE_METADATA], 'readwrite');
-            // エラーハンドリングを追加
-            tx.onerror = (event) => {
-                console.error("Transaction error:", event.target.error);
-                // 更新失敗時の処理をここに集約しても良い
-            };
+            tx.onerror = (event) => console.error("Transaction error:", event.target.error);
+
             const cardStore = tx.objectStore(STORE_CARDS);
             const metaStore = tx.objectStore(STORE_METADATA);
             let count = 0;
@@ -283,9 +266,7 @@
             await cardStore.clear();
             console.log(`${STORE_CARDS} store cleared.`);
 
-            // --- 修正: card.id を card.cardNumber に変更 ---
             for (const card of cardsArray) {
-                // keyPath となる cardNumber が存在するかチェック
                 if (card && card.cardNumber) {
                     try {
                         await cardStore.put(card);
@@ -295,25 +276,19 @@
                         putErrors++;
                     }
                 } else {
-                    // cardNumber がないデータをスキップ
                     console.warn('Skipping invalid card object (missing cardNumber):', card);
                 }
             }
-            // --- 修正ここまで ---
 
             console.log(`${count} cards attempted to add to DB.`);
             if (putErrors > 0) {
                 console.error(`${putErrors} errors occurred during card put operations.`);
-                // 部分的に失敗した場合でもメタデータは更新し、次のチェックで再試行させるか、
-                // もしくはエラーを投げてメタデータ更新をスキップするか選択。
-                // ここでは部分成功としてメタデータを更新する。
             }
 
-            // メタデータ更新
             await metaStore.put({ key: 'cardsLastModified', value: serverLastModified });
             console.log('Metadata updated.');
 
-            await tx.done; // トランザクション完了を待つ
+            await tx.done;
             console.log('DB update transaction completed.');
 
             console.log('Card database update process finished successfully.');
@@ -321,19 +296,20 @@
             dom.cardDataVersionInfo.textContent = savedMeta ? new Date(savedMeta.value).toLocaleString('ja-JP') : '更新完了';
             showMessageToast(`カードデータが更新されました (${count}件)。`, 'success');
 
-            await loadCardsFromDB(); // 更新後に再読み込み
+            await loadCardsFromDB();
 
         } catch (error) {
             console.error('Failed to update card data:', error);
             dom.loadingIndicator.querySelector('p').textContent = `データ更新に失敗しました: ${error.message}`;
             showMessageToast('データ更新に失敗しました。オフラインデータを表示します。', 'error');
-            if (tx && tx.abort) {
+            if (tx && tx.abort && !tx.done) { // Check if abort exists and transaction isn't already done
                 try { tx.abort(); console.log('DB update transaction aborted due to error.'); }
                 catch (abortError) { console.error('Error aborting transaction:', abortError); }
             }
-            await loadCardsFromDB(); // 失敗したら古いデータをロード試行
+            await loadCardsFromDB();
         } finally {
-             setTimeout(() => { dom.loadingIndicator.style.display = 'none'; }, 1000);
+             // ローディング表示を確実に消す
+             setTimeout(() => { dom.loadingIndicator.style.display = 'none'; }, 500);
         }
     }
 
@@ -343,6 +319,8 @@
     async function loadCardsFromDB() {
         if (!db) {
             console.error('DB not initialized. Cannot load cards.');
+             // DBがない場合はローディング表示のままメッセージ表示
+            dom.loadingIndicator.style.display = 'flex';
             dom.loadingIndicator.textContent = 'データベースを開けません。';
             return;
         }
@@ -350,20 +328,23 @@
             allCards = await db.getAll(STORE_CARDS);
             if (allCards.length === 0) {
                 console.log('No cards found in DB.');
-                if (dom.loadingIndicator.style.display !== 'none' && !dom.loadingIndicator.textContent.includes('取得中') && !dom.loadingIndicator.textContent.includes('確認中')) {
-                     dom.loadingIndicator.querySelector('p').textContent = 'ローカルデータがありません。オンラインでデータを取得してください。';
-                }
+                // データがない場合もローディング表示のままメッセージ表示
+                 if (dom.loadingIndicator.style.display === 'none' || dom.loadingIndicator.textContent.includes('オフライン')) {
+                    dom.loadingIndicator.style.display = 'flex';
+                    dom.loadingIndicator.querySelector('p').textContent = 'ローカルデータがありません。オンラインでデータを取得してください。';
+                 }
                 dom.filterOptionsContainer.innerHTML = '<p>データがありません。</p>';
                 dom.cardListContainer.innerHTML = '';
             } else {
                 console.log(`Loaded ${allCards.length} cards from DB.`);
-                dom.loadingIndicator.style.display = 'none';
+                dom.loadingIndicator.style.display = 'none'; // データがあればローディング非表示
                 dom.mainContent.style.display = 'block';
                 populateFilters();
                 applyFiltersAndDisplay();
             }
         } catch (error) {
             console.error('Failed to load cards from DB:', error);
+            dom.loadingIndicator.style.display = 'flex'; // エラー時も表示
             dom.loadingIndicator.textContent = 'データの読み込みに失敗しました。';
             allCards = [];
             dom.filterOptionsContainer.innerHTML = '<p>データ読み込みエラー</p>';
@@ -378,6 +359,7 @@
      */
     function applyFiltersAndDisplay() {
         if (allCards.length === 0) {
+            dom.cardListContainer.innerHTML = '<p class="no-results">カードデータが読み込まれていません。</p>';
             return;
         }
 
@@ -385,24 +367,20 @@
         const searchWords = searchTerm.replace(/　/g, ' ').split(' ').filter(w => w.length > 0);
 
         const filteredCards = allCards.filter(card => {
-            // --- 修正: card.id を card.cardNumber に変更 ---
             if (!card || !card.cardNumber) return false;
 
-            // 1. フリーワード検索 (AND)
             if (searchWords.length > 0) {
                 const searchableText = [
                     card.name || '',
                     card.effect || '',
                     (card.traits || []).join(' '),
-                    card.cardNumber || '' // idではなくcardNumberを検索対象に
+                    card.cardNumber || ''
                 ].join(' ').toLowerCase();
                 if (!searchWords.every(word => searchableText.includes(word))) {
                     return false;
                 }
             }
-            // --- 修正ここまで ---
 
-            // 2. 詳細フィルタ
             const f = currentFilter;
             if (f.colors?.length > 0) {
                  if (!Array.isArray(card.color) || !f.colors.every(color => card.color.includes(color))) {
@@ -421,13 +399,11 @@
                     return false;
                 }
             }
-            // --- 修正: card.id を card.cardNumber に変更 ---
             if (f.series) {
-                 if (!card.cardNumber) return false; // cardNumberがないと比較不可
-                 const cardSeriesId = card.cardNumber.split('-')[0]; // 例: "OP01-001" -> "OP01"
+                 if (!card.cardNumber) return false;
+                 const cardSeriesId = card.cardNumber.split('-')[0];
                 if (cardSeriesId !== f.series) return false;
             }
-            // --- 修正ここまで ---
 
             return true;
         });
@@ -447,7 +423,6 @@
         }
 
         cards.forEach(card => {
-             // --- 修正: card.id を card.cardNumber に変更 ---
             if (!card || !card.cardNumber) {
                 console.warn('Skipping invalid card data during display (missing cardNumber):', card);
                 return;
@@ -459,34 +434,42 @@
             const img = document.createElement('img');
             img.className = 'card-image';
             const smallImagePath = card.imagePath ? card.imagePath.replace('.jpg', '_small.jpg') : '';
-            const relativeImagePath = smallImagePath && smallImagePath.startsWith('Cards/') ? `./${smallImagePath}` : smallImagePath;
+            // --- 修正: パス生成ロジック ---
+            // smallImagePathが存在し、'Cards/'で始まる場合のみ './' を付与
+            const relativeImagePath = (smallImagePath && smallImagePath.startsWith('Cards/')) ? `./${smallImagePath}` : smallImagePath;
 
-            img.src = relativeImagePath;
-            img.alt = card.name || card.cardNumber; // altもcardNumberに
+            img.src = relativeImagePath; // srcが空文字になる場合がある
+            img.alt = card.name || card.cardNumber;
             img.loading = 'lazy';
 
             cardItem.addEventListener('click', () => showLightbox(card));
 
             img.onerror = () => {
-                console.warn(`Failed to load image: ${relativeImagePath}`);
+                 // --- 修正: エラーログにカード番号を追加 ---
+                console.warn(`Failed to load image for card ${card.cardNumber}: ${relativeImagePath}`);
                 const fallback = document.createElement('div');
                 fallback.className = 'card-fallback';
-                fallback.textContent = card.cardNumber; // cardNumberを表示
-                cardItem.innerHTML = '';
-                cardItem.appendChild(fallback);
+                fallback.textContent = card.cardNumber;
+                // img要素が既に存在する場合のみ置き換える
+                if(cardItem.contains(img)){
+                    cardItem.replaceChild(fallback, img);
+                } else if (!cardItem.querySelector('.card-fallback')) { // Fallbackがまだなければ追加
+                     cardItem.appendChild(fallback);
+                }
+                // エラー後もクリックイベントを再設定
                 cardItem.onclick = () => showLightbox(card);
             };
 
+            // 画像パスが有効な場合のみimgを追加、そうでない場合は最初からフォールバック表示
             if (relativeImagePath) {
                  cardItem.appendChild(img);
             } else {
                  const fallback = document.createElement('div');
                  fallback.className = 'card-fallback';
-                 fallback.textContent = card.cardNumber; // cardNumberを表示
+                 fallback.textContent = card.cardNumber;
                  cardItem.appendChild(fallback);
                  cardItem.onclick = () => showLightbox(card);
             }
-            // --- 修正ここまで ---
 
             fragment.appendChild(cardItem);
         });
@@ -518,30 +501,30 @@
      * ライトボックスを表示
      */
     function showLightbox(card) {
-        // --- 修正: card.id を card.cardNumber に変更 ---
         if (!card || !card.cardNumber) return;
 
         const largeImagePath = card.imagePath || '';
-        const relativeLargePath = largeImagePath && largeImagePath.startsWith('Cards/') ? `./${largeImagePath}` : largeImagePath;
+         // --- 修正: パス生成ロジック ---
+        const relativeLargePath = (largeImagePath && largeImagePath.startsWith('Cards/')) ? `./${largeImagePath}` : largeImagePath;
 
-        dom.lightboxImage.src = relativeLargePath;
+        dom.lightboxImage.src = relativeLargePath; // srcが空文字になる場合がある
         dom.lightboxImage.style.display = 'block';
         dom.lightboxFallback.style.display = 'none';
         dom.lightboxFallback.textContent = '';
 
         dom.lightboxImage.onerror = () => {
-            console.warn(`Failed to load lightbox image: ${relativeLargePath}`);
+             // --- 修正: エラーログにカード番号を追加 ---
+            console.warn(`Failed to load lightbox image for card ${card.cardNumber}: ${relativeLargePath}`);
             dom.lightboxImage.style.display = 'none';
             dom.lightboxFallback.style.display = 'flex';
-            dom.lightboxFallback.textContent = card.cardNumber || 'Error'; // cardNumberを表示
+            dom.lightboxFallback.textContent = card.cardNumber || 'Error';
         };
 
          if (!relativeLargePath) {
              dom.lightboxImage.style.display = 'none';
              dom.lightboxFallback.style.display = 'flex';
-             dom.lightboxFallback.textContent = card.cardNumber || 'No Image'; // cardNumberを表示
+             dom.lightboxFallback.textContent = card.cardNumber || 'No Image';
          }
-        // --- 修正ここまで ---
 
         dom.lightboxModal.style.display = 'flex';
     }
@@ -565,8 +548,7 @@
         const seriesSet = new Map();
 
         allCards.forEach(card => {
-             // --- 修正: card.id を card.cardNumber に変更 ---
-            if (!card || !card.cardNumber) return; // cardNumberチェック
+            if (!card || !card.cardNumber) return;
 
             if (Array.isArray(card.color)) card.color.forEach(c => colors.add(c));
             if(card.type) types.add(card.type);
@@ -574,16 +556,14 @@
             if(card.cost !== undefined && card.cost !== null) costs.add(card.cost);
             if (Array.isArray(card.attribute)) card.attribute.forEach(a => attributes.add(a));
 
-            // シリーズID抽出 (cardNumberから)
             if(card.series && !card.cardNumber.startsWith('P-')) {
                  const seriesParts = card.series.split(' - ');
                  const seriesName = seriesParts[1] || card.series;
-                 const seriesId = card.cardNumber.split('-')[0]; // cardNumberからID取得
+                 const seriesId = card.cardNumber.split('-')[0];
                 if (seriesId && !seriesSet.has(seriesId)) {
                     seriesSet.set(seriesId, `${seriesId} - ${seriesName}`);
                 }
             }
-            // --- 修正ここまで ---
         });
 
         const sortedColors = [...colors].sort();
@@ -696,8 +676,9 @@
         const smallImageUrls = [...new Set(
             validCards.map(card => {
                 const path = card.imagePath.replace('.jpg', '_small.jpg');
-                return path.startsWith('Cards/') ? `./${path}` : path;
-            })
+                // --- 修正: パス生成ロジック ---
+                return (path && path.startsWith('Cards/')) ? `./${path}` : path;
+            }).filter(path => path) // フィルターして空文字を除外
         )];
 
         const totalCount = smallImageUrls.length;
@@ -722,7 +703,7 @@
             const processQueue = async () => {
                 while(queue.length > 0) {
                     const url = queue.shift();
-                    if (!url) continue;
+                    if (!url) continue; // キューが空になった場合
 
                     try {
                         const existing = await cache.match(url);
