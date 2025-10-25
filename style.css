@@ -200,7 +200,7 @@ input[type="search"]::-webkit-search-cancel-button {
     display: grid;
     /* カラム数は --grid-columns 変数で制御 */
     grid-template-columns: repeat(var(--grid-columns), 1fr);
-    gap: 8px;
+    gap: 0px;
 }
 
 .card-item {
@@ -696,3 +696,4 @@ input[type="search"]::-webkit-search-cancel-button {
     from { transform: translateY(20px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
 }
+04+
