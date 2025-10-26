@@ -11,7 +11,7 @@
     const CACHE_APP_SHELL = 'app-shell-v1'; // service-worker.jsと合わせる
     const CACHE_IMAGES = 'card-images-v1'; // service-worker.jsと合わせる
     const CARDS_JSON_PATH = './cards.json';
-    const APP_VERSION = '1.0.5'; // アプリバージョン更新 (スワイプ機能・高解像度化)
+    const APP_VERSION = '1.0.7'; // アプリバージョン更新 (検索/フィルタ/LB修正)
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db; // IndexedDBインスタンス
@@ -368,12 +368,15 @@
         }
 
         const searchTerm = dom.searchBar.value.trim().toLowerCase();
-        const searchWords = searchTerm.replace(/ /g, ' ').split(' ').filter(w => w.length > 0); // 全角スペースを半角に
+        // --- 修正: 全角スペースを半角スペースに置換 ---
+        const searchWords = searchTerm.replace(/　/g, ' ').split(' ').filter(w => w.length > 0);
+        // --- 修正ここまで ---
 
         // フィルタリング結果をグローバル変数に保存
         currentFilteredCards = allCards.filter(card => {
             if (!card || !card.cardNumber) return false;
 
+            // --- 修正: 検索ロジック ---
             if (searchWords.length > 0) {
                 const searchableText = [
                     card.name || '',
@@ -381,17 +384,40 @@
                     (card.traits || []).join(' '),
                     card.cardNumber || ''
                 ].join(' ').toLowerCase();
+                // 検索ワードの *すべて* が含まれているかチェック
                 if (!searchWords.every(word => searchableText.includes(word))) {
                     return false;
                 }
             }
+            // --- 修正ここまで ---
 
             const f = currentFilter;
+
+            // --- 修正: 色フィルタのロジック変更 (OR/AND) ---
             if (f.colors?.length > 0) {
-                 if (!Array.isArray(card.color) || !f.colors.every(color => card.color.includes(color))) {
-                    return false;
+                if (!Array.isArray(card.color) || card.color.length === 0) {
+                    return false; // カードに色情報がなければ除外
+                }
+
+                // 条件1: レアリティが 'L' のみかチェック
+                const isLOnly = f.rarities?.length === 1 && f.rarities[0] === 'L';
+                // 条件2: 複数の色が選択されているかチェック
+                const isMultiColor = f.colors.length > 1;
+
+                if (isLOnly && isMultiColor) {
+                    // AND検索: Lのみ選択 *かつ* 複数色選択時は、選択した色すべてを含む
+                    if (!f.colors.every(color => card.color.includes(color))) {
+                        return false;
+                    }
+                } else {
+                    // OR検索: それ以外 (L以外, L単色, 複数レアリティ, 色単色) は、選択した色のいずれか一つでも含めばOK
+                    if (!f.colors.some(color => card.color.includes(color))) {
+                        return false;
+                    }
                 }
             }
+            // --- 修正ここまで ---
+            
             if (f.types?.length > 0 && !f.types.includes(card.type)) return false;
             if (f.rarities?.length > 0 && !f.rarities.includes(card.rarity)) return false;
             if (f.costs?.length > 0) {
@@ -464,17 +490,13 @@
                 largeImagePath = getGeneratedImagePath(card.cardNumber);
             }
 
-            // --- 修正: _small.jpg を使わない ---
             const relativeImagePath = (largeImagePath && largeImagePath.startsWith('Cards/')) ? `./${largeImagePath}` : largeImagePath;
-            // --- 修正ここまで ---
 
             img.src = relativeImagePath;
             img.alt = card.name || card.cardNumber;
             img.loading = 'lazy';
 
-            // --- 修正: クリック時にインデックスを渡す ---
             cardItem.addEventListener('click', () => showLightbox(index));
-            // --- 修正ここまで ---
 
             img.onerror = () => {
                 console.warn(`Failed to load image for card ${card.cardNumber}: ${relativeImagePath}`);
@@ -486,9 +508,7 @@
                 } else if (!cardItem.querySelector('.card-fallback')) {
                      cardItem.appendChild(fallback);
                 }
-                // --- 修正: クリック時にインデックスを渡す ---
                 cardItem.onclick = () => showLightbox(index);
-                // --- 修正ここまで ---
             };
 
             if (relativeImagePath) {
@@ -497,9 +517,7 @@
                  const fallback = document.createElement('div');
                  fallback.className = 'card-fallback';
                  fallback.textContent = card.cardNumber;
-                 // --- 修正: クリック時にインデックスを渡す ---
                  cardItem.onclick = () => showLightbox(index);
-                 // --- 修正ここまで ---
                  cardItem.appendChild(fallback);
             }
 
@@ -529,6 +547,8 @@
         setGridColumns(savedColumns);
     }
 
+    // --- 修正: ライトボックス表示ロジック ---
+
     /**
      * ライトボックスを表示
      * @param {number} index - currentFilteredCards 配列内のインデックス
@@ -539,31 +559,34 @@
             return;
         }
         
-        currentLightboxIndex = index;
-        updateLightboxImage(currentLightboxIndex); // 画像更新
+        // インデックスを-1にリセットすることで、updateLightboxImageが
+        // (newIndex === currentLightboxIndex) のチェックに引っかからず
+        // 確実に初回表示を実行するようにする
+        currentLightboxIndex = -1; 
+        
         dom.lightboxModal.style.display = 'flex';
+        updateLightboxImage(index); // 表示したいインデックスを渡して更新
     }
     
     /**
      * ライトボックス内の画像を更新し、左右の画像をプリロードする
-     * @param {number} indexToShow - currentFilteredCards 配列内の表示したいインデックス
+     * @param {number} newIndex - currentFilteredCards 配列内の表示したいインデックス
      */
-    function updateLightboxImage(indexToShow) {
-        // インデックスの範囲チェックと調整
-        if (indexToShow < 0) {
-            indexToShow = 0; // 最小は0
-        }
-        if (indexToShow >= currentFilteredCards.length) {
-            indexToShow = currentFilteredCards.length - 1; // 最大は配列の最後
+    function updateLightboxImage(newIndex) {
+        
+        // インデックスの範囲チェック
+        if (newIndex < 0 || newIndex >= currentFilteredCards.length) {
+            console.log("Swipe/update out of bounds");
+            return; // 範囲外
         }
         
-        // インデックスが変わらないなら何もしない (スワイプ範囲外など)
-        if (indexToShow === currentLightboxIndex && dom.lightboxImage.src) {
-             // ただし初回表示時(srcが空)は除く
-             if(dom.lightboxImage.src.endsWith(dom.lightboxImage.src.split('/').pop())) return;
+        // インデックスが変わらないなら何もしない
+        if (newIndex === currentLightboxIndex) {
+             console.log("Index is the same, not updating.");
+             return;
         }
-
-        currentLightboxIndex = indexToShow;
+        
+        currentLightboxIndex = newIndex;
         const card = currentFilteredCards[currentLightboxIndex];
 
         if (!card || !card.cardNumber) {
@@ -581,10 +604,11 @@
 
         const relativeLargePath = (largeImagePath && largeImagePath.startsWith('Cards/')) ? `./${largeImagePath}` : largeImagePath;
 
-        dom.lightboxImage.src = relativeLargePath;
-        dom.lightboxImage.style.display = 'block';
+        // 先にフォールバックを非表示にし、画像を準備
         dom.lightboxFallback.style.display = 'none';
         dom.lightboxFallback.textContent = '';
+        dom.lightboxImage.style.display = 'block'; // 表示状態にする
+        dom.lightboxImage.src = relativeLargePath; // 最後にsrcを設定
 
         dom.lightboxImage.onerror = () => {
             console.warn(`Failed to load lightbox image for card ${card.cardNumber}: ${relativeLargePath}`);
@@ -603,6 +627,7 @@
          preloadImage(currentLightboxIndex + 1); // 次の画像
          preloadImage(currentLightboxIndex - 1); // 前の画像
     }
+    // --- 修正ここまで ---
     
     /**
      * 指定されたインデックスの画像をプリロードする
@@ -678,7 +703,7 @@
             .map(([, name]) => name);
 
         dom.filterOptionsContainer.innerHTML = `
-            ${createFilterGroup('colors', '色 (AND)', sortedColors, 'colors')}
+            ${createFilterGroup('colors', '色 (通常OR / Lのみ複数色AND)', sortedColors, 'colors')}
             ${createFilterGroup('types', '種別', sortedTypes, 'types')}
             ${createFilterGroup('rarities', 'レアリティ', sortedRarities, 'rarities')}
             ${createFilterGroup('costs', 'コスト', sortedCosts.map(String), 'costs')}
@@ -773,21 +798,18 @@
         dom.cacheProgressContainer.style.display = 'flex';
         dom.cacheProgressBar.style.width = '0%';
 
-        // --- 修正: _small.jpg を使わず、largeImagePath をキャッシュ ---
         const imageUrls = [...new Set(
             allCards.map(card => {
-                if (!card || !card.cardNumber) return null;
+                if (!card || !card.cardNumber) return null; 
                 
                 let largeImagePath = card.imagePath;
                 if (!largeImagePath) {
                     largeImagePath = getGeneratedImagePath(card.cardNumber);
                 }
                 
-                // _small.jpg への置換を削除
                 return (largeImagePath && largeImagePath.startsWith('Cards/')) ? `./${largeImagePath}` : largeImagePath;
-            }).filter(path => path) // null や空文字を除外
+            }).filter(path => path) 
         )];
-        // --- 修正ここまで ---
 
         const totalCount = imageUrls.length;
         dom.cacheProgressText.textContent = `0 / ${totalCount}`;
@@ -805,7 +827,7 @@
 
         try {
             const cache = await caches.open(CACHE_IMAGES);
-            const parallelLimit = 5; // 同時ダウンロード数を調整
+            const parallelLimit = 5; 
             const queue = [...imageUrls];
 
             const processQueue = async () => {
@@ -1036,20 +1058,18 @@
 
     // === 9. スワイプ処理 ===
     function handleTouchStart(e) {
-        // スワイプが画像上から開始されたか確認
+        // スワイプが画像上またはフォールバック上から開始されたか確認
         if (e.target === dom.lightboxImage || e.target === dom.lightboxFallback) {
              touchStartX = e.touches[0].clientX;
              touchEndX = touchStartX;
         } else {
-             // 画像の外（例：閉じるボタンのエリア）ならスワイプ開始しない
              touchStartX = 0;
              touchEndX = 0;
         }
     }
 
     function handleTouchMove(e) {
-        // スワイプ開始時と同じタッチポイントを追跡
-        if (touchStartX === 0) return; // スワイプが開始されていない
+        if (touchStartX === 0) return;
         touchEndX = e.touches[0].clientX;
     }
 
@@ -1061,28 +1081,15 @@
 
         // 右から左へのスワイプ（次へ）
         if (swipeDistance > swipeThreshold) {
-            if (currentLightboxIndex < currentFilteredCards.length - 1) {
-                console.log('Swipe left (next)');
-                updateLightboxImage(currentLightboxIndex + 1);
-            } else {
-                 console.log('Swipe left (no next card)');
-                 // TODO: 端まで行った時のフィードバック（例: 少しバウンドする）
-            }
+            console.log('Swipe left (next)');
+            updateLightboxImage(currentLightboxIndex + 1); // 次のインデックスを渡す
         }
         // 左から右へのスワイプ（前へ）
         else if (swipeDistance < -swipeThreshold) {
-            if (currentLightboxIndex > 0) {
-                console.log('Swipe right (previous)');
-                updateLightboxImage(currentLightboxIndex - 1);
-            } else {
-                 console.log('Swipe right (no previous card)');
-                 // TODO: 端まで行った時のフィードバック
-            }
+            console.log('Swipe right (previous)');
+            updateLightboxImage(currentLightboxIndex - 1); // 前のインデックスを渡す
         }
-        // スワイプ距離が閾値未満の場合はタップ（クローズ）として扱う
-        // (app.js L955 のクリックイベントが発火する)
         
-        // 座標をリセット
         touchStartX = 0;
         touchEndX = 0;
     }
@@ -1127,15 +1134,16 @@
             dom.lightboxModal.style.display = 'none';
             dom.lightboxImage.src = ''; // メモリ解放
             dom.lightboxImage.onerror = null;
+            currentLightboxIndex = -1; // インデックスをリセット
         });
         dom.lightboxModal.addEventListener('click', (e) => {
             // スワイプイベントと競合しないよう、閉じるボタン以外はスワイプハンドラに任せる
             if (e.target === dom.lightboxModal) {
-                 // スワイプで動いていない場合（タップの場合）のみ閉じる
-                 if (touchStartX === 0 && touchEndX === 0) {
+                 if (touchStartX === 0 && touchEndX === 0) { // スワイプ中でない（＝タップ）
                     dom.lightboxModal.style.display = 'none';
                     dom.lightboxImage.src = ''; // メモリ解放
                     dom.lightboxImage.onerror = null;
+                    currentLightboxIndex = -1; // インデックスをリセット
                  }
             }
         });
