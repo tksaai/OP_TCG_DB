@@ -28,6 +28,7 @@
     --safe-area-left: env(safe-area-inset-left, 0px);
     --safe-area-right: env(safe-area-inset-right, 0px);
 
+    /* ★ 修正: ヘッダー高さを 56px に戻す */
     --header-height: 56px;
     --footer-height: 60px;
     
@@ -184,6 +185,7 @@ input[type="search"]::-webkit-search-cancel-button {
     color: var(--color-disabled-text);
     transition: color 0.2s;
     padding-top: 4px;
+    position: relative; /* ★ 修正: 列数表示の重ね合わせのため */
 }
 .nav-btn svg {
     margin-bottom: 4px;
@@ -195,28 +197,61 @@ input[type="search"]::-webkit-search-cancel-button {
     color: var(--color-on-surface);
 }
 
+/* ★ 新規: 列数切り替えボタンのスタイル */
+/* テキストラベル ("Cards"など) */
+.nav-btn span {
+    font-size: 12px;
+}
+/* 列数表示用の数字 (SVGの上に重ねる) */
+.nav-btn span.column-count-display {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* アイコンの中央より少し上に配置 */
+    transform: translate(-50%, -60%);
+    
+    font-size: 14px;
+    font-weight: bold;
+    color: currentColor; /* .nav-btn の色を継承 */
+    pointer-events: none; /* 下のボタンをクリックできるように */
+}
+/* 列数切り替えボタンは常にアクティブな色（プライマリ色）にする */
+#column-toggle-btn {
+    color: var(--color-primary);
+}
+#column-toggle-btn:hover {
+     color: var(--color-on-surface);
+}
+
+
 /* === 4. カード一覧 === */
 .card-list-container {
     display: grid;
     /* カラム数は --grid-columns 変数で制御 */
     grid-template-columns: repeat(var(--grid-columns), 1fr);
-    gap: 8px;
+    /* ★ 修正: カード間の隙間を 0 に */
+    gap: 0;
 }
 
 .card-item {
     width: 100%;
     aspect-ratio: 70 / 98; /* カードの縦横比 */
-    border-radius: 6px;
+    /* ★ 修正: 隙間がないため、外側の角丸を削除 */
+    /* border-radius: 6px; */ 
     overflow: hidden;
     background-color: var(--color-surface);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    /* ★ 修正: 隙間がないため、影を削除 */
+    /* box-shadow: 0 1px 3px rgba(0,0,0,0.3); */
     cursor: pointer;
-    transition: transform 0.1s ease-out;
+    /* ★ 修正: 隙間がないため、ホバーエフェクトを削除 */
+    /* transition: transform 0.1s ease-out; */
 }
+/*
 .card-item:hover {
     transform: scale(1.03);
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
+*/
 
 .card-image {
     width: 100%;
@@ -278,6 +313,7 @@ input[type="search"]::-webkit-search-cancel-button {
     animation: fadeIn 0.2s ease-out;
 }
 
+/* ★ 修正: モーダルのラッパー (セーフエリア対応) */
 .modal-content-wrapper {
     width: 100%;
     max-width: 600px;
@@ -295,9 +331,11 @@ input[type="search"]::-webkit-search-cancel-button {
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     display: flex;
     flex-direction: column;
+    /* ★ 修正: モーダルの最大高さをラッパー基準に変更 */
     max-height: calc(100vh - (16px + var(--safe-area-top)) - (16px + var(--safe-area-bottom)));
     animation: slideIn 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
+/* --- 修正ここまで --- */
 
 .modal-header {
     display: flex;
@@ -393,17 +431,28 @@ input[type="search"]::-webkit-search-cancel-button {
     gap: 10px;
 }
 
+/* ★ 修正: フィルタグリッドの列数を添付画像に合わせる */
 .filter-grid.colors {
+    /* 色 (6列) */
     grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
 }
 .filter-grid.costs {
+    /* コスト (6列以上) */
     grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
 }
-.filter-grid.types,
-.filter-grid.rarities,
-.filter-grid.attributes {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+.filter-grid.types {
+    /* 種別 (3列) */
+     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
 }
+.filter-grid.rarities {
+    /* レアリティ (3列) */
+     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+}
+.filter-grid.attributes {
+    /* 属性 (4列) */
+     grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+}
+/* --- 修正ここまで --- */
 
 
 .filter-checkbox-label {
@@ -510,28 +559,8 @@ input[type="search"]::-webkit-search-cancel-button {
     width: 100%;
 }
 
-.column-selector {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;
-}
-.column-btn {
-    flex-grow: 1;
-    font-size: 16px;
-    font-weight: 500;
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid var(--color-border);
-    background-color: var(--color-background);
-    color: var(--color-on-background);
-    transition: background-color 0.2s, border-color 0.2s;
-}
-.column-btn.active {
-    background-color: var(--color-primary);
-    color: var(--color-on-primary);
-    border-color: var(--color-primary);
-}
+/* ★ 修正: 設定モーダル内の列セレクタスタイルを削除 */
+
 
 .app-version {
     text-align: center;
@@ -631,56 +660,78 @@ input[type="search"]::-webkit-search-cancel-button {
     animation: slideUp 0.3s ease-out;
     display: none; /* JSで制御 */
 }
+/* トーストのタイプ別スタイル */
+.notification-toast.info {
+    background-color: var(--color-primary-variant);
+    color: var(--color-on-background);
+}
+.notification-toast.success {
+    background-color: var(--color-success);
+    color: var(--color-on-primary);
+}
+.notification-toast.error {
+    background-color: var(--color-error);
+    color: var(--color-on-primary);
+}
+
 .notification-toast p {
     font-weight: 500;
     margin-right: 12px;
 }
 .notification-toast button {
     font-weight: 600;
-    color: var(--color-primary);
+    color: var(--color-primary); /* デフォルトはPrimary */
     padding: 4px 8px;
     border-radius: 4px;
     margin-left: 8px;
     flex-shrink: 0;
 }
+/* トーストのタイプに応じてボタン色を変更 */
+.notification-toast.info button { color: var(--color-secondary); }
+.notification-toast.success button { color: var(--color-on-primary); }
+.notification-toast.error button { color: var(--color-on-primary); }
+
 .notification-toast button:hover {
     background-color: rgba(0,0,0,0.1);
 }
+.notification-toast.info button:hover {
+    background-color: rgba(255,255,255,0.1);
+}
 .notification-toast .dismiss-btn {
     font-size: 20px;
-    color: var(--color-disabled);
+    color: currentColor; /* 親の色を継承 */
+    opacity: 0.7;
     padding: 0 4px;
+    background: none !important;
 }
 
 /* === 12. 進捗バー === */
+/* ★ 修正: ヘッダー内の進捗バーに変更 */
 .cache-progress-container {
+    /* header-contentの下に配置される */
     width: 100%;
-    height: auto;
+    height: 4px;
     background-color: var(--color-border);
-    padding: 4px 12px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    /* セーフエリア対応 (左右) */
-    padding-left: calc(12px + var(--safe-area-left));
-    padding-right: calc(12px + var(--safe-area-right));
+    display: none; /* JSで表示 */
+    position: absolute;
+    bottom: 0; /* ヘッダーの最下部 */
+    left: 0;
 }
 .cache-progress-bar {
     width: 0; /* JSで制御 */
-    height: 6px;
+    height: 100%;
     background-color: var(--color-progress);
-    border-radius: 3px;
+    border-radius: 0;
     transition: width 0.1s linear;
-    flex-grow: 1;
 }
 .cache-progress-text {
-    font-size: 12px;
-    color: var(--color-on-background);
-    flex-shrink: 0;
+    /* ★ 修正: 進捗テキストは非表示 (バーのみ) */
+    display: none;
 }
 #cache-progress-container[style*="display: none;"] {
     display: none !important;
 }
+/* --- 修正ここまで --- */
 
 
 /* === 13. アニメーション === */
@@ -696,3 +747,4 @@ input[type="search"]::-webkit-search-cancel-button {
     from { transform: translateY(20px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
 }
+
