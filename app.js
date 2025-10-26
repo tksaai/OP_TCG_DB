@@ -11,7 +11,7 @@
     const CACHE_APP_SHELL = 'app-shell-v1'; // service-worker.jsと合わせる
     const CACHE_IMAGES = 'card-images-v1'; // service-worker.jsと合わせる
     const CARDS_JSON_PATH = './cards.json';
-    const APP_VERSION = '1.0.14'; // アプリバージョン更新 (DOM/Init Fix)
+    const APP_VERSION = '1.0.18'; // ★ アプリバージョン更新 (UI変更)
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db; // IndexedDBインスタンス
@@ -26,7 +26,7 @@
     let touchEndX = 0; // スワイプ終了X座標
     let touchStartY = 0; // スワイプ開始Y座標
     let touchEndY = 0; // スワイプ終了Y座標
-    let isDebugInfoVisible = false; // ★デバッグ情報表示中フラグを追加
+    let isDebugInfoVisible = false; // ★デバッグ情報表示中フラグ
     // ---
 
     // === 2. DOM要素のキャッシュ ===
@@ -87,12 +87,16 @@
             // モーダル: 設定
             settingsModal: $('#settings-modal'),
             closeSettingsModalBtn: $('#close-settings-modal-btn'),
-            columnSelector: $('#column-selector'),
+            // ★ 修正: 列セレクタをヘッダーに移動するため、ここからは削除
+            // columnSelector: $('#column-selector'), 
             cacheAllImagesBtn: $('#cache-all-images-btn'),
             clearAllDataBtn: $('#clear-all-data-btn'),
             appVersionInfo: $('#app-version-info'),
             cardDataVersionInfo: $('#card-data-version-info'),
     
+            // ★ 修正: 列セレクタをヘッダーから取得
+            columnSelector: $('#column-selector'), // ヘッダーにある #column-selector を取得
+
             // モーダル: ライトボックス
             lightboxModal: $('#lightbox-modal'),
             lightboxImage: $('#lightbox-image'),
@@ -162,6 +166,7 @@
                 upgrade(db, oldVersion, newVersion, transaction) {
                     console.log(`Upgrading DB from ${oldVersion} to ${newVersion}`);
 
+                    // バージョン2へのアップグレード: keyPath を 'id' から 'cardNumber' に変更
                     if (oldVersion < 2 && db.objectStoreNames.contains(STORE_CARDS)) {
                         console.log(`Recreating ${STORE_CARDS} store for version 2 with keyPath 'cardNumber'.`);
                         try {
@@ -199,7 +204,7 @@
         } catch (error) {
             console.error('Failed to open IndexedDB:', error);
             dom.loadingIndicator.textContent = 'データベースの初期化に失敗しました。';
-             throw error;
+             throw error; // 初期化失敗は致命的エラーとしてスロー
         }
     }
 
@@ -223,6 +228,7 @@
         const seriesId = parts[0]; // "OP01" や "P"
         const cardId = cardNumber; // "OP01-001" や "P-001"
         
+        // ★修正: _small.jpg を使わない
         return `Cards/${seriesId}/${cardId}.jpg`;
     }
 
@@ -250,17 +256,20 @@
             const img = document.createElement('img');
             img.className = 'card-image';
 
+            // ★修正: _small.jpg を使わない
             let largeImagePath = card.imagePath;
             if (!largeImagePath) {
                 largeImagePath = getGeneratedImagePath(card.cardNumber);
             }
+            // --- 修正ここまで ---
 
             const relativeImagePath = (largeImagePath && largeImagePath.startsWith('Cards/')) ? `./${largeImagePath}` : largeImagePath;
 
             img.src = relativeImagePath;
             img.alt = card.cardName || card.cardNumber; // card.name -> card.cardName
-            img.loading = 'lazy';
+            img.loading = 'lazy'; // 遅延読み込み
 
+            // ★修正: showLightbox にインデックスを渡す
             cardItem.addEventListener('click', () => showLightbox(index));
 
             img.onerror = () => {
@@ -268,17 +277,21 @@
                 const fallback = document.createElement('div');
                 fallback.className = 'card-fallback';
                 fallback.textContent = card.cardNumber;
+                // img が存在する場合のみ replaceChild を試みる
                 if(cardItem.contains(img)){
                     cardItem.replaceChild(fallback, img);
                 } else if (!cardItem.querySelector('.card-fallback')) {
+                     // 既にフォールバックがない場合のみ追加 (二重追加防止)
                      cardItem.appendChild(fallback);
                 }
+                // ★修正: showLightbox にインデックスを渡す
                 cardItem.onclick = () => showLightbox(index);
             };
 
             if (relativeImagePath) {
                  cardItem.appendChild(img);
             } else {
+                 // 画像パスが存在しない場合
                  const fallback = document.createElement('div');
                  fallback.className = 'card-fallback';
                  fallback.textContent = card.cardNumber;
@@ -298,7 +311,8 @@
      */
     function setGridColumns(columns) {
         document.documentElement.style.setProperty('--grid-columns', columns);
-        $$('.column-btn').forEach(btn => {
+        // ★修正: セレクタを .header-column-selector の子孫に変更
+        $$('.header-column-selector .column-btn').forEach(btn => {
             btn.classList.toggle('active', btn.dataset.columns === String(columns));
         });
         localStorage.setItem('gridColumns', columns);
@@ -326,6 +340,7 @@
         
         isDebugInfoVisible = false; // デバッグフラグをリセット
 
+        // ★修正: 現在のインデックスを-1にリセットし、updateLightboxImageが必ず実行されるようにする
         currentLightboxIndex = -1; 
         
         dom.lightboxModal.style.display = 'flex';
@@ -344,8 +359,8 @@
             return; // 範囲外
         }
         
-        // インデックスが変わらないなら何もしない
-        if (newIndex === currentLightboxIndex) {
+        // ★修正: インデックスが変わらないなら（かつデバッグ中でないなら）何もしない
+        if (newIndex === currentLightboxIndex && !isDebugInfoVisible) {
              console.log("Index is the same, not updating.");
              return;
         }
@@ -363,14 +378,16 @@
              return;
         }
 
+        // ★修正: _small.jpg を使わない
         let largeImagePath = card.imagePath;
         if (!largeImagePath) {
             largeImagePath = getGeneratedImagePath(card.cardNumber);
         }
+        // --- 修正ここまで ---
 
         const relativeLargePath = (largeImagePath && largeImagePath.startsWith('Cards/')) ? `./${largeImagePath}` : largeImagePath;
 
-        // デバッグ表示のスタイルをリセット
+        // ★修正: デバッグ表示用のスタイルをリセットし、フォールバックを隠す
         resetFallbackStyles();
         dom.lightboxFallback.style.display = 'none'; // none に
         // --- 修正ここまで ---
@@ -402,6 +419,7 @@
      * ★デバッグ表示用のスタイルをリセットする関数
      */
     function resetFallbackStyles() {
+        // スタイルをデフォルトのフォールバック表示（中央揃え、大文字など）に戻す
         dom.lightboxFallback.style.textAlign = 'center';
         dom.lightboxFallback.style.padding = '0';
         dom.lightboxFallback.style.whiteSpace = 'normal';
@@ -423,10 +441,12 @@
         const card = currentFilteredCards[indexToPreload];
         if (!card || !card.cardNumber) return;
 
+        // ★修正: _small.jpg を使わない
         let largeImagePath = card.imagePath;
         if (!largeImagePath) {
             largeImagePath = getGeneratedImagePath(card.cardNumber);
         }
+        // --- 修正ここまで ---
         
         const relativeLargePath = (largeImagePath && largeImagePath.startsWith('Cards/')) ? `./${largeImagePath}` : largeImagePath;
 
@@ -487,27 +507,15 @@
 
             const f = currentFilter;
 
-            // --- 修正: 色フィルタのロジック変更 (OR/AND) ---
+            // --- 修正: 色フィルタのロジック (常にOR検索に統一) ---
             if (f.colors?.length > 0) {
                 if (!Array.isArray(card.color) || card.color.length === 0) {
                     return false; // カードに色情報がなければ除外
                 }
 
-                // 条件1: レアリティが 'L' のみかチェック
-                const isLOnly = f.rarities?.length === 1 && f.rarities[0] === 'L';
-                // 条件2: 複数の色が選択されているかチェック
-                const isMultiColor = f.colors.length > 1;
-
-                if (isLOnly && isMultiColor) {
-                    // AND検索: Lのみ選択 *かつ* 複数色選択時は、選択した色すべてを含む
-                    if (!f.colors.every(color => card.color.includes(color))) {
-                        return false;
-                    }
-                } else {
-                    // OR検索: それ以外 (L以外, L単色, 複数レアリティ, 色単色) は、選択した色のいずれか一つでも含めばOK
-                    if (!f.colors.some(color => card.color.includes(color))) {
-                        return false;
-                    }
+                // OR検索: 選択した色のいずれか一つでも含めばOK
+                if (!f.colors.some(color => card.color.includes(color))) {
+                    return false;
                 }
             }
             // --- 修正ここまで ---
@@ -560,21 +568,23 @@
         const rarities = new Set();
         const costs = new Set();
         const attributes = new Set();
-        const seriesSet = new Map();
+        const seriesSet = new Map(); // seriesId をキー, 表示名を値 にする
 
         allCards.forEach(card => {
             if (!card || !card.cardNumber) return;
 
             if (Array.isArray(card.color)) card.color.forEach(c => colors.add(c));
             
-            // ★修正: JSONキー修正
-            if(card.cardType) types.add(card.cardType); // card.type から card.cardType に修正
+            // ★修正: JSONキー修正 & ドン!!除外
+            if(card.cardType && card.cardType !== 'ドン!!') types.add(card.cardType); 
             
-            if(card.rarity && card.rarity !== 'SP') rarities.add(card.rarity);
+            // ★修正: SP除外
+            if(card.rarity && card.rarity !== 'SP') rarities.add(card.rarity); 
+            
             if(card.cost !== undefined && card.cost !== null) costs.add(card.cost);
             if (Array.isArray(card.attribute)) card.attribute.forEach(a => attributes.add(a));
 
-            // --- 修正: シリーズフィルタのロジック ---
+            // --- 修正: シリーズフィルタのロジック (seriesTitle を使用) ---
             const seriesId = card.cardNumber.split('-')[0]; // 例: "OP01", "P", "ST11"
             if (!seriesId || seriesSet.has(seriesId)) {
                 return; // IDが無いか、既に処理済みならスキップ
@@ -582,14 +592,18 @@
 
             if (seriesId === 'P') {
                 seriesSet.set('P', 'P - プロモカード');
+            } else if (card.seriesTitle) {
+                // seriesTitle が存在する場合 (例: "ROMANCE DAWN")
+                seriesSet.set(seriesId, `${seriesId} - ${card.seriesTitle}`);
             } else if (card.series) {
-                // "OP01 - ROMANCE DAWN" のような形式から "ROMANCE DAWN" を抽出
+                 // seriesTitle がない場合のフォールバックとして card.series を試す
+                // (例: "OP01 - ROMANCE DAWN")
                 const seriesParts = card.series.split(' - ');
-                const seriesName = seriesParts[1] || card.series;
+                const seriesName = seriesParts[1] || card.series; // "ROMANCE DAWN" または "OP01 - ROMANCE DAWN"
                 seriesSet.set(seriesId, `${seriesId} - ${seriesName}`);
             } else {
-                // ST11などで card.series が空の場合のフォールバック
-                seriesSet.set(seriesId, `${seriesId} - (不明なシリーズ)`);
+                // それも無い場合の最終フォールバック
+                seriesSet.set(seriesId, `${seriesId} - (シリーズ情報なし)`);
             }
             // --- 修正ここまで ---
         });
@@ -613,11 +627,12 @@
             .map(([, name]) => name); // (例: "OP01 - ROMANCE DAWN", "P - プロモカード")
         // --- 修正ここまで ---
 
+        // ★ 修正: フィルタの順序とクラスを変更
         dom.filterOptionsContainer.innerHTML = `
-            ${createFilterGroup('colors', '色 (通常OR / Lのみ複数色AND)', sortedColors, 'colors')}
+            ${createFilterGroup('colors', '色 (OR)', sortedColors, 'colors')}
+            ${createFilterGroup('costs', 'コスト', sortedCosts.map(String), 'costs')}
             ${createFilterGroup('types', '種別', sortedTypes, 'types')}
             ${createFilterGroup('rarities', 'レアリティ', sortedRarities, 'rarities')}
-            ${createFilterGroup('costs', 'コスト', sortedCosts.map(String), 'costs')}
             ${createFilterGroup('attributes', '属性 (AND)', sortedAttributes, 'attributes')}
             ${createSeriesFilter(sortedSeries)}
         `;
@@ -820,12 +835,14 @@
             await cardStore.clear();
             console.log(`${STORE_CARDS} store cleared.`);
 
+            // ★修正: 'cardNumber' をキーとしてDBに保存
             for (const card of cardsArray) {
-                if (card && card.cardNumber) {
+                if (card && card.cardNumber) { // 'id' から 'cardNumber' に変更
                     try {
                         await cardStore.put(card);
                         count++;
                     } catch (putError) {
+                        // 主キー制約違反 (DuplicateKeyError) など
                         console.error(`Failed to put card ${card.cardNumber} into DB:`, putError);
                         putErrors++;
                     }
@@ -839,6 +856,7 @@
                 console.error(`${putErrors} errors occurred during card put operations.`);
             }
 
+            // メタデータを保存
             await metaStore.put({ key: 'cardsLastModified', value: serverLastModified });
             console.log('Metadata updated.');
 
@@ -846,22 +864,27 @@
             console.log('DB update transaction completed.');
 
             console.log('Card database update process finished successfully.');
+            // DBからメタデータを再取得して表示
             const savedMeta = await db.get(STORE_METADATA, 'cardsLastModified');
             dom.cardDataVersionInfo.textContent = savedMeta ? new Date(savedMeta.value).toLocaleString('ja-JP') : '更新完了';
             showMessageToast(`カードデータが更新されました (${count}件)。`, 'success');
 
+            // DBから再読み込みして表示
             await loadCardsFromDB();
 
         } catch (error) {
             console.error('Failed to update card data:', error);
             dom.loadingIndicator.querySelector('p').textContent = `データ更新に失敗しました: ${error.message}`;
             showMessageToast('データ更新に失敗しました。オフラインデータを表示します。', 'error');
+            // エラーが発生したらトランザクションを中断
             if (tx && tx.abort && !tx.done) {
                 try { tx.abort(); console.log('DB update transaction aborted due to error.'); }
                 catch (abortError) { console.error('Error aborting transaction:', abortError); }
             }
+            // 失敗しても、DBに残っている古いデータ（もしあれば）のロードを試みる
             await loadCardsFromDB();
         } finally {
+             // 成功失敗に関わらず、ローディングインジケータを非表示にする
              setTimeout(() => { 
                 if (dom.loadingIndicator) {
                     dom.loadingIndicator.style.display = 'none'; 
@@ -885,6 +908,7 @@
             allCards = await db.getAll(STORE_CARDS);
             if (allCards.length === 0) {
                 console.log('No cards found in DB.');
+                 // ローディング表示が「オフライン」モードでない場合のみ、テキストを変更
                  if (dom.loadingIndicator && (dom.loadingIndicator.style.display === 'none' || dom.loadingIndicator.textContent.includes('オフライン'))) {
                     dom.loadingIndicator.style.display = 'flex';
                     dom.loadingIndicator.querySelector('p').textContent = 'ローカルデータがありません。オンラインでデータを取得してください。';
@@ -929,17 +953,19 @@
         dom.cacheProgressContainer.style.display = 'flex';
         dom.cacheProgressBar.style.width = '0%';
 
+        // ★修正: _small.jpg を使わない
         const imageUrls = [...new Set(
             allCards.map(card => {
-                if (!card || !card.cardNumber) return null; 
+                if (!card || !card.cardNumber) return null; // cardNumber をチェック
                 
                 let largeImagePath = card.imagePath;
                 if (!largeImagePath) {
                     largeImagePath = getGeneratedImagePath(card.cardNumber);
                 }
                 
+                // パスが 'Cards/' で始まることを確認し、相対パス './' を付与
                 return (largeImagePath && largeImagePath.startsWith('Cards/')) ? `./${largeImagePath}` : largeImagePath;
-            }).filter(path => path) 
+            }).filter(path => path) // null や undefined を除去
         )];
 
         const totalCount = imageUrls.length;
@@ -958,7 +984,7 @@
 
         try {
             const cache = await caches.open(CACHE_IMAGES);
-            const parallelLimit = 5; 
+            const parallelLimit = 5; // 同時ダウンロード数
             const queue = [...imageUrls];
 
             const processQueue = async () => {
@@ -967,8 +993,10 @@
                     if (!url) continue;
 
                     try {
+                        // 既にキャッシュに存在するか確認
                         const existing = await cache.match(url);
                         if (!existing) {
+                            // 存在しない場合のみキャッシュに追加
                             await cache.add(url);
                         }
                     } catch (e) {
@@ -977,6 +1005,7 @@
                     }
 
                     cachedCount++;
+                    // UI更新をメインスレッドで行う
                     requestAnimationFrame(() => {
                         const progress = Math.round((cachedCount / totalCount) * 100);
                         dom.cacheProgressBar.style.width = `${progress}%`;
@@ -1011,12 +1040,17 @@
      */
     async function clearAllData() {
         let confirmed = false;
+        // ★修正: window.confirm は iframe 内で動作しない可能性があるため、カスタムUIを推奨
+        // ただし、ご要望の範囲を超えるため、ここでは confirm/prompt のフォールバックを使用
         try {
-             confirmed = window.confirm('本当にすべてのデータを削除しますか？\nデータベースと画像キャッシュが消去され、アプリがリロードされます。');
+             // window.confirm は使わない
+             // confirmed = window.confirm('本当にすべてのデータを削除しますか？\nデータベースと画像キャッシュが消去され、アプリがリロードされます。');
+             // 代わりに prompt を使用
+             const input = prompt("すべてのデータを削除しますか？ 'yes'と入力してください。");
+             confirmed = input && input.toLowerCase() === 'yes';
         } catch (e) {
-            console.warn("window.confirm maybe blocked. Using prompt as fallback.", e);
-            const input = prompt("すべてのデータを削除しますか？ 'yes'と入力してください。");
-            confirmed = input && input.toLowerCase() === 'yes';
+            console.warn("Prompt failed. Defaulting to 'no'.", e);
+            confirmed = false;
         }
         if (!confirmed) return;
 
@@ -1082,17 +1116,22 @@
                 swRegistration = registration;
                 console.log('Service Worker registered:', registration.scope);
 
+                // 既に新しいSWが待機状態 (waiting) か確認
                 if (registration.waiting) {
                     console.log('New Service Worker is waiting.');
                     showAppUpdateNotification();
                 }
 
+                // 更新が見つかった時のイベント
                 registration.onupdatefound = () => {
                     console.log('Service Worker update found.');
                     const installingWorker = registration.installing;
                     if (installingWorker) {
+                        // インストール状態が変わるたびに監視
                         installingWorker.onstatechange = () => {
                             if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                // 新しいワーカーがインストール完了し、古いワーカーがまだ制御中の場合
+                                // = 新バージョンが待機状態 (waiting) になった
                                 console.log('New Service Worker is installed and waiting.');
                                 showAppUpdateNotification();
                             } else {
@@ -1106,6 +1145,7 @@
                 console.error('Service Worker registration failed:', error);
             }
 
+            // 制御するSWが変わった時 (新しいSWが有効化された時)
             let refreshing = false;
             navigator.serviceWorker.addEventListener('controllerchange', () => {
                 console.log('Service Worker controller changed.');
@@ -1121,48 +1161,69 @@
      * データベース更新通知を表示
      */
     function showDbUpdateNotification(serverLastModified) {
-        dom.dbUpdateNotification.style.display = 'none';
+        dom.dbUpdateNotification.style.display = 'none'; // 再表示のために一度隠す
         dom.dbUpdateNotification.style.display = 'flex';
-        const applyHandler = () => {
+        
+        // ハンドラを一度クリアして多重登録を防ぐ
+        const oldApplyBtn = dom.dbUpdateApplyBtn;
+        const newApplyBtn = oldApplyBtn.cloneNode(true);
+        oldApplyBtn.parentNode.replaceChild(newApplyBtn, oldApplyBtn);
+        dom.dbUpdateApplyBtn = newApplyBtn;
+        
+        const oldDismissBtn = dom.dbUpdateDismissBtn;
+        const newDismissBtn = oldDismissBtn.cloneNode(true);
+        oldDismissBtn.parentNode.replaceChild(newDismissBtn, oldDismissBtn);
+        dom.dbUpdateDismissBtn = newDismissBtn;
+
+        // 新しいボタンにイベントリスナーを設定
+        newApplyBtn.addEventListener('click', () => {
             dom.dbUpdateNotification.style.display = 'none';
             fetchAndUpdateCardData(serverLastModified);
-        };
-        const dismissHandler = () => {
+        }, { once: true });
+        
+        newDismissBtn.addEventListener('click', () => {
             dom.dbUpdateNotification.style.display = 'none';
-        };
-        dom.dbUpdateApplyBtn.removeEventListener('click', applyHandler);
-        dom.dbUpdateDismissBtn.removeEventListener('click', dismissHandler);
-        dom.dbUpdateApplyBtn.addEventListener('click', applyHandler, { once: true });
-        dom.dbUpdateDismissBtn.addEventListener('click', dismissHandler, { once: true });
+        }, { once: true });
     }
 
     /**
      * アプリ本体の更新通知を表示
      */
     function showAppUpdateNotification() {
-        dom.appUpdateNotification.style.display = 'none';
+        dom.appUpdateNotification.style.display = 'none'; // 再表示のために一度隠す
         dom.appUpdateNotification.style.display = 'flex';
+        
         const applyHandler = () => {
             if (swRegistration && swRegistration.waiting) {
                 console.log('Sending SKIP_WAITING message to Service Worker.');
                 swRegistration.waiting.postMessage({ type: 'SKIP_WAITING' });
                 dom.appUpdateNotification.style.display = 'none';
                 showMessageToast('アプリを更新中...');
+                
+                // controllerchange が発火しなかった場合のフォールバック
                 setTimeout(() => {
                     if (!applyHandler.refreshed) {
                          console.warn('Controller change event did not fire. Reloading manually.');
                          window.location.reload();
                     }
-                }, 3000);
+                }, 3000); // 3秒待つ
             } else {
                  console.warn('Could not find waiting Service Worker to send SKIP_WAITING. Reloading directly...');
                  window.location.reload();
             }
         };
-        applyHandler.refreshed = false;
+        applyHandler.refreshed = false; // リフレッシュ検知フラグ
+        
+        // controllerchange を一度だけ監視し、リロードが実行されたことを記録
         navigator.serviceWorker.addEventListener('controllerchange', () => { applyHandler.refreshed = true; }, { once: true });
-        dom.appUpdateApplyBtn.removeEventListener('click', applyHandler);
-        dom.appUpdateApplyBtn.addEventListener('click', applyHandler, { once: true });
+        
+        // ボタンの多重登録防止
+        const oldApplyBtn = dom.appUpdateApplyBtn;
+        const newApplyBtn = oldApplyBtn.cloneNode(true);
+        oldApplyBtn.parentNode.replaceChild(newApplyBtn, oldApplyBtn);
+        dom.appUpdateApplyBtn = newApplyBtn;
+        
+        newApplyBtn.addEventListener('click', applyHandler, { once: true });
     }
 
     /**
@@ -1182,7 +1243,7 @@
         }
 
         text.textContent = message;
-        toast.className = `message-toast ${type}`;
+        toast.className = `message-toast ${type}`; // クラスを付け替える
         toast.style.display = 'flex';
         
         const dismissHandler = () => {
@@ -1258,13 +1319,14 @@
         // Y軸のスワイプ（縦スワイプ）がX軸（横スワイプ）より大きいかチェック
         if (Math.abs(swipeDistanceY) > swipeThreshold && Math.abs(swipeDistanceY) > Math.abs(swipeDistanceX)) {
             
-            // --- ★修正: デバッグ機能 (コンソール以外) ---
+            /* --- ★デバッグ機能 (上から下スワイプ) 無効化 ---
+            // ユーザーのリクエストにより無効化
             if (swipeDistanceY < -swipeThreshold) { // 上から下
                 if (currentLightboxIndex !== -1 && currentFilteredCards[currentLightboxIndex]) {
                     showDebugInfo(currentFilteredCards[currentLightboxIndex]);
                 }
             }
-            // --- 修正ここまで ---
+            */
             
         }
         // X軸のスワイプ（横スワイプ）がY軸より大きいかチェック
@@ -1290,6 +1352,7 @@
 
     /**
      * ★デバッグ情報をライトボックスのフォールバック要素に表示する
+     * (現在は handleTouchEnd で呼び出されないように無効化されています)
      */
     function showDebugInfo(card) {
         console.log('--- DEBUG CARD JSON ---');
@@ -1397,10 +1460,13 @@
         dom.resetFilterBtn.addEventListener('click', resetFilters);
         dom.closeSettingsModalBtn.addEventListener('click', () => { dom.settingsModal.style.display = 'none'; });
         dom.settingsModal.addEventListener('click', (e) => { if (e.target === dom.settingsModal) dom.settingsModal.style.display = 'none'; });
+        
+        // ★ 修正: 列セレクタのリスナーをグローバルに移動 (設定モーダルから外す)
         dom.columnSelector.addEventListener('click', (e) => {
             const btn = e.target.closest('.column-btn');
             if (btn && !btn.classList.contains('active')) setGridColumns(btn.dataset.columns);
         });
+
         dom.cacheAllImagesBtn.addEventListener('click', cacheAllImages);
         dom.clearAllDataBtn.addEventListener('click', clearAllData);
         
@@ -1442,6 +1508,7 @@
     }
 
     // === 11. アプリ起動 ===
+    // 'load' イベントで DOM の準備が完了してから initializeApp を実行
     window.addEventListener('load', initializeApp);
 
 })();
