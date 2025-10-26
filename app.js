@@ -11,7 +11,7 @@
     const CACHE_APP_SHELL = 'app-shell-v1'; // service-worker.jsと合わせる
     const CACHE_IMAGES = 'card-images-v1'; // service-worker.jsと合わせる
     const CARDS_JSON_PATH = './cards.json';
-    const APP_VERSION = '1.0.8'; // アプリバージョン更新 (デバッグ機能追加)
+    const APP_VERSION = '1.0.9'; // アプリバージョン更新 (シリーズフィルタ実装)
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db; // IndexedDBインスタンス
@@ -432,11 +432,20 @@
                     return false;
                 }
             }
-            if (f.series) {
+
+            // --- 修正: シリーズフィルタロジック ---
+            if (f.series) { // f.series には 'OP01' や 'P' が入る
                  if (!card.cardNumber) return false;
-                 const cardSeriesId = card.cardNumber.split('-')[0];
-                if (cardSeriesId !== f.series) return false;
+                 
+                 if (f.series === 'P') {
+                    // プロモが選択された場合
+                    if (!card.cardNumber.startsWith('P-')) return false;
+                 } else {
+                    // その他のシリーズ (OP01, ST01など) が選択された場合
+                    if (!card.cardNumber.startsWith(f.series + '-')) return false;
+                 }
             }
+            // --- 修正ここまで ---
 
             return true;
         });
@@ -684,14 +693,24 @@
             if(card.cost !== undefined && card.cost !== null) costs.add(card.cost);
             if (Array.isArray(card.attribute)) card.attribute.forEach(a => attributes.add(a));
 
-            if(card.series && !card.cardNumber.startsWith('P-')) {
-                 const seriesParts = card.series.split(' - ');
-                 const seriesName = seriesParts[1] || card.series;
-                 const seriesId = card.cardNumber.split('-')[0];
-                if (seriesId && !seriesSet.has(seriesId)) {
-                    seriesSet.set(seriesId, `${seriesId} - ${seriesName}`);
-                }
+            // --- 修正: シリーズフィルタのロジック ---
+            const seriesId = card.cardNumber.split('-')[0]; // 例: "OP01", "P", "ST11"
+            if (!seriesId || seriesSet.has(seriesId)) {
+                return; // IDが無いか、既に処理済みならスキップ
             }
+
+            if (seriesId === 'P') {
+                seriesSet.set('P', 'P - プロモカード');
+            } else if (card.series) {
+                // "OP01 - ROMANCE DAWN" のような形式から "ROMANCE DAWN" を抽出
+                const seriesParts = card.series.split(' - ');
+                const seriesName = seriesParts[1] || card.series;
+                seriesSet.set(seriesId, `${seriesId} - ${seriesName}`);
+            } else {
+                // ST11などで card.series が空の場合のフォールバック
+                seriesSet.set(seriesId, `${seriesId} - (不明なシリーズ)`);
+            }
+            // --- 修正ここまで ---
         });
 
         const sortedColors = [...colors].sort();
@@ -700,9 +719,18 @@
         const sortedRarities = [...rarities].sort((a, b) => rarityOrder.indexOf(a) - rarityOrder.indexOf(b));
         const sortedCosts = [...costs].map(Number).sort((a, b) => a - b);
         const sortedAttributes = [...attributes].sort();
-        const sortedSeries = [...seriesSet.entries()]
-            .sort(([idA], [idB]) => idA.localeCompare(idB, undefined, { numeric: true }))
-            .map(([, name]) => name);
+
+        // --- 修正: シリーズのソート ('P'を最後にする) ---
+        const seriesEntries = [...seriesSet.entries()];
+        const sortedSeries = seriesEntries
+            .sort(([idA], [idB]) => {
+                if (idA === 'P') return 1; // 'P' は常に最後
+                if (idB === 'P') return -1; // 'P' は常に最後
+                // その他は ID (OP01, ST01) でソート
+                return idA.localeCompare(idB, undefined, { numeric: true, sensitivity: 'base' });
+            })
+            .map(([, name]) => name); // (例: "OP01 - ROMANCE DAWN", "P - プロモカード")
+        // --- 修正ここまで ---
 
         dom.filterOptionsContainer.innerHTML = `
             ${createFilterGroup('colors', '色 (通常OR / Lのみ複数色AND)', sortedColors, 'colors')}
@@ -741,7 +769,8 @@
     function createSeriesFilter(seriesList) {
         if (seriesList.length === 0) return '';
         const optionsHtml = seriesList.map(seriesName => {
-            const seriesId = seriesName.split(' - ')[0];
+            // seriesName は "OP01 - ROMANCE DAWN" または "P - プロモカード"
+            const seriesId = seriesName.split(' - ')[0]; // "OP01" または "P"
             return `<option value="${seriesId}">${seriesName}</option>`;
         }).join('');
         return `
