@@ -11,7 +11,7 @@
     const CACHE_APP_SHELL = 'app-shell-v1'; // service-worker.jsと合わせる
     const CACHE_IMAGES = 'card-images-v1'; // service-worker.jsと合わせる
     const CARDS_JSON_PATH = './cards.json';
-    const APP_VERSION = '1.0.13'; // アプリバージョン更新 (JSONキー修正)
+    const APP_VERSION = '1.0.14'; // アプリバージョン更新 (DOM/Init Fix)
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db; // IndexedDBインスタンス
@@ -32,6 +32,9 @@
     // === 2. DOM要素のキャッシュ ===
     const $ = (selector) => document.querySelector(selector);
     const $$ = (selector) => document.querySelectorAll(selector);
+
+    // ★修正: 宣言だけ先に
+    let dom = {};
 
     /**
      * ★ひらがなをカタカナに変換するヘルパー関数
@@ -57,61 +60,84 @@
         });
     }
 
-    const dom = {
-        loadingIndicator: $('#loading-indicator'),
-        cardListContainer: $('#card-list-container'),
-        searchBar: $('#search-bar'),
-        clearSearchBtn: $('#clear-search-btn'),
-        filterBtn: $('#filter-btn'),
-        settingsBtn: $('#settings-btn'),
-        mainContent: $('#main-content'),
-
-        // モーダル: フィルタ
-        filterModal: $('#filter-modal'),
-        closeFilterModalBtn: $('#close-filter-modal-btn'),
-        filterOptionsContainer: $('#filter-options-container'),
-        applyFilterBtn: $('#apply-filter-btn'),
-        resetFilterBtn: $('#reset-filter-btn'),
-
-        // モーダル: 設定
-        settingsModal: $('#settings-modal'),
-        closeSettingsModalBtn: $('#close-settings-modal-btn'),
-        columnSelector: $('#column-selector'),
-        cacheAllImagesBtn: $('#cache-all-images-btn'),
-        clearAllDataBtn: $('#clear-all-data-btn'),
-        appVersionInfo: $('#app-version-info'),
-        cardDataVersionInfo: $('#card-data-version-info'),
-
-        // モーダル: ライトボックス
-        lightboxModal: $('#lightbox-modal'),
-        lightboxImage: $('#lightbox-image'),
-        lightboxFallback: $('#lightbox-fallback'),
-        lightboxCloseBtn: $('#lightbox-close-btn'),
-
-        // 通知
-        dbUpdateNotification: $('#db-update-notification'),
-        dbUpdateApplyBtn: $('#db-update-apply-btn'),
-        dbUpdateDismissBtn: $('#db-update-dismiss-btn'),
-        appUpdateNotification: $('#app-update-notification'),
-        appUpdateApplyBtn: $('#app-update-apply-btn'),
-        messageToast: $('#message-toast'),
-        messageToastText: $('#message-toast-text'),
-        messageToastDismissBtn: $('#message-toast-dismiss-btn'),
-
-        // キャッシュ進捗
-        cacheProgressContainer: $('#cache-progress-container'),
-        cacheProgressBar: $('#cache-progress-bar'),
-        cacheProgressText: $('#cache-progress-text'),
-    };
 
     // === 3. 初期化処理 ===
+    
+    /**
+     * ★修正: DOM要素をキャッシュする関数
+     * (initializeApp から呼び出される)
+     */
+    function cacheDomElements() {
+        dom = {
+            loadingIndicator: $('#loading-indicator'),
+            cardListContainer: $('#card-list-container'),
+            searchBar: $('#search-bar'),
+            clearSearchBtn: $('#clear-search-btn'),
+            filterBtn: $('#filter-btn'),
+            settingsBtn: $('#settings-btn'),
+            mainContent: $('#main-content'),
+    
+            // モーダル: フィルタ
+            filterModal: $('#filter-modal'),
+            closeFilterModalBtn: $('#close-filter-modal-btn'),
+            filterOptionsContainer: $('#filter-options-container'),
+            applyFilterBtn: $('#apply-filter-btn'),
+            resetFilterBtn: $('#reset-filter-btn'),
+    
+            // モーダル: 設定
+            settingsModal: $('#settings-modal'),
+            closeSettingsModalBtn: $('#close-settings-modal-btn'),
+            columnSelector: $('#column-selector'),
+            cacheAllImagesBtn: $('#cache-all-images-btn'),
+            clearAllDataBtn: $('#clear-all-data-btn'),
+            appVersionInfo: $('#app-version-info'),
+            cardDataVersionInfo: $('#card-data-version-info'),
+    
+            // モーダル: ライトボックス
+            lightboxModal: $('#lightbox-modal'),
+            lightboxImage: $('#lightbox-image'),
+            lightboxFallback: $('#lightbox-fallback'),
+            lightboxCloseBtn: $('#lightbox-close-btn'),
+    
+            // 通知
+            dbUpdateNotification: $('#db-update-notification'),
+            dbUpdateApplyBtn: $('#db-update-apply-btn'),
+            dbUpdateDismissBtn: $('#db-update-dismiss-btn'),
+            appUpdateNotification: $('#app-update-notification'),
+            appUpdateApplyBtn: $('#app-update-apply-btn'),
+            messageToast: $('#message-toast'),
+            messageToastText: $('#message-toast-text'),
+            messageToastDismissBtn: $('#message-toast-dismiss-btn'),
+    
+            // キャッシュ進捗
+            cacheProgressContainer: $('#cache-progress-container'),
+            cacheProgressBar: $('#cache-progress-bar'),
+            cacheProgressText: $('#cache-progress-text'),
+        };
+    }
 
     /**
      * アプリケーションの初期化
      */
     async function initializeApp() {
         console.log('PWA Initializing...');
-        dom.appVersionInfo.textContent = APP_VERSION;
+        
+        // ★修正: DOMキャッシュをここで実行
+        cacheDomElements();
+        
+        // DOMキャッシュが完了してからバージョン情報を設定
+        if (dom.appVersionInfo) {
+            dom.appVersionInfo.textContent = APP_VERSION;
+        } else {
+            console.error('DOM cache failed: appVersionInfo is not found.');
+            // ローディングインジケータが見つからない可能性が高い
+            const loadingIndicator = $('#loading-indicator');
+            if(loadingIndicator) {
+                loadingIndicator.textContent = '初期化エラー: DOM要素が見つかりません。';
+            }
+            return; // 致命的エラー
+        }
+
         registerServiceWorker();
         setupEventListeners();
         try {
@@ -177,319 +203,9 @@
         }
     }
 
-    // === 4. データ管理 (DB, JSON) ===
-
-    /**
-     * cards.jsonのバージョンを確認し、必要に応じて更新
-     */
-    async function checkCardDataVersion() {
-        if (!db) {
-             console.error("DB not available, skipping card data version check.");
-             dom.loadingIndicator.textContent = 'データベース接続エラー。';
-             return;
-        }
-
-        try {
-            const response = await fetch(CARDS_JSON_PATH, { method: 'HEAD', cache: 'no-store' });
-            if (!response.ok) throw new Error(`Failed to fetch HEAD: ${response.statusText} (${response.status})`);
-
-            const serverLastModified = response.headers.get('Last-Modified');
-            if (!serverLastModified) {
-                console.warn('Server did not provide Last-Modified header. Falling back to full fetch check.');
-                await checkCardDataByFetching();
-                return;
-            }
-
-            const localMetadata = await db.get(STORE_METADATA, 'cardsLastModified');
-            const localLastModified = localMetadata ? localMetadata.value : null;
-
-            dom.cardDataVersionInfo.textContent = localLastModified ? new Date(localLastModified).toLocaleString('ja-JP') : '未取得';
-            console.log('Server Last-Modified:', serverLastModified);
-            console.log('Local Last-Modified:', localLastModified);
-
-            if (serverLastModified !== localLastModified) {
-                console.log('Card data update detected.');
-                if (!localLastModified) {
-                    console.log('First time load. Fetching card data...');
-                    dom.loadingIndicator.style.display = 'flex';
-                    dom.loadingIndicator.querySelector('p').textContent = '初回カードデータを取得中...';
-                    await fetchAndUpdateCardData(serverLastModified);
-                } else {
-                    showDbUpdateNotification(serverLastModified);
-                    await loadCardsFromDB();
-                }
-            } else {
-                console.log('Card data is assumed up to date.');
-                await loadCardsFromDB();
-                if (allCards.length === 0 && localLastModified) {
-                    console.warn('DB is empty even though metadata indicates it is up to date. Forcing data fetch...');
-                    dom.loadingIndicator.style.display = 'flex';
-                    dom.loadingIndicator.querySelector('p').textContent = 'データ整合性を確認中...';
-                    await fetchAndUpdateCardData(serverLastModified);
-                }
-            }
-        } catch (error) {
-            console.error('Failed to check card data version:', error);
-            console.log('Attempting to load from local DB as fallback...');
-            dom.loadingIndicator.style.display = 'flex';
-            dom.loadingIndicator.querySelector('p').textContent = 'オフラインモードで起動中...';
-            await loadCardsFromDB();
-        }
-    }
-
-    /**
-     * Last-Modifiedが使えない場合のフォールバック
-     */
-    async function checkCardDataByFetching() {
-        console.log('Checking card data by full fetch (fallback)...');
-        await loadCardsFromDB();
-        if (allCards.length === 0) {
-            console.warn('DB is empty on fallback check. Attempting initial fetch...');
-            dom.loadingIndicator.style.display = 'flex';
-            dom.loadingIndicator.querySelector('p').textContent = '初回カードデータを取得中...';
-            await fetchAndUpdateCardData(new Date().toUTCString());
-        }
-    }
-
-
-    /**
-     * サーバーから最新のcards.jsonを取得し、DBを更新
-     */
-    async function fetchAndUpdateCardData(serverLastModified) {
-        if (!db) {
-            console.error('DB not available for updating card data.');
-            showMessageToast('データベースエラーが発生しました。', 'error');
-            return;
-        }
-
-        dom.loadingIndicator.style.display = 'flex';
-        dom.loadingIndicator.querySelector('p').textContent = '最新カードデータをダウンロード中...';
-
-        let tx;
-
-        try {
-            const response = await fetch(CARDS_JSON_PATH, { cache: 'no-store' });
-             if (!response.ok) throw new Error(`Failed to download cards.json: ${response.statusText} (${response.status})`);
-
-            const cardsData = await response.json();
-            let cardsArray = [];
-
-            if (Array.isArray(cardsData)) {
-                cardsArray = cardsData;
-            } else if (typeof cardsData === 'object' && cardsData !== null) {
-                console.warn("JSON format is not a simple array. Extracting values.");
-                cardsArray = Object.values(cardsData).flat();
-            } else {
-                throw new Error("Invalid cards.json format");
-            }
-
-            if (cardsArray.length === 0) {
-                 throw new Error("Downloaded card data is empty.");
-            }
-
-            dom.loadingIndicator.querySelector('p').textContent = 'データベースを更新中...';
-
-            tx = db.transaction([STORE_CARDS, STORE_METADATA], 'readwrite');
-            tx.onerror = (event) => console.error("Transaction error:", event.target.error);
-
-            const cardStore = tx.objectStore(STORE_CARDS);
-            const metaStore = tx.objectStore(STORE_METADATA);
-            let count = 0;
-            let putErrors = 0;
-
-            await cardStore.clear();
-            console.log(`${STORE_CARDS} store cleared.`);
-
-            for (const card of cardsArray) {
-                if (card && card.cardNumber) {
-                    try {
-                        await cardStore.put(card);
-                        count++;
-                    } catch (putError) {
-                        console.error(`Failed to put card ${card.cardNumber} into DB:`, putError);
-                        putErrors++;
-                    }
-                } else {
-                    console.warn('Skipping invalid card object (missing cardNumber):', card);
-                }
-            }
-
-            console.log(`${count} cards attempted to add to DB.`);
-            if (putErrors > 0) {
-                console.error(`${putErrors} errors occurred during card put operations.`);
-            }
-
-            await metaStore.put({ key: 'cardsLastModified', value: serverLastModified });
-            console.log('Metadata updated.');
-
-            await tx.done;
-            console.log('DB update transaction completed.');
-
-            console.log('Card database update process finished successfully.');
-            const savedMeta = await db.get(STORE_METADATA, 'cardsLastModified');
-            dom.cardDataVersionInfo.textContent = savedMeta ? new Date(savedMeta.value).toLocaleString('ja-JP') : '更新完了';
-            showMessageToast(`カードデータが更新されました (${count}件)。`, 'success');
-
-            await loadCardsFromDB();
-
-        } catch (error) {
-            console.error('Failed to update card data:', error);
-            dom.loadingIndicator.querySelector('p').textContent = `データ更新に失敗しました: ${error.message}`;
-            showMessageToast('データ更新に失敗しました。オフラインデータを表示します。', 'error');
-            if (tx && tx.abort && !tx.done) {
-                try { tx.abort(); console.log('DB update transaction aborted due to error.'); }
-                catch (abortError) { console.error('Error aborting transaction:', abortError); }
-            }
-            await loadCardsFromDB();
-        } finally {
-             setTimeout(() => { dom.loadingIndicator.style.display = 'none'; }, 500);
-        }
-    }
-
-    /**
-     * IndexedDBから全カードデータをロードして表示
-     */
-    async function loadCardsFromDB() {
-        if (!db) {
-            console.error('DB not initialized. Cannot load cards.');
-            dom.loadingIndicator.style.display = 'flex';
-            dom.loadingIndicator.textContent = 'データベースを開けません。';
-            return;
-        }
-        try {
-            allCards = await db.getAll(STORE_CARDS);
-            if (allCards.length === 0) {
-                console.log('No cards found in DB.');
-                 if (dom.loadingIndicator.style.display === 'none' || dom.loadingIndicator.textContent.includes('オフライン')) {
-                    dom.loadingIndicator.style.display = 'flex';
-                    dom.loadingIndicator.querySelector('p').textContent = 'ローカルデータがありません。オンラインでデータを取得してください。';
-                 }
-                dom.filterOptionsContainer.innerHTML = '<p>データがありません。</p>';
-                dom.cardListContainer.innerHTML = '';
-            } else {
-                console.log(`Loaded ${allCards.length} cards from DB.`);
-                dom.loadingIndicator.style.display = 'none';
-                dom.mainContent.style.display = 'block';
-                populateFilters();
-                applyFiltersAndDisplay();
-            }
-        } catch (error) {
-            console.error('Failed to load cards from DB:', error);
-            dom.loadingIndicator.style.display = 'flex';
-            dom.loadingIndicator.textContent = 'データの読み込みに失敗しました。';
-            allCards = [];
-            dom.filterOptionsContainer.innerHTML = '<p>データ読み込みエラー</p>';
-            dom.cardListContainer.innerHTML = '<p>データの読み込みに失敗しました。</p>';
-        }
-    }
 
     // === 5. カード一覧表示 ===
-
-    /**
-     * フィルタ条件に基づいてカードを抽出し、表示
-// ... (388行目あたり) ...
-    function applyFiltersAndDisplay() {
-        if (allCards.length === 0) {
-            dom.cardListContainer.innerHTML = '<p class="no-results">カードデータが読み込まれていません。</p>';
-            return;
-        }
-
-        // ★修正: 検索語を正規化（ひらがな→カタカナ、全角→半角、大文字化）
-        let searchTerm = dom.searchBar.value.trim();
-        searchTerm = toKatakana(searchTerm);
-        searchTerm = toHalfWidth(searchTerm);
-        searchTerm = searchTerm.toUpperCase(); // toLowerCase() から toUpperCase() に変更
-
-        // --- 修正: 全角スペースを半角スペースに置換 ---
-        const searchWords = searchTerm.replace(/　/g, ' ').split(' ').filter(w => w.length > 0);
-        // --- 修正ここまで ---
-
-        // フィルタリング結果をグローバル変数に保存
-        currentFilteredCards = allCards.filter(card => {
-            if (!card || !card.cardNumber) return false;
-
-            // --- 修正: 検索ロジック (JSONキー修正) ---
-            if (searchWords.length > 0) {
-                
-                // ★修正: 検索対象のテキストも同様に正規化
-                let searchableText = [
-                    card.cardName || '', // card.name から card.cardName に修正
-                    card.effect || '',
-                    (card.traits || []).join(' '),
-                    card.cardNumber || ''
-                ].join(' ');
-                
-                searchableText = toKatakana(searchableText);
-                searchableText = toHalfWidth(searchableText);
-                searchableText = searchableText.toUpperCase(); // toLowerCase() から toUpperCase() に変更
-                
-                // 検索ワードの *すべて* が含まれているかチェック
-                if (!searchWords.every(word => searchableText.includes(word))) {
-                    return false;
-                }
-            }
-            // --- 修正ここまで ---
-
-            const f = currentFilter;
-
-            // --- 修正: 色フィルタのロジック変更 (OR/AND) ---
-            if (f.colors?.length > 0) {
-                if (!Array.isArray(card.color) || card.color.length === 0) {
-                    return false; // カードに色情報がなければ除外
-                }
-
-                // 条件1: レアリティが 'L' のみかチェック
-                const isLOnly = f.rarities?.length === 1 && f.rarities[0] === 'L';
-                // 条件2: 複数の色が選択されているかチェック
-                const isMultiColor = f.colors.length > 1;
-
-                if (isLOnly && isMultiColor) {
-                    // AND検索: Lのみ選択 *かつ* 複数色選択時は、選択した色すべてを含む
-                    if (!f.colors.every(color => card.color.includes(color))) {
-                        return false;
-                    }
-                } else {
-                    // OR検索: それ以外 (L以外, L単色, 複数レアリティ, 色単色) は、選択した色のいずれか一つでも含めばOK
-                    if (!f.colors.some(color => card.color.includes(color))) {
-                        return false;
-                    }
-                }
-            }
-            // --- 修正ここまで ---
-            
-            // ★修正: JSONキー修正
-            if (f.types?.length > 0 && !f.types.includes(card.cardType)) return false; // card.type から card.cardType に修正
-            if (f.rarities?.length > 0 && !f.rarities.includes(card.rarity)) return false;
-            if (f.costs?.length > 0) {
-                if (card.cost === undefined || card.cost === null || !f.costs.includes(String(card.cost))) {
-                     return false;
-                }
-            }
-             if (f.attributes?.length > 0) {
-                 if (!Array.isArray(card.attribute) || !f.attributes.every(attr => card.attribute.includes(attr))) {
-                    return false;
-                }
-            }
-
-            // --- 修正: シリーズフィルタロジック ---
-            if (f.series) { // f.series には 'OP01' や 'P' が入る
-                 if (!card.cardNumber) return false;
-                 
-                 if (f.series === 'P') {
-                    // プロモが選択された場合
-                    if (!card.cardNumber.startsWith('P-')) return false;
-                 } else {
-                    // その他のシリーズ (OP01, ST01など) が選択された場合
-                    if (!card.cardNumber.startsWith(f.series + '-')) return false;
-                 }
-            }
-            // --- 修正ここまで ---
-
-            return true;
-        });
-
-        displayCards(currentFilteredCards); // 保存したリストで表示
-    }
+    // ★注意: 依存される関数群 (5, 6) を、依存する関数 (4) よりも先に定義する
 
     /**
      * card.imagePath が存在しない場合に、cardNumber からパスを推測して生成する
@@ -542,7 +258,7 @@
             const relativeImagePath = (largeImagePath && largeImagePath.startsWith('Cards/')) ? `./${largeImagePath}` : largeImagePath;
 
             img.src = relativeImagePath;
-            img.alt = card.name || card.cardNumber;
+            img.alt = card.cardName || card.cardNumber; // card.name -> card.cardName
             img.loading = 'lazy';
 
             cardItem.addEventListener('click', () => showLightbox(index));
@@ -722,10 +438,117 @@
 
 
     // === 6. 検索・フィルタ (UI) ===
+    // ★注意: 依存される関数群 (5, 6) を、依存する関数 (4) よりも先に定義する
+
+    /**
+     * フィルタ条件に基づいてカードを抽出し、表示
+     */
+    function applyFiltersAndDisplay() {
+        if (allCards.length === 0) {
+            dom.cardListContainer.innerHTML = '<p class="no-results">カードデータが読み込まれていません。</p>';
+            return;
+        }
+
+        // ★修正: 検索語を正規化（ひらがな→カタカナ、全角→半角、大文字化）
+        let searchTerm = dom.searchBar.value.trim();
+        searchTerm = toKatakana(searchTerm);
+        searchTerm = toHalfWidth(searchTerm);
+        searchTerm = searchTerm.toUpperCase(); // toLowerCase() から toUpperCase() に変更
+
+        // --- 修正: 全角スペースを半角スペースに置換 ---
+        const searchWords = searchTerm.replace(/　/g, ' ').split(' ').filter(w => w.length > 0);
+        // --- 修正ここまで ---
+
+        // フィルタリング結果をグローバル変数に保存
+        currentFilteredCards = allCards.filter(card => {
+            if (!card || !card.cardNumber) return false;
+
+            // --- 修正: 検索ロジック (JSONキー修正) ---
+            if (searchWords.length > 0) {
+                
+                // ★修正: 検索対象のテキストも同様に正規化
+                let searchableText = [
+                    card.cardName || '', // card.name から card.cardName に修正
+                    card.effect || '',
+                    (card.traits || []).join(' '),
+                    card.cardNumber || ''
+                ].join(' ');
+                
+                searchableText = toKatakana(searchableText);
+                searchableText = toHalfWidth(searchableText);
+                searchableText = searchableText.toUpperCase(); // toLowerCase() から toUpperCase() に変更
+                
+                // 検索ワードの *すべて* が含まれているかチェック
+                if (!searchWords.every(word => searchableText.includes(word))) {
+                    return false;
+                }
+            }
+            // --- 修正ここまで ---
+
+            const f = currentFilter;
+
+            // --- 修正: 色フィルタのロジック変更 (OR/AND) ---
+            if (f.colors?.length > 0) {
+                if (!Array.isArray(card.color) || card.color.length === 0) {
+                    return false; // カードに色情報がなければ除外
+                }
+
+                // 条件1: レアリティが 'L' のみかチェック
+                const isLOnly = f.rarities?.length === 1 && f.rarities[0] === 'L';
+                // 条件2: 複数の色が選択されているかチェック
+                const isMultiColor = f.colors.length > 1;
+
+                if (isLOnly && isMultiColor) {
+                    // AND検索: Lのみ選択 *かつ* 複数色選択時は、選択した色すべてを含む
+                    if (!f.colors.every(color => card.color.includes(color))) {
+                        return false;
+                    }
+                } else {
+                    // OR検索: それ以外 (L以外, L単色, 複数レアリティ, 色単色) は、選択した色のいずれか一つでも含めばOK
+                    if (!f.colors.some(color => card.color.includes(color))) {
+                        return false;
+                    }
+                }
+            }
+            // --- 修正ここまで ---
+            
+            // ★修正: JSONキー修正
+            if (f.types?.length > 0 && !f.types.includes(card.cardType)) return false; // card.type から card.cardType に修正
+            if (f.rarities?.length > 0 && !f.rarities.includes(card.rarity)) return false;
+            if (f.costs?.length > 0) {
+                if (card.cost === undefined || card.cost === null || !f.costs.includes(String(card.cost))) {
+                     return false;
+                }
+            }
+             if (f.attributes?.length > 0) {
+                 if (!Array.isArray(card.attribute) || !f.attributes.every(attr => card.attribute.includes(attr))) {
+                    return false;
+                }
+            }
+
+            // --- 修正: シリーズフィルタロジック ---
+            if (f.series) { // f.series には 'OP01' や 'P' が入る
+                 if (!card.cardNumber) return false;
+                 
+                 if (f.series === 'P') {
+                    // プロモが選択された場合
+                    if (!card.cardNumber.startsWith('P-')) return false;
+                 } else {
+                    // その他のシリーズ (OP01, ST01など) が選択された場合
+                    if (!card.cardNumber.startsWith(f.series + '-')) return false;
+                 }
+            }
+            // --- 修正ここまで ---
+
+            return true;
+        });
+
+        displayCards(currentFilteredCards); // 保存したリストで表示
+    }
 
     /**
      * DBデータからフィルタオプションを動的に生成
-// ... (615行目あたり) ...
+     */
     function populateFilters() {
         if (allCards.length === 0) {
              dom.filterOptionsContainer.innerHTML = '<p>カードデータがありません。</p>';
@@ -870,8 +693,227 @@
         console.log('Filters reset.');
     }
 
-    // === 7. キャッシュ管理 (UI) ===
 
+    // === 4. データ管理 (DB, JSON) ===
+    // ★セクション4 (データ管理) を、依存先 (5, 6) の *後* に配置
+
+    /**
+     * cards.jsonのバージョンを確認し、必要に応じて更新
+     */
+    async function checkCardDataVersion() {
+        if (!db) {
+             console.error("DB not available, skipping card data version check.");
+             if (dom.loadingIndicator) {
+                dom.loadingIndicator.querySelector('p').textContent = 'データベース接続エラー。';
+             }
+             return;
+        }
+
+        try {
+            const response = await fetch(CARDS_JSON_PATH, { method: 'HEAD', cache: 'no-store' });
+            if (!response.ok) throw new Error(`Failed to fetch HEAD: ${response.statusText} (${response.status})`);
+
+            const serverLastModified = response.headers.get('Last-Modified');
+            if (!serverLastModified) {
+                console.warn('Server did not provide Last-Modified header. Falling back to full fetch check.');
+                await checkCardDataByFetching();
+                return;
+            }
+
+            const localMetadata = await db.get(STORE_METADATA, 'cardsLastModified');
+            const localLastModified = localMetadata ? localMetadata.value : null;
+
+            dom.cardDataVersionInfo.textContent = localLastModified ? new Date(localLastModified).toLocaleString('ja-JP') : '未取得';
+            console.log('Server Last-Modified:', serverLastModified);
+            console.log('Local Last-Modified:', localLastModified);
+
+            if (serverLastModified !== localLastModified) {
+                console.log('Card data update detected.');
+                if (!localLastModified) {
+                    console.log('First time load. Fetching card data...');
+                    dom.loadingIndicator.style.display = 'flex';
+                    dom.loadingIndicator.querySelector('p').textContent = '初回カードデータを取得中...';
+                    await fetchAndUpdateCardData(serverLastModified);
+                } else {
+                    showDbUpdateNotification(serverLastModified);
+                    await loadCardsFromDB();
+                }
+            } else {
+                console.log('Card data is assumed up to date.');
+                await loadCardsFromDB();
+                if (allCards.length === 0 && localLastModified) {
+                    console.warn('DB is empty even though metadata indicates it is up to date. Forcing data fetch...');
+                    dom.loadingIndicator.style.display = 'flex';
+                    dom.loadingIndicator.querySelector('p').textContent = 'データ整合性を確認中...';
+                    await fetchAndUpdateCardData(serverLastModified);
+                }
+            }
+        } catch (error) {
+            console.error('Failed to check card data version:', error);
+            console.log('Attempting to load from local DB as fallback...');
+            dom.loadingIndicator.style.display = 'flex';
+            dom.loadingIndicator.querySelector('p').textContent = 'オフラインモードで起動中...';
+            await loadCardsFromDB();
+        }
+    }
+
+    /**
+     * Last-Modifiedが使えない場合のフォールバック
+     */
+    async function checkCardDataByFetching() {
+        console.log('Checking card data by full fetch (fallback)...');
+        await loadCardsFromDB();
+        if (allCards.length === 0) {
+            console.warn('DB is empty on fallback check. Attempting initial fetch...');
+            dom.loadingIndicator.style.display = 'flex';
+            dom.loadingIndicator.querySelector('p').textContent = '初回カードデータを取得中...';
+            await fetchAndUpdateCardData(new Date().toUTCString());
+        }
+    }
+
+
+    /**
+     * サーバーから最新のcards.jsonを取得し、DBを更新
+     */
+    async function fetchAndUpdateCardData(serverLastModified) {
+        if (!db) {
+            console.error('DB not available for updating card data.');
+            showMessageToast('データベースエラーが発生しました。', 'error');
+            return;
+        }
+
+        dom.loadingIndicator.style.display = 'flex';
+        dom.loadingIndicator.querySelector('p').textContent = '最新カードデータをダウンロード中...';
+
+        let tx;
+
+        try {
+            const response = await fetch(CARDS_JSON_PATH, { cache: 'no-store' });
+             if (!response.ok) throw new Error(`Failed to download cards.json: ${response.statusText} (${response.status})`);
+
+            const cardsData = await response.json();
+            let cardsArray = [];
+
+            if (Array.isArray(cardsData)) {
+                cardsArray = cardsData;
+            } else if (typeof cardsData === 'object' && cardsData !== null) {
+                console.warn("JSON format is not a simple array. Extracting values.");
+                cardsArray = Object.values(cardsData).flat();
+            } else {
+                throw new Error("Invalid cards.json format");
+            }
+
+            if (cardsArray.length === 0) {
+                 throw new Error("Downloaded card data is empty.");
+            }
+
+            dom.loadingIndicator.querySelector('p').textContent = 'データベースを更新中...';
+
+            tx = db.transaction([STORE_CARDS, STORE_METADATA], 'readwrite');
+            tx.onerror = (event) => console.error("Transaction error:", event.target.error);
+
+            const cardStore = tx.objectStore(STORE_CARDS);
+            const metaStore = tx.objectStore(STORE_METADATA);
+            let count = 0;
+            let putErrors = 0;
+
+            await cardStore.clear();
+            console.log(`${STORE_CARDS} store cleared.`);
+
+            for (const card of cardsArray) {
+                if (card && card.cardNumber) {
+                    try {
+                        await cardStore.put(card);
+                        count++;
+                    } catch (putError) {
+                        console.error(`Failed to put card ${card.cardNumber} into DB:`, putError);
+                        putErrors++;
+                    }
+                } else {
+                    console.warn('Skipping invalid card object (missing cardNumber):', card);
+                }
+            }
+
+            console.log(`${count} cards attempted to add to DB.`);
+            if (putErrors > 0) {
+                console.error(`${putErrors} errors occurred during card put operations.`);
+            }
+
+            await metaStore.put({ key: 'cardsLastModified', value: serverLastModified });
+            console.log('Metadata updated.');
+
+            await tx.done;
+            console.log('DB update transaction completed.');
+
+            console.log('Card database update process finished successfully.');
+            const savedMeta = await db.get(STORE_METADATA, 'cardsLastModified');
+            dom.cardDataVersionInfo.textContent = savedMeta ? new Date(savedMeta.value).toLocaleString('ja-JP') : '更新完了';
+            showMessageToast(`カードデータが更新されました (${count}件)。`, 'success');
+
+            await loadCardsFromDB();
+
+        } catch (error) {
+            console.error('Failed to update card data:', error);
+            dom.loadingIndicator.querySelector('p').textContent = `データ更新に失敗しました: ${error.message}`;
+            showMessageToast('データ更新に失敗しました。オフラインデータを表示します。', 'error');
+            if (tx && tx.abort && !tx.done) {
+                try { tx.abort(); console.log('DB update transaction aborted due to error.'); }
+                catch (abortError) { console.error('Error aborting transaction:', abortError); }
+            }
+            await loadCardsFromDB();
+        } finally {
+             setTimeout(() => { 
+                if (dom.loadingIndicator) {
+                    dom.loadingIndicator.style.display = 'none'; 
+                }
+             }, 500);
+        }
+    }
+
+    /**
+     * IndexedDBから全カードデータをロードして表示
+     */
+    async function loadCardsFromDB() {
+        if (!db) {
+            console.error('DB not initialized. Cannot load cards.');
+            if (dom.loadingIndicator) {
+                dom.loadingIndicator.textContent = 'データベースを開けません。';
+            }
+            return;
+        }
+        try {
+            allCards = await db.getAll(STORE_CARDS);
+            if (allCards.length === 0) {
+                console.log('No cards found in DB.');
+                 if (dom.loadingIndicator && (dom.loadingIndicator.style.display === 'none' || dom.loadingIndicator.textContent.includes('オフライン'))) {
+                    dom.loadingIndicator.style.display = 'flex';
+                    dom.loadingIndicator.querySelector('p').textContent = 'ローカルデータがありません。オンラインでデータを取得してください。';
+                 }
+                if (dom.filterOptionsContainer) dom.filterOptionsContainer.innerHTML = '<p>データがありません。</p>';
+                if (dom.cardListContainer) dom.cardListContainer.innerHTML = '';
+            } else {
+                console.log(`Loaded ${allCards.length} cards from DB.`);
+                if (dom.loadingIndicator) dom.loadingIndicator.style.display = 'none';
+                if (dom.mainContent) dom.mainContent.style.display = 'block';
+                
+                // ★修正: 依存関係を解決
+                populateFilters();
+                applyFiltersAndDisplay();
+            }
+        } catch (error) {
+            console.error('Failed to load cards from DB:', error);
+            if (dom.loadingIndicator) {
+                dom.loadingIndicator.style.display = 'flex';
+                dom.loadingIndicator.textContent = 'データの読み込みに失敗しました。';
+            }
+            allCards = [];
+            if (dom.filterOptionsContainer) dom.filterOptionsContainer.innerHTML = '<p>データ読み込みエラー</p>';
+            if (dom.cardListContainer) dom.cardListContainer.innerHTML = '<p>データの読み込みに失敗しました。</p>';
+        }
+    }
+
+    // === 7. キャッシュ管理 (UI) ===
+    
     /**
      * 全カード画像（大画像）をキャッシュ
      */
@@ -1128,19 +1170,31 @@
      */
     function showMessageToast(message, type = 'info') {
         if (showMessageToast.timeoutId) clearTimeout(showMessageToast.timeoutId);
-        dom.messageToastText.textContent = message;
-        dom.messageToast.className = `message-toast ${type}`;
-        dom.messageToast.style.display = 'flex';
+        
+        // ★ DOMがキャッシュされる前に呼ばれる可能性に対処
+        const toast = dom.messageToast || $('#message-toast');
+        const text = dom.messageToastText || $('#message-toast-text');
+        const dismissBtn = dom.messageToastDismissBtn || $('#message-toast-dismiss-btn');
+        
+        if(!toast || !text || !dismissBtn) {
+            console.warn(`MessageToast DOM not ready. Message: ${message}`);
+            return;
+        }
+
+        text.textContent = message;
+        toast.className = `message-toast ${type}`;
+        toast.style.display = 'flex';
+        
         const dismissHandler = () => {
-            dom.messageToast.style.display = 'none';
-            dom.messageToastDismissBtn.removeEventListener('click', dismissHandler);
+            toast.style.display = 'none';
+            dismissBtn.removeEventListener('click', dismissHandler);
             if (showMessageToast.timeoutId) {
                 clearTimeout(showMessageToast.timeoutId);
                 showMessageToast.timeoutId = null;
             }
         };
-        dom.messageToastDismissBtn.removeEventListener('click', dismissHandler);
-        dom.messageToastDismissBtn.addEventListener('click', dismissHandler, { once: true });
+        dismissBtn.removeEventListener('click', dismissHandler); // 念のため既存を削除
+        dismissBtn.addEventListener('click', dismissHandler, { once: true });
         showMessageToast.timeoutId = setTimeout(dismissHandler, 5000);
     }
     showMessageToast.timeoutId = null;
@@ -1312,6 +1366,12 @@
 
     // === 10. イベントリスナー設定 ===
     function setupEventListeners() {
+        // DOM要素がキャッシュされた後でないと、リスナーを設定できない
+        if (!dom.searchBar) {
+            console.error('DOM elements not cached. Cannot set event listeners.');
+            return;
+        }
+
         let searchTimeout;
         dom.searchBar.addEventListener('input', () => {
             clearTimeout(searchTimeout);
@@ -1385,6 +1445,4 @@
     window.addEventListener('load', initializeApp);
 
 })();
-
-
 
