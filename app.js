@@ -11,7 +11,7 @@
     const CACHE_APP_SHELL = 'app-shell-v1'; // service-worker.jsと合わせる
     const CACHE_IMAGES = 'card-images-v1'; // service-worker.jsと合わせる
     const CARDS_JSON_PATH = './cards.json';
-    const APP_VERSION = '1.0.10'; // アプリバージョン更新 (デバッグUI追加)
+    const APP_VERSION = '1.0.13'; // アプリバージョン更新 (JSONキー修正)
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db; // IndexedDBインスタンス
@@ -32,6 +32,30 @@
     // === 2. DOM要素のキャッシュ ===
     const $ = (selector) => document.querySelector(selector);
     const $$ = (selector) => document.querySelectorAll(selector);
+
+    /**
+     * ★ひらがなをカタカナに変換するヘルパー関数
+     * @param {string} str - 変換する文字列
+     * @returns {string} カタカナに変換された文字列
+     */
+    function toKatakana(str) {
+        if (typeof str !== 'string') return '';
+        return str.replace(/[\u3041-\u3096]/g, function(match) {
+            const charCode = match.charCodeAt(0) + 0x60; // 0x30A1 (ア) - 0x3041 (ぁ) = 0x60
+            return String.fromCharCode(charCode);
+        });
+    }
+
+    /**
+     * ★全角英数を半角英数に変換
+     */
+    function toHalfWidth(str) {
+        if (typeof str !== 'string') return '';
+        // 全角英数（A-Z, a-z, 0-9）と記号（！～）を半角に
+        return str.replace(/[\uFF01-\uFF5E]/g, function(match) {
+            return String.fromCharCode(match.charCodeAt(0) - 0xFEE0);
+        });
+    }
 
     const dom = {
         loadingIndicator: $('#loading-indicator'),
@@ -363,14 +387,19 @@
 
     /**
      * フィルタ条件に基づいてカードを抽出し、表示
-     */
+// ... (388行目あたり) ...
     function applyFiltersAndDisplay() {
         if (allCards.length === 0) {
             dom.cardListContainer.innerHTML = '<p class="no-results">カードデータが読み込まれていません。</p>';
             return;
         }
 
-        const searchTerm = dom.searchBar.value.trim().toLowerCase();
+        // ★修正: 検索語を正規化（ひらがな→カタカナ、全角→半角、大文字化）
+        let searchTerm = dom.searchBar.value.trim();
+        searchTerm = toKatakana(searchTerm);
+        searchTerm = toHalfWidth(searchTerm);
+        searchTerm = searchTerm.toUpperCase(); // toLowerCase() から toUpperCase() に変更
+
         // --- 修正: 全角スペースを半角スペースに置換 ---
         const searchWords = searchTerm.replace(/　/g, ' ').split(' ').filter(w => w.length > 0);
         // --- 修正ここまで ---
@@ -379,14 +408,21 @@
         currentFilteredCards = allCards.filter(card => {
             if (!card || !card.cardNumber) return false;
 
-            // --- 修正: 検索ロジック ---
+            // --- 修正: 検索ロジック (JSONキー修正) ---
             if (searchWords.length > 0) {
-                const searchableText = [
-                    card.name || '',
+                
+                // ★修正: 検索対象のテキストも同様に正規化
+                let searchableText = [
+                    card.cardName || '', // card.name から card.cardName に修正
                     card.effect || '',
                     (card.traits || []).join(' '),
                     card.cardNumber || ''
-                ].join(' ').toLowerCase();
+                ].join(' ');
+                
+                searchableText = toKatakana(searchableText);
+                searchableText = toHalfWidth(searchableText);
+                searchableText = searchableText.toUpperCase(); // toLowerCase() から toUpperCase() に変更
+                
                 // 検索ワードの *すべて* が含まれているかチェック
                 if (!searchWords.every(word => searchableText.includes(word))) {
                     return false;
@@ -421,7 +457,8 @@
             }
             // --- 修正ここまで ---
             
-            if (f.types?.length > 0 && !f.types.includes(card.type)) return false;
+            // ★修正: JSONキー修正
+            if (f.types?.length > 0 && !f.types.includes(card.cardType)) return false; // card.type から card.cardType に修正
             if (f.rarities?.length > 0 && !f.rarities.includes(card.rarity)) return false;
             if (f.costs?.length > 0) {
                 if (card.cost === undefined || card.cost === null || !f.costs.includes(String(card.cost))) {
@@ -688,7 +725,7 @@
 
     /**
      * DBデータからフィルタオプションを動的に生成
-     */
+// ... (615行目あたり) ...
     function populateFilters() {
         if (allCards.length === 0) {
              dom.filterOptionsContainer.innerHTML = '<p>カードデータがありません。</p>';
@@ -706,7 +743,10 @@
             if (!card || !card.cardNumber) return;
 
             if (Array.isArray(card.color)) card.color.forEach(c => colors.add(c));
-            if(card.type) types.add(card.type);
+            
+            // ★修正: JSONキー修正
+            if(card.cardType) types.add(card.cardType); // card.type から card.cardType に修正
+            
             if(card.rarity && card.rarity !== 'SP') rarities.add(card.rarity);
             if(card.cost !== undefined && card.cost !== null) costs.add(card.cost);
             if (Array.isArray(card.attribute)) card.attribute.forEach(a => attributes.add(a));
@@ -1345,4 +1385,6 @@
     window.addEventListener('load', initializeApp);
 
 })();
+
+
 
