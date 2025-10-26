@@ -11,7 +11,7 @@
     const CACHE_APP_SHELL = 'app-shell-v1'; // service-worker.jsと合わせる
     const CACHE_IMAGES = 'card-images-v1'; // service-worker.jsと合わせる
     const CARDS_JSON_PATH = './cards.json';
-    const APP_VERSION = '1.0.19'; // ★ アプリバージョン更新 (列ボタンUI変更)
+    const APP_VERSION = '1.0.20'; // ★ アプリバージョン更新 (effectText 修正)
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db; // IndexedDBインスタンス
@@ -497,7 +497,7 @@
                 // ★修正: 検索対象のテキストも同様に正規化
                 let searchableText = [
                     card.cardName || '', // card.name から card.cardName に修正
-                    card.effect || '',
+                    card.effectText || '', // ★ card.effect から card.effectText に修正
                     (card.traits || []).join(' '),
                     card.cardNumber || ''
                 ].join(' ');
