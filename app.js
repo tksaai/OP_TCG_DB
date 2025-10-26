@@ -11,7 +11,7 @@
     const CACHE_APP_SHELL = 'app-shell-v1'; // service-worker.jsと合わせる
     const CACHE_IMAGES = 'card-images-v1'; // service-worker.jsと合わせる
     const CARDS_JSON_PATH = './cards.json';
-    const APP_VERSION = '1.0.20'; // ★ アプリバージョン更新 (effectText 修正)
+    const APP_VERSION = '1.0.21'; // ★ アプリバージョン更新 (features 修正)
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db; // IndexedDBインスタンス
@@ -498,7 +498,7 @@
                 let searchableText = [
                     card.cardName || '', // card.name から card.cardName に修正
                     card.effectText || '', // ★ card.effect から card.effectText に修正
-                    (card.traits || []).join(' '),
+                    (card.features || []).join(' '), // ★ card.traits から card.features に修正
                     card.cardNumber || ''
                 ].join(' ');
                 
@@ -537,8 +537,9 @@
                      return false;
                 }
             }
-             if (f.attributes?.length > 0) {
-                 if (!Array.isArray(card.attribute) || !f.attributes.every(attr => card.attribute.includes(attr))) {
+            // ★修正: features (旧 traits)
+             if (f.features?.length > 0) {
+                 if (!Array.isArray(card.features) || !f.features.every(feat => card.features.includes(feat))) {
                     return false;
                 }
             }
@@ -576,7 +577,7 @@
         const types = new Set();
         const rarities = new Set();
         const costs = new Set();
-        const attributes = new Set();
+        const features = new Set(); // ★ traits から features に修正
         const seriesSet = new Map(); // seriesId をキー, 表示名を値 にする
 
         allCards.forEach(card => {
@@ -591,7 +592,9 @@
             if(card.rarity && card.rarity !== 'SP') rarities.add(card.rarity); 
             
             if(card.cost !== undefined && card.cost !== null) costs.add(card.cost);
-            if (Array.isArray(card.attribute)) card.attribute.forEach(a => attributes.add(a));
+            
+            // ★修正: card.traits から card.features に修正
+            if (Array.isArray(card.features)) card.features.forEach(a => features.add(a));
 
             // --- 修正: シリーズフィルタのロジック (seriesTitle を使用) ---
             const seriesId = card.cardNumber.split('-')[0]; // 例: "OP01", "P", "ST11"
@@ -630,7 +633,7 @@
         });
         // コストは数値としてソート
         const sortedCosts = [...costs].map(Number).sort((a, b) => a - b); 
-        const sortedAttributes = [...attributes].sort();
+        const sortedFeatures = [...features].sort(); // ★ traits から features に修正
 
         // --- 修正: シリーズのソート ('P'を最後にする) ---
         const seriesEntries = [...seriesSet.entries()];
@@ -650,7 +653,7 @@
             ${createFilterGroup('costs', 'コスト', sortedCosts.map(String), 'costs')}
             ${createFilterGroup('types', '種別', sortedTypes, 'types')}
             ${createFilterGroup('rarities', 'レアリティ', sortedRarities, 'rarities')}
-            ${createFilterGroup('attributes', '属性 (AND)', sortedAttributes, 'attributes')}
+            ${createFilterGroup('features', '特徴 (AND)', sortedFeatures, 'features')}
             ${createSeriesFilter(sortedSeries)}
         `;
     }
@@ -719,7 +722,7 @@
             types: getCheckedValues('types'),
             rarities: getCheckedValues('rarities'),
             costs: getCheckedValues('costs'),
-            attributes: getCheckedValues('attributes'),
+            features: getCheckedValues('features'), // ★ traits から features に修正
             series: $('#filter-series')?.value || '', // select要素の値を取得
         };
         console.log('Filters applied:', currentFilter);
@@ -1413,7 +1416,7 @@
         if (isDebugInfoVisible) {
             // スワイプ（ドラッグ）ではなく、ほぼタップだった場合
             if (Math.abs(touchStartX - touchEndX) < 20 && Math.abs(touchStartY - touchEndY) < 20) {
-                console.log('Hiding debug info via tap.');
+                // console.log('Hiding debug info via tap.');
                 hideDebugInfo();
             }
              // 座標をリセットして終了
@@ -1608,6 +1611,28 @@
             resetFilters();
             // リセットは即時反映せず、適用ボタンが押されるまで待つ
         });
+        
+        // ★ フィルタモーダル内のボタン選択 (イベント委譲)
+        dom.filterOptionsContainer.addEventListener('click', (e) => {
+            const target = e.target;
+            // .filter-checkbox-ui (span) または .filter-checkbox-label がクリックされたか
+            const label = target.closest('.filter-checkbox-label');
+            if (label) {
+                // label 内のチェックボックスを探す
+                const checkbox = label.querySelector('.filter-checkbox');
+                if (checkbox) {
+                    // spanをクリックした場合は、JSでチェックボックスの状態を反転させる
+                    if (target.tagName === 'SPAN') {
+                        checkbox.checked = !checkbox.checked;
+                    }
+                    // (inputを直接クリックした場合は、デフォルトの動作でチェックが反転する)
+                    
+                    // TODO: ここで即時反映する場合は applyFiltersAndDisplay() を呼ぶ
+                    // 現在は「適用」ボタンを押すまで何もしない
+                }
+            }
+        });
+
 
         // --- 設定モーダル ---
         dom.closeSettingsModalBtn.addEventListener('click', () => {

@@ -446,23 +446,30 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .filter-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    /* 最小幅を60pxに設定し、自動で折り返すように */
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
     gap: 10px;
 }
 
+/* フィルタタイプごとの列幅調整 */
 .filter-grid.colors {
-    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    /* 6列均等に近い形 */
+    grid-template-columns: repeat(auto-fill, minmax(45px, 1fr));
 }
 .filter-grid.costs {
+    /* 6列均等に近い形 */
     grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
 }
 .filter-grid.types {
-     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+     /* 3列均等に近い形 */
+     grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
 }
 .filter-grid.rarities {
-     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+     /* 3列均等に近い形 */
+     grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
 }
-.filter-grid.attributes {
+.filter-grid.features { /* ★ traits から features に修正 */
+     /* 3列均等に近い形 */
      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
 }
 
@@ -483,15 +490,16 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .filter-checkbox-ui {
     display: block;
-    padding: 8px 12px;
+    padding: 8px; /* 少し小さく */
     border: 1px solid var(--color-border);
     background-color: var(--color-background);
     color: var(--color-on-background);
     border-radius: 8px;
     text-align: center;
-    font-size: 14px;
+    font-size: 12px; /* 少し小さく */
     transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
     user-select: none;
+    line-height: 1.3;
 }
 
 /* 色フィルタの特別なスタイル */
@@ -646,6 +654,7 @@ input[type="search"]::-webkit-search-cancel-button {
 #notification-area {
     position: fixed;
     /* ★ 修正: セーフエリアは親(.app-container)が持つため、ここでは考慮しない */
+    /* safe-area-bottom を削除し、フッターからのマージンを調整 */
     bottom: calc(var(--footer-height) + 12px);
     left: 50%;
     transform: translateX(-50%);
@@ -657,6 +666,7 @@ input[type="search"]::-webkit-search-cancel-button {
     width: 90%;
     max-width: 500px;
     /* ★ 修正: セーフエリアのマージンを削除 (親が担当) */
+    /* margin-left, margin-right を削除 */
 }
 
 .notification-toast {
