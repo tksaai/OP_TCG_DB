@@ -11,7 +11,7 @@
     const CACHE_APP_SHELL = 'app-shell-v1'; // service-worker.jsと合わせる
     const CACHE_IMAGES = 'card-images-v1'; // service-worker.jsと合わせる
     const CARDS_JSON_PATH = './cards.json';
-    const APP_VERSION = '1.0.9'; // アプリバージョン更新 (シリーズフィルタ実装)
+    const APP_VERSION = '1.0.10'; // アプリバージョン更新 (デバッグUI追加)
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db; // IndexedDBインスタンス
@@ -26,6 +26,7 @@
     let touchEndX = 0; // スワイプ終了X座標
     let touchStartY = 0; // スワイプ開始Y座標
     let touchEndY = 0; // スワイプ終了Y座標
+    let isDebugInfoVisible = false; // ★デバッグ情報表示中フラグを追加
     // ---
 
     // === 2. DOM要素のキャッシュ ===
@@ -570,9 +571,8 @@
             return;
         }
         
-        // インデックスを-1にリセットすることで、updateLightboxImageが
-        // (newIndex === currentLightboxIndex) のチェックに引っかからず
-        // 確実に初回表示を実行するようにする
+        isDebugInfoVisible = false; // デバッグフラグをリセット
+
         currentLightboxIndex = -1; 
         
         dom.lightboxModal.style.display = 'flex';
@@ -597,14 +597,16 @@
              return;
         }
         
+        isDebugInfoVisible = false; // デバッグフラグをリセット
         currentLightboxIndex = newIndex;
         const card = currentFilteredCards[currentLightboxIndex];
 
         if (!card || !card.cardNumber) {
              console.error(`Invalid card data at index ${currentLightboxIndex}`);
              dom.lightboxImage.style.display = 'none';
-             dom.lightboxFallback.style.display = 'flex';
+             dom.lightboxFallback.style.display = 'flex'; // flex に
              dom.lightboxFallback.textContent = 'Error';
+             resetFallbackStyles(); // デバッグスタイルリセット
              return;
         }
 
@@ -615,30 +617,46 @@
 
         const relativeLargePath = (largeImagePath && largeImagePath.startsWith('Cards/')) ? `./${largeImagePath}` : largeImagePath;
 
-        // 先にフォールバックを非表示にし、画像を準備
-        dom.lightboxFallback.style.display = 'none';
-        dom.lightboxFallback.textContent = '';
-        dom.lightboxImage.style.display = 'block'; // 表示状態にする
-        dom.lightboxImage.src = relativeLargePath; // 最後にsrcを設定
+        // デバッグ表示のスタイルをリセット
+        resetFallbackStyles();
+        dom.lightboxFallback.style.display = 'none'; // none に
+        // --- 修正ここまで ---
+
+        dom.lightboxImage.style.display = 'block';
+        dom.lightboxImage.src = relativeLargePath;
 
         dom.lightboxImage.onerror = () => {
             console.warn(`Failed to load lightbox image for card ${card.cardNumber}: ${relativeLargePath}`);
             dom.lightboxImage.style.display = 'none';
-            dom.lightboxFallback.style.display = 'flex';
+            dom.lightboxFallback.style.display = 'flex'; // flex に
             dom.lightboxFallback.textContent = card.cardNumber || 'Error';
+            resetFallbackStyles(); // エラー時もスタイルリセット
         };
 
          if (!relativeLargePath) {
              dom.lightboxImage.style.display = 'none';
-             dom.lightboxFallback.style.display = 'flex';
+             dom.lightboxFallback.style.display = 'flex'; // flex に
              dom.lightboxFallback.textContent = card.cardNumber || 'No Image';
+             resetFallbackStyles(); // 画像なし時もスタイルリセット
          }
 
          // 高速化のためのプリロード
          preloadImage(currentLightboxIndex + 1); // 次の画像
          preloadImage(currentLightboxIndex - 1); // 前の画像
     }
-    // --- 修正ここまで ---
+    
+    /**
+     * ★デバッグ表示用のスタイルをリセットする関数
+     */
+    function resetFallbackStyles() {
+        dom.lightboxFallback.style.textAlign = 'center';
+        dom.lightboxFallback.style.padding = '0';
+        dom.lightboxFallback.style.whiteSpace = 'normal';
+        dom.lightboxFallback.style.overflowY = 'hidden';
+        dom.lightboxFallback.style.fontFamily = 'inherit';
+        dom.lightboxFallback.style.fontSize = '1.5rem';
+        dom.lightboxFallback.style.color = 'var(--color-text-primary)';
+    }
     
     /**
      * 指定されたインデックスの画像をプリロードする
@@ -1094,7 +1112,8 @@
      */
     function handleTouchStart(e) {
         // スワイプが画像上またはフォールバック上から開始されたか確認
-        if (e.target === dom.lightboxImage || e.target === dom.lightboxFallback) {
+        // またはデバッグ情報表示中
+        if (e.target === dom.lightboxImage || e.target === dom.lightboxFallback || isDebugInfoVisible) {
              touchStartX = e.touches[0].clientX;
              touchEndX = touchStartX;
              touchStartY = e.touches[0].clientY; // Y座標を保存
@@ -1123,6 +1142,21 @@
     function handleTouchEnd() {
         if (touchStartX === 0 && touchStartY === 0) return; // スワイプが開始されていなかった
 
+        // デバッグ情報が表示されている場合は、タップで非表示にする
+        if (isDebugInfoVisible) {
+            // スワイプ（ドラッグ）ではなく、ほぼタップだった場合
+            if (Math.abs(touchStartX - touchEndX) < 20 && Math.abs(touchStartY - touchEndY) < 20) {
+                console.log('Hiding debug info via tap.');
+                hideDebugInfo();
+            }
+             // 座標をリセットして終了
+            touchStartX = 0;
+            touchEndX = 0;
+            touchStartY = 0;
+            touchEndY = 0;
+            return;
+        }
+
         const swipeThreshold = 50; // スワイプと判定する最小移動距離（ピクセル）
         const swipeDistanceX = touchStartX - touchEndX;
         const swipeDistanceY = touchStartY - touchEndY;
@@ -1130,18 +1164,13 @@
         // Y軸のスワイプ（縦スワイプ）がX軸（横スワイプ）より大きいかチェック
         if (Math.abs(swipeDistanceY) > swipeThreshold && Math.abs(swipeDistanceY) > Math.abs(swipeDistanceX)) {
             
-            // --- デバッグ機能: 上から下へのスワイプ ---
+            // --- ★修正: デバッグ機能 (コンソール以外) ---
             if (swipeDistanceY < -swipeThreshold) { // 上から下
                 if (currentLightboxIndex !== -1 && currentFilteredCards[currentLightboxIndex]) {
-                    console.log('--- DEBUG CARD JSON ---');
-                    console.log(currentFilteredCards[currentLightboxIndex]);
-                    console.log('-------------------------');
-                    showMessageToast(`カード情報 ( ${currentFilteredCards[currentLightboxIndex].cardNumber} ) をコンソールに出力しました。`, 'info');
+                    showDebugInfo(currentFilteredCards[currentLightboxIndex]);
                 }
             }
-            // --- デバッグ機能ここまで ---
-            
-            // TODO: 下から上へのスワイプ（現在は何もしない）
+            // --- 修正ここまで ---
             
         }
         // X軸のスワイプ（横スワイプ）がY軸より大きいかチェック
@@ -1163,6 +1192,81 @@
         touchEndX = 0;
         touchStartY = 0;
         touchEndY = 0;
+    }
+
+    /**
+     * ★デバッグ情報をライトボックスのフォールバック要素に表示する
+     */
+    function showDebugInfo(card) {
+        console.log('--- DEBUG CARD JSON ---');
+        console.log(card);
+        console.log('-------------------------');
+        
+        // JSONを整形して文字列にする
+        const cardJsonString = JSON.stringify(card, null, 2); 
+        
+        // 既存のライトボックスのフォールバック要素を使って表示する
+        dom.lightboxImage.style.display = 'none'; // 画像を隠す
+        dom.lightboxFallback.style.display = 'flex'; // テキストエリアを表示
+        dom.lightboxFallback.style.textAlign = 'left'; // 左揃えにする
+        dom.lightboxFallback.style.padding = '16px';
+        dom.lightboxFallback.style.whiteSpace = 'pre-wrap'; // 改行とスペースを保持
+        dom.lightboxFallback.style.overflowY = 'auto'; // スクロール可能に
+        dom.lightboxFallback.style.fontFamily = 'monospace'; // 等幅フォント
+        dom.lightboxFallback.style.fontSize = '12px'; // 小さめ
+        dom.lightboxFallback.style.color = '#FFFFFF'; // 見やすいように白文字に
+        dom.lightboxFallback.textContent = cardJsonString; // JSON文字列を設定
+        
+        isDebugInfoVisible = true; // デバッグ表示中フラグを立てる
+        
+        // トーストで通知
+        showMessageToast(`デバッグ情報表示中。タップで戻ります。`, 'info');
+    }
+    
+    /**
+     * ★デバッグ情報を非表示にし、画像を再表示する
+     */
+    function hideDebugInfo() {
+        if (!isDebugInfoVisible) return;
+        
+        resetFallbackStyles(); // スタイルをリセット
+        dom.lightboxFallback.style.display = 'none';
+        dom.lightboxFallback.textContent = '';
+        dom.lightboxImage.style.display = 'block'; // 画像を再表示
+        
+        // 画像がエラーだった場合に備えて、onerror/onloadを再チェック
+        // updateLightboxImageを呼ぶとインデックスチェックで弾かれるので、
+        // 単純に現在のカードのsrcを再設定し、エラー状態を再評価する
+        if (currentLightboxIndex !== -1 && currentFilteredCards[currentLightboxIndex]) {
+             const card = currentFilteredCards[currentLightboxIndex];
+             let largeImagePath = card.imagePath;
+             if (!largeImagePath) {
+                 largeImagePath = getGeneratedImagePath(card.cardNumber);
+             }
+             const relativeLargePath = (largeImagePath && largeImagePath.startsWith('Cards/')) ? `./${largeImagePath}` : largeImagePath;
+             
+             if(relativeLargePath && !dom.lightboxImage.src.endsWith(relativeLargePath)) {
+                 dom.lightboxImage.src = relativeLargePath;
+             }
+             
+             // srcを設定した後、画像の読み込み状態をチェック
+             if ((!dom.lightboxImage.src || dom.lightboxImage.naturalWidth === 0) && relativeLargePath) {
+                 // まだ読み込まれていないか、エラーの可能性がある
+                 // onerrorハンドラが再トリガーされることを期待するが、
+                 // 既にエラーになっている場合は手動でフォールバックに戻す
+                 if(dom.lightboxImage.complete && dom.lightboxImage.naturalWidth === 0) {
+                     dom.lightboxImage.style.display = 'none';
+                     dom.lightboxFallback.style.display = 'flex';
+                     dom.lightboxFallback.textContent = card.cardNumber || 'Error';
+                 }
+             } else if (!relativeLargePath) {
+                 dom.lightboxImage.style.display = 'none';
+                 dom.lightboxFallback.style.display = 'flex';
+                 dom.lightboxFallback.textContent = card.cardNumber || 'No Image';
+             }
+        }
+        
+        isDebugInfoVisible = false; // フラグを戻す
     }
 
 
@@ -1206,15 +1310,27 @@
             dom.lightboxImage.src = ''; // メモリ解放
             dom.lightboxImage.onerror = null;
             currentLightboxIndex = -1; // インデックスをリセット
+            isDebugInfoVisible = false; // ★デバッグフラグ
+            resetFallbackStyles(); // ★スタイルリセット
         });
         dom.lightboxModal.addEventListener('click', (e) => {
             // スワイプイベントと競合しないよう、閉じるボタン以外はスワイプハンドラに任せる
             if (e.target === dom.lightboxModal) {
+                 // ★デバッグ表示中はタップで非表示にする
+                 if (isDebugInfoVisible) {
+                     // スワイプ中でない（＝タップ）場合のみ
+                     if (touchStartX === 0 && touchEndX === 0) {
+                         hideDebugInfo();
+                     }
+                     return; // モーダルは閉じない
+                 }
+                 
                  if (touchStartX === 0 && touchEndX === 0) { // スワイプ中でない（＝タップ）
                     dom.lightboxModal.style.display = 'none';
                     dom.lightboxImage.src = ''; // メモリ解放
                     dom.lightboxImage.onerror = null;
                     currentLightboxIndex = -1; // インデックスをリセット
+                    resetFallbackStyles(); // ★スタイルリセット
                  }
             }
         });
