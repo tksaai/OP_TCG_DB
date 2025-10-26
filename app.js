@@ -11,7 +11,7 @@
     const CACHE_APP_SHELL = 'app-shell-v1'; // service-worker.jsと合わせる
     const CACHE_IMAGES = 'card-images-v1'; // service-worker.jsと合わせる
     const CARDS_JSON_PATH = './cards.json';
-    const APP_VERSION = '1.0.7'; // アプリバージョン更新 (検索/フィルタ/LB修正)
+    const APP_VERSION = '1.0.8'; // アプリバージョン更新 (デバッグ機能追加)
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db; // IndexedDBインスタンス
@@ -24,6 +24,8 @@
     let currentLightboxIndex = -1; // 現在ライトボックスで表示中のインデックス
     let touchStartX = 0; // スワイプ開始X座標
     let touchEndX = 0; // スワイプ終了X座標
+    let touchStartY = 0; // スワイプ開始Y座標
+    let touchEndY = 0; // スワイプ終了Y座標
     // ---
 
     // === 2. DOM要素のキャッシュ ===
@@ -1057,41 +1059,81 @@
     showMessageToast.timeoutId = null;
 
     // === 9. スワイプ処理 ===
+    
+    /**
+     * ライトボックスでのタッチ開始イベント
+     */
     function handleTouchStart(e) {
         // スワイプが画像上またはフォールバック上から開始されたか確認
         if (e.target === dom.lightboxImage || e.target === dom.lightboxFallback) {
              touchStartX = e.touches[0].clientX;
              touchEndX = touchStartX;
+             touchStartY = e.touches[0].clientY; // Y座標を保存
+             touchEndY = touchStartY;
         } else {
+             // 画像の外（例：閉じるボタンのエリア）ならスワイプ開始しない
              touchStartX = 0;
              touchEndX = 0;
+             touchStartY = 0; // Y座標もリセット
+             touchEndY = 0;
         }
     }
 
+    /**
+     * ライトボックスでのタッチ移動イベント
+     */
     function handleTouchMove(e) {
-        if (touchStartX === 0) return;
+        if (touchStartX === 0 && touchStartY === 0) return; // スワイプが開始されていない
         touchEndX = e.touches[0].clientX;
+        touchEndY = e.touches[0].clientY; // Y座標を更新
     }
 
+    /**
+     * ライトボックスでのタッチ終了イベント（スワイプ判定）
+     */
     function handleTouchEnd() {
-        if (touchStartX === 0) return; // スワイプが開始されていなかった
+        if (touchStartX === 0 && touchStartY === 0) return; // スワイプが開始されていなかった
 
         const swipeThreshold = 50; // スワイプと判定する最小移動距離（ピクセル）
-        const swipeDistance = touchStartX - touchEndX;
+        const swipeDistanceX = touchStartX - touchEndX;
+        const swipeDistanceY = touchStartY - touchEndY;
 
-        // 右から左へのスワイプ（次へ）
-        if (swipeDistance > swipeThreshold) {
-            console.log('Swipe left (next)');
-            updateLightboxImage(currentLightboxIndex + 1); // 次のインデックスを渡す
+        // Y軸のスワイプ（縦スワイプ）がX軸（横スワイプ）より大きいかチェック
+        if (Math.abs(swipeDistanceY) > swipeThreshold && Math.abs(swipeDistanceY) > Math.abs(swipeDistanceX)) {
+            
+            // --- デバッグ機能: 上から下へのスワイプ ---
+            if (swipeDistanceY < -swipeThreshold) { // 上から下
+                if (currentLightboxIndex !== -1 && currentFilteredCards[currentLightboxIndex]) {
+                    console.log('--- DEBUG CARD JSON ---');
+                    console.log(currentFilteredCards[currentLightboxIndex]);
+                    console.log('-------------------------');
+                    showMessageToast(`カード情報 ( ${currentFilteredCards[currentLightboxIndex].cardNumber} ) をコンソールに出力しました。`, 'info');
+                }
+            }
+            // --- デバッグ機能ここまで ---
+            
+            // TODO: 下から上へのスワイプ（現在は何もしない）
+            
         }
-        // 左から右へのスワイプ（前へ）
-        else if (swipeDistance < -swipeThreshold) {
-            console.log('Swipe right (previous)');
-            updateLightboxImage(currentLightboxIndex - 1); // 前のインデックスを渡す
+        // X軸のスワイプ（横スワイプ）がY軸より大きいかチェック
+        else if (Math.abs(swipeDistanceX) > swipeThreshold) {
+            // 右から左へのスワイプ（次へ）
+            if (swipeDistanceX > swipeThreshold) {
+                console.log('Swipe left (next)');
+                updateLightboxImage(currentLightboxIndex + 1); // 次のインデックスを渡す
+            }
+            // 左から右へのスワイプ（前へ）
+            else if (swipeDistanceX < -swipeThreshold) {
+                console.log('Swipe right (previous)');
+                updateLightboxImage(currentLightboxIndex - 1); // 前のインデックスを渡す
+            }
         }
         
+        // 座標をリセット
         touchStartX = 0;
         touchEndX = 0;
+        touchStartY = 0;
+        touchEndY = 0;
     }
 
 
