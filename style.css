@@ -89,34 +89,33 @@ input[type="search"]::-webkit-search-cancel-button {
 
 /* === 3. アプリケーションレイアウト === */
 .app-container {
-    /* ★ 修正: position: relative; に変更 */
-    position: relative;
-    /* ★ 修正: top, left を削除 */
+    /* ★ 修正: position: fixed; に変更 */
+    position: fixed;
+    /* ★ 修正: top, left を設定 */
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 100%; /* ★ 修正: 100% (または 100vh) */
+    height: 100%;
     background-color: var(--color-background);
     
-    /* ★ 修正: セーフエリアを .app-container の padding として一元管理 */
-    padding-top: var(--safe-area-top);
-    padding-bottom: var(--safe-area-bottom);
-    padding-left: var(--safe-area-left);
-    padding-right: var(--safe-area-right);
+    /* ★ 修正: セーフエリアの padding を削除 (各コンポーネントで管理) */
 }
 
 /* 3a. ヘッダー */
 .app-header {
-    /* ★ 修正: position: absolute に変更 */
-    position: absolute;
-    /* ★ 修正: top: 0 (親のパディングボックス基準) */
-    top: 0; 
-    /* ★ 修正: 左右も親基準 */
-    left: 0;
-    right: 0;
+    /* ★ 修正: position: fixed に変更 */
+    position: fixed;
+    /* ★ 修正: top にセーフエリアを適用 */
+    top: var(--safe-area-top); 
+    /* ★ 修正: 左右にセーフエリアを適用 */
+    left: var(--safe-area-left);
+    right: var(--safe-area-right);
     
     height: var(--header-height); /* ヘッダー自体の高さは固定 */
     background-color: var(--color-surface);
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     z-index: 10;
+    width: auto; /* left/right があるため auto に */
 }
 
 .header-content {
@@ -125,7 +124,7 @@ input[type="search"]::-webkit-search-cancel-button {
     gap: 12px;
     height: var(--header-height);
     padding: 0 12px;
-    /* ★ 修正: セーフエリアのpaddingは親(.app-container)が担当 */
+    /* セーフエリアは親(.app-header)が担当 */
 }
 
 .search-bar-container {
@@ -156,12 +155,12 @@ input[type="search"]::-webkit-search-cancel-button {
 
 /* 3b. メインコンテンツ (スクロールエリア) */
 .main-content {
-    /* ★ 修正: position: absolute でヘッダーとフッターの間の領域を確保 */
-    position: absolute;
-    top: var(--header-height); /* ヘッダーの高さ分、上から離す */
-    bottom: var(--footer-height); /* フッターの高さ分、下から離す */
-    left: 0;
-    right: 0;
+    /* ★ 修正: position: fixed でヘッダーとフッターの間の領域を確保 */
+    position: fixed;
+    top: calc(var(--header-height) + var(--safe-area-top)); /* ★ 修正: ヘッダー + セーフエリア */
+    bottom: calc(var(--footer-height) + var(--safe-area-bottom)); /* ★ 修正: フッター + セーフエリア */
+    left: var(--safe-area-left); /* ★ 修正 */
+    right: var(--safe-area-right); /* ★ 修正 */
     
     overflow-y: auto; /* ここだけスクロール */
     overflow-x: hidden;
@@ -170,21 +169,20 @@ input[type="search"]::-webkit-search-cancel-button {
     /* ★ 修正: バウンス（オーバースクロール）の伝播を防止 */
     overscroll-behavior-y: contain;
 
-    /* ★ 修正: paddingはセーフエリアを考慮しない (親が担当) */
-    padding: 8px;
+    padding: 8px; /* 内側の padding */
 }
 
 /* 3c. フッター */
 .app-footer {
-    /* ★ 修正: position: absolute に変更 */
-    position: absolute;
-    /* ★ 修正: bottom: 0 (親のパディングボックス基準) */
-    bottom: 0;
-    /* ★ 修正: 左右も親基準 */
-    left: 0;
-    right: 0;
+    /* ★ 修正: position: fixed に変更 */
+    position: fixed;
+    /* ★ 修正: bottom にセーフエリアを適用 */
+    bottom: var(--safe-area-bottom);
+    /* ★ 修正: 左右にセーフエリアを適用 */
+    left: var(--safe-area-left);
+    right: var(--safe-area-right);
     
-    width: auto; /* autoでOK */
+    width: auto; /* left/right があるため auto に */
     height: var(--footer-height); /* フッター自体の高さは固定 */
     background-color: var(--color-surface);
     box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
@@ -196,7 +194,7 @@ input[type="search"]::-webkit-search-cancel-button {
     justify-content: space-around;
     align-items: stretch;
     height: var(--footer-height);
-    /* ★ 修正: セーフエリアのpaddingは親(.app-container)が担当 */
+    /* セーフエリアは親(.app-footer)が担当 */
 }
 
 .nav-btn {
@@ -652,9 +650,8 @@ input[type="search"]::-webkit-search-cancel-button {
 /* === 11. 通知トースト === */
 #notification-area {
     position: fixed;
-    /* ★ 修正: セーフエリアは親(.app-container)が持つため、ここでは考慮しない */
-    /* safe-area-bottom を削除し、フッターからのマージンを調整 */
-    bottom: calc(var(--footer-height) + 12px);
+    /* ★ 修正: セーフエリアとフッターの高さを考慮 */
+    bottom: calc(var(--footer-height) + var(--safe-area-bottom) + 12px);
     left: 50%;
     transform: translateX(-50%);
     z-index: 900;
@@ -662,10 +659,12 @@ input[type="search"]::-webkit-search-cancel-button {
     flex-direction: column;
     align-items: center;
     gap: 8px;
-    width: 90%;
+    
+    /* ★ 修正: 幅にセーフエリアを考慮 */
+    padding-left: var(--safe-area-left);
+    padding-right: var(--safe-area-right);
+    width: 100%;
     max-width: 500px;
-    /* ★ 修正: セーフエリアのマージンを削除 (親が担当) */
-    /* margin-left, margin-right を削除 */
 }
 
 .notification-toast {
@@ -673,6 +672,11 @@ input[type="search"]::-webkit-search-cancel-button {
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    /* ★ 修正: 幅の計算を削除 (親の 90% や max-width に任せる) */
+    /* width: calc(90% - var(--safe-area-left) - var(--safe-area-right)); */
+    margin: 0 5%; /* 左右に5%のマージン (width 90% の代わり) */
+    max-width: 100%; /* max-width は親コンテナが持つため不要 */
+
     background-color: var(--color-on-surface);
     color: var(--color-background);
     padding: 12px 16px;
