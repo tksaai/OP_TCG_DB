@@ -106,18 +106,18 @@ input[type="search"]::-webkit-search-cancel-button {
 
 /* 3a. ヘッダー */
 .app-header {
-    /* ★ 修正: position: fixed に変更 */
-    position: fixed;
-    top: var(--safe-area-top); /* 親のpadding(safe-area)の内側に配置 */
-    left: var(--safe-area-left);
-    right: var(--safe-area-right);
+    /* ★ 修正: position: absolute に変更 */
+    position: absolute;
+    /* ★ 修正: top: 0 (親のパディングボックス基準) */
+    top: 0; 
+    /* ★ 修正: 左右も親基準 */
+    left: 0;
+    right: 0;
     
     height: var(--header-height); /* ヘッダー自体の高さは固定 */
     background-color: var(--color-surface);
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     z-index: 10;
-    
-    /* ★ 修正: padding-top は .header-content に移動 */
 }
 
 .header-content {
@@ -126,7 +126,7 @@ input[type="search"]::-webkit-search-cancel-button {
     gap: 12px;
     height: var(--header-height);
     padding: 0 12px;
-    /* ★ 修正: セーフエリアのpaddingは親(.app-header)が持つ */
+    /* ★ 修正: セーフエリアのpaddingは親(.app-container)が担当 */
 }
 
 .search-bar-container {
@@ -177,19 +177,19 @@ input[type="search"]::-webkit-search-cancel-button {
 
 /* 3c. フッター */
 .app-footer {
-    /* ★ 修正: position: fixed に変更 */
-    position: fixed;
-    bottom: var(--safe-area-bottom); /* 親のpadding(safe-area)の内側に配置 */
-    left: var(--safe-area-left);
-    right: var(--safe-area-right);
+    /* ★ 修正: position: absolute に変更 */
+    position: absolute;
+    /* ★ 修正: bottom: 0 (親のパディングボックス基準) */
+    bottom: 0;
+    /* ★ 修正: 左右も親基準 */
+    left: 0;
+    right: 0;
     
-    width: auto; /* fixedにしたのでwidthを自動に */
+    width: auto; /* autoでOK */
     height: var(--footer-height); /* フッター自体の高さは固定 */
     background-color: var(--color-surface);
     box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
     z-index: 10;
-    
-    /* ★ 修正: padding-bottom のセーフエリア指定を削除 (親が担当) */
 }
 
 .footer-nav {
@@ -197,7 +197,7 @@ input[type="search"]::-webkit-search-cancel-button {
     justify-content: space-around;
     align-items: stretch;
     height: var(--footer-height);
-    /* ★ 修正: セーフエリアのpaddingは親(.app-footer)が持つ */
+    /* ★ 修正: セーフエリアのpaddingは親(.app-container)が担当 */
 }
 
 .nav-btn {
