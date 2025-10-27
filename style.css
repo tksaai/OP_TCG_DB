@@ -756,7 +756,7 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 
-/* === 13. アニメーション === */
+/* === 13. アニメーション ===  */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
