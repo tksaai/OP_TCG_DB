@@ -105,24 +105,31 @@ input[type="search"]::-webkit-search-cancel-button {
 .app-header {
     /* ★ 修正: position: fixed に変更 */
     position: fixed;
-    /* ★ 修正: top にセーフエリアを適用 */
-    top: var(--safe-area-top); 
-    /* ★ 修正: 左右にセーフエリアを適用 */
-    left: var(--safe-area-left);
-    right: var(--safe-area-right);
+    /* ★ 修正: top を 0 に戻す */
+    top: 0; 
+    /* ★ 修正: 左右も 0 に戻す */
+    left: 0;
+    right: 0;
     
-    height: var(--header-height); /* ヘッダー自体の高さは固定 */
+    /* ★ 修正: height を auto にし、padding-top でセーフエリアを確保 */
+    height: auto; 
+    padding-top: var(--safe-area-top);
+    
+    /* ★ 修正: セーフエリアの左右も padding で確保 */
+    padding-left: var(--safe-area-left);
+    padding-right: var(--safe-area-right);
+
     background-color: var(--color-surface);
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     z-index: 10;
-    width: auto; /* left/right があるため auto に */
+    /* width: auto; は不要 (left/right: 0 があるため) */
 }
 
 .header-content {
     display: flex;
     align-items: center;
     gap: 12px;
-    height: var(--header-height);
+    height: var(--header-height); /* 中身の高さは 56px のまま */
     padding: 0 12px;
     /* セーフエリアは親(.app-header)が担当 */
 }
@@ -157,10 +164,13 @@ input[type="search"]::-webkit-search-cancel-button {
 .main-content {
     /* ★ 修正: position: fixed でヘッダーとフッターの間の領域を確保 */
     position: fixed;
-    top: calc(var(--header-height) + var(--safe-area-top)); /* ★ 修正: ヘッダー + セーフエリア */
-    bottom: calc(var(--footer-height) + var(--safe-area-bottom)); /* ★ 修正: フッター + セーフエリア */
-    left: var(--safe-area-left); /* ★ 修正 */
-    right: var(--safe-area-right); /* ★ 修正 */
+    /* ★ 修正: top を「ヘッダー高さ + セーフエリア」にする */
+    top: calc(var(--header-height) + var(--safe-area-top)); 
+    /* ★ 修正: bottom を「フッター高さ + セーフエリア」にする */
+    bottom: calc(var(--footer-height) + var(--safe-area-bottom)); 
+    /* ★ 修正: 左右にセーフエリアを適用 */
+    left: var(--safe-area-left); 
+    right: var(--safe-area-right); 
     
     overflow-y: auto; /* ここだけスクロール */
     overflow-x: hidden;
@@ -176,14 +186,20 @@ input[type="search"]::-webkit-search-cancel-button {
 .app-footer {
     /* ★ 修正: position: fixed に変更 */
     position: fixed;
-    /* ★ 修正: bottom にセーフエリアを適用 */
-    bottom: var(--safe-area-bottom);
-    /* ★ 修正: 左右にセーフエリアを適用 */
-    left: var(--safe-area-left);
-    right: var(--safe-area-right);
+    /* ★ 修正: bottom を 0 に戻す */
+    bottom: 0;
+    /* ★ 修正: 左右も 0 に戻す */
+    left: 0;
+    right: 0;
     
-    width: auto; /* left/right があるため auto に */
-    height: var(--footer-height); /* フッター自体の高さは固定 */
+    /* ★ 修正: height を auto にし、padding-bottom でセーフエリアを確保 */
+    height: auto;
+    padding-bottom: var(--safe-area-bottom);
+
+    /* ★ 修正: セーフエリアの左右も padding で確保 */
+    padding-left: var(--safe-area-left);
+    padding-right: var(--safe-area-right);
+    
     background-color: var(--color-surface);
     box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
     z-index: 10;
@@ -193,7 +209,7 @@ input[type="search"]::-webkit-search-cancel-button {
     display: flex;
     justify-content: space-around;
     align-items: stretch;
-    height: var(--footer-height);
+    height: var(--footer-height); /* 中身の高さは 60px のまま */
     /* セーフエリアは親(.app-footer)が担当 */
 }
 
@@ -772,4 +788,5 @@ input[type="search"]::-webkit-search-cancel-button {
     from { transform: translateY(20px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
 }
+
 
