@@ -2,85 +2,78 @@
 :root {
     /* 1a. ダークテーマのカラーパレット */
     --color-background: #121212;
-    --color-surface: #1e1e1e;
-    --color-primary: #bb86fc;
-    --color-primary-variant: #3700b3;
-    --color-secondary: #03dac6;
-    --color-on-background: #e0e0e0;
-    --color-on-surface: #ffffff;
+    --color-surface: #1E1E1E;
+    --color-on-background: #E0E0E0;
+    --color-on-surface: #FFFFFF;
+    --color-primary: #BB86FC;
+    --color-primary-variant: #3700B3;
+    --color-secondary: #03DAC6;
+    --color-error: #CF6679;
     --color-on-primary: #000000;
-    --color-on-secondary: #000000;
-    --color-error: #cf6679;
     --color-border: #333333;
-    --color-scrollbar: #424242;
-    --color-scrollbar-thumb: #616161;
-    --color-overlay: rgba(0, 0, 0, 0.7);
-    --color-disabled: #555555;
-    --color-disabled-text: #888888;
-    --color-fallback-bg: #333;
-    --color-fallback-text: #aaa;
     --color-success: #4CAF50;
+    --color-shadow: rgba(0, 0, 0, 0.5);
     --color-progress: var(--color-primary);
 
     /* 1b. レイアウト変数 (セーフエリア対応) */
+    /* ★ 修正: セーフエリア変数を定義 */
     --safe-area-top: env(safe-area-inset-top, 0px);
     --safe-area-bottom: env(safe-area-inset-bottom, 0px);
     --safe-area-left: env(safe-area-inset-left, 0px);
     --safe-area-right: env(safe-area-inset-right, 0px);
 
+    /* ヘッダーとフッターの基本高さ */
     --header-height: 56px;
     --footer-height: 60px;
-    
-    /* 1c. カードグリッド用 (JSで変更) */
+
+    /* カードグリッドの列数 (JSで変更可能) */
     --grid-columns: 3;
 }
 
 /* === 2. グローバルスタイル === */
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    -webkit-tap-highlight-color: transparent; /* タップ時のハイライトを無効化 */
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 
 html, body {
     width: 100%;
-    height: 100%; /* ★ 修正: 100% (または 100vh) */
-    overflow: hidden; /* bodyレベルでのスクロールを禁止 */
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    height: 100%; /* ★ 修正: 100% を維持 */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     background-color: var(--color-background);
     color: var(--color-on-background);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    
-    /* ★ 修正: バウンス（オーバースクロール）の無効化 */
-    overscroll-behavior: none;
+    overflow: hidden; /* ★ 修正: スクロールを禁止 (main-contentで制御) */
+    overscroll-behavior: none; /* ★ 修正: バウンスを無効化 */
     /* ★ 修正: position: fixed; を削除 */
 }
 
 button {
     font-family: inherit;
-    background: none;
     border: none;
-    cursor: pointer;
+    background: none;
     color: inherit;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
 }
 
 button:disabled {
+    color: var(--color-border);
     cursor: not-allowed;
-    color: var(--color-disabled-text);
+    opacity: 0.5;
 }
 
 input[type="search"] {
     font-family: inherit;
     font-size: 16px;
-    border-radius: 8px;
-    border: 1px solid var(--color-border);
-    background-color: var(--color-surface);
+    border: none;
+    outline: none;
+    width: 100%;
+    background-color: transparent;
     color: var(--color-on-surface);
-    padding: 8px 12px;
-    flex-grow: 1;
-    -webkit-appearance: none; /* iOSでのデフォルトスタイル解除 */
 }
 input[type="search"]::-webkit-search-cancel-button {
     -webkit-appearance: none;
@@ -88,89 +81,90 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 /* === 3. アプリケーションレイアウト === */
+/* ★ 修正: app-container をスクロールの基準コンテナに変更 */
 .app-container {
-    /* ★ 修正: position: fixed; に変更 */
-    position: fixed;
-    /* ★ 修正: top, left を設定 */
-    top: 0;
-    left: 0;
+    position: relative; /* 子の absolute 配置の基準 */
     width: 100%;
     height: 100%;
+    overflow: hidden; /* .main-content 以外は隠す */
     background-color: var(--color-background);
-    
-    /* ★ 修正: セーフエリアの padding を削除 (各コンポーネントで管理) */
+    /* ★ 修正: セーフエリアの padding は ヘッダー/フッター に移動 */
 }
 
 /* 3a. ヘッダー */
 .app-header {
-    /* ★ 修正: position: fixed に変更 */
+    /* ★ 修正: position: fixed で画面上部に固定 */
     position: fixed;
-    /* ★ 修正: top を 0 に戻す */
-    top: 0; 
-    /* ★ 修正: 左右も 0 に戻す */
+    top: 0;
     left: 0;
     right: 0;
     
-    /* ★ 修正: height を auto にし、padding-top でセーフエリアを確保 */
-    height: auto; 
+    /* ★ 修正: 高さを基本高さ + セーフエリア分に */
+    height: calc(var(--header-height) + var(--safe-area-top));
+    /* ★ 修正: 内部のコンテンツをセーフエリア分下げる */
     padding-top: var(--safe-area-top);
-    
-    /* ★ 修正: セーフエリアの左右も padding で確保 */
+    /* ★ 修正: 左右のセーフエリアもパディングで対応 */
     padding-left: var(--safe-area-left);
     padding-right: var(--safe-area-right);
 
     background-color: var(--color-surface);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 5px var(--color-shadow);
     z-index: 10;
-    /* width: auto; は不要 (left/right: 0 があるため) */
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .header-content {
     display: flex;
     align-items: center;
     gap: 12px;
-    height: var(--header-height); /* 中身の高さは 56px のまま */
+    height: var(--header-height); /* ★ 修正: 高さを固定値に戻す */
     padding: 0 12px;
-    /* セーフエリアは親(.app-header)が担当 */
+    flex-shrink: 0; 
 }
 
 .search-bar-container {
-    display: flex;
     flex-grow: 1;
     position: relative;
+    display: flex;
+    align-items: center;
+    background-color: var(--color-background);
+    border-radius: 8px;
+    padding: 0 8px;
+    height: 36px;
 }
 
 .clear-search-btn {
     position: absolute;
-    right: 8px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 20px;
-    color: var(--color-disabled-text);
-    padding: 0 4px;
-    display: none; /* JSで表示制御 */
+    right: 4px;
+    padding: 4px;
+    color: var(--color-on-background);
+    display: none; /* JSで制御 */
+    border-radius: 50%;
+}
+.clear-search-btn svg {
+    display: block;
 }
 
 .header-btn {
-    color: var(--color-on-surface);
-    padding: 8px;
+    flex-shrink: 0;
+    padding: 6px;
     border-radius: 50%;
+    color: var(--color-secondary);
 }
 .header-btn:hover {
-    background-color: rgba(255,255,255,0.1);
+    background-color: var(--color-border);
 }
 
 /* 3b. メインコンテンツ (スクロールエリア) */
 .main-content {
-    /* ★ 修正: position: fixed でヘッダーとフッターの間の領域を確保 */
-    position: fixed;
-    /* ★ 修正: top を「ヘッダー高さ + セーフエリア」にする */
-    top: calc(var(--header-height) + var(--safe-area-top)); 
-    /* ★ 修正: bottom を「フッター高さ + セーフエリア」にする */
-    bottom: calc(var(--footer-height) + var(--safe-area-bottom)); 
-    /* ★ 修正: 左右にセーフエリアを適用 */
-    left: var(--safe-area-left); 
-    right: var(--safe-area-right); 
+    /* ★ 修正: position: absolute を削除 */
+    /* 親(.app-container) がスクロールし、ヘッダー/フッターが fixed で覆いかぶさる形に変更 */
+    
+    /* ★ 修正: height: 100% を設定 */
+    height: 100%;
     
     overflow-y: auto; /* ここだけスクロール */
     overflow-x: hidden;
@@ -179,81 +173,87 @@ input[type="search"]::-webkit-search-cancel-button {
     /* ★ 修正: バウンス（オーバースクロール）の伝播を防止 */
     overscroll-behavior-y: contain;
 
-    padding: 8px; /* 内側の padding */
+    padding: 8px; /* 内側の padding (カードと端の隙間) */
+    
+    /* ★ 修正: ヘッダーとフッターが fixed になったため、
+       スクロールコンテンツが隠れないように padding で隙間を空ける */
+    padding-top: calc(var(--header-height) + var(--safe-area-top) + 8px); /* ヘッダー分 + 上部余白 */
+    padding-bottom: calc(var(--footer-height) + var(--safe-area-bottom) + 8px); /* フッター分 + 下部余白 */
+    padding-left: calc(var(--safe-area-left) + 8px);
+    padding-right: calc(var(--safe-area-right) + 8px);
 }
 
 /* 3c. フッター */
 .app-footer {
-    /* ★ 修正: position: fixed に変更 */
+    /* ★ 修正: position: fixed で画面下部に固定 */
     position: fixed;
-    /* ★ 修正: bottom を 0 に戻す */
     bottom: 0;
-    /* ★ 修正: 左右も 0 に戻す */
     left: 0;
     right: 0;
     
-    /* ★ 修正: height を auto にし、padding-bottom でセーフエリアを確保 */
-    height: auto;
+    /* ★ 修正: 高さを基本高さ + セーフエリア分に */
+    height: calc(var(--footer-height) + var(--safe-area-bottom));
+    /* ★ 修正: 内部のコンテンツをセーフエリア分上げる (padding-bottom を使う) */
     padding-bottom: var(--safe-area-bottom);
-
-    /* ★ 修正: セーフエリアの左右も padding で確保 */
+    /* ★ 修正: 左右のセーフエリアもパディングで対応 */
     padding-left: var(--safe-area-left);
     padding-right: var(--safe-area-right);
-    
+
     background-color: var(--color-surface);
-    box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 -2px 5px var(--color-shadow);
     z-index: 10;
 }
 
 .footer-nav {
     display: flex;
     justify-content: space-around;
-    align-items: stretch;
-    height: var(--footer-height); /* 中身の高さは 60px のまま */
-    /* セーフエリアは親(.app-footer)が担当 */
+    align-items: flex-start; /* ★ 修正: align-items を flex-start に */
+    height: 100%;
+    /* ★ 修正: padding-top を nav-btn 側に移動 */
 }
 
 .nav-btn {
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center; /* 中央寄せ */
     align-items: center;
-    flex-grow: 1;
-    font-size: 12px;
-    color: var(--color-disabled-text);
-    transition: color 0.2s;
-    padding-top: 8px;
-    position: relative;
+    font-size: 10px;
+    color: var(--color-on-background);
+    border-radius: 0; 
+    gap: 4px;
+    height: 100%; /* ★ 修正: 高さを100%に */
+    padding: 4px 0; /* ★ 修正: 上下の padding を調整 */
 }
 .nav-btn svg {
-    margin-bottom: 4px;
+    width: 24px;
+    height: 24px;
+    stroke-width: 2;
 }
 .nav-btn.active {
     color: var(--color-primary);
 }
 .nav-btn:not(:disabled):hover {
-    color: var(--color-on-surface);
+    background-color: var(--color-border);
 }
 
 /* 列数切り替えボタンのスタイル */
 .nav-btn span {
     font-size: 12px;
+    line-height: 1;
 }
 .nav-btn span.column-count-display {
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: block;
     font-size: 14px;
     font-weight: bold;
-    color: currentColor;
-    pointer-events: none;
+    color: var(--color-secondary);
+    line-height: 1;
 }
 #column-toggle-btn {
-    color: var(--color-primary);
+    color: var(--color-on-background);
 }
 #column-toggle-btn:hover {
-     color: var(--color-on-surface);
+    background-color: var(--color-border);
 }
 
 
@@ -261,22 +261,43 @@ input[type="search"]::-webkit-search-cancel-button {
 .card-list-container {
     display: grid;
     grid-template-columns: repeat(var(--grid-columns), 1fr);
+    /* ★ 修正: フィルタ画面のUI変更に伴い、gap: 0; に */
     gap: 0;
+    /* ★ 修正: padding を .main-content に移動したため削除 */
 }
 
 .card-item {
     width: 100%;
-    aspect-ratio: 70 / 98;
-    overflow: hidden;
+    aspect-ratio: 120 / 168; /* カードの縦横比 */
     background-color: var(--color-surface);
+    /* ★ 修正: フィルタ画面のUI変更に伴い、border-radius: 0; に */
+    border-radius: 0; 
+    overflow: hidden;
+    /* ★ 修正: フィルタ画面のUI変更に伴い、box-shadow: none; に */
+    box-shadow: none;
+    
+    /* ★ 修正: タップイベントのずれ対策 */
     cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    
+    /* ★ 修正: フィルタ画面のUI変更に伴い、グリッド線を追加 */
+    border-right: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
 }
+/* グリッドの端のボーダーを調整 */
+.card-list-container {
+    border-top: 1px solid var(--color-border);
+    border-left: 1px solid var(--color-border);
+}
+
 
 .card-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+    border: 0;
 }
 
 .card-fallback {
@@ -286,61 +307,58 @@ input[type="search"]::-webkit-search-cancel-button {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: var(--color-fallback-bg);
-    color: var(--color-fallback-text);
     font-size: 12px;
     font-weight: bold;
-    padding: 8px;
+    color: var(--color-on-background);
+    padding: 4px;
     word-break: break-all;
 }
 
 .no-results {
-    padding: 40px 20px;
     text-align: center;
+    padding: 32px;
     color: var(--color-on-background);
     grid-column: 1 / -1; /* 全列にまたがる */
 }
 
 /* === 5. ローディングインジケータ === */
 .loading-indicator {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-    color: var(--color-on-background);
-    /* ★ 修正: メインコンテンツ内で中央に来るように */
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 24px;
+    background-color: var(--color-surface);
+    border-radius: 12px;
+    z-index: 5;
 }
 .spinner {
-    border: 4px solid var(--color-border);
-    border-top: 4px solid var(--color-primary);
+    width: 48px;
+    height: 48px;
+    border: 5px solid var(--color-border);
+    border-top-color: var(--color-primary);
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
     animation: spin 1s linear infinite;
-    margin-bottom: 16px;
 }
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    to { transform: rotate(360deg); }
 }
 
 /* === 6. モーダル (汎用) === */
 .modal-overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--color-overlay);
-    z-index: 1000;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     animation: fadeIn 0.2s ease-out;
 }
 
@@ -348,21 +366,22 @@ input[type="search"]::-webkit-search-cancel-button {
 .modal-content-wrapper {
     width: 100%;
     max-width: 600px;
-    margin: 16px;
-    /* ★ 修正: セーフエリアマージンを一元管理 */
+    /* 上下のマージン (セーフエリア考慮) */
     margin-top: calc(16px + var(--safe-area-top));
     margin-bottom: calc(16px + var(--safe-area-bottom));
+    /* 左右のマージン (セーフエリア考慮) */
     margin-left: calc(16px + var(--safe-area-left));
     margin-right: calc(16px + var(--safe-area-right));
 }
 
 .modal-content {
+    width: 100%;
     background-color: var(--color-surface);
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px var(--color-shadow);
     display: flex;
     flex-direction: column;
-    /* ★ 修正: モーダルの最大高さをラッパー基準に変更 */
+    /* 高さが画面を超える場合 (セーフエリアマージン分を引く) */
     max-height: calc(100vh - (16px + var(--safe-area-top)) - (16px + var(--safe-area-bottom)));
     animation: slideIn 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
@@ -376,24 +395,32 @@ input[type="search"]::-webkit-search-cancel-button {
     flex-shrink: 0;
 }
 .modal-header h2 {
-    color: var(--color-on-surface);
     font-size: 20px;
+    font-weight: 600;
+    color: var(--color-on-surface);
 }
 
 .modal-close-btn {
     font-size: 28px;
     font-weight: 300;
-    color: var(--color-on-surface);
-    line-height: 1;
-    padding: 4px;
+    color: var(--color-on-background);
+    padding: 0;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+}
+.modal-close-btn:hover {
+    background-color: var(--color-border);
 }
 
 .modal-body {
-    padding: 20px;
+    padding: 16px 20px;
     overflow-y: auto;
+    flex-grow: 1;
     -webkit-overflow-scrolling: touch;
-    /* ★ 修正: バウンス防止 */
-    overscroll-behavior-y: contain;
+    overscroll-behavior-y: contain; /* モーダル内のスクロールが背景に伝播するのを防ぐ */
 }
 
 .modal-footer {
@@ -408,40 +435,38 @@ input[type="search"]::-webkit-search-cancel-button {
 /* === 7. モーダルボタン === */
 .modal-btn {
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 600;
     padding: 10px 16px;
     border-radius: 8px;
-    transition: background-color 0.2s, box-shadow 0.2s;
 }
 .modal-btn-primary {
     background-color: var(--color-primary);
     color: var(--color-on-primary);
 }
 .modal-btn-primary:hover {
-    background-color: var(--color-primary-variant);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    opacity: 0.8;
 }
 .modal-btn-secondary {
     background-color: var(--color-border);
     color: var(--color-on-background);
 }
 .modal-btn-secondary:hover {
-    background-color: #444;
+    opacity: 0.8;
 }
 .modal-btn-danger {
     background-color: var(--color-error);
     color: var(--color-on-primary);
 }
 .modal-btn-danger:hover {
-    background-color: #b00020;
+    opacity: 0.8;
 }
 
 
 /* === 8. フィルタモーダル特有 === */
 .filter-options-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .filter-group {
@@ -454,65 +479,64 @@ input[type="search"]::-webkit-search-cancel-button {
     font-weight: 600;
     color: var(--color-on-surface);
     margin-bottom: 12px;
-    padding: 0;
 }
 
 .filter-grid {
     display: grid;
-    /* 最小幅を60pxに設定し、自動で折り返すように */
-    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
-    gap: 10px;
+    gap: 8px;
 }
 
 /* フィルタタイプごとの列幅調整 */
 .filter-grid.colors {
-    /* 6列均等に近い形 */
-    grid-template-columns: repeat(auto-fill, minmax(45px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
 }
 .filter-grid.costs {
-    /* 6列均等に近い形 */
     grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
 }
 .filter-grid.types {
-     /* 3列均等に近い形 */
-     grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
 }
 .filter-grid.rarities {
-     /* 3列均等に近い形 */
-     grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
 }
-.filter-grid.features { /* ★ traits から features に修正 */
-     /* 3列均等に近い形 */
-     grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-}
+/* ★ 修正: .features のスタイルを削除 */
 
 
 .filter-checkbox-label {
-    display: block;
     position: relative;
+    display: block;
+    /* ★ 修正: タップ判定のため */
     cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .filter-checkbox {
-    /* チェックボックス本体を隠す */
-    opacity: 0;
     position: absolute;
+    opacity: 0;
     width: 0;
     height: 0;
+    /* ★ 修正: タップ判定のため */
+    pointer-events: none;
 }
 
 .filter-checkbox-ui {
     display: block;
-    padding: 8px; /* 少し小さく */
-    border: 1px solid var(--color-border);
-    background-color: var(--color-background);
-    color: var(--color-on-background);
+    width: 100%;
+    padding: 10px 8px;
+    border: 2px solid var(--color-border);
     border-radius: 8px;
     text-align: center;
-    font-size: 12px; /* 少し小さく */
-    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
     user-select: none;
-    line-height: 1.3;
+    /* ★ 修正: タップ判定のため */
+    pointer-events: none;
+}
+.filter-checkbox-label:hover .filter-checkbox-ui {
+    background-color: var(--color-border);
 }
 
 /* 色フィルタの特別なスタイル */
@@ -520,7 +544,7 @@ input[type="search"]::-webkit-search-cancel-button {
 .filter-checkbox-label[data-color="Green"] .filter-checkbox-ui { border-color: #388E3C; }
 .filter-checkbox-label[data-color="Blue"] .filter-checkbox-ui { border-color: #1976D2; }
 .filter-checkbox-label[data-color="Purple"] .filter-checkbox-ui { border-color: #7B1FA2; }
-.filter-checkbox-label[data-color="Black"] .filter-checkbox-ui { border-color: #616161; }
+.filter-checkbox-label[data-color="Black"] .filter-checkbox-ui { border-color: #9E9E9E; }
 .filter-checkbox-label[data-color="Yellow"] .filter-checkbox-ui { border-color: #FBC02D; }
 
 /* チェックされた時のスタイル */
@@ -535,7 +559,7 @@ input[type="search"]::-webkit-search-cancel-button {
 .filter-checkbox:checked + .filter-checkbox-ui[data-color="Green"] { background-color: #388E3C; border-color: #388E3C; color: #fff; box-shadow: 0 0 8px #388E3C; }
 .filter-checkbox:checked + .filter-checkbox-ui[data-color="Blue"] { background-color: #1976D2; border-color: #1976D2; color: #fff; box-shadow: 0 0 8px #1976D2; }
 .filter-checkbox:checked + .filter-checkbox-ui[data-color="Purple"] { background-color: #7B1FA2; border-color: #7B1FA2; color: #fff; box-shadow: 0 0 8px #7B1FA2; }
-.filter-checkbox:checked + .filter-checkbox-ui[data-color="Black"] { background-color: #424242; border-color: #616161; color: #fff; box-shadow: 0 0 8px #616161; }
+.filter-checkbox:checked + .filter-checkbox-ui[data-color="Black"] { background-color: #9E9E9E; border-color: #9E9E9E; color: #000; box-shadow: 0 0 8px #9E9E9E; }
 .filter-checkbox:checked + .filter-checkbox-ui[data-color="Yellow"] { background-color: #FBC02D; border-color: #FBC02D; color: #000; box-shadow: 0 0 8px #FBC02D; }
 
 
@@ -545,13 +569,12 @@ input[type="search"]::-webkit-search-cancel-button {
     font-size: 16px;
     padding: 10px;
     border-radius: 8px;
-    border: 1px solid var(--color-border);
+    border: 2px solid var(--color-border);
     background-color: var(--color-background);
     color: var(--color-on-background);
-    -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e0e0e0'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23E0E0E0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 10px center;
     background-size: 24px;
@@ -565,55 +588,52 @@ input[type="search"]::-webkit-search-cancel-button {
 
 /* === 9. 設定モーダル特有 === */
 .settings-group {
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
-    padding: 16px;
     margin-bottom: 24px;
 }
 .settings-group legend {
     font-size: 16px;
     font-weight: 600;
     color: var(--color-on-surface);
-    padding: 0 8px;
-    margin-left: 8px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 4px;
 }
 .setting-item {
-    padding: 12px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 .setting-item + .setting-item {
-    border-top: 1px solid var(--color-border);
+    margin-top: 16px;
 }
 .setting-item p {
     font-size: 14px;
     line-height: 1.5;
-    margin-bottom: 12px;
+    color: var(--color-on-background);
 }
 .setting-item .modal-btn {
-    width: 100%;
+    align-self: flex-start;
 }
 
 .app-version {
-    text-align: center;
-    font-size: 12px;
-    color: var(--color-disabled-text);
-    padding-top: 16px;
+    font-size: 14px;
+    color: var(--color-on-background);
+    opacity: 0.7;
 }
 
 /* === 10. ライトボックス (画像拡大) === */
 .lightbox-overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--color-overlay);
-    z-index: 2000;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.85);
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: zoom-out;
-    animation: fadeIn 0.2s ease-out;
-    /* ★ 修正: セーフエリアを padding として適用 */
+    z-index: 2000;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    
+    /* ★ 修正: padding を追加 (セーフエリア対応) */
     padding-top: var(--safe-area-top);
     padding-bottom: var(--safe-area-bottom);
     padding-left: var(--safe-area-left);
@@ -622,82 +642,81 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .lightbox-close-btn {
     position: absolute;
-    /* ★ 修正: セーフエリアを考慮 (親の padding に合わせる) */
+    /* ★ 修正: top/right をセーフエリアマージン基準に */
     top: calc(16px + var(--safe-area-top));
     right: calc(16px + var(--safe-area-right));
     font-size: 36px;
     font-weight: 300;
     color: #fff;
-    cursor: pointer;
-    line-height: 1;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
     z-index: 2002;
-    padding: 8px;
+    padding: 0; /* padding リセット */
 }
 
 .lightbox-image, .lightbox-fallback {
-    /* ★ 修正: 画面全体 (パディングの内側) に収まるように */
     max-width: 100%;
     max-height: 100%;
+    object-fit: contain;
     border-radius: 12px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.7);
-    animation: slideIn 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
     z-index: 2001;
 }
 .lightbox-fallback {
-    /* ★ 修正: サイズを可変に */
-    width: 70vmin;
-    height: 98vmin;
-    max-width: 100%;
-    max-height: 100%;
-
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    background-color: var(--color-fallback-bg);
-    color: var(--color-fallback-text);
-    font-size: 24px;
+    /* サイズを画像と合わせるため */
+    width: 90vw; 
+    height: 90vh;
+    background-color: var(--color-surface);
+    color: var(--color-on-surface);
+    font-size: 1.5rem;
     font-weight: bold;
+    text-align: center;
     padding: 20px;
     word-break: break-all;
 }
 
 
-/* === 11. 通知トースト === */
+/* === 11. 通知エリア === */
 #notification-area {
     position: fixed;
-    /* ★ 修正: セーフエリアとフッターの高さを考慮 */
+    /* ★ 修正: bottom をフッターの高さ + セーフエリア基準に */
     bottom: calc(var(--footer-height) + var(--safe-area-bottom) + 12px);
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 900;
+    /* ★ 修正: left/right もセーフエリア基準に */
+    left: calc(var(--safe-area-left) + 12px);
+    right: calc(var(--safe-area-right) + 12px);
+    
+    width: auto; /* width: 100% を削除 */
+    
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 8px;
-    
-    /* ★ 修正: 幅にセーフエリアを考慮 */
-    padding-left: var(--safe-area-left);
-    padding-right: var(--safe-area-right);
-    width: 100%;
-    max-width: 500px;
+    z-index: 1001;
+    pointer-events: none;
 }
 
 .notification-toast {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    width: 100%;
-    /* ★ 修正: 幅の計算を削除 (親の 90% や max-width に任せる) */
-    /* width: calc(90% - var(--safe-area-left) - var(--safe-area-right)); */
-    margin: 0 5%; /* 左右に5%のマージン (width 90% の代わり) */
-    max-width: 100%; /* max-width は親コンテナが持つため不要 */
-
-    background-color: var(--color-on-surface);
-    color: var(--color-background);
+    align-items: center;
+    
+    /* ★ 修正: 幅を100% (親のpadding基準) に */
+    width: 100%; 
+    max-width: 500px; /* ただし最大幅を設定 */
+    
     padding: 12px 16px;
     border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 12px var(--color-shadow);
+    
+    background-color: var(--color-on-surface);
+    color: var(--color-background);
+    pointer-events: all;
     animation: slideUp 0.3s ease-out;
     display: none; /* JSで制御 */
 }
@@ -716,15 +735,17 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 .notification-toast p {
-    font-weight: 500;
+    margin: 0;
     margin-right: 12px;
+    font-size: 14px;
+    font-weight: 500;
 }
 .notification-toast button {
-    font-weight: 600;
-    color: var(--color-primary); /* デフォルトはPrimary */
     padding: 4px 8px;
-    border-radius: 4px;
-    margin-left: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 6px;
+    background: none;
     flex-shrink: 0;
 }
 /* トーストのタイプに応じてボタン色を変更 */
@@ -733,40 +754,39 @@ input[type="search"]::-webkit-search-cancel-button {
 .notification-toast.error button { color: var(--color-on-primary); }
 
 .notification-toast button:hover {
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgba(255, 255, 255, 0.1);
 }
 .notification-toast.info button:hover {
-    background-color: rgba(255,255,255,0.1);
+    background-color: rgba(0, 0, 0, 0.1);
 }
 .notification-toast .dismiss-btn {
     font-size: 20px;
-    color: currentColor; /* 親の色を継承 */
-    opacity: 0.7;
     padding: 0 4px;
-    background: none !important;
+    background: none;
 }
 
 /* === 12. 進捗バー === */
 .cache-progress-container {
-    /* ★ 修正: ヘッダー内の進捗バー */
-    width: 100%;
+    /* ★ 修正: position: absolute (親の .app-header 基準) */
+    position: absolute;
     height: 4px;
     background-color: var(--color-border);
     display: none; /* JSで表示 */
-    position: absolute;
-    bottom: 0; /* ヘッダーの最下部 */
+    /* ★ 修正: bottom: 0 (ヘッダーの最下部) */
+    bottom: 0;
     left: 0;
-    right: 0; /* ★ 修正: right: 0 を追加 */
+    right: 0;
+    
+    z-index: 11;
 }
 .cache-progress-bar {
-    width: 0; /* JSで制御 */
     height: 100%;
+    width: 0%;
     background-color: var(--color-progress);
-    border-radius: 0;
-    transition: width 0.1s linear;
+    transition: width 0.2s linear;
 }
 .cache-progress-text {
-    /* ★ 修正: 進捗テキストは非表示 (バーのみ) */
+    /* (現在は非表示、必要ならスタイル追加) */
     display: none;
 }
 /* JSで display: none がインラインスタイルで設定された場合も確実に隠す */
@@ -781,12 +801,11 @@ input[type="search"]::-webkit-search-cancel-button {
     to { opacity: 1; }
 }
 @keyframes slideIn {
-    from { transform: translateY(30px) scale(0.95); opacity: 0; }
-    to { transform: translateY(0) scale(1); opacity: 1; }
-}
-@keyframes slideUp {
-    from { transform: translateY(20px); opacity: 0; }
+    from { transform: translateY(30px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
 }
-
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
 
