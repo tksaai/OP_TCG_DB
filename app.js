@@ -11,7 +11,7 @@
     const CACHE_APP_SHELL = 'app-shell-v1'; // service-worker.jsと合わせる
     const CACHE_IMAGES = 'card-images-v1'; // service-worker.jsと合わせる
     const CARDS_JSON_PATH = './cards.json';
-    const APP_VERSION = '1.0.21'; // ★ アプリバージョン更新 (features 修正)
+    const APP_VERSION = '1.0.23'; // ★ アプリバージョン更新 (特徴フィルタ削除, タップ修正)
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db; // IndexedDBインスタンス
@@ -27,6 +27,12 @@
     let touchStartY = 0; // スワイプ開始Y座標
     let touchEndY = 0; // スワイプ終了Y座標
     let isDebugInfoVisible = false; // デバッグ情報表示中フラグ
+    // ---
+    
+    // --- カードリスト タップ判定用 ---
+    let cardListTapElement = null;
+    let cardListTapStartY = 0;
+    let cardListTapMoveY = 0;
     // ---
 
     // === 2. DOM要素のキャッシュ ===
@@ -253,6 +259,8 @@
 
             const cardItem = document.createElement('div');
             cardItem.className = 'card-item';
+            // ★ 修正: タップ判定のため、インデックスをdata属性に保存
+            cardItem.dataset.index = index;
             
             const img = document.createElement('img');
             img.className = 'card-image';
@@ -271,9 +279,9 @@
             img.src = relativeImagePath; 
             img.alt = card.cardName || card.cardNumber; // ★修正: card.name -> card.cardName
             img.loading = 'lazy'; // 遅延読み込み
-
-            // ★修正: showLightbox にインデックスを渡す
-            cardItem.addEventListener('click', () => showLightbox(index));
+            
+            // ★ 修正: クリックイベントリスナーを削除 (setupEventListeners で touchend を使用)
+            // cardItem.addEventListener('click', () => showLightbox(index));
             
             // ★修正: 画像読み込みエラー時のフォールバック
             img.onerror = () => {
@@ -288,8 +296,8 @@
                      // 既にフォールバックがない場合のみ追加 (二重追加防止)
                      cardItem.appendChild(fallback);
                 }
-                // ★修正: showLightbox にインデックスを渡す
-                cardItem.onclick = () => showLightbox(index);
+                // ★ 修正: onclick も削除 (親要素のリスナーに任せる)
+                // cardItem.onclick = () => showLightbox(index);
             };
             
             if (relativeImagePath) {
@@ -299,7 +307,8 @@
                  const fallback = document.createElement('div');
                  fallback.className = 'card-fallback';
                  fallback.textContent = card.cardNumber;
-                 cardItem.onclick = () => showLightbox(index);
+                 // ★ 修正: onclick も削除
+                 // cardItem.onclick = () => showLightbox(index);
                  cardItem.appendChild(fallback);
             }
             
@@ -495,10 +504,11 @@
             if (searchWords.length > 0) {
                 
                 // ★修正: 検索対象のテキストも同様に正規化
+                // ★修正: card.features を検索対象に含める (要望)
                 let searchableText = [
                     card.cardName || '', // card.name から card.cardName に修正
                     card.effectText || '', // ★ card.effect から card.effectText に修正
-                    (card.features || []).join(' '), // ★ card.traits から card.features に修正
+                    (card.features || []).join(' '), // ★ 特徴(features)を検索対象に含める
                     card.cardNumber || ''
                 ].join(' ');
                 
@@ -537,12 +547,15 @@
                      return false;
                 }
             }
-            // ★修正: features (旧 traits)
+            
+            // ★ 修正: 特徴(f.features)でのフィルタリングロジックを削除
+            /*
              if (f.features?.length > 0) {
-                 if (!Array.isArray(card.features) || !f.features.every(feat => card.features.includes(feat))) {
+                 if (!Array.isArray(card.features) || !f.features.every(attr => card.features.includes(attr))) {
                     return false;
                 }
             }
+            */
 
             // --- 修正: シリーズフィルタロジック ---
             if (f.series) { // f.series には 'OP01' や 'P' が入る
@@ -577,7 +590,8 @@
         const types = new Set();
         const rarities = new Set();
         const costs = new Set();
-        const features = new Set(); // ★ traits から features に修正
+        // ★ 修正: features Set を削除
+        // const features = new Set();
         const seriesSet = new Map(); // seriesId をキー, 表示名を値 にする
 
         allCards.forEach(card => {
@@ -593,8 +607,8 @@
             
             if(card.cost !== undefined && card.cost !== null) costs.add(card.cost);
             
-            // ★修正: card.traits から card.features に修正
-            if (Array.isArray(card.features)) card.features.forEach(a => features.add(a));
+            // ★ 修正: features の収集ロジックを削除
+            // if (Array.isArray(card.features)) card.features.forEach(a => features.add(a));
 
             // --- 修正: シリーズフィルタのロジック (seriesTitle を使用) ---
             const seriesId = card.cardNumber.split('-')[0]; // 例: "OP01", "P", "ST11"
@@ -633,7 +647,9 @@
         });
         // コストは数値としてソート
         const sortedCosts = [...costs].map(Number).sort((a, b) => a - b); 
-        const sortedFeatures = [...features].sort(); // ★ traits から features に修正
+        
+        // ★ 修正: sortedFeatures を削除
+        // const sortedFeatures = [...features].sort();
 
         // --- 修正: シリーズのソート ('P'を最後にする) ---
         const seriesEntries = [...seriesSet.entries()];
@@ -648,12 +664,12 @@
         // --- 修正ここまで ---
 
         // ★ 修正: フィルタの順序とクラスを変更 (画像参考)
+        // ★ 修正: features の createFilterGroup 呼び出しを削除
         dom.filterOptionsContainer.innerHTML = `
             ${createFilterGroup('colors', '色 (OR)', sortedColors, 'colors')}
             ${createFilterGroup('costs', 'コスト', sortedCosts.map(String), 'costs')}
             ${createFilterGroup('types', '種別', sortedTypes, 'types')}
             ${createFilterGroup('rarities', 'レアリティ', sortedRarities, 'rarities')}
-            ${createFilterGroup('features', '特徴 (AND)', sortedFeatures, 'features')}
             ${createSeriesFilter(sortedSeries)}
         `;
     }
@@ -717,12 +733,12 @@
         const getCheckedValues = (name) => 
             [...$$(`input[name="${name}"]:checked`)].map(cb => cb.value);
 
+        // ★ 修正: features を削除
         currentFilter = {
             colors: getCheckedValues('colors'),
             types: getCheckedValues('types'),
             rarities: getCheckedValues('rarities'),
             costs: getCheckedValues('costs'),
-            features: getCheckedValues('features'), // ★ traits から features に修正
             series: $('#filter-series')?.value || '', // select要素の値を取得
         };
         console.log('Filters applied:', currentFilter);
@@ -1375,12 +1391,12 @@
     showMessageToast.timeoutId = null;
 
 
-    // === 9. スワイプ処理 ===
+    // === 9. スワイプ・タップ処理 ===
     
     /**
      * ライトボックスでのタッチ開始イベント
      */
-    function handleTouchStart(e) {
+    function handleLightboxTouchStart(e) {
         // スワイプが画像上またはフォールバック上から開始されたか確認
         // またはデバッグ情報表示中
         if (e.target === dom.lightboxImage || e.target === dom.lightboxFallback || isDebugInfoVisible) {
@@ -1400,7 +1416,7 @@
     /**
      * ライトボックスでのタッチ移動イベント
      */
-    function handleTouchMove(e) {
+    function handleLightboxTouchMove(e) {
         if (touchStartX === 0 && touchStartY === 0) return; // スワイプが開始されていない
         touchEndX = e.touches[0].clientX;
         touchEndY = e.touches[0].clientY; // Y座標を更新
@@ -1409,7 +1425,7 @@
     /**
      * ライトボックスでのタッチ終了イベント（スワイプ判定）
      */
-    function handleTouchEnd() {
+    function handleLightboxTouchEnd() {
         if (touchStartX === 0 && touchStartY === 0) return; // スワイプが開始されていなかった
 
         // デバッグ情報が表示されている場合は、タップで非表示にする
@@ -1448,12 +1464,12 @@
         else if (Math.abs(swipeDistanceX) > swipeThreshold) {
             // 右から左へのスワイプ（次へ）
             if (swipeDistanceX > swipeThreshold) {
-                console.log('Swipe left (next)');
+                // console.log('Swipe left (next)');
                 updateLightboxImage(currentLightboxIndex + 1); // 次のインデックスを渡す
             }
             // 左から右へのスワイプ（前へ）
             else if (swipeDistanceX < -swipeThreshold) {
-                console.log('Swipe right (previous)');
+                // console.log('Swipe right (previous)');
                 updateLightboxImage(currentLightboxIndex - 1); // 前のインデックスを渡す
             }
         }
@@ -1470,6 +1486,7 @@
      * (現在は handleTouchEnd で呼び出されないように無効化されています)
      */
     function showDebugInfo(card) {
+        /*
         console.log('--- DEBUG CARD JSON ---');
         console.log(card);
         console.log('-------------------------');
@@ -1493,6 +1510,7 @@
         
         // トーストで通知
         showMessageToast(`デバッグ情報表示中。タップで戻ります。`, 'info');
+        */
     }
     
     /**
@@ -1611,27 +1629,46 @@
             resetFilters();
             // リセットは即時反映せず、適用ボタンが押されるまで待つ
         });
-        
-        // ★ フィルタモーダル内のボタン選択 (イベント委譲)
-        dom.filterOptionsContainer.addEventListener('click', (e) => {
-            const target = e.target;
-            // .filter-checkbox-ui (span) または .filter-checkbox-label がクリックされたか
-            const label = target.closest('.filter-checkbox-label');
-            if (label) {
-                // label 内のチェックボックスを探す
-                const checkbox = label.querySelector('.filter-checkbox');
-                if (checkbox) {
-                    // spanをクリックした場合は、JSでチェックボックスの状態を反転させる
-                    if (target.tagName === 'SPAN') {
-                        checkbox.checked = !checkbox.checked;
-                    }
-                    // (inputを直接クリックした場合は、デフォルトの動作でチェックが反転する)
+
+        // ★ 修正: フィルタモーダルのタップ判定 (誤タップ防止)
+        let filterTapElement = null;
+        let filterTapStartY = 0;
+        let filterTapMoveY = 0;
+    
+        dom.filterOptionsContainer.addEventListener('touchstart', (e) => {
+            // タップされた要素（<span class="filter-checkbox-ui">など）を記録
+            filterTapElement = e.target;
+            filterTapStartY = e.touches[0].clientY;
+            filterTapMoveY = 0;
+        }, { passive: true });
+    
+        dom.filterOptionsContainer.addEventListener('touchmove', (e) => {
+            if (filterTapStartY === 0) return;
+            // Y軸の移動距離を計算
+            filterTapMoveY = Math.abs(e.touches[0].clientY - filterTapStartY);
+        }, { passive: true });
+    
+        dom.filterOptionsContainer.addEventListener('touchend', (e) => {
+            if (filterTapElement && filterTapMoveY < 20) {
+                // 20px未満のスクロールは「タップ」とみなす
+                const label = filterTapElement.closest('.filter-checkbox-label');
+                if (label) {
+                    // デフォルトのクリックイベント（ラベルによるチェック）を防ぐ
+                    e.preventDefault(); 
                     
-                    // TODO: ここで即時反映する場合は applyFiltersAndDisplay() を呼ぶ
-                    // 現在は「適用」ボタンを押すまで何もしない
+                    const input = label.querySelector('input[type="checkbox"]');
+                    if (input) {
+                        // 手動でチェック状態を反転させる
+                        input.checked = !input.checked;
+                    }
                 }
             }
+            // リセット
+            filterTapElement = null;
+            filterTapStartY = 0;
+            filterTapMoveY = 0;
         });
+        // --- フィルタタップ修正ここまで ---
 
 
         // --- 設定モーダル ---
@@ -1649,6 +1686,34 @@
         
         dom.cacheAllImagesBtn.addEventListener('click', cacheAllImages);
         dom.clearAllDataBtn.addEventListener('click', clearAllData);
+
+        // --- カード一覧 (タップ判定) ---
+        dom.cardListContainer.addEventListener('touchstart', (e) => {
+            cardListTapElement = e.target;
+            cardListTapStartY = e.touches[0].clientY;
+            cardListTapMoveY = 0;
+        }, { passive: true });
+
+        dom.cardListContainer.addEventListener('touchmove', (e) => {
+            if (cardListTapStartY === 0) return;
+            cardListTapMoveY = Math.abs(e.touches[0].clientY - cardListTapStartY);
+        }, { passive: true });
+
+        dom.cardListContainer.addEventListener('touchend', (e) => {
+            if (cardListTapElement && cardListTapMoveY < 20) {
+                // タップと判定
+                const cardItem = cardListTapElement.closest('.card-item');
+                if (cardItem && cardItem.dataset.index) {
+                    e.preventDefault(); // デフォルトのクリック動作をキャンセル
+                    showLightbox(parseInt(cardItem.dataset.index, 10));
+                }
+            }
+            // リセット
+            cardListTapElement = null;
+            cardListTapStartY = 0;
+            cardListTapMoveY = 0;
+        });
+
 
         // --- ライトボックス ---
         dom.lightboxCloseBtn.addEventListener('click', () => {
@@ -1683,9 +1748,9 @@
         });
 
         // ライトボックスのスワイプイベント
-        dom.lightboxModal.addEventListener('touchstart', handleTouchStart, { passive: true });
-        dom.lightboxModal.addEventListener('touchmove', handleTouchMove, { passive: true });
-        dom.lightboxModal.addEventListener('touchend', handleTouchEnd, { passive: true });
+        dom.lightboxModal.addEventListener('touchstart', handleLightboxTouchStart, { passive: true });
+        dom.lightboxModal.addEventListener('touchmove', handleLightboxTouchMove, { passive: true });
+        dom.lightboxModal.addEventListener('touchend', handleLightboxTouchEnd, { passive: true });
     }
 
     // === 11. アプリ起動 ===

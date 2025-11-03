@@ -38,15 +38,15 @@
     -webkit-tap-highlight-color: transparent;
 }
 
+/* ★ 修正: html, body から position: fixed を削除 */
 html, body {
     width: 100%;
-    height: 100%; /* ★ 修正: 100% を維持 */
+    height: 100%; 
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     background-color: var(--color-background);
     color: var(--color-on-background);
-    overflow: hidden; /* ★ 修正: スクロールを禁止 (main-contentで制御) */
-    overscroll-behavior: none; /* ★ 修正: バウンスを無効化 */
-    /* ★ 修正: position: fixed; を削除 */
+    overflow: hidden; 
+    overscroll-behavior: none; /* バウンスを無効化 */
 }
 
 button {
@@ -81,12 +81,12 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 /* === 3. アプリケーションレイアウト === */
-/* ★ 修正: app-container をスクロールの基準コンテナに変更 */
+/* ★ 修正: app-container を relative に変更 */
 .app-container {
-    position: relative; /* 子の absolute 配置の基準 */
+    position: relative; 
     width: 100%;
     height: 100%;
-    overflow: hidden; /* .main-content 以外は隠す */
+    overflow: hidden;
     background-color: var(--color-background);
     /* ★ 修正: セーフエリアの padding は ヘッダー/フッター に移動 */
 }
@@ -298,6 +298,8 @@ input[type="search"]::-webkit-search-cancel-button {
     object-fit: cover;
     display: block;
     border: 0;
+    /* ★ 修正: タップ判定のため */
+    pointer-events: none; 
 }
 
 .card-fallback {
@@ -312,6 +314,8 @@ input[type="search"]::-webkit-search-cancel-button {
     color: var(--color-on-background);
     padding: 4px;
     word-break: break-all;
+    /* ★ 修正: タップ判定のため */
+    pointer-events: none; 
 }
 
 .no-results {
@@ -467,6 +471,10 @@ input[type="search"]::-webkit-search-cancel-button {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    
+    /* ★ 修正: タップ判定のため */
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .filter-group {
@@ -535,9 +543,12 @@ input[type="search"]::-webkit-search-cancel-button {
     /* ★ 修正: タップ判定のため */
     pointer-events: none;
 }
-.filter-checkbox-label:hover .filter-checkbox-ui {
+
+/* ★ 修正: ホバーエフェクトは :hover ではなく :active を使う (タップ判定のため) */
+.filter-checkbox-label:active .filter-checkbox-ui {
     background-color: var(--color-border);
 }
+
 
 /* 色フィルタの特別なスタイル */
 .filter-checkbox-label[data-color="Red"] .filter-checkbox-ui { border-color: #D32F2F; }
