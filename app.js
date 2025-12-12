@@ -11,7 +11,7 @@
     const CACHE_APP_SHELL = 'app-shell-v1';
     const CACHE_IMAGES = 'card-images-v1';
     const CARDS_JSON_PATH = './cards.json';
-    const APP_VERSION = '1.1.0'; // バージョン更新
+    const APP_VERSION = '1.1.2'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -373,12 +373,21 @@
                 if (!f.colors.some(color => card.color.includes(color))) return false;
             }
 
-            // コスト (Leaders excluded from value matching, but handled by type/costLifeType)
-            // JSONの構造に合わせて costLifeValue を使用
-            // costLifeType が "コスト" のものだけを対象とする
+            // コスト
             if (f.costs?.length > 0) {
-                if (card.costLifeType !== 'コスト') return false; // リーダー(ライフ)などは除外
-                if (card.costLifeValue === undefined || card.costLifeValue === null || !f.costs.includes(String(card.costLifeValue))) {
+                if (card.costLifeType !== 'コスト') return false; 
+                
+                // コスト値の正規化: '-' または 不正値は '0' として扱う
+                let val = card.costLifeValue;
+                if (val === '-' || val === undefined || val === null || val === '') {
+                     val = '0';
+                } else if (isNaN(Number(val))) {
+                     val = '0';
+                } else {
+                    val = String(val);
+                }
+
+                if (!f.costs.includes(val)) {
                      return false;
                 }
             }
@@ -476,8 +485,17 @@
             if (card.rarity && card.rarity !== 'SP') rarities.add(card.rarity); 
             
             // コスト (リーダー除外)
-            if (card.costLifeType === 'コスト' && card.costLifeValue !== undefined && card.costLifeValue !== null) {
-                costs.add(card.costLifeValue);
+            if (card.costLifeType === 'コスト') {
+                let val = card.costLifeValue;
+                // '-' や 不正値を '0' として扱う
+                if (val === '-' || val === undefined || val === null || val === '') {
+                    costs.add('0');
+                } else if (isNaN(Number(val))) {
+                     // 数値変換できない文字列が入っている場合の安全策
+                     costs.add('0'); 
+                } else {
+                    costs.add(String(val));
+                }
             }
 
             // パワー
@@ -527,7 +545,9 @@
             return indexA - indexB;
         });
         
-        const sortedCosts = [...costs].map(Number).sort((a, b) => a - b);
+        // コストのソート: 全て数値として比較（元データがStringの場合も考慮）
+        const sortedCosts = [...costs].map(v => parseInt(v, 10)).filter(v => !isNaN(v)).sort((a, b) => a - b);
+        
         const sortedPowers = [...powers].map(Number).sort((a, b) => a - b);
         const sortedCounters = [...counters].sort((a, b) => {
             if (a === '-') return -1;
