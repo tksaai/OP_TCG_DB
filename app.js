@@ -11,7 +11,7 @@
     const CACHE_APP_SHELL = 'app-shell-v1';
     const CACHE_IMAGES = 'card-images-v1';
     const CARDS_JSON_PATH = './cards.json';
-    const APP_VERSION = '1.1.3'; // バージョン更新
+    const APP_VERSION = '1.1.4'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -394,6 +394,9 @@
 
             // パワー
             if (f.powers?.length > 0) {
+                // リーダーかキャラのみを対象
+                if (card.cardType !== 'リーダー' && card.cardType !== 'キャラ') return false;
+
                 let val = card.power;
                 if (val === '-' || val === undefined || val === null || val === '') {
                      val = '0';
@@ -507,14 +510,16 @@
                 }
             }
 
-            // パワー
-            let pVal = card.power;
-            if (pVal === '-' || pVal === undefined || pVal === null || pVal === '') {
-                powers.add('0');
-            } else if (isNaN(Number(pVal))) {
-                powers.add('0');
-            } else {
-                powers.add(String(pVal));
+            // パワー: リーダーまたはキャラのみ集計
+            if (card.cardType === 'リーダー' || card.cardType === 'キャラ') {
+                let pVal = card.power;
+                if (pVal === '-' || pVal === undefined || pVal === null || pVal === '') {
+                    powers.add('0');
+                } else if (isNaN(Number(pVal))) {
+                    powers.add('0');
+                } else {
+                    powers.add(String(pVal));
+                }
             }
 
             // カウンター
@@ -559,10 +564,10 @@
             return indexA - indexB;
         });
         
-        // コストのソート: 全て数値として比較（元データがStringの場合も考慮）
+        // コストのソート
         const sortedCosts = [...costs].map(v => parseInt(v, 10)).filter(v => !isNaN(v)).sort((a, b) => a - b);
         
-        // パワーのソート: 全て数値として比較
+        // パワーのソート
         const sortedPowers = [...powers].map(v => parseInt(v, 10)).filter(v => !isNaN(v)).sort((a, b) => a - b);
 
         const sortedCounters = [...counters].sort((a, b) => {

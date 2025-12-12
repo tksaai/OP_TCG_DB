@@ -486,20 +486,36 @@ input[type="search"]::-webkit-search-cancel-button {
     gap: 8px;
 }
 
-/* フィルタタイプごとの列幅調整 */
+/* ★ 修正: minmax(XXpx, 1fr) の XXpx を調整することでボタンサイズを変更できます */
+
+/* 色: 少し大きめ */
 .filter-grid.colors {
     grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
 }
-.filter-grid.costs {
-    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
-}
-.filter-grid.types {
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-}
+/* レアリティ: 少し大きめ */
 .filter-grid.rarities {
     grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
 }
-/* ★ 修正: .features のスタイルを削除 */
+/* コスト: 基準サイズ (約48px) */
+.filter-grid.costs {
+    grid-template-columns: repeat(auto-fill, minmax(48px, 1fr));
+}
+/* ブロック: 基準サイズ (約48px) */
+.filter-grid.blocks {
+    grid-template-columns: repeat(auto-fill, minmax(48px, 1fr));
+}
+/* 属性: 基準サイズ (約48px) */
+.filter-grid.attributes {
+    grid-template-columns: repeat(auto-fill, minmax(48px, 1fr));
+}
+/* パワー: 基準の約2倍 (約90px) */
+.filter-grid.powers {
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+}
+/* 種別: 広め */
+.filter-grid.types {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+}
 
 
 .filter-checkbox-label {
