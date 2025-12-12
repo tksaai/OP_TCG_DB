@@ -307,22 +307,20 @@ footer {
     grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
 }
 
-/* Base size: ~48px min-width */
 .filter-grid.costs {
-    grid-template-columns: repeat(auto-fill, minmax(48px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
 }
 
 .filter-grid.blocks {
-    grid-template-columns: repeat(auto-fill, minmax(48px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+}
+
+.filter-grid.powers {
+    grid-template-columns: repeat(auto-fill, minmax(65px, 1fr));
 }
 
 .filter-grid.attributes {
-    grid-template-columns: repeat(auto-fill, minmax(48px, 1fr));
-}
-
-/* 2x Base size: ~96px min-width for Power */
-.filter-grid.powers {
-    grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(55px, 1fr));
 }
 
 .filter-grid.types {
