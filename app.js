@@ -11,7 +11,7 @@
     const CACHE_APP_SHELL = 'app-shell-v1';
     const CACHE_IMAGES = 'card-images-v1';
     const CARDS_JSON_PATH = './cards.json';
-    const APP_VERSION = '1.1.2'; // バージョン更新
+    const APP_VERSION = '1.1.3'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -394,7 +394,16 @@
 
             // パワー
             if (f.powers?.length > 0) {
-                if (card.power === undefined || card.power === null || !f.powers.includes(String(card.power))) {
+                let val = card.power;
+                if (val === '-' || val === undefined || val === null || val === '') {
+                     val = '0';
+                } else if (isNaN(Number(val))) {
+                     val = '0';
+                } else {
+                    val = String(val);
+                }
+
+                if (!f.powers.includes(val)) {
                     return false;
                 }
             }
@@ -499,8 +508,13 @@
             }
 
             // パワー
-            if (card.power !== undefined && card.power !== null && card.power !== '-') {
-                powers.add(card.power);
+            let pVal = card.power;
+            if (pVal === '-' || pVal === undefined || pVal === null || pVal === '') {
+                powers.add('0');
+            } else if (isNaN(Number(pVal))) {
+                powers.add('0');
+            } else {
+                powers.add(String(pVal));
             }
 
             // カウンター
@@ -548,7 +562,9 @@
         // コストのソート: 全て数値として比較（元データがStringの場合も考慮）
         const sortedCosts = [...costs].map(v => parseInt(v, 10)).filter(v => !isNaN(v)).sort((a, b) => a - b);
         
-        const sortedPowers = [...powers].map(Number).sort((a, b) => a - b);
+        // パワーのソート: 全て数値として比較
+        const sortedPowers = [...powers].map(v => parseInt(v, 10)).filter(v => !isNaN(v)).sort((a, b) => a - b);
+
         const sortedCounters = [...counters].sort((a, b) => {
             if (a === '-') return -1;
             if (b === '-') return 1;
