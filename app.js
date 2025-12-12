@@ -11,7 +11,7 @@
     const CACHE_APP_SHELL = 'app-shell-v1';
     const CACHE_IMAGES = 'card-images-v1';
     const CARDS_JSON_PATH = './cards.json';
-    const APP_VERSION = '1.1.4'; // バージョン更新
+    const APP_VERSION = '1.1.5'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -394,8 +394,14 @@
 
             // パワー
             if (f.powers?.length > 0) {
-                // リーダーかキャラのみを対象
-                if (card.cardType !== 'リーダー' && card.cardType !== 'キャラ') return false;
+                // パワーを持つカードタイプか判定 (部分一致で柔軟に)
+                const typeStr = String(card.cardType || "");
+                const isPowerCard = typeStr.includes("リーダー") || 
+                                    typeStr.includes("キャラ") || 
+                                    typeStr.toUpperCase().includes("LEADER") || 
+                                    typeStr.toUpperCase().includes("CHARACTER");
+
+                if (!isPowerCard) return false;
 
                 let val = card.power;
                 if (val === '-' || val === undefined || val === null || val === '') {
@@ -510,8 +516,14 @@
                 }
             }
 
-            // パワー: リーダーまたはキャラのみ集計
-            if (card.cardType === 'リーダー' || card.cardType === 'キャラ') {
+            // パワー: リーダーまたはキャラ（とみなされるもの）のみ集計
+            const typeStr = String(card.cardType || "");
+            const isPowerCard = typeStr.includes("リーダー") || 
+                                typeStr.includes("キャラ") || 
+                                typeStr.toUpperCase().includes("LEADER") || 
+                                typeStr.toUpperCase().includes("CHARACTER");
+
+            if (isPowerCard) {
                 let pVal = card.power;
                 if (pVal === '-' || pVal === undefined || pVal === null || pVal === '') {
                     powers.add('0');
@@ -520,6 +532,9 @@
                 } else {
                     powers.add(String(pVal));
                 }
+            } else if (card.power !== undefined && card.power !== null && card.power !== '-' && !isNaN(Number(card.power))) {
+                // 明示的な数値パワーを持つ場合（例外対応）
+                powers.add(String(card.power));
             }
 
             // カウンター
