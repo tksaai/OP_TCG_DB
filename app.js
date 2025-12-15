@@ -11,7 +11,7 @@
     const CACHE_APP_SHELL = 'app-shell-v1';
     const CACHE_IMAGES = 'card-images-v1';
     const CARDS_JSON_PATH = './cards.json';
-    const APP_VERSION = '1.1.5'; // バージョン更新
+    const APP_VERSION = '1.1.6'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -351,6 +351,7 @@
             if (searchWords.length > 0) {
                 let searchableText = [
                     card.cardName || '',
+                    card.furigana || '', // ふりがなを追加
                     card.effectText || '',
                     (card.features || []).join(' '),
                     card.cardNumber || ''
