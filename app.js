@@ -11,12 +11,14 @@
     const CACHE_APP_SHELL = 'app-shell-v1';
     const CACHE_IMAGES = 'card-images-v1';
     const CARDS_JSON_PATH = './cards.json';
-    const APP_VERSION = '1.1.6'; // バージョン更新
+    const APP_VERSION = '1.2.0'; // バージョン更新 (機能追加)
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
     let allCards = [];
-    let currentFilter = {};
+    let currentFilter = {
+        searchMode: 'AND' // デフォルトはAND検索
+    };
     let swRegistration;
 
     // --- ライトボックス用 ---
@@ -343,6 +345,9 @@
         searchTerm = searchTerm.toUpperCase();
 
         const searchWords = searchTerm.replace(/　/g, ' ').split(' ').filter(w => w.length > 0);
+        
+        // 検索モード (デフォルトは AND)
+        const searchMode = currentFilter.searchMode || 'AND';
 
         currentFilteredCards = allCards.filter(card => {
             if (!card || !card.cardNumber) return false;
@@ -351,7 +356,7 @@
             if (searchWords.length > 0) {
                 let searchableText = [
                     card.cardName || '',
-                    card.furigana || '', // ふりがなを追加
+                    card.furigana || '',
                     card.effectText || '',
                     (card.features || []).join(' '),
                     card.cardNumber || ''
@@ -361,8 +366,16 @@
                 searchableText = toHalfWidth(searchableText);
                 searchableText = searchableText.toUpperCase();
                 
-                if (!searchWords.every(word => searchableText.includes(word))) {
-                    return false;
+                if (searchMode === 'AND') {
+                    // AND検索: すべての単語が含まれているか
+                    if (!searchWords.every(word => searchableText.includes(word))) {
+                        return false;
+                    }
+                } else {
+                    // OR検索: いずれかの単語が含まれているか
+                    if (!searchWords.some(word => searchableText.includes(word))) {
+                        return false;
+                    }
                 }
             }
 
@@ -378,7 +391,7 @@
             if (f.costs?.length > 0) {
                 if (card.costLifeType !== 'コスト') return false; 
                 
-                // コスト値の正規化: '-' または 不正値は '0' として扱う
+                // コスト値の正規化
                 let val = card.costLifeValue;
                 if (val === '-' || val === undefined || val === null || val === '') {
                      val = '0';
@@ -395,7 +408,7 @@
 
             // パワー
             if (f.powers?.length > 0) {
-                // パワーを持つカードタイプか判定 (部分一致で柔軟に)
+                // パワーを持つカードタイプか判定
                 const typeStr = String(card.cardType || "");
                 const isPowerCard = typeStr.includes("リーダー") || 
                                     typeStr.includes("キャラ") || 
@@ -420,7 +433,6 @@
 
             // カウンター
             if (f.counters?.length > 0) {
-                // カウンターなしは "-" または undefined
                 let cVal = (card.counter === undefined || card.counter === null) ? "-" : String(card.counter);
                 if (!f.counters.includes(cVal)) return false;
             }
@@ -428,7 +440,6 @@
             // 属性 (Slash対応)
             if (f.attributes?.length > 0) {
                 if (!card.attribute) return false;
-                // "斬/特" のように複数の場合がある
                 const cardAttrs = card.attribute.split('/');
                 if (!f.attributes.some(attr => cardAttrs.includes(attr))) return false;
             }
@@ -454,7 +465,6 @@
                     } else if (extra === 'Trigger') {
                         if (!card.trigger) return false;
                     } else if (extra === 'Vanilla') {
-                        // バニラ: 効果テキストがない、または "-" のみ
                         if (card.effectText && card.effectText !== '-') return false;
                     }
                 }
@@ -488,7 +498,7 @@
         const colors = new Set();
         const types = new Set();
         const rarities = new Set();
-        const costs = new Set(); // costLifeType="コスト" のもののみ
+        const costs = new Set(); 
         const powers = new Set();
         const counters = new Set();
         const attributes = new Set();
@@ -503,21 +513,17 @@
             if (card.cardType && card.cardType !== 'ドン!!') types.add(card.cardType); 
             if (card.rarity && card.rarity !== 'SP') rarities.add(card.rarity); 
             
-            // コスト (リーダー除外)
             if (card.costLifeType === 'コスト') {
                 let val = card.costLifeValue;
-                // '-' や 不正値を '0' として扱う
                 if (val === '-' || val === undefined || val === null || val === '') {
                     costs.add('0');
                 } else if (isNaN(Number(val))) {
-                     // 数値変換できない文字列が入っている場合の安全策
                      costs.add('0'); 
                 } else {
                     costs.add(String(val));
                 }
             }
 
-            // パワー: リーダーまたはキャラ（とみなされるもの）のみ集計
             const typeStr = String(card.cardType || "");
             const isPowerCard = typeStr.includes("リーダー") || 
                                 typeStr.includes("キャラ") || 
@@ -534,26 +540,21 @@
                     powers.add(String(pVal));
                 }
             } else if (card.power !== undefined && card.power !== null && card.power !== '-' && !isNaN(Number(card.power))) {
-                // 明示的な数値パワーを持つ場合（例外対応）
                 powers.add(String(card.power));
             }
 
-            // カウンター
             if (card.counter !== undefined && card.counter !== null) {
                 counters.add(card.counter);
             }
 
-            // 属性 (分割)
             if (card.attribute && card.attribute !== '-') {
                 card.attribute.split('/').forEach(a => attributes.add(a));
             }
 
-            // ブロック
             if (card.block !== undefined && card.block !== null) {
                 blocks.add(card.block);
             }
 
-            // シリーズ
             const seriesId = card.cardNumber.split('-')[0];
             if (!seriesId || seriesSet.has(seriesId)) return;
             if (seriesId === 'P') {
@@ -580,12 +581,8 @@
             return indexA - indexB;
         });
         
-        // コストのソート
         const sortedCosts = [...costs].map(v => parseInt(v, 10)).filter(v => !isNaN(v)).sort((a, b) => a - b);
-        
-        // パワーのソート
         const sortedPowers = [...powers].map(v => parseInt(v, 10)).filter(v => !isNaN(v)).sort((a, b) => a - b);
-
         const sortedCounters = [...counters].sort((a, b) => {
             if (a === '-') return -1;
             if (b === '-') return 1;
@@ -605,6 +602,7 @@
 
         // HTML生成
         dom.filterOptionsContainer.innerHTML = `
+            ${createSearchModeFilter()}
             ${createFilterGroup('colors', '色 (OR)', sortedColors, 'colors')}
             ${createFilterGroup('costs', 'コスト (リーダー除外)', sortedCosts.map(String), 'costs')}
             ${createFilterGroup('powers', 'パワー', sortedPowers.map(String), 'powers')}
@@ -615,6 +613,24 @@
             ${createFilterGroup('blocks', 'ブロック', sortedBlocks.map(String), 'blocks')}
             ${createExtraFilterGroup()}
             ${createSeriesFilter(sortedSeries)}
+        `;
+    }
+
+    function createSearchModeFilter() {
+        return `
+            <fieldset class="filter-group">
+                <legend>キーワード検索モード</legend>
+                <div class="filter-radio-group">
+                    <label class="filter-radio-label">
+                        <input type="radio" class="filter-radio" name="searchMode" value="AND" checked>
+                        <span class="filter-radio-ui">AND (すべて含む)</span>
+                    </label>
+                    <label class="filter-radio-label">
+                        <input type="radio" class="filter-radio" name="searchMode" value="OR">
+                        <span class="filter-radio-ui">OR (いずれか)</span>
+                    </label>
+                </div>
+            </fieldset>
         `;
     }
 
@@ -685,7 +701,12 @@
         const getCheckedValues = (name) => 
             [...$$(`input[name="${name}"]:checked`)].map(cb => cb.value);
 
+        // ラジオボタンの値取得
+        const searchModeInput = $(`input[name="searchMode"]:checked`);
+        const searchMode = searchModeInput ? searchModeInput.value : 'AND';
+
         currentFilter = {
+            searchMode: searchMode,
             colors: getCheckedValues('colors'),
             costs: getCheckedValues('costs'),
             powers: getCheckedValues('powers'),
@@ -701,10 +722,18 @@
     }
 
     function resetFilters() {
+        // チェックボックスのリセット
         $$('.filter-checkbox').forEach(cb => cb.checked = false);
+        
+        // セレクトボックスのリセット
         const seriesSelect = $('#filter-series');
         if (seriesSelect) seriesSelect.value = '';
-        currentFilter = {};
+
+        // ラジオボタンをANDに戻す
+        const andRadio = $(`input[name="searchMode"][value="AND"]`);
+        if (andRadio) andRadio.checked = true;
+
+        currentFilter = { searchMode: 'AND' };
         console.log('Filters reset.');
     }
 
@@ -1315,6 +1344,21 @@
     
         dom.filterOptionsContainer.addEventListener('touchend', (e) => {
             if (filterTapElement && filterTapMoveY < 20) {
+                // ラジオボタンのタップ判定追加
+                const radioLabel = filterTapElement.closest('.filter-radio-label');
+                if (radioLabel) {
+                    const input = radioLabel.querySelector('input[type="radio"]');
+                    if (input && !input.checked) {
+                        e.preventDefault();
+                        input.checked = true;
+                        // ラジオボタン変更時は特にアクション不要（適用ボタン待ち）
+                    }
+                    filterTapElement = null;
+                    filterTapStartY = 0;
+                    filterTapMoveY = 0;
+                    return;
+                }
+
                 const label = filterTapElement.closest('.filter-checkbox-label');
                 if (label) {
                     e.preventDefault(); 
