@@ -11,13 +11,23 @@
     const CACHE_APP_SHELL = 'app-shell-v1';
     const CACHE_IMAGES = 'card-images-v1';
     const CARDS_JSON_PATH = './cards.json';
-    const APP_VERSION = '1.2.0'; // バージョン更新 (機能追加)
+    const APP_VERSION = '1.2.2'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
     let allCards = [];
     let currentFilter = {
-        searchMode: 'AND' // デフォルトはAND検索
+        searchMode: 'AND', // デフォルトはAND検索
+        colors: [],
+        costs: [],
+        powers: [],
+        counters: [],
+        attributes: [],
+        types: [],
+        rarities: [],
+        blocks: [],
+        extras: [],
+        series: ''
     };
     let swRegistration;
 
@@ -339,12 +349,36 @@
             return;
         }
 
-        let searchTerm = dom.searchBar.value.trim();
-        searchTerm = toKatakana(searchTerm);
-        searchTerm = toHalfWidth(searchTerm);
-        searchTerm = searchTerm.toUpperCase();
+        const rawInput = dom.searchBar.value.trim();
+        // 全角スペースを半角に変換してから分割
+        const rawWords = rawInput.replace(/　/g, ' ').split(' ').filter(w => w.length > 0);
+        
+        const searchWords = [];
+        const excludeWords = [];
 
-        const searchWords = searchTerm.replace(/　/g, ' ').split(' ').filter(w => w.length > 0);
+        rawWords.forEach(rawWord => {
+            let isExclude = false;
+            let targetWord = rawWord;
+
+            // マイナス検索判定 (半角ハイフン, 全角ハイフン, 全角マイナスなど)
+            if (targetWord.startsWith('-') || targetWord.startsWith('－') || targetWord.startsWith('−')) {
+                isExclude = true;
+                targetWord = targetWord.substring(1); // 記号を除去
+            }
+
+            if (targetWord.length === 0) return;
+
+            // 正規化 (カタカナ, 半角, 大文字)
+            targetWord = toKatakana(targetWord);
+            targetWord = toHalfWidth(targetWord);
+            targetWord = targetWord.toUpperCase();
+
+            if (isExclude) {
+                excludeWords.push(targetWord);
+            } else {
+                searchWords.push(targetWord);
+            }
+        });
         
         // 検索モード (デフォルトは AND)
         const searchMode = currentFilter.searchMode || 'AND';
@@ -353,7 +387,7 @@
             if (!card || !card.cardNumber) return false;
 
             // テキスト検索
-            if (searchWords.length > 0) {
+            if (searchWords.length > 0 || excludeWords.length > 0) {
                 let searchableText = [
                     card.cardName || '',
                     card.furigana || '',
@@ -366,15 +400,25 @@
                 searchableText = toHalfWidth(searchableText);
                 searchableText = searchableText.toUpperCase();
                 
-                if (searchMode === 'AND') {
-                    // AND検索: すべての単語が含まれているか
-                    if (!searchWords.every(word => searchableText.includes(word))) {
+                // 1. 除外ワードのチェック (いずれか1つでも含まれていたら除外)
+                if (excludeWords.length > 0) {
+                    if (excludeWords.some(word => searchableText.includes(word))) {
                         return false;
                     }
-                } else {
-                    // OR検索: いずれかの単語が含まれているか
-                    if (!searchWords.some(word => searchableText.includes(word))) {
-                        return false;
+                }
+
+                // 2. 検索ワードのチェック
+                if (searchWords.length > 0) {
+                    if (searchMode === 'AND') {
+                        // AND検索: すべての単語が含まれているか
+                        if (!searchWords.every(word => searchableText.includes(word))) {
+                            return false;
+                        }
+                    } else {
+                        // OR検索: いずれかの単語が含まれているか
+                        if (!searchWords.some(word => searchableText.includes(word))) {
+                            return false;
+                        }
                     }
                 }
             }
@@ -733,8 +777,37 @@
         const andRadio = $(`input[name="searchMode"][value="AND"]`);
         if (andRadio) andRadio.checked = true;
 
-        currentFilter = { searchMode: 'AND' };
+        currentFilter = { searchMode: 'AND', colors: [], costs: [], powers: [], counters: [], attributes: [], types: [], rarities: [], blocks: [], extras: [], series: '' };
         console.log('Filters reset.');
+    }
+
+    // === 新規関数: フィルタモーダルの表示を現在の適用フィルタと同期する ===
+    function syncFilterModalWithState() {
+        // すべてのチェックボックスを一旦クリア
+        $$('.filter-checkbox').forEach(cb => cb.checked = false);
+
+        // currentFilter に基づいてチェックを入れる
+        const filterKeys = ['colors', 'costs', 'powers', 'counters', 'attributes', 'types', 'rarities', 'blocks', 'extras'];
+        
+        filterKeys.forEach(key => {
+            if (currentFilter[key] && Array.isArray(currentFilter[key])) {
+                currentFilter[key].forEach(val => {
+                    const cb = $(`input[name="${key}"][value="${val}"]`);
+                    if (cb) cb.checked = true;
+                });
+            }
+        });
+
+        // シリーズ選択
+        const seriesSelect = $('#filter-series');
+        if (seriesSelect) {
+            seriesSelect.value = currentFilter.series || '';
+        }
+
+        // 検索モード (ラジオボタン)
+        const mode = currentFilter.searchMode || 'AND';
+        const radio = $(`input[name="searchMode"][value="${mode}"]`);
+        if (radio) radio.checked = true;
     }
 
 
@@ -1288,8 +1361,9 @@
             dom.searchBar.focus();
         });
 
-        // フィルタボタン
+        // フィルタボタン: クリック時に状態同期してから表示
         dom.filterBtn.addEventListener('click', () => {
+            syncFilterModalWithState(); // ★ 変更: 現在のフィルタ状態に同期
             dom.filterModal.style.display = 'flex';
         });
 
