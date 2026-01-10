@@ -393,7 +393,8 @@
                     card.furigana || '',
                     card.effectText || '',
                     (card.features || []).join(' '),
-                    card.cardNumber || ''
+                    card.cardNumber || '',
+                    card.trigger || ''
                 ].join(' ');
                 
                 searchableText = toKatakana(searchableText);
