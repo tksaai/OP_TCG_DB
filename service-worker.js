@@ -16,6 +16,7 @@ const APP_SHELL_FILES = [
     './index.html',
     './style.css',
     './app.js', // ファイル名を修正
+    './image-manifest.json',
     './manifest.json',
     './icons/iconx192.png',
     './icons/iconx512.png',
@@ -129,7 +130,7 @@ self.addEventListener('fetch', (event) => {
     }
     
     // 3. カード画像 (Cards/) (Cache First)
-    if (requestPath.startsWith(basePath + 'Cards/')) {
+    if (requestPath.startsWith(basePath + 'Cards/') || requestPath.startsWith(basePath + 'CardsWebP/')) {
         event.respondWith(cacheFirst(event.request, CACHE_IMAGES));
         return;
     }

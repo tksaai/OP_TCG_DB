@@ -11,6 +11,7 @@
     const CACHE_APP_SHELL = 'app-shell-v1';
     const CACHE_IMAGES = 'card-images-v1';
     const CARDS_JSON_PATH = './cards.json';
+    const IMAGE_MANIFEST_PATH = './image-manifest.json';
     const APP_VERSION = '1.2.2'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
@@ -34,6 +35,8 @@
     // --- ライトボックス用 ---
     let currentFilteredCards = [];
     let currentLightboxIndex = -1;
+    let currentLightboxVariantIndex = 0;
+    let imageManifest = { cards: {} };
     let touchStartX = 0;
     let touchEndX = 0;
     let touchStartY = 0;
@@ -97,6 +100,10 @@
             lightboxImage: $('#lightbox-image'),
             lightboxFallback: $('#lightbox-fallback'),
             lightboxCloseBtn: $('#lightbox-close-btn'),
+            lightboxInfo: $('#lightbox-info'),
+            lightboxTitle: $('#lightbox-title'),
+            lightboxSubtitle: $('#lightbox-subtitle'),
+            lightboxVariants: $('#lightbox-variants'),
     
             dbUpdateNotification: $('#db-update-notification'),
             dbUpdateApplyBtn: $('#db-update-apply-btn'),
@@ -128,6 +135,7 @@
         setupEventListeners();
         try {
             await initDB();
+            await loadImageManifest();
         } catch (dbError) {
             console.error("Critical error during DB initialization:", dbError);
             dom.loadingIndicator.textContent = 'データベースの初期化に致命的なエラーが発生しました。';
@@ -175,14 +183,65 @@
     }
 
     // === 5. カード一覧表示 ===
-    function getGeneratedImagePath(cardNumber) {
-        if (!cardNumber) return '';
+    async function loadImageManifest() {
+        try {
+            const response = await fetch(IMAGE_MANIFEST_PATH, { cache: 'no-store' });
+            if (!response.ok) throw new Error(`Failed to fetch image manifest: ${response.status}`);
+            const manifest = await response.json();
+            imageManifest = manifest && manifest.cards ? manifest : { cards: {} };
+        } catch (error) {
+            console.warn('Failed to load image manifest. Falling back to generated paths.', error);
+            imageManifest = { cards: {} };
+        }
+    }
+
+    function toRelativePath(imagePath) {
+        if (!imagePath) return '';
+        if (/^https?:\/\//i.test(imagePath) || imagePath.startsWith('./')) return imagePath;
+        return (imagePath.startsWith('Cards/') || imagePath.startsWith('CardsWebP/')) ? `./${imagePath}` : imagePath;
+    }
+
+    function getFallbackImageVariant(cardNumber) {
+        if (!cardNumber) return null;
         const parts = cardNumber.split('-');
-        if (parts.length < 2) return '';
-        
-        const seriesId = parts[0];
-        const cardId = cardNumber;
-        return `Cards/${seriesId}/${cardId}.jpg`;
+        if (parts.length < 2) return null;
+        return {
+            path: `Cards/${parts[0]}/${cardNumber}.jpg`,
+            label: '通常',
+            variantIndex: 0
+        };
+    }
+
+    function getCardImageVariants(card) {
+        if (!card || !card.cardNumber) return [];
+        const manifestVariants = imageManifest.cards?.[card.cardNumber];
+        if (Array.isArray(manifestVariants) && manifestVariants.length > 0) {
+            return manifestVariants;
+        }
+        if (card.imagePath) {
+            return [{ path: card.imagePath, label: '通常', variantIndex: 0 }];
+        }
+        const fallback = getFallbackImageVariant(card.cardNumber);
+        return fallback ? [fallback] : [];
+    }
+
+    function getCardImagePath(card, variantIndex = 0) {
+        const variants = getCardImageVariants(card);
+        if (variants.length === 0) return '';
+        const safeIndex = Math.min(Math.max(variantIndex, 0), variants.length - 1);
+        return toRelativePath(variants[safeIndex].path);
+    }
+
+    function getCardImageFallbackPath(card, variantIndex = 0) {
+        const variants = getCardImageVariants(card);
+        if (variants.length === 0) return '';
+        const safeIndex = Math.min(Math.max(variantIndex, 0), variants.length - 1);
+        const variant = variants[safeIndex];
+        return toRelativePath(variant.fallbackPath || variant.path);
+    }
+
+    function getRarityLabel(card) {
+        return card?.rarity ? String(card.rarity) : '';
     }
 
     function displayCards(cards) {
@@ -203,12 +262,8 @@
             const img = document.createElement('img');
             img.className = 'card-image';
             
-            let largeImagePath = card.imagePath;
-            if (!largeImagePath) {
-                largeImagePath = getGeneratedImagePath(card.cardNumber);
-            }
-
-            const relativeImagePath = (largeImagePath && largeImagePath.startsWith('Cards/')) ? `./${largeImagePath}` : largeImagePath;
+            const variants = getCardImageVariants(card);
+            const relativeImagePath = getCardImagePath(card, 0);
 
             img.src = relativeImagePath; 
             img.alt = card.cardName || card.cardNumber;
@@ -226,14 +281,29 @@
             };
             
             if (relativeImagePath) {
-                 cardItem.appendChild(img);
+                  cardItem.appendChild(img);
             } else {
                  const fallback = document.createElement('div');
                  fallback.className = 'card-fallback';
                  fallback.textContent = card.cardNumber;
-                 cardItem.appendChild(fallback);
+                  cardItem.appendChild(fallback);
             }
-            
+
+            const rarityLabel = getRarityLabel(card);
+            if (rarityLabel) {
+                const rarityBadge = document.createElement('span');
+                rarityBadge.className = `card-rarity rarity-${rarityLabel.toLowerCase()}`;
+                rarityBadge.textContent = rarityLabel;
+                cardItem.appendChild(rarityBadge);
+            }
+
+            if (variants.length > 1) {
+                const variantBadge = document.createElement('span');
+                variantBadge.className = 'card-variant-count';
+                variantBadge.textContent = `+${variants.length - 1}`;
+                cardItem.appendChild(variantBadge);
+            }
+             
             fragment.appendChild(cardItem);
         });
 
@@ -258,16 +328,18 @@
         if (index < 0 || index >= currentFilteredCards.length) return;
         isDebugInfoVisible = false;
         currentLightboxIndex = -1; 
+        currentLightboxVariantIndex = 0;
         dom.lightboxModal.style.display = 'flex';
-        updateLightboxImage(index);
+        updateLightboxImage(index, 0);
     }
     
-    function updateLightboxImage(newIndex) {
+    function updateLightboxImage(newIndex, variantIndex = 0) {
         if (newIndex < 0 || newIndex >= currentFilteredCards.length) return;
-        if (newIndex === currentLightboxIndex && !isDebugInfoVisible) return;
+        if (newIndex === currentLightboxIndex && variantIndex === currentLightboxVariantIndex && !isDebugInfoVisible) return;
         
         isDebugInfoVisible = false;
         currentLightboxIndex = newIndex;
+        currentLightboxVariantIndex = Math.max(0, variantIndex);
         const card = currentFilteredCards[currentLightboxIndex];
 
         if (!card || !card.cardNumber) {
@@ -278,20 +350,25 @@
              return;
         }
 
-        let largeImagePath = card.imagePath;
-        if (!largeImagePath) {
-            largeImagePath = getGeneratedImagePath(card.cardNumber);
+        const variants = getCardImageVariants(card);
+        if (currentLightboxVariantIndex >= variants.length) {
+            currentLightboxVariantIndex = 0;
         }
-
-        const relativeLargePath = (largeImagePath && largeImagePath.startsWith('Cards/')) ? `./${largeImagePath}` : largeImagePath;
+        const relativeLargePath = getCardImagePath(card, currentLightboxVariantIndex);
+        const fallbackLargePath = getCardImageFallbackPath(card, currentLightboxVariantIndex);
 
         resetFallbackStyles();
         dom.lightboxFallback.style.display = 'none';
+        updateLightboxInfo(card, variants, currentLightboxVariantIndex);
 
         dom.lightboxImage.style.display = 'block';
         dom.lightboxImage.src = relativeLargePath;
 
         dom.lightboxImage.onerror = () => {
+            if (fallbackLargePath && dom.lightboxImage.src && !dom.lightboxImage.src.endsWith(fallbackLargePath.replace('./', ''))) {
+                dom.lightboxImage.src = fallbackLargePath;
+                return;
+            }
             dom.lightboxImage.style.display = 'none';
             dom.lightboxFallback.style.display = 'flex';
             dom.lightboxFallback.textContent = card.cardNumber || 'Error';
@@ -303,10 +380,38 @@
              dom.lightboxFallback.style.display = 'flex';
              dom.lightboxFallback.textContent = card.cardNumber || 'No Image';
              resetFallbackStyles();
-         }
+          }
 
          preloadImage(currentLightboxIndex + 1);
-         preloadImage(currentLightboxIndex - 1);
+          preloadImage(currentLightboxIndex - 1);
+    }
+
+    function updateLightboxInfo(card, variants, activeVariantIndex) {
+        if (!dom.lightboxInfo) return;
+
+        dom.lightboxTitle.textContent = `${card.cardNumber} ${card.cardName || ''}`.trim();
+        dom.lightboxSubtitle.textContent = [
+            getRarityLabel(card),
+            card.cardType,
+            variants[activeVariantIndex]?.label
+        ].filter(Boolean).join(' / ');
+
+        dom.lightboxVariants.innerHTML = '';
+        if (variants.length > 1) {
+            variants.forEach((variant, index) => {
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.className = `variant-btn${index === activeVariantIndex ? ' active' : ''}`;
+                button.textContent = variant.label || `画像 ${index + 1}`;
+                button.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    updateLightboxImage(currentLightboxIndex, index);
+                });
+                dom.lightboxVariants.appendChild(button);
+            });
+        }
+
+        dom.lightboxInfo.style.display = 'flex';
     }
     
     function resetFallbackStyles() {
@@ -324,12 +429,7 @@
         const card = currentFilteredCards[indexToPreload];
         if (!card || !card.cardNumber) return;
 
-        let largeImagePath = card.imagePath;
-        if (!largeImagePath) {
-            largeImagePath = getGeneratedImagePath(card.cardNumber);
-        }
-        
-        const relativeLargePath = (largeImagePath && largeImagePath.startsWith('Cards/')) ? `./${largeImagePath}` : largeImagePath;
+        const relativeLargePath = getCardImagePath(card, currentLightboxVariantIndex);
 
         if (relativeLargePath) {
             const img = new Image();
@@ -556,7 +656,7 @@
 
             if (Array.isArray(card.color)) card.color.forEach(c => colors.add(c));
             if (card.cardType && card.cardType !== 'ドン!!') types.add(card.cardType); 
-            if (card.rarity && card.rarity !== 'SP') rarities.add(card.rarity); 
+            if (card.rarity) rarities.add(card.rarity); 
             
             if (card.costLifeType === 'コスト') {
                 let val = card.costLifeValue;
@@ -617,7 +717,7 @@
 
         const sortedColors = [...colors].sort();
         const sortedTypes = [...types].sort();
-        const rarityOrder = ['L', 'SEC', 'SR', 'R', 'UC', 'C'];
+        const rarityOrder = ['L', 'SEC', 'SP', 'SR', 'R', 'UC', 'C', 'P'];
         const sortedRarities = [...rarities].sort((a, b) => {
             const indexA = rarityOrder.indexOf(a);
             const indexB = rarityOrder.indexOf(b);
@@ -991,16 +1091,12 @@
         dom.cacheProgressBar.style.width = '0%';
         
         const imageUrls = [...new Set(
-            allCards.map(card => {
-                if (!card || !card.cardNumber) return null;
-                
-                let largeImagePath = card.imagePath;
-                if (!largeImagePath) {
-                    largeImagePath = getGeneratedImagePath(card.cardNumber);
-                }
-                
-                return (largeImagePath && largeImagePath.startsWith('Cards/')) ? `./${largeImagePath}` : largeImagePath;
-            }).filter(path => path)
+            allCards
+                .flatMap(card => getCardImageVariants(card).flatMap(variant => [
+                    toRelativePath(variant.path),
+                    toRelativePath(variant.fallbackPath)
+                ]))
+                .filter(Boolean)
         )];
 
         const totalCount = imageUrls.length;
@@ -1313,13 +1409,9 @@
         dom.lightboxImage.style.display = 'block';
         
         if (currentLightboxIndex !== -1 && currentFilteredCards[currentLightboxIndex]) {
-             const card = currentFilteredCards[currentLightboxIndex];
-             let largeImagePath = card.imagePath;
-             if (!largeImagePath) {
-                 largeImagePath = getGeneratedImagePath(card.cardNumber);
-             }
-             const relativeLargePath = (largeImagePath && largeImagePath.startsWith('Cards/')) ? `./${largeImagePath}` : largeImagePath;
-             
+              const card = currentFilteredCards[currentLightboxIndex];
+             const relativeLargePath = getCardImagePath(card, currentLightboxVariantIndex);
+              
              if(relativeLargePath && !dom.lightboxImage.src.endsWith(relativeLargePath)) {
                  dom.lightboxImage.src = relativeLargePath;
              }
@@ -1492,7 +1584,9 @@
             dom.lightboxImage.src = '';
             dom.lightboxImage.onerror = null;
             currentLightboxIndex = -1;
+            currentLightboxVariantIndex = 0;
             isDebugInfoVisible = false;
+            if (dom.lightboxInfo) dom.lightboxInfo.style.display = 'none';
             resetFallbackStyles();
         });
         dom.lightboxModal.addEventListener('click', (e) => {
@@ -1509,8 +1603,10 @@
                     dom.lightboxImage.src = '';
                     dom.lightboxImage.onerror = null;
                     currentLightboxIndex = -1;
+                    currentLightboxVariantIndex = 0;
+                    if (dom.lightboxInfo) dom.lightboxInfo.style.display = 'none';
                     resetFallbackStyles();
-                 }
+                  }
             }
         });
 
