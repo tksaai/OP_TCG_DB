@@ -25,6 +25,7 @@ const APP_SHELL_FILES = [
 
 // cards.json のパスを相対パスに
 const CARDS_JSON_PATH = './cards.json';
+const FURIGANA_OVERRIDES_PATH = './furigana-overrides.json';
 
 
 // === 2. インストール (Install) イベント ===
@@ -124,7 +125,7 @@ self.addEventListener('fetch', (event) => {
     }
     
     // 2. カードデータ (cards.json) (Network First)
-    if (relativePath === CARDS_JSON_PATH) {
+    if (relativePath === CARDS_JSON_PATH || relativePath === FURIGANA_OVERRIDES_PATH) {
         event.respondWith(networkFirst(event.request, CACHE_CARD_DATA));
         return;
     }

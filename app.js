@@ -12,6 +12,12 @@
     const CACHE_IMAGES = 'card-images-v1';
     const CARDS_JSON_PATH = './cards.json';
     const IMAGE_MANIFEST_PATH = './image-manifest.json';
+    const FURIGANA_OVERRIDES_PATH = './furigana-overrides.json';
+    const GITHUB_OWNER = 'tksaai';
+    const GITHUB_REPO = 'OP_TCG_DB';
+    const GITHUB_BRANCH = 'main';
+    const GITHUB_TOKEN_STORAGE_KEY = 'githubToken';
+    const FURIGANA_EDITOR_VISIBLE_STORAGE_KEY = 'furiganaEditorVisible';
     const APP_VERSION = '1.2.2'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
@@ -37,6 +43,7 @@
     let currentLightboxIndex = -1;
     let currentLightboxVariantIndex = 0;
     let imageManifest = { cards: {} };
+    let furiganaOverrides = {};
     let touchStartX = 0;
     let touchEndX = 0;
     let touchStartY = 0;
@@ -90,6 +97,11 @@
             closeSettingsModalBtn: $('#close-settings-modal-btn'),
             cacheAllImagesBtn: $('#cache-all-images-btn'),
             clearAllDataBtn: $('#clear-all-data-btn'),
+            githubTokenInput: $('#github-token-input'),
+            githubTokenSaveBtn: $('#github-token-save-btn'),
+            githubTokenClearBtn: $('#github-token-clear-btn'),
+            githubTokenStatus: $('#github-token-status'),
+            furiganaEditorToggle: $('#furigana-editor-toggle'),
             appVersionInfo: $('#app-version-info'),
             cardDataVersionInfo: $('#card-data-version-info'),
     
@@ -103,6 +115,10 @@
             lightboxInfo: $('#lightbox-info'),
             lightboxTitle: $('#lightbox-title'),
             lightboxSubtitle: $('#lightbox-subtitle'),
+            lightboxFuriganaEditor: $('#lightbox-furigana-editor'),
+            lightboxFuriganaInput: $('#lightbox-furigana-input'),
+            lightboxFuriganaSaveBtn: $('#lightbox-furigana-save-btn'),
+            lightboxFuriganaStatus: $('#lightbox-furigana-status'),
             lightboxVariants: $('#lightbox-variants'),
     
             dbUpdateNotification: $('#db-update-notification'),
@@ -136,6 +152,7 @@
         try {
             await initDB();
             await loadImageManifest();
+            await loadFuriganaOverrides();
         } catch (dbError) {
             console.error("Critical error during DB initialization:", dbError);
             dom.loadingIndicator.textContent = 'データベースの初期化に致命的なエラーが発生しました。';
@@ -193,6 +210,176 @@
             console.warn('Failed to load image manifest. Falling back to generated paths.', error);
             imageManifest = { cards: {} };
         }
+    }
+
+    function getOverrideFurigana(cardNumber) {
+        const entry = furiganaOverrides?.[cardNumber];
+        if (typeof entry === 'string') return entry.trim();
+        if (entry && typeof entry.furigana === 'string') return entry.furigana.trim();
+        return '';
+    }
+
+    function normalizeFuriganaValue(value) {
+        return toHalfWidth(toKatakana(value || ''))
+            .trim()
+            .replace(/\s+/g, '')
+            .replace(/[^ァ-ヶーA-Za-z0-9]/g, '');
+    }
+
+    function applyFuriganaOverridesToCards() {
+        if (!Array.isArray(allCards) || !furiganaOverrides) return;
+        allCards.forEach(card => {
+            if (!card?.cardNumber) return;
+            const override = getOverrideFurigana(card.cardNumber);
+            if (override) {
+                card.furigana = override;
+                card.furiganaSource = 'override';
+            }
+        });
+    }
+
+    async function loadFuriganaOverrides() {
+        try {
+            const response = await fetch(FURIGANA_OVERRIDES_PATH, { cache: 'no-store' });
+            if (response.status === 404) {
+                furiganaOverrides = {};
+                return;
+            }
+            if (!response.ok) throw new Error(`Failed to fetch furigana overrides: ${response.status}`);
+            const data = await response.json();
+            furiganaOverrides = data && typeof data === 'object' && !Array.isArray(data) ? data : {};
+        } catch (error) {
+            console.warn('Failed to load furigana overrides.', error);
+            furiganaOverrides = {};
+        }
+    }
+
+    function getStoredGitHubToken() {
+        return localStorage.getItem(GITHUB_TOKEN_STORAGE_KEY) || '';
+    }
+
+    function setStoredGitHubToken(token) {
+        const value = String(token || '').trim();
+        if (value) {
+            localStorage.setItem(GITHUB_TOKEN_STORAGE_KEY, value);
+        } else {
+            localStorage.removeItem(GITHUB_TOKEN_STORAGE_KEY);
+        }
+    }
+
+    function isFuriganaEditorVisible() {
+        return localStorage.getItem(FURIGANA_EDITOR_VISIBLE_STORAGE_KEY) === 'true';
+    }
+
+    function setFuriganaEditorVisible(visible) {
+        localStorage.setItem(FURIGANA_EDITOR_VISIBLE_STORAGE_KEY, visible ? 'true' : 'false');
+        syncFuriganaEditorVisibility();
+    }
+
+    function syncFuriganaEditorVisibility() {
+        const visible = isFuriganaEditorVisible();
+        if (dom.furiganaEditorToggle) {
+            dom.furiganaEditorToggle.checked = visible;
+        }
+        if (dom.lightboxFuriganaEditor) {
+            dom.lightboxFuriganaEditor.style.display = visible ? 'flex' : 'none';
+        }
+    }
+
+    function syncGitHubTokenSettings() {
+        if (!dom.githubTokenInput) return;
+        const token = getStoredGitHubToken();
+        dom.githubTokenInput.value = token;
+        if (dom.githubTokenStatus) {
+            dom.githubTokenStatus.textContent = token ? 'GitHub token is saved in this browser.' : 'GitHub token is not saved.';
+        }
+    }
+
+    function encodeBase64Utf8(value) {
+        const bytes = new TextEncoder().encode(value);
+        let binary = '';
+        const chunkSize = 0x8000;
+        for (let i = 0; i < bytes.length; i += chunkSize) {
+            binary += String.fromCharCode(...bytes.subarray(i, i + chunkSize));
+        }
+        return btoa(binary);
+    }
+
+    function decodeBase64Utf8(value) {
+        const binary = atob(String(value || '').replace(/\s/g, ''));
+        const bytes = new Uint8Array(binary.length);
+        for (let i = 0; i < binary.length; i += 1) {
+            bytes[i] = binary.charCodeAt(i);
+        }
+        return new TextDecoder().decode(bytes);
+    }
+
+    async function fetchGitHubOverrideFile(token) {
+        const url = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/furigana-overrides.json?ref=${GITHUB_BRANCH}`;
+        const response = await fetch(url, {
+            headers: {
+                Accept: 'application/vnd.github+json',
+                Authorization: `Bearer ${token}`,
+                'X-GitHub-Api-Version': '2022-11-28'
+            }
+        });
+        if (response.status === 404) return { sha: null, data: {} };
+        if (!response.ok) throw new Error(`GitHub read failed: ${response.status}`);
+
+        const payload = await response.json();
+        const text = decodeBase64Utf8(payload.content || '');
+        const data = text.trim() ? JSON.parse(text) : {};
+        return {
+            sha: payload.sha || null,
+            data: data && typeof data === 'object' && !Array.isArray(data) ? data : {}
+        };
+    }
+
+    async function saveFuriganaOverride(card, furigana) {
+        const token = getStoredGitHubToken();
+        if (!token) throw new Error('GitHub token is not saved.');
+        if (!card?.cardNumber) throw new Error('Card number is missing.');
+
+        const normalized = normalizeFuriganaValue(furigana);
+        if (!normalized) throw new Error('Furigana is empty.');
+
+        const remote = await fetchGitHubOverrideFile(token);
+        const nextData = {
+            ...remote.data,
+            [card.cardNumber]: {
+                cardName: card.cardName || '',
+                furigana: normalized,
+                source: 'manual',
+                updatedAt: new Date().toISOString()
+            }
+        };
+        const body = {
+            message: `Update furigana override for ${card.cardNumber}`,
+            content: encodeBase64Utf8(`${JSON.stringify(nextData, null, 2)}\n`),
+            branch: GITHUB_BRANCH
+        };
+        if (remote.sha) body.sha = remote.sha;
+
+        const response = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/furigana-overrides.json`, {
+            method: 'PUT',
+            headers: {
+                Accept: 'application/vnd.github+json',
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json',
+                'X-GitHub-Api-Version': '2022-11-28'
+            },
+            body: JSON.stringify(body)
+        });
+
+        if (!response.ok) {
+            const errorText = await response.text().catch(() => '');
+            throw new Error(`GitHub save failed: ${response.status}${errorText ? ` ${errorText}` : ''}`);
+        }
+
+        furiganaOverrides = nextData;
+        card.furigana = normalized;
+        card.furiganaSource = 'override';
+        return normalized;
     }
 
     function toRelativePath(imagePath) {
@@ -395,6 +582,14 @@
             card.cardType,
             variants[activeVariantIndex]?.label
         ].filter(Boolean).join(' / ');
+
+        if (dom.lightboxFuriganaInput) {
+            dom.lightboxFuriganaInput.value = card.furigana || '';
+        }
+        if (dom.lightboxFuriganaStatus) {
+            dom.lightboxFuriganaStatus.textContent = card.furiganaSource === 'override' ? 'Override applied.' : '';
+        }
+        syncFuriganaEditorVisibility();
 
         dom.lightboxVariants.innerHTML = '';
         if (variants.length > 1) {
@@ -1051,6 +1246,7 @@
         if (!db) return;
         try {
             allCards = await db.getAll(STORE_CARDS);
+            applyFuriganaOverridesToCards();
             
             if (allCards.length === 0) {
                  if (dom.loadingIndicator && (dom.loadingIndicator.style.display === 'none' || dom.loadingIndicator.textContent.includes('オフライン'))) {
@@ -1462,6 +1658,8 @@
 
         // 設定ボタン
         dom.settingsBtn.addEventListener('click', () => {
+            syncGitHubTokenSettings();
+            syncFuriganaEditorVisibility();
             dom.settingsModal.style.display = 'flex';
         });
         
@@ -1552,6 +1750,52 @@
         
         dom.cacheAllImagesBtn.addEventListener('click', cacheAllImages);
         dom.clearAllDataBtn.addEventListener('click', clearAllData);
+        if (dom.githubTokenSaveBtn) {
+            dom.githubTokenSaveBtn.addEventListener('click', () => {
+                setStoredGitHubToken(dom.githubTokenInput?.value || '');
+                syncGitHubTokenSettings();
+                showMessageToast('GitHub token saved.', 'success');
+            });
+        }
+        if (dom.githubTokenClearBtn) {
+            dom.githubTokenClearBtn.addEventListener('click', () => {
+                setStoredGitHubToken('');
+                syncGitHubTokenSettings();
+                showMessageToast('GitHub token removed.', 'success');
+            });
+        }
+        if (dom.furiganaEditorToggle) {
+            dom.furiganaEditorToggle.addEventListener('change', () => {
+                setFuriganaEditorVisible(dom.furiganaEditorToggle.checked);
+            });
+            syncFuriganaEditorVisibility();
+        }
+        if (dom.lightboxFuriganaSaveBtn) {
+            dom.lightboxFuriganaSaveBtn.addEventListener('click', async (event) => {
+                event.stopPropagation();
+                const card = currentFilteredCards[currentLightboxIndex];
+                if (!card) return;
+                const button = dom.lightboxFuriganaSaveBtn;
+                const originalText = button.textContent;
+                button.disabled = true;
+                button.textContent = 'Saving...';
+                if (dom.lightboxFuriganaStatus) dom.lightboxFuriganaStatus.textContent = '';
+                try {
+                    const saved = await saveFuriganaOverride(card, dom.lightboxFuriganaInput?.value || '');
+                    if (dom.lightboxFuriganaInput) dom.lightboxFuriganaInput.value = saved;
+                    if (dom.lightboxFuriganaStatus) dom.lightboxFuriganaStatus.textContent = 'Saved to furigana-overrides.json.';
+                    applyFiltersAndDisplay();
+                    showMessageToast('Furigana override saved.', 'success');
+                } catch (error) {
+                    console.error('Failed to save furigana override:', error);
+                    if (dom.lightboxFuriganaStatus) dom.lightboxFuriganaStatus.textContent = error.message;
+                    showMessageToast('Failed to save furigana override.', 'error');
+                } finally {
+                    button.disabled = false;
+                    button.textContent = originalText;
+                }
+            });
+        }
 
         // カード一覧 (タップ判定)
         dom.cardListContainer.addEventListener('touchstart', (e) => {
@@ -1576,6 +1820,12 @@
             cardListTapElement = null;
             cardListTapStartY = 0;
             cardListTapMoveY = 0;
+        });
+
+        dom.cardListContainer.addEventListener('click', (e) => {
+            const cardItem = e.target.closest('.card-item');
+            if (!cardItem || !cardItem.dataset.index) return;
+            showLightbox(parseInt(cardItem.dataset.index, 10));
         });
 
         // ライトボックス

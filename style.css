@@ -720,6 +720,43 @@ input[type="search"]::-webkit-search-cancel-button {
     align-self: flex-start;
 }
 
+.settings-input {
+    width: min(100%, 520px);
+    min-height: 40px;
+    padding: 9px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    background: var(--color-surface);
+    color: var(--color-on-surface);
+    font: inherit;
+}
+
+.settings-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.settings-toggle-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-on-surface);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.settings-toggle-label input {
+    width: 18px;
+    height: 18px;
+}
+
+.settings-status {
+    min-height: 18px;
+    font-size: 12px;
+    opacity: 0.78;
+}
+
 .app-version {
     font-size: 14px;
     color: var(--color-on-background);
@@ -766,7 +803,7 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .lightbox-image, .lightbox-fallback {
     max-width: 100%;
-    max-height: calc(100% - 112px);
+    max-height: calc(100% - 176px);
     object-fit: contain;
     border-radius: 12px;
     z-index: 2001;
@@ -801,6 +838,32 @@ input[type="search"]::-webkit-search-cancel-button {
     color: var(--color-on-background);
     font-size: 12px;
     line-height: 1.35;
+}
+
+.lightbox-furigana-editor {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.lightbox-furigana-input {
+    width: min(260px, 58vw);
+    min-height: 30px;
+    padding: 5px 8px;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.28);
+    color: #fff;
+    font-size: 12px;
+}
+
+.lightbox-furigana-status {
+    max-width: min(360px, 80vw);
+    color: rgba(255, 255, 255, 0.76);
+    font-size: 11px;
+    line-height: 1.3;
 }
 
 .lightbox-variants {
