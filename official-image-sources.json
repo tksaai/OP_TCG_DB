@@ -40660,5 +40660,1076 @@
     "cardType": "EVENT",
     "getInfo": "スタートデッキEX ルフィ&エース【ST-30】",
     "label": "公式差分 2"
+  },
+  "Cards/OP16/official/OP16-001.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-001.png?260518",
+    "cardName": "ポートガス・Ｄ・エース",
+    "rarity": "L",
+    "cardType": "LEADER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-002.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-002.png?260518",
+    "cardName": "イゾウ",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-003.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-003.png?260518",
+    "cardName": "エドワード・ニューゲート",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-004.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-004.png?260518",
+    "cardName": "クリエル",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-005.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-005.png?260518",
+    "cardName": "サッチ",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-006.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-006.png?260518",
+    "cardName": "シャンクス",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-007.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-007.png?260518",
+    "cardName": "ジョズ",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-008.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-008.png?260518",
+    "cardName": "スクアード",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-009.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-009.png?260518",
+    "cardName": "スピード・ジル",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-010.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-010.png?260518",
+    "cardName": "ナミュール",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-011.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-011.png?260518",
+    "cardName": "ビスタ",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-012.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-012.png?260518",
+    "cardName": "ベン・ベックマン",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-013.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-013.png?260518",
+    "cardName": "マクガイ",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-014.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-014.png?260518",
+    "cardName": "マルコ",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-015.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-015.png?260518",
+    "cardName": "モンキー・Ｄ・ルフィ",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-016.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-016.png?260518",
+    "cardName": "ランバ",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-017.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-017.png?260518",
+    "cardName": "リトルオーズJr.",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-018.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-018.png?260518",
+    "cardName": "ロックスター",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-019.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-019.png?260518",
+    "cardName": "おれ達の力を見せてやれ!!!",
+    "rarity": "C",
+    "cardType": "EVENT",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-020.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-020.png?260518",
+    "cardName": "おれと共に来る者は命を捨ててついて来い!!!",
+    "rarity": "UC",
+    "cardType": "EVENT",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-021.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-021.png?260518",
+    "cardName": "モビー・ディック号",
+    "rarity": "R",
+    "cardType": "STAGE",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-022.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-022.png?260518",
+    "cardName": "モンキー・Ｄ・ルフィ",
+    "rarity": "L",
+    "cardType": "LEADER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-023.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-023.png?260518",
+    "cardName": "アーロン",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-024.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-024.png?260518",
+    "cardName": "イナズマ",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-025.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-025.png?260518",
+    "cardName": "ウサッコフ",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-026.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-026.png?260518",
+    "cardName": "エンポリオ・イワンコフ",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-027.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-027.png?260518",
+    "cardName": "ジンベエ",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-028.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-028.png?260518",
+    "cardName": "スモーカー",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-029.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-029.png?260518",
+    "cardName": "ツノッコフ",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-030.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-030.png?260518",
+    "cardName": "トラファルガー・ロー",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-031.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-031.png?260518",
+    "cardName": "バギー",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-032.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-032.png?260518",
+    "cardName": "ボア・ハンコック",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-033.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-033.png?260518",
+    "cardName": "モーリー",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-034.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-034.png?260518",
+    "cardName": "モンキー・Ｄ・ルフィ",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-035.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-035.png?260518",
+    "cardName": "ロロノア・ゾロ",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-036.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-036.png?260518",
+    "cardName": "Mr.2・ボン・クレー(ベンサム)",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-037.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-037.png?260518",
+    "cardName": "Mr.3(ギャルディーノ)",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-038.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-038.png?260518",
+    "cardName": "行くぞ～～～!!!海軍本部～～～!!!",
+    "rarity": "R",
+    "cardType": "EVENT",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-039.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-039.png?260518",
+    "cardName": "ゴムゴムのツインJET銃",
+    "rarity": "C",
+    "cardType": "EVENT",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-040.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-040.png?260518",
+    "cardName": "ゴムゴムのトンカチ回転銃",
+    "rarity": "UC",
+    "cardType": "EVENT",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-041.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-041.png?260518",
+    "cardName": "バギー",
+    "rarity": "L",
+    "cardType": "LEADER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-042.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-042.png?260518",
+    "cardName": "インペルダウンの囚人",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-043.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-043.png?260518",
+    "cardName": "ウソップ",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-044.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-044.png?260518",
+    "cardName": "エンポリオ・イワンコフ",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-045.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-045.png?260518",
+    "cardName": "クロコダイル",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-046.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-046.png?260518",
+    "cardName": "ジンベエ",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-047.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-047.png?260518",
+    "cardName": "ドンキホーテ・ドフラミンゴ",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-048.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-048.png?260518",
+    "cardName": "バギー",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-049.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-049.png?260518",
+    "cardName": "ポートガス・Ｄ・エース",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-050.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-050.png?260518",
+    "cardName": "ミス・オリーブ",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-051.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-051.png?260518",
+    "cardName": "モージ＆カバジ",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-052.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-052.png?260518",
+    "cardName": "モンキー・Ｄ・ルフィ",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-053.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-053.png?260518",
+    "cardName": "ロロノア・ゾロ",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-054.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-054.png?260518",
+    "cardName": "Mr.1(ダズ・ボーネス)",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-055.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-055.png?260518",
+    "cardName": "Mr.2・ボン・クレー(ベンサム)",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-056.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-056.png?260518",
+    "cardName": "Mr.3(ギャルディーノ)",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-057.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-057.png?260518",
+    "cardName": "おれ達の救世主!!!キャプテン・バギー!!!!",
+    "rarity": "C",
+    "cardType": "EVENT",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-058.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-058.png?260518",
+    "cardName": "囚人達が暴れ出したァ～～～!!!",
+    "rarity": "R",
+    "cardType": "EVENT",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-059.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-059.png?260518",
+    "cardName": "ド派手大作戦に変更じゃァ～～～!!!",
+    "rarity": "UC",
+    "cardType": "EVENT",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-060.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-060.png?260518",
+    "cardName": "センゴク",
+    "rarity": "L",
+    "cardType": "LEADER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-061.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-061.png?260518",
+    "cardName": "海兵兄",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-062.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-062.png?260518",
+    "cardName": "海兵弟",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-063.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-063.png?260518",
+    "cardName": "クザン",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-064.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-064.png?260518",
+    "cardName": "コビー",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-065.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-065.png?260518",
+    "cardName": "サカズキ",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-066.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-066.png?260518",
+    "cardName": "センゴク",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-067.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-067.png?260518",
+    "cardName": "つる",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-068.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-068.png?260518",
+    "cardName": "トラファルガー・ロー",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-069.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-069.png?260518",
+    "cardName": "ドンキホーテ・ドフラミンゴ",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-070.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-070.png?260518",
+    "cardName": "ドンキホーテ・ロシナンテ",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-071.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-071.png?260518",
+    "cardName": "波頭の仁王",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-072.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-072.png?260518",
+    "cardName": "ハンニャバル",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-073.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-073.png?260518",
+    "cardName": "ボルサリーノ",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-074.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-074.png?260518",
+    "cardName": "マゼラン",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-075.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-075.png?260518",
+    "cardName": "モンキー・Ｄ・ガープ",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-076.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-076.png?260518",
+    "cardName": "「三大将」!!!",
+    "rarity": "UC",
+    "cardType": "EVENT",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-077.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-077.png?260518",
+    "cardName": "智将“仏のセンゴク”",
+    "rarity": "R",
+    "cardType": "EVENT",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-078.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-078.png?260518",
+    "cardName": "マリンフォード",
+    "rarity": "UC",
+    "cardType": "STAGE",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-079.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-079.png?260518",
+    "cardName": "ヤマト",
+    "rarity": "L",
+    "cardType": "LEADER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-080.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-080.png?260518",
+    "cardName": "マーシャル・Ｄ・ティーチ",
+    "rarity": "L",
+    "cardType": "LEADER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-081.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-081.png?260518",
+    "cardName": "お玉",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-082.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-082.png?260518",
+    "cardName": "錦えもん",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-083.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-083.png?260518",
+    "cardName": "光月おでん",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-084.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-084.png?260518",
+    "cardName": "光月モモの助",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-085.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-085.png?260518",
+    "cardName": "光月モモの助",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-086.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-086.png?260518",
+    "cardName": "サンジ",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-087.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-087.png?260518",
+    "cardName": "しのぶ",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-088.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-088.png?260518",
+    "cardName": "霜月牛マル",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-089.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-089.png?260518",
+    "cardName": "ジュラキュール・ミホーク",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-090.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-090.png?260518",
+    "cardName": "トニートニー・チョッパー",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-091.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-091.png?260518",
+    "cardName": "ナミ",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-092.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-092.png?260518",
+    "cardName": "ニコ・ロビン",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-093.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-093.png?260518",
+    "cardName": "バーソロミュー・くま",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-094.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-094.png?260518",
+    "cardName": "ポートガス・Ｄ・エース",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-095.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-095.png?260518",
+    "cardName": "モンキー・Ｄ・ルフィ",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-096.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-096.png?260518",
+    "cardName": "ヤマト",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-097.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-097.png?260518",
+    "cardName": "ヤマト",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-098.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-098.png?260518",
+    "cardName": "ヤマト",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-099.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-099.png?260518",
+    "cardName": "その“縁”を切りに来た!!!",
+    "rarity": "UC",
+    "cardType": "EVENT",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-100.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-100.png?260518",
+    "cardName": "氷諸斬り",
+    "rarity": "C",
+    "cardType": "EVENT",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-101.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-101.png?260518",
+    "cardName": "馬幻刃",
+    "rarity": "C",
+    "cardType": "EVENT",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-102.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-102.png?260518",
+    "cardName": "アバロ・ピサロ",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-103.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-103.png?260518",
+    "cardName": "ヴァン・オーガー",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-104.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-104.png?260518",
+    "cardName": "カタリーナ・デボン",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-105.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-105.png?260518",
+    "cardName": "ゲッコー・モリア",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-106.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-106.png?260518",
+    "cardName": "サンファン・ウルフ",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-107.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-107.png?260518",
+    "cardName": "ジーザス・バージェス",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-108.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-108.png?260518",
+    "cardName": "シリュウ",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-109.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-109.png?260518",
+    "cardName": "ドクQ",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-110.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-110.png?260518",
+    "cardName": "バスコ・ショット",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-111.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-111.png?260518",
+    "cardName": "ボア・サンダーソニア",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-112.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-112.png?260518",
+    "cardName": "ボア・ハンコック",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-113.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-113.png?260518",
+    "cardName": "ボア・マリーゴールド",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-114.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-114.png?260518",
+    "cardName": "ラフィット",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-115.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-115.png?260518",
+    "cardName": "闇水",
+    "rarity": "UC",
+    "cardType": "EVENT",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-116.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-116.png?260518",
+    "cardName": "ゼハハハハハハ!!!",
+    "rarity": "R",
+    "cardType": "EVENT",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-117.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-117.png?260518",
+    "cardName": "闇穴道",
+    "rarity": "C",
+    "cardType": "EVENT",
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-118.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-118.png?260518",
+    "cardName": "ポートガス・Ｄ・エース",
+    "rarity": "SEC",
+    "cardType": "CHARACTER",
+    "getInfo": "",
+    "label": "通常"
+  },
+  "Cards/OP16/official/OP16-119.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-119.png?260518",
+    "cardName": "マーシャル・Ｄ・ティーチ",
+    "rarity": "SEC",
+    "cardType": "CHARACTER",
+    "getInfo": "",
+    "label": "通常"
   }
 }

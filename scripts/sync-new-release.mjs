@@ -33,15 +33,20 @@ const officialSyncArgs = [
     path.join('scripts', 'sync-official-images.mjs'),
     '--missing-only'
 ];
+const cardSyncArgs = [
+    path.join('scripts', 'sync-official-cards.mjs')
+];
 
 for (const arg of args) {
     const match = arg.match(/^--([^=]+)(?:=.*)?$/);
     if (!match) continue;
     if (passthroughNames.has(match[1]) || match[1] === 'dry-run') {
         officialSyncArgs.push(arg);
+        cardSyncArgs.push(arg);
     }
 }
 
+run(process.execPath, cardSyncArgs);
 run(process.execPath, officialSyncArgs);
 
 if (dryRun) {
