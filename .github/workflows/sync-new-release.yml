@@ -1,0 +1,66 @@
+name: Sync new release
+
+on:
+  workflow_dispatch:
+    inputs:
+      series:
+        description: "Series code to sync, for example OP17"
+        required: true
+        type: string
+      dry_run:
+        description: "Check only; do not write files"
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-new-release
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Python dependencies
+        run: python -m pip install --upgrade pillow
+
+      - name: Sync official cards and images
+        run: |
+          ARGS="--series=${{ inputs.series }}"
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            ARGS="$ARGS --dry-run"
+          fi
+          node scripts/sync-new-release.mjs $ARGS --python=python
+
+      - name: Show changes
+        run: git status --short
+
+      - name: Commit and push
+        if: ${{ inputs.dry_run == false }}
+        run: |
+          if [ -z "$(git status --short)" ]; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add cards.json image-manifest.json official-image-sources.json Cards CardsWebP scripts
+          git commit -m "Sync ${{ inputs.series }} cards and images"
+          git push
