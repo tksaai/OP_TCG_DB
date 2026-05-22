@@ -16,9 +16,11 @@ const argValue = (name, fallback = '') => {
 
 const dryRun = args.includes('--dry-run');
 const force = args.includes('--force');
+const missingOnly = args.includes('--missing-only');
 const limit = Number(argValue('limit', '0'));
 const delayMs = Number(argValue('delay', '350'));
 const onlyCards = new Set(args.filter(arg => arg.startsWith('--card=')).map(arg => arg.split('=')[1].toUpperCase()));
+const onlySeries = new Set(args.filter(arg => arg.startsWith('--series=')).flatMap(arg => arg.split('=')[1].split(',')).map(value => value.trim().toUpperCase()).filter(Boolean));
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -139,11 +141,29 @@ let cardNumbers = [...new Set(cardsData.map(card => String(card.cardNumber || ''
 if (onlyCards.size > 0) {
     cardNumbers = cardNumbers.filter(cardNumber => onlyCards.has(cardNumber));
 }
+
+const metadata = await readMetadata();
+const officialImageCardNumbers = new Set();
+for (const filePath of Object.keys(metadata)) {
+    if (metadata[filePath]?.source !== 'official') continue;
+    if (!await exists(filePath)) continue;
+
+    const cardNumber = path.basename(filePath, path.extname(filePath)).match(/^([A-Z0-9]+-\d+)/i)?.[1]?.toUpperCase();
+    if (cardNumber) officialImageCardNumbers.add(cardNumber);
+}
+
+if (onlySeries.size > 0) {
+    cardNumbers = cardNumbers.filter(cardNumber => onlySeries.has(cardNumber.split('-')[0]));
+}
+
+if (missingOnly) {
+    cardNumbers = cardNumbers.filter(cardNumber => !officialImageCardNumbers.has(cardNumber));
+}
+
 if (limit > 0) {
     cardNumbers = cardNumbers.slice(0, limit);
 }
 
-const metadata = await readMetadata();
 const summary = { checked: 0, found: 0, downloaded: 0, skipped: 0, failed: 0 };
 
 for (const cardNumber of cardNumbers) {
