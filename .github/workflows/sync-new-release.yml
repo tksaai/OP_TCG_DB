@@ -4,8 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       series:
-        description: "Series code to sync, for example OP17"
-        required: true
+        description: "Series code to sync, for example OP17. Use latest to detect from official HTML."
+        required: false
+        default: "latest"
         type: string
       dry_run:
         description: "Check only; do not write files"
