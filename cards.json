@@ -52222,10 +52222,10 @@
     "seriesCode": "OP-15"
   },
   {
-    "uniqueId": "OP16-001_OP16-001.png",
+    "uniqueId": "OP16-001_dummy.gif",
     "cardNumber": "OP16-001",
     "cardName": "ポートガス・Ｄ・エース",
-    "furigana": "",
+    "furigana": "ポートガス・ディー・エース",
     "rarity": "L",
     "cardType": "LEADER",
     "color": [
@@ -52243,15 +52243,14 @@
     "effectText": "【起動メイン】【ターン1回】自分のパワー8000以上の、「モンキー・Ｄ・ルフィ」か『白ひげ海賊団』を含む特徴を持つキャラ1枚までは、このターン中、【速攻】を得る。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-001"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-002_OP16-002.png",
+    "uniqueId": "OP16-002_dummy.gif",
     "cardNumber": "OP16-002",
     "cardName": "イゾウ",
-    "furigana": "",
+    "furigana": "イゾウ",
     "rarity": "UC",
     "cardType": "CHARACTER",
     "color": [
@@ -52260,7 +52259,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 1,
     "power": 2000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "射",
     "features": [
       "ワノ国",
@@ -52270,15 +52269,14 @@
     "effectText": "【登場時】自分の手札からパワー8000のキャラカード1枚を公開できる：カード1枚を引く。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-002"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-003_OP16-003.png",
+    "uniqueId": "OP16-003_dummy.gif",
     "cardNumber": "OP16-003",
     "cardName": "エドワード・ニューゲート",
-    "furigana": "",
+    "furigana": "エドワード・ニューゲート",
     "rarity": "SR",
     "cardType": "CHARACTER",
     "color": [
@@ -52294,18 +52292,17 @@
       "白ひげ海賊団"
     ],
     "block": 5,
-    "effectText": "【自分のターン中】自分のリーダーは【ダブルアタック】を得て、パワー+2000。 【登場時】自分の手札からパワー8000のキャラカード2枚を公開できる：相手のキャラ1枚までを、このターン中、パワー-6000。",
+    "effectText": "【自分のターン中】自分のリーダーは【ダブルアタック】を得て、パワー+2000。【登場時】自分の手札からパワー8000のキャラカード2枚を公開できる：相手のキャラ1枚までを、このターン中、パワー-6000。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-003"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-004_OP16-004.png",
+    "uniqueId": "OP16-004_dummy.gif",
     "cardNumber": "OP16-004",
     "cardName": "クリエル",
-    "furigana": "",
+    "furigana": "クリエル",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -52314,7 +52311,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 7,
     "power": 8000,
-    "counter": "2000",
+    "counter": 2000,
     "attribute": "射",
     "features": [
       "白ひげ海賊団"
@@ -52323,15 +52320,14 @@
     "effectText": "-",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-004"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-005_OP16-005.png",
+    "uniqueId": "OP16-005_dummy.gif",
     "cardNumber": "OP16-005",
     "cardName": "サッチ",
-    "furigana": "",
+    "furigana": "サッチ",
     "rarity": "UC",
     "cardType": "CHARACTER",
     "color": [
@@ -52340,24 +52336,23 @@
     "costLifeType": "コスト",
     "costLifeValue": 8,
     "power": 8000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "斬",
     "features": [
       "白ひげ海賊団"
     ],
     "block": 5,
-    "effectText": "手札のこのカードは、自分のパワー8000以上の『白ひげ海賊団』を含む特徴を持つキャラがいる場合、コスト-3。 【ブロッカー】",
+    "effectText": "手札のこのカードは、自分のパワー8000以上の『白ひげ海賊団』を含む特徴を持つキャラがいる場合、コスト-3。【ブロッカー】",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-005"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-006_OP16-006.png",
+    "uniqueId": "OP16-006_dummy.gif",
     "cardNumber": "OP16-006",
     "cardName": "シャンクス",
-    "furigana": "",
+    "furigana": "シャンクス",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -52366,7 +52361,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 4,
     "power": 5000,
-    "counter": "2000",
+    "counter": 2000,
     "attribute": "斬",
     "features": [
       "四皇",
@@ -52376,15 +52371,14 @@
     "effectText": "【登場時】自分のドン!!2枚をレストにできる：相手のパワー4000以下のキャラ1枚までを、KOする。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-006"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-007_OP16-007.png",
+    "uniqueId": "OP16-007_dummy.gif",
     "cardNumber": "OP16-007",
     "cardName": "ジョズ",
-    "furigana": "",
+    "furigana": "ジョズ",
     "rarity": "UC",
     "cardType": "CHARACTER",
     "color": [
@@ -52399,18 +52393,17 @@
       "白ひげ海賊団"
     ],
     "block": 5,
-    "effectText": "【ブロッカー】 【登場時】自分の手札からパワー8000のキャラカード1枚を公開できる：相手のキャラ1枚までを、このターン中、パワー-1000。",
+    "effectText": "【ブロッカー】【登場時】自分の手札からパワー8000のキャラカード1枚を公開できる：相手のキャラ1枚までを、このターン中、パワー-1000。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-007"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-008_OP16-008.png",
+    "uniqueId": "OP16-008_dummy.gif",
     "cardNumber": "OP16-008",
     "cardName": "スクアード",
-    "furigana": "",
+    "furigana": "スクアード",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -52428,15 +52421,14 @@
     "effectText": "【登場時】自分の元々のパワー10000のキャラ1枚をトラッシュに置くことができる：相手のパワー8000以下のキャラ1枚までを、KOする。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-008"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-009_OP16-009.png",
+    "uniqueId": "OP16-009_dummy.gif",
     "cardNumber": "OP16-009",
     "cardName": "スピード・ジル",
-    "furigana": "",
+    "furigana": "スピード・ジル",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -52445,7 +52437,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 4,
     "power": 5000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "斬",
     "features": [
       "白ひげ海賊団"
@@ -52454,15 +52446,14 @@
     "effectText": "【登場時】自分の手札からパワー8000のキャラカード1枚を捨てることができる：このキャラは、次の相手のエンドフェイズ終了時まで、【速攻】を得て、パワー+2000。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-009"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-010_OP16-010.png",
+    "uniqueId": "OP16-010_dummy.gif",
     "cardNumber": "OP16-010",
     "cardName": "ナミュール",
-    "furigana": "",
+    "furigana": "ナミュール",
     "rarity": "UC",
     "cardType": "CHARACTER",
     "color": [
@@ -52471,7 +52462,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 1,
     "power": 2000,
-    "counter": "2000",
+    "counter": 2000,
     "attribute": "打",
     "features": [
       "魚人族",
@@ -52481,15 +52472,14 @@
     "effectText": "【登場時】自分の手札からパワー8000のキャラカード1枚を公開できる：相手の元々のパワー2000以下のキャラ1枚までを、KOする。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-010"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-011_OP16-011.png",
+    "uniqueId": "OP16-011_dummy.gif",
     "cardNumber": "OP16-011",
     "cardName": "ビスタ",
-    "furigana": "",
+    "furigana": "ビスタ",
     "rarity": "R",
     "cardType": "CHARACTER",
     "color": [
@@ -52504,18 +52494,17 @@
       "白ひげ海賊団"
     ],
     "block": 5,
-    "effectText": "【登場時】自分の手札からパワー8000のキャラカード1枚を公開できる：カード1枚を引く。 【ドン!!×1】【アタック時】相手の元々のパワー2000以下のキャラ2枚までを、KOする。",
+    "effectText": "【登場時】自分の手札からパワー8000のキャラカード1枚を公開できる：カード1枚を引く。【ドン!!×1】【アタック時】相手の元々のパワー2000以下のキャラ2枚までを、KOする。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-011"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-012_OP16-012.png",
+    "uniqueId": "OP16-012_dummy.gif",
     "cardNumber": "OP16-012",
     "cardName": "ベン・ベックマン",
-    "furigana": "",
+    "furigana": "ベン・ベックマン",
     "rarity": "R",
     "cardType": "CHARACTER",
     "color": [
@@ -52524,21 +52513,20 @@
     "costLifeType": "コスト",
     "costLifeValue": 5,
     "power": 6000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "射",
     "features": [
       "赤髪海賊団"
     ],
     "block": 5,
-    "effectText": "【ブロッカー】 【登場時】自分のドン!!1枚をレストにできる：自分のリーダーが特徴《赤髪海賊団》を持ち、自分の場のドン!!が10枚ある場合、自分の手札から「シャンクス」1枚までを、登場させる。",
+    "effectText": "【ブロッカー】【登場時】自分のドン!!1枚をレストにできる：自分のリーダーが特徴《赤髪海賊団》を持ち、自分の場のドン!!が10枚ある場合、自分の手札から「シャンクス」1枚までを、登場させる。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-012"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-013_OP16-013.png",
+    "uniqueId": "OP16-013_dummy.gif",
     "cardNumber": "OP16-013",
     "cardName": "マクガイ",
     "furigana": "",
@@ -52559,15 +52547,14 @@
     "effectText": "【KO時】相手の元々のパワー8000以下のキャラ1枚までを、KOする。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-013"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-014_OP16-014.png",
+    "uniqueId": "OP16-014_dummy.gif",
     "cardNumber": "OP16-014",
     "cardName": "マルコ",
-    "furigana": "",
+    "furigana": "マルコ",
     "rarity": "R",
     "cardType": "CHARACTER",
     "color": [
@@ -52582,18 +52569,17 @@
       "白ひげ海賊団"
     ],
     "block": 5,
-    "effectText": "自分のキャラが相手の効果で場を離れる場合、代わりにこのキャラをKOできる。 【KO時】自分の手札からパワー8000のキャラカード1枚を捨てることができる：このキャラカードをトラッシュから登場させる。",
+    "effectText": "自分のキャラが相手の効果で場を離れる場合、代わりにこのキャラをKOできる。【KO時】自分の手札からパワー8000のキャラカード1枚を捨てることができる：このキャラカードをトラッシュから登場させる。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-014"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-015_OP16-015.png",
+    "uniqueId": "OP16-015_dummy.gif",
     "cardNumber": "OP16-015",
     "cardName": "モンキー・Ｄ・ルフィ",
-    "furigana": "",
+    "furigana": "モンキー・ディー・ルフィ",
     "rarity": "SR",
     "cardType": "CHARACTER",
     "color": [
@@ -52609,15 +52595,14 @@
       "麦わらの一味"
     ],
     "block": 5,
-    "effectText": "手札のこのカードは、自分のリーダーが『エース』を含むカード名で、自分の場のドン!!が6枚以上ある場合、コスト-2。 【相手のアタック時】自分の手札からパワー8000のキャラカード1枚を捨てることができる：自分のリーダーとこのキャラを、このターン中、元々のパワー7000にする。",
+    "effectText": "手札のこのカードは、自分のリーダーが『エース』を含むカード名で、自分の場のドン!!が6枚以上ある場合、コスト-2。【相手のアタック時】自分の手札からパワー8000のキャラカード1枚を捨てることができる：自分のリーダーとこのキャラを、このターン中、元々のパワー7000にする。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-015"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-016_OP16-016.png",
+    "uniqueId": "OP16-016_dummy.gif",
     "cardNumber": "OP16-016",
     "cardName": "ランバ",
     "furigana": "",
@@ -52629,7 +52614,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 6,
     "power": 8000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "斬",
     "features": [
       "白ひげ海賊団傘下"
@@ -52638,15 +52623,14 @@
     "effectText": "-",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-016"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-017_OP16-017.png",
+    "uniqueId": "OP16-017_dummy.gif",
     "cardNumber": "OP16-017",
     "cardName": "リトルオーズJr.",
-    "furigana": "",
+    "furigana": "リトルオーズジュニア",
     "rarity": "R",
     "cardType": "CHARACTER",
     "color": [
@@ -52655,25 +52639,24 @@
     "costLifeType": "コスト",
     "costLifeValue": 4,
     "power": 8000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "打",
     "features": [
       "巨人族",
       "白ひげ海賊団傘下"
     ],
     "block": 5,
-    "effectText": "自分のコスト8以上の『白ひげ海賊団』を含む特徴を持つキャラがいない場合、このキャラのパワー-4000。 【ブロッカー】(相手のアタックの後、このカードをレストにし、アタックの対象をこのカードにできる)",
+    "effectText": "自分のコスト8以上の『白ひげ海賊団』を含む特徴を持つキャラがいない場合、このキャラのパワー-4000。【ブロッカー】(相手のアタックの後、このカードをレストにし、アタックの対象をこのカードにできる)",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-017"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-018_OP16-018.png",
+    "uniqueId": "OP16-018_dummy.gif",
     "cardNumber": "OP16-018",
     "cardName": "ロックスター",
-    "furigana": "",
+    "furigana": "ロックスター",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -52682,7 +52665,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 1,
     "power": 2000,
-    "counter": "2000",
+    "counter": 2000,
     "attribute": "斬",
     "features": [
       "赤髪海賊団"
@@ -52691,12 +52674,11 @@
     "effectText": "【ターン1回】自分の特徴《赤髪海賊団》を持つキャラがKOされる場合、代わりに自分の手札からパワー6000以上のキャラカード1枚を捨てることができる。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-018"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-019_OP16-019.png",
+    "uniqueId": "OP16-019_dummy.gif",
     "cardNumber": "OP16-019",
     "cardName": "おれ達の力を見せてやれ!!!",
     "furigana": "",
@@ -52715,14 +52697,13 @@
     ],
     "block": 5,
     "effectText": "【メイン】自分の手札からパワー8000の『白ひげ海賊団』を含む特徴を持つキャラカード2枚までを、登場させる。",
-    "trigger": "【トリガー】自分のリーダーを、このターン中、パワー+1000。",
+    "trigger": "【】自分のリーダーを、このターン中、パワー+1000。",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-019"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-020_OP16-020.png",
+    "uniqueId": "OP16-020_dummy.gif",
     "cardNumber": "OP16-020",
     "cardName": "おれと共に来る者は命を捨ててついて来い!!!",
     "furigana": "",
@@ -52741,18 +52722,17 @@
       "白ひげ海賊団"
     ],
     "block": 5,
-    "effectText": "【メイン】自分のドン!!1枚をレストにし、自分の手札からパワー8000のキャラカード1枚を公開できる：カード1枚を引く。 【カウンター】自分の手札1枚を捨てることができる：自分のリーダーかキャラ1枚までを、このバトル中、パワー+3000。",
+    "effectText": "【メイン】自分のドン!!1枚をレストにし、自分の手札からパワー8000のキャラカード1枚を公開できる：カード1枚を引く。【カウンター】自分の手札1枚を捨てることができる：自分のリーダーかキャラ1枚までを、このバトル中、パワー+3000。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-020"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-021_OP16-021.png",
+    "uniqueId": "OP16-021_dummy.gif",
     "cardNumber": "OP16-021",
     "cardName": "モビー・ディック号",
-    "furigana": "",
+    "furigana": "モビー・ディックゴウ",
     "rarity": "R",
     "cardType": "STAGE",
     "color": [
@@ -52767,18 +52747,17 @@
       "白ひげ海賊団"
     ],
     "block": 5,
-    "effectText": "【登場時】自分のリーダーが特徴《白ひげ海賊団》を持つ場合、自分のデッキの上から3枚を見て、カード1枚までを手札に加える。その後、残りを好きな順番でデッキの下に置く。 【起動メイン】このステージをトラッシュに置くことができる：自分のリーダーかキャラ1枚にレストのドン!!1枚までを、付与する。",
+    "effectText": "【登場時】自分のリーダーが特徴《白ひげ海賊団》を持つ場合、自分のデッキの上から3枚を見て、カード1枚までを手札に加える。その後、残りを好きな順番でデッキの下に置く。【起動メイン】このステージをトラッシュに置くことができる：自分のリーダーかキャラ1枚にレストのドン!!1枚までを、付与する。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-021"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-022_OP16-022.png",
+    "uniqueId": "OP16-022_dummy.gif",
     "cardNumber": "OP16-022",
     "cardName": "モンキー・Ｄ・ルフィ",
-    "furigana": "",
+    "furigana": "モンキー・ディー・ルフィ",
     "rarity": "L",
     "cardType": "LEADER",
     "color": [
@@ -52798,15 +52777,14 @@
     "effectText": "【起動メイン】【ターン1回】自分のキャラが特徴《インペルダウン》を持つキャラのみの場合、自分のドン!!2枚までを、アクティブにする。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-022"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-023_OP16-023.png",
+    "uniqueId": "OP16-023_dummy.gif",
     "cardNumber": "OP16-023",
     "cardName": "アーロン",
-    "furigana": "",
+    "furigana": "アーロン",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -52815,7 +52793,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 1,
     "power": 3000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "斬",
     "features": [
       "魚人族",
@@ -52826,15 +52804,14 @@
     "effectText": "-",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-023"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-024_OP16-024.png",
+    "uniqueId": "OP16-024_dummy.gif",
     "cardNumber": "OP16-024",
     "cardName": "イナズマ",
-    "furigana": "",
+    "furigana": "イナズマ",
     "rarity": "UC",
     "cardType": "CHARACTER",
     "color": [
@@ -52843,22 +52820,21 @@
     "costLifeType": "コスト",
     "costLifeValue": 2,
     "power": 1000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "斬",
     "features": [
       "インペルダウン",
       "革命軍"
     ],
     "block": 5,
-    "effectText": "このキャラが相手の効果でKOされた時、相手のキャラ1枚までを、レストにする。 【ブロッカー】(相手のアタックの後、このカードをレストにし、アタックの対象をこのカードにできる)",
+    "effectText": "このキャラが相手の効果でKOされた時、相手のキャラ1枚までを、レストにする。【ブロッカー】(相手のアタックの後、このカードをレストにし、アタックの対象をこのカードにできる)",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-024"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-025_OP16-025.png",
+    "uniqueId": "OP16-025_dummy.gif",
     "cardNumber": "OP16-025",
     "cardName": "ウサッコフ",
     "furigana": "",
@@ -52870,7 +52846,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 2,
     "power": 3000,
-    "counter": "2000",
+    "counter": 2000,
     "attribute": "打",
     "features": [
       "インペルダウン"
@@ -52879,15 +52855,14 @@
     "effectText": "【アタック時】自分の「ツノッコフ」がいる場合、自分の手札からコスト2以下のキャラカード1枚までを、登場させる。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-025"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-026_OP16-026.png",
+    "uniqueId": "OP16-026_dummy.gif",
     "cardNumber": "OP16-026",
     "cardName": "エンポリオ・イワンコフ",
-    "furigana": "",
+    "furigana": "エンポリオ・イワンコフ",
     "rarity": "SR",
     "cardType": "CHARACTER",
     "color": [
@@ -52896,7 +52871,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 4,
     "power": 4000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "特",
     "features": [
       "インペルダウン",
@@ -52906,15 +52881,14 @@
     "effectText": "【登場時】自分のデッキの上から3枚を見て、特徴《インペルダウン》を持つカード1枚までを公開し、手札に加え、残りを好きな順番でデッキの下に置く。その後、自分の手札からコスト2以下のキャラカード1枚までを、登場させる。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-026"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-027_OP16-027.png",
+    "uniqueId": "OP16-027_dummy.gif",
     "cardNumber": "OP16-027",
     "cardName": "ジンベエ",
-    "furigana": "",
+    "furigana": "ジンベエ",
     "rarity": "R",
     "cardType": "CHARACTER",
     "color": [
@@ -52923,7 +52897,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 2,
     "power": 2000,
-    "counter": "2000",
+    "counter": 2000,
     "attribute": "打",
     "features": [
       "魚人族",
@@ -52934,15 +52908,14 @@
     "effectText": "【ドン!!×1】このキャラのパワー+2000。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-027"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-028_OP16-028.png",
+    "uniqueId": "OP16-028_dummy.gif",
     "cardNumber": "OP16-028",
     "cardName": "スモーカー",
-    "furigana": "",
+    "furigana": "スモーカー",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -52951,7 +52924,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 6,
     "power": 7000,
-    "counter": "2000",
+    "counter": 2000,
     "attribute": "特",
     "features": [
       "海軍"
@@ -52960,12 +52933,11 @@
     "effectText": "-",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-028"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-029_OP16-029.png",
+    "uniqueId": "OP16-029_dummy.gif",
     "cardNumber": "OP16-029",
     "cardName": "ツノッコフ",
     "furigana": "",
@@ -52977,7 +52949,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 2,
     "power": 3000,
-    "counter": "2000",
+    "counter": 2000,
     "attribute": "射",
     "features": [
       "インペルダウン"
@@ -52986,15 +52958,14 @@
     "effectText": "【アタック時】自分の「ウサッコフ」がいる場合、自分の手札からコスト2以下のキャラカード1枚までを、登場させる。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-029"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-030_OP16-030.png",
+    "uniqueId": "OP16-030_dummy.gif",
     "cardNumber": "OP16-030",
     "cardName": "トラファルガー・ロー",
-    "furigana": "",
+    "furigana": "トラファルガー・ロー",
     "rarity": "R",
     "cardType": "CHARACTER",
     "color": [
@@ -53010,18 +52981,17 @@
       "ハートの海賊団"
     ],
     "block": 5,
-    "effectText": "【登場時】相手のレストのキャラ1枚までは、次の相手のリフレッシュフェイズでアクティブにならない。 【自分のターン終了時】自分のコスト5以下の緑のキャラすべてを、アクティブにする。",
+    "effectText": "【登場時】相手のレストのキャラ1枚までは、次の相手のリフレッシュフェイズでアクティブにならない。【自分のターン終了時】自分のコスト5以下の緑のキャラすべてを、アクティブにする。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-030"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-031_OP16-031.png",
+    "uniqueId": "OP16-031_dummy.gif",
     "cardNumber": "OP16-031",
     "cardName": "バギー",
-    "furigana": "",
+    "furigana": "バギー",
     "rarity": "UC",
     "cardType": "CHARACTER",
     "color": [
@@ -53030,7 +53000,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 4,
     "power": 5000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "斬",
     "features": [
       "インペルダウン",
@@ -53040,15 +53010,14 @@
     "effectText": "【KO時】自分の手札から「インペルダウンの囚人」1枚までを、登場させる。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-031"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-032_OP16-032.png",
+    "uniqueId": "OP16-032_dummy.gif",
     "cardNumber": "OP16-032",
     "cardName": "ボア・ハンコック",
-    "furigana": "",
+    "furigana": "ボア・ハンコック",
     "rarity": "SR",
     "cardType": "CHARACTER",
     "color": [
@@ -53065,18 +53034,17 @@
       "九蛇海賊団"
     ],
     "block": 5,
-    "effectText": "【ブロック不可】(このカードはブロックされない) 【登場時】相手の「モンキー・Ｄ・ルフィ」以外のキャラ1枚までは、次の相手のエンドフェイズ終了時まで、レストにできない。",
+    "effectText": "【ブロック不可】(このカードはブロックされない)【登場時】相手の「モンキー・Ｄ・ルフィ」以外のキャラ1枚までは、次の相手のエンドフェイズ終了時まで、レストにできない。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-032"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-033_OP16-033.png",
+    "uniqueId": "OP16-033_dummy.gif",
     "cardNumber": "OP16-033",
     "cardName": "モーリー",
-    "furigana": "",
+    "furigana": "モーリー",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -53085,25 +53053,24 @@
     "costLifeType": "コスト",
     "costLifeValue": 4,
     "power": 5000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "特",
     "features": [
       "巨人族",
       "革命軍"
     ],
     "block": 5,
-    "effectText": "このキャラがKOされる場合、代わりに自分のカード2枚をレストにできる。 【ブロック不可】(このカードはブロックされない)",
+    "effectText": "このキャラがKOされる場合、代わりに自分のカード2枚をレストにできる。【ブロック不可】(このカードはブロックされない)",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-033"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-034_OP16-034.png",
+    "uniqueId": "OP16-034_dummy.gif",
     "cardNumber": "OP16-034",
     "cardName": "モンキー・Ｄ・ルフィ",
-    "furigana": "",
+    "furigana": "モンキー・ディー・ルフィ",
     "rarity": "R",
     "cardType": "CHARACTER",
     "color": [
@@ -53112,25 +53079,24 @@
     "costLifeType": "コスト",
     "costLifeValue": 1,
     "power": "-",
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "打",
     "features": [
       "インペルダウン",
       "麦わらの一味"
     ],
     "block": 5,
-    "effectText": "【ドン!!×1】【自分のターン中】自分のカード名の異なるキャラ1枚につき、このキャラのパワー+1000。 【登場時】自分のデッキの上から3枚を見て、特徴《インペルダウン》を持つカード1枚までを公開し、手札に加える。その後、残りを好きな順番でデッキの下に置く。",
+    "effectText": "【ドン!!×1】【自分のターン中】自分のカード名の異なるキャラ1枚につき、このキャラのパワー+1000。【登場時】自分のデッキの上から3枚を見て、特徴《インペルダウン》を持つカード1枚までを公開し、手札に加える。その後、残りを好きな順番でデッキの下に置く。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-034"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-035_OP16-035.png",
+    "uniqueId": "OP16-035_dummy.gif",
     "cardNumber": "OP16-035",
     "cardName": "ロロノア・ゾロ",
-    "furigana": "",
+    "furigana": "ロロノア・ゾロ",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -53148,15 +53114,14 @@
     "effectText": "【登場時】相手のカード1枚までを、レストにする。その後、自分の手札1枚を捨ててもよい。そうした場合、自分のリーダーにレストのドン!!3枚までを、付与する。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-035"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-036_OP16-036.png",
+    "uniqueId": "OP16-036_dummy.gif",
     "cardNumber": "OP16-036",
     "cardName": "Mr.2・ボン・クレー(ベンサム)",
-    "furigana": "",
+    "furigana": "ミスターツー・ボン・クレーベンサム",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -53165,25 +53130,24 @@
     "costLifeType": "コスト",
     "costLifeValue": 4,
     "power": 1000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "打",
     "features": [
       "インペルダウン",
       "元B・W"
     ],
     "block": 5,
-    "effectText": "【登場時】相手のコスト4以下のキャラ1枚までを、レストにする。 【アタック時】このキャラの元々のパワーは、このターン中、相手のリーダーと同じパワーになる。",
+    "effectText": "【登場時】相手のコスト4以下のキャラ1枚までを、レストにする。【アタック時】このキャラの元々のパワーは、このターン中、相手のリーダーと同じパワーになる。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-036"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-037_OP16-037.png",
+    "uniqueId": "OP16-037_dummy.gif",
     "cardNumber": "OP16-037",
     "cardName": "Mr.3(ギャルディーノ)",
-    "furigana": "",
+    "furigana": "ミスタースリーギャルディーノ",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -53192,7 +53156,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 2,
     "power": 3000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "特",
     "features": [
       "インペルダウン",
@@ -53202,12 +53166,11 @@
     "effectText": "【登場時】自分のリーダーが特徴《インペルダウン》を持つ場合、相手のコスト5以下のキャラ1枚までを、レストにする。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-037"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-038_OP16-038.png",
+    "uniqueId": "OP16-038_dummy.gif",
     "cardNumber": "OP16-038",
     "cardName": "行くぞ～～～!!!海軍本部～～～!!!",
     "furigana": "",
@@ -53226,15 +53189,14 @@
       "麦わらの一味"
     ],
     "block": 5,
-    "effectText": "【メイン】自分のドン!!6枚をレストにできる：自分のカード名の異なる特徴《インペルダウン》を持つキャラが5枚いる場合、自分のリーダーとキャラすべてを、アクティブにする。 【カウンター】自分のリーダーを、このバトル中、パワー+3000。",
+    "effectText": "【メイン】自分のドン!!6枚をレストにできる：自分のカード名の異なる特徴《インペルダウン》を持つキャラが5枚いる場合、自分のリーダーとキャラすべてを、アクティブにする。【カウンター】自分のリーダーを、このバトル中、パワー+3000。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-038"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-039_OP16-039.png",
+    "uniqueId": "OP16-039_dummy.gif",
     "cardNumber": "OP16-039",
     "cardName": "ゴムゴムのツインJET銃",
     "furigana": "",
@@ -53254,14 +53216,13 @@
     ],
     "block": 5,
     "effectText": "【メイン】自分の「モンキー・Ｄ・ルフィ」1枚までは、このターン中、【ダブルアタック】を得る。その後、自分のリーダーが特徴《インペルダウン》を持つ場合、相手のコスト3以下のキャラ2枚までを、レストにする。",
-    "trigger": "【トリガー】相手のリーダーをレストにする。",
+    "trigger": "【】相手のリーダーをレストにする。",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-039"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-040_OP16-040.png",
+    "uniqueId": "OP16-040_dummy.gif",
     "cardNumber": "OP16-040",
     "cardName": "ゴムゴムのトンカチ回転銃",
     "furigana": "",
@@ -53280,18 +53241,17 @@
       "麦わらの一味"
     ],
     "block": 5,
-    "effectText": "【メイン】自分の、「モンキー・Ｄ・ルフィ」と「Mr.3(ギャルディーノ)」がいる場合、相手のレストのコスト6以下のキャラ1枚までは、次の相手のリフレッシュフェイズでアクティブにならない。 【カウンター】自分のリーダーを、このバトル中、パワー+3000。",
+    "effectText": "【メイン】自分の、「モンキー・Ｄ・ルフィ」と「Mr.3(ギャルディーノ)」がいる場合、相手のレストのコスト6以下のキャラ1枚までは、次の相手のリフレッシュフェイズでアクティブにならない。【カウンター】自分のリーダーを、このバトル中、パワー+3000。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-040"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-041_OP16-041.png",
+    "uniqueId": "OP16-041_dummy.gif",
     "cardNumber": "OP16-041",
     "cardName": "バギー",
-    "furigana": "",
+    "furigana": "バギー",
     "rarity": "L",
     "cardType": "LEADER",
     "color": [
@@ -53310,12 +53270,11 @@
     "effectText": "【ドン!!×1】【ターン1回】自分の特徴《インペルダウン》を持つキャラが場を離れた時、発動できる。自分の手札から「インペルダウンの囚人」1枚までを、登場させる。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-041"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-042_OP16-042.png",
+    "uniqueId": "OP16-042_dummy.gif",
     "cardNumber": "OP16-042",
     "cardName": "インペルダウンの囚人",
     "furigana": "",
@@ -53327,7 +53286,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 6,
     "power": 6000,
-    "counter": "2000",
+    "counter": 2000,
     "attribute": "打",
     "features": [
       "インペルダウン"
@@ -53336,15 +53295,14 @@
     "effectText": "ルール上、このカードはデッキに何枚でも入れることができる。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-042"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-043_OP16-043.png",
+    "uniqueId": "OP16-043_dummy.gif",
     "cardNumber": "OP16-043",
     "cardName": "ウソップ",
-    "furigana": "",
+    "furigana": "ウソップ",
     "rarity": "UC",
     "cardType": "CHARACTER",
     "color": [
@@ -53353,25 +53311,24 @@
     "costLifeType": "コスト",
     "costLifeValue": 2,
     "power": 1000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "射",
     "features": [
       "ドレスローザ",
       "麦わらの一味"
     ],
     "block": 5,
-    "effectText": "【ブロッカー】 【KO時】自分の特徴《ドレスローザ》を持つ、リーダーかステージ1枚をレストにできる：相手のコスト5以下のキャラ1枚までを、持ち主の手札に戻す。",
+    "effectText": "【ブロッカー】【KO時】自分の特徴《ドレスローザ》を持つ、リーダーかステージ1枚をレストにできる：相手のコスト5以下のキャラ1枚までを、持ち主の手札に戻す。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-043"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-044_OP16-044.png",
+    "uniqueId": "OP16-044_dummy.gif",
     "cardNumber": "OP16-044",
     "cardName": "エンポリオ・イワンコフ",
-    "furigana": "",
+    "furigana": "エンポリオ・イワンコフ",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -53380,7 +53337,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 2,
     "power": 2000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "特",
     "features": [
       "インペルダウン",
@@ -53390,15 +53347,14 @@
     "effectText": "【ブロッカー】(相手のアタックの後、このカードをレストにし、アタックの対象をこのカードにできる)",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-044"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-045_OP16-045.png",
+    "uniqueId": "OP16-045_dummy.gif",
     "cardNumber": "OP16-045",
     "cardName": "クロコダイル",
-    "furigana": "",
+    "furigana": "クロコダイル",
     "rarity": "UC",
     "cardType": "CHARACTER",
     "color": [
@@ -53414,18 +53370,17 @@
       "元B・W"
     ],
     "block": 5,
-    "effectText": "【ブロッカー】 【登場時】自分のコスト2以上のキャラ1枚を持ち主の手札に戻すことができる：自分の手札からコスト2以下の特徴《インペルダウン》を持つキャラカード1枚までを、登場させる。",
+    "effectText": "【ブロッカー】【登場時】自分のコスト2以上のキャラ1枚を持ち主の手札に戻すことができる：自分の手札からコスト2以下の特徴《インペルダウン》を持つキャラカード1枚までを、登場させる。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-045"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-046_OP16-046.png",
+    "uniqueId": "OP16-046_dummy.gif",
     "cardNumber": "OP16-046",
     "cardName": "ジンベエ",
-    "furigana": "",
+    "furigana": "ジンベエ",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -53434,7 +53389,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 5,
     "power": 6000,
-    "counter": "2000",
+    "counter": 2000,
     "attribute": "打",
     "features": [
       "魚人族",
@@ -53445,15 +53400,14 @@
     "effectText": "-",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-046"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-047_OP16-047.png",
+    "uniqueId": "OP16-047_dummy.gif",
     "cardNumber": "OP16-047",
     "cardName": "ドンキホーテ・ドフラミンゴ",
-    "furigana": "",
+    "furigana": "ドンキホーテ・ドフラミンゴ",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -53462,7 +53416,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 3,
     "power": "-",
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "特",
     "features": [
       "インペルダウン",
@@ -53472,15 +53426,14 @@
     "effectText": "【起動メイン】このキャラをレストにできる：相手の手札が8枚以上ある場合、相手は自身の手札2枚を好きな順番でデッキの下に置く。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-047"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-048_OP16-048.png",
+    "uniqueId": "OP16-048_dummy.gif",
     "cardNumber": "OP16-048",
     "cardName": "バギー",
-    "furigana": "",
+    "furigana": "バギー",
     "rarity": "SR",
     "cardType": "CHARACTER",
     "color": [
@@ -53489,25 +53442,24 @@
     "costLifeType": "コスト",
     "costLifeValue": 5,
     "power": 6000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "斬",
     "features": [
       "インペルダウン",
       "バギー海賊団"
     ],
     "block": 5,
-    "effectText": "【登場時】自分のリーダーが特徴《インペルダウン》を持つ場合、カード1枚を引き、自分の手札から「インペルダウンの囚人」1枚までを、登場させる。 【ターン1回】相手がアタックした時、発動できる。自分の「インペルダウンの囚人」1枚までは、このターン中、【ブロッカー】を得る。",
+    "effectText": "【登場時】自分のリーダーが特徴《インペルダウン》を持つ場合、カード1枚を引き、自分の手札から「インペルダウンの囚人」1枚までを、登場させる。【ターン1回】相手がアタックした時、発動できる。自分の「インペルダウンの囚人」1枚までは、このターン中、【ブロッカー】を得る。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-048"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-049_OP16-049.png",
+    "uniqueId": "OP16-049_dummy.gif",
     "cardNumber": "OP16-049",
     "cardName": "ポートガス・Ｄ・エース",
-    "furigana": "",
+    "furigana": "ポートガス・ディー・エース",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -53516,7 +53468,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 3,
     "power": "-",
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "特",
     "features": [
       "インペルダウン",
@@ -53526,12 +53478,11 @@
     "effectText": "【起動メイン】このキャラをレストにできる：カード1枚を引く。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-049"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-050_OP16-050.png",
+    "uniqueId": "OP16-050_dummy.gif",
     "cardNumber": "OP16-050",
     "cardName": "ミス・オリーブ",
     "furigana": "",
@@ -53543,24 +53494,23 @@
     "costLifeType": "コスト",
     "costLifeValue": 5,
     "power": 6000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "知",
     "features": [
       "インペルダウン"
     ],
     "block": 5,
-    "effectText": "【ブロッカー】 【登場時】自分のコスト2以上のキャラ1枚を持ち主の手札に戻すことができる：カード2枚を引き、自分の手札1枚を捨てる。",
+    "effectText": "【ブロッカー】【登場時】自分のコスト2以上のキャラ1枚を持ち主の手札に戻すことができる：カード2枚を引き、自分の手札1枚を捨てる。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-050"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-051_OP16-051.png",
+    "uniqueId": "OP16-051_dummy.gif",
     "cardNumber": "OP16-051",
     "cardName": "モージ＆カバジ",
-    "furigana": "",
+    "furigana": "モージカバジ",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -53569,7 +53519,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 6,
     "power": 7000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "斬/知",
     "features": [
       "クロスギルド"
@@ -53578,15 +53528,14 @@
     "effectText": "【登場時】自分の手札が5枚以下の場合、カード2枚を引く。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-051"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-052_OP16-052.png",
+    "uniqueId": "OP16-052_dummy.gif",
     "cardNumber": "OP16-052",
     "cardName": "モンキー・Ｄ・ルフィ",
-    "furigana": "",
+    "furigana": "モンキー・ディー・ルフィ",
     "rarity": "UC",
     "cardType": "CHARACTER",
     "color": [
@@ -53595,7 +53544,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 2,
     "power": 3000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "打",
     "features": [
       "インペルダウン",
@@ -53605,15 +53554,14 @@
     "effectText": "【起動メイン】【ターン1回】自分のリーダーかキャラ1枚にレストのドン!!1枚までを、付与する。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-052"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-053_OP16-053.png",
+    "uniqueId": "OP16-053_dummy.gif",
     "cardNumber": "OP16-053",
     "cardName": "ロロノア・ゾロ",
-    "furigana": "",
+    "furigana": "ロロノア・ゾロ",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -53633,15 +53581,14 @@
     "effectText": "【アタック時】自分の手札が6枚以下の場合、カード1枚を引く。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-053"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-054_OP16-054.png",
+    "uniqueId": "OP16-054_dummy.gif",
     "cardNumber": "OP16-054",
     "cardName": "Mr.1(ダズ・ボーネス)",
-    "furigana": "",
+    "furigana": "ミスターワンダズ・ボーネス",
     "rarity": "R",
     "cardType": "CHARACTER",
     "color": [
@@ -53650,25 +53597,24 @@
     "costLifeType": "コスト",
     "costLifeValue": 2,
     "power": 2000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "斬",
     "features": [
       "インペルダウン",
       "元B・W"
     ],
     "block": 5,
-    "effectText": "【ドン!!×1】【自分のターン中】自分の手札が5枚以上ある場合、このキャラのパワー+3000。 【登場時】カード1枚を引く。",
+    "effectText": "【ドン!!×1】【自分のターン中】自分の手札が5枚以上ある場合、このキャラのパワー+3000。【登場時】カード1枚を引く。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-054"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-055_OP16-055.png",
+    "uniqueId": "OP16-055_dummy.gif",
     "cardNumber": "OP16-055",
     "cardName": "Mr.2・ボン・クレー(ベンサム)",
-    "furigana": "",
+    "furigana": "ミスターツー・ボン・クレーベンサム",
     "rarity": "R",
     "cardType": "CHARACTER",
     "color": [
@@ -53684,18 +53630,17 @@
       "元B・W"
     ],
     "block": 5,
-    "effectText": "【登場時】カード1枚を引く。 【ドン!!×1】【アタック時】このキャラの元々のパワーは、このターン中、相手のリーダーと同じパワーになる。",
+    "effectText": "【登場時】カード1枚を引く。【ドン!!×1】【アタック時】このキャラの元々のパワーは、このターン中、相手のリーダーと同じパワーになる。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-055"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-056_OP16-056.png",
+    "uniqueId": "OP16-056_dummy.gif",
     "cardNumber": "OP16-056",
     "cardName": "Mr.3(ギャルディーノ)",
-    "furigana": "",
+    "furigana": "ミスタースリーギャルディーノ",
     "rarity": "SR",
     "cardType": "CHARACTER",
     "color": [
@@ -53704,7 +53649,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 4,
     "power": 5000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "特",
     "features": [
       "インペルダウン",
@@ -53714,12 +53659,11 @@
     "effectText": "【起動メイン】このキャラをトラッシュに置くことができる：カード2枚を引き、相手のコスト9以下のキャラ1枚までは、次の相手のエンドフェイズ終了時まで、アタックできない。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-056"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-057_OP16-057.png",
+    "uniqueId": "OP16-057_dummy.gif",
     "cardNumber": "OP16-057",
     "cardName": "おれ達の救世主!!!キャプテン・バギー!!!!",
     "furigana": "",
@@ -53738,14 +53682,13 @@
     ],
     "block": 5,
     "effectText": "【カウンター】自分の「インペルダウンの囚人」が2枚以上いる場合、自分のリーダーかキャラ1枚までを、このバトル中、パワー+4000。",
-    "trigger": "【トリガー】カード2枚を引き、自分の手札1枚を捨てる。",
+    "trigger": "【】カード2枚を引き、自分の手札1枚を捨てる。",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-057"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-058_OP16-058.png",
+    "uniqueId": "OP16-058_dummy.gif",
     "cardNumber": "OP16-058",
     "cardName": "囚人達が暴れ出したァ～～～!!!",
     "furigana": "",
@@ -53763,15 +53706,14 @@
       "インペルダウン"
     ],
     "block": 5,
-    "effectText": "【メイン】自分の場のドン!!が10枚ある場合、自分の「インペルダウンの囚人」すべてを、このターン中、元々のパワー7000にする。 【カウンター】自分の「バギー」1枚までを、このバトル中、パワー+4000。",
+    "effectText": "【メイン】自分の場のドン!!が10枚ある場合、自分の「インペルダウンの囚人」すべてを、このターン中、元々のパワー7000にする。【カウンター】自分の「バギー」1枚までを、このバトル中、パワー+4000。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-058"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-059_OP16-059.png",
+    "uniqueId": "OP16-059_dummy.gif",
     "cardNumber": "OP16-059",
     "cardName": "ド派手大作戦に変更じゃァ～～～!!!",
     "furigana": "",
@@ -53790,18 +53732,17 @@
       "バギー海賊団"
     ],
     "block": 5,
-    "effectText": "【メイン】自分のドン!!7枚をレストにできる：自分のデッキの上から5枚を見て、パワー6000以下の特徴《インペルダウン》を持つキャラカード2枚までを、登場させる。その後、残りを好きな順番でデッキの下に置く。 【カウンター】自分のリーダーを、このバトル中、パワー+3000。",
+    "effectText": "【メイン】自分のドン!!7枚をレストにできる：自分のデッキの上から5枚を見て、パワー6000以下の特徴《インペルダウン》を持つキャラカード2枚までを、登場させる。その後、残りを好きな順番でデッキの下に置く。【カウンター】自分のリーダーを、このバトル中、パワー+3000。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-059"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-060_OP16-060.png",
+    "uniqueId": "OP16-060_dummy.gif",
     "cardNumber": "OP16-060",
     "cardName": "センゴク",
-    "furigana": "",
+    "furigana": "センゴク",
     "rarity": "L",
     "cardType": "LEADER",
     "color": [
@@ -53819,12 +53760,11 @@
     "effectText": "【起動メイン】自分のアクティブのドン!!8枚をドン!!デッキに戻すことができる：自分の手札からカード名の異なる特徴《大将》を持つキャラカード3枚までを、登場させる。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-060"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-061_OP16-061.png",
+    "uniqueId": "OP16-061_dummy.gif",
     "cardNumber": "OP16-061",
     "cardName": "海兵兄",
     "furigana": "",
@@ -53836,7 +53776,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 5,
     "power": 7000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "射",
     "features": [
       "海軍"
@@ -53845,12 +53785,11 @@
     "effectText": "-",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-061"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-062_OP16-062.png",
+    "uniqueId": "OP16-062_dummy.gif",
     "cardNumber": "OP16-062",
     "cardName": "海兵弟",
     "furigana": "",
@@ -53862,7 +53801,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 5,
     "power": 6000,
-    "counter": "2000",
+    "counter": 2000,
     "attribute": "射",
     "features": [
       "海軍"
@@ -53871,15 +53810,14 @@
     "effectText": "-",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-062"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-063_OP16-063.png",
+    "uniqueId": "OP16-063_dummy.gif",
     "cardNumber": "OP16-063",
     "cardName": "クザン",
-    "furigana": "",
+    "furigana": "クザン",
     "rarity": "R",
     "cardType": "CHARACTER",
     "color": [
@@ -53895,18 +53833,17 @@
       "海軍"
     ],
     "block": "X",
-    "effectText": "【登場時】ドン!!デッキからドン!!2枚までを、レストで追加する。 【起動メイン】【ターン1回】ドン!!-1：相手のキャラ1枚までは、このターン中、【ブロッカー】を発動できない。",
+    "effectText": "【登場時】ドン!!デッキからドン!!2枚までを、レストで追加する。【起動メイン】【ターン1回】ドン!!-1：相手のキャラ1枚までは、このターン中、【ブロッカー】を発動できない。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-063"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-064_OP16-064.png",
+    "uniqueId": "OP16-064_dummy.gif",
     "cardNumber": "OP16-064",
     "cardName": "コビー",
-    "furigana": "",
+    "furigana": "コビー",
     "rarity": "R",
     "cardType": "CHARACTER",
     "color": [
@@ -53915,7 +53852,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 1,
     "power": 2000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "打",
     "features": [
       "海軍"
@@ -53924,15 +53861,14 @@
     "effectText": "【登場時】自分のデッキの上から5枚を見て、「コビー」以外の特徴《海軍》を持つカード1枚までを公開し、手札に加える。その後、残りを好きな順番でデッキの下に置く。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-064"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-065_OP16-065.png",
+    "uniqueId": "OP16-065_dummy.gif",
     "cardNumber": "OP16-065",
     "cardName": "サカズキ",
-    "furigana": "",
+    "furigana": "サカズキ",
     "rarity": "SR",
     "cardType": "CHARACTER",
     "color": [
@@ -53948,18 +53884,17 @@
       "海軍"
     ],
     "block": "X",
-    "effectText": "【登場時】ドン!!-1：相手のキャラ1枚までを、次の相手のエンドフェイズ終了時まで、パワー-6000。 【起動メイン】【ターン1回】自分のドン!!1枚をレストにできる：自分のリーダーが特徴《海軍》を持つ場合、ドン!!デッキからドン!!2枚までを、アクティブで追加する。",
+    "effectText": "【登場時】ドン!!-1：相手のキャラ1枚までを、次の相手のエンドフェイズ終了時まで、パワー-6000。【起動メイン】【ターン1回】自分のドン!!1枚をレストにできる：自分のリーダーが特徴《海軍》を持つ場合、ドン!!デッキからドン!!2枚までを、アクティブで追加する。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-065"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-066_OP16-066.png",
+    "uniqueId": "OP16-066_dummy.gif",
     "cardNumber": "OP16-066",
     "cardName": "センゴク",
-    "furigana": "",
+    "furigana": "センゴク",
     "rarity": "UC",
     "cardType": "CHARACTER",
     "color": [
@@ -53968,7 +53903,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 5,
     "power": 5000,
-    "counter": "2000",
+    "counter": 2000,
     "attribute": "知",
     "features": [
       "海軍"
@@ -53977,15 +53912,14 @@
     "effectText": "【登場時】自分のリーダーが特徴《海軍》を持つ場合、ドン!!デッキからドン!!2枚までを、レストで追加する。その後、カード2枚を引き、自分の手札2枚を捨てる。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-066"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-067_OP16-067.png",
+    "uniqueId": "OP16-067_dummy.gif",
     "cardNumber": "OP16-067",
     "cardName": "つる",
-    "furigana": "",
+    "furigana": "つる",
     "rarity": "UC",
     "cardType": "CHARACTER",
     "color": [
@@ -53994,7 +53928,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 1,
     "power": 2000,
-    "counter": "2000",
+    "counter": 2000,
     "attribute": "知",
     "features": [
       "海軍"
@@ -54003,15 +53937,14 @@
     "effectText": "【登場時】自分のデッキの上から5枚を見て、特徴《海軍》を持つカード1枚までを公開し、手札に加え、残りを好きな順番でデッキの下に置く。その後、自分の手札1枚を捨てる。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-067"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-068_OP16-068.png",
+    "uniqueId": "OP16-068_dummy.gif",
     "cardNumber": "OP16-068",
     "cardName": "トラファルガー・ロー",
-    "furigana": "",
+    "furigana": "トラファルガー・ロー",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -54020,24 +53953,23 @@
     "costLifeType": "コスト",
     "costLifeValue": 4,
     "power": 3000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "知",
     "features": [
       "ドンキホーテ海賊団"
     ],
     "block": 5,
-    "effectText": "【登場時】ドン!!デッキからドン!!1枚までを、アクティブで追加する。 【アタック時】自分のリーダーが特徴《ドンキホーテ海賊団》を持つ場合、このキャラは、このターン中、パワー+3000。",
+    "effectText": "【登場時】ドン!!デッキからドン!!1枚までを、アクティブで追加する。【アタック時】自分のリーダーが特徴《ドンキホーテ海賊団》を持つ場合、このキャラは、このターン中、パワー+3000。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-068"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-069_OP16-069.png",
+    "uniqueId": "OP16-069_dummy.gif",
     "cardNumber": "OP16-069",
     "cardName": "ドンキホーテ・ドフラミンゴ",
-    "furigana": "",
+    "furigana": "ドンキホーテ・ドフラミンゴ",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -54055,15 +53987,14 @@
     "effectText": "【登場時】/【アタック時】ドン!!デッキからドン!!1枚までを、アクティブで追加する。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-069"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-070_OP16-070.png",
+    "uniqueId": "OP16-070_dummy.gif",
     "cardNumber": "OP16-070",
     "cardName": "ドンキホーテ・ロシナンテ",
-    "furigana": "",
+    "furigana": "ドンキホーテ・ロシナンテ",
     "rarity": "UC",
     "cardType": "CHARACTER",
     "color": [
@@ -54072,22 +54003,21 @@
     "costLifeType": "コスト",
     "costLifeValue": 2,
     "power": 1000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "特",
     "features": [
       "海軍",
       "ドンキホーテ海賊団"
     ],
     "block": 5,
-    "effectText": "【ブロッカー】 【登場時】自分のドン!!2枚をレストにできる：自分のリーダーが特徴《海軍》を持つ場合、ドン!!デッキからドン!!1枚までを、レストで追加する。",
+    "effectText": "【ブロッカー】【登場時】自分のドン!!2枚をレストにできる：自分のリーダーが特徴《海軍》を持つ場合、ドン!!デッキからドン!!1枚までを、レストで追加する。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-070"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-071_OP16-071.png",
+    "uniqueId": "OP16-071_dummy.gif",
     "cardNumber": "OP16-071",
     "cardName": "波頭の仁王",
     "furigana": "",
@@ -54105,18 +54035,17 @@
       "海軍"
     ],
     "block": 5,
-    "effectText": "【登場時】自分の手札1枚を捨てることができる：ドン!!デッキからドン!!1枚までを、レストで追加する。 【KO時】ドン!!デッキからドン!!1枚までを、レストで追加する。",
+    "effectText": "【登場時】自分の手札1枚を捨てることができる：ドン!!デッキからドン!!1枚までを、レストで追加する。【KO時】ドン!!デッキからドン!!1枚までを、レストで追加する。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-071"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-072_OP16-072.png",
+    "uniqueId": "OP16-072_dummy.gif",
     "cardNumber": "OP16-072",
     "cardName": "ハンニャバル",
-    "furigana": "",
+    "furigana": "ハンニャバル",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -54125,7 +54054,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 2,
     "power": 3000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "斬",
     "features": [
       "インペルダウン"
@@ -54134,15 +54063,14 @@
     "effectText": "【登場時】自分のデッキの上から5枚を見て、特徴《インペルダウン》を持つカード1枚までを公開し、手札に加える。その後、残りを好きな順番でデッキの下に置く。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-072"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-073_OP16-073.png",
+    "uniqueId": "OP16-073_dummy.gif",
     "cardNumber": "OP16-073",
     "cardName": "ボルサリーノ",
-    "furigana": "",
+    "furigana": "ボルサリーノ",
     "rarity": "R",
     "cardType": "CHARACTER",
     "color": [
@@ -54158,18 +54086,17 @@
       "海軍"
     ],
     "block": "X",
-    "effectText": "【登場時】ドン!!デッキからドン!!1枚までをアクティブで追加し、さらに1枚までをレストで追加する。 【自分のターン終了時】ドン!!-2：このキャラをアクティブにする。その後、このキャラは、次の相手のエンドフェイズ終了時まで、【ブロッカー】を得る。",
+    "effectText": "【登場時】ドン!!デッキからドン!!1枚までをアクティブで追加し、さらに1枚までをレストで追加する。【自分のターン終了時】ドン!!-2：このキャラをアクティブにする。その後、このキャラは、次の相手のエンドフェイズ終了時まで、【ブロッカー】を得る。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-073"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-074_OP16-074.png",
+    "uniqueId": "OP16-074_dummy.gif",
     "cardNumber": "OP16-074",
     "cardName": "マゼラン",
-    "furigana": "",
+    "furigana": "マゼラン",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -54184,18 +54111,17 @@
       "インペルダウン"
     ],
     "block": 5,
-    "effectText": "【登場時】自分のリーダーが特徴《インペルダウン》を持つ場合、相手は自身の場のドン!!1枚をドン!!デッキに戻す。 【KO時】相手は自身の場のドン!!4枚をドン!!デッキに戻す。",
+    "effectText": "【登場時】自分のリーダーが特徴《インペルダウン》を持つ場合、相手は自身の場のドン!!1枚をドン!!デッキに戻す。【KO時】相手は自身の場のドン!!4枚をドン!!デッキに戻す。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-074"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-075_OP16-075.png",
+    "uniqueId": "OP16-075_dummy.gif",
     "cardNumber": "OP16-075",
     "cardName": "モンキー・Ｄ・ガープ",
-    "furigana": "",
+    "furigana": "モンキー・ディー・ガープ",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -54204,7 +54130,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 5,
     "power": 6000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "打",
     "features": [
       "海軍"
@@ -54213,12 +54139,11 @@
     "effectText": "【登場時】自分のリーダーが特徴《海軍》を持つ場合、ドン!!デッキからドン!!1枚までをアクティブで追加し、さらに1枚までをレストで追加する。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-075"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-076_OP16-076.png",
+    "uniqueId": "OP16-076_dummy.gif",
     "cardNumber": "OP16-076",
     "cardName": "「三大将」!!!",
     "furigana": "",
@@ -54237,15 +54162,14 @@
       "海軍"
     ],
     "block": 5,
-    "effectText": "【メイン】自分のドン!!3枚をレストにできる：自分の特徴《大将》を持つキャラ3枚までを、このターン中、パワー+2000。 【カウンター】自分の特徴《大将》を持つキャラがいる場合、自分のリーダーかキャラ1枚までを、このバトル中、パワー+4000。",
+    "effectText": "【メイン】自分のドン!!3枚をレストにできる：自分の特徴《大将》を持つキャラ3枚までを、このターン中、パワー+2000。【カウンター】自分の特徴《大将》を持つキャラがいる場合、自分のリーダーかキャラ1枚までを、このバトル中、パワー+4000。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-076"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-077_OP16-077.png",
+    "uniqueId": "OP16-077_dummy.gif",
     "cardNumber": "OP16-077",
     "cardName": "智将“仏のセンゴク”",
     "furigana": "",
@@ -54266,12 +54190,11 @@
     "effectText": "【メイン】自分のデッキの上から5枚を見て、特徴《海軍》を持つカード2枚までを公開し、手札に加え、残りを好きな順番でデッキの下に置く。その後、自分の手札1枚を捨てる。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-077"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-078_OP16-078.png",
+    "uniqueId": "OP16-078_dummy.gif",
     "cardNumber": "OP16-078",
     "cardName": "マリンフォード",
     "furigana": "",
@@ -54289,18 +54212,17 @@
       "海軍"
     ],
     "block": 5,
-    "effectText": "【登場時】自分のデッキの上から5枚を見て、特徴《海軍》を持つカード1枚までを公開し、手札に加える。その後、残りを好きな順番でデッキの下に置く。 【起動メイン】ドン!!-1,このステージをレストにできる：カード1枚を引き、自分の手札1枚を捨てる。",
+    "effectText": "【登場時】自分のデッキの上から5枚を見て、特徴《海軍》を持つカード1枚までを公開し、手札に加える。その後、残りを好きな順番でデッキの下に置く。【起動メイン】ドン!!-1,このステージをレストにできる：カード1枚を引き、自分の手札1枚を捨てる。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-078"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-079_OP16-079.png",
+    "uniqueId": "OP16-079_dummy.gif",
     "cardNumber": "OP16-079",
     "cardName": "ヤマト",
-    "furigana": "",
+    "furigana": "ヤマト",
     "rarity": "L",
     "cardType": "LEADER",
     "color": [
@@ -54315,18 +54237,17 @@
       "ワノ国"
     ],
     "block": 5,
-    "effectText": "自分のトラッシュから特徴《ワノ国》を持つキャラが登場した時、そのキャラは、このターン中、【速攻】を得る。 (このカードは登場したターンにアタックできる)",
+    "effectText": "自分のトラッシュから特徴《ワノ国》を持つキャラが登場した時、そのキャラは、このターン中、【速攻】を得る。(このカードは登場したターンにアタックできる)",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-079"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-080_OP16-080.png",
+    "uniqueId": "OP16-080_dummy.gif",
     "cardNumber": "OP16-080",
     "cardName": "マーシャル・Ｄ・ティーチ",
-    "furigana": "",
+    "furigana": "マーシャル・ディー・ティーチ",
     "rarity": "L",
     "cardType": "LEADER",
     "color": [
@@ -54343,18 +54264,17 @@
       "黒ひげ海賊団"
     ],
     "block": 5,
-    "effectText": "【相手のターン中】自分のキャラすべてを、コスト+1。 【相手のアタック時】【ターン1回】自分の手札から【トリガー】を持つカード1枚を捨てることができる：そのアタックの対象をこのリーダーか自分の特徴《黒ひげ海賊団》を持つキャラにする。",
+    "effectText": "【相手のターン中】自分のキャラすべてを、コスト+1。【相手のアタック時】【ターン1回】自分の手札から【トリガー】を持つカード1枚を捨てることができる：そのアタックの対象をこのリーダーか自分の特徴《黒ひげ海賊団》を持つキャラにする。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-080"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-081_OP16-081.png",
+    "uniqueId": "OP16-081_dummy.gif",
     "cardNumber": "OP16-081",
     "cardName": "お玉",
-    "furigana": "",
+    "furigana": "オタマ",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -54363,7 +54283,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 2,
     "power": "-",
-    "counter": "2000",
+    "counter": 2000,
     "attribute": "特",
     "features": [
       "ワノ国"
@@ -54372,15 +54292,14 @@
     "effectText": "【起動メイン】このキャラをレストにできる：コスト8以上のキャラがいる場合、相手のキャラ1枚までを、このターン中、パワー-2000。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-081"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-082_OP16-082.png",
+    "uniqueId": "OP16-082_dummy.gif",
     "cardNumber": "OP16-082",
     "cardName": "錦えもん",
-    "furigana": "",
+    "furigana": "キンエモン",
     "rarity": "SR",
     "cardType": "CHARACTER",
     "color": [
@@ -54396,18 +54315,17 @@
       "赤鞘九人男"
     ],
     "block": 5,
-    "effectText": "このキャラのコスト+3。 【登場時】自分のリーダーが特徴《ワノ国》を持つ場合、自分のデッキの上から5枚を見て、特徴《ワノ国》を持つカード1枚までを公開し、手札に加える。その後、残りをトラッシュに置く。",
+    "effectText": "このキャラのコスト+3。【登場時】自分のリーダーが特徴《ワノ国》を持つ場合、自分のデッキの上から5枚を見て、特徴《ワノ国》を持つカード1枚までを公開し、手札に加える。その後、残りをトラッシュに置く。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-082"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-083_OP16-083.png",
+    "uniqueId": "OP16-083_dummy.gif",
     "cardNumber": "OP16-083",
     "cardName": "光月おでん",
-    "furigana": "",
+    "furigana": "コウヅキオデン",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -54416,25 +54334,24 @@
     "costLifeType": "コスト",
     "costLifeValue": 5,
     "power": 6000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "斬",
     "features": [
       "ワノ国",
       "光月家"
     ],
     "block": 5,
-    "effectText": "【ブロッカー】(相手のアタックの後、このカードをレストにし、アタックの対象をこのカードにできる) 【登場時】自分の手札からコスト8以上のキャラカード1枚を捨てることができる：カード2枚を引く。",
+    "effectText": "【ブロッカー】(相手のアタックの後、このカードをレストにし、アタックの対象をこのカードにできる)【登場時】自分の手札からコスト8以上のキャラカード1枚を捨てることができる：カード2枚を引く。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-083"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-084_OP16-084.png",
+    "uniqueId": "OP16-084_dummy.gif",
     "cardNumber": "OP16-084",
     "cardName": "光月モモの助",
-    "furigana": "",
+    "furigana": "コウヅキモモノスケ",
     "rarity": "UC",
     "cardType": "CHARACTER",
     "color": [
@@ -54443,7 +54360,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 5,
     "power": "-",
-    "counter": "2000",
+    "counter": 2000,
     "attribute": "斬",
     "features": [
       "ワノ国",
@@ -54453,15 +54370,14 @@
     "effectText": "【起動メイン】コスト20以上のこのキャラをトラッシュに置くことができる：自分の場のドン!!が9枚以上ある場合、自分のトラッシュからコスト9の「光月モモの助」1枚までを、登場させる。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-084"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-085_OP16-085.png",
+    "uniqueId": "OP16-085_dummy.gif",
     "cardNumber": "OP16-085",
     "cardName": "光月モモの助",
-    "furigana": "",
+    "furigana": "コウヅキモモノスケ",
     "rarity": "R",
     "cardType": "CHARACTER",
     "color": [
@@ -54470,25 +54386,24 @@
     "costLifeType": "コスト",
     "costLifeValue": 9,
     "power": 6000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "特",
     "features": [
       "ワノ国",
       "光月家"
     ],
     "block": 5,
-    "effectText": "【ブロッカー】 【登場時】自分のトラッシュから「光月モモの助」以外のコスト6以下の特徴《ワノ国》を持つキャラカード1枚までを、登場させる。",
+    "effectText": "【ブロッカー】【登場時】自分のトラッシュから「光月モモの助」以外のコスト6以下の特徴《ワノ国》を持つキャラカード1枚までを、登場させる。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-085"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-086_OP16-086.png",
+    "uniqueId": "OP16-086_dummy.gif",
     "cardNumber": "OP16-086",
     "cardName": "サンジ",
-    "furigana": "",
+    "furigana": "サンジ",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -54497,7 +54412,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 8,
     "power": 9000,
-    "counter": "2000",
+    "counter": 2000,
     "attribute": "打",
     "features": [
       "ワノ国",
@@ -54507,15 +54422,14 @@
     "effectText": "-",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-086"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-087_OP16-087.png",
+    "uniqueId": "OP16-087_dummy.gif",
     "cardNumber": "OP16-087",
     "cardName": "しのぶ",
-    "furigana": "",
+    "furigana": "しのぶ",
     "rarity": "UC",
     "cardType": "CHARACTER",
     "color": [
@@ -54524,7 +54438,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 2,
     "power": 1000,
-    "counter": "2000",
+    "counter": 2000,
     "attribute": "特",
     "features": [
       "ワノ国"
@@ -54533,15 +54447,14 @@
     "effectText": "【登場時】このキャラをトラッシュに置くことができる：自分のリーダーが特徴《ワノ国》を持つ場合、カード1枚を引き、自分の「光月モモの助」1枚までを、このターン中、コスト+20。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-087"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-088_OP16-088.png",
+    "uniqueId": "OP16-088_dummy.gif",
     "cardNumber": "OP16-088",
     "cardName": "霜月牛マル",
-    "furigana": "",
+    "furigana": "シモツキウシマル",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -54550,7 +54463,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 2,
     "power": 2000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "斬",
     "features": [
       "ワノ国"
@@ -54559,15 +54472,14 @@
     "effectText": "【ブロッカー】(相手のアタックの後、このカードをレストにし、アタックの対象をこのカードにできる)",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-088"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-089_OP16-089.png",
+    "uniqueId": "OP16-089_dummy.gif",
     "cardNumber": "OP16-089",
     "cardName": "ジュラキュール・ミホーク",
-    "furigana": "",
+    "furigana": "ジュラキュール・ミホーク",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -54582,18 +54494,17 @@
       "王下七武海"
     ],
     "block": 5,
-    "effectText": "【速攻：キャラ】(このカードは登場したターンにキャラへアタックできる) 【登場時】カード2枚を引き、自分の手札2枚を捨てる。その後、相手のキャラ1枚までを、このターン中、コスト-4。",
+    "effectText": "【速攻：キャラ】(このカードは登場したターンにキャラへアタックできる)【登場時】カード2枚を引き、自分の手札2枚を捨てる。その後、相手のキャラ1枚までを、このターン中、コスト-4。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-089"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-090_OP16-090.png",
+    "uniqueId": "OP16-090_dummy.gif",
     "cardNumber": "OP16-090",
     "cardName": "トニートニー・チョッパー",
-    "furigana": "",
+    "furigana": "トニートニー・チョッパー",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -54602,7 +54513,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 3,
     "power": 4000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "打",
     "features": [
       "動物",
@@ -54613,15 +54524,14 @@
     "effectText": "【登場時】カード2枚を引き、自分の手札2枚を捨てる。その後、相手のコスト1以下のキャラ1枚までを、KOする。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-090"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-091_OP16-091.png",
+    "uniqueId": "OP16-091_dummy.gif",
     "cardNumber": "OP16-091",
     "cardName": "ナミ",
-    "furigana": "",
+    "furigana": "ナミ",
     "rarity": "R",
     "cardType": "CHARACTER",
     "color": [
@@ -54630,7 +54540,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 1,
     "power": 2000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "特",
     "features": [
       "ワノ国",
@@ -54640,15 +54550,14 @@
     "effectText": "【登場時】自分のリーダーが特徴《ワノ国》を持つ場合、自分のデッキの上から4枚を見て、「ナミ」以外の特徴《ワノ国》を持つカード1枚までを公開し、手札に加える。その後、残りをトラッシュに置く。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-091"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-092_OP16-092.png",
+    "uniqueId": "OP16-092_dummy.gif",
     "cardNumber": "OP16-092",
     "cardName": "ニコ・ロビン",
-    "furigana": "",
+    "furigana": "ニコ・ロビン",
     "rarity": "UC",
     "cardType": "CHARACTER",
     "color": [
@@ -54657,7 +54566,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 1,
     "power": 2000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "打",
     "features": [
       "ワノ国",
@@ -54667,15 +54576,14 @@
     "effectText": "【登場時】自分の手札からコスト8以上のキャラカード1枚を捨てることができる：カード2枚を引く。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-092"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-093_OP16-093.png",
+    "uniqueId": "OP16-093_dummy.gif",
     "cardNumber": "OP16-093",
     "cardName": "バーソロミュー・くま",
-    "furigana": "",
+    "furigana": "バーソロミュー・クマ",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -54684,7 +54592,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 3,
     "power": 4000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "打",
     "features": [
       "王下七武海",
@@ -54694,15 +54602,14 @@
     "effectText": "【登場時】カード2枚を引き、自分の手札2枚を捨てる。その後、自分のリーダーかキャラ1枚にレストのドン!!1枚までを、付与する。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-093"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-094_OP16-094.png",
+    "uniqueId": "OP16-094_dummy.gif",
     "cardNumber": "OP16-094",
     "cardName": "ポートガス・Ｄ・エース",
-    "furigana": "",
+    "furigana": "ポートガス・ディー・エース",
     "rarity": "UC",
     "cardType": "CHARACTER",
     "color": [
@@ -54711,25 +54618,24 @@
     "costLifeType": "コスト",
     "costLifeValue": 4,
     "power": 5000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "特",
     "features": [
       "ワノ国",
       "スペード海賊団"
     ],
     "block": 5,
-    "effectText": "【KO時】相手は自身の手札2枚を捨てる。 【起動メイン】【ターン1回】自分の特徴《ワノ国》を持つ、リーダーかキャラ1枚にレストのドン!!1枚までを、付与する。",
+    "effectText": "【KO時】相手は自身の手札2枚を捨てる。【起動メイン】【ターン1回】自分の特徴《ワノ国》を持つ、リーダーかキャラ1枚にレストのドン!!1枚までを、付与する。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-094"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-095_OP16-095.png",
+    "uniqueId": "OP16-095_dummy.gif",
     "cardNumber": "OP16-095",
     "cardName": "モンキー・Ｄ・ルフィ",
-    "furigana": "",
+    "furigana": "モンキー・ディー・ルフィ",
     "rarity": "R",
     "cardType": "CHARACTER",
     "color": [
@@ -54738,25 +54644,24 @@
     "costLifeType": "コスト",
     "costLifeValue": 2,
     "power": 2000,
-    "counter": "2000",
+    "counter": 2000,
     "attribute": "打",
     "features": [
       "ワノ国",
       "麦わらの一味"
     ],
     "block": 5,
-    "effectText": "【登場時】自分の黒の特徴《ワノ国》を持つキャラ1枚までは、このターン中、【ブロック不可】を得る。 (このカードはブロックされない)",
+    "effectText": "【登場時】自分の黒の特徴《ワノ国》を持つキャラ1枚までは、このターン中、【ブロック不可】を得る。(このカードはブロックされない)",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-095"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-096_OP16-096.png",
+    "uniqueId": "OP16-096_dummy.gif",
     "cardNumber": "OP16-096",
     "cardName": "ヤマト",
-    "furigana": "",
+    "furigana": "ヤマト",
     "rarity": "R",
     "cardType": "CHARACTER",
     "color": [
@@ -54765,24 +54670,23 @@
     "costLifeType": "コスト",
     "costLifeValue": 8,
     "power": 8000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "特",
     "features": [
       "ワノ国"
     ],
     "block": 5,
-    "effectText": "【ブロック不可】(このカードはブロックされない) 【KO時】自分のトラッシュからコスト6以下の「ヤマト」1枚までを、登場させる。",
+    "effectText": "【ブロック不可】(このカードはブロックされない)【KO時】自分のトラッシュからコスト6以下の「ヤマト」1枚までを、登場させる。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-096"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-097_OP16-097.png",
+    "uniqueId": "OP16-097_dummy.gif",
     "cardNumber": "OP16-097",
     "cardName": "ヤマト",
-    "furigana": "",
+    "furigana": "ヤマト",
     "rarity": "R",
     "cardType": "CHARACTER",
     "color": [
@@ -54800,15 +54704,14 @@
     "effectText": "【登場時】自分のトラッシュからコスト6以下の特徴《ワノ国》を持つキャラカード1枚までを、手札に加える。その後、自分の手札からコスト2以下のキャラカード1枚までを、登場させる。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-097"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-098_OP16-098.png",
+    "uniqueId": "OP16-098_dummy.gif",
     "cardNumber": "OP16-098",
     "cardName": "ヤマト",
-    "furigana": "",
+    "furigana": "ヤマト",
     "rarity": "SR",
     "cardType": "CHARACTER",
     "color": [
@@ -54817,21 +54720,20 @@
     "costLifeType": "コスト",
     "costLifeValue": 6,
     "power": 5000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "打",
     "features": [
       "ワノ国"
     ],
     "block": 5,
-    "effectText": "【登場時】カード1枚を引き、自分の手札1枚を捨てる。 【起動メイン】このキャラをトラッシュに置くことができる：自分のトラッシュからコスト8の黒の「ヤマト」1枚までを、登場させる。",
+    "effectText": "【登場時】カード1枚を引き、自分の手札1枚を捨てる。【起動メイン】このキャラをトラッシュに置くことができる：自分のトラッシュからコスト8の黒の「ヤマト」1枚までを、登場させる。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-098"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-099_OP16-099.png",
+    "uniqueId": "OP16-099_dummy.gif",
     "cardNumber": "OP16-099",
     "cardName": "その“縁”を切りに来た!!!",
     "furigana": "",
@@ -54849,15 +54751,14 @@
       "ワノ国"
     ],
     "block": 5,
-    "effectText": "【メイン】自分のドン!!6枚をレストにできる：自分のデッキの上から5枚をトラッシュに置く。その後、自分のトラッシュからコスト6以下の特徴《ワノ国》を持つキャラカード1枚までを、登場させる。 【カウンター】自分のリーダーを、このバトル中、パワー+3000。",
+    "effectText": "【メイン】自分のドン!!6枚をレストにできる：自分のデッキの上から5枚をトラッシュに置く。その後、自分のトラッシュからコスト6以下の特徴《ワノ国》を持つキャラカード1枚までを、登場させる。【カウンター】自分のリーダーを、このバトル中、パワー+3000。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-099"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-100_OP16-100.png",
+    "uniqueId": "OP16-100_dummy.gif",
     "cardNumber": "OP16-100",
     "cardName": "氷諸斬り",
     "furigana": "",
@@ -54875,15 +54776,14 @@
       "ワノ国"
     ],
     "block": 5,
-    "effectText": "【メイン】自分のドン!!2枚をレストにできる：このターン中、相手のキャラがKOされている場合、自分のリーダー「ヤマト」を、アクティブにする。 【カウンター】自分のリーダーを、このバトル中、パワー+3000。",
+    "effectText": "【メイン】自分のドン!!2枚をレストにできる：このターン中、相手のキャラがKOされている場合、自分のリーダー「ヤマト」を、アクティブにする。【カウンター】自分のリーダーを、このバトル中、パワー+3000。",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-100"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-101_OP16-101.png",
+    "uniqueId": "OP16-101_dummy.gif",
     "cardNumber": "OP16-101",
     "cardName": "馬幻刃",
     "furigana": "",
@@ -54902,17 +54802,16 @@
     ],
     "block": 5,
     "effectText": "【メイン】自分のリーダーかキャラ1枚までを、このターン中、パワー+3000。その後、自分のトラッシュが10枚以上ある場合、相手のコスト2以下のキャラ1枚までを、KOする。",
-    "trigger": "【トリガー】自分のトラッシュから「ヤマト」1枚までを、手札に加える。",
+    "trigger": "【】自分のトラッシュから「ヤマト」1枚までを、手札に加える。",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-101"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-102_OP16-102.png",
+    "uniqueId": "OP16-102_dummy.gif",
     "cardNumber": "OP16-102",
     "cardName": "アバロ・ピサロ",
-    "furigana": "",
+    "furigana": "アバロ・ピサロ",
     "rarity": "UC",
     "cardType": "CHARACTER",
     "color": [
@@ -54921,7 +54820,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 1,
     "power": 2000,
-    "counter": "2000",
+    "counter": 2000,
     "attribute": "特",
     "features": [
       "インペルダウン",
@@ -54929,17 +54828,16 @@
     ],
     "block": 5,
     "effectText": "【KO時】カード1枚を引き、自分の手札かトラッシュから「ハチノス」1枚までを、登場させる。",
-    "trigger": "【トリガー】このカードの【KO時】効果を発動する。",
+    "trigger": "【】このカードの【KO時】効果を発動する。",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-102"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-103_OP16-103.png",
+    "uniqueId": "OP16-103_dummy.gif",
     "cardNumber": "OP16-103",
     "cardName": "ヴァン・オーガー",
-    "furigana": "",
+    "furigana": "ヴァン・オーガー",
     "rarity": "UC",
     "cardType": "CHARACTER",
     "color": [
@@ -54948,24 +54846,23 @@
     "costLifeType": "コスト",
     "costLifeValue": 1,
     "power": 2000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "射",
     "features": [
       "黒ひげ海賊団"
     ],
     "block": 5,
     "effectText": "【相手のターン中】【KO時】自分のリーダーが特徴《黒ひげ海賊団》を持つ場合、カード1枚を引き、相手のリーダーかキャラ1枚までを、このターン中、パワー-3000。",
-    "trigger": "【トリガー】このカードの【KO時】効果を発動する。",
+    "trigger": "【】このカードの【KO時】効果を発動する。",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-103"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-104_OP16-104.png",
+    "uniqueId": "OP16-104_dummy.gif",
     "cardNumber": "OP16-104",
     "cardName": "カタリーナ・デボン",
-    "furigana": "",
+    "furigana": "カタリーナ・デボン",
     "rarity": "R",
     "cardType": "CHARACTER",
     "color": [
@@ -54974,7 +54871,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 4,
     "power": 3000,
-    "counter": "2000",
+    "counter": 2000,
     "attribute": "特",
     "features": [
       "インペルダウン",
@@ -54982,17 +54879,16 @@
     ],
     "block": 5,
     "effectText": "【アタック時】相手のキャラ1枚までを選ぶ。このキャラの元々のパワーは、このターン中、選んだキャラと同じパワーになる。",
-    "trigger": "【トリガー】カード1枚を引き、自分のトラッシュからコスト1の特徴《黒ひげ海賊団》を持つキャラカード1枚までを、登場させる。",
+    "trigger": "【】カード1枚を引き、自分のトラッシュからコスト1の特徴《黒ひげ海賊団》を持つキャラカード1枚までを、登場させる。",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-104"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-105_OP16-105.png",
+    "uniqueId": "OP16-105_dummy.gif",
     "cardNumber": "OP16-105",
     "cardName": "ゲッコー・モリア",
-    "furigana": "",
+    "furigana": "ゲッコー・モリア",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -55001,7 +54897,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 6,
     "power": 7000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "特",
     "features": [
       "王下七武海",
@@ -55009,17 +54905,16 @@
     ],
     "block": 5,
     "effectText": "-",
-    "trigger": "【トリガー】自分のライフが1枚以下の場合、自分のトラッシュからコスト4以下の、「アブサロム」と「ドクトル・ホグバック」と「ペローナ」それぞれ1枚ずつまでを、登場させる。",
+    "trigger": "【】自分のライフが1枚以下の場合、自分のトラッシュからコスト4以下の、「アブサロム」と「ドクトル・ホグバック」と「ペローナ」それぞれ1枚ずつまでを、登場させる。",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-105"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-106_OP16-106.png",
+    "uniqueId": "OP16-106_dummy.gif",
     "cardNumber": "OP16-106",
     "cardName": "サンファン・ウルフ",
-    "furigana": "",
+    "furigana": "サンファン・ウルフ",
     "rarity": "R",
     "cardType": "CHARACTER",
     "color": [
@@ -55028,7 +54923,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 4,
     "power": 5000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "打",
     "features": [
       "巨人族",
@@ -55037,17 +54932,16 @@
     ],
     "block": 5,
     "effectText": "【KO時】自分のリーダーが特徴《黒ひげ海賊団》を持つ場合、カード1枚を引き、自分のリーダーかキャラ1枚までを、このターン中、元々のパワー7000にする。",
-    "trigger": "【トリガー】このカードの【KO時】効果を発動する。",
+    "trigger": "【】このカードの【KO時】効果を発動する。",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-106"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-107_OP16-107.png",
+    "uniqueId": "OP16-107_dummy.gif",
     "cardNumber": "OP16-107",
     "cardName": "ジーザス・バージェス",
-    "furigana": "",
+    "furigana": "ジーザス・バージェス",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -55063,17 +54957,16 @@
     ],
     "block": 5,
     "effectText": "【KO時】相手のライフの上から1枚までを、持ち主の手札に加える。",
-    "trigger": "【トリガー】自分の手札1枚を捨てることができる：このカードを登場させる。",
+    "trigger": "【】自分の手札1枚を捨てることができる：このカードを登場させる。",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-107"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-108_OP16-108.png",
+    "uniqueId": "OP16-108_dummy.gif",
     "cardNumber": "OP16-108",
     "cardName": "シリュウ",
-    "furigana": "",
+    "furigana": "シリュウ",
     "rarity": "SR",
     "cardType": "CHARACTER",
     "color": [
@@ -55090,17 +54983,16 @@
     ],
     "block": 5,
     "effectText": "【登場時】自分の手札1枚を捨てることができる：自分のトラッシュからコスト6以下の特徴《黒ひげ海賊団》を持つカード1枚までを、ライフの上に表向きで加える。",
-    "trigger": "【トリガー】カード2枚を引く。",
+    "trigger": "【】カード2枚を引く。",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-108"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-109_OP16-109.png",
+    "uniqueId": "OP16-109_dummy.gif",
     "cardNumber": "OP16-109",
     "cardName": "ドクQ",
-    "furigana": "",
+    "furigana": "ドクキュー",
     "rarity": "UC",
     "cardType": "CHARACTER",
     "color": [
@@ -55109,24 +55001,23 @@
     "costLifeType": "コスト",
     "costLifeValue": 1,
     "power": "-",
-    "counter": "2000",
+    "counter": 2000,
     "attribute": "特",
     "features": [
       "黒ひげ海賊団"
     ],
     "block": 5,
     "effectText": "【KO時】自分のリーダーが特徴《黒ひげ海賊団》を持つ場合、カード1枚を引き、相手のコスト1以下のキャラ2枚までを、KOする。",
-    "trigger": "【トリガー】このカードの【KO時】効果を発動する。",
+    "trigger": "【】このカードの【KO時】効果を発動する。",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-109"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-110_OP16-110.png",
+    "uniqueId": "OP16-110_dummy.gif",
     "cardNumber": "OP16-110",
     "cardName": "バスコ・ショット",
-    "furigana": "",
+    "furigana": "バスコ・ショット",
     "rarity": "R",
     "cardType": "CHARACTER",
     "color": [
@@ -55135,7 +55026,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 1,
     "power": 2000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "特",
     "features": [
       "インペルダウン",
@@ -55143,17 +55034,16 @@
     ],
     "block": 5,
     "effectText": "【KO時】カード1枚を引き、相手のコスト6以下のキャラ1枚までを、レストにする。",
-    "trigger": "【トリガー】このカードの【KO時】効果を発動する。",
+    "trigger": "【】このカードの【KO時】効果を発動する。",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-110"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-111_OP16-111.png",
+    "uniqueId": "OP16-111_dummy.gif",
     "cardNumber": "OP16-111",
     "cardName": "ボア・サンダーソニア",
-    "furigana": "",
+    "furigana": "ボア・サンダーソニア",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -55169,17 +55059,16 @@
     ],
     "block": 5,
     "effectText": "【ブロッカー】(相手のアタックの後、このカードをレストにし、アタックの対象をこのカードにできる)",
-    "trigger": "【トリガー】自分のライフが2枚以下の場合、このカードを登場させる。",
+    "trigger": "【】自分のライフが2枚以下の場合、このカードを登場させる。",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-111"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-112_OP16-112.png",
+    "uniqueId": "OP16-112_dummy.gif",
     "cardNumber": "OP16-112",
     "cardName": "ボア・ハンコック",
-    "furigana": "",
+    "furigana": "ボア・ハンコック",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -55188,7 +55077,7 @@
     "costLifeType": "コスト",
     "costLifeValue": 6,
     "power": 8000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "特",
     "features": [
       "九蛇海賊団"
@@ -55197,15 +55086,14 @@
     "effectText": "-",
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-112"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-113_OP16-113.png",
+    "uniqueId": "OP16-113_dummy.gif",
     "cardNumber": "OP16-113",
     "cardName": "ボア・マリーゴールド",
-    "furigana": "",
+    "furigana": "ボア・マリーゴールド",
     "rarity": "UC",
     "cardType": "CHARACTER",
     "color": [
@@ -55214,24 +55102,23 @@
     "costLifeType": "コスト",
     "costLifeValue": 5,
     "power": 5000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "斬",
     "features": [
       "九蛇海賊団"
     ],
     "block": 5,
     "effectText": "自分のライフが2枚以下の場合、このキャラは【ブロッカー】を得る。",
-    "trigger": "【トリガー】自分のリーダーが特徴《九蛇海賊団》を持つ場合、このカードを登場させる。",
+    "trigger": "【】自分のリーダーが特徴《九蛇海賊団》を持つ場合、このカードを登場させる。",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-113"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-114_OP16-114.png",
+    "uniqueId": "OP16-114_dummy.gif",
     "cardNumber": "OP16-114",
     "cardName": "ラフィット",
-    "furigana": "",
+    "furigana": "ラフィット",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -55240,24 +55127,23 @@
     "costLifeType": "コスト",
     "costLifeValue": 1,
     "power": 2000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "打",
     "features": [
       "黒ひげ海賊団"
     ],
     "block": 5,
     "effectText": "【KO時】相手のコスト4以下のキャラ1枚までを、KOする。",
-    "trigger": "【トリガー】このカードの【KO時】効果を発動する。",
+    "trigger": "【】このカードの【KO時】効果を発動する。",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-114"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-115_OP16-115.png",
+    "uniqueId": "OP16-115_dummy.gif",
     "cardNumber": "OP16-115",
     "cardName": "闇水",
-    "furigana": "",
+    "furigana": "クロウズ",
     "rarity": "UC",
     "cardType": "EVENT",
     "color": [
@@ -55274,14 +55160,13 @@
     ],
     "block": 5,
     "effectText": "【メイン】自分のリーダーが特徴《黒ひげ海賊団》を持つ場合、自分のトラッシュから「闇水」以外の【トリガー】を持つカード1枚までを、手札に加える。",
-    "trigger": "【トリガー】相手のリーダーかキャラ1枚までを、このターン中、効果を無効にする。",
+    "trigger": "【】相手のリーダーかキャラ1枚までを、このターン中、効果を無効にする。",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-115"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-116_OP16-116.png",
+    "uniqueId": "OP16-116_dummy.gif",
     "cardNumber": "OP16-116",
     "cardName": "ゼハハハハハハ!!!",
     "furigana": "",
@@ -55301,17 +55186,16 @@
     ],
     "block": 5,
     "effectText": "【メイン】自分の場のドン!!が10枚ある場合、自分の手札から「マーシャル・Ｄ・ティーチ」1枚までを、登場させる。その後、相手のライフの上から1枚までを、持ち主の手札に加える。",
-    "trigger": "【トリガー】カード2枚を引き、自分の手札1枚を捨てる。",
+    "trigger": "【】カード2枚を引き、自分の手札1枚を捨てる。",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-116"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-117_OP16-117.png",
+    "uniqueId": "OP16-117_dummy.gif",
     "cardNumber": "OP16-117",
     "cardName": "闇穴道",
-    "furigana": "",
+    "furigana": "ブラックホール",
     "rarity": "C",
     "cardType": "EVENT",
     "color": [
@@ -55328,17 +55212,16 @@
     ],
     "block": 5,
     "effectText": "【メイン】自分の手札から【トリガー】を持つカード1枚を捨てることができる：相手のコスト8以下のキャラ1枚までを、このターン中、効果を無効にする。",
-    "trigger": "【トリガー】自分のトラッシュから特徴《黒ひげ海賊団》を持つカード1枚までを、手札に加える。",
+    "trigger": "【】自分のトラッシュから特徴《黒ひげ海賊団》を持つカード1枚までを、手札に加える。",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
-    "seriesTitle": "決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-117"
+    "seriesTitle": "ブースターパック 決戦の刻",
+    "seriesCode": "OP-16"
   },
   {
-    "uniqueId": "OP16-118_OP16-118.png",
+    "uniqueId": "OP16-118_dummy.gif",
     "cardNumber": "OP16-118",
     "cardName": "ポートガス・Ｄ・エース",
-    "furigana": "",
+    "furigana": "ポートガス・ディー・エース",
     "rarity": "SEC",
     "cardType": "CHARACTER",
     "color": [
@@ -55347,24 +55230,23 @@
     "costLifeType": "コスト",
     "costLifeValue": 5,
     "power": 6000,
-    "counter": "1000",
+    "counter": 1000,
     "attribute": "特",
     "features": [
       "白ひげ海賊団"
     ],
     "block": 5,
-    "effectText": "自分の手札のパワー8000のキャラカードすべては、カウンター+2000になる。 【登場時】/【KO時】自分のデッキの上から5枚を見て、「モンキー・Ｄ・ルフィ」か『白ひげ海賊団』を含む特徴を持つカード1枚までを公開し、手札に加える。その後、残りを好きな順番でデッキの下に置く。",
+    "effectText": "自分の手札のパワー8000のキャラカードすべては、カウンター+2000になる。【登場時】/【KO時】自分のデッキの上から5枚を見て、「モンキー・Ｄ・ルフィ」か『白ひげ海賊団』を含む特徴を持つカード1枚までを公開し、手札に加える。その後、残りを好きな順番でデッキの下に置く。",
     "trigger": "",
     "getInfo": "",
     "seriesTitle": "",
-    "seriesCode": "",
-    "sourceModalId": "OP16-118"
+    "seriesCode": ""
   },
   {
-    "uniqueId": "OP16-119_OP16-119.png",
+    "uniqueId": "OP16-119_dummy.gif",
     "cardNumber": "OP16-119",
     "cardName": "マーシャル・Ｄ・ティーチ",
-    "furigana": "",
+    "furigana": "マーシャル・ディー・ティーチ",
     "rarity": "SEC",
     "cardType": "CHARACTER",
     "color": [
@@ -55381,11 +55263,10 @@
     ],
     "block": 5,
     "effectText": "【登場時】自分のデッキの上から3枚を見て、カード1枚までを、ライフの上に加える。その後、残りを好きな順番でデッキの下に置く。",
-    "trigger": "【トリガー】相手のキャラ1枚までを、このターン中、効果を無効にする。その後、相手のコスト5以下のキャラ1枚までを、KOする。",
+    "trigger": "【】相手のキャラ1枚までを、このターン中、効果を無効にする。その後、相手のコスト5以下のキャラ1枚までを、KOする。",
     "getInfo": "",
     "seriesTitle": "",
-    "seriesCode": "",
-    "sourceModalId": "OP16-119"
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-001_dummy.gif",
