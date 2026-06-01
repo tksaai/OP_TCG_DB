@@ -18,6 +18,7 @@
     const GITHUB_BRANCH = 'main';
     const GITHUB_TOKEN_STORAGE_KEY = 'githubToken';
     const FURIGANA_EDITOR_VISIBLE_STORAGE_KEY = 'furiganaEditorVisible';
+    const LIST_BADGES_VISIBLE_STORAGE_KEY = 'listBadgesVisible';
     const APP_VERSION = '1.2.2'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
@@ -102,6 +103,7 @@
             githubTokenClearBtn: $('#github-token-clear-btn'),
             githubTokenStatus: $('#github-token-status'),
             furiganaEditorToggle: $('#furigana-editor-toggle'),
+            listBadgesToggle: $('#list-badges-toggle'),
             appVersionInfo: $('#app-version-info'),
             cardDataVersionInfo: $('#card-data-version-info'),
     
@@ -115,6 +117,7 @@
             lightboxInfo: $('#lightbox-info'),
             lightboxTitle: $('#lightbox-title'),
             lightboxSubtitle: $('#lightbox-subtitle'),
+            lightboxGetInfo: $('#lightbox-get-info'),
             lightboxFuriganaEditor: $('#lightbox-furigana-editor'),
             lightboxFuriganaInput: $('#lightbox-furigana-input'),
             lightboxFuriganaSaveBtn: $('#lightbox-furigana-save-btn'),
@@ -286,6 +289,24 @@
         }
     }
 
+    function areListBadgesVisible() {
+        return localStorage.getItem(LIST_BADGES_VISIBLE_STORAGE_KEY) !== 'false';
+    }
+
+    function setListBadgesVisible(visible) {
+        localStorage.setItem(LIST_BADGES_VISIBLE_STORAGE_KEY, visible ? 'true' : 'false');
+        syncListBadgesVisibility();
+        if (currentFilteredCards.length > 0) {
+            displayCards(currentFilteredCards);
+        }
+    }
+
+    function syncListBadgesVisibility() {
+        if (dom.listBadgesToggle) {
+            dom.listBadgesToggle.checked = areListBadgesVisible();
+        }
+    }
+
     function syncGitHubTokenSettings() {
         if (!dom.githubTokenInput) return;
         const token = getStoredGitHubToken();
@@ -431,6 +452,43 @@
         return card?.rarity ? String(card.rarity) : '';
     }
 
+    function normalizeCardsData(cardsData) {
+        let cardsArray = [];
+
+        if (Array.isArray(cardsData)) {
+            cardsArray = cardsData;
+        } else if (typeof cardsData === 'object' && cardsData !== null) {
+            cardsArray = Object.values(cardsData).flat();
+        } else {
+            throw new Error("Invalid cards.json format");
+        }
+
+        return cardsArray
+            .filter(card => card && card.cardNumber)
+            .slice()
+            .sort((a, b) => String(a.cardNumber).localeCompare(String(b.cardNumber), 'en', { numeric: true }));
+    }
+
+    async function hashText(value) {
+        if (!window.crypto?.subtle) {
+            let hash = 0;
+            for (let i = 0; i < value.length; i += 1) {
+                hash = ((hash << 5) - hash + value.charCodeAt(i)) | 0;
+            }
+            return `fallback-${hash >>> 0}`;
+        }
+
+        const bytes = new TextEncoder().encode(value);
+        const digest = await crypto.subtle.digest('SHA-256', bytes);
+        return [...new Uint8Array(digest)]
+            .map(byte => byte.toString(16).padStart(2, '0'))
+            .join('');
+    }
+
+    async function hashCardsData(cardsData) {
+        return hashText(JSON.stringify(normalizeCardsData(cardsData)));
+    }
+
     function displayCards(cards) {
         const fragment = document.createDocumentFragment();
         
@@ -476,19 +534,21 @@
                   cardItem.appendChild(fallback);
             }
 
-            const rarityLabel = getRarityLabel(card);
-            if (rarityLabel) {
-                const rarityBadge = document.createElement('span');
-                rarityBadge.className = `card-rarity rarity-${rarityLabel.toLowerCase()}`;
-                rarityBadge.textContent = rarityLabel;
-                cardItem.appendChild(rarityBadge);
-            }
+            if (areListBadgesVisible()) {
+                const rarityLabel = getRarityLabel(card);
+                if (rarityLabel) {
+                    const rarityBadge = document.createElement('span');
+                    rarityBadge.className = `card-rarity rarity-${rarityLabel.toLowerCase()}`;
+                    rarityBadge.textContent = rarityLabel;
+                    cardItem.appendChild(rarityBadge);
+                }
 
-            if (variants.length > 1) {
-                const variantBadge = document.createElement('span');
-                variantBadge.className = 'card-variant-count';
-                variantBadge.textContent = `+${variants.length - 1}`;
-                cardItem.appendChild(variantBadge);
+                if (variants.length > 1) {
+                    const variantBadge = document.createElement('span');
+                    variantBadge.className = 'card-variant-count';
+                    variantBadge.textContent = `+${variants.length - 1}`;
+                    cardItem.appendChild(variantBadge);
+                }
             }
              
             fragment.appendChild(cardItem);
@@ -583,6 +643,13 @@
             variants[activeVariantIndex]?.label
         ].filter(Boolean).join(' / ');
 
+        if (dom.lightboxGetInfo) {
+            const activeVariant = variants[activeVariantIndex] || {};
+            const getInfo = activeVariant.getInfo || card.getInfo || '';
+            dom.lightboxGetInfo.textContent = getInfo ? `入手情報: ${getInfo}` : '';
+            dom.lightboxGetInfo.style.display = getInfo ? 'block' : 'none';
+        }
+
         if (dom.lightboxFuriganaInput) {
             dom.lightboxFuriganaInput.value = card.furigana || '';
         }
@@ -598,6 +665,9 @@
                 button.type = 'button';
                 button.className = `variant-btn${index === activeVariantIndex ? ' active' : ''}`;
                 button.textContent = variant.label || `画像 ${index + 1}`;
+                if (variant.getInfo) {
+                    button.title = variant.getInfo;
+                }
                 button.addEventListener('click', (event) => {
                     event.stopPropagation();
                     updateLightboxImage(currentLightboxIndex, index);
@@ -1112,39 +1182,48 @@
         if (!db) return;
 
         try {
-            const response = await fetch(CARDS_JSON_PATH, { 
-                method: 'HEAD',
-                cache: 'no-store'
-            });
-            
-            if (!response.ok) throw new Error(`Failed to fetch HEAD: ${response.statusText} (${response.status})`);
-            
-            const serverLastModified = response.headers.get('Last-Modified');
-            if (!serverLastModified) {
-                await checkCardDataByFetching();
-                return;
-            }
+            const response = await fetch(CARDS_JSON_PATH, { cache: 'no-store' });
 
+            if (!response.ok) throw new Error(`Failed to fetch cards.json: ${response.statusText} (${response.status})`);
+
+            const serverLastModified = response.headers.get('Last-Modified');
+            const cardsText = await response.text();
+            const cardsData = JSON.parse(cardsText);
+            const serverHash = await hashCardsData(cardsData);
+            const localHashMeta = await db.get(STORE_METADATA, 'cardsContentHash');
+            let localHash = localHashMeta ? localHashMeta.value : null;
             const localMetadata = await db.get(STORE_METADATA, 'cardsLastModified');
             const localLastModified = localMetadata ? localMetadata.value : null;
 
             dom.cardDataVersionInfo.textContent = localLastModified ? new Date(localLastModified).toLocaleString('ja-JP') : '未取得';
-            
-            if (serverLastModified !== localLastModified) {
-                if (!localLastModified) {
+
+            if (!localHash) {
+                const localCards = await db.getAll(STORE_CARDS);
+                if (localCards.length > 0) {
+                    localHash = await hashCardsData(localCards);
+                    await db.put(STORE_METADATA, { key: 'cardsContentHash', value: localHash });
+                }
+            }
+
+            if (serverHash !== localHash) {
+                if (!localHash) {
                     dom.loadingIndicator.style.display = 'flex';
                     dom.loadingIndicator.querySelector('p').textContent = '初回カードデータを取得中...';
-                    await fetchAndUpdateCardData(serverLastModified);
+                    await fetchAndUpdateCardData(serverLastModified, cardsData, serverHash);
                 } else {
-                    showDbUpdateNotification(serverLastModified);
+                    showDbUpdateNotification(serverLastModified, cardsData, serverHash);
                     await loadCardsFromDB();
                 }
             } else {
+                if (serverLastModified && serverLastModified !== localLastModified) {
+                    await db.put(STORE_METADATA, { key: 'cardsLastModified', value: serverLastModified });
+                    dom.cardDataVersionInfo.textContent = new Date(serverLastModified).toLocaleString('ja-JP');
+                }
                 await loadCardsFromDB();
-                if (allCards.length === 0 && localLastModified) {
+                if (allCards.length === 0 && localHash) {
                     dom.loadingIndicator.style.display = 'flex';
                     dom.loadingIndicator.querySelector('p').textContent = 'データ整合性を確認中...';
-                    await fetchAndUpdateCardData(serverLastModified);
+                    await fetchAndUpdateCardData(serverLastModified, cardsData, serverHash);
                 }
             }
         } catch (error) {
@@ -1164,7 +1243,7 @@
         }
     }
 
-    async function fetchAndUpdateCardData(serverLastModified) {
+    async function fetchAndUpdateCardData(serverLastModified, prefetchedCardsData = null, prefetchedHash = '') {
         if (!db) return;
 
         dom.loadingIndicator.style.display = 'flex';
@@ -1173,19 +1252,19 @@
         let tx;
 
         try {
-            const response = await fetch(CARDS_JSON_PATH, { cache: 'no-store' });
-             if (!response.ok) throw new Error(`Failed to download cards.json: ${response.statusText} (${response.status})`);
-            
-            const cardsData = await response.json();
-            let cardsArray = [];
-            
-            if (Array.isArray(cardsData)) {
-                cardsArray = cardsData;
-            } else if (typeof cardsData === 'object' && cardsData !== null) {
-                cardsArray = Object.values(cardsData).flat();
-            } else {
-                throw new Error("Invalid cards.json format");
+            let cardsData = prefetchedCardsData;
+            let contentHash = prefetchedHash;
+            let responseLastModified = serverLastModified;
+
+            if (!cardsData) {
+                const response = await fetch(CARDS_JSON_PATH, { cache: 'no-store' });
+                if (!response.ok) throw new Error(`Failed to download cards.json: ${response.statusText} (${response.status})`);
+                responseLastModified = response.headers.get('Last-Modified') || responseLastModified;
+                cardsData = await response.json();
             }
+
+            const cardsArray = normalizeCardsData(cardsData);
+            if (!contentHash) contentHash = await hashCardsData(cardsData);
 
             if (cardsArray.length === 0) {
                  throw new Error("Downloaded card data is empty.");
@@ -1214,7 +1293,11 @@
 
             await metaStore.put({
                 key: 'cardsLastModified',
-                value: serverLastModified
+                value: responseLastModified || new Date().toUTCString()
+            });
+            await metaStore.put({
+                key: 'cardsContentHash',
+                value: contentHash
             });
             
             await tx.done;
@@ -1448,7 +1531,7 @@
         }
     }
 
-    function showDbUpdateNotification(serverLastModified) {
+    function showDbUpdateNotification(serverLastModified, cardsData = null, cardsHash = '') {
         dom.dbUpdateNotification.style.display = 'none';
         dom.dbUpdateNotification.style.display = 'flex';
         
@@ -1464,7 +1547,7 @@
 
         newApplyBtn.addEventListener('click', () => {
             dom.dbUpdateNotification.style.display = 'none';
-            fetchAndUpdateCardData(serverLastModified);
+            fetchAndUpdateCardData(serverLastModified, cardsData, cardsHash);
         }, { once: true });
         
         newDismissBtn.addEventListener('click', () => {
@@ -1660,6 +1743,7 @@
         dom.settingsBtn.addEventListener('click', () => {
             syncGitHubTokenSettings();
             syncFuriganaEditorVisibility();
+            syncListBadgesVisibility();
             dom.settingsModal.style.display = 'flex';
         });
         
@@ -1769,6 +1853,12 @@
                 setFuriganaEditorVisible(dom.furiganaEditorToggle.checked);
             });
             syncFuriganaEditorVisibility();
+        }
+        if (dom.listBadgesToggle) {
+            dom.listBadgesToggle.addEventListener('change', () => {
+                setListBadgesVisible(dom.listBadgesToggle.checked);
+            });
+            syncListBadgesVisibility();
         }
         if (dom.lightboxFuriganaSaveBtn) {
             dom.lightboxFuriganaSaveBtn.addEventListener('click', async (event) => {

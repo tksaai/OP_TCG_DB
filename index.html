@@ -149,6 +149,10 @@
                                 <input id="furigana-editor-toggle" type="checkbox">
                                 <span>カード詳細にフリガナ編集欄を表示</span>
                             </label>
+                            <label class="settings-toggle-label">
+                                <input id="list-badges-toggle" type="checkbox">
+                                <span>リスト上のレアリティ・別イラスト表示を表示</span>
+                            </label>
                             <p>furigana-overrides.json を更新するための fine-grained token をこのブラウザの localStorage に保存します。Contents の Read and write 権限が必要です。</p>
                             <input id="github-token-input" class="settings-input" type="password" autocomplete="off" placeholder="github_pat_...">
                             <div class="settings-actions">
@@ -177,6 +181,7 @@
             <div>
                 <div id="lightbox-title" class="lightbox-title"></div>
                 <div id="lightbox-subtitle" class="lightbox-subtitle"></div>
+                <div id="lightbox-get-info" class="lightbox-get-info"></div>
                 <div id="lightbox-furigana-editor" class="lightbox-furigana-editor" style="display: none;">
                     <input id="lightbox-furigana-input" class="lightbox-furigana-input" type="text" autocomplete="off" placeholder="Furigana">
                     <button id="lightbox-furigana-save-btn" class="variant-btn" type="button">Save</button>
