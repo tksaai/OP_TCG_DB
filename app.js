@@ -576,7 +576,7 @@
         isDebugInfoVisible = false;
         currentLightboxIndex = -1; 
         currentLightboxVariantIndex = 0;
-        dom.lightboxModal.style.display = 'flex';
+        dom.lightboxModal.style.display = 'grid';
         updateLightboxImage(index, 0);
     }
     

@@ -86,6 +86,7 @@ input[type="search"]::-webkit-search-cancel-button {
     position: relative; /* 子の absolute 配置の基準 */
     width: 100%;
     height: 100%;
+    min-height: 100dvh;
     overflow: hidden; /* .main-content 以外は隠す */
     background-color: var(--color-background);
     /* ★ 修正: セーフエリアの padding は ヘッダー/フッター に移動 */
@@ -165,7 +166,8 @@ input[type="search"]::-webkit-search-cancel-button {
     
     /* ★ 修正: height: 100% を設定 */
     height: 100%;
-    
+    min-height: 100dvh;
+
     overflow-y: auto; /* ここだけスクロール */
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch; /* iOSでの慣性スクロール */
@@ -260,7 +262,7 @@ input[type="search"]::-webkit-search-cancel-button {
 /* === 4. カード一覧 === */
 .card-list-container {
     display: grid;
-    grid-template-columns: repeat(var(--grid-columns), 1fr);
+    grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
     /* ★ 修正: フィルタ画面のUI変更に伴い、gap: 0; に */
     gap: 0;
     /* ★ 修正: padding を .main-content に移動したため削除 */
@@ -768,19 +770,23 @@ input[type="search"]::-webkit-search-cancel-button {
     position: fixed;
     inset: 0;
     background-color: rgba(0, 0, 0, 0.85);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
+    justify-items: center;
+    align-items: stretch;
+    gap: 10px;
     z-index: 2000;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
     
     /* ★ 修正: padding を追加 (セーフエリア対応) */
-    padding-top: var(--safe-area-top);
-    padding-bottom: var(--safe-area-bottom);
-    padding-left: var(--safe-area-left);
-    padding-right: var(--safe-area-right);
+    padding-top: calc(var(--safe-area-top) + 12px);
+    padding-bottom: calc(var(--safe-area-bottom) + 12px);
+    padding-left: calc(var(--safe-area-left) + 12px);
+    padding-right: calc(var(--safe-area-right) + 12px);
 }
 
 .lightbox-close-btn {
@@ -802,18 +808,23 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 .lightbox-image, .lightbox-fallback {
+    grid-row: 1;
+    align-self: center;
+    min-width: 0;
+    min-height: 0;
     max-width: 100%;
-    max-height: calc(100% - 176px);
+    max-height: 100%;
     object-fit: contain;
     border-radius: 12px;
     z-index: 2001;
 }
 
 .lightbox-info {
-    position: absolute;
-    left: calc(var(--safe-area-left) + 12px);
-    right: calc(var(--safe-area-right) + 12px);
-    bottom: calc(var(--safe-area-bottom) + 12px);
+    position: static;
+    grid-row: 2;
+    width: min(980px, 100%);
+    max-height: min(34svh, 240px);
+    overflow-y: auto;
     z-index: 2002;
     display: flex;
     align-items: center;
@@ -901,8 +912,8 @@ input[type="search"]::-webkit-search-cancel-button {
     justify-content: center;
     align-items: center;
     /* サイズを画像と合わせるため */
-    width: 90vw; 
-    height: 90vh;
+    width: min(90vw, 420px);
+    height: min(90svh, 588px);
     background-color: var(--color-surface);
     color: var(--color-on-surface);
     font-size: 1.5rem;
@@ -910,6 +921,67 @@ input[type="search"]::-webkit-search-cancel-button {
     text-align: center;
     padding: 20px;
     word-break: break-all;
+}
+
+@media (max-width: 640px) {
+    .main-content {
+        padding-left: calc(var(--safe-area-left) + 4px);
+        padding-right: calc(var(--safe-area-right) + 4px);
+    }
+
+    .lightbox-overlay {
+        gap: 8px;
+        padding-top: calc(var(--safe-area-top) + 8px);
+        padding-bottom: calc(var(--safe-area-bottom) + 8px);
+        padding-left: calc(var(--safe-area-left) + 8px);
+        padding-right: calc(var(--safe-area-right) + 8px);
+    }
+
+    .lightbox-close-btn {
+        top: calc(8px + var(--safe-area-top));
+        right: calc(8px + var(--safe-area-right));
+    }
+
+    .lightbox-info {
+        max-height: min(40svh, 260px);
+        align-items: stretch;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .lightbox-get-info,
+    .lightbox-furigana-status {
+        max-width: 100%;
+    }
+
+    .lightbox-furigana-input {
+        width: min(100%, 280px);
+    }
+
+    .lightbox-variants {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-height: 560px) {
+    .lightbox-overlay {
+        grid-template-rows: minmax(0, 1fr) minmax(0, auto);
+        gap: 6px;
+    }
+
+    .lightbox-info {
+        max-height: 36svh;
+        padding: 8px 10px;
+    }
+
+    .lightbox-title {
+        font-size: 13px;
+    }
+
+    .lightbox-subtitle,
+    .variant-btn {
+        font-size: 11px;
+    }
 }
 
 
