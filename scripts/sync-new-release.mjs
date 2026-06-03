@@ -106,6 +106,7 @@ for (const arg of args) {
 }
 
 run(process.execPath, cardSyncArgs);
+run(process.execPath, [path.join('scripts', 'apply-block-icon-overrides.mjs'), ...(dryRun ? ['--dry-run'] : [])]);
 run(process.execPath, officialSyncArgs);
 
 if (dryRun) {

@@ -19,7 +19,8 @@
     const GITHUB_TOKEN_STORAGE_KEY = 'githubToken';
     const FURIGANA_EDITOR_VISIBLE_STORAGE_KEY = 'furiganaEditorVisible';
     const LIST_BADGES_VISIBLE_STORAGE_KEY = 'listBadgesVisible';
-    const APP_VERSION = '1.2.2'; // バージョン更新
+    const STANDARD_BLOCKS = ['2', '3', '4', '5', 'X'];
+    const APP_VERSION = '1.2.4'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -75,6 +76,30 @@
         return str.replace(/[\uFF01-\uFF5E]/g, function(match) {
             return String.fromCharCode(match.charCodeAt(0) - 0xFEE0);
         });
+    }
+
+    function normalizeBlockValue(value) {
+        if (value === undefined || value === null) return '';
+        const normalized = String(value).trim().toUpperCase();
+        if (!normalized || normalized === 'NAN') return '';
+        return normalized;
+    }
+
+    function compareBlockValues(a, b) {
+        const numA = Number(a);
+        const numB = Number(b);
+        const aIsNumber = Number.isFinite(numA);
+        const bIsNumber = Number.isFinite(numB);
+
+        if (aIsNumber && bIsNumber) return numA - numB;
+        if (aIsNumber) return -1;
+        if (bIsNumber) return 1;
+        return a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' });
+    }
+
+    function getEffectiveBlockValue(card) {
+        if (!card) return '';
+        return normalizeBlockValue(card.blockIconOverride) || normalizeBlockValue(card.block);
     }
 
     // === 3. 初期化処理 ===
@@ -862,7 +887,8 @@
             
             // ブロックアイコン
             if (f.blocks?.length > 0) {
-                if (card.block === undefined || card.block === null || !f.blocks.includes(String(card.block))) {
+                const cardBlock = getEffectiveBlockValue(card);
+                if (!cardBlock || !f.blocks.includes(cardBlock)) {
                     return false;
                 }
             }
@@ -961,9 +987,8 @@
                 card.attribute.split('/').forEach(a => attributes.add(a));
             }
 
-            if (card.block !== undefined && card.block !== null) {
-                blocks.add(card.block);
-            }
+            const block = getEffectiveBlockValue(card);
+            if (block) blocks.add(block);
 
             const seriesId = card.cardNumber.split('-')[0];
             if (!seriesId || seriesSet.has(seriesId)) return;
@@ -999,7 +1024,7 @@
             return Number(a) - Number(b);
         });
         const sortedAttributes = [...attributes].sort();
-        const sortedBlocks = [...blocks].map(Number).sort((a, b) => a - b);
+        const sortedBlocks = [...blocks].sort(compareBlockValues);
 
         const seriesEntries = [...seriesSet.entries()];
         const sortedSeries = seriesEntries
@@ -1020,7 +1045,7 @@
             ${createFilterGroup('attributes', '属性', sortedAttributes, 'attributes')}
             ${createFilterGroup('types', '種別', sortedTypes, 'types')}
             ${createFilterGroup('rarities', 'レアリティ', sortedRarities, 'rarities')}
-            ${createFilterGroup('blocks', 'ブロック', sortedBlocks.map(String), 'blocks')}
+            ${createBlockFilterGroup(sortedBlocks)}
             ${createExtraFilterGroup()}
             ${createSeriesFilter(sortedSeries)}
         `;
@@ -1046,7 +1071,7 @@
 
     function createFilterGroup(name, legend, options, gridClass = '') {
         if (options.length === 0) return '';
-        
+
         const optionsHtml = options.map(option => `
             <label class="filter-checkbox-label" data-color="${name === 'colors' ? option : ''}">
                 <input type="checkbox" class="filter-checkbox" name="${name}" value="${option}">
@@ -1058,6 +1083,32 @@
             <fieldset class="filter-group">
                 <legend>${legend}</legend>
                 <div class="filter-grid ${gridClass}">
+                    ${optionsHtml}
+                </div>
+            </fieldset>
+        `;
+    }
+
+    function createBlockFilterGroup(options) {
+        if (options.length === 0) return '';
+
+        const availableStandardBlocks = STANDARD_BLOCKS.filter(block => options.includes(block));
+        const disabled = availableStandardBlocks.length === 0 ? ' disabled' : '';
+        const optionsHtml = options.map(option => `
+            <label class="filter-checkbox-label">
+                <input type="checkbox" class="filter-checkbox" name="blocks" value="${option}">
+                <span class="filter-checkbox-ui">${option}</span>
+            </label>
+        `).join('');
+
+        return `
+            <fieldset class="filter-group">
+                <legend>ブロック</legend>
+                <div class="filter-preset-row">
+                    <button type="button" class="filter-preset-btn" data-filter-preset="standard-blocks" data-blocks="${availableStandardBlocks.join(',')}"${disabled}>スタンダード</button>
+                    <button type="button" class="filter-preset-btn" data-filter-preset="clear-blocks">解除</button>
+                </div>
+                <div class="filter-grid blocks">
                     ${optionsHtml}
                 </div>
             </fieldset>
@@ -1145,6 +1196,23 @@
 
         currentFilter = { searchMode: 'AND', colors: [], costs: [], powers: [], counters: [], attributes: [], types: [], rarities: [], blocks: [], extras: [], series: '' };
         console.log('Filters reset.');
+    }
+
+    function handleFilterPresetClick(event) {
+        const button = event.target.closest('[data-filter-preset]');
+        if (!button || !dom.filterOptionsContainer?.contains(button)) return;
+
+        const blockCheckboxes = [...$$('input[name="blocks"]')];
+        if (button.dataset.filterPreset === 'standard-blocks') {
+            const standardBlocks = (button.dataset.blocks || '').split(',').filter(Boolean);
+            blockCheckboxes.forEach(cb => {
+                cb.checked = standardBlocks.includes(cb.value);
+            });
+        } else if (button.dataset.filterPreset === 'clear-blocks') {
+            blockCheckboxes.forEach(cb => {
+                cb.checked = false;
+            });
+        }
     }
 
     // === 新規関数: フィルタモーダルの表示を現在の適用フィルタと同期する ===
@@ -1774,6 +1842,7 @@
         dom.resetFilterBtn.addEventListener('click', () => {
             resetFilters();
         });
+        dom.filterOptionsContainer.addEventListener('click', handleFilterPresetClick);
 
         // フィルタタップ判定
         let filterTapElement = null;

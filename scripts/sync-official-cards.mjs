@@ -3,6 +3,7 @@ import path from 'node:path';
 
 const OFFICIAL_BASE_URL = 'https://www.onepiece-cardgame.com';
 const CARDS_JSON = 'cards.json';
+const BLOCK_ICON_OVERRIDES_JSON = 'block-icon-overrides.json';
 
 const args = process.argv.slice(2);
 const dryRun = args.includes('--dry-run');
@@ -45,6 +46,45 @@ function normalizeNumber(value) {
     if (!text || text === '-') return text || '-';
     const number = Number(text.replace(/,/g, ''));
     return Number.isFinite(number) ? number : text;
+}
+
+function normalizeCardNumber(value) {
+    return String(value || '').trim().toUpperCase();
+}
+
+function normalizeBlockValue(value) {
+    if (value === undefined || value === null) return '';
+    const normalized = String(value).trim().toUpperCase();
+    if (!normalized || normalized === 'NAN') return '';
+    return normalized;
+}
+
+function applyBlockIconOverrides(cards, overrides) {
+    const legacySuperParallelX = new Set(
+        Array.isArray(overrides.legacySuperParallelX)
+            ? overrides.legacySuperParallelX.map(normalizeCardNumber).filter(Boolean)
+            : []
+    );
+    const blockIconOverrides = overrides.blockIconOverrides && typeof overrides.blockIconOverrides === 'object'
+        ? overrides.blockIconOverrides
+        : {};
+
+    let changed = 0;
+    for (const card of cards) {
+        const cardNumber = normalizeCardNumber(card.cardNumber);
+        const override = legacySuperParallelX.has(cardNumber)
+            ? 'X'
+            : normalizeBlockValue(blockIconOverrides[cardNumber]);
+
+        if (override) {
+            if (card.blockIconOverride !== override) changed++;
+            card.blockIconOverride = override;
+        } else if (Object.prototype.hasOwnProperty.call(card, 'blockIconOverride')) {
+            delete card.blockIconOverride;
+            changed++;
+        }
+    }
+    return changed;
 }
 
 function splitList(value) {
@@ -171,6 +211,13 @@ const nextCards = [...byCardNumber.values()].sort((a, b) => {
     const prefixCompare = String(a.cardNumber || '').split('-')[0].localeCompare(String(b.cardNumber || '').split('-')[0]);
     return prefixCompare || String(a.cardNumber || '').localeCompare(String(b.cardNumber || ''), 'en', { numeric: true });
 });
+let blockIconOverrideChanged = 0;
+try {
+    const overrides = JSON.parse(await readFile(BLOCK_ICON_OVERRIDES_JSON, 'utf8'));
+    blockIconOverrideChanged = applyBlockIconOverrides(nextCards, overrides);
+} catch (error) {
+    console.warn(`Skipped block icon overrides: ${error.message}`);
+}
 
 if (!dryRun) {
     await writeFile(CARDS_JSON, `${JSON.stringify(nextCards, null, 2)}\n`, 'utf8');
@@ -181,6 +228,7 @@ console.log(JSON.stringify({
     added,
     updated,
     skipped,
+    blockIconOverrideChanged,
     totalCards: nextCards.length,
     dryRun
 }, null, 2));
