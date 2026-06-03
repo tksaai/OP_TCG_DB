@@ -19,8 +19,11 @@
     const GITHUB_TOKEN_STORAGE_KEY = 'githubToken';
     const FURIGANA_EDITOR_VISIBLE_STORAGE_KEY = 'furiganaEditorVisible';
     const LIST_BADGES_VISIBLE_STORAGE_KEY = 'listBadgesVisible';
-    const STANDARD_BLOCKS = ['2', '3', '4', '5', 'X'];
-    const APP_VERSION = '1.2.4'; // バージョン更新
+    const STANDARD_REGULATION_BASE_YEAR = 2026;
+    const STANDARD_REGULATION_BASE_BLOCK = 2;
+    const STANDARD_REGULATION_BLOCK_COUNT = 4;
+    const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
+    const APP_VERSION = '1.2.5'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -100,6 +103,31 @@
     function getEffectiveBlockValue(card) {
         if (!card) return '';
         return normalizeBlockValue(card.blockIconOverride) || normalizeBlockValue(card.block);
+    }
+
+    function getStandardRegulationYear(date = new Date()) {
+        const year = date.getFullYear();
+        const month = date.getMonth() + 1;
+        return month >= 4 ? year : year - 1;
+    }
+
+    function getStandardBlockValues(date = new Date()) {
+        const regulationYear = getStandardRegulationYear(date);
+        const firstBlock = Math.max(
+            1,
+            STANDARD_REGULATION_BASE_BLOCK + (regulationYear - STANDARD_REGULATION_BASE_YEAR)
+        );
+        const numberedBlocks = Array.from(
+            { length: STANDARD_REGULATION_BLOCK_COUNT },
+            (_, index) => String(firstBlock + index)
+        );
+        return [...numberedBlocks, ...STANDARD_REGULATION_EXTRA_BLOCKS];
+    }
+
+    function getStandardBlockLabel(date = new Date()) {
+        const regulationYear = getStandardRegulationYear(date);
+        const blocks = getStandardBlockValues(date);
+        return `${regulationYear}年度スタンダード: ${blocks.join(', ')}`;
     }
 
     // === 3. 初期化処理 ===
@@ -1092,7 +1120,9 @@
     function createBlockFilterGroup(options) {
         if (options.length === 0) return '';
 
-        const availableStandardBlocks = STANDARD_BLOCKS.filter(block => options.includes(block));
+        const standardBlocks = getStandardBlockValues();
+        const standardLabel = getStandardBlockLabel();
+        const availableStandardBlocks = standardBlocks.filter(block => options.includes(block));
         const disabled = availableStandardBlocks.length === 0 ? ' disabled' : '';
         const optionsHtml = options.map(option => `
             <label class="filter-checkbox-label">
@@ -1105,7 +1135,7 @@
             <fieldset class="filter-group">
                 <legend>ブロック</legend>
                 <div class="filter-preset-row">
-                    <button type="button" class="filter-preset-btn" data-filter-preset="standard-blocks" data-blocks="${availableStandardBlocks.join(',')}"${disabled}>スタンダード</button>
+                    <button type="button" class="filter-preset-btn" data-filter-preset="standard-blocks" data-blocks="${availableStandardBlocks.join(',')}" title="${standardLabel}"${disabled}>スタンダード</button>
                     <button type="button" class="filter-preset-btn" data-filter-preset="clear-blocks">解除</button>
                 </div>
                 <div class="filter-grid blocks">
