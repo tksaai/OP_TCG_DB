@@ -87,6 +87,51 @@ function applyBlockIconOverrides(cards, overrides) {
     return changed;
 }
 
+function isMissingValue(value) {
+    if (value === undefined || value === null) return true;
+    const text = String(value).trim();
+    return text === '' || text === '-';
+}
+
+function mergeMissingOfficialFields(existingCard, officialCard) {
+    const merged = { ...existingCard };
+    let changed = false;
+    const fields = [
+        'furigana',
+        'costLifeType',
+        'costLifeValue',
+        'power',
+        'counter',
+        'attribute',
+        'block',
+        'effectText',
+        'trigger',
+        'getInfo',
+        'seriesTitle',
+        'seriesCode',
+        'sourceModalId'
+    ];
+
+    for (const field of fields) {
+        if (isMissingValue(merged[field]) && !isMissingValue(officialCard[field])) {
+            merged[field] = officialCard[field];
+            changed = true;
+        }
+    }
+
+    if ((!Array.isArray(merged.features) || merged.features.length === 0) && Array.isArray(officialCard.features) && officialCard.features.length > 0) {
+        merged.features = officialCard.features;
+        changed = true;
+    }
+
+    if ((!Array.isArray(merged.color) || merged.color.length === 0) && Array.isArray(officialCard.color) && officialCard.color.length > 0) {
+        merged.color = officialCard.color;
+        changed = true;
+    }
+
+    return { card: merged, changed };
+}
+
 function splitList(value) {
     return String(value || '')
         .split(/[／/]/)
@@ -192,6 +237,7 @@ for (const searchValue of searches) {
 
 let added = 0;
 let updated = 0;
+let patchedMissing = 0;
 let skipped = 0;
 for (const card of fetchedCards.values()) {
     if (byCardNumber.has(card.cardNumber)) {
@@ -199,7 +245,13 @@ for (const card of fetchedCards.values()) {
             byCardNumber.set(card.cardNumber, { ...byCardNumber.get(card.cardNumber), ...card });
             updated++;
         } else {
-            skipped++;
+            const { card: patchedCard, changed } = mergeMissingOfficialFields(byCardNumber.get(card.cardNumber), card);
+            if (changed) {
+                byCardNumber.set(card.cardNumber, patchedCard);
+                patchedMissing++;
+            } else {
+                skipped++;
+            }
         }
         continue;
     }
@@ -227,6 +279,7 @@ console.log(JSON.stringify({
     fetched: fetchedCards.size,
     added,
     updated,
+    patchedMissing,
     skipped,
     blockIconOverrideChanged,
     totalCards: nextCards.length,
