@@ -1,4 +1,4 @@
-﻿[
+[
   {
     "uniqueId": "EB01-001_dummy.gif",
     "cardNumber": "EB01-001",
@@ -131,7 +131,6 @@
   {
     "uniqueId": "EB01-006_dummy.gif",
     "cardNumber": "EB01-006",
-    "blockIconOverride": "X",
     "cardName": "トニートニー・チョッパー",
     "furigana": "トニートニー・チョッパー",
     "rarity": "SR",
@@ -3087,7 +3086,6 @@
   {
     "uniqueId": "EB02-061_dummy.gif",
     "cardNumber": "EB02-061",
-    "blockIconOverride": "X",
     "cardName": "モンキー・D・ルフィ",
     "furigana": "モンキー・ディー・ルフィ",
     "rarity": "SEC",
@@ -6644,7 +6642,6 @@
   {
     "uniqueId": "OP01-016_dummy.gif",
     "cardNumber": "OP01-016",
-    "blockIconOverride": "X",
     "cardName": "ナミ",
     "furigana": "ナミ",
     "rarity": "R",
@@ -7235,7 +7232,6 @@
   {
     "uniqueId": "OP01-039_dummy.gif",
     "cardNumber": "OP01-039",
-    "blockIconOverride": "4",
     "cardName": "キラー",
     "furigana": "キラー",
     "rarity": "UC",
@@ -7649,7 +7645,6 @@
   {
     "uniqueId": "OP01-055_dummy.gif",
     "cardNumber": "OP01-055",
-    "blockIconOverride": "4",
     "cardName": "おれの”侍”になれ‼!",
     "furigana": "オレノサムライニナレ",
     "rarity": "C",
@@ -9319,7 +9314,6 @@
   {
     "uniqueId": "OP01-120_dummy.gif",
     "cardNumber": "OP01-120",
-    "blockIconOverride": "X",
     "cardName": "シャンクス",
     "furigana": "シャンクス",
     "rarity": "SEC",
@@ -9474,7 +9468,6 @@
   {
     "uniqueId": "OP02-005_dummy.gif",
     "cardNumber": "OP02-005",
-    "blockIconOverride": "4",
     "cardName": "カーリー・ダダン",
     "furigana": "カーリー・ダダン",
     "rarity": "UC",
@@ -9675,7 +9668,6 @@
   {
     "uniqueId": "OP02-013_dummy.gif",
     "cardNumber": "OP02-013",
-    "blockIconOverride": "X",
     "cardName": "ポートガス・D・エース",
     "furigana": "ポートガス・ディー・エース",
     "rarity": "SR",
@@ -11097,7 +11089,6 @@
   {
     "uniqueId": "OP02-068_dummy.gif",
     "cardNumber": "OP02-068",
-    "blockIconOverride": "4",
     "cardName": "ゴムゴムの雨",
     "furigana": "ゴムゴムノアメ",
     "rarity": "R",
@@ -12640,7 +12631,6 @@
   {
     "uniqueId": "OP03-008_dummy.gif",
     "cardNumber": "OP03-008",
-    "blockIconOverride": "4",
     "cardName": "バギー",
     "furigana": "バギー",
     "rarity": "UC",
@@ -13566,7 +13556,6 @@
   {
     "uniqueId": "OP03-044_dummy.gif",
     "cardNumber": "OP03-044",
-    "blockIconOverride": "4",
     "cardName": "カヤ",
     "furigana": "カヤ",
     "rarity": "R",
@@ -13667,7 +13656,6 @@
   {
     "uniqueId": "OP03-048_dummy.gif",
     "cardNumber": "OP03-048",
-    "blockIconOverride": "4",
     "cardName": "ノジコ",
     "furigana": "ノジコ",
     "rarity": "UC",
@@ -14286,7 +14274,6 @@
   {
     "uniqueId": "OP03-072_dummy.gif",
     "cardNumber": "OP03-072",
-    "blockIconOverride": "4",
     "cardName": "ゴムゴムのJET銃乱打",
     "furigana": "ゴムゴムノジェットガトリング",
     "rarity": "R",
@@ -14919,7 +14906,6 @@
   {
     "uniqueId": "OP03-097_dummy.gif",
     "cardNumber": "OP03-097",
-    "blockIconOverride": "4",
     "cardName": "六王銃",
     "furigana": "ロクオウガン",
     "rarity": "R",
@@ -15551,7 +15537,6 @@
   {
     "uniqueId": "OP03-122_dummy.gif",
     "cardNumber": "OP03-122",
-    "blockIconOverride": "X",
     "cardName": "そげキング",
     "furigana": "ソゲキング",
     "rarity": "SEC",
@@ -15988,7 +15973,6 @@
   {
     "uniqueId": "OP04-016_dummy.gif",
     "cardNumber": "OP04-016",
-    "blockIconOverride": "4",
     "cardName": "反行儀キックコース",
     "furigana": "アンチマナーキックコース",
     "rarity": "R",
@@ -17540,7 +17524,6 @@
   {
     "uniqueId": "OP04-077_dummy.gif",
     "cardNumber": "OP04-077",
-    "blockIconOverride": "4",
     "cardName": "イデオ",
     "furigana": "イデオ",
     "rarity": "C",
@@ -17694,7 +17677,6 @@
   {
     "uniqueId": "OP04-083_dummy.gif",
     "cardNumber": "OP04-083",
-    "blockIconOverride": "X",
     "cardName": "サボ",
     "furigana": "サボ",
     "rarity": "SR",
@@ -18030,7 +18012,6 @@
   {
     "uniqueId": "OP04-096_dummy.gif",
     "cardNumber": "OP04-096",
-    "blockIconOverride": "4",
     "cardName": "コリーダコロシアム",
     "furigana": "コリーダコロシアム",
     "rarity": "C",
@@ -20359,7 +20340,6 @@
   {
     "uniqueId": "OP05-069_dummy.gif",
     "cardNumber": "OP05-069",
-    "blockIconOverride": "X",
     "cardName": "トラファルガー・ロー",
     "furigana": "トラファルガー・ロー",
     "rarity": "SR",
@@ -20486,7 +20466,6 @@
   {
     "uniqueId": "OP05-074_dummy.gif",
     "cardNumber": "OP05-074",
-    "blockIconOverride": "X",
     "cardName": "ユースタス・キッド",
     "furigana": "ユースタス・キッド",
     "rarity": "SR",
@@ -21624,7 +21603,6 @@
   {
     "uniqueId": "OP05-119_dummy.gif",
     "cardNumber": "OP05-119",
-    "blockIconOverride": "X",
     "cardName": "モンキー・D・ルフィ",
     "furigana": "モンキー・ディー・ルフィ",
     "rarity": "SEC",
@@ -24656,7 +24634,6 @@
   {
     "uniqueId": "OP06-118_dummy.gif",
     "cardNumber": "OP06-118",
-    "blockIconOverride": "X",
     "cardName": "ロロノア・ゾロ",
     "furigana": "ロロノア・ゾロ",
     "rarity": "SEC",
@@ -24682,7 +24659,6 @@
   {
     "uniqueId": "OP06-119_dummy.gif",
     "cardNumber": "OP06-119",
-    "blockIconOverride": "X",
     "cardName": "サンジ",
     "furigana": "サンジ",
     "rarity": "SEC",
@@ -25990,7 +25966,6 @@
   {
     "uniqueId": "OP07-051_dummy.gif",
     "cardNumber": "OP07-051",
-    "blockIconOverride": "X",
     "cardName": "ボア・ハンコック",
     "furigana": "ボア・ハンコック",
     "rarity": "SR",
@@ -30732,7 +30707,6 @@
   {
     "uniqueId": "OP08-118_dummy.gif",
     "cardNumber": "OP08-118",
-    "blockIconOverride": "X",
     "cardName": "シルバーズ･レイリー",
     "furigana": "シルバーズ・レイリー",
     "rarity": "SEC",
@@ -30861,7 +30835,6 @@
   {
     "uniqueId": "OP09-004_dummy.gif",
     "cardNumber": "OP09-004",
-    "blockIconOverride": "X",
     "cardName": "シャンクス",
     "furigana": "シャンクス",
     "rarity": "SR",
@@ -32070,7 +32043,6 @@
   {
     "uniqueId": "OP09-051_dummy.gif",
     "cardNumber": "OP09-051",
-    "blockIconOverride": "X",
     "cardName": "バギー",
     "furigana": "バギー",
     "rarity": "R",
@@ -33136,7 +33108,6 @@
   {
     "uniqueId": "OP09-093_dummy.gif",
     "cardNumber": "OP09-093",
-    "blockIconOverride": "X",
     "cardName": "マーシャル・D・ティーチ",
     "furigana": "マーシャル・ディー・ティーチ",
     "rarity": "SR",
@@ -33772,7 +33743,6 @@
   {
     "uniqueId": "OP09-118_dummy.gif",
     "cardNumber": "OP09-118",
-    "blockIconOverride": "X",
     "cardName": "ゴール・D・ロジャー",
     "furigana": "",
     "rarity": "SEC",
@@ -33799,7 +33769,6 @@
   {
     "uniqueId": "OP09-119_dummy.gif",
     "cardNumber": "OP09-119",
-    "blockIconOverride": "X",
     "cardName": "モンキー・D・ルフィ",
     "furigana": "モンキー・ディー・ルフィ",
     "rarity": "SEC",
@@ -36887,7 +36856,6 @@
   {
     "uniqueId": "OP10-119_dummy.gif",
     "cardNumber": "OP10-119",
-    "blockIconOverride": "X",
     "cardName": "トラファルガー・ロー",
     "furigana": "トラファルガー・ロー",
     "rarity": "SEC",
@@ -39915,7 +39883,6 @@
   {
     "uniqueId": "OP11-118_dummy.gif",
     "cardNumber": "OP11-118",
-    "blockIconOverride": "X",
     "cardName": "モンキー・Ｄ・ルフィ",
     "furigana": "モンキー・ディー・ルフィ",
     "rarity": "SEC",
@@ -42976,7 +42943,6 @@
   {
     "uniqueId": "OP12-118_dummy.gif",
     "cardNumber": "OP12-118",
-    "blockIconOverride": "X",
     "cardName": "ジュエリー・ボニー",
     "furigana": "ジュエリー・ボニー",
     "rarity": "SEC",
@@ -46033,7 +45999,6 @@
   {
     "uniqueId": "OP13-118_dummy.gif",
     "cardNumber": "OP13-118",
-    "blockIconOverride": "X",
     "cardName": "モンキー・Ｄ・ルフィ",
     "furigana": "モンキー・ディー・ルフィ",
     "rarity": "SEC",
@@ -46061,7 +46026,6 @@
   {
     "uniqueId": "OP13-119_dummy.gif",
     "cardNumber": "OP13-119",
-    "blockIconOverride": "X",
     "cardName": "ポートガス・Ｄ・エース",
     "furigana": "ポートガス・ディー・エース",
     "rarity": "SEC",
@@ -46087,7 +46051,6 @@
   {
     "uniqueId": "OP13-120_dummy.gif",
     "cardNumber": "OP13-120",
-    "blockIconOverride": "X",
     "cardName": "サボ",
     "furigana": "サボ",
     "rarity": "SEC",
@@ -49150,7 +49113,6 @@
   {
     "uniqueId": "OP14-119_dummy.gif",
     "cardNumber": "OP14-119",
-    "blockIconOverride": "X",
     "cardName": "ジュラキュール・ミホーク",
     "furigana": "ジュラキュール・ミホーク",
     "rarity": "SEC",
@@ -51656,7 +51618,7 @@
     "features": [
       "麦わらの一味"
     ],
-    "block": 4,
+    "block": "-",
     "effectText": "【メイン】自分のドン‼1枚をレストにできる：自分のリーダーが特徴《麦わらの一味》を持つ場合、自分のデッキの上から5枚をトラッシュに置く。【カウンター】自分の手札1枚を捨てることができる：自分のリーダーかキャラ1枚までを、このバトル中、パワー+3000。",
     "trigger": "",
     "getInfo": "ブースターパック 神の島の冒険【OP-15】",
@@ -59182,7 +59144,6 @@
   {
     "uniqueId": "ST01-011_dummy.gif",
     "cardNumber": "ST01-011",
-    "blockIconOverride": "4",
     "cardName": "ブルック",
     "furigana": "ブルック",
     "rarity": "C",
@@ -59516,7 +59477,6 @@
   {
     "uniqueId": "ST02-007_dummy.gif",
     "cardNumber": "ST02-007",
-    "blockIconOverride": "4",
     "cardName": "ジュエリー・ボニー",
     "furigana": "ジュエリー・ボニー",
     "rarity": "C",
@@ -61293,7 +61253,6 @@
   {
     "uniqueId": "ST06-008_dummy.gif",
     "cardNumber": "ST06-008",
-    "blockIconOverride": "4",
     "cardName": "ヒナ",
     "furigana": "ヒナ",
     "rarity": "C",
