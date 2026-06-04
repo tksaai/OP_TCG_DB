@@ -7,6 +7,7 @@
     <title>OP-TCG DB PWA</title>
     <!-- CSSファイル -->
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
     
     <!-- 2. Web App Manifest -->
     <link rel="manifest" href="manifest.json">
@@ -22,8 +23,8 @@
     <link rel="icon" href="icons/iconx192.png" sizes="192x192">
     
     <!-- 5. 必要なライブラリ (IndexedDBラッパー) -->
-    <!-- defer を削除し、head内でブロッキングロード -->
-    <script src="https://cdn.jsdelivr.net/npm/idb@8/build/umd.js"></script>
+    <!-- app.js より先に実行される defer スクリプトとして読み込む -->
+    <script src="https://cdn.jsdelivr.net/npm/idb@8/build/umd.js" defer></script>
 </head>
 <body>
 

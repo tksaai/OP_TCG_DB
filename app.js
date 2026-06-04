@@ -23,7 +23,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.2.5'; // バージョン更新
+    const APP_VERSION = '1.2.6'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -48,6 +48,8 @@
     let currentLightboxIndex = -1;
     let currentLightboxVariantIndex = 0;
     let imageManifest = { cards: {} };
+    let imageManifestLoadPromise = null;
+    let hasLoadedImageManifest = false;
     let furiganaOverrides = {};
     let touchStartX = 0;
     let touchEndX = 0;
@@ -207,17 +209,22 @@
         setupEventListeners();
         try {
             await initDB();
-            await loadImageManifest();
             await loadFuriganaOverrides();
         } catch (dbError) {
             console.error("Critical error during DB initialization:", dbError);
             dom.loadingIndicator.textContent = 'データベースの初期化に致命的なエラーが発生しました。';
             return;
         }
-        if (db) {
-            await checkCardDataVersion();
-        }
         setDefaultColumnLayout();
+        if (db) {
+            await loadCardsFromDB();
+            if (allCards.length === 0) {
+                await checkCardDataVersion();
+            } else {
+                checkCardDataVersion({ background: true });
+            }
+        }
+        scheduleImageManifestLoad();
     }
 
     async function initDB() {
@@ -262,10 +269,41 @@
             if (!response.ok) throw new Error(`Failed to fetch image manifest: ${response.status}`);
             const manifest = await response.json();
             imageManifest = manifest && manifest.cards ? manifest : { cards: {} };
+            hasLoadedImageManifest = true;
         } catch (error) {
             console.warn('Failed to load image manifest. Falling back to generated paths.', error);
             imageManifest = { cards: {} };
+            hasLoadedImageManifest = false;
         }
+    }
+
+    function scheduleIdleTask(callback) {
+        if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(callback, { timeout: 2000 });
+        } else {
+            setTimeout(callback, 0);
+        }
+    }
+
+    function scheduleImageManifestLoad() {
+        if (imageManifestLoadPromise) return imageManifestLoadPromise;
+
+        imageManifestLoadPromise = new Promise(resolve => {
+            scheduleIdleTask(() => {
+                loadImageManifest()
+                    .then(() => {
+                        if (hasLoadedImageManifest && currentFilteredCards.length > 0) {
+                            displayCards(currentFilteredCards);
+                            if (currentLightboxIndex >= 0) {
+                                updateLightboxImage(currentLightboxIndex, currentLightboxVariantIndex, { force: true });
+                            }
+                        }
+                    })
+                    .finally(resolve);
+            });
+        });
+
+        return imageManifestLoadPromise;
     }
 
     function getOverrideFurigana(cardNumber) {
@@ -633,9 +671,9 @@
         updateLightboxImage(index, 0);
     }
     
-    function updateLightboxImage(newIndex, variantIndex = 0) {
+    function updateLightboxImage(newIndex, variantIndex = 0, options = {}) {
         if (newIndex < 0 || newIndex >= currentFilteredCards.length) return;
-        if (newIndex === currentLightboxIndex && variantIndex === currentLightboxVariantIndex && !isDebugInfoVisible) return;
+        if (!options.force && newIndex === currentLightboxIndex && variantIndex === currentLightboxVariantIndex && !isDebugInfoVisible) return;
         
         isDebugInfoVisible = false;
         currentLightboxIndex = newIndex;
@@ -1276,8 +1314,9 @@
 
 
     // === 4. データ管理 (DB, JSON) ===
-    async function checkCardDataVersion() {
+    async function checkCardDataVersion(options = {}) {
         if (!db) return;
+        const isBackground = Boolean(options.background);
 
         try {
             const response = await fetch(CARDS_JSON_PATH, { cache: 'no-store' });
@@ -1310,15 +1349,15 @@
                     await fetchAndUpdateCardData(serverLastModified, cardsData, serverHash);
                 } else {
                     showDbUpdateNotification(serverLastModified, cardsData, serverHash);
-                    await loadCardsFromDB();
+                    if (!isBackground) await loadCardsFromDB();
                 }
             } else {
                 if (serverLastModified && serverLastModified !== localLastModified) {
                     await db.put(STORE_METADATA, { key: 'cardsLastModified', value: serverLastModified });
                     dom.cardDataVersionInfo.textContent = new Date(serverLastModified).toLocaleString('ja-JP');
                 }
-                await loadCardsFromDB();
-                if (allCards.length === 0 && localHash) {
+                if (!isBackground) await loadCardsFromDB();
+                if (!isBackground && allCards.length === 0 && localHash) {
                     dom.loadingIndicator.style.display = 'flex';
                     dom.loadingIndicator.querySelector('p').textContent = 'データ整合性を確認中...';
                     await fetchAndUpdateCardData(serverLastModified, cardsData, serverHash);
@@ -1326,9 +1365,11 @@
             }
         } catch (error) {
             console.error('Failed to check card data version:', error);
-            dom.loadingIndicator.style.display = 'flex';
-            dom.loadingIndicator.querySelector('p').textContent = 'オフラインモードで起動中...';
-            await loadCardsFromDB();
+            if (!isBackground) {
+                dom.loadingIndicator.style.display = 'flex';
+                dom.loadingIndicator.querySelector('p').textContent = 'オフラインモードで起動中...';
+                await loadCardsFromDB();
+            }
         }
     }
 
