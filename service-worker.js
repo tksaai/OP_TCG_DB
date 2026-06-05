@@ -5,8 +5,8 @@
  */
 
 // === 1. 定数 ===
-const CACHE_APP_SHELL = 'app-shell-v4';
-const CACHE_CARD_DATA = 'card-data-v4';
+const CACHE_APP_SHELL = 'app-shell-v3';
+const CACHE_CARD_DATA = 'card-data-v3';
 const CACHE_IMAGES = 'card-images-v1';
 
 // GitHub Pagesのリポジトリ名を考慮し、パスを `./` から始める
@@ -16,6 +16,7 @@ const APP_SHELL_FILES = [
     './index.html',
     './style.css',
     './app.js', // ファイル名を修正
+    './image-manifest.json',
     './manifest.json',
     './icons/iconx192.png',
     './icons/iconx512.png',
@@ -25,7 +26,6 @@ const APP_SHELL_FILES = [
 // cards.json のパスを相対パスに
 const CARDS_JSON_PATH = './cards.json';
 const FURIGANA_OVERRIDES_PATH = './furigana-overrides.json';
-const IMAGE_MANIFEST_PATH = './image-manifest.json';
 
 
 // === 2. インストール (Install) イベント ===
@@ -49,6 +49,15 @@ self.addEventListener('install', (event) => {
                         // インストール失敗として扱う
                         throw err; 
                     });
+            })
+            .then(() => caches.open(CACHE_CARD_DATA))
+            .then((cache) => {
+                console.log('[SW] Caching initial card data...');
+                // cards.json のキャッシュも試行
+                return cache.add(CARDS_JSON_PATH).catch(err => {
+                    console.error(`[SW] Failed to cache initial ${CARDS_JSON_PATH}`, err);
+                    // cards.jsonの初回キャッシュ失敗はインストール失敗としない
+                });
             })
             .then(() => {
                 console.log('[SW] Install complete.');
@@ -120,12 +129,7 @@ self.addEventListener('fetch', (event) => {
         event.respondWith(networkFirst(event.request, CACHE_CARD_DATA));
         return;
     }
-
-    if (relativePath === IMAGE_MANIFEST_PATH) {
-        event.respondWith(staleWhileRevalidate(event.request, CACHE_CARD_DATA));
-        return;
-    }
-
+    
     // 3. カード画像 (Cards/) (Cache First)
     if (requestPath.startsWith(basePath + 'Cards/') || requestPath.startsWith(basePath + 'CardsWebP/')) {
         event.respondWith(cacheFirst(event.request, CACHE_IMAGES));
