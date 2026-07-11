@@ -1,4 +1,5 @@
 import { spawnSync } from 'node:child_process';
+import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 
 const OFFICIAL_CARDLIST_URL = 'https://www.onepiece-cardgame.com/cardlist/';
@@ -73,6 +74,29 @@ async function discoverLatestOfficialSeries() {
     return series[0];
 }
 
+async function findSeriesWithoutOfficialImages() {
+    const cards = JSON.parse(await readFile('cards.json', 'utf8'));
+    const allSeries = new Set(
+        cards
+            .map(card => String(card.cardNumber || '').toUpperCase().split('-')[0])
+            .filter(Boolean)
+    );
+
+    let metadata = {};
+    try {
+        metadata = JSON.parse(await readFile('official-image-sources.json', 'utf8'));
+    } catch {
+        // No metadata yet; every series counts as uncovered.
+    }
+    const coveredSeries = new Set(
+        Object.entries(metadata)
+            .filter(([, value]) => value?.source === 'official')
+            .map(([filePath]) => filePath.split('/')[1])
+    );
+
+    return [...allSeries].filter(series => !coveredSeries.has(series)).sort();
+}
+
 const dryRun = hasArg('dry-run');
 const skipWebp = hasArg('skip-webp');
 const skipManifest = hasArg('skip-manifest');
@@ -81,13 +105,18 @@ let requestedSeries = argValue('series', 'latest').trim();
 
 if (!requestedSeries || /^latest|auto$/i.test(requestedSeries)) {
     const latest = await discoverLatestOfficialSeries();
-    requestedSeries = latest.code;
     console.log(`Detected latest official OP series: ${latest.code} (${latest.label})`);
+
+    const uncoveredSeries = await findSeriesWithoutOfficialImages();
+    if (uncoveredSeries.length > 0) {
+        console.log(`Detected series without any official images: ${uncoveredSeries.join(', ')}`);
+    }
+
+    requestedSeries = [...new Set([latest.code, ...uncoveredSeries])].join(',');
 }
 
 const officialSyncArgs = [
     path.join('scripts', 'sync-official-images.mjs'),
-    '--missing-only',
     `--series=${requestedSeries}`
 ];
 const cardSyncArgs = [

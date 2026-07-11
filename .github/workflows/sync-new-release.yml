@@ -13,6 +13,11 @@ on:
         required: false
         default: false
         type: boolean
+      force:
+        description: "Re-download images and overwrite card data even if they already exist"
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: write
@@ -47,6 +52,9 @@ jobs:
           ARGS="--series=${{ inputs.series }}"
           if [ "${{ inputs.dry_run }}" = "true" ]; then
             ARGS="$ARGS --dry-run"
+          fi
+          if [ "${{ inputs.force }}" = "true" ]; then
+            ARGS="$ARGS --force"
           fi
           node scripts/sync-new-release.mjs $ARGS --python=python
 
