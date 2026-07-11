@@ -1,6 +1,8 @@
 name: Sync new release
 
 on:
+  schedule:
+    - cron: "0 9 * * *" # 18:00 JST daily
   workflow_dispatch:
     inputs:
       series:
@@ -49,7 +51,7 @@ jobs:
 
       - name: Sync official cards and images
         run: |
-          ARGS="--series=${{ inputs.series }}"
+          ARGS="--series=${{ inputs.series || 'latest' }}"
           if [ "${{ inputs.dry_run }}" = "true" ]; then
             ARGS="$ARGS --dry-run"
           fi
@@ -62,7 +64,7 @@ jobs:
         run: git status --short
 
       - name: Commit and push
-        if: ${{ inputs.dry_run == false }}
+        if: ${{ inputs.dry_run != true }}
         run: |
           if [ -z "$(git status --short)" ]; then
             echo "No changes to commit."
@@ -71,5 +73,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add cards.json image-manifest.json official-image-sources.json Cards CardsWebP scripts
-          git commit -m "Sync ${{ inputs.series }} cards and images"
+          git commit -m "Sync ${{ inputs.series || 'latest' }} cards and images"
           git push
