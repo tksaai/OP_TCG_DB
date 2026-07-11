@@ -152,7 +152,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST【PRB-01】",
     "seriesTitle": "ONE PIECE CARD THE BEST",
-    "seriesCode": "PRB-01"
+    "seriesCode": "PRB-01",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "EB01-007_dummy.gif",
@@ -3107,7 +3108,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター Anime 25th collection【EB-02】",
     "seriesTitle": "エクストラブースター Anime 25th collection",
-    "seriesCode": "EB-02"
+    "seriesCode": "EB-02",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "EB03-001_dummy.gif",
@@ -4705,7 +4707,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-001_p1"
   },
   {
     "uniqueId": "EB04-002_dummy.gif",
@@ -4731,7 +4734,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-002_p1"
   },
   {
     "uniqueId": "EB04-003_dummy.gif",
@@ -4757,7 +4761,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-003_p1"
   },
   {
     "uniqueId": "EB04-004_dummy.gif",
@@ -4782,7 +4787,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-004"
   },
   {
     "uniqueId": "EB04-005_dummy.gif",
@@ -4809,7 +4815,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-005"
   },
   {
     "uniqueId": "EB04-006_dummy.gif",
@@ -4834,7 +4841,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-006"
   },
   {
     "uniqueId": "EB04-007_dummy.gif",
@@ -4860,7 +4868,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-007_p1"
   },
   {
     "uniqueId": "EB04-008_dummy.gif",
@@ -4886,7 +4895,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-008"
   },
   {
     "uniqueId": "EB04-009_dummy.gif",
@@ -4911,7 +4921,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-009"
   },
   {
     "uniqueId": "EB04-010_dummy.gif",
@@ -4936,7 +4947,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-010"
   },
   {
     "uniqueId": "EB04-011_dummy.gif",
@@ -4961,7 +4973,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-011"
   },
   {
     "uniqueId": "EB04-012_dummy.gif",
@@ -4987,7 +5000,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-012_p1"
   },
   {
     "uniqueId": "EB04-013_dummy.gif",
@@ -5012,7 +5026,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-013_p1"
   },
   {
     "uniqueId": "EB04-014_dummy.gif",
@@ -5038,7 +5053,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-014"
   },
   {
     "uniqueId": "EB04-015_dummy.gif",
@@ -5065,7 +5081,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-015"
   },
   {
     "uniqueId": "EB04-016_dummy.gif",
@@ -5090,7 +5107,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-016"
   },
   {
     "uniqueId": "EB04-017_dummy.gif",
@@ -5116,7 +5134,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-017"
   },
   {
     "uniqueId": "EB04-018_dummy.gif",
@@ -5142,7 +5161,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-018_p1"
   },
   {
     "uniqueId": "EB04-019_dummy.gif",
@@ -5167,7 +5187,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-019"
   },
   {
     "uniqueId": "EB04-020_dummy.gif",
@@ -5194,7 +5215,8 @@
     "trigger": "【】相手のコスト4以下のキャラ1枚までを、レストにする。",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-020"
   },
   {
     "uniqueId": "EB04-021_dummy.gif",
@@ -5219,7 +5241,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-021"
   },
   {
     "uniqueId": "EB04-022_dummy.gif",
@@ -5245,7 +5268,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-022_p1"
   },
   {
     "uniqueId": "EB04-023_dummy.gif",
@@ -5270,7 +5294,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-023_p1"
   },
   {
     "uniqueId": "EB04-024_dummy.gif",
@@ -5295,7 +5320,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-024"
   },
   {
     "uniqueId": "EB04-025_dummy.gif",
@@ -5320,7 +5346,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-025_p1"
   },
   {
     "uniqueId": "EB04-026_dummy.gif",
@@ -5346,7 +5373,8 @@
     "trigger": "",
     "getInfo": "スタートデッキ 青 クザン【ST-33】",
     "seriesTitle": "スタートデッキ 青 クザン",
-    "seriesCode": "ST-33"
+    "seriesCode": "ST-33",
+    "sourceModalId": "EB04-026_r1"
   },
   {
     "uniqueId": "EB04-027_dummy.gif",
@@ -5372,7 +5400,8 @@
     "trigger": "【】自分の手札からパワー5000以下の【】を持つキャラカード1枚までを、登場させる。",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-027"
   },
   {
     "uniqueId": "EB04-028_dummy.gif",
@@ -5397,7 +5426,8 @@
     "trigger": "【】コスト5以下のキャラ1枚までを、持ち主の手札に戻す。",
     "getInfo": "スタートデッキ 青 クザン【ST-33】",
     "seriesTitle": "スタートデッキ 青 クザン",
-    "seriesCode": "ST-33"
+    "seriesCode": "ST-33",
+    "sourceModalId": "EB04-028_p2"
   },
   {
     "uniqueId": "EB04-029_dummy.gif",
@@ -5423,7 +5453,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-029"
   },
   {
     "uniqueId": "EB04-030_dummy.gif",
@@ -5449,7 +5480,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-030"
   },
   {
     "uniqueId": "EB04-031_dummy.gif",
@@ -5475,7 +5507,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-031_p1"
   },
   {
     "uniqueId": "EB04-032_dummy.gif",
@@ -5500,7 +5533,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-032"
   },
   {
     "uniqueId": "EB04-033_dummy.gif",
@@ -5527,7 +5561,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-033"
   },
   {
     "uniqueId": "EB04-034_dummy.gif",
@@ -5552,7 +5587,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-034"
   },
   {
     "uniqueId": "EB04-035_dummy.gif",
@@ -5579,7 +5615,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-035"
   },
   {
     "uniqueId": "EB04-036_dummy.gif",
@@ -5604,7 +5641,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-036_p1"
   },
   {
     "uniqueId": "EB04-037_dummy.gif",
@@ -5629,7 +5667,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-037"
   },
   {
     "uniqueId": "EB04-038_dummy.gif",
@@ -5655,7 +5694,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-038_p1"
   },
   {
     "uniqueId": "EB04-039_dummy.gif",
@@ -5681,7 +5721,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-039_p1"
   },
   {
     "uniqueId": "EB04-040_dummy.gif",
@@ -5707,7 +5748,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-040"
   },
   {
     "uniqueId": "EB04-041_dummy.gif",
@@ -5732,7 +5774,8 @@
     "trigger": "【】カード2枚を引き、自分の手札1枚を捨てる。",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-041"
   },
   {
     "uniqueId": "EB04-042_dummy.gif",
@@ -5757,7 +5800,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-042"
   },
   {
     "uniqueId": "EB04-043_dummy.gif",
@@ -5783,7 +5827,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-043_p1"
   },
   {
     "uniqueId": "EB04-044_dummy.gif",
@@ -5809,7 +5854,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-044_p2"
   },
   {
     "uniqueId": "EB04-045_dummy.gif",
@@ -5834,7 +5880,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-045"
   },
   {
     "uniqueId": "EB04-046_dummy.gif",
@@ -5860,7 +5907,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-046"
   },
   {
     "uniqueId": "EB04-047_dummy.gif",
@@ -5886,7 +5934,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-047"
   },
   {
     "uniqueId": "EB04-048_dummy.gif",
@@ -5912,7 +5961,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-048_p1"
   },
   {
     "uniqueId": "EB04-049_dummy.gif",
@@ -5937,7 +5987,8 @@
     "trigger": "【】このカードの【メイン】効果を発動する。",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-049"
   },
   {
     "uniqueId": "EB04-050_dummy.gif",
@@ -5963,7 +6014,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-050"
   },
   {
     "uniqueId": "EB04-051_dummy.gif",
@@ -5988,7 +6040,8 @@
     "trigger": "【】相手のキャラすべてを、このターン中、パワー-3000。その後、自分のライフが0枚の場合、このカードを登場させる。",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-051"
   },
   {
     "uniqueId": "EB04-052_dummy.gif",
@@ -6014,7 +6067,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-052_p1"
   },
   {
     "uniqueId": "EB04-053_dummy.gif",
@@ -6040,7 +6094,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-053"
   },
   {
     "uniqueId": "EB04-054_dummy.gif",
@@ -6066,7 +6121,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-054_p1"
   },
   {
     "uniqueId": "EB04-055_dummy.gif",
@@ -6092,7 +6148,8 @@
     "trigger": "【】自分のリーダーが特徴《革命軍》を持ち、お互いのライフの合計枚数が5枚以下の場合、このカードを登場させる。",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-055"
   },
   {
     "uniqueId": "EB04-056_dummy.gif",
@@ -6119,7 +6176,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-056"
   },
   {
     "uniqueId": "EB04-057_dummy.gif",
@@ -6145,7 +6203,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-057"
   },
   {
     "uniqueId": "EB04-058_dummy.gif",
@@ -6171,7 +6230,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-058_p2"
   },
   {
     "uniqueId": "EB04-059_dummy.gif",
@@ -6198,7 +6258,8 @@
     "trigger": "【】カード2枚を引き、自分の手札1枚を捨てる。",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-059"
   },
   {
     "uniqueId": "EB04-060_dummy.gif",
@@ -6225,7 +6286,8 @@
     "trigger": "【】カード2枚を引き、自分の手札1枚を捨てる。",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-060"
   },
   {
     "uniqueId": "EB04-061_dummy.gif",
@@ -6252,7 +6314,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "sourceModalId": "EB04-061_p2"
   },
   {
     "uniqueId": "OP01-001_dummy.gif",
@@ -6662,7 +6725,8 @@
     "trigger": "",
     "getInfo": "ROMANCE DAWN【OP-01】",
     "seriesTitle": "ROMANCE DAWN",
-    "seriesCode": "OP-01"
+    "seriesCode": "OP-01",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP01-017_dummy.gif",
@@ -7253,7 +7317,8 @@
     "trigger": "",
     "getInfo": "ROMANCE DAWN【OP-01】",
     "seriesTitle": "ROMANCE DAWN",
-    "seriesCode": "OP-01"
+    "seriesCode": "OP-01",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "OP01-040_dummy.gif",
@@ -7666,7 +7731,8 @@
     "trigger": "",
     "getInfo": "ROMANCE DAWN【OP-01】",
     "seriesTitle": "ROMANCE DAWN",
-    "seriesCode": "OP-01"
+    "seriesCode": "OP-01",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "OP01-056_dummy.gif",
@@ -9335,7 +9401,8 @@
     "trigger": "",
     "getInfo": "ROMANCE DAWN【OP-01】",
     "seriesTitle": "ROMANCE DAWN",
-    "seriesCode": "OP-01"
+    "seriesCode": "OP-01",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP01-121_dummy.gif",
@@ -9488,7 +9555,8 @@
     "trigger": "",
     "getInfo": "頂上決戦【OP-02】",
     "seriesTitle": "頂上決戦",
-    "seriesCode": "OP-02"
+    "seriesCode": "OP-02",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "OP02-006_dummy.gif",
@@ -9688,7 +9756,8 @@
     "trigger": "",
     "getInfo": "頂上決戦【OP-02】",
     "seriesTitle": "頂上決戦",
-    "seriesCode": "OP-02"
+    "seriesCode": "OP-02",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP02-014_dummy.gif",
@@ -11110,7 +11179,8 @@
     "trigger": "【】コスト2以下のキャラ1枚までを、持ち主の手札に戻す。",
     "getInfo": "頂上決戦【OP-02】",
     "seriesTitle": "頂上決戦",
-    "seriesCode": "OP-02"
+    "seriesCode": "OP-02",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "OP02-069_dummy.gif",
@@ -12651,7 +12721,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "OP03-009_dummy.gif",
@@ -13576,7 +13647,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "OP03-045_dummy.gif",
@@ -13676,7 +13748,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "OP03-049_dummy.gif",
@@ -14295,7 +14368,8 @@
     "trigger": "【】ドン‼デッキからドン‼1枚までを、アクティブで追加する。",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "OP03-073_dummy.gif",
@@ -14926,7 +15000,8 @@
     "trigger": "【】カード1枚を引く。その後、相手のコスト1以下のキャラ1枚までを、KOする。",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "OP03-098_dummy.gif",
@@ -15557,7 +15632,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST【PRB-01】",
     "seriesTitle": "ONE PIECE CARD THE BEST",
-    "seriesCode": "PRB-01"
+    "seriesCode": "PRB-01",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP03-123_dummy.gif",
@@ -15994,7 +16070,8 @@
     "trigger": "【】相手のリーダーかキャラ1枚までを、このターン中、パワー-3000。",
     "getInfo": "謀略の王国【OP-04】",
     "seriesTitle": "謀略の王国",
-    "seriesCode": "OP-04"
+    "seriesCode": "OP-04",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "OP04-017_dummy.gif",
@@ -17544,7 +17621,8 @@
     "trigger": "",
     "getInfo": "謀略の王国【OP-04】",
     "seriesTitle": "謀略の王国",
-    "seriesCode": "OP-04"
+    "seriesCode": "OP-04",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "OP04-078_dummy.gif",
@@ -17698,7 +17776,8 @@
     "trigger": "",
     "getInfo": "謀略の王国【OP-04】",
     "seriesTitle": "謀略の王国",
-    "seriesCode": "OP-04"
+    "seriesCode": "OP-04",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP04-084_dummy.gif",
@@ -18032,7 +18111,8 @@
     "trigger": "",
     "getInfo": "謀略の王国【OP-04】",
     "seriesTitle": "謀略の王国",
-    "seriesCode": "OP-04"
+    "seriesCode": "OP-04",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "OP04-097_dummy.gif",
@@ -20360,7 +20440,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST【PRB-01】",
     "seriesTitle": "ONE PIECE CARD THE BEST",
-    "seriesCode": "PRB-01"
+    "seriesCode": "PRB-01",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP05-070_dummy.gif",
@@ -20486,7 +20567,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST【PRB-01】",
     "seriesTitle": "ONE PIECE CARD THE BEST",
-    "seriesCode": "PRB-01"
+    "seriesCode": "PRB-01",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP05-075_dummy.gif",
@@ -21624,7 +21706,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST【PRB-01】",
     "seriesTitle": "ONE PIECE CARD THE BEST",
-    "seriesCode": "PRB-01"
+    "seriesCode": "PRB-01",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP06-001_dummy.gif",
@@ -24654,7 +24737,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST【PRB-01】",
     "seriesTitle": "ONE PIECE CARD THE BEST",
-    "seriesCode": "PRB-01"
+    "seriesCode": "PRB-01",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP06-119_dummy.gif",
@@ -24679,7 +24763,8 @@
     "trigger": "",
     "getInfo": "双璧の覇者【OP-06】",
     "seriesTitle": "双璧の覇者",
-    "seriesCode": "OP-06"
+    "seriesCode": "OP-06",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP07-001_dummy.gif",
@@ -25987,7 +26072,8 @@
     "trigger": "",
     "getInfo": "500年後の未来【OP-07】",
     "seriesTitle": "500年後の未来",
-    "seriesCode": "OP-07"
+    "seriesCode": "OP-07",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP07-052_dummy.gif",
@@ -30727,7 +30813,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 二つの伝説【OP-08】",
     "seriesTitle": "ブースターパック 二つの伝説",
-    "seriesCode": "OP-08"
+    "seriesCode": "OP-08",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP08-119_dummy.gif",
@@ -30856,7 +30943,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP09-005_dummy.gif",
@@ -32064,7 +32152,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 新たなる皇帝【OP-09】",
     "seriesTitle": "ブースターパック 新たなる皇帝",
-    "seriesCode": "OP-09"
+    "seriesCode": "OP-09",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP09-052_dummy.gif",
@@ -33129,7 +33218,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP09-094_dummy.gif",
@@ -33764,7 +33854,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 新たなる皇帝【OP-09】",
     "seriesTitle": "ブースターパック 新たなる皇帝",
-    "seriesCode": "OP-09"
+    "seriesCode": "OP-09",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP09-119_dummy.gif",
@@ -33789,7 +33880,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 新たなる皇帝【OP-09】",
     "seriesTitle": "ブースターパック 新たなる皇帝",
-    "seriesCode": "OP-09"
+    "seriesCode": "OP-09",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP10-001_dummy.gif",
@@ -36878,7 +36970,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP11-001_dummy.gif",
@@ -39903,7 +39996,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 神速の拳【OP-11】",
     "seriesTitle": "ブースターパック 神速の拳",
-    "seriesCode": "OP-11"
+    "seriesCode": "OP-11",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP11-119_dummy.gif",
@@ -42964,7 +43058,8 @@
     "trigger": "",
     "getInfo": "師弟の絆【OP-12】",
     "seriesTitle": "師弟の絆",
-    "seriesCode": "OP-12"
+    "seriesCode": "OP-12",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP12-119_dummy.gif",
@@ -46021,7 +46116,8 @@
     "trigger": "",
     "getInfo": "受け継がれる意志【OP-13】",
     "seriesTitle": "受け継がれる意志",
-    "seriesCode": "OP-13"
+    "seriesCode": "OP-13",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP13-119_dummy.gif",
@@ -46046,7 +46142,8 @@
     "trigger": "",
     "getInfo": "受け継がれる意志【OP-13】",
     "seriesTitle": "受け継がれる意志",
-    "seriesCode": "OP-13"
+    "seriesCode": "OP-13",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP13-120_dummy.gif",
@@ -46072,7 +46169,8 @@
     "trigger": "",
     "getInfo": "受け継がれる意志【OP-13】",
     "seriesTitle": "受け継がれる意志",
-    "seriesCode": "OP-13"
+    "seriesCode": "OP-13",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP14-001_dummy.gif",
@@ -49133,7 +49231,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 蒼海の七傑【OP-14】",
     "seriesTitle": "ブースターパック 蒼海の七傑",
-    "seriesCode": "OP-14"
+    "seriesCode": "OP-14",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP14-120_dummy.gif",
@@ -52244,7 +52343,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-001_p1"
   },
   {
     "uniqueId": "OP16-002_dummy.gif",
@@ -52270,7 +52370,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-002"
   },
   {
     "uniqueId": "OP16-003_dummy.gif",
@@ -52296,7 +52397,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-003_p1"
   },
   {
     "uniqueId": "OP16-004_dummy.gif",
@@ -52321,7 +52423,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-004"
   },
   {
     "uniqueId": "OP16-005_dummy.gif",
@@ -52346,7 +52449,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-005"
   },
   {
     "uniqueId": "OP16-006_dummy.gif",
@@ -52372,7 +52476,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-006"
   },
   {
     "uniqueId": "OP16-007_dummy.gif",
@@ -52397,7 +52502,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-007"
   },
   {
     "uniqueId": "OP16-008_dummy.gif",
@@ -52422,7 +52528,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-008"
   },
   {
     "uniqueId": "OP16-009_dummy.gif",
@@ -52447,7 +52554,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-009"
   },
   {
     "uniqueId": "OP16-010_dummy.gif",
@@ -52473,7 +52581,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-010"
   },
   {
     "uniqueId": "OP16-011_dummy.gif",
@@ -52498,7 +52607,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-011"
   },
   {
     "uniqueId": "OP16-012_dummy.gif",
@@ -52523,7 +52633,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-012"
   },
   {
     "uniqueId": "OP16-013_dummy.gif",
@@ -52548,7 +52659,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-013"
   },
   {
     "uniqueId": "OP16-014_dummy.gif",
@@ -52573,7 +52685,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-014_p1"
   },
   {
     "uniqueId": "OP16-015_dummy.gif",
@@ -52599,7 +52712,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-015_p1"
   },
   {
     "uniqueId": "OP16-016_dummy.gif",
@@ -52624,7 +52738,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-016"
   },
   {
     "uniqueId": "OP16-017_dummy.gif",
@@ -52650,7 +52765,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-017"
   },
   {
     "uniqueId": "OP16-018_dummy.gif",
@@ -52675,7 +52791,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-018"
   },
   {
     "uniqueId": "OP16-019_dummy.gif",
@@ -52700,7 +52817,8 @@
     "trigger": "【】自分のリーダーを、このターン中、パワー+1000。",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-019"
   },
   {
     "uniqueId": "OP16-020_dummy.gif",
@@ -52726,7 +52844,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-020"
   },
   {
     "uniqueId": "OP16-021_dummy.gif",
@@ -52751,7 +52870,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-021_p1"
   },
   {
     "uniqueId": "OP16-022_dummy.gif",
@@ -52778,7 +52898,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-022_p1"
   },
   {
     "uniqueId": "OP16-023_dummy.gif",
@@ -52805,7 +52926,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-023"
   },
   {
     "uniqueId": "OP16-024_dummy.gif",
@@ -52831,7 +52953,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-024"
   },
   {
     "uniqueId": "OP16-025_dummy.gif",
@@ -52856,7 +52979,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-025"
   },
   {
     "uniqueId": "OP16-026_dummy.gif",
@@ -52882,7 +53006,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-026_p1"
   },
   {
     "uniqueId": "OP16-027_dummy.gif",
@@ -52909,7 +53034,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-027"
   },
   {
     "uniqueId": "OP16-028_dummy.gif",
@@ -52934,7 +53060,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-028"
   },
   {
     "uniqueId": "OP16-029_dummy.gif",
@@ -52959,7 +53086,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-029"
   },
   {
     "uniqueId": "OP16-030_dummy.gif",
@@ -52985,7 +53113,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-030"
   },
   {
     "uniqueId": "OP16-031_dummy.gif",
@@ -53011,7 +53140,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-031"
   },
   {
     "uniqueId": "OP16-032_dummy.gif",
@@ -53038,7 +53168,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-032_p1"
   },
   {
     "uniqueId": "OP16-033_dummy.gif",
@@ -53064,7 +53195,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-033"
   },
   {
     "uniqueId": "OP16-034_dummy.gif",
@@ -53090,7 +53222,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-034_p1"
   },
   {
     "uniqueId": "OP16-035_dummy.gif",
@@ -53115,7 +53248,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-035"
   },
   {
     "uniqueId": "OP16-036_dummy.gif",
@@ -53141,7 +53275,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-036"
   },
   {
     "uniqueId": "OP16-037_dummy.gif",
@@ -53167,7 +53302,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-037"
   },
   {
     "uniqueId": "OP16-038_dummy.gif",
@@ -53193,7 +53329,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-038"
   },
   {
     "uniqueId": "OP16-039_dummy.gif",
@@ -53219,7 +53356,8 @@
     "trigger": "【】相手のリーダーをレストにする。",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-039"
   },
   {
     "uniqueId": "OP16-040_dummy.gif",
@@ -53245,7 +53383,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-040"
   },
   {
     "uniqueId": "OP16-041_dummy.gif",
@@ -53271,7 +53410,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-041_p1"
   },
   {
     "uniqueId": "OP16-042_dummy.gif",
@@ -53296,7 +53436,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-042_p1"
   },
   {
     "uniqueId": "OP16-043_dummy.gif",
@@ -53322,7 +53463,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-043"
   },
   {
     "uniqueId": "OP16-044_dummy.gif",
@@ -53348,7 +53490,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-044"
   },
   {
     "uniqueId": "OP16-045_dummy.gif",
@@ -53374,7 +53517,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-045"
   },
   {
     "uniqueId": "OP16-046_dummy.gif",
@@ -53401,7 +53545,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-046"
   },
   {
     "uniqueId": "OP16-047_dummy.gif",
@@ -53427,7 +53572,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-047"
   },
   {
     "uniqueId": "OP16-048_dummy.gif",
@@ -53453,7 +53599,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-048_p1"
   },
   {
     "uniqueId": "OP16-049_dummy.gif",
@@ -53479,7 +53626,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-049"
   },
   {
     "uniqueId": "OP16-050_dummy.gif",
@@ -53504,7 +53652,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-050"
   },
   {
     "uniqueId": "OP16-051_dummy.gif",
@@ -53529,7 +53678,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-051"
   },
   {
     "uniqueId": "OP16-052_dummy.gif",
@@ -53555,7 +53705,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-052"
   },
   {
     "uniqueId": "OP16-053_dummy.gif",
@@ -53582,7 +53733,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-053"
   },
   {
     "uniqueId": "OP16-054_dummy.gif",
@@ -53608,7 +53760,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-054"
   },
   {
     "uniqueId": "OP16-055_dummy.gif",
@@ -53634,7 +53787,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-055_p1"
   },
   {
     "uniqueId": "OP16-056_dummy.gif",
@@ -53660,7 +53814,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-056_p1"
   },
   {
     "uniqueId": "OP16-057_dummy.gif",
@@ -53685,7 +53840,8 @@
     "trigger": "【】カード2枚を引き、自分の手札1枚を捨てる。",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-057"
   },
   {
     "uniqueId": "OP16-058_dummy.gif",
@@ -53710,7 +53866,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-058"
   },
   {
     "uniqueId": "OP16-059_dummy.gif",
@@ -53736,7 +53893,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-059"
   },
   {
     "uniqueId": "OP16-060_dummy.gif",
@@ -53761,7 +53919,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-060_p1"
   },
   {
     "uniqueId": "OP16-061_dummy.gif",
@@ -53786,7 +53945,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-061"
   },
   {
     "uniqueId": "OP16-062_dummy.gif",
@@ -53811,7 +53971,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-062"
   },
   {
     "uniqueId": "OP16-063_dummy.gif",
@@ -53837,7 +53998,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-063_p2"
   },
   {
     "uniqueId": "OP16-064_dummy.gif",
@@ -53862,7 +54024,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-064"
   },
   {
     "uniqueId": "OP16-065_dummy.gif",
@@ -53888,7 +54051,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-065_p2"
   },
   {
     "uniqueId": "OP16-066_dummy.gif",
@@ -53913,7 +54077,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-066"
   },
   {
     "uniqueId": "OP16-067_dummy.gif",
@@ -53938,7 +54103,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-067"
   },
   {
     "uniqueId": "OP16-068_dummy.gif",
@@ -53963,7 +54129,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-068"
   },
   {
     "uniqueId": "OP16-069_dummy.gif",
@@ -53988,7 +54155,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-069"
   },
   {
     "uniqueId": "OP16-070_dummy.gif",
@@ -54014,7 +54182,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-070"
   },
   {
     "uniqueId": "OP16-071_dummy.gif",
@@ -54039,7 +54208,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-071"
   },
   {
     "uniqueId": "OP16-072_dummy.gif",
@@ -54064,7 +54234,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-072"
   },
   {
     "uniqueId": "OP16-073_dummy.gif",
@@ -54090,7 +54261,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-073_p2"
   },
   {
     "uniqueId": "OP16-074_dummy.gif",
@@ -54115,7 +54287,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-074"
   },
   {
     "uniqueId": "OP16-075_dummy.gif",
@@ -54140,7 +54313,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-075"
   },
   {
     "uniqueId": "OP16-076_dummy.gif",
@@ -54166,7 +54340,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-076"
   },
   {
     "uniqueId": "OP16-077_dummy.gif",
@@ -54191,7 +54366,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-077"
   },
   {
     "uniqueId": "OP16-078_dummy.gif",
@@ -54216,7 +54392,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-078"
   },
   {
     "uniqueId": "OP16-079_dummy.gif",
@@ -54241,7 +54418,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-079_p1"
   },
   {
     "uniqueId": "OP16-080_dummy.gif",
@@ -54268,7 +54446,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-080_p1"
   },
   {
     "uniqueId": "OP16-081_dummy.gif",
@@ -54293,7 +54472,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-081"
   },
   {
     "uniqueId": "OP16-082_dummy.gif",
@@ -54319,7 +54499,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-082_p1"
   },
   {
     "uniqueId": "OP16-083_dummy.gif",
@@ -54345,7 +54526,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-083"
   },
   {
     "uniqueId": "OP16-084_dummy.gif",
@@ -54371,7 +54553,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-084"
   },
   {
     "uniqueId": "OP16-085_dummy.gif",
@@ -54397,7 +54580,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-085_p1"
   },
   {
     "uniqueId": "OP16-086_dummy.gif",
@@ -54423,7 +54607,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-086"
   },
   {
     "uniqueId": "OP16-087_dummy.gif",
@@ -54448,7 +54633,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-087"
   },
   {
     "uniqueId": "OP16-088_dummy.gif",
@@ -54473,7 +54659,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-088"
   },
   {
     "uniqueId": "OP16-089_dummy.gif",
@@ -54498,7 +54685,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-089"
   },
   {
     "uniqueId": "OP16-090_dummy.gif",
@@ -54525,7 +54713,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-090"
   },
   {
     "uniqueId": "OP16-091_dummy.gif",
@@ -54551,7 +54740,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-091"
   },
   {
     "uniqueId": "OP16-092_dummy.gif",
@@ -54577,7 +54767,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-092"
   },
   {
     "uniqueId": "OP16-093_dummy.gif",
@@ -54603,7 +54794,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-093"
   },
   {
     "uniqueId": "OP16-094_dummy.gif",
@@ -54629,7 +54821,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-094"
   },
   {
     "uniqueId": "OP16-095_dummy.gif",
@@ -54655,7 +54848,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-095"
   },
   {
     "uniqueId": "OP16-096_dummy.gif",
@@ -54680,7 +54874,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-096"
   },
   {
     "uniqueId": "OP16-097_dummy.gif",
@@ -54705,7 +54900,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-097"
   },
   {
     "uniqueId": "OP16-098_dummy.gif",
@@ -54730,7 +54926,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-098_p1"
   },
   {
     "uniqueId": "OP16-099_dummy.gif",
@@ -54755,7 +54952,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-099"
   },
   {
     "uniqueId": "OP16-100_dummy.gif",
@@ -54780,7 +54978,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-100"
   },
   {
     "uniqueId": "OP16-101_dummy.gif",
@@ -54805,7 +55004,8 @@
     "trigger": "【】自分のトラッシュから「ヤマト」1枚までを、手札に加える。",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-101"
   },
   {
     "uniqueId": "OP16-102_dummy.gif",
@@ -54831,7 +55031,8 @@
     "trigger": "【】このカードの【KO時】効果を発動する。",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-102"
   },
   {
     "uniqueId": "OP16-103_dummy.gif",
@@ -54856,7 +55057,8 @@
     "trigger": "【】このカードの【KO時】効果を発動する。",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-103"
   },
   {
     "uniqueId": "OP16-104_dummy.gif",
@@ -54882,7 +55084,8 @@
     "trigger": "【】カード1枚を引き、自分のトラッシュからコスト1の特徴《黒ひげ海賊団》を持つキャラカード1枚までを、登場させる。",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-104"
   },
   {
     "uniqueId": "OP16-105_dummy.gif",
@@ -54908,7 +55111,8 @@
     "trigger": "【】自分のライフが1枚以下の場合、自分のトラッシュからコスト4以下の、「アブサロム」と「ドクトル・ホグバック」と「ペローナ」それぞれ1枚ずつまでを、登場させる。",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-105"
   },
   {
     "uniqueId": "OP16-106_dummy.gif",
@@ -54935,7 +55139,8 @@
     "trigger": "【】このカードの【KO時】効果を発動する。",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-106"
   },
   {
     "uniqueId": "OP16-107_dummy.gif",
@@ -54960,7 +55165,8 @@
     "trigger": "【】自分の手札1枚を捨てることができる：このカードを登場させる。",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-107"
   },
   {
     "uniqueId": "OP16-108_dummy.gif",
@@ -54986,7 +55192,8 @@
     "trigger": "【】カード2枚を引く。",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-108_p1"
   },
   {
     "uniqueId": "OP16-109_dummy.gif",
@@ -55011,7 +55218,8 @@
     "trigger": "【】このカードの【KO時】効果を発動する。",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-109"
   },
   {
     "uniqueId": "OP16-110_dummy.gif",
@@ -55037,7 +55245,8 @@
     "trigger": "【】このカードの【KO時】効果を発動する。",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-110"
   },
   {
     "uniqueId": "OP16-111_dummy.gif",
@@ -55062,7 +55271,8 @@
     "trigger": "【】自分のライフが2枚以下の場合、このカードを登場させる。",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-111"
   },
   {
     "uniqueId": "OP16-112_dummy.gif",
@@ -55087,7 +55297,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-112"
   },
   {
     "uniqueId": "OP16-113_dummy.gif",
@@ -55112,7 +55323,8 @@
     "trigger": "【】自分のリーダーが特徴《九蛇海賊団》を持つ場合、このカードを登場させる。",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-113"
   },
   {
     "uniqueId": "OP16-114_dummy.gif",
@@ -55137,7 +55349,8 @@
     "trigger": "【】このカードの【KO時】効果を発動する。",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-114"
   },
   {
     "uniqueId": "OP16-115_dummy.gif",
@@ -55163,7 +55376,8 @@
     "trigger": "【】相手のリーダーかキャラ1枚までを、このターン中、効果を無効にする。",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-115"
   },
   {
     "uniqueId": "OP16-116_dummy.gif",
@@ -55189,7 +55403,8 @@
     "trigger": "【】カード2枚を引き、自分の手札1枚を捨てる。",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-116_p1"
   },
   {
     "uniqueId": "OP16-117_dummy.gif",
@@ -55215,7 +55430,8 @@
     "trigger": "【】自分のトラッシュから特徴《黒ひげ海賊団》を持つカード1枚までを、手札に加える。",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-117"
   },
   {
     "uniqueId": "OP16-118_dummy.gif",
@@ -55238,9 +55454,10 @@
     "block": 5,
     "effectText": "自分の手札のパワー8000のキャラカードすべては、カウンター+2000になる。【登場時】/【KO時】自分のデッキの上から5枚を見て、「モンキー・Ｄ・ルフィ」か『白ひげ海賊団』を含む特徴を持つカード1枚までを公開し、手札に加える。その後、残りを好きな順番でデッキの下に置く。",
     "trigger": "",
-    "getInfo": "",
-    "seriesTitle": "",
-    "seriesCode": ""
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "seriesTitle": "決戦の刻",
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-118_p1"
   },
   {
     "uniqueId": "OP16-119_dummy.gif",
@@ -55264,9 +55481,10 @@
     "block": 5,
     "effectText": "【登場時】自分のデッキの上から3枚を見て、カード1枚までを、ライフの上に加える。その後、残りを好きな順番でデッキの下に置く。",
     "trigger": "【】相手のキャラ1枚までを、このターン中、効果を無効にする。その後、相手のコスト5以下のキャラ1枚までを、KOする。",
-    "getInfo": "",
-    "seriesTitle": "",
-    "seriesCode": ""
+    "getInfo": "ブースターパック 決戦の刻【OP-16】",
+    "seriesTitle": "決戦の刻",
+    "seriesCode": "OP-16",
+    "sourceModalId": "OP16-119_p1"
   },
   {
     "uniqueId": "P-001_dummy.gif",
@@ -58497,7 +58715,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "PRB02-001_p1"
   },
   {
     "uniqueId": "PRB02-002_dummy.gif",
@@ -58524,7 +58743,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "PRB02-002_p1"
   },
   {
     "uniqueId": "PRB02-003_dummy.gif",
@@ -58549,7 +58769,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "PRB02-003_p1"
   },
   {
     "uniqueId": "PRB02-004_dummy.gif",
@@ -58575,7 +58796,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "PRB02-004_p1"
   },
   {
     "uniqueId": "PRB02-005_dummy.gif",
@@ -58601,7 +58823,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "PRB02-005_p2"
   },
   {
     "uniqueId": "PRB02-006_dummy.gif",
@@ -58627,7 +58850,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "PRB02-006_p2"
   },
   {
     "uniqueId": "PRB02-007_dummy.gif",
@@ -58654,7 +58878,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "PRB02-007_p1"
   },
   {
     "uniqueId": "PRB02-008_dummy.gif",
@@ -58680,7 +58905,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "PRB02-008_p1"
   },
   {
     "uniqueId": "PRB02-009_dummy.gif",
@@ -58706,7 +58932,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "PRB02-009_p1"
   },
   {
     "uniqueId": "PRB02-010_dummy.gif",
@@ -58731,7 +58958,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "PRB02-010_p1"
   },
   {
     "uniqueId": "PRB02-011_dummy.gif",
@@ -58757,7 +58985,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "PRB02-011_p1"
   },
   {
     "uniqueId": "PRB02-012_dummy.gif",
@@ -58782,7 +59011,8 @@
     "trigger": "【】このカードを登場させる。",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "PRB02-012_p1"
   },
   {
     "uniqueId": "PRB02-013_dummy.gif",
@@ -58808,7 +59038,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "PRB02-013_p1"
   },
   {
     "uniqueId": "PRB02-014_dummy.gif",
@@ -58834,7 +59065,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "PRB02-014_p2"
   },
   {
     "uniqueId": "PRB02-015_dummy.gif",
@@ -58859,7 +59091,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "PRB02-015_p1"
   },
   {
     "uniqueId": "PRB02-016_dummy.gif",
@@ -58884,7 +59117,8 @@
     "trigger": "【】相手のコスト4以下のキャラ1枚までを、レストにする。",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "PRB02-016_p1"
   },
   {
     "uniqueId": "PRB02-017_dummy.gif",
@@ -58911,7 +59145,8 @@
     "trigger": "【】相手のコスト4以下のキャラ1枚までを、KOする。",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "PRB02-017_p1"
   },
   {
     "uniqueId": "PRB02-018_dummy.gif",
@@ -58936,7 +59171,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "PRB02-018_p1"
   },
   {
     "uniqueId": "ST01-001_dummy.gif",
@@ -59215,7 +59451,8 @@
     "trigger": "",
     "getInfo": "ファミリーデッキセット",
     "seriesTitle": "ファミリーデッキセット",
-    "seriesCode": ""
+    "seriesCode": "",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "ST01-012_dummy.gif",
@@ -59549,7 +59786,8 @@
     "trigger": "",
     "getInfo": "最悪の世代【ST-02】",
     "seriesTitle": "最悪の世代",
-    "seriesCode": "ST-02"
+    "seriesCode": "ST-02",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "ST02-008_dummy.gif",
@@ -61324,7 +61562,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "ST06-009_dummy.gif",
@@ -67946,7 +68185,8 @@
     "trigger": "",
     "getInfo": "スタートデッキ 赤 モンキー・D・ルフィ【ST-31】",
     "seriesTitle": "スタートデッキ 赤 モンキー・D・ルフィ",
-    "seriesCode": "ST-31"
+    "seriesCode": "ST-31",
+    "sourceModalId": "ST31-001"
   },
   {
     "uniqueId": "ST31-002_dummy.gif",
@@ -67972,7 +68212,8 @@
     "trigger": "",
     "getInfo": "スタートデッキ 赤 モンキー・D・ルフィ【ST-31】",
     "seriesTitle": "スタートデッキ 赤 モンキー・D・ルフィ",
-    "seriesCode": "ST-31"
+    "seriesCode": "ST-31",
+    "sourceModalId": "ST31-002"
   },
   {
     "uniqueId": "ST31-003_dummy.gif",
@@ -67997,7 +68238,8 @@
     "trigger": "",
     "getInfo": "スタートデッキ 赤 モンキー・D・ルフィ【ST-31】",
     "seriesTitle": "スタートデッキ 赤 モンキー・D・ルフィ",
-    "seriesCode": "ST-31"
+    "seriesCode": "ST-31",
+    "sourceModalId": "ST31-003"
   },
   {
     "uniqueId": "ST31-004_dummy.gif",
@@ -68023,7 +68265,8 @@
     "trigger": "",
     "getInfo": "スタートデッキ 赤 モンキー・D・ルフィ【ST-31】",
     "seriesTitle": "スタートデッキ 赤 モンキー・D・ルフィ",
-    "seriesCode": "ST-31"
+    "seriesCode": "ST-31",
+    "sourceModalId": "ST31-004"
   },
   {
     "uniqueId": "ST31-005_dummy.gif",
@@ -68048,7 +68291,8 @@
     "trigger": "",
     "getInfo": "スタートデッキ 赤 モンキー・D・ルフィ【ST-31】",
     "seriesTitle": "スタートデッキ 赤 モンキー・D・ルフィ",
-    "seriesCode": "ST-31"
+    "seriesCode": "ST-31",
+    "sourceModalId": "ST31-005"
   },
   {
     "uniqueId": "ST32-001_dummy.gif",
@@ -68074,7 +68318,8 @@
     "trigger": "",
     "getInfo": "スタートデッキ 緑 ロロノア・ゾロ【ST-32】",
     "seriesTitle": "スタートデッキ 緑 ロロノア・ゾロ",
-    "seriesCode": "ST-32"
+    "seriesCode": "ST-32",
+    "sourceModalId": "ST32-001"
   },
   {
     "uniqueId": "ST32-002_dummy.gif",
@@ -68100,7 +68345,8 @@
     "trigger": "",
     "getInfo": "スタートデッキ 緑 ロロノア・ゾロ【ST-32】",
     "seriesTitle": "スタートデッキ 緑 ロロノア・ゾロ",
-    "seriesCode": "ST-32"
+    "seriesCode": "ST-32",
+    "sourceModalId": "ST32-002"
   },
   {
     "uniqueId": "ST32-003_dummy.gif",
@@ -68126,7 +68372,8 @@
     "trigger": "",
     "getInfo": "スタートデッキ 緑 ロロノア・ゾロ【ST-32】",
     "seriesTitle": "スタートデッキ 緑 ロロノア・ゾロ",
-    "seriesCode": "ST-32"
+    "seriesCode": "ST-32",
+    "sourceModalId": "ST32-003"
   },
   {
     "uniqueId": "ST32-004_dummy.gif",
@@ -68151,7 +68398,8 @@
     "trigger": "",
     "getInfo": "スタートデッキ 緑 ロロノア・ゾロ【ST-32】",
     "seriesTitle": "スタートデッキ 緑 ロロノア・ゾロ",
-    "seriesCode": "ST-32"
+    "seriesCode": "ST-32",
+    "sourceModalId": "ST32-004"
   },
   {
     "uniqueId": "ST32-005_dummy.gif",
@@ -68177,7 +68425,8 @@
     "trigger": "",
     "getInfo": "スタートデッキ 緑 ロロノア・ゾロ【ST-32】",
     "seriesTitle": "スタートデッキ 緑 ロロノア・ゾロ",
-    "seriesCode": "ST-32"
+    "seriesCode": "ST-32",
+    "sourceModalId": "ST32-005"
   },
   {
     "uniqueId": "ST33-001_dummy.gif",
@@ -68202,7 +68451,8 @@
     "trigger": "",
     "getInfo": "スタートデッキ 青 クザン【ST-33】",
     "seriesTitle": "スタートデッキ 青 クザン",
-    "seriesCode": "ST-33"
+    "seriesCode": "ST-33",
+    "sourceModalId": "ST33-001"
   },
   {
     "uniqueId": "ST33-002_dummy.gif",
@@ -68227,7 +68477,8 @@
     "trigger": "",
     "getInfo": "スタートデッキ 青 クザン【ST-33】",
     "seriesTitle": "スタートデッキ 青 クザン",
-    "seriesCode": "ST-33"
+    "seriesCode": "ST-33",
+    "sourceModalId": "ST33-002"
   },
   {
     "uniqueId": "ST33-003_dummy.gif",
@@ -68252,7 +68503,8 @@
     "trigger": "",
     "getInfo": "スタートデッキ 青 クザン【ST-33】",
     "seriesTitle": "スタートデッキ 青 クザン",
-    "seriesCode": "ST-33"
+    "seriesCode": "ST-33",
+    "sourceModalId": "ST33-003"
   },
   {
     "uniqueId": "ST33-004_dummy.gif",
@@ -68277,7 +68529,8 @@
     "trigger": "",
     "getInfo": "スタートデッキ 青 クザン【ST-33】",
     "seriesTitle": "スタートデッキ 青 クザン",
-    "seriesCode": "ST-33"
+    "seriesCode": "ST-33",
+    "sourceModalId": "ST33-004"
   },
   {
     "uniqueId": "ST33-005_dummy.gif",
@@ -68302,7 +68555,8 @@
     "trigger": "",
     "getInfo": "スタートデッキ 青 クザン【ST-33】",
     "seriesTitle": "スタートデッキ 青 クザン",
-    "seriesCode": "ST-33"
+    "seriesCode": "ST-33",
+    "sourceModalId": "ST33-005"
   },
   {
     "uniqueId": "ST34-001_dummy.gif",
@@ -68327,7 +68581,8 @@
     "trigger": "",
     "getInfo": "スタートデッキ 紫 シャーロット・カタクリ【ST-34】",
     "seriesTitle": "スタートデッキ 紫 シャーロット・カタクリ",
-    "seriesCode": "ST-34"
+    "seriesCode": "ST-34",
+    "sourceModalId": "ST34-001"
   },
   {
     "uniqueId": "ST34-002_dummy.gif",
@@ -68352,7 +68607,8 @@
     "trigger": "",
     "getInfo": "スタートデッキ 紫 シャーロット・カタクリ【ST-34】",
     "seriesTitle": "スタートデッキ 紫 シャーロット・カタクリ",
-    "seriesCode": "ST-34"
+    "seriesCode": "ST-34",
+    "sourceModalId": "ST34-002"
   },
   {
     "uniqueId": "ST34-003_dummy.gif",
@@ -68377,7 +68633,8 @@
     "trigger": "",
     "getInfo": "スタートデッキ 紫 シャーロット・カタクリ【ST-34】",
     "seriesTitle": "スタートデッキ 紫 シャーロット・カタクリ",
-    "seriesCode": "ST-34"
+    "seriesCode": "ST-34",
+    "sourceModalId": "ST34-003"
   },
   {
     "uniqueId": "ST34-004_dummy.gif",
@@ -68403,7 +68660,8 @@
     "trigger": "",
     "getInfo": "スタートデッキ 紫 シャーロット・カタクリ【ST-34】",
     "seriesTitle": "スタートデッキ 紫 シャーロット・カタクリ",
-    "seriesCode": "ST-34"
+    "seriesCode": "ST-34",
+    "sourceModalId": "ST34-004"
   },
   {
     "uniqueId": "ST34-005_dummy.gif",
@@ -68429,7 +68687,8 @@
     "trigger": "",
     "getInfo": "スタートデッキ 紫 シャーロット・カタクリ【ST-34】",
     "seriesTitle": "スタートデッキ 紫 シャーロット・カタクリ",
-    "seriesCode": "ST-34"
+    "seriesCode": "ST-34",
+    "sourceModalId": "ST34-005"
   },
   {
     "uniqueId": "ST35-001_dummy.gif",
@@ -68456,7 +68715,8 @@
     "trigger": "",
     "getInfo": "スタートデッキ 赤黒 サボ【ST-35】",
     "seriesTitle": "スタートデッキ 赤黒 サボ",
-    "seriesCode": "ST-35"
+    "seriesCode": "ST-35",
+    "sourceModalId": "ST35-001"
   },
   {
     "uniqueId": "ST35-002_dummy.gif",
@@ -68482,7 +68742,8 @@
     "trigger": "",
     "getInfo": "スタートデッキ 赤黒 サボ【ST-35】",
     "seriesTitle": "スタートデッキ 赤黒 サボ",
-    "seriesCode": "ST-35"
+    "seriesCode": "ST-35",
+    "sourceModalId": "ST35-002"
   },
   {
     "uniqueId": "ST35-003_dummy.gif",
@@ -68507,7 +68768,8 @@
     "trigger": "",
     "getInfo": "スタートデッキ 赤黒 サボ【ST-35】",
     "seriesTitle": "スタートデッキ 赤黒 サボ",
-    "seriesCode": "ST-35"
+    "seriesCode": "ST-35",
+    "sourceModalId": "ST35-003"
   },
   {
     "uniqueId": "ST35-004_dummy.gif",
@@ -68533,7 +68795,8 @@
     "trigger": "",
     "getInfo": "スタートデッキ 赤黒 サボ【ST-35】",
     "seriesTitle": "スタートデッキ 赤黒 サボ",
-    "seriesCode": "ST-35"
+    "seriesCode": "ST-35",
+    "sourceModalId": "ST35-004"
   },
   {
     "uniqueId": "ST35-005_dummy.gif",
@@ -68558,7 +68821,8 @@
     "trigger": "",
     "getInfo": "スタートデッキ 赤黒 サボ【ST-35】",
     "seriesTitle": "スタートデッキ 赤黒 サボ",
-    "seriesCode": "ST-35"
+    "seriesCode": "ST-35",
+    "sourceModalId": "ST35-005"
   },
   {
     "uniqueId": "ST36-001_dummy.gif",
@@ -68585,7 +68849,8 @@
     "trigger": "",
     "getInfo": "スタートデッキ 黄 ユースタス・キッド【ST-36】",
     "seriesTitle": "スタートデッキ 黄 ユースタス・キッド",
-    "seriesCode": "ST-36"
+    "seriesCode": "ST-36",
+    "sourceModalId": "ST36-001"
   },
   {
     "uniqueId": "ST36-002_dummy.gif",
@@ -68611,7 +68876,8 @@
     "trigger": "【】相手のライフが3枚以下の場合、このカードを登場させる。",
     "getInfo": "スタートデッキ 黄 ユースタス・キッド【ST-36】",
     "seriesTitle": "スタートデッキ 黄 ユースタス・キッド",
-    "seriesCode": "ST-36"
+    "seriesCode": "ST-36",
+    "sourceModalId": "ST36-002"
   },
   {
     "uniqueId": "ST36-003_dummy.gif",
@@ -68637,7 +68903,8 @@
     "trigger": "【】カード1枚を引き、自分の特徴《超新星》を持つリーダーを、このターン中、元々のパワー7000にする。",
     "getInfo": "スタートデッキ 黄 ユースタス・キッド【ST-36】",
     "seriesTitle": "スタートデッキ 黄 ユースタス・キッド",
-    "seriesCode": "ST-36"
+    "seriesCode": "ST-36",
+    "sourceModalId": "ST36-003"
   },
   {
     "uniqueId": "ST36-004_dummy.gif",
@@ -68664,7 +68931,8 @@
     "trigger": "",
     "getInfo": "スタートデッキ 黄 ユースタス・キッド【ST-36】",
     "seriesTitle": "スタートデッキ 黄 ユースタス・キッド",
-    "seriesCode": "ST-36"
+    "seriesCode": "ST-36",
+    "sourceModalId": "ST36-004"
   },
   {
     "uniqueId": "ST36-005_dummy.gif",
@@ -68690,6 +68958,7 @@
     "trigger": "",
     "getInfo": "スタートデッキ 黄 ユースタス・キッド【ST-36】",
     "seriesTitle": "スタートデッキ 黄 ユースタス・キッド",
-    "seriesCode": "ST-36"
+    "seriesCode": "ST-36",
+    "sourceModalId": "ST36-005"
   }
 ]

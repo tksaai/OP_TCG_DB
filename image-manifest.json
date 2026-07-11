@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-01T09:35:32.089Z",
-  "totalCards": 2652,
-  "totalImages": 4696,
+  "generatedAt": "2026-07-11T04:32:48.730Z",
+  "totalCards": 2682,
+  "totalImages": 4759,
   "cards": {
     "EB01-001": [
       {
@@ -4010,7 +4010,7 @@
     "EB04-001": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-001.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-001.png?260630",
         "cardName": "ジュエリー・ボニー",
         "rarity": "L",
         "cardType": "LEADER",
@@ -4022,7 +4022,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-001_p1.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-001_p1.png?260630",
         "cardName": "ジュエリー・ボニー",
         "rarity": "L",
         "cardType": "LEADER",
@@ -4036,7 +4036,7 @@
     "EB04-002": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-002.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-002.png?260630",
         "cardName": "ジュエリー・ボニー",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -4048,7 +4048,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-002_p1.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-002_p1.png?260630",
         "cardName": "ジュエリー・ボニー",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -4062,7 +4062,7 @@
     "EB04-003": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-003.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-003.png?260630",
         "cardName": "スモーカー＆たしぎ",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -4074,7 +4074,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-003_p1.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-003_p1.png?260630",
         "cardName": "スモーカー＆たしぎ",
         "rarity": "SPカード",
         "cardType": "CHARACTER",
@@ -4088,7 +4088,7 @@
     "EB04-004": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-004.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-004.png?260630",
         "cardName": "ゼフ",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -4102,7 +4102,7 @@
     "EB04-005": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-005.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-005.png?260630",
         "cardName": "トラファルガー・ロー",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -4116,7 +4116,7 @@
     "EB04-006": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-006.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-006.png?260630",
         "cardName": "モーダ",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -4130,7 +4130,7 @@
     "EB04-007": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-007.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-007.png?260630",
         "cardName": "ロロノア・ゾロ",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -4142,7 +4142,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-007_p1.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-007_p1.png?260630",
         "cardName": "ロロノア・ゾロ",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -4156,7 +4156,7 @@
     "EB04-008": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-008.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-008.png?260630",
         "cardName": "歪んだ未来",
         "rarity": "R",
         "cardType": "EVENT",
@@ -4170,7 +4170,7 @@
     "EB04-009": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-009.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-009.png?260630",
         "cardName": "弟子の船出だ よしなに頼むよ…",
         "rarity": "C",
         "cardType": "EVENT",
@@ -4184,7 +4184,7 @@
     "EB04-010": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-010.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-010.png?260630",
         "cardName": "ルルシア王国",
         "rarity": "C",
         "cardType": "STAGE",
@@ -4198,7 +4198,7 @@
     "EB04-011": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-011.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-011.png?260630",
         "cardName": "ウロコ",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -4212,7 +4212,7 @@
     "EB04-012": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-012.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-012.png?260630",
         "cardName": "菊之丞",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -4224,7 +4224,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-012_p1.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-012_p1.png?260630",
         "cardName": "菊之丞",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -4238,7 +4238,7 @@
     "EB04-013": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-013.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-013.png?260630",
         "cardName": "キャロット",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -4250,7 +4250,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-013_p1.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-013_p1.png?260630",
         "cardName": "キャロット",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -4264,7 +4264,7 @@
     "EB04-014": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-014.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-014.png?260630",
         "cardName": "光月スキヤキ",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -4278,7 +4278,7 @@
     "EB04-015": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-015.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-015.png?260630",
         "cardName": "ジンベエ",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -4292,7 +4292,7 @@
     "EB04-016": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-016.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-016.png?260630",
         "cardName": "トリ",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -4306,7 +4306,7 @@
     "EB04-017": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-017.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-017.png?260630",
         "cardName": "ナゾムズ",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -4320,7 +4320,7 @@
     "EB04-018": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-018.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-018.png?260630",
         "cardName": "メガロ",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -4332,7 +4332,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-018_p1.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-018_p1.png?260630",
         "cardName": "メガロ",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -4346,7 +4346,7 @@
     "EB04-019": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-019.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-019.png?260630",
         "cardName": "エレ爪",
         "rarity": "R",
         "cardType": "EVENT",
@@ -4360,7 +4360,7 @@
     "EB04-020": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-020.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-020.png?260630",
         "cardName": "鮫瓦正拳",
         "rarity": "C",
         "cardType": "EVENT",
@@ -4374,7 +4374,7 @@
     "EB04-021": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-021.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-021.png?260630",
         "cardName": "イガラム",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -4388,7 +4388,7 @@
     "EB04-022": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-022.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-022.png?260630",
         "cardName": "イッショウ",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -4400,7 +4400,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-022_p1.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-022_p1.png?260630",
         "cardName": "イッショウ",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -4414,7 +4414,7 @@
     "EB04-023": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-023.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-023.png?260630",
         "cardName": "チャカ＆ペル",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -4426,7 +4426,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-023_p1.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-023_p1.png?260630",
         "cardName": "チャカ&ペル",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -4440,7 +4440,7 @@
     "EB04-024": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-024.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-024.png?260630",
         "cardName": "テラコッタ",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -4454,7 +4454,7 @@
     "EB04-025": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-025.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-025.png?260630",
         "cardName": "ネフェルタリ・ビビ",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -4466,7 +4466,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-025_p1.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-025_p1.png?260630",
         "cardName": "ネフェルタリ・ビビ",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -4480,7 +4480,7 @@
     "EB04-026": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-026.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-026.png?260630",
         "cardName": "ブルーグラス",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -4489,12 +4489,24 @@
         "path": "CardsWebP/EB04/official/EB04-026.webp",
         "fallbackPath": "Cards/EB04/official/EB04-026.png",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-026_r1.png?260630",
+        "cardName": "ブルーグラス",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "getInfo": "スタートデッキ 青 クザン【ST-33】",
+        "label": "別レアリティ 1",
+        "path": "CardsWebP/EB04/official/EB04-026_r1.webp",
+        "fallbackPath": "Cards/EB04/official/EB04-026_r1.png",
+        "variantIndex": 1001
       }
     ],
     "EB04-027": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-027.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-027.png?260630",
         "cardName": "ボア・ハンコック",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -4508,7 +4520,7 @@
     "EB04-028": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-028.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-028.png?260630",
         "cardName": "アイスタイム",
         "rarity": "R",
         "cardType": "EVENT",
@@ -4520,7 +4532,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-028_p1.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-028_p1.png?260630",
         "cardName": "アイスタイム",
         "rarity": "R",
         "cardType": "EVENT",
@@ -4529,12 +4541,24 @@
         "path": "CardsWebP/EB04/official/EB04-028_p1.webp",
         "fallbackPath": "Cards/EB04/official/EB04-028_p1.png",
         "variantIndex": 1
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-028_p2.png?260630",
+        "cardName": "アイスタイム",
+        "rarity": "R",
+        "cardType": "EVENT",
+        "getInfo": "スタートデッキ 青 クザン【ST-33】",
+        "label": "別イラスト 3",
+        "path": "CardsWebP/EB04/official/EB04-028_p2.webp",
+        "fallbackPath": "Cards/EB04/official/EB04-028_p2.png",
+        "variantIndex": 2
       }
     ],
     "EB04-029": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-029.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-029.png?260630",
         "cardName": "女の…涙の落ちる音がした",
         "rarity": "C",
         "cardType": "EVENT",
@@ -4548,7 +4572,7 @@
     "EB04-030": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-030.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-030.png?260630",
         "cardName": "カイドウ",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -4562,7 +4586,7 @@
     "EB04-031": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-031.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-031.png?260630",
         "cardName": "キング",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -4574,7 +4598,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-031_p1.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-031_p1.png?260630",
         "cardName": "キング",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -4588,7 +4612,7 @@
     "EB04-032": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-032.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-032.png?260630",
         "cardName": "クイーン",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -4602,7 +4626,7 @@
     "EB04-033": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-033.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-033.png?260630",
         "cardName": "グロッキーモンスターズ",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -4616,7 +4640,7 @@
     "EB04-034": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-034.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-034.png?260630",
         "cardName": "シャーロット・プリン",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -4630,7 +4654,7 @@
     "EB04-035": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-035.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-035.png?260630",
         "cardName": "人斬り鎌ぞう",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -4644,7 +4668,7 @@
     "EB04-036": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-036.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-036.png?260630",
         "cardName": "フォクシー",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -4656,7 +4680,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-036_p1.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-036_p1.png?260630",
         "cardName": "フォクシー",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -4670,7 +4694,7 @@
     "EB04-037": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-037.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-037.png?260630",
         "cardName": "ポルチェ",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -4684,7 +4708,7 @@
     "EB04-038": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-038.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-038.png?260630",
         "cardName": "ロシナンテ＆ロー",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -4696,7 +4720,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-038_p1.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-038_p1.png?260630",
         "cardName": "ロシナンテ＆ロー",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -4710,7 +4734,7 @@
     "EB04-039": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-039.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-039.png?260630",
         "cardName": "ユースタス・キッド",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -4722,7 +4746,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-039_p1.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-039_p1.png?260630",
         "cardName": "ユースタス・キッド",
         "rarity": "SPカード",
         "cardType": "CHARACTER",
@@ -4736,7 +4760,7 @@
     "EB04-040": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-040.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-040.png?260630",
         "cardName": "火龍大炬",
         "rarity": "R",
         "cardType": "EVENT",
@@ -4750,7 +4774,7 @@
     "EB04-041": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-041.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-041.png?260630",
         "cardName": "ステルス・ブラック",
         "rarity": "C",
         "cardType": "EVENT",
@@ -4764,7 +4788,7 @@
     "EB04-042": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-042.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-042.png?260630",
         "cardName": "アルファ",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -4778,7 +4802,7 @@
     "EB04-043": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-043.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-043.png?260630",
         "cardName": "カク",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -4790,7 +4814,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-043_p1.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-043_p1.png?260630",
         "cardName": "カク",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -4804,7 +4828,7 @@
     "EB04-044": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-044.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-044.png?260630",
         "cardName": "コビー",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -4816,7 +4840,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-044_p1.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-044_p1.png?260630",
         "cardName": "コビー",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -4828,7 +4852,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-044_p2.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-044_p2.png?260630",
         "cardName": "コビー",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -4842,7 +4866,7 @@
     "EB04-045": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-045.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-045.png?260630",
         "cardName": "ジニー",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -4856,7 +4880,7 @@
     "EB04-046": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-046.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-046.png?260630",
         "cardName": "ドール",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -4870,7 +4894,7 @@
     "EB04-047": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-047.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-047.png?260630",
         "cardName": "ヘルメッポ",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -4884,7 +4908,7 @@
     "EB04-048": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-048.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-048.png?260630",
         "cardName": "ロブ・ルッチ",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -4896,7 +4920,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-048_p1.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-048_p1.png?260630",
         "cardName": "ロブ・ルッチ",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -4910,7 +4934,7 @@
     "EB04-049": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-049.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-049.png?260630",
         "cardName": "指銃 黄蓮",
         "rarity": "C",
         "cardType": "EVENT",
@@ -4924,7 +4948,7 @@
     "EB04-050": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-050.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-050.png?260630",
         "cardName": "調教してあげる♡",
         "rarity": "R",
         "cardType": "EVENT",
@@ -4938,7 +4962,7 @@
     "EB04-051": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-051.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-051.png?260630",
         "cardName": "エメト",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -4952,7 +4976,7 @@
     "EB04-052": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-052.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-052.png?260630",
         "cardName": "サンジ",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -4964,7 +4988,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-052_p1.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-052_p1.png?260630",
         "cardName": "サンジ",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -4978,7 +5002,7 @@
     "EB04-053": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-053.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-053.png?260630",
         "cardName": "戦桃丸",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -4992,7 +5016,7 @@
     "EB04-054": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-054.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-054.png?260630",
         "cardName": "バーソロミュー・くま",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -5001,12 +5025,24 @@
         "path": "CardsWebP/EB04/official/EB04-054.webp",
         "fallbackPath": "Cards/EB04/official/EB04-054.png",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-054_p1.png?260630",
+        "cardName": "バーソロミュー・くま",
+        "rarity": "SPカード",
+        "cardType": "CHARACTER",
+        "getInfo": "ブースターパック 決戦の刻【OP-16】",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/EB04/official/EB04-054_p1.webp",
+        "fallbackPath": "Cards/EB04/official/EB04-054_p1.png",
+        "variantIndex": 1
       }
     ],
     "EB04-055": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-055.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-055.png?260630",
         "cardName": "バーソロミュー・くま",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -5020,7 +5056,7 @@
     "EB04-056": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-056.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-056.png?260630",
         "cardName": "パシフィスタ",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -5034,7 +5070,7 @@
     "EB04-057": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-057.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-057.png?260630",
         "cardName": "ベガパンク",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -5048,7 +5084,7 @@
     "EB04-058": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-058.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-058.png?260630",
         "cardName": "ボルサリーノ",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -5060,7 +5096,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-058_p1.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-058_p1.png?260630",
         "cardName": "ボルサリーノ",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -5072,7 +5108,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-058_p2.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-058_p2.png?260630",
         "cardName": "ボルサリーノ",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -5086,7 +5122,7 @@
     "EB04-059": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-059.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-059.png?260630",
         "cardName": "黒縄・大龍巻",
         "rarity": "R",
         "cardType": "EVENT",
@@ -5100,7 +5136,7 @@
     "EB04-060": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-060.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-060.png?260630",
         "cardName": "ゴムゴムの鷹銃乱打",
         "rarity": "C",
         "cardType": "EVENT",
@@ -5114,7 +5150,7 @@
     "EB04-061": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-061.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-061.png?260630",
         "cardName": "モンキー・D・ルフィ",
         "rarity": "SEC",
         "cardType": "CHARACTER",
@@ -5126,7 +5162,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-061_p1.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-061_p1.png?260630",
         "cardName": "モンキー・D・ルフィ",
         "rarity": "SEC",
         "cardType": "CHARACTER",
@@ -5138,7 +5174,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-061_p2.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB04-061_p2.png?260630",
         "cardName": "モンキー・D・ルフィ",
         "rarity": "SEC",
         "cardType": "CHARACTER",
@@ -46776,7 +46812,7 @@
     "OP16-001": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-001.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-001.png?260630",
         "cardName": "ポートガス・Ｄ・エース",
         "rarity": "L",
         "cardType": "LEADER",
@@ -46785,12 +46821,24 @@
         "path": "CardsWebP/OP16/official/OP16-001.webp",
         "fallbackPath": "Cards/OP16/official/OP16-001.png",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-001_p1.png?260630",
+        "cardName": "ポートガス・Ｄ・エース",
+        "rarity": "L",
+        "cardType": "LEADER",
+        "getInfo": "ブースターパック 決戦の刻【OP-16】",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP16/official/OP16-001_p1.webp",
+        "fallbackPath": "Cards/OP16/official/OP16-001_p1.png",
+        "variantIndex": 1
       }
     ],
     "OP16-002": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-002.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-002.png?260630",
         "cardName": "イゾウ",
         "rarity": "UC",
         "cardType": "CHARACTER",
@@ -46804,7 +46852,7 @@
     "OP16-003": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-003.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-003.png?260630",
         "cardName": "エドワード・ニューゲート",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -46813,12 +46861,24 @@
         "path": "CardsWebP/OP16/official/OP16-003.webp",
         "fallbackPath": "Cards/OP16/official/OP16-003.png",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-003_p1.png?260630",
+        "cardName": "エドワード・ニューゲート",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "getInfo": "ブースターパック 決戦の刻【OP-16】",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP16/official/OP16-003_p1.webp",
+        "fallbackPath": "Cards/OP16/official/OP16-003_p1.png",
+        "variantIndex": 1
       }
     ],
     "OP16-004": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-004.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-004.png?260630",
         "cardName": "クリエル",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -46832,7 +46892,7 @@
     "OP16-005": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-005.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-005.png?260630",
         "cardName": "サッチ",
         "rarity": "UC",
         "cardType": "CHARACTER",
@@ -46846,7 +46906,7 @@
     "OP16-006": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-006.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-006.png?260630",
         "cardName": "シャンクス",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -46860,7 +46920,7 @@
     "OP16-007": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-007.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-007.png?260630",
         "cardName": "ジョズ",
         "rarity": "UC",
         "cardType": "CHARACTER",
@@ -46874,7 +46934,7 @@
     "OP16-008": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-008.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-008.png?260630",
         "cardName": "スクアード",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -46888,7 +46948,7 @@
     "OP16-009": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-009.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-009.png?260630",
         "cardName": "スピード・ジル",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -46902,7 +46962,7 @@
     "OP16-010": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-010.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-010.png?260630",
         "cardName": "ナミュール",
         "rarity": "UC",
         "cardType": "CHARACTER",
@@ -46916,7 +46976,7 @@
     "OP16-011": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-011.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-011.png?260630",
         "cardName": "ビスタ",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -46930,7 +46990,7 @@
     "OP16-012": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-012.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-012.png?260630",
         "cardName": "ベン・ベックマン",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -46944,7 +47004,7 @@
     "OP16-013": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-013.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-013.png?260630",
         "cardName": "マクガイ",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -46958,7 +47018,7 @@
     "OP16-014": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-014.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-014.png?260630",
         "cardName": "マルコ",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -46967,12 +47027,24 @@
         "path": "CardsWebP/OP16/official/OP16-014.webp",
         "fallbackPath": "Cards/OP16/official/OP16-014.png",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-014_p1.png?260630",
+        "cardName": "マルコ",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "getInfo": "ブースターパック 決戦の刻【OP-16】",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP16/official/OP16-014_p1.webp",
+        "fallbackPath": "Cards/OP16/official/OP16-014_p1.png",
+        "variantIndex": 1
       }
     ],
     "OP16-015": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-015.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-015.png?260630",
         "cardName": "モンキー・Ｄ・ルフィ",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -46981,12 +47053,24 @@
         "path": "CardsWebP/OP16/official/OP16-015.webp",
         "fallbackPath": "Cards/OP16/official/OP16-015.png",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-015_p1.png?260630",
+        "cardName": "モンキー・Ｄ・ルフィ",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "getInfo": "ブースターパック 決戦の刻【OP-16】",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP16/official/OP16-015_p1.webp",
+        "fallbackPath": "Cards/OP16/official/OP16-015_p1.png",
+        "variantIndex": 1
       }
     ],
     "OP16-016": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-016.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-016.png?260630",
         "cardName": "ランバ",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -47000,7 +47084,7 @@
     "OP16-017": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-017.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-017.png?260630",
         "cardName": "リトルオーズJr.",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -47014,7 +47098,7 @@
     "OP16-018": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-018.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-018.png?260630",
         "cardName": "ロックスター",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -47028,7 +47112,7 @@
     "OP16-019": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-019.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-019.png?260630",
         "cardName": "おれ達の力を見せてやれ!!!",
         "rarity": "C",
         "cardType": "EVENT",
@@ -47042,7 +47126,7 @@
     "OP16-020": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-020.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-020.png?260630",
         "cardName": "おれと共に来る者は命を捨ててついて来い!!!",
         "rarity": "UC",
         "cardType": "EVENT",
@@ -47056,7 +47140,7 @@
     "OP16-021": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-021.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-021.png?260630",
         "cardName": "モビー・ディック号",
         "rarity": "R",
         "cardType": "STAGE",
@@ -47065,12 +47149,24 @@
         "path": "CardsWebP/OP16/official/OP16-021.webp",
         "fallbackPath": "Cards/OP16/official/OP16-021.png",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-021_p1.png?260630",
+        "cardName": "モビー・ディック号",
+        "rarity": "R",
+        "cardType": "STAGE",
+        "getInfo": "ブースターパック 決戦の刻【OP-16】",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP16/official/OP16-021_p1.webp",
+        "fallbackPath": "Cards/OP16/official/OP16-021_p1.png",
+        "variantIndex": 1
       }
     ],
     "OP16-022": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-022.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-022.png?260630",
         "cardName": "モンキー・Ｄ・ルフィ",
         "rarity": "L",
         "cardType": "LEADER",
@@ -47079,12 +47175,24 @@
         "path": "CardsWebP/OP16/official/OP16-022.webp",
         "fallbackPath": "Cards/OP16/official/OP16-022.png",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-022_p1.png?260630",
+        "cardName": "モンキー・Ｄ・ルフィ",
+        "rarity": "L",
+        "cardType": "LEADER",
+        "getInfo": "ブースターパック 決戦の刻【OP-16】",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP16/official/OP16-022_p1.webp",
+        "fallbackPath": "Cards/OP16/official/OP16-022_p1.png",
+        "variantIndex": 1
       }
     ],
     "OP16-023": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-023.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-023.png?260630",
         "cardName": "アーロン",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -47098,7 +47206,7 @@
     "OP16-024": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-024.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-024.png?260630",
         "cardName": "イナズマ",
         "rarity": "UC",
         "cardType": "CHARACTER",
@@ -47112,7 +47220,7 @@
     "OP16-025": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-025.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-025.png?260630",
         "cardName": "ウサッコフ",
         "rarity": "UC",
         "cardType": "CHARACTER",
@@ -47126,7 +47234,7 @@
     "OP16-026": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-026.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-026.png?260630",
         "cardName": "エンポリオ・イワンコフ",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -47135,12 +47243,24 @@
         "path": "CardsWebP/OP16/official/OP16-026.webp",
         "fallbackPath": "Cards/OP16/official/OP16-026.png",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-026_p1.png?260630",
+        "cardName": "エンポリオ・イワンコフ",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "getInfo": "ブースターパック 決戦の刻【OP-16】",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP16/official/OP16-026_p1.webp",
+        "fallbackPath": "Cards/OP16/official/OP16-026_p1.png",
+        "variantIndex": 1
       }
     ],
     "OP16-027": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-027.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-027.png?260630",
         "cardName": "ジンベエ",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -47154,7 +47274,7 @@
     "OP16-028": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-028.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-028.png?260630",
         "cardName": "スモーカー",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -47168,7 +47288,7 @@
     "OP16-029": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-029.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-029.png?260630",
         "cardName": "ツノッコフ",
         "rarity": "UC",
         "cardType": "CHARACTER",
@@ -47182,7 +47302,7 @@
     "OP16-030": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-030.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-030.png?260630",
         "cardName": "トラファルガー・ロー",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -47196,7 +47316,7 @@
     "OP16-031": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-031.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-031.png?260630",
         "cardName": "バギー",
         "rarity": "UC",
         "cardType": "CHARACTER",
@@ -47210,7 +47330,7 @@
     "OP16-032": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-032.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-032.png?260630",
         "cardName": "ボア・ハンコック",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -47219,12 +47339,24 @@
         "path": "CardsWebP/OP16/official/OP16-032.webp",
         "fallbackPath": "Cards/OP16/official/OP16-032.png",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-032_p1.png?260630",
+        "cardName": "ボア・ハンコック",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "getInfo": "ブースターパック 決戦の刻【OP-16】",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP16/official/OP16-032_p1.webp",
+        "fallbackPath": "Cards/OP16/official/OP16-032_p1.png",
+        "variantIndex": 1
       }
     ],
     "OP16-033": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-033.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-033.png?260630",
         "cardName": "モーリー",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -47238,7 +47370,7 @@
     "OP16-034": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-034.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-034.png?260630",
         "cardName": "モンキー・Ｄ・ルフィ",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -47247,12 +47379,24 @@
         "path": "CardsWebP/OP16/official/OP16-034.webp",
         "fallbackPath": "Cards/OP16/official/OP16-034.png",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-034_p1.png?260630",
+        "cardName": "モンキー・Ｄ・ルフィ",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "getInfo": "ブースターパック 決戦の刻【OP-16】",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP16/official/OP16-034_p1.webp",
+        "fallbackPath": "Cards/OP16/official/OP16-034_p1.png",
+        "variantIndex": 1
       }
     ],
     "OP16-035": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-035.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-035.png?260630",
         "cardName": "ロロノア・ゾロ",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -47266,7 +47410,7 @@
     "OP16-036": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-036.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-036.png?260630",
         "cardName": "Mr.2・ボン・クレー(ベンサム)",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -47280,7 +47424,7 @@
     "OP16-037": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-037.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-037.png?260630",
         "cardName": "Mr.3(ギャルディーノ)",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -47294,7 +47438,7 @@
     "OP16-038": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-038.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-038.png?260630",
         "cardName": "行くぞ～～～!!!海軍本部～～～!!!",
         "rarity": "R",
         "cardType": "EVENT",
@@ -47308,7 +47452,7 @@
     "OP16-039": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-039.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-039.png?260630",
         "cardName": "ゴムゴムのツインJET銃",
         "rarity": "C",
         "cardType": "EVENT",
@@ -47322,7 +47466,7 @@
     "OP16-040": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-040.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-040.png?260630",
         "cardName": "ゴムゴムのトンカチ回転銃",
         "rarity": "UC",
         "cardType": "EVENT",
@@ -47336,7 +47480,7 @@
     "OP16-041": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-041.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-041.png?260630",
         "cardName": "バギー",
         "rarity": "L",
         "cardType": "LEADER",
@@ -47345,12 +47489,24 @@
         "path": "CardsWebP/OP16/official/OP16-041.webp",
         "fallbackPath": "Cards/OP16/official/OP16-041.png",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-041_p1.png?260630",
+        "cardName": "バギー",
+        "rarity": "L",
+        "cardType": "LEADER",
+        "getInfo": "ブースターパック 決戦の刻【OP-16】",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP16/official/OP16-041_p1.webp",
+        "fallbackPath": "Cards/OP16/official/OP16-041_p1.png",
+        "variantIndex": 1
       }
     ],
     "OP16-042": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-042.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-042.png?260630",
         "cardName": "インペルダウンの囚人",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -47359,12 +47515,24 @@
         "path": "CardsWebP/OP16/official/OP16-042.webp",
         "fallbackPath": "Cards/OP16/official/OP16-042.png",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-042_p1.png?260630",
+        "cardName": "インペルダウンの囚人",
+        "rarity": "TR",
+        "cardType": "CHARACTER",
+        "getInfo": "ブースターパック 決戦の刻【OP-16】",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP16/official/OP16-042_p1.webp",
+        "fallbackPath": "Cards/OP16/official/OP16-042_p1.png",
+        "variantIndex": 1
       }
     ],
     "OP16-043": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-043.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-043.png?260630",
         "cardName": "ウソップ",
         "rarity": "UC",
         "cardType": "CHARACTER",
@@ -47378,7 +47546,7 @@
     "OP16-044": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-044.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-044.png?260630",
         "cardName": "エンポリオ・イワンコフ",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -47392,7 +47560,7 @@
     "OP16-045": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-045.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-045.png?260630",
         "cardName": "クロコダイル",
         "rarity": "UC",
         "cardType": "CHARACTER",
@@ -47406,7 +47574,7 @@
     "OP16-046": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-046.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-046.png?260630",
         "cardName": "ジンベエ",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -47420,7 +47588,7 @@
     "OP16-047": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-047.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-047.png?260630",
         "cardName": "ドンキホーテ・ドフラミンゴ",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -47434,7 +47602,7 @@
     "OP16-048": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-048.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-048.png?260630",
         "cardName": "バギー",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -47443,12 +47611,24 @@
         "path": "CardsWebP/OP16/official/OP16-048.webp",
         "fallbackPath": "Cards/OP16/official/OP16-048.png",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-048_p1.png?260630",
+        "cardName": "バギー",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "getInfo": "ブースターパック 決戦の刻【OP-16】",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP16/official/OP16-048_p1.webp",
+        "fallbackPath": "Cards/OP16/official/OP16-048_p1.png",
+        "variantIndex": 1
       }
     ],
     "OP16-049": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-049.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-049.png?260630",
         "cardName": "ポートガス・Ｄ・エース",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -47462,7 +47642,7 @@
     "OP16-050": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-050.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-050.png?260630",
         "cardName": "ミス・オリーブ",
         "rarity": "UC",
         "cardType": "CHARACTER",
@@ -47476,7 +47656,7 @@
     "OP16-051": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-051.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-051.png?260630",
         "cardName": "モージ＆カバジ",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -47490,7 +47670,7 @@
     "OP16-052": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-052.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-052.png?260630",
         "cardName": "モンキー・Ｄ・ルフィ",
         "rarity": "UC",
         "cardType": "CHARACTER",
@@ -47504,7 +47684,7 @@
     "OP16-053": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-053.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-053.png?260630",
         "cardName": "ロロノア・ゾロ",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -47518,7 +47698,7 @@
     "OP16-054": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-054.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-054.png?260630",
         "cardName": "Mr.1(ダズ・ボーネス)",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -47532,7 +47712,7 @@
     "OP16-055": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-055.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-055.png?260630",
         "cardName": "Mr.2・ボン・クレー(ベンサム)",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -47541,12 +47721,24 @@
         "path": "CardsWebP/OP16/official/OP16-055.webp",
         "fallbackPath": "Cards/OP16/official/OP16-055.png",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-055_p1.png?260630",
+        "cardName": "Mr.2・ボン・クレー(ベンサム)",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "getInfo": "ブースターパック 決戦の刻【OP-16】",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP16/official/OP16-055_p1.webp",
+        "fallbackPath": "Cards/OP16/official/OP16-055_p1.png",
+        "variantIndex": 1
       }
     ],
     "OP16-056": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-056.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-056.png?260630",
         "cardName": "Mr.3(ギャルディーノ)",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -47555,12 +47747,24 @@
         "path": "CardsWebP/OP16/official/OP16-056.webp",
         "fallbackPath": "Cards/OP16/official/OP16-056.png",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-056_p1.png?260630",
+        "cardName": "Mr.3(ギャルディーノ)",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "getInfo": "ブースターパック 決戦の刻【OP-16】",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP16/official/OP16-056_p1.webp",
+        "fallbackPath": "Cards/OP16/official/OP16-056_p1.png",
+        "variantIndex": 1
       }
     ],
     "OP16-057": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-057.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-057.png?260630",
         "cardName": "おれ達の救世主!!!キャプテン・バギー!!!!",
         "rarity": "C",
         "cardType": "EVENT",
@@ -47574,7 +47778,7 @@
     "OP16-058": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-058.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-058.png?260630",
         "cardName": "囚人達が暴れ出したァ～～～!!!",
         "rarity": "R",
         "cardType": "EVENT",
@@ -47588,7 +47792,7 @@
     "OP16-059": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-059.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-059.png?260630",
         "cardName": "ド派手大作戦に変更じゃァ～～～!!!",
         "rarity": "UC",
         "cardType": "EVENT",
@@ -47602,7 +47806,7 @@
     "OP16-060": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-060.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-060.png?260630",
         "cardName": "センゴク",
         "rarity": "L",
         "cardType": "LEADER",
@@ -47611,12 +47815,24 @@
         "path": "CardsWebP/OP16/official/OP16-060.webp",
         "fallbackPath": "Cards/OP16/official/OP16-060.png",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-060_p1.png?260630",
+        "cardName": "センゴク",
+        "rarity": "L",
+        "cardType": "LEADER",
+        "getInfo": "ブースターパック 決戦の刻【OP-16】",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP16/official/OP16-060_p1.webp",
+        "fallbackPath": "Cards/OP16/official/OP16-060_p1.png",
+        "variantIndex": 1
       }
     ],
     "OP16-061": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-061.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-061.png?260630",
         "cardName": "海兵兄",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -47630,7 +47846,7 @@
     "OP16-062": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-062.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-062.png?260630",
         "cardName": "海兵弟",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -47644,7 +47860,7 @@
     "OP16-063": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-063.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-063.png?260630",
         "cardName": "クザン",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -47653,12 +47869,36 @@
         "path": "CardsWebP/OP16/official/OP16-063.webp",
         "fallbackPath": "Cards/OP16/official/OP16-063.png",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-063_p1.png?260630",
+        "cardName": "クザン",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "getInfo": "ブースターパック 決戦の刻【OP-16】",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP16/official/OP16-063_p1.webp",
+        "fallbackPath": "Cards/OP16/official/OP16-063_p1.png",
+        "variantIndex": 1
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-063_p2.png?260630",
+        "cardName": "クザン",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "getInfo": "ブースターパック 決戦の刻【OP-16】",
+        "label": "別イラスト 3",
+        "path": "CardsWebP/OP16/official/OP16-063_p2.webp",
+        "fallbackPath": "Cards/OP16/official/OP16-063_p2.png",
+        "variantIndex": 2
       }
     ],
     "OP16-064": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-064.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-064.png?260630",
         "cardName": "コビー",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -47672,7 +47912,7 @@
     "OP16-065": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-065.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-065.png?260630",
         "cardName": "サカズキ",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -47681,12 +47921,36 @@
         "path": "CardsWebP/OP16/official/OP16-065.webp",
         "fallbackPath": "Cards/OP16/official/OP16-065.png",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-065_p1.png?260630",
+        "cardName": "サカズキ",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "getInfo": "ブースターパック 決戦の刻【OP-16】",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP16/official/OP16-065_p1.webp",
+        "fallbackPath": "Cards/OP16/official/OP16-065_p1.png",
+        "variantIndex": 1
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-065_p2.png?260630",
+        "cardName": "サカズキ",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "getInfo": "ブースターパック 決戦の刻【OP-16】",
+        "label": "別イラスト 3",
+        "path": "CardsWebP/OP16/official/OP16-065_p2.webp",
+        "fallbackPath": "Cards/OP16/official/OP16-065_p2.png",
+        "variantIndex": 2
       }
     ],
     "OP16-066": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-066.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-066.png?260630",
         "cardName": "センゴク",
         "rarity": "UC",
         "cardType": "CHARACTER",
@@ -47700,7 +47964,7 @@
     "OP16-067": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-067.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-067.png?260630",
         "cardName": "つる",
         "rarity": "UC",
         "cardType": "CHARACTER",
@@ -47714,7 +47978,7 @@
     "OP16-068": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-068.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-068.png?260630",
         "cardName": "トラファルガー・ロー",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -47728,7 +47992,7 @@
     "OP16-069": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-069.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-069.png?260630",
         "cardName": "ドンキホーテ・ドフラミンゴ",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -47742,7 +48006,7 @@
     "OP16-070": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-070.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-070.png?260630",
         "cardName": "ドンキホーテ・ロシナンテ",
         "rarity": "UC",
         "cardType": "CHARACTER",
@@ -47756,7 +48020,7 @@
     "OP16-071": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-071.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-071.png?260630",
         "cardName": "波頭の仁王",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -47770,7 +48034,7 @@
     "OP16-072": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-072.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-072.png?260630",
         "cardName": "ハンニャバル",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -47784,7 +48048,7 @@
     "OP16-073": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-073.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-073.png?260630",
         "cardName": "ボルサリーノ",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -47793,12 +48057,36 @@
         "path": "CardsWebP/OP16/official/OP16-073.webp",
         "fallbackPath": "Cards/OP16/official/OP16-073.png",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-073_p1.png?260630",
+        "cardName": "ボルサリーノ",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "getInfo": "ブースターパック 決戦の刻【OP-16】",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP16/official/OP16-073_p1.webp",
+        "fallbackPath": "Cards/OP16/official/OP16-073_p1.png",
+        "variantIndex": 1
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-073_p2.png?260630",
+        "cardName": "ボルサリーノ",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "getInfo": "ブースターパック 決戦の刻【OP-16】",
+        "label": "別イラスト 3",
+        "path": "CardsWebP/OP16/official/OP16-073_p2.webp",
+        "fallbackPath": "Cards/OP16/official/OP16-073_p2.png",
+        "variantIndex": 2
       }
     ],
     "OP16-074": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-074.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-074.png?260630",
         "cardName": "マゼラン",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -47812,7 +48100,7 @@
     "OP16-075": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-075.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-075.png?260630",
         "cardName": "モンキー・Ｄ・ガープ",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -47826,7 +48114,7 @@
     "OP16-076": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-076.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-076.png?260630",
         "cardName": "「三大将」!!!",
         "rarity": "UC",
         "cardType": "EVENT",
@@ -47840,7 +48128,7 @@
     "OP16-077": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-077.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-077.png?260630",
         "cardName": "智将“仏のセンゴク”",
         "rarity": "R",
         "cardType": "EVENT",
@@ -47854,7 +48142,7 @@
     "OP16-078": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-078.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-078.png?260630",
         "cardName": "マリンフォード",
         "rarity": "UC",
         "cardType": "STAGE",
@@ -47868,7 +48156,7 @@
     "OP16-079": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-079.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-079.png?260630",
         "cardName": "ヤマト",
         "rarity": "L",
         "cardType": "LEADER",
@@ -47877,12 +48165,24 @@
         "path": "CardsWebP/OP16/official/OP16-079.webp",
         "fallbackPath": "Cards/OP16/official/OP16-079.png",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-079_p1.png?260630",
+        "cardName": "ヤマト",
+        "rarity": "L",
+        "cardType": "LEADER",
+        "getInfo": "ブースターパック 決戦の刻【OP-16】",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP16/official/OP16-079_p1.webp",
+        "fallbackPath": "Cards/OP16/official/OP16-079_p1.png",
+        "variantIndex": 1
       }
     ],
     "OP16-080": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-080.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-080.png?260630",
         "cardName": "マーシャル・Ｄ・ティーチ",
         "rarity": "L",
         "cardType": "LEADER",
@@ -47891,12 +48191,24 @@
         "path": "CardsWebP/OP16/official/OP16-080.webp",
         "fallbackPath": "Cards/OP16/official/OP16-080.png",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-080_p1.png?260630",
+        "cardName": "マーシャル・Ｄ・ティーチ",
+        "rarity": "L",
+        "cardType": "LEADER",
+        "getInfo": "ブースターパック 決戦の刻【OP-16】",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP16/official/OP16-080_p1.webp",
+        "fallbackPath": "Cards/OP16/official/OP16-080_p1.png",
+        "variantIndex": 1
       }
     ],
     "OP16-081": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-081.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-081.png?260630",
         "cardName": "お玉",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -47910,7 +48222,7 @@
     "OP16-082": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-082.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-082.png?260630",
         "cardName": "錦えもん",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -47919,12 +48231,24 @@
         "path": "CardsWebP/OP16/official/OP16-082.webp",
         "fallbackPath": "Cards/OP16/official/OP16-082.png",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-082_p1.png?260630",
+        "cardName": "錦えもん",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "getInfo": "ブースターパック 決戦の刻【OP-16】",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP16/official/OP16-082_p1.webp",
+        "fallbackPath": "Cards/OP16/official/OP16-082_p1.png",
+        "variantIndex": 1
       }
     ],
     "OP16-083": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-083.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-083.png?260630",
         "cardName": "光月おでん",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -47938,7 +48262,7 @@
     "OP16-084": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-084.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-084.png?260630",
         "cardName": "光月モモの助",
         "rarity": "UC",
         "cardType": "CHARACTER",
@@ -47952,7 +48276,7 @@
     "OP16-085": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-085.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-085.png?260630",
         "cardName": "光月モモの助",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -47961,12 +48285,24 @@
         "path": "CardsWebP/OP16/official/OP16-085.webp",
         "fallbackPath": "Cards/OP16/official/OP16-085.png",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-085_p1.png?260630",
+        "cardName": "光月モモの助",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "getInfo": "ブースターパック 決戦の刻【OP-16】",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP16/official/OP16-085_p1.webp",
+        "fallbackPath": "Cards/OP16/official/OP16-085_p1.png",
+        "variantIndex": 1
       }
     ],
     "OP16-086": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-086.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-086.png?260630",
         "cardName": "サンジ",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -47980,7 +48316,7 @@
     "OP16-087": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-087.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-087.png?260630",
         "cardName": "しのぶ",
         "rarity": "UC",
         "cardType": "CHARACTER",
@@ -47994,7 +48330,7 @@
     "OP16-088": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-088.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-088.png?260630",
         "cardName": "霜月牛マル",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -48008,7 +48344,7 @@
     "OP16-089": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-089.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-089.png?260630",
         "cardName": "ジュラキュール・ミホーク",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -48022,7 +48358,7 @@
     "OP16-090": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-090.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-090.png?260630",
         "cardName": "トニートニー・チョッパー",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -48036,7 +48372,7 @@
     "OP16-091": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-091.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-091.png?260630",
         "cardName": "ナミ",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -48050,7 +48386,7 @@
     "OP16-092": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-092.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-092.png?260630",
         "cardName": "ニコ・ロビン",
         "rarity": "UC",
         "cardType": "CHARACTER",
@@ -48064,7 +48400,7 @@
     "OP16-093": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-093.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-093.png?260630",
         "cardName": "バーソロミュー・くま",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -48078,7 +48414,7 @@
     "OP16-094": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-094.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-094.png?260630",
         "cardName": "ポートガス・Ｄ・エース",
         "rarity": "UC",
         "cardType": "CHARACTER",
@@ -48092,7 +48428,7 @@
     "OP16-095": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-095.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-095.png?260630",
         "cardName": "モンキー・Ｄ・ルフィ",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -48106,7 +48442,7 @@
     "OP16-096": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-096.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-096.png?260630",
         "cardName": "ヤマト",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -48120,7 +48456,7 @@
     "OP16-097": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-097.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-097.png?260630",
         "cardName": "ヤマト",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -48134,7 +48470,7 @@
     "OP16-098": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-098.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-098.png?260630",
         "cardName": "ヤマト",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -48143,12 +48479,24 @@
         "path": "CardsWebP/OP16/official/OP16-098.webp",
         "fallbackPath": "Cards/OP16/official/OP16-098.png",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-098_p1.png?260630",
+        "cardName": "ヤマト",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "getInfo": "ブースターパック 決戦の刻【OP-16】",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP16/official/OP16-098_p1.webp",
+        "fallbackPath": "Cards/OP16/official/OP16-098_p1.png",
+        "variantIndex": 1
       }
     ],
     "OP16-099": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-099.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-099.png?260630",
         "cardName": "その“縁”を切りに来た!!!",
         "rarity": "UC",
         "cardType": "EVENT",
@@ -48162,7 +48510,7 @@
     "OP16-100": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-100.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-100.png?260630",
         "cardName": "氷諸斬り",
         "rarity": "C",
         "cardType": "EVENT",
@@ -48176,7 +48524,7 @@
     "OP16-101": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-101.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-101.png?260630",
         "cardName": "馬幻刃",
         "rarity": "C",
         "cardType": "EVENT",
@@ -48190,7 +48538,7 @@
     "OP16-102": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-102.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-102.png?260630",
         "cardName": "アバロ・ピサロ",
         "rarity": "UC",
         "cardType": "CHARACTER",
@@ -48204,7 +48552,7 @@
     "OP16-103": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-103.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-103.png?260630",
         "cardName": "ヴァン・オーガー",
         "rarity": "UC",
         "cardType": "CHARACTER",
@@ -48218,7 +48566,7 @@
     "OP16-104": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-104.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-104.png?260630",
         "cardName": "カタリーナ・デボン",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -48232,7 +48580,7 @@
     "OP16-105": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-105.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-105.png?260630",
         "cardName": "ゲッコー・モリア",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -48246,7 +48594,7 @@
     "OP16-106": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-106.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-106.png?260630",
         "cardName": "サンファン・ウルフ",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -48260,7 +48608,7 @@
     "OP16-107": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-107.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-107.png?260630",
         "cardName": "ジーザス・バージェス",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -48274,7 +48622,7 @@
     "OP16-108": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-108.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-108.png?260630",
         "cardName": "シリュウ",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -48283,12 +48631,24 @@
         "path": "CardsWebP/OP16/official/OP16-108.webp",
         "fallbackPath": "Cards/OP16/official/OP16-108.png",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-108_p1.png?260630",
+        "cardName": "シリュウ",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "getInfo": "ブースターパック 決戦の刻【OP-16】",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP16/official/OP16-108_p1.webp",
+        "fallbackPath": "Cards/OP16/official/OP16-108_p1.png",
+        "variantIndex": 1
       }
     ],
     "OP16-109": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-109.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-109.png?260630",
         "cardName": "ドクQ",
         "rarity": "UC",
         "cardType": "CHARACTER",
@@ -48302,7 +48662,7 @@
     "OP16-110": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-110.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-110.png?260630",
         "cardName": "バスコ・ショット",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -48316,7 +48676,7 @@
     "OP16-111": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-111.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-111.png?260630",
         "cardName": "ボア・サンダーソニア",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -48330,7 +48690,7 @@
     "OP16-112": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-112.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-112.png?260630",
         "cardName": "ボア・ハンコック",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -48344,7 +48704,7 @@
     "OP16-113": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-113.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-113.png?260630",
         "cardName": "ボア・マリーゴールド",
         "rarity": "UC",
         "cardType": "CHARACTER",
@@ -48358,7 +48718,7 @@
     "OP16-114": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-114.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-114.png?260630",
         "cardName": "ラフィット",
         "rarity": "C",
         "cardType": "CHARACTER",
@@ -48372,7 +48732,7 @@
     "OP16-115": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-115.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-115.png?260630",
         "cardName": "闇水",
         "rarity": "UC",
         "cardType": "EVENT",
@@ -48386,7 +48746,7 @@
     "OP16-116": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-116.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-116.png?260630",
         "cardName": "ゼハハハハハハ!!!",
         "rarity": "R",
         "cardType": "EVENT",
@@ -48395,12 +48755,24 @@
         "path": "CardsWebP/OP16/official/OP16-116.webp",
         "fallbackPath": "Cards/OP16/official/OP16-116.png",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-116_p1.png?260630",
+        "cardName": "ゼハハハハハハ!!!",
+        "rarity": "R",
+        "cardType": "EVENT",
+        "getInfo": "ブースターパック 決戦の刻【OP-16】",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP16/official/OP16-116_p1.webp",
+        "fallbackPath": "Cards/OP16/official/OP16-116_p1.png",
+        "variantIndex": 1
       }
     ],
     "OP16-117": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-117.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-117.png?260630",
         "cardName": "闇穴道",
         "rarity": "C",
         "cardType": "EVENT",
@@ -48414,7 +48786,7 @@
     "OP16-118": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-118.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-118.png?260630",
         "cardName": "ポートガス・Ｄ・エース",
         "rarity": "SEC",
         "cardType": "CHARACTER",
@@ -48423,12 +48795,24 @@
         "path": "CardsWebP/OP16/official/OP16-118.webp",
         "fallbackPath": "Cards/OP16/official/OP16-118.png",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-118_p1.png?260630",
+        "cardName": "ポートガス・Ｄ・エース",
+        "rarity": "SEC",
+        "cardType": "CHARACTER",
+        "getInfo": "ブースターパック 決戦の刻【OP-16】",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP16/official/OP16-118_p1.webp",
+        "fallbackPath": "Cards/OP16/official/OP16-118_p1.png",
+        "variantIndex": 1
       }
     ],
     "OP16-119": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-119.png?260518",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-119.png?260630",
         "cardName": "マーシャル・Ｄ・ティーチ",
         "rarity": "SEC",
         "cardType": "CHARACTER",
@@ -48437,6 +48821,18 @@
         "path": "CardsWebP/OP16/official/OP16-119.webp",
         "fallbackPath": "Cards/OP16/official/OP16-119.png",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-119_p1.png?260630",
+        "cardName": "マーシャル・Ｄ・ティーチ",
+        "rarity": "SEC",
+        "cardType": "CHARACTER",
+        "getInfo": "ブースターパック 決戦の刻【OP-16】",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP16/official/OP16-119_p1.webp",
+        "fallbackPath": "Cards/OP16/official/OP16-119_p1.png",
+        "variantIndex": 1
       }
     ],
     "P-001": [
@@ -51376,7 +51772,7 @@
     "PRB02-001": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-001.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-001.png?260630",
         "cardName": "コビー",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -51388,7 +51784,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-001_p1.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-001_p1.png?260630",
         "cardName": "コビー",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -51402,7 +51798,7 @@
     "PRB02-002": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-002.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-002.png?260630",
         "cardName": "トラファルガー・ロー",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -51414,7 +51810,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-002_p1.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-002_p1.png?260630",
         "cardName": "トラファルガー・ロー",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -51428,7 +51824,7 @@
     "PRB02-003": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-003.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-003.png?260630",
         "cardName": "ラッキー・ルウ",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -51440,7 +51836,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-003_p1.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-003_p1.png?260630",
         "cardName": "ラッキー・ルウ",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -51454,7 +51850,7 @@
     "PRB02-004": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-004.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-004.png?260630",
         "cardName": "ジュエリー・ボニー",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -51466,7 +51862,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-004_p1.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-004_p1.png?260630",
         "cardName": "ジュエリー・ボニー",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -51480,7 +51876,7 @@
     "PRB02-005": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-005.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-005.png?260630",
         "cardName": "モンキー・Ｄ・ルフィ",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -51492,7 +51888,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-005_p1.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-005_p1.png?260630",
         "cardName": "モンキー・Ｄ・ルフィ",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -51504,7 +51900,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-005_p2.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-005_p2.png?260630",
         "cardName": "モンキー・Ｄ・ルフィ",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -51518,7 +51914,7 @@
     "PRB02-006": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-006.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-006.png?260630",
         "cardName": "ロロノア・ゾロ",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -51530,7 +51926,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-006_p1.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-006_p1.png?260630",
         "cardName": "ロロノア・ゾロ",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -51542,7 +51938,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-006_p2.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-006_p2.png?260630",
         "cardName": "ロロノア・ゾロ",
         "rarity": "SPカード",
         "cardType": "CHARACTER",
@@ -51556,7 +51952,7 @@
     "PRB02-007": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-007.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-007.png?260630",
         "cardName": "ジンベエ",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -51568,7 +51964,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-007_p1.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-007_p1.png?260630",
         "cardName": "ジンベエ",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -51582,7 +51978,7 @@
     "PRB02-008": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-008.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-008.png?260630",
         "cardName": "マルコ",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -51594,7 +51990,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-008_p1.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-008_p1.png?260630",
         "cardName": "マルコ",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -51608,7 +52004,7 @@
     "PRB02-009": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-009.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-009.png?260630",
         "cardName": "Mr.3(ギャルディーノ)",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -51620,7 +52016,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-009_p1.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-009_p1.png?260630",
         "cardName": "Mr.3(ギャルディーノ)",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -51634,7 +52030,7 @@
     "PRB02-010": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-010.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-010.png?260630",
         "cardName": "シャーロット・プリン",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -51646,7 +52042,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-010_p1.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-010_p1.png?260630",
         "cardName": "シャーロット・プリン",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -51660,7 +52056,7 @@
     "PRB02-011": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-011.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-011.png?260630",
         "cardName": "ドンキホーテ・ドフラミンゴ",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -51672,7 +52068,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-011_p1.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-011_p1.png?260630",
         "cardName": "ドンキホーテ・ドフラミンゴ",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -51686,7 +52082,7 @@
     "PRB02-012": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-012.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-012.png?260630",
         "cardName": "ナミ",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -51698,7 +52094,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-012_p1.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-012_p1.png?260630",
         "cardName": "ナミ",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -51712,7 +52108,7 @@
     "PRB02-013": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-013.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-013.png?260630",
         "cardName": "ゲッコー・モリア",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -51724,7 +52120,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-013_p1.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-013_p1.png?260630",
         "cardName": "ゲッコー・モリア",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -51738,7 +52134,7 @@
     "PRB02-014": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-014.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-014.png?260630",
         "cardName": "サボ",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -51750,7 +52146,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-014_p1.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-014_p1.png?260630",
         "cardName": "サボ",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -51762,7 +52158,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-014_p2.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-014_p2.png?260630",
         "cardName": "サボ",
         "rarity": "SPカード",
         "cardType": "CHARACTER",
@@ -51776,7 +52172,7 @@
     "PRB02-015": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-015.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-015.png?260630",
         "cardName": "シリュウ",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -51788,7 +52184,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-015_p1.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-015_p1.png?260630",
         "cardName": "シリュウ",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -51802,7 +52198,7 @@
     "PRB02-016": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-016.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-016.png?260630",
         "cardName": "お玉",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -51814,7 +52210,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-016_p1.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-016_p1.png?260630",
         "cardName": "お玉",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -51828,7 +52224,7 @@
     "PRB02-017": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-017.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-017.png?260630",
         "cardName": "ボア・ハンコック",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -51840,7 +52236,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-017_p1.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-017_p1.png?260630",
         "cardName": "ボア・ハンコック",
         "rarity": "SR",
         "cardType": "CHARACTER",
@@ -51854,7 +52250,7 @@
     "PRB02-018": [
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-018.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-018.png?260630",
         "cardName": "ポートガス・Ｄ・エース",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -51866,7 +52262,7 @@
       },
       {
         "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-018_p1.png?260428",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/PRB02-018_p1.png?260630",
         "cardName": "ポートガス・Ｄ・エース",
         "rarity": "R",
         "cardType": "CHARACTER",
@@ -61303,6 +61699,426 @@
         "path": "CardsWebP/ST30/official/ST30-017_p1.webp",
         "fallbackPath": "Cards/ST30/official/ST30-017_p1.png",
         "variantIndex": 1
+      }
+    ],
+    "ST31-001": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST31-001.png?260630",
+        "cardName": "サンジ",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "getInfo": "スタートデッキ 赤 モンキー・D・ルフィ【ST-31】",
+        "label": "通常",
+        "path": "CardsWebP/ST31/official/ST31-001.webp",
+        "fallbackPath": "Cards/ST31/official/ST31-001.png",
+        "variantIndex": 0
+      }
+    ],
+    "ST31-002": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST31-002.png?260630",
+        "cardName": "ジンベエ",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "getInfo": "スタートデッキ 赤 モンキー・D・ルフィ【ST-31】",
+        "label": "通常",
+        "path": "CardsWebP/ST31/official/ST31-002.webp",
+        "fallbackPath": "Cards/ST31/official/ST31-002.png",
+        "variantIndex": 0
+      }
+    ],
+    "ST31-003": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST31-003.png?260630",
+        "cardName": "ブルック",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "getInfo": "スタートデッキ 赤 モンキー・D・ルフィ【ST-31】",
+        "label": "通常",
+        "path": "CardsWebP/ST31/official/ST31-003.webp",
+        "fallbackPath": "Cards/ST31/official/ST31-003.png",
+        "variantIndex": 0
+      }
+    ],
+    "ST31-004": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST31-004.png?260630",
+        "cardName": "モンキー・Ｄ・ルフィ",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "getInfo": "スタートデッキ 赤 モンキー・D・ルフィ【ST-31】",
+        "label": "通常",
+        "path": "CardsWebP/ST31/official/ST31-004.webp",
+        "fallbackPath": "Cards/ST31/official/ST31-004.png",
+        "variantIndex": 0
+      }
+    ],
+    "ST31-005": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST31-005.png?260630",
+        "cardName": "サウザンド・サニー号",
+        "rarity": "C",
+        "cardType": "STAGE",
+        "getInfo": "スタートデッキ 赤 モンキー・D・ルフィ【ST-31】",
+        "label": "通常",
+        "path": "CardsWebP/ST31/official/ST31-005.webp",
+        "fallbackPath": "Cards/ST31/official/ST31-005.png",
+        "variantIndex": 0
+      }
+    ],
+    "ST32-001": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST32-001.png?260630",
+        "cardName": "錦えもん",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "getInfo": "スタートデッキ 緑 ロロノア・ゾロ【ST-32】",
+        "label": "通常",
+        "path": "CardsWebP/ST32/official/ST32-001.webp",
+        "fallbackPath": "Cards/ST32/official/ST32-001.png",
+        "variantIndex": 0
+      }
+    ],
+    "ST32-002": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST32-002.png?260630",
+        "cardName": "光月おでん",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "getInfo": "スタートデッキ 緑 ロロノア・ゾロ【ST-32】",
+        "label": "通常",
+        "path": "CardsWebP/ST32/official/ST32-002.webp",
+        "fallbackPath": "Cards/ST32/official/ST32-002.png",
+        "variantIndex": 0
+      }
+    ],
+    "ST32-003": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST32-003.png?260630",
+        "cardName": "ジュラキュール・ミホーク",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "getInfo": "スタートデッキ 緑 ロロノア・ゾロ【ST-32】",
+        "label": "通常",
+        "path": "CardsWebP/ST32/official/ST32-003.webp",
+        "fallbackPath": "Cards/ST32/official/ST32-003.png",
+        "variantIndex": 0
+      }
+    ],
+    "ST32-004": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST32-004.png?260630",
+        "cardName": "シルバーズ・レイリー",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "getInfo": "スタートデッキ 緑 ロロノア・ゾロ【ST-32】",
+        "label": "通常",
+        "path": "CardsWebP/ST32/official/ST32-004.webp",
+        "fallbackPath": "Cards/ST32/official/ST32-004.png",
+        "variantIndex": 0
+      }
+    ],
+    "ST32-005": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST32-005.png?260630",
+        "cardName": "ロロノア・ゾロ",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "getInfo": "スタートデッキ 緑 ロロノア・ゾロ【ST-32】",
+        "label": "通常",
+        "path": "CardsWebP/ST32/official/ST32-005.webp",
+        "fallbackPath": "Cards/ST32/official/ST32-005.png",
+        "variantIndex": 0
+      }
+    ],
+    "ST33-001": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST33-001.png?260630",
+        "cardName": "コビー",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "getInfo": "スタートデッキ 青 クザン【ST-33】",
+        "label": "通常",
+        "path": "CardsWebP/ST33/official/ST33-001.webp",
+        "fallbackPath": "Cards/ST33/official/ST33-001.png",
+        "variantIndex": 0
+      }
+    ],
+    "ST33-002": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST33-002.png?260630",
+        "cardName": "サカズキ",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "getInfo": "スタートデッキ 青 クザン【ST-33】",
+        "label": "通常",
+        "path": "CardsWebP/ST33/official/ST33-002.webp",
+        "fallbackPath": "Cards/ST33/official/ST33-002.png",
+        "variantIndex": 0
+      }
+    ],
+    "ST33-003": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST33-003.png?260630",
+        "cardName": "スモーカー",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "getInfo": "スタートデッキ 青 クザン【ST-33】",
+        "label": "通常",
+        "path": "CardsWebP/ST33/official/ST33-003.webp",
+        "fallbackPath": "Cards/ST33/official/ST33-003.png",
+        "variantIndex": 0
+      }
+    ],
+    "ST33-004": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST33-004.png?260630",
+        "cardName": "ボルサリーノ",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "getInfo": "スタートデッキ 青 クザン【ST-33】",
+        "label": "通常",
+        "path": "CardsWebP/ST33/official/ST33-004.webp",
+        "fallbackPath": "Cards/ST33/official/ST33-004.png",
+        "variantIndex": 0
+      }
+    ],
+    "ST33-005": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST33-005.png?260630",
+        "cardName": "モンキー・Ｄ・ガープ",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "getInfo": "スタートデッキ 青 クザン【ST-33】",
+        "label": "通常",
+        "path": "CardsWebP/ST33/official/ST33-005.webp",
+        "fallbackPath": "Cards/ST33/official/ST33-005.png",
+        "variantIndex": 0
+      }
+    ],
+    "ST34-001": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST34-001.png?260630",
+        "cardName": "シャーロット・カタクリ",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "getInfo": "スタートデッキ 紫 シャーロット・カタクリ【ST-34】",
+        "label": "通常",
+        "path": "CardsWebP/ST34/official/ST34-001.webp",
+        "fallbackPath": "Cards/ST34/official/ST34-001.png",
+        "variantIndex": 0
+      }
+    ],
+    "ST34-002": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST34-002.png?260630",
+        "cardName": "シャーロット・クラッカー",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "getInfo": "スタートデッキ 紫 シャーロット・カタクリ【ST-34】",
+        "label": "通常",
+        "path": "CardsWebP/ST34/official/ST34-002.webp",
+        "fallbackPath": "Cards/ST34/official/ST34-002.png",
+        "variantIndex": 0
+      }
+    ],
+    "ST34-003": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST34-003.png?260630",
+        "cardName": "シャーロット・ブリュレ",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "getInfo": "スタートデッキ 紫 シャーロット・カタクリ【ST-34】",
+        "label": "通常",
+        "path": "CardsWebP/ST34/official/ST34-003.webp",
+        "fallbackPath": "Cards/ST34/official/ST34-003.png",
+        "variantIndex": 0
+      }
+    ],
+    "ST34-004": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST34-004.png?260630",
+        "cardName": "シャーロット・リンリン",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "getInfo": "スタートデッキ 紫 シャーロット・カタクリ【ST-34】",
+        "label": "通常",
+        "path": "CardsWebP/ST34/official/ST34-004.webp",
+        "fallbackPath": "Cards/ST34/official/ST34-004.png",
+        "variantIndex": 0
+      }
+    ],
+    "ST34-005": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST34-005.png?260630",
+        "cardName": "タマゴ男爵＆ペコムズ",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "getInfo": "スタートデッキ 紫 シャーロット・カタクリ【ST-34】",
+        "label": "通常",
+        "path": "CardsWebP/ST34/official/ST34-005.webp",
+        "fallbackPath": "Cards/ST34/official/ST34-005.png",
+        "variantIndex": 0
+      }
+    ],
+    "ST35-001": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST35-001.png?260630",
+        "cardName": "ハック",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "getInfo": "スタートデッキ 赤黒 サボ【ST-35】",
+        "label": "通常",
+        "path": "CardsWebP/ST35/official/ST35-001.webp",
+        "fallbackPath": "Cards/ST35/official/ST35-001.png",
+        "variantIndex": 0
+      }
+    ],
+    "ST35-002": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST35-002.png?260630",
+        "cardName": "リンドバーグ",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "getInfo": "スタートデッキ 赤黒 サボ【ST-35】",
+        "label": "通常",
+        "path": "CardsWebP/ST35/official/ST35-002.webp",
+        "fallbackPath": "Cards/ST35/official/ST35-002.png",
+        "variantIndex": 0
+      }
+    ],
+    "ST35-003": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST35-003.png?260630",
+        "cardName": "カラス",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "getInfo": "スタートデッキ 赤黒 サボ【ST-35】",
+        "label": "通常",
+        "path": "CardsWebP/ST35/official/ST35-003.webp",
+        "fallbackPath": "Cards/ST35/official/ST35-003.png",
+        "variantIndex": 0
+      }
+    ],
+    "ST35-004": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST35-004.png?260630",
+        "cardName": "コアラ",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "getInfo": "スタートデッキ 赤黒 サボ【ST-35】",
+        "label": "通常",
+        "path": "CardsWebP/ST35/official/ST35-004.webp",
+        "fallbackPath": "Cards/ST35/official/ST35-004.png",
+        "variantIndex": 0
+      }
+    ],
+    "ST35-005": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST35-005.png?260630",
+        "cardName": "バーソロミュー・くま",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "getInfo": "スタートデッキ 赤黒 サボ【ST-35】",
+        "label": "通常",
+        "path": "CardsWebP/ST35/official/ST35-005.webp",
+        "fallbackPath": "Cards/ST35/official/ST35-005.png",
+        "variantIndex": 0
+      }
+    ],
+    "ST36-001": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST36-001.png?260630",
+        "cardName": "キャベンディッシュ",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "getInfo": "スタートデッキ 黄 ユースタス・キッド【ST-36】",
+        "label": "通常",
+        "path": "CardsWebP/ST36/official/ST36-001.webp",
+        "fallbackPath": "Cards/ST36/official/ST36-001.png",
+        "variantIndex": 0
+      }
+    ],
+    "ST36-002": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST36-002.png?260630",
+        "cardName": "キラー",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "getInfo": "スタートデッキ 黄 ユースタス・キッド【ST-36】",
+        "label": "通常",
+        "path": "CardsWebP/ST36/official/ST36-002.webp",
+        "fallbackPath": "Cards/ST36/official/ST36-002.png",
+        "variantIndex": 0
+      }
+    ],
+    "ST36-003": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST36-003.png?260630",
+        "cardName": "スクラッチメン・アプー",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "getInfo": "スタートデッキ 黄 ユースタス・キッド【ST-36】",
+        "label": "通常",
+        "path": "CardsWebP/ST36/official/ST36-003.webp",
+        "fallbackPath": "Cards/ST36/official/ST36-003.png",
+        "variantIndex": 0
+      }
+    ],
+    "ST36-004": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST36-004.png?260630",
+        "cardName": "バルトロメオ",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "getInfo": "スタートデッキ 黄 ユースタス・キッド【ST-36】",
+        "label": "通常",
+        "path": "CardsWebP/ST36/official/ST36-004.webp",
+        "fallbackPath": "Cards/ST36/official/ST36-004.png",
+        "variantIndex": 0
+      }
+    ],
+    "ST36-005": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST36-005.png?260630",
+        "cardName": "ユースタス・キッド",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "getInfo": "スタートデッキ 黄 ユースタス・キッド【ST-36】",
+        "label": "通常",
+        "path": "CardsWebP/ST36/official/ST36-005.webp",
+        "fallbackPath": "Cards/ST36/official/ST36-005.png",
+        "variantIndex": 0
       }
     ]
   }
