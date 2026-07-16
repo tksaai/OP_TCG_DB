@@ -5,8 +5,8 @@
  */
 
 // === 1. 定数 ===
-const CACHE_APP_SHELL = 'app-shell-v5';
-const CACHE_CARD_DATA = 'card-data-v5';
+const CACHE_APP_SHELL = 'app-shell-v6';
+const CACHE_CARD_DATA = 'card-data-v6';
 const CACHE_IMAGES = 'card-images-v1';
 
 // GitHub Pagesのリポジトリ名を考慮し、パスを `./` から始める

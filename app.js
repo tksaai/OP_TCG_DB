@@ -26,7 +26,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.3.0'; // バージョン更新
+    const APP_VERSION = '1.3.1'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -66,8 +66,9 @@
     let cardListLongPressed = false;
 
     // --- デッキ構築 状態管理 ---
-    // currentMode: 'view' | 'leader_select' | 'deck_edit'
+    // currentMode: 'view' | 'leader_select' | 'deck_edit' | 'deck_view'
     let currentMode = 'view';
+    let viewingDeck = null;    // deck_view で表示中のデッキ
     let editingDeckId = null;
     let editingDeckData = {};   // { cardNumber: count }
     let editingDeckMeta = {};   // { name, leader, colors: string[], createdAt }
@@ -636,8 +637,8 @@
                 }
             }
 
-            // デッキ編集モード時: 採用枚数バッジ
-            if (currentMode === 'deck_edit' && editingDeckData[card.cardNumber]) {
+            // デッキ編集・表示モード時: 採用枚数バッジ
+            if ((currentMode === 'deck_edit' || currentMode === 'deck_view') && editingDeckData[card.cardNumber]) {
                 const count = editingDeckData[card.cardNumber];
                 const badge = document.createElement('div');
                 badge.className = 'card-deck-badge';
@@ -860,6 +861,10 @@
                     const cardColors = Array.isArray(card.color) ? card.color : [];
                     if (!cardColors.some(c => editingDeckMeta.colors.includes(c))) return false;
                 }
+            } else if (currentMode === 'deck_view') {
+                // デッキ表示モード: リーダーと採用カードのみ
+                const deckCards = viewingDeck?.cards || {};
+                if (card.cardNumber !== viewingDeck?.leader && !deckCards[card.cardNumber]) return false;
             }
 
             // テキスト検索
@@ -1004,6 +1009,23 @@
 
             return true;
         });
+
+        // デッキ表示モード: リーダー先頭 → 種別 → コスト → カード番号順に整列
+        if (currentMode === 'deck_view' && viewingDeck) {
+            const leaderNumber = viewingDeck.leader;
+            const typeOrder = { 'CHARACTER': 0, 'EVENT': 1, 'STAGE': 2 };
+            currentFilteredCards.sort((a, b) => {
+                if (a.cardNumber === leaderNumber) return -1;
+                if (b.cardNumber === leaderNumber) return 1;
+                const ta = typeOrder[a.cardType] !== undefined ? typeOrder[a.cardType] : 3;
+                const tb = typeOrder[b.cardType] !== undefined ? typeOrder[b.cardType] : 3;
+                if (ta !== tb) return ta - tb;
+                const ca = Number(a.costLifeValue) || 0;
+                const cb = Number(b.costLifeValue) || 0;
+                if (ca !== cb) return ca - cb;
+                return String(a.cardNumber).localeCompare(String(b.cardNumber), 'en', { numeric: true });
+            });
+        }
 
         displayCards(currentFilteredCards);
     }
@@ -1558,7 +1580,8 @@
     function updateDeckStatusBar() {
         if (!dom.deckStatusInfo) return;
         const total = getDeckTotalCount();
-        dom.deckStatusInfo.textContent = `デッキ編集中: ${total}/${DECK_MAX_CARDS}枚`;
+        const label = currentMode === 'deck_view' ? 'デッキ内容' : 'デッキ編集中';
+        dom.deckStatusInfo.textContent = `${label}: ${total}/${DECK_MAX_CARDS}枚`;
         if (total === DECK_MAX_CARDS) {
             dom.deckStatusInfo.style.color = 'var(--color-secondary)';
         } else if (total > DECK_MAX_CARDS) {
@@ -1574,6 +1597,36 @@
         dom.deckShowToggleBtn.classList.toggle('active', deckShowOnlyDeckCards);
     }
 
+    // ステータスバーのボタンをモードに合わせて切り替え
+    function syncDeckStatusButtons() {
+        if (dom.deckShowToggleBtn) {
+            dom.deckShowToggleBtn.style.display = currentMode === 'deck_view' ? 'none' : '';
+        }
+        if (dom.deckSaveBtn) {
+            dom.deckSaveBtn.textContent = currentMode === 'deck_view' ? '編集' : '完了';
+        }
+    }
+
+    // デッキ表示モード (読み取り専用)
+    function startDeckView(deck) {
+        if (allCards.length === 0) return;
+        currentMode = 'deck_view';
+        viewingDeck = deck;
+        editingDeckData = { ...(deck.cards || {}) }; // バッジ表示用 (読み取り専用)
+
+        showCardListView();
+        setDeckStatusBarVisible(true);
+        syncDeckStatusButtons();
+        setModeMessage(deck.name || 'デッキ表示');
+
+        dom.searchBar.value = '';
+        dom.clearSearchBtn.style.display = 'none';
+        resetFilters();
+        updateDeckStatusBar();
+        applyFiltersAndDisplay();
+        dom.mainContent.scrollTop = 0;
+    }
+
     // カードタップ時のモード別ふるまい
     function handleCardTap(index) {
         if (index < 0 || index >= currentFilteredCards.length) return;
@@ -1584,6 +1637,7 @@
         } else if (currentMode === 'deck_edit') {
             toggleDeckCardCount(card.cardNumber);
         } else {
+            // 'view' / 'deck_view' は拡大表示
             showLightbox(index);
         }
     }
@@ -1665,6 +1719,7 @@
 
         const el = document.createElement('div');
         el.className = 'deck-item';
+        el.addEventListener('click', () => startDeckView(deck));
 
         // リーダーサムネイル
         const thumb = document.createElement('div');
@@ -1689,7 +1744,10 @@
         nameEl.className = 'deck-name';
         nameEl.textContent = deck.name || '(名称未設定)';
         nameEl.title = 'タップで名前を変更';
-        nameEl.addEventListener('click', () => renameDeck(deck));
+        nameEl.addEventListener('click', (e) => {
+            e.stopPropagation();
+            renameDeck(deck);
+        });
         const metaEl = document.createElement('div');
         metaEl.className = 'deck-meta';
         metaEl.textContent = [
@@ -1707,11 +1765,17 @@
         const editBtn = document.createElement('button');
         editBtn.className = 'deck-btn btn-edit';
         editBtn.textContent = '編集';
-        editBtn.addEventListener('click', () => startDeckEdit(deck));
+        editBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            startDeckEdit(deck);
+        });
         const deleteBtn = document.createElement('button');
         deleteBtn.className = 'deck-btn btn-delete';
         deleteBtn.textContent = '削除';
-        deleteBtn.addEventListener('click', () => deleteDeck(deck));
+        deleteBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            deleteDeck(deck);
+        });
         actions.appendChild(editBtn);
         actions.appendChild(deleteBtn);
         el.appendChild(actions);
@@ -1754,6 +1818,7 @@
 
         showCardListView();
         setDeckStatusBarVisible(true);
+        syncDeckStatusButtons();
         const leaderLabel = leaderCard ? `${leaderCard.cardName} (${colors.join('/')})` : (deck.leader || '');
         setModeMessage(`デッキ編集中: ${leaderLabel}`);
 
@@ -1767,6 +1832,7 @@
 
     function exitDeckBuildingMode() {
         currentMode = 'view';
+        viewingDeck = null;
         editingDeckId = null;
         editingDeckData = {};
         editingDeckMeta = {};
@@ -2464,7 +2530,13 @@
             dom.createNewDeckBtn.addEventListener('click', startLeaderSelection);
         }
         if (dom.deckSaveBtn) {
-            dom.deckSaveBtn.addEventListener('click', saveCurrentDeck);
+            dom.deckSaveBtn.addEventListener('click', () => {
+                if (currentMode === 'deck_view' && viewingDeck) {
+                    startDeckEdit(viewingDeck); // 表示 → 編集へ移行
+                } else {
+                    saveCurrentDeck();
+                }
+            });
         }
         if (dom.deckShowToggleBtn) {
             dom.deckShowToggleBtn.addEventListener('click', () => {
