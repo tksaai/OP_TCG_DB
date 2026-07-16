@@ -1125,7 +1125,220 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 
-/* === 13. アニメーション === */
+/* === 13. デッキ構築 === */
+
+/* モード表示バー (ヘッダー直下に固定) */
+.mode-message-bar {
+    position: fixed;
+    top: calc(var(--header-height) + var(--safe-area-top));
+    left: 0;
+    right: 0;
+    background-color: var(--color-secondary);
+    color: #000;
+    text-align: center;
+    padding: 7px 8px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    z-index: 9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+/* モードバー表示中はコンテンツを下にずらす */
+body.mode-bar-visible .main-content {
+    padding-top: calc(var(--header-height) + var(--safe-area-top) + 8px + 32px);
+}
+
+/* デッキ編集時の採用枚数バッジ */
+.card-deck-badge {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 26px;
+    height: 26px;
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    z-index: 3;
+    pointer-events: none;
+}
+.card-deck-badge[data-count="4"] {
+    background-color: #FFCA28; /* Gold: 上限 */
+    color: #000;
+}
+
+/* デッキ一覧 */
+.deck-list-view {
+    padding: 4px 2px;
+}
+
+.create-deck-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 16px;
+    cursor: pointer;
+}
+.create-deck-btn:hover {
+    opacity: 0.85;
+}
+
+.deck-item {
+    background-color: var(--color-surface);
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid var(--color-border);
+}
+
+.deck-leader-thumb {
+    flex-shrink: 0;
+    width: 48px;
+    aspect-ratio: 120 / 168;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: var(--color-background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    color: var(--color-on-background);
+    text-align: center;
+    word-break: break-all;
+}
+.deck-leader-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.deck-info {
+    flex-grow: 1;
+    min-width: 0;
+}
+.deck-name {
+    font-size: 1.05rem;
+    font-weight: bold;
+    margin-bottom: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+}
+.deck-meta {
+    font-size: 0.75rem;
+    color: var(--color-on-background);
+    opacity: 0.75;
+}
+
+.deck-actions {
+    display: flex;
+    flex-shrink: 0;
+    gap: 8px;
+}
+.deck-btn {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+.btn-edit {
+    background-color: var(--color-secondary);
+    color: #001b18;
+}
+.btn-delete {
+    background-color: var(--color-border);
+    color: var(--color-error);
+}
+
+.no-decks {
+    text-align: center;
+    padding: 24px 12px;
+    color: var(--color-on-background);
+    line-height: 1.8;
+}
+
+/* デッキ編集ステータスバー (フッターの上に固定) */
+.deck-status-bar {
+    position: fixed;
+    bottom: calc(var(--footer-height) + var(--safe-area-bottom));
+    left: 0;
+    right: 0;
+    height: 46px;
+    background-color: var(--color-primary-variant);
+    color: #fff;
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    padding-left: calc(var(--safe-area-left) + 12px);
+    padding-right: calc(var(--safe-area-right) + 12px);
+    z-index: 9;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.3);
+}
+.deck-status-bar.active {
+    display: flex;
+}
+/* ステータスバー表示中はコンテンツ下部の余白を増やす */
+body.deck-bar-visible .main-content {
+    padding-bottom: calc(var(--footer-height) + var(--safe-area-bottom) + 8px + 46px);
+}
+
+.deck-count-info {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+.deck-status-actions {
+    display: flex;
+    gap: 8px;
+}
+.deck-toggle-btn {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+.deck-toggle-btn.active {
+    background: var(--color-secondary);
+    color: #001b18;
+    border-color: var(--color-secondary);
+}
+.deck-save-btn {
+    background: #fff;
+    color: var(--color-primary-variant);
+    border: none;
+    padding: 4px 14px;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+/* 通知エリアがステータスバーと被らないように */
+body.deck-bar-visible #notification-area {
+    bottom: calc(var(--footer-height) + var(--safe-area-bottom) + 46px + 12px);
+}
+
+/* === 14. アニメーション === */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }

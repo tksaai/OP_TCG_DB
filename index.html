@@ -51,6 +51,9 @@
             </div>
         </header>
 
+        <!-- 7b. モード表示バー (リーダー選択・デッキ編集時) -->
+        <div id="mode-message-bar" class="mode-message-bar" style="display: none;"></div>
+
         <!-- 8. メインコンテンツ (スクロール可能) -->
         <main id="main-content" class="main-content">
             <div id="loading-indicator" class="loading-indicator">
@@ -60,19 +63,35 @@
             <div id="card-list-container" class="card-list-container">
                 <!-- カード画像はJavaScriptによってここに挿入されます -->
             </div>
+            <!-- デッキ一覧 (Decksタブ) -->
+            <div id="deck-list-view" class="deck-list-view" style="display: none;">
+                <button id="create-new-deck-btn" class="create-deck-btn">+ 新規デッキ作成</button>
+                <div id="deck-list-container">
+                    <!-- デッキリストはJavaScriptによってここに挿入されます -->
+                </div>
+            </div>
         </main>
+
+        <!-- 8b. デッキ構築用ステータスバー (フッターの上に表示) -->
+        <div id="deck-status-bar" class="deck-status-bar">
+            <span id="deck-status-info" class="deck-count-info">デッキ編集中: 0/50枚</span>
+            <div class="deck-status-actions">
+                <button id="deck-show-toggle-btn" class="deck-toggle-btn">デッキ表示</button>
+                <button id="deck-save-btn" class="deck-save-btn">完了</button>
+            </div>
+        </div>
 
         <!-- 9. フッター (固定) -->
         <footer class="app-footer">
             <nav class="footer-nav">
-                <button class="nav-btn active" data-tab="cards" aria-label="カード一覧">
+                <button id="nav-cards" class="nav-btn active" data-tab="cards" aria-label="カード一覧">
                     <!-- SVG Cards Icon -->
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
                         <path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM4 18V6h16v12H4z"/>
                     </svg>
                     <span>Cards</span>
                 </button>
-                <button class="nav-btn" data-tab="decks" aria-label="デッキ構築" disabled>
+                <button id="nav-decks" class="nav-btn" data-tab="decks" aria-label="デッキ構築">
                     <!-- SVG Decks Icon -->
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
                         <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/>

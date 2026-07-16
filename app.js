@@ -5,9 +5,12 @@
 
     // === 1. グローバル変数と定数 ===
     const DB_NAME = 'OPCardDB';
-    const DB_VERSION = 2;
+    const DB_VERSION = 3;
     const STORE_CARDS = 'cards';
     const STORE_METADATA = 'metadata';
+    const STORE_DECKS = 'decks';
+    const DECK_MAX_CARDS = 50;
+    const DECK_MAX_COPIES = 4;
     const CACHE_APP_SHELL = 'app-shell-v1';
     const CACHE_IMAGES = 'card-images-v1';
     const CARDS_JSON_PATH = './cards.json';
@@ -23,7 +26,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.2.5'; // バージョン更新
+    const APP_VERSION = '1.3.0'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -59,6 +62,17 @@
     let cardListTapElement = null;
     let cardListTapStartY = 0;
     let cardListTapMoveY = 0;
+    let cardListLongPressTimer = null;
+    let cardListLongPressed = false;
+
+    // --- デッキ構築 状態管理 ---
+    // currentMode: 'view' | 'leader_select' | 'deck_edit'
+    let currentMode = 'view';
+    let editingDeckId = null;
+    let editingDeckData = {};   // { cardNumber: count }
+    let editingDeckMeta = {};   // { name, leader, colors: string[], createdAt }
+    let deckShowOnlyDeckCards = false;
+    let cardElementMap = {};    // { cardNumber: HTMLElement } DOM高速アクセス用
 
     // === 2. DOM要素のキャッシュ ===
     const $ = (selector) => document.querySelector(selector);
@@ -163,6 +177,17 @@
             columnToggleBtn: $('#column-toggle-btn'),
             columnCountDisplay: $('#column-count-display'),
 
+            navCards: $('#nav-cards'),
+            navDecks: $('#nav-decks'),
+            modeMessageBar: $('#mode-message-bar'),
+            deckListView: $('#deck-list-view'),
+            deckListContainer: $('#deck-list-container'),
+            createNewDeckBtn: $('#create-new-deck-btn'),
+            deckStatusBar: $('#deck-status-bar'),
+            deckStatusInfo: $('#deck-status-info'),
+            deckSaveBtn: $('#deck-save-btn'),
+            deckShowToggleBtn: $('#deck-show-toggle-btn'),
+
             lightboxModal: $('#lightbox-modal'),
             lightboxImage: $('#lightbox-image'),
             lightboxFallback: $('#lightbox-fallback'),
@@ -237,6 +262,10 @@
                     }
                     if (!db.objectStoreNames.contains(STORE_METADATA)) {
                         db.createObjectStore(STORE_METADATA, { keyPath: 'key' });
+                    }
+                    if (!db.objectStoreNames.contains(STORE_DECKS)) {
+                        const deckStore = db.createObjectStore(STORE_DECKS, { keyPath: 'id' });
+                        deckStore.createIndex('updatedAt', 'updatedAt', { unique: false });
                     }
                 },
                 blocked() {
@@ -544,7 +573,8 @@
 
     function displayCards(cards) {
         const fragment = document.createDocumentFragment();
-        
+        cardElementMap = {};
+
         if (cards.length === 0) {
             dom.cardListContainer.innerHTML = '<p class="no-results">該当するカードがありません。</p>';
             return;
@@ -556,6 +586,8 @@
             const cardItem = document.createElement('div');
             cardItem.className = 'card-item';
             cardItem.dataset.index = index;
+            cardItem.dataset.id = card.cardNumber;
+            cardElementMap[card.cardNumber] = cardItem;
             
             const img = document.createElement('img');
             img.className = 'card-image';
@@ -603,7 +635,17 @@
                     cardItem.appendChild(variantBadge);
                 }
             }
-             
+
+            // デッキ編集モード時: 採用枚数バッジ
+            if (currentMode === 'deck_edit' && editingDeckData[card.cardNumber]) {
+                const count = editingDeckData[card.cardNumber];
+                const badge = document.createElement('div');
+                badge.className = 'card-deck-badge';
+                badge.textContent = count;
+                badge.dataset.count = count;
+                cardItem.appendChild(badge);
+            }
+
             fragment.appendChild(cardItem);
         });
 
@@ -803,6 +845,22 @@
 
         currentFilteredCards = allCards.filter(card => {
             if (!card || !card.cardNumber) return false;
+
+            // ★ デッキ構築モード別フィルタ
+            if (currentMode === 'leader_select') {
+                // リーダー選択モード: リーダーのみ表示
+                if (card.cardType !== 'LEADER') return false;
+            } else if (currentMode === 'deck_edit') {
+                // デッキ編集モード: リーダー自体は除外
+                if (card.cardType === 'LEADER') return false;
+                // デッキ内カードのみ表示トグル
+                if (deckShowOnlyDeckCards && !editingDeckData[card.cardNumber]) return false;
+                // 色制限: リーダーの色を1色でも含むカードのみ
+                if (Array.isArray(editingDeckMeta.colors) && editingDeckMeta.colors.length > 0) {
+                    const cardColors = Array.isArray(card.color) ? card.color : [];
+                    if (!cardColors.some(c => editingDeckMeta.colors.includes(c))) return false;
+                }
+            }
 
             // テキスト検索
             if (searchWords.length > 0 || excludeWords.length > 0) {
@@ -1453,6 +1511,342 @@
         }
     }
 
+    // === 6.5. デッキ構築 ===
+
+    function findCardByNumber(cardNumber) {
+        if (!cardNumber) return null;
+        return allCards.find(c => c && c.cardNumber === cardNumber) || null;
+    }
+
+    function setModeMessage(text) {
+        if (!dom.modeMessageBar) return;
+        if (text) {
+            dom.modeMessageBar.textContent = text;
+            dom.modeMessageBar.style.display = 'block';
+            document.body.classList.add('mode-bar-visible');
+        } else {
+            dom.modeMessageBar.style.display = 'none';
+            document.body.classList.remove('mode-bar-visible');
+        }
+    }
+
+    function setDeckStatusBarVisible(visible) {
+        if (!dom.deckStatusBar) return;
+        dom.deckStatusBar.classList.toggle('active', visible);
+        document.body.classList.toggle('deck-bar-visible', visible);
+    }
+
+    function showCardListView() {
+        dom.deckListView.style.display = 'none';
+        dom.cardListContainer.style.display = '';
+    }
+
+    function showDeckListView() {
+        dom.cardListContainer.style.display = 'none';
+        dom.deckListView.style.display = 'block';
+    }
+
+    function setActiveNav(tab) {
+        if (dom.navCards) dom.navCards.classList.toggle('active', tab === 'cards');
+        if (dom.navDecks) dom.navDecks.classList.toggle('active', tab === 'decks');
+    }
+
+    function getDeckTotalCount() {
+        return Object.values(editingDeckData).reduce((sum, n) => sum + n, 0);
+    }
+
+    function updateDeckStatusBar() {
+        if (!dom.deckStatusInfo) return;
+        const total = getDeckTotalCount();
+        dom.deckStatusInfo.textContent = `デッキ編集中: ${total}/${DECK_MAX_CARDS}枚`;
+        if (total === DECK_MAX_CARDS) {
+            dom.deckStatusInfo.style.color = 'var(--color-secondary)';
+        } else if (total > DECK_MAX_CARDS) {
+            dom.deckStatusInfo.style.color = 'var(--color-error)';
+        } else {
+            dom.deckStatusInfo.style.color = '#fff';
+        }
+    }
+
+    function syncDeckShowToggleBtn() {
+        if (!dom.deckShowToggleBtn) return;
+        dom.deckShowToggleBtn.textContent = deckShowOnlyDeckCards ? '全カード' : 'デッキ表示';
+        dom.deckShowToggleBtn.classList.toggle('active', deckShowOnlyDeckCards);
+    }
+
+    // カードタップ時のモード別ふるまい
+    function handleCardTap(index) {
+        if (index < 0 || index >= currentFilteredCards.length) return;
+        const card = currentFilteredCards[index];
+
+        if (currentMode === 'leader_select') {
+            confirmLeaderSelection(card);
+        } else if (currentMode === 'deck_edit') {
+            toggleDeckCardCount(card.cardNumber);
+        } else {
+            showLightbox(index);
+        }
+    }
+
+    async function confirmLeaderSelection(card) {
+        const colors = Array.isArray(card.color) ? card.color.join('/') : '';
+        if (!confirm(`「${card.cardName}」(${colors}) をリーダーにしますか？`)) return;
+
+        const now = new Date().toISOString();
+        const newDeck = {
+            id: (crypto.randomUUID ? crypto.randomUUID() : `deck-${Date.now()}-${Math.random().toString(16).slice(2)}`),
+            name: `${card.cardName}デッキ`,
+            leader: card.cardNumber,
+            cards: {},
+            createdAt: now,
+            updatedAt: now
+        };
+        await saveDeck(newDeck);
+        startDeckEdit(newDeck);
+    }
+
+    function toggleDeckCardCount(cardNumber) {
+        let count = editingDeckData[cardNumber] || 0;
+        count++;
+        if (count > DECK_MAX_COPIES) count = 0;
+
+        if (count === 0) {
+            delete editingDeckData[cardNumber];
+        } else {
+            editingDeckData[cardNumber] = count;
+        }
+
+        const cardItem = cardElementMap[cardNumber];
+        if (cardItem) {
+            let badge = cardItem.querySelector('.card-deck-badge');
+            if (count > 0) {
+                if (!badge) {
+                    badge = document.createElement('div');
+                    badge.className = 'card-deck-badge';
+                    cardItem.appendChild(badge);
+                }
+                badge.textContent = count;
+                badge.dataset.count = count;
+            } else if (badge) {
+                badge.remove();
+            }
+        }
+        updateDeckStatusBar();
+    }
+
+    // === デッキ一覧 ===
+    async function loadDeckList() {
+        if (!db || !dom.deckListContainer) return;
+        let decks = [];
+        try {
+            decks = await db.getAll(STORE_DECKS);
+        } catch (error) {
+            console.error('Failed to load decks:', error);
+        }
+        decks.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
+
+        dom.deckListContainer.innerHTML = '';
+        if (decks.length === 0) {
+            dom.deckListContainer.innerHTML = '<p class="no-decks">デッキがありません。<br>「+ 新規デッキ作成」からリーダーを選んで作成できます。</p>';
+            return;
+        }
+
+        const fragment = document.createDocumentFragment();
+        for (const deck of decks) {
+            fragment.appendChild(createDeckListItem(deck));
+        }
+        dom.deckListContainer.appendChild(fragment);
+    }
+
+    function createDeckListItem(deck) {
+        const leaderCard = findCardByNumber(deck.leader);
+        const total = Object.values(deck.cards || {}).reduce((sum, n) => sum + n, 0);
+        const colors = leaderCard && Array.isArray(leaderCard.color) ? leaderCard.color.join('/') : '';
+
+        const el = document.createElement('div');
+        el.className = 'deck-item';
+
+        // リーダーサムネイル
+        const thumb = document.createElement('div');
+        thumb.className = 'deck-leader-thumb';
+        const leaderImagePath = leaderCard ? getCardImagePath(leaderCard, 0) : '';
+        if (leaderImagePath) {
+            const img = document.createElement('img');
+            img.src = leaderImagePath;
+            img.alt = leaderCard.cardName || deck.leader;
+            img.loading = 'lazy';
+            img.onerror = () => { thumb.textContent = deck.leader || '?'; };
+            thumb.appendChild(img);
+        } else {
+            thumb.textContent = deck.leader || '?';
+        }
+        el.appendChild(thumb);
+
+        // デッキ情報
+        const info = document.createElement('div');
+        info.className = 'deck-info';
+        const nameEl = document.createElement('div');
+        nameEl.className = 'deck-name';
+        nameEl.textContent = deck.name || '(名称未設定)';
+        nameEl.title = 'タップで名前を変更';
+        nameEl.addEventListener('click', () => renameDeck(deck));
+        const metaEl = document.createElement('div');
+        metaEl.className = 'deck-meta';
+        metaEl.textContent = [
+            colors,
+            `${total}/${DECK_MAX_CARDS}枚`,
+            `更新: ${new Date(deck.updatedAt).toLocaleDateString('ja-JP')}`
+        ].filter(Boolean).join(' | ');
+        info.appendChild(nameEl);
+        info.appendChild(metaEl);
+        el.appendChild(info);
+
+        // 操作ボタン
+        const actions = document.createElement('div');
+        actions.className = 'deck-actions';
+        const editBtn = document.createElement('button');
+        editBtn.className = 'deck-btn btn-edit';
+        editBtn.textContent = '編集';
+        editBtn.addEventListener('click', () => startDeckEdit(deck));
+        const deleteBtn = document.createElement('button');
+        deleteBtn.className = 'deck-btn btn-delete';
+        deleteBtn.textContent = '削除';
+        deleteBtn.addEventListener('click', () => deleteDeck(deck));
+        actions.appendChild(editBtn);
+        actions.appendChild(deleteBtn);
+        el.appendChild(actions);
+
+        return el;
+    }
+
+    // === デッキ作成・編集フロー ===
+    function startLeaderSelection() {
+        if (allCards.length === 0) {
+            showMessageToast('カードデータが読み込まれていません。', 'error');
+            return;
+        }
+        currentMode = 'leader_select';
+        showCardListView();
+        setModeMessage('リーダーカードを選択してください');
+
+        dom.searchBar.value = '';
+        dom.clearSearchBtn.style.display = 'none';
+        resetFilters();
+        applyFiltersAndDisplay();
+        dom.mainContent.scrollTop = 0;
+    }
+
+    function startDeckEdit(deck) {
+        const leaderCard = findCardByNumber(deck.leader);
+        const colors = leaderCard && Array.isArray(leaderCard.color) ? leaderCard.color : [];
+
+        currentMode = 'deck_edit';
+        editingDeckId = deck.id;
+        editingDeckData = { ...(deck.cards || {}) };
+        editingDeckMeta = {
+            name: deck.name,
+            leader: deck.leader,
+            colors: colors,
+            createdAt: deck.createdAt || new Date().toISOString()
+        };
+        deckShowOnlyDeckCards = false;
+        syncDeckShowToggleBtn();
+
+        showCardListView();
+        setDeckStatusBarVisible(true);
+        const leaderLabel = leaderCard ? `${leaderCard.cardName} (${colors.join('/')})` : (deck.leader || '');
+        setModeMessage(`デッキ編集中: ${leaderLabel}`);
+
+        dom.searchBar.value = '';
+        dom.clearSearchBtn.style.display = 'none';
+        resetFilters();
+        updateDeckStatusBar();
+        applyFiltersAndDisplay();
+        dom.mainContent.scrollTop = 0;
+    }
+
+    function exitDeckBuildingMode() {
+        currentMode = 'view';
+        editingDeckId = null;
+        editingDeckData = {};
+        editingDeckMeta = {};
+        deckShowOnlyDeckCards = false;
+        setDeckStatusBarVisible(false);
+        setModeMessage(null);
+    }
+
+    async function saveDeck(deck) {
+        if (!db) return;
+        const tx = db.transaction(STORE_DECKS, 'readwrite');
+        await tx.store.put(deck);
+        await tx.done;
+    }
+
+    async function saveCurrentDeck() {
+        if (!editingDeckId) return;
+        const deck = {
+            id: editingDeckId,
+            name: editingDeckMeta.name,
+            leader: editingDeckMeta.leader,
+            cards: editingDeckData,
+            createdAt: editingDeckMeta.createdAt,
+            updatedAt: new Date().toISOString()
+        };
+        try {
+            await saveDeck(deck);
+            const total = getDeckTotalCount();
+            if (total !== DECK_MAX_CARDS) {
+                showMessageToast(`デッキを保存しました (${total}/${DECK_MAX_CARDS}枚)`, 'info');
+            } else {
+                showMessageToast('デッキを保存しました', 'success');
+            }
+        } catch (error) {
+            console.error('Failed to save deck:', error);
+            showMessageToast('デッキの保存に失敗しました。', 'error');
+            return;
+        }
+
+        exitDeckBuildingMode();
+        setActiveNav('decks');
+        showDeckListView();
+        applyFiltersAndDisplay();
+        loadDeckList();
+    }
+
+    async function deleteDeck(deck) {
+        if (!confirm(`デッキ「${deck.name}」を削除しますか？`)) return;
+        try {
+            await db.delete(STORE_DECKS, deck.id);
+            showMessageToast('デッキを削除しました。', 'success');
+        } catch (error) {
+            console.error('Failed to delete deck:', error);
+            showMessageToast('デッキの削除に失敗しました。', 'error');
+        }
+        loadDeckList();
+    }
+
+    async function renameDeck(deck) {
+        let newName = null;
+        try {
+            newName = prompt('デッキ名を入力してください', deck.name || '');
+        } catch (e) {
+            return;
+        }
+        if (newName === null) return;
+        newName = newName.trim();
+        if (!newName) return;
+
+        deck.name = newName;
+        deck.updatedAt = new Date().toISOString();
+        try {
+            await saveDeck(deck);
+        } catch (error) {
+            console.error('Failed to rename deck:', error);
+            showMessageToast('デッキ名の変更に失敗しました。', 'error');
+        }
+        loadDeckList();
+    }
+
     // === 7. キャッシュ管理 (UI) ===
     async function cacheAllImages() {
         if (allCards.length === 0) {
@@ -1991,31 +2385,94 @@
             cardListTapElement = e.target;
             cardListTapStartY = e.touches[0].clientY;
             cardListTapMoveY = 0;
+            cardListLongPressed = false;
+
+            // デッキ構築モード中はロングプレスで拡大表示
+            if (currentMode !== 'view') {
+                const cardItem = cardListTapElement.closest('.card-item');
+                if (cardItem && cardItem.dataset.index) {
+                    const index = parseInt(cardItem.dataset.index, 10);
+                    clearTimeout(cardListLongPressTimer);
+                    cardListLongPressTimer = setTimeout(() => {
+                        if (cardListTapMoveY < 20) {
+                            cardListLongPressed = true;
+                            if (navigator.vibrate) navigator.vibrate(50);
+                            showLightbox(index);
+                        }
+                    }, 500);
+                }
+            }
         }, { passive: true });
 
         dom.cardListContainer.addEventListener('touchmove', (e) => {
             if (cardListTapStartY === 0) return;
             cardListTapMoveY = Math.abs(e.touches[0].clientY - cardListTapStartY);
+            if (cardListTapMoveY >= 20) {
+                clearTimeout(cardListLongPressTimer);
+            }
         }, { passive: true });
 
         dom.cardListContainer.addEventListener('touchend', (e) => {
+            clearTimeout(cardListLongPressTimer);
             if (cardListTapElement && cardListTapMoveY < 20) {
                 const cardItem = cardListTapElement.closest('.card-item');
                 if (cardItem && cardItem.dataset.index) {
-                    e.preventDefault();
-                    showLightbox(parseInt(cardItem.dataset.index, 10));
+                    if (e.cancelable) e.preventDefault();
+                    if (!cardListLongPressed) {
+                        handleCardTap(parseInt(cardItem.dataset.index, 10));
+                    }
                 }
             }
             cardListTapElement = null;
             cardListTapStartY = 0;
             cardListTapMoveY = 0;
+            cardListLongPressed = false;
         });
 
         dom.cardListContainer.addEventListener('click', (e) => {
             const cardItem = e.target.closest('.card-item');
             if (!cardItem || !cardItem.dataset.index) return;
-            showLightbox(parseInt(cardItem.dataset.index, 10));
+            handleCardTap(parseInt(cardItem.dataset.index, 10));
         });
+
+        // === デッキ構築 (フッターナビ・デッキ操作) ===
+        if (dom.navCards) {
+            dom.navCards.addEventListener('click', () => {
+                if (currentMode === 'leader_select' || currentMode === 'deck_edit') {
+                    if (!confirm('デッキ作成・編集を中断しますか？(未保存の変更は破棄されます)')) return;
+                }
+                exitDeckBuildingMode();
+                setActiveNav('cards');
+                showCardListView();
+                applyFiltersAndDisplay();
+            });
+        }
+
+        if (dom.navDecks) {
+            dom.navDecks.addEventListener('click', () => {
+                if (currentMode === 'leader_select' || currentMode === 'deck_edit') {
+                    if (!confirm('デッキ作成・編集を中断しますか？(未保存の変更は破棄されます)')) return;
+                }
+                exitDeckBuildingMode();
+                setActiveNav('decks');
+                showDeckListView();
+                loadDeckList();
+            });
+        }
+
+        if (dom.createNewDeckBtn) {
+            dom.createNewDeckBtn.addEventListener('click', startLeaderSelection);
+        }
+        if (dom.deckSaveBtn) {
+            dom.deckSaveBtn.addEventListener('click', saveCurrentDeck);
+        }
+        if (dom.deckShowToggleBtn) {
+            dom.deckShowToggleBtn.addEventListener('click', () => {
+                deckShowOnlyDeckCards = !deckShowOnlyDeckCards;
+                syncDeckShowToggleBtn();
+                applyFiltersAndDisplay();
+            });
+        }
 
         // ライトボックス
         dom.lightboxCloseBtn.addEventListener('click', () => {
