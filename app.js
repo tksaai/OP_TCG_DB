@@ -26,7 +26,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.3.1'; // バージョン更新
+    const APP_VERSION = '1.4.0'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -51,6 +51,7 @@
     let currentLightboxIndex = -1;
     let currentLightboxVariantIndex = 0;
     let imageManifest = { cards: {} };
+    let cardSeriesIdCache = new Map(); // cardNumber -> Set<正規化済みシリーズID>
     let furiganaOverrides = {};
     let touchStartX = 0;
     let touchEndX = 0;
@@ -296,6 +297,7 @@
             console.warn('Failed to load image manifest. Falling back to generated paths.', error);
             imageManifest = { cards: {} };
         }
+        cardSeriesIdCache.clear();
     }
 
     function getOverrideFurigana(cardNumber) {
@@ -516,6 +518,52 @@
         return fallback ? [fallback] : [];
     }
 
+    function normalizeSeriesId(value) {
+        return String(value || '').replace(/-/g, '').toUpperCase();
+    }
+
+    function extractSeriesIdsFromText(text, target) {
+        // 入手情報の「【OP-14】」のような弾コードを抽出する
+        for (const match of String(text || '').matchAll(/【([A-Z]+-?\d+)】/g)) {
+            target.add(normalizeSeriesId(match[1]));
+        }
+    }
+
+    // カードが「登場した」シリーズID一覧 (型番の弾 + パラレル等の収録弾)
+    function getCardSeriesIds(card) {
+        if (!card || !card.cardNumber) return new Set();
+        const cached = cardSeriesIdCache.get(card.cardNumber);
+        if (cached) return cached;
+
+        const ids = new Set();
+        const prefix = card.cardNumber.split('-')[0];
+        if (prefix) ids.add(normalizeSeriesId(prefix));
+        extractSeriesIdsFromText(card.getInfo, ids);
+
+        const manifestVariants = imageManifest.cards?.[card.cardNumber];
+        if (Array.isArray(manifestVariants)) {
+            manifestVariants.forEach(variant => extractSeriesIdsFromText(variant.getInfo, ids));
+        }
+
+        cardSeriesIdCache.set(card.cardNumber, ids);
+        return ids;
+    }
+
+    // シリーズフィルタ選択中、そのシリーズで収録されたバリアント画像を優先表示する
+    function getVariantIndexForSeries(card, seriesId) {
+        if (!card || !card.cardNumber || !seriesId || seriesId === 'P') return 0;
+        const prefix = normalizeSeriesId(card.cardNumber.split('-')[0]);
+        if (prefix === seriesId) return 0;
+
+        const variants = getCardImageVariants(card);
+        for (let i = 0; i < variants.length; i += 1) {
+            const codes = new Set();
+            extractSeriesIdsFromText(variants[i]?.getInfo, codes);
+            if (codes.has(seriesId)) return i;
+        }
+        return 0;
+    }
+
     function getCardImagePath(card, variantIndex = 0) {
         const variants = getCardImageVariants(card);
         if (variants.length === 0) return '';
@@ -594,7 +642,8 @@
             img.className = 'card-image';
             
             const variants = getCardImageVariants(card);
-            const relativeImagePath = getCardImagePath(card, 0);
+            const displayVariantIndex = getVariantIndexForSeries(card, currentFilter.series);
+            const relativeImagePath = getCardImagePath(card, displayVariantIndex);
 
             img.src = relativeImagePath; 
             img.alt = card.cardName || card.cardNumber;
@@ -670,10 +719,11 @@
     function showLightbox(index) {
         if (index < 0 || index >= currentFilteredCards.length) return;
         isDebugInfoVisible = false;
-        currentLightboxIndex = -1; 
+        currentLightboxIndex = -1;
         currentLightboxVariantIndex = 0;
         dom.lightboxModal.style.display = 'grid';
-        updateLightboxImage(index, 0);
+        const initialVariantIndex = getVariantIndexForSeries(currentFilteredCards[index], currentFilter.series);
+        updateLightboxImage(index, initialVariantIndex);
     }
     
     function updateLightboxImage(newIndex, variantIndex = 0) {
@@ -993,17 +1043,19 @@
                         if (!card.trigger) return false;
                     } else if (extra === 'Vanilla') {
                         if (card.effectText && card.effectText !== '-') return false;
+                    } else if (extra === 'Parallel') {
+                        if (getCardImageVariants(card).length < 2) return false;
                     }
                 }
             }
 
-            // シリーズ
+            // シリーズ (型番の弾に加え、パラレル/SP等でその弾に収録されたカードもヒットさせる)
             if (f.series) {
                  if (!card.cardNumber) return false;
                  if (f.series === 'P') {
                     if (!card.cardNumber.startsWith('P-')) return false;
                  } else {
-                    if (!card.cardNumber.startsWith(f.series + '-')) return false;
+                    if (!getCardSeriesIds(card).has(f.series)) return false;
                  }
             }
 
@@ -1229,7 +1281,8 @@
         const extras = [
             { value: 'Blocker', label: 'ブロッカー' },
             { value: 'Trigger', label: 'トリガー' },
-            { value: 'Vanilla', label: 'バニラ(効果なし)' }
+            { value: 'Vanilla', label: 'バニラ(効果なし)' },
+            { value: 'Parallel', label: 'パラレル・別イラストあり' }
         ];
 
         const optionsHtml = extras.map(item => `
@@ -1507,6 +1560,7 @@
         if (!db) return;
         try {
             allCards = await db.getAll(STORE_CARDS);
+            cardSeriesIdCache.clear();
             applyFuriganaOverridesToCards();
             
             if (allCards.length === 0) {
