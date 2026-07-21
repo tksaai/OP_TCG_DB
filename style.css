@@ -25,7 +25,7 @@
     /* ヘッダーとフッターの基本高さ */
     --header-height: 56px;
     --footer-height: 60px;
-    --footer-nav-offset: 8px;
+    --footer-nav-offset: min(10px, var(--safe-area-bottom));
 
     /* カードグリッドの列数 (JSで変更可能) */
     --grid-columns: 3;
@@ -211,8 +211,8 @@ input[type="search"]::-webkit-search-cancel-button {
     display: flex;
     justify-content: space-around;
     align-items: flex-start; /* ★ 修正: align-items を flex-start に */
-    height: calc(100% - var(--footer-nav-offset));
-    margin-top: var(--footer-nav-offset);
+    height: 100%;
+    transform: translateY(var(--footer-nav-offset));
     /* ★ 修正: padding-top を nav-btn 側に移動 */
 }
 
