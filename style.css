@@ -24,7 +24,7 @@
 
     /* ヘッダーとフッターの基本高さ */
     --header-height: 56px;
-    --footer-height: 60px;
+    --footer-height: 50px;
     --footer-nav-offset: min(10px, var(--safe-area-bottom));
 
     /* カードグリッドの列数 (JSで変更可能) */
