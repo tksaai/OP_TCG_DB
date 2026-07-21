@@ -26,7 +26,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.4.0'; // バージョン更新
+    const APP_VERSION = '1.5.0'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -52,6 +52,7 @@
     let currentLightboxVariantIndex = 0;
     let imageManifest = { cards: {} };
     let cardSeriesIdCache = new Map(); // cardNumber -> Set<正規化済みシリーズID>
+    let lastAddedCardSet = new Set(); // 前回のデータ更新で追加されたカード番号
     let furiganaOverrides = {};
     let touchStartX = 0;
     let touchEndX = 0;
@@ -205,6 +206,7 @@
             lightboxVariants: $('#lightbox-variants'),
     
             dbUpdateNotification: $('#db-update-notification'),
+            dbUpdateText: $('#db-update-text'),
             dbUpdateApplyBtn: $('#db-update-apply-btn'),
             dbUpdateDismissBtn: $('#db-update-dismiss-btn'),
             appUpdateNotification: $('#app-update-notification'),
@@ -616,8 +618,51 @@
             .join('');
     }
 
+    // キーの並び順に依存しない安定した文字列化 (書式変化による更新誤検知を防ぐ)
+    function stableStringify(value) {
+        if (Array.isArray(value)) {
+            return `[${value.map(stableStringify).join(',')}]`;
+        }
+        if (value && typeof value === 'object') {
+            return `{${Object.keys(value).sort().map(key => `${JSON.stringify(key)}:${stableStringify(value[key])}`).join(',')}}`;
+        }
+        return JSON.stringify(value);
+    }
+
     async function hashCardsData(cardsData) {
-        return hashText(JSON.stringify(normalizeCardsData(cardsData)));
+        return hashText(stableStringify(normalizeCardsData(cardsData)));
+    }
+
+    // サーバーのカードデータとローカルDBを比較し、実質的な差分を求める
+    function diffCardsData(serverCards, localCards) {
+        const localMap = new Map(
+            localCards.filter(c => c && c.cardNumber).map(c => [c.cardNumber, c])
+        );
+        const added = [];
+        const changed = [];
+        const serverNumbers = new Set();
+
+        serverCards.forEach(card => {
+            serverNumbers.add(card.cardNumber);
+            const local = localMap.get(card.cardNumber);
+            if (!local) {
+                added.push(card.cardNumber);
+            } else if (stableStringify(card) !== stableStringify(local)) {
+                changed.push(card.cardNumber);
+            }
+        });
+
+        const removed = [...localMap.keys()].filter(num => !serverNumbers.has(num));
+        return { added, changed, removed };
+    }
+
+    function formatCardsDiffSummary(diff) {
+        if (!diff) return '';
+        const parts = [];
+        if (diff.added.length > 0) parts.push(`新規${diff.added.length}枚`);
+        if (diff.changed.length > 0) parts.push(`修正${diff.changed.length}枚`);
+        if (diff.removed.length > 0) parts.push(`削除${diff.removed.length}枚`);
+        return parts.join(' / ');
     }
 
     function displayCards(cards) {
@@ -683,6 +728,13 @@
                     variantBadge.className = 'card-variant-count';
                     variantBadge.textContent = `+${variants.length - 1}`;
                     cardItem.appendChild(variantBadge);
+                }
+
+                if (lastAddedCardSet.has(card.cardNumber)) {
+                    const newBadge = document.createElement('span');
+                    newBadge.className = 'card-new-badge';
+                    newBadge.textContent = 'NEW';
+                    cardItem.appendChild(newBadge);
                 }
             }
 
@@ -1045,6 +1097,8 @@
                         if (card.effectText && card.effectText !== '-') return false;
                     } else if (extra === 'Parallel') {
                         if (getCardImageVariants(card).length < 2) return false;
+                    } else if (extra === 'NewCards') {
+                        if (!lastAddedCardSet.has(card.cardNumber)) return false;
                     }
                 }
             }
@@ -1284,6 +1338,9 @@
             { value: 'Vanilla', label: 'バニラ(効果なし)' },
             { value: 'Parallel', label: 'パラレル・別イラストあり' }
         ];
+        if (lastAddedCardSet.size > 0) {
+            extras.push({ value: 'NewCards', label: `新着カード(前回更新の${lastAddedCardSet.size}枚)` });
+        }
 
         const optionsHtml = extras.map(item => `
             <label class="filter-checkbox-label">
@@ -1442,8 +1499,20 @@
                     dom.loadingIndicator.querySelector('p').textContent = '初回カードデータを取得中...';
                     await fetchAndUpdateCardData(serverLastModified, cardsData, serverHash);
                 } else {
-                    showDbUpdateNotification(serverLastModified, cardsData, serverHash);
-                    await loadCardsFromDB();
+                    // カード単位の実差分を確認し、書式・並び順だけの変化なら通知しない
+                    const localCards = await db.getAll(STORE_CARDS);
+                    const diff = diffCardsData(normalizeCardsData(cardsData), localCards);
+                    if (diff.added.length === 0 && diff.changed.length === 0 && diff.removed.length === 0) {
+                        await db.put(STORE_METADATA, { key: 'cardsContentHash', value: serverHash });
+                        if (serverLastModified) {
+                            await db.put(STORE_METADATA, { key: 'cardsLastModified', value: serverLastModified });
+                            dom.cardDataVersionInfo.textContent = new Date(serverLastModified).toLocaleString('ja-JP');
+                        }
+                        await loadCardsFromDB();
+                    } else {
+                        showDbUpdateNotification(serverLastModified, cardsData, serverHash, diff);
+                        await loadCardsFromDB();
+                    }
                 }
             } else {
                 if (serverLastModified && serverLastModified !== localLastModified) {
@@ -1474,7 +1543,7 @@
         }
     }
 
-    async function fetchAndUpdateCardData(serverLastModified, prefetchedCardsData = null, prefetchedHash = '') {
+    async function fetchAndUpdateCardData(serverLastModified, prefetchedCardsData = null, prefetchedHash = '', diff = null) {
         if (!db) return;
 
         dom.loadingIndicator.style.display = 'flex';
@@ -1530,12 +1599,19 @@
                 key: 'cardsContentHash',
                 value: contentHash
             });
-            
+            if (diff && Array.isArray(diff.added)) {
+                await metaStore.put({
+                    key: 'lastAddedCards',
+                    value: { numbers: diff.added, updatedAt: new Date().toISOString() }
+                });
+            }
+
             await tx.done;
-            
+
             const savedMeta = await db.get(STORE_METADATA, 'cardsLastModified');
             dom.cardDataVersionInfo.textContent = savedMeta ? new Date(savedMeta.value).toLocaleString('ja-JP') : '更新完了';
-            showMessageToast(`カードデータが更新されました (${count}件)。`, 'success');
+            const diffSummary = formatCardsDiffSummary(diff);
+            showMessageToast(`カードデータが更新されました (${diffSummary || `${count}件`})。`, 'success');
 
             await loadCardsFromDB();
 
@@ -1561,6 +1637,13 @@
         try {
             allCards = await db.getAll(STORE_CARDS);
             cardSeriesIdCache.clear();
+            try {
+                const lastAddedMeta = await db.get(STORE_METADATA, 'lastAddedCards');
+                const numbers = lastAddedMeta?.value?.numbers;
+                lastAddedCardSet = new Set(Array.isArray(numbers) ? numbers : []);
+            } catch (metaError) {
+                lastAddedCardSet = new Set();
+            }
             applyFuriganaOverridesToCards();
             
             if (allCards.length === 0) {
@@ -2143,10 +2226,17 @@
         }
     }
 
-    function showDbUpdateNotification(serverLastModified, cardsData = null, cardsHash = '') {
+    function showDbUpdateNotification(serverLastModified, cardsData = null, cardsHash = '', diff = null) {
         dom.dbUpdateNotification.style.display = 'none';
         dom.dbUpdateNotification.style.display = 'flex';
-        
+
+        if (dom.dbUpdateText) {
+            const summary = formatCardsDiffSummary(diff);
+            dom.dbUpdateText.textContent = summary
+                ? `カードデータが更新されました (${summary})。`
+                : 'カードデータが更新されました。';
+        }
+
         const oldApplyBtn = dom.dbUpdateApplyBtn;
         const newApplyBtn = oldApplyBtn.cloneNode(true);
         oldApplyBtn.parentNode.replaceChild(newApplyBtn, oldApplyBtn);
@@ -2159,7 +2249,7 @@
 
         newApplyBtn.addEventListener('click', () => {
             dom.dbUpdateNotification.style.display = 'none';
-            fetchAndUpdateCardData(serverLastModified, cardsData, cardsHash);
+            fetchAndUpdateCardData(serverLastModified, cardsData, cardsHash, diff);
         }, { once: true });
         
         newDismissBtn.addEventListener('click', () => {
