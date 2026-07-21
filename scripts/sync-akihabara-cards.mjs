@@ -3,8 +3,10 @@ import path from 'node:path';
 
 const AKIHABARA_BASE_URL = 'https://akihabara-cardshop.com';
 const AKIHABARA_INDEX_URL = `${AKIHABARA_BASE_URL}/card-list-op/`;
+const AKIHABARA_PROMO_INDEX_URL = `${AKIHABARA_BASE_URL}/card-list-op-promo/`;
 const PROVISIONAL_CARDS_JSON = 'provisional-cards.json';
 const PROVISIONAL_SOURCE = 'akihabara-cardshop';
+const PROMO_SCOPE = 'PROMO';
 
 const args = process.argv.slice(2);
 const dryRun = args.includes('--dry-run');
@@ -15,6 +17,13 @@ function argValue(name, fallback = '') {
     if (!arg) return fallback;
     const [, value = 'true'] = arg.split('=');
     return value;
+}
+
+function splitArgList(value = '') {
+    return String(value)
+        .split(',')
+        .map(item => item.trim())
+        .filter(Boolean);
 }
 
 function decodeHtml(value = '') {
@@ -45,6 +54,8 @@ function hyphenateSeriesCode(value) {
 
 function buildSeriesUrl(seriesCode) {
     const normalized = normalizeSeriesCode(seriesCode);
+    if (normalized === 'AUTO' || normalized === 'LATEST') return AKIHABARA_INDEX_URL;
+    if (normalized === PROMO_SCOPE) return AKIHABARA_PROMO_INDEX_URL;
     const match = normalized.match(/^([A-Z]+)(\d+)$/);
     if (!match) throw new Error(`Cannot build Akihabara URL for series: ${seriesCode}`);
     return `${AKIHABARA_BASE_URL}/${match[1].toLowerCase()}-${Number(match[2])}/`;
@@ -113,7 +124,7 @@ function parseSeriesInfo(html, fallbackSeriesCode) {
     };
 }
 
-function parseCardItem(html, sourceUrl, sourceUpdatedAt, seriesInfo) {
+function parseCardItem(html, sourceUrl, sourceUpdatedAt, seriesInfo, scope) {
     const rawNumber = decodeHtml(extractFirst(html, /data-number="([^"]+)"/i));
     const cardNumber = extractBaseCardNumber(rawNumber);
     if (!cardNumber) return null;
@@ -156,34 +167,41 @@ function parseCardItem(html, sourceUrl, sourceUpdatedAt, seriesInfo) {
         sourceModalId: rawNumber || cardNumber,
         imagePath: imageUrl,
         provisionalSource: PROVISIONAL_SOURCE,
+        provisionalScope: scope,
         provisionalSourceUrl: sourceUrl,
         provisionalUpdatedAt: sourceUpdatedAt
     };
 }
 
-function parseAkihabaraCards(html, sourceUrl, fallbackSeriesCode) {
+function parseAkihabaraCards(html, sourceUrl, fallbackSeriesCode, options = {}) {
     const sourceUpdatedAt = parseSourceUpdatedAt(html);
     const seriesInfo = parseSeriesInfo(html, fallbackSeriesCode);
+    const scope = options.scope || seriesInfo.seriesId;
     const cards = new Map();
 
     const parts = html.split(/(?=<!-- Card:)/g);
     for (const part of parts) {
         if (!part.includes('class="card-item"')) continue;
         const itemHtml = part.slice(part.indexOf('<div class="card-item"'));
-        const card = parseCardItem(itemHtml, sourceUrl, sourceUpdatedAt, seriesInfo);
+        const card = parseCardItem(itemHtml, sourceUrl, sourceUpdatedAt, seriesInfo, scope);
         if (!card) continue;
+        if (options.scopeFromCardPrefix) {
+            card.provisionalScope = card.cardNumber.split('-')[0];
+        }
 
         const isSeriesCard = card.cardNumber.split('-')[0] === seriesInfo.seriesId;
         const isBasePrinting = card.rawNumber.toUpperCase() === card.cardNumber;
-        if (!isSeriesCard || !isBasePrinting) continue;
+        const shouldInclude = options.includePromos ? isBasePrinting : isSeriesCard && isBasePrinting;
+        if (!shouldInclude) continue;
 
-        cards.set(card.cardNumber, card);
+        cards.set(options.keyByUniqueId ? card.uniqueId : card.cardNumber, card);
     }
 
     return {
         cards: [...cards.values()].sort((a, b) => a.cardNumber.localeCompare(b.cardNumber, 'en', { numeric: true })),
         sourceUpdatedAt,
-        seriesInfo
+        seriesInfo,
+        scopesToReplace: [...new Set([...cards.values()].map(card => getCardScope(card)))]
     };
 }
 
@@ -208,6 +226,16 @@ async function readJsonArray(filePath) {
     }
 }
 
+async function readOfficialCardNumbers() {
+    try {
+        const cards = JSON.parse(await readFile('cards.json', 'utf8'));
+        return new Set(cards.map(card => String(card.cardNumber || '').toUpperCase()).filter(Boolean));
+    } catch (error) {
+        console.warn(`Could not read cards.json for auto filtering: ${error.message}`);
+        return new Set();
+    }
+}
+
 function discoverSeriesUrl(indexHtml, seriesCode) {
     const normalized = normalizeSeriesCode(seriesCode);
     const linkRegex = /<a\b[^>]*href="([^"]+)"[^>]*class="card-list-link"[^>]*>([\s\S]*?)<\/a>/gi;
@@ -219,6 +247,51 @@ function discoverSeriesUrl(indexHtml, seriesCode) {
         }
     }
     return '';
+}
+
+function discoverCardListUrls(indexHtml, baseUrl) {
+    const urls = [];
+    const seen = new Set();
+    const linkRegex = /<a\b[^>]*href="([^"]+)"[^>]*class="card-list-link"[^>]*>/gi;
+    let match;
+    while ((match = linkRegex.exec(indexHtml))) {
+        const url = absoluteUrl(match[1], baseUrl);
+        if (seen.has(url)) continue;
+        seen.add(url);
+        urls.push(url);
+    }
+    return urls;
+}
+
+function combineParsedPages(parsedPages, scope, seriesTitle) {
+    const cards = new Map();
+    const sourceUpdatedDates = [];
+    const sourceUrls = [];
+    const scopesToReplace = new Set();
+
+    for (const parsed of parsedPages) {
+        if (parsed.sourceUpdatedAt) sourceUpdatedDates.push(parsed.sourceUpdatedAt);
+        if (parsed.sourceUrl) sourceUrls.push(parsed.sourceUrl);
+        for (const pageScope of parsed.scopesToReplace || []) {
+            scopesToReplace.add(pageScope);
+        }
+        for (const card of parsed.cards) {
+            scopesToReplace.add(getCardScope(card));
+            cards.set(card.uniqueId || card.cardNumber, card);
+        }
+    }
+
+    return {
+        cards: [...cards.values()].sort(sortCards),
+        sourceUpdatedAt: sourceUpdatedDates.sort().at(-1) || '',
+        sourceUrls,
+        scopesToReplace: [...scopesToReplace],
+        seriesInfo: {
+            seriesCode: scope,
+            seriesId: scope,
+            seriesTitle
+        }
+    };
 }
 
 function normalizeForCompare(value) {
@@ -240,18 +313,45 @@ function isSameCard(left, right) {
     return JSON.stringify(normalizeForCompare(left)) === JSON.stringify(normalizeForCompare(right));
 }
 
+function getCardScope(card) {
+    return card?.provisionalScope || String(card?.cardNumber || '').toUpperCase().split('-')[0];
+}
+
+function isCardInScope(card, scope) {
+    return getCardScope(card) === scope;
+}
+
+function getCardSyncKey(card) {
+    return String(card?.uniqueId || card?.cardNumber || '').toUpperCase();
+}
+
+function cardSummaryId(card) {
+    return card?.uniqueId || card?.cardNumber || '';
+}
+
+function sortCards(a, b) {
+    const prefixCompare = String(a.cardNumber || '').split('-')[0].localeCompare(String(b.cardNumber || '').split('-')[0]);
+    return prefixCompare
+        || String(a.cardNumber || '').localeCompare(String(b.cardNumber || ''), 'en', { numeric: true })
+        || String(a.uniqueId || '').localeCompare(String(b.uniqueId || ''), 'en', { numeric: true });
+}
+
 const inputPath = argValue('input');
+const inputListPaths = splitArgList(argValue('input-list'));
+const inputListUrls = splitArgList(argValue('url-list'));
 const outputPath = argValue('output', PROVISIONAL_CARDS_JSON);
 const requestedSeries = normalizeSeriesCode(argValue('series', 'OP17'));
+const isPromoSync = requestedSeries === PROMO_SCOPE;
+const isAutoSync = requestedSeries === 'AUTO' || requestedSeries === 'LATEST';
 let sourceUrl = argValue('url');
 
 if (!sourceUrl) {
-    if (inputPath) {
+    if (inputPath || inputListPaths.length > 0) {
         sourceUrl = buildSeriesUrl(requestedSeries);
     } else {
-        const indexUrl = argValue('index-url', AKIHABARA_INDEX_URL);
+        const indexUrl = argValue('index-url', isPromoSync ? AKIHABARA_PROMO_INDEX_URL : AKIHABARA_INDEX_URL);
         try {
-            sourceUrl = discoverSeriesUrl(await fetchText(indexUrl), requestedSeries);
+            sourceUrl = (isPromoSync || isAutoSync) ? indexUrl : discoverSeriesUrl(await fetchText(indexUrl), requestedSeries);
         } catch (error) {
             console.warn(`Could not discover Akihabara URL from index: ${error.message}`);
         }
@@ -261,38 +361,107 @@ if (!sourceUrl) {
     }
 }
 
-const html = inputPath ? await readFile(inputPath, 'utf8') : await fetchText(sourceUrl);
-const parsed = parseAkihabaraCards(html, sourceUrl, requestedSeries);
+let parsed;
+if (inputListPaths.length > 0) {
+    const officialCardNumbers = isAutoSync ? await readOfficialCardNumbers() : new Set();
+    const parsedPages = [];
+    for (let index = 0; index < inputListPaths.length; index += 1) {
+        const pageSourceUrl = inputListUrls[index] || sourceUrl;
+        const html = await readFile(inputListPaths[index], 'utf8');
+        const pageParsed = parseAkihabaraCards(html, pageSourceUrl, requestedSeries, {
+            includePromos: isPromoSync || isAutoSync,
+            keyByUniqueId: isPromoSync,
+            scope: isPromoSync ? PROMO_SCOPE : requestedSeries,
+            scopeFromCardPrefix: isAutoSync
+        });
+        parsedPages.push({
+            ...pageParsed,
+            cards: isAutoSync
+                ? pageParsed.cards.filter(card => !officialCardNumbers.has(String(card.cardNumber || '').toUpperCase()))
+                : pageParsed.cards,
+            sourceUrl: pageSourceUrl
+        });
+    }
+    parsed = combineParsedPages(
+        parsedPages,
+        isPromoSync ? PROMO_SCOPE : isAutoSync ? 'AUTO' : requestedSeries,
+        isPromoSync ? 'プロモカード' : isAutoSync ? '自動検出' : requestedSeries
+    );
+} else if (isAutoSync) {
+    const indexHtml = await fetchText(sourceUrl);
+    const pageUrls = discoverCardListUrls(indexHtml, sourceUrl);
+    if (pageUrls.length === 0) throw new Error(`No card list links found at ${sourceUrl}`);
 
-if (parsed.cards.length === 0) {
+    const officialCardNumbers = await readOfficialCardNumbers();
+    const parsedPages = [];
+    for (const pageUrl of pageUrls) {
+        const html = await fetchText(pageUrl);
+        const pageParsed = parseAkihabaraCards(html, pageUrl, 'AUTO', {
+            includePromos: true,
+            scope: 'AUTO',
+            scopeFromCardPrefix: true
+        });
+        parsedPages.push({
+            ...pageParsed,
+            cards: pageParsed.cards.filter(card => !officialCardNumbers.has(String(card.cardNumber || '').toUpperCase())),
+            sourceUrl: pageUrl
+        });
+    }
+    parsed = combineParsedPages(parsedPages, 'AUTO', '自動検出');
+} else if (isPromoSync && !inputPath) {
+    const indexHtml = await fetchText(sourceUrl);
+    const pageUrls = discoverCardListUrls(indexHtml, sourceUrl);
+    if (pageUrls.length === 0) throw new Error(`No promo card list links found at ${sourceUrl}`);
+
+    const parsedPages = [];
+    for (const pageUrl of pageUrls) {
+        const html = await fetchText(pageUrl);
+        parsedPages.push({
+            ...parseAkihabaraCards(html, pageUrl, PROMO_SCOPE, {
+                includePromos: true,
+                keyByUniqueId: true,
+                scope: PROMO_SCOPE
+            }),
+            sourceUrl: pageUrl
+        });
+    }
+    parsed = combineParsedPages(parsedPages, PROMO_SCOPE, 'プロモカード');
+} else {
+    const html = inputPath ? await readFile(inputPath, 'utf8') : await fetchText(sourceUrl);
+    parsed = parseAkihabaraCards(html, sourceUrl, requestedSeries, {
+        includePromos: isPromoSync,
+        keyByUniqueId: isPromoSync,
+        scope: requestedSeries
+    });
+}
+
+if (parsed.cards.length === 0 && !(parsed.scopesToReplace || []).length) {
     throw new Error(`No base cards found for ${parsed.seriesInfo.seriesId} at ${sourceUrl}`);
 }
 
 const existingCards = await readJsonArray(outputPath);
-const existingSeriesCards = existingCards.filter(card => String(card.cardNumber || '').toUpperCase().split('-')[0] === parsed.seriesInfo.seriesId);
-const existingSeriesByCardNumber = new Map(existingSeriesCards.map(card => [String(card.cardNumber || '').toUpperCase(), card]));
-const parsedByCardNumber = new Map(parsed.cards.map(card => [card.cardNumber, card]));
-const addedCards = parsed.cards.filter(card => !existingSeriesByCardNumber.has(card.cardNumber));
+const replacementScopes = new Set((parsed.scopesToReplace || [parsed.seriesInfo.seriesId]).filter(Boolean));
+const existingSeriesCards = existingCards.filter(card => replacementScopes.has(getCardScope(card)));
+const existingSeriesBySyncKey = new Map(existingSeriesCards.map(card => [getCardSyncKey(card), card]));
+const parsedBySyncKey = new Map(parsed.cards.map(card => [getCardSyncKey(card), card]));
+const addedCards = parsed.cards.filter(card => !existingSeriesBySyncKey.has(getCardSyncKey(card)));
 const changedCards = parsed.cards.filter(card => {
-    const existingCard = existingSeriesByCardNumber.get(card.cardNumber);
+    const existingCard = existingSeriesBySyncKey.get(getCardSyncKey(card));
     return existingCard && !isSameCard(existingCard, card);
 });
 const unchangedCards = parsed.cards.filter(card => {
-    const existingCard = existingSeriesByCardNumber.get(card.cardNumber);
+    const existingCard = existingSeriesBySyncKey.get(getCardSyncKey(card));
     return existingCard && isSameCard(existingCard, card);
 });
-const removedCards = existingSeriesCards.filter(card => !parsedByCardNumber.has(String(card.cardNumber || '').toUpperCase()));
+const removedCards = existingSeriesCards.filter(card => !parsedBySyncKey.has(getCardSyncKey(card)));
 const replaced = existingSeriesCards.length;
 const skipped = force ? 0 : existingCards.length - replaced;
 const hasChanges = addedCards.length > 0 || changedCards.length > 0 || removedCards.length > 0;
 
 const nextCards = [
-    ...existingCards.filter(card => String(card.cardNumber || '').toUpperCase().split('-')[0] !== parsed.seriesInfo.seriesId),
+    ...existingCards.filter(card => !replacementScopes.has(getCardScope(card))),
     ...parsed.cards
-].sort((a, b) => {
-    const prefixCompare = String(a.cardNumber || '').split('-')[0].localeCompare(String(b.cardNumber || '').split('-')[0]);
-    return prefixCompare || String(a.cardNumber || '').localeCompare(String(b.cardNumber || ''), 'en', { numeric: true });
-});
+].sort(sortCards);
 
 if (!dryRun) {
     await writeFile(outputPath, `${JSON.stringify(nextCards, null, 2)}\n`, 'utf8');
@@ -302,9 +471,11 @@ console.log(JSON.stringify({
     source: PROVISIONAL_SOURCE,
     output: outputPath,
     sourceUrl,
+    sourceUrls: parsed.sourceUrls || [sourceUrl],
     sourceUpdatedAt: parsed.sourceUpdatedAt,
     series: parsed.seriesInfo.seriesId,
     seriesTitle: parsed.seriesInfo.seriesTitle,
+    scopes: [...replacementScopes],
     parsed: parsed.cards.length,
     added: addedCards.length,
     changed: changedCards.length,
@@ -313,9 +484,9 @@ console.log(JSON.stringify({
     replaced,
     skipped,
     hasChanges,
-    addedCards: addedCards.map(card => card.cardNumber),
-    changedCards: changedCards.map(card => card.cardNumber),
-    removedCards: removedCards.map(card => card.cardNumber),
+    addedCards: addedCards.map(cardSummaryId),
+    changedCards: changedCards.map(cardSummaryId),
+    removedCards: removedCards.map(cardSummaryId),
     totalCards: nextCards.length,
     dryRun
 }, null, 2));

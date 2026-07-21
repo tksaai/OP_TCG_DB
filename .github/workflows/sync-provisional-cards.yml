@@ -6,14 +6,19 @@ on:
   workflow_dispatch:
     inputs:
       series:
-        description: "Series code to sync from Akihabara, for example OP17."
+        description: "Series code to sync from Akihabara, for example OP17. Use auto to detect missing official cards."
         required: false
-        default: "OP17"
+        default: "auto"
         type: string
       dry_run:
         description: "Check only; do not write files"
         required: false
         default: false
+        type: boolean
+      include_promo:
+        description: "Also sync promo card lists from Akihabara"
+        required: false
+        default: true
         type: boolean
 
 permissions:
@@ -38,11 +43,15 @@ jobs:
 
       - name: Sync provisional cards
         run: |
-          ARGS="--series=${{ inputs.series || 'OP17' }}"
+          SERIES="${{ inputs.series || 'auto' }}"
+          ARGS="--series=$SERIES"
           if [ "${{ inputs.dry_run }}" = "true" ]; then
             ARGS="$ARGS --dry-run"
           fi
           node scripts/sync-akihabara-cards.mjs $ARGS
+          if [ "$SERIES" != "PROMO" ] && [ "${{ inputs.include_promo }}" != "false" ]; then
+            node scripts/sync-akihabara-cards.mjs --series=PROMO ${ARGS#--series=$SERIES}
+          fi
 
       - name: Show changes
         run: git status --short
