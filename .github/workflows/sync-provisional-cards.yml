@@ -1,0 +1,61 @@
+name: Sync provisional cards
+
+on:
+  schedule:
+    - cron: "20 9 * * *" # 18:20 JST daily
+  workflow_dispatch:
+    inputs:
+      series:
+        description: "Series code to sync from Akihabara, for example OP17."
+        required: false
+        default: "OP17"
+        type: string
+      dry_run:
+        description: "Check only; do not write files"
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-provisional-cards
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Sync provisional cards
+        run: |
+          ARGS="--series=${{ inputs.series || 'OP17' }}"
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            ARGS="$ARGS --dry-run"
+          fi
+          node scripts/sync-akihabara-cards.mjs $ARGS
+
+      - name: Show changes
+        run: git status --short
+
+      - name: Commit and push
+        if: ${{ inputs.dry_run != true }}
+        run: |
+          if [ -z "$(git status --short provisional-cards.json)" ]; then
+            echo "No provisional card changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add provisional-cards.json
+          git commit -m "Sync provisional cards"
+          git push

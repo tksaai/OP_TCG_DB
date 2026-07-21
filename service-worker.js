@@ -5,8 +5,8 @@
  */
 
 // === 1. 定数 ===
-const CACHE_APP_SHELL = 'app-shell-v8';
-const CACHE_CARD_DATA = 'card-data-v8';
+const CACHE_APP_SHELL = 'app-shell-v9';
+const CACHE_CARD_DATA = 'card-data-v9';
 const CACHE_IMAGES = 'card-images-v1';
 
 // GitHub Pagesのリポジトリ名を考慮し、パスを `./` から始める
@@ -17,6 +17,7 @@ const APP_SHELL_FILES = [
     './style.css',
     './app.js', // ファイル名を修正
     './image-manifest.json',
+    './provisional-cards.json',
     './manifest.json',
     './icons/iconx192.png',
     './icons/iconx512.png',
@@ -25,6 +26,7 @@ const APP_SHELL_FILES = [
 
 // cards.json のパスを相対パスに
 const CARDS_JSON_PATH = './cards.json';
+const PROVISIONAL_CARDS_JSON_PATH = './provisional-cards.json';
 const FURIGANA_OVERRIDES_PATH = './furigana-overrides.json';
 
 
@@ -125,7 +127,7 @@ self.addEventListener('fetch', (event) => {
     }
     
     // 2. カードデータ (cards.json) (Network First)
-    if (relativePath === CARDS_JSON_PATH || relativePath === FURIGANA_OVERRIDES_PATH) {
+    if (relativePath === CARDS_JSON_PATH || relativePath === PROVISIONAL_CARDS_JSON_PATH || relativePath === FURIGANA_OVERRIDES_PATH) {
         event.respondWith(networkFirst(event.request, CACHE_CARD_DATA));
         return;
     }

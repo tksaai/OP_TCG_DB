@@ -14,6 +14,7 @@
     const CACHE_APP_SHELL = 'app-shell-v1';
     const CACHE_IMAGES = 'card-images-v1';
     const CARDS_JSON_PATH = './cards.json';
+    const PROVISIONAL_CARDS_JSON_PATH = './provisional-cards.json';
     const IMAGE_MANIFEST_PATH = './image-manifest.json';
     const FURIGANA_OVERRIDES_PATH = './furigana-overrides.json';
     const GITHUB_OWNER = 'tksaai';
@@ -26,7 +27,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.5.0'; // バージョン更新
+    const APP_VERSION = '1.5.1'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -53,6 +54,7 @@
     let imageManifest = { cards: {} };
     let cardSeriesIdCache = new Map(); // cardNumber -> Set<正規化済みシリーズID>
     let lastAddedCardSet = new Set(); // 前回のデータ更新で追加されたカード番号
+    let provisionalCards = [];
     let furiganaOverrides = {};
     let touchStartX = 0;
     let touchEndX = 0;
@@ -76,6 +78,7 @@
     let editingDeckMeta = {};   // { name, leader, colors: string[], createdAt }
     let deckShowOnlyDeckCards = false;
     let cardElementMap = {};    // { cardNumber: HTMLElement } DOM高速アクセス用
+    let activeCardView = 'cards'; // 'cards' | 'new'
 
     // === 2. DOM要素のキャッシュ ===
     const $ = (selector) => document.querySelector(selector);
@@ -182,6 +185,7 @@
 
             navCards: $('#nav-cards'),
             navDecks: $('#nav-decks'),
+            navNew: $('#nav-new'),
             modeMessageBar: $('#mode-message-bar'),
             deckListView: $('#deck-list-view'),
             deckListContainer: $('#deck-list-container'),
@@ -238,6 +242,7 @@
             await initDB();
             await loadImageManifest();
             await loadFuriganaOverrides();
+            await loadProvisionalCards();
         } catch (dbError) {
             console.error("Critical error during DB initialization:", dbError);
             dom.loadingIndicator.textContent = 'データベースの初期化に致命的なエラーが発生しました。';
@@ -316,9 +321,9 @@
             .replace(/[^ァ-ヶーA-Za-z0-9]/g, '');
     }
 
-    function applyFuriganaOverridesToCards() {
-        if (!Array.isArray(allCards) || !furiganaOverrides) return;
-        allCards.forEach(card => {
+    function applyFuriganaOverridesToCards(cards = allCards) {
+        if (!Array.isArray(cards) || !furiganaOverrides) return;
+        cards.forEach(card => {
             if (!card?.cardNumber) return;
             const override = getOverrideFurigana(card.cardNumber);
             if (override) {
@@ -585,6 +590,39 @@
         return card?.rarity ? String(card.rarity) : '';
     }
 
+    async function loadProvisionalCards() {
+        try {
+            const response = await fetch(PROVISIONAL_CARDS_JSON_PATH, { cache: 'no-store' });
+            if (response.status === 404) {
+                provisionalCards = [];
+                return;
+            }
+            if (!response.ok) throw new Error(`Failed to fetch provisional cards: ${response.status}`);
+            const data = await response.json();
+            provisionalCards = normalizeCardsData(Array.isArray(data) ? data : []);
+            applyFuriganaOverridesToCards(provisionalCards);
+        } catch (error) {
+            console.warn('Failed to load provisional cards.', error);
+            provisionalCards = [];
+        }
+    }
+
+    function isProvisionalCard(card) {
+        return card?.provisionalSource === 'akihabara-cardshop';
+    }
+
+    function getProvisionalCardsForDisplay() {
+        const officialCardNumbers = new Set(allCards.map(card => card?.cardNumber).filter(Boolean));
+        return provisionalCards.filter(card => card?.cardNumber && !officialCardNumbers.has(card.cardNumber));
+    }
+
+    function getActiveCardSource() {
+        if (currentMode === 'view' && activeCardView === 'new') {
+            return getProvisionalCardsForDisplay();
+        }
+        return allCards;
+    }
+
     function normalizeCardsData(cardsData) {
         let cardsArray = [];
 
@@ -730,7 +768,7 @@
                     cardItem.appendChild(variantBadge);
                 }
 
-                if (lastAddedCardSet.has(card.cardNumber)) {
+                if (lastAddedCardSet.has(card.cardNumber) || isProvisionalCard(card)) {
                     const newBadge = document.createElement('span');
                     newBadge.className = 'card-new-badge';
                     newBadge.textContent = 'NEW';
@@ -907,8 +945,11 @@
      * フィルタ条件に基づいてカードを抽出し、表示
      */
     function applyFiltersAndDisplay() {
-        if (allCards.length === 0) {
-            dom.cardListContainer.innerHTML = '<p class="no-results">カードデータが読み込まれていません。</p>';
+        const sourceCards = getActiveCardSource();
+        if (sourceCards.length === 0) {
+            dom.cardListContainer.innerHTML = activeCardView === 'new'
+                ? '<p class="no-results">仮DBのカードはありません。</p>'
+                : '<p class="no-results">カードデータが読み込まれていません。</p>';
             return;
         }
 
@@ -946,7 +987,7 @@
         // 検索モード (デフォルトは AND)
         const searchMode = currentFilter.searchMode || 'AND';
 
-        currentFilteredCards = allCards.filter(card => {
+        currentFilteredCards = sourceCards.filter(card => {
             if (!card || !card.cardNumber) return false;
 
             // ★ デッキ構築モード別フィルタ
@@ -1139,8 +1180,8 @@
     /**
      * DBデータからフィルタオプションを動的に生成
      */
-    function populateFilters() {
-        if (allCards.length === 0) {
+    function populateFilters(sourceCards = allCards) {
+        if (sourceCards.length === 0) {
              dom.filterOptionsContainer.innerHTML = '<p>カードデータがありません。</p>';
              return;
         }
@@ -1156,7 +1197,7 @@
         
         const seriesSet = new Map();
 
-        allCards.forEach(card => {
+        sourceCards.forEach(card => {
             if (!card || !card.cardNumber) return;
 
             if (Array.isArray(card.color)) card.color.forEach(c => colors.add(c));
@@ -1644,7 +1685,8 @@
             } catch (metaError) {
                 lastAddedCardSet = new Set();
             }
-            applyFuriganaOverridesToCards();
+            applyFuriganaOverridesToCards(allCards);
+            applyFuriganaOverridesToCards(provisionalCards);
             
             if (allCards.length === 0) {
                  if (dom.loadingIndicator && (dom.loadingIndicator.style.display === 'none' || dom.loadingIndicator.textContent.includes('オフライン'))) {
@@ -1708,6 +1750,7 @@
     function setActiveNav(tab) {
         if (dom.navCards) dom.navCards.classList.toggle('active', tab === 'cards');
         if (dom.navDecks) dom.navDecks.classList.toggle('active', tab === 'decks');
+        if (dom.navNew) dom.navNew.classList.toggle('active', tab === 'new');
     }
 
     function getDeckTotalCount() {
@@ -1748,10 +1791,12 @@
     function startDeckView(deck) {
         if (allCards.length === 0) return;
         currentMode = 'deck_view';
+        activeCardView = 'cards';
         viewingDeck = deck;
         editingDeckData = { ...(deck.cards || {}) }; // バッジ表示用 (読み取り専用)
 
         showCardListView();
+        populateFilters(allCards);
         setDeckStatusBarVisible(true);
         syncDeckStatusButtons();
         setModeMessage(deck.name || 'デッキ表示');
@@ -1927,7 +1972,9 @@
             return;
         }
         currentMode = 'leader_select';
+        activeCardView = 'cards';
         showCardListView();
+        populateFilters(allCards);
         setModeMessage('リーダーカードを選択してください');
 
         dom.searchBar.value = '';
@@ -1942,6 +1989,7 @@
         const colors = leaderCard && Array.isArray(leaderCard.color) ? leaderCard.color : [];
 
         currentMode = 'deck_edit';
+        activeCardView = 'cards';
         editingDeckId = deck.id;
         editingDeckData = { ...(deck.cards || {}) };
         editingDeckMeta = {
@@ -1969,6 +2017,7 @@
 
     function exitDeckBuildingMode() {
         currentMode = 'view';
+        activeCardView = 'cards';
         viewingDeck = null;
         editingDeckId = null;
         editingDeckData = {};
@@ -2654,6 +2703,7 @@
                 exitDeckBuildingMode();
                 setActiveNav('cards');
                 showCardListView();
+                populateFilters(allCards);
                 applyFiltersAndDisplay();
             });
         }
@@ -2667,6 +2717,24 @@
                 setActiveNav('decks');
                 showDeckListView();
                 loadDeckList();
+            });
+        }
+
+        if (dom.navNew) {
+            dom.navNew.addEventListener('click', () => {
+                if (currentMode === 'leader_select' || currentMode === 'deck_edit') {
+                    if (!confirm('デッキ作成・編集を中断しますか？(未保存の変更は破棄されます)')) return;
+                }
+                exitDeckBuildingMode();
+                activeCardView = 'new';
+                setActiveNav('new');
+                showCardListView();
+                populateFilters(getProvisionalCardsForDisplay());
+                dom.searchBar.value = '';
+                dom.clearSearchBtn.style.display = 'none';
+                resetFilters();
+                applyFiltersAndDisplay();
+                dom.mainContent.scrollTop = 0;
             });
         }
 
