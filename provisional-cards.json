@@ -553,7 +553,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-22"
+    "provisionalUpdatedAt": "2026-07-23"
   },
   {
     "uniqueId": "OP17-003_OP17-003.png",
@@ -586,7 +586,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-22"
+    "provisionalUpdatedAt": "2026-07-23"
   },
   {
     "uniqueId": "OP17-004_OP17-004.png",
@@ -620,7 +620,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-22"
+    "provisionalUpdatedAt": "2026-07-23"
   },
   {
     "uniqueId": "OP17-005_OP17-005.png",
@@ -653,7 +653,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-22"
+    "provisionalUpdatedAt": "2026-07-23"
   },
   {
     "uniqueId": "OP17-012_OP17-012.png",
@@ -685,7 +685,39 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-22"
+    "provisionalUpdatedAt": "2026-07-23"
+  },
+  {
+    "uniqueId": "OP17-015_OP17-015.png",
+    "cardNumber": "OP17-015",
+    "rawNumber": "OP17-015",
+    "cardName": "マルコ",
+    "furigana": "",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "color": [
+      "赤"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 5,
+    "power": 6000,
+    "counter": 1000,
+    "attribute": "特",
+    "features": [
+      "白ひげ海賊団"
+    ],
+    "block": 5,
+    "effectText": "自分のキャラが相手の効果で場を離れる場合、代わりにこのキャラをKOできる。 KO時 自分の手札から「白ひげ海賊団」を含む特徴を持つカード1枚を捨てることができる：このキャラカードをトラッシュから登場させる。",
+    "trigger": "",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "seriesTitle": "ブースターパック 世界最強の戦士",
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-015",
+    "imagePath": "https://www.mercardop.jp/data/mercardop/product/info/OP17-015.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP17",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
+    "provisionalUpdatedAt": "2026-07-23"
   },
   {
     "uniqueId": "OP17-020_OP17-020.png",
@@ -718,7 +750,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-22"
+    "provisionalUpdatedAt": "2026-07-23"
   },
   {
     "uniqueId": "OP17-022_OP17-022.png",
@@ -751,7 +783,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-22"
+    "provisionalUpdatedAt": "2026-07-23"
   },
   {
     "uniqueId": "OP17-025_OP17-025.png",
@@ -783,7 +815,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-22"
+    "provisionalUpdatedAt": "2026-07-23"
   },
   {
     "uniqueId": "OP17-028_OP17-028.png",
@@ -816,7 +848,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-22"
+    "provisionalUpdatedAt": "2026-07-23"
   },
   {
     "uniqueId": "OP17-029_OP17-029.png",
@@ -848,7 +880,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-22"
+    "provisionalUpdatedAt": "2026-07-23"
   },
   {
     "uniqueId": "OP17-031_OP17-031.png",
@@ -880,7 +912,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-22"
+    "provisionalUpdatedAt": "2026-07-23"
   },
   {
     "uniqueId": "OP17-034_OP17-034.png",
@@ -912,7 +944,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-22"
+    "provisionalUpdatedAt": "2026-07-23"
   },
   {
     "uniqueId": "OP17-058_OP17-058.png",
@@ -945,7 +977,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-22"
+    "provisionalUpdatedAt": "2026-07-23"
   },
   {
     "uniqueId": "OP17-062_OP17-062.png",
@@ -978,7 +1010,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-22"
+    "provisionalUpdatedAt": "2026-07-23"
   },
   {
     "uniqueId": "OP17-063_OP17-063.png",
@@ -1011,7 +1043,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-22"
+    "provisionalUpdatedAt": "2026-07-23"
   },
   {
     "uniqueId": "OP17-064_OP17-064.png",
@@ -1044,7 +1076,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-22"
+    "provisionalUpdatedAt": "2026-07-23"
   },
   {
     "uniqueId": "OP17-071_OP17-071.png",
@@ -1077,7 +1109,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-22"
+    "provisionalUpdatedAt": "2026-07-23"
   },
   {
     "uniqueId": "OP17-072_OP17-072.png",
@@ -1109,7 +1141,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-22"
+    "provisionalUpdatedAt": "2026-07-23"
   },
   {
     "uniqueId": "OP17-079_OP17-079.png",
@@ -1143,7 +1175,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-22"
+    "provisionalUpdatedAt": "2026-07-23"
   },
   {
     "uniqueId": "OP17-080_OP17-080.png",
@@ -1176,7 +1208,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-22"
+    "provisionalUpdatedAt": "2026-07-23"
   },
   {
     "uniqueId": "OP17-082_OP17-082.png",
@@ -1209,7 +1241,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-22"
+    "provisionalUpdatedAt": "2026-07-23"
   },
   {
     "uniqueId": "OP17-090_OP17-090.png",
@@ -1242,7 +1274,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-22"
+    "provisionalUpdatedAt": "2026-07-23"
   },
   {
     "uniqueId": "OP17-091_OP17-091.png",
@@ -1275,7 +1307,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-22"
+    "provisionalUpdatedAt": "2026-07-23"
   },
   {
     "uniqueId": "OP17-093_OP17-093.png",
@@ -1309,7 +1341,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-22"
+    "provisionalUpdatedAt": "2026-07-23"
   },
   {
     "uniqueId": "OP17-099_OP17-099.png",
@@ -1342,7 +1374,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-22"
+    "provisionalUpdatedAt": "2026-07-23"
   },
   {
     "uniqueId": "OP17-105_OP17-105.png",
@@ -1375,7 +1407,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-22"
+    "provisionalUpdatedAt": "2026-07-23"
   },
   {
     "uniqueId": "OP17-106_OP17-106.png",
@@ -1407,7 +1439,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-22"
+    "provisionalUpdatedAt": "2026-07-23"
   },
   {
     "uniqueId": "OP17-109_OP17-109.png",
@@ -1439,7 +1471,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-22"
+    "provisionalUpdatedAt": "2026-07-23"
   },
   {
     "uniqueId": "OP17-112_OP17-112.png",
@@ -1472,7 +1504,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-22"
+    "provisionalUpdatedAt": "2026-07-23"
   },
   {
     "uniqueId": "OP17-119_OP17-119.png",
@@ -1505,7 +1537,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-22"
+    "provisionalUpdatedAt": "2026-07-23"
   },
   {
     "uniqueId": "P-122_VJ20260405-P-122.png",
