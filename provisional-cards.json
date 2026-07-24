@@ -656,6 +656,40 @@
     "provisionalUpdatedAt": "2026-07-23"
   },
   {
+    "uniqueId": "OP17-007_OP17-007.png",
+    "cardNumber": "OP17-007",
+    "rawNumber": "OP17-007",
+    "cardName": "光月おでん",
+    "furigana": "",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "color": [
+      "赤"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 7,
+    "power": 8000,
+    "counter": "-",
+    "attribute": "斬",
+    "features": [
+      "ワノ国",
+      "光月家",
+      "白ひげ海賊団"
+    ],
+    "block": 5,
+    "effectText": "【登場時】自分のリーダーが「エドワード・ニューゲート」か特徴《ワノ国》を持つ場合、自分の手札からパワー6000以下の、特徴《ワノ国》か「白ひげ海賊団」を含む特徴を持つキャラカード1枚までを、登場させる。",
+    "trigger": "",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "seriesTitle": "ブースターパック 世界最強の戦士",
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-007",
+    "imagePath": "https://www.mercardop.jp/data/mercardop/product/info/OP17-007.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP17",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
+    "provisionalUpdatedAt": "2026-07-23"
+  },
+  {
     "uniqueId": "OP17-012_OP17-012.png",
     "cardNumber": "OP17-012",
     "rawNumber": "OP17-012",
@@ -818,6 +852,38 @@
     "provisionalUpdatedAt": "2026-07-23"
   },
   {
+    "uniqueId": "OP17-027_OP17-027.png",
+    "cardNumber": "OP17-027",
+    "rawNumber": "OP17-027",
+    "cardName": "ベン・ベックマン",
+    "furigana": "",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "color": [
+      "緑"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 7,
+    "power": 9000,
+    "counter": "-",
+    "attribute": "射",
+    "features": [
+      "赤髪海賊団"
+    ],
+    "block": 5,
+    "effectText": "速攻:キャラ (このカードは登場したターンにキャラへアタックできる) 登場時 自分のリーダーが特徴《赤髪海賊団》を持つ場合、カード1枚を引き、相手のキャラ2枚までを、レストにする。",
+    "trigger": "",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "seriesTitle": "ブースターパック 世界最強の戦士",
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-027",
+    "imagePath": "https://www.mercardop.jp/data/mercardop/product/info/OP17-027.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP17",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
+    "provisionalUpdatedAt": "2026-07-23"
+  },
+  {
     "uniqueId": "OP17-028_OP17-028.png",
     "cardNumber": "OP17-028",
     "rawNumber": "OP17-028",
@@ -974,6 +1040,38 @@
     "seriesCode": "OP-17",
     "sourceModalId": "OP17-058",
     "imagePath": "https://www.mercardop.jp/data/mercardop/product/info/OP17-058.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP17",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
+    "provisionalUpdatedAt": "2026-07-23"
+  },
+  {
+    "uniqueId": "OP17-060_OP17-060.png",
+    "cardNumber": "OP17-060",
+    "rawNumber": "OP17-060",
+    "cardName": "うるティ＆ページワン",
+    "furigana": "",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "color": [
+      "紫"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 6,
+    "power": 6000,
+    "counter": 1000,
+    "attribute": "打",
+    "features": [
+      "百獣海賊団"
+    ],
+    "block": 5,
+    "effectText": "【登場時】自分のリーダーが特徴《百獣海賊団》を持つ場合、ドン!!デッキからドン!!1枚までを、アクティブで追加する。その後、相手のパワー3000以下のキャラ1枚までを、KOする。",
+    "trigger": "",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "seriesTitle": "ブースターパック 世界最強の戦士",
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-060",
+    "imagePath": "https://www.mercardop.jp/data/mercardop/product/info/OP17-060.png",
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
@@ -1244,6 +1342,73 @@
     "provisionalUpdatedAt": "2026-07-23"
   },
   {
+    "uniqueId": "OP17-087_OP17-087.png",
+    "cardNumber": "OP17-087",
+    "rawNumber": "OP17-087",
+    "cardName": "ニコ・ロビン",
+    "furigana": "",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "color": [
+      "黒"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 2,
+    "power": 2000,
+    "counter": 1000,
+    "attribute": "打",
+    "features": [
+      "エルバフ",
+      "麦わらの一味"
+    ],
+    "block": 5,
+    "effectText": "コスト12以上のキャラがいる場合、このキャラのパワー+3000。 【登場時】コスト12以上のキャラがいる場合、相手のキャラ1枚までを、このターン中、パワー−3000。",
+    "trigger": "",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "seriesTitle": "ブースターパック 世界最強の戦士",
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-087",
+    "imagePath": "https://www.mercardop.jp/data/mercardop/product/info/OP17-087.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP17",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
+    "provisionalUpdatedAt": "2026-07-23"
+  },
+  {
+    "uniqueId": "OP17-089_OP17-089.png",
+    "cardNumber": "OP17-089",
+    "rawNumber": "OP17-089",
+    "cardName": "ハグワール・D・サウロ",
+    "furigana": "",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "color": [
+      "黒"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 4,
+    "power": 6000,
+    "counter": "-",
+    "attribute": "打",
+    "features": [
+      "巨人族",
+      "エルバフ",
+      "元海軍"
+    ],
+    "block": 5,
+    "effectText": "このキャラのコスト+12。 登場時 自分のデッキの上から3枚を見て、特徴《エルバフ》を持つカード1枚までを公開し、手札に加える。その後、残りをトラッシュに置く。",
+    "trigger": "",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "seriesTitle": "ブースターパック 世界最強の戦士",
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-089",
+    "imagePath": "https://www.mercardop.jp/data/mercardop/product/info/OP17-089.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP17",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
+    "provisionalUpdatedAt": "2026-07-23"
+  },
+  {
     "uniqueId": "OP17-090_OP17-090.png",
     "cardNumber": "OP17-090",
     "rawNumber": "OP17-090",
@@ -1501,6 +1666,38 @@
     "seriesCode": "OP-17",
     "sourceModalId": "OP17-112",
     "imagePath": "https://www.mercardop.jp/data/mercardop/product/info/OP17-112.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP17",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
+    "provisionalUpdatedAt": "2026-07-23"
+  },
+  {
+    "uniqueId": "OP17-114_OP17-114.png",
+    "cardNumber": "OP17-114",
+    "rawNumber": "OP17-114",
+    "cardName": "スイート3将星",
+    "furigana": "",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "color": [
+      "黄"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 6,
+    "power": 4000,
+    "counter": 1000,
+    "attribute": "斬",
+    "features": [
+      "ビッグ・マム海賊団"
+    ],
+    "block": 5,
+    "effectText": "自分のターン中 登場時 自分のドン!!2枚をレストにできる：カード1枚を引き、自分のデッキの上から1枚までを、ライフの上に加える。その後、相手のキャラ2枚までを、このターン中、パワー−3000。",
+    "trigger": "このカードを登場させる。",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "seriesTitle": "ブースターパック 世界最強の戦士",
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-114",
+    "imagePath": "https://www.mercardop.jp/data/mercardop/product/info/OP17-114.png",
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
