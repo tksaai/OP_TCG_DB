@@ -2,6 +2,8 @@ import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
 const OFFICIAL_BASE_URL = 'https://www.onepiece-cardgame.com';
+const PROMO_SERIES = 'PROMO';
+const PROMO_CATEGORY_ID = '550901';
 const CARDS_JSON = 'cards.json';
 const BLOCK_ICON_OVERRIDES_JSON = 'block-icon-overrides.json';
 
@@ -149,7 +151,7 @@ function parseSeries(getInfo) {
     return { seriesCode, seriesTitle };
 }
 
-function parseOfficialCards(html, allowedSeries = new Set(), allowedCards = new Set()) {
+function parseOfficialCards(html, allowedPrefixes = new Set(), allowedCards = new Set()) {
     const cards = [];
     const modalRegex = /<dl class="modalCol" id="([^"]+)">([\s\S]*?)<\/dl>/g;
     let match;
@@ -160,8 +162,8 @@ function parseOfficialCards(html, allowedSeries = new Set(), allowedCards = new 
         if (!infoMatch) continue;
 
         const cardNumber = decodeHtml(infoMatch[1]).toUpperCase();
-        const seriesId = cardNumber.split('-')[0];
-        if (allowedSeries.size > 0 && !allowedSeries.has(seriesId)) continue;
+        const cardPrefix = cardNumber.split('-')[0];
+        if (allowedPrefixes.size > 0 && !allowedPrefixes.has(cardPrefix)) continue;
         if (allowedCards.size > 0 && !allowedCards.has(cardNumber)) continue;
 
         const cardName = decodeHtml(body.match(/<div class="cardName">([\s\S]*?)<\/div>/)?.[1] || '');
@@ -216,8 +218,15 @@ async function fetchText(url) {
     return response.text();
 }
 
+function officialSearchUrl(searchValue) {
+    if (searchValue === PROMO_SERIES) {
+        return `${OFFICIAL_BASE_URL}/cardlist/?series=${PROMO_CATEGORY_ID}`;
+    }
+    return `${OFFICIAL_BASE_URL}/cardlist/?freewords=${encodeURIComponent(searchValue)}&search=true`;
+}
+
 if (seriesList.length === 0 && onlyCards.size === 0) {
-    console.error('Specify --series=OP16 or --card=OP16-001.');
+    console.error('Specify --series=OP16,PROMO or --card=OP16-001.');
     process.exit(1);
 }
 
@@ -227,9 +236,12 @@ const fetchedCards = new Map();
 
 const searches = seriesList.length > 0 ? seriesList : [...onlyCards];
 for (const searchValue of searches) {
-    const url = `${OFFICIAL_BASE_URL}/cardlist/?freewords=${encodeURIComponent(searchValue)}&search=true`;
+    const url = officialSearchUrl(searchValue);
     const html = await fetchText(url);
-    const parsed = parseOfficialCards(html, new Set(seriesList), onlyCards);
+    const allowedPrefixes = searchValue === PROMO_SERIES || seriesList.length === 0
+        ? new Set()
+        : new Set([searchValue]);
+    const parsed = parseOfficialCards(html, allowedPrefixes, onlyCards);
     for (const card of parsed) {
         fetchedCards.set(card.cardNumber, card);
     }

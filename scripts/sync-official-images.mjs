@@ -2,6 +2,8 @@ import { mkdir, readFile, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
 const OFFICIAL_BASE_URL = 'https://www.onepiece-cardgame.com';
+const PROMO_SERIES = 'PROMO';
+const PROMO_CATEGORY_ID = '550901';
 const CARDS_JSON = 'cards.json';
 const OUTPUT_ROOT = 'Cards';
 const METADATA_FILE = 'official-image-sources.json';
@@ -20,7 +22,8 @@ const missingOnly = args.includes('--missing-only');
 const limit = Number(argValue('limit', '0'));
 const delayMs = Number(argValue('delay', '350'));
 const onlyCards = new Set(args.filter(arg => arg.startsWith('--card=')).map(arg => arg.split('=')[1].toUpperCase()));
-const onlySeries = new Set(args.filter(arg => arg.startsWith('--series=')).flatMap(arg => arg.split('=')[1].split(',')).map(value => value.trim().toUpperCase()).filter(Boolean));
+const requestedSeries = new Set(args.filter(arg => arg.startsWith('--series=')).flatMap(arg => arg.split('=')[1].split(',')).map(value => value.trim().toUpperCase()).filter(Boolean));
+const regularSeries = new Set([...requestedSeries].filter(value => value !== PROMO_SERIES));
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -50,7 +53,7 @@ function localImagePath(cardNumber, imageUrl) {
     return path.join(OUTPUT_ROOT, series, 'official', fileName);
 }
 
-function parseOfficialCards(html, expectedCardNumber) {
+function parseOfficialCards(html, expectedCardNumber = '') {
     const cards = [];
     const modalRegex = /<dl class="modalCol" id="([^"]+)">([\s\S]*?)<\/dl>/g;
     let match;
@@ -61,7 +64,7 @@ function parseOfficialCards(html, expectedCardNumber) {
         if (!infoMatch) continue;
 
         const cardNumber = decodeHtml(infoMatch[1]).toUpperCase();
-        if (cardNumber !== expectedCardNumber) continue;
+        if (expectedCardNumber && cardNumber !== expectedCardNumber) continue;
 
         const imageMatch = body.match(/<div class="frontCol">[\s\S]*?<img[^>]+data-src="([^"]+)"/s);
         if (!imageMatch) continue;
@@ -137,6 +140,15 @@ async function readMetadata() {
 
 const cardsData = JSON.parse(await readFile(CARDS_JSON, 'utf8'));
 let cardNumbers = [...new Set(cardsData.map(card => String(card.cardNumber || '').toUpperCase()).filter(Boolean))];
+const promoHtml = requestedSeries.has(PROMO_SERIES)
+    ? await fetchText(`${OFFICIAL_BASE_URL}/cardlist/?series=${PROMO_CATEGORY_ID}`)
+    : '';
+const promoCardsByNumber = new Map();
+for (const card of promoHtml ? parseOfficialCards(promoHtml) : []) {
+    const variants = promoCardsByNumber.get(card.cardNumber) || [];
+    variants.push(card);
+    promoCardsByNumber.set(card.cardNumber, variants);
+}
 
 if (onlyCards.size > 0) {
     cardNumbers = cardNumbers.filter(cardNumber => onlyCards.has(cardNumber));
@@ -152,12 +164,18 @@ for (const filePath of Object.keys(metadata)) {
     if (cardNumber) officialImageCardNumbers.add(cardNumber);
 }
 
-if (onlySeries.size > 0) {
-    cardNumbers = cardNumbers.filter(cardNumber => onlySeries.has(cardNumber.split('-')[0]));
+if (requestedSeries.size > 0) {
+    cardNumbers = cardNumbers.filter(cardNumber => (
+        regularSeries.has(cardNumber.split('-')[0])
+        || promoCardsByNumber.has(cardNumber)
+    ));
 }
 
 if (missingOnly) {
-    cardNumbers = cardNumbers.filter(cardNumber => !officialImageCardNumbers.has(cardNumber));
+    cardNumbers = cardNumbers.filter(cardNumber => (
+        promoCardsByNumber.has(cardNumber)
+        || !officialImageCardNumbers.has(cardNumber)
+    ));
 }
 
 if (limit > 0) {
@@ -169,17 +187,23 @@ const summary = { checked: 0, found: 0, downloaded: 0, skipped: 0, failed: 0 };
 for (const cardNumber of cardNumbers) {
     summary.checked++;
     const url = `${OFFICIAL_BASE_URL}/cardlist/?freewords=${encodeURIComponent(cardNumber)}&search=true`;
+    const usesPromoCards = promoCardsByNumber.has(cardNumber)
+        && !regularSeries.has(cardNumber.split('-')[0]);
 
     try {
-        const html = await fetchText(url);
-        const officialCards = parseOfficialCards(html, cardNumber);
+        const officialCards = usesPromoCards
+            ? promoCardsByNumber.get(cardNumber)
+            : parseOfficialCards(await fetchText(url), cardNumber);
         summary.found += officialCards.length;
 
         for (const officialCard of officialCards) {
             const webPath = officialCard.localPath.split(path.sep).join('/');
+            const currentMetadata = metadata[webPath];
             metadata[webPath] = {
                 source: 'official',
-                sourceUrl: officialCard.imageUrl,
+                sourceUrl: force || !currentMetadata?.sourceUrl
+                    ? officialCard.imageUrl
+                    : currentMetadata.sourceUrl,
                 cardName: officialCard.cardName,
                 rarity: officialCard.rarity,
                 cardType: officialCard.cardType,
@@ -207,7 +231,7 @@ for (const cardNumber of cardNumbers) {
         console.error(`[failed] ${cardNumber}: ${error.message}`);
     }
 
-    if (delayMs > 0) {
+    if (delayMs > 0 && !usesPromoCards) {
         await sleep(delayMs);
     }
 }

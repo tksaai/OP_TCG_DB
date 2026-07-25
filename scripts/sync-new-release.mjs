@@ -3,6 +3,7 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 
 const OFFICIAL_CARDLIST_URL = 'https://www.onepiece-cardgame.com/cardlist/';
+const PROMO_SERIES = 'PROMO';
 const args = process.argv.slice(2);
 const passthroughNames = new Set(['card', 'delay', 'force', 'limit', 'series']);
 
@@ -112,7 +113,7 @@ if (!requestedSeries || /^latest|auto$/i.test(requestedSeries)) {
         console.log(`Detected series without any official images: ${uncoveredSeries.join(', ')}`);
     }
 
-    requestedSeries = [...new Set([latest.code, ...uncoveredSeries])].join(',');
+    requestedSeries = [...new Set([latest.code, PROMO_SERIES, ...uncoveredSeries])].join(',');
 }
 
 const officialSyncArgs = [
