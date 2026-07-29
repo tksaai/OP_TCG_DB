@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-29T11:28:11.520Z",
-  "totalCards": 2682,
-  "totalImages": 4759,
+  "generatedAt": "2026-07-29T23:28:28.203Z",
+  "totalCards": 2684,
+  "totalImages": 4761,
   "cards": {
     "EB01-001": [
       {
@@ -51740,6 +51740,34 @@
         "label": "通常",
         "path": "CardsWebP/P/official/P-135.webp",
         "fallbackPath": "Cards/P/official/P-135.png",
+        "variantIndex": 0
+      }
+    ],
+    "P-150": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/P-150.png?260630",
+        "cardName": "クザン",
+        "rarity": "P",
+        "cardType": "CHARACTER",
+        "getInfo": "Vジャンプ7月特大号付録（2026年5月21日売）",
+        "label": "通常",
+        "path": "CardsWebP/P/official/P-150.webp",
+        "fallbackPath": "Cards/P/official/P-150.png",
+        "variantIndex": 0
+      }
+    ],
+    "P-151": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/P-151.png?260630",
+        "cardName": "スモーカー",
+        "rarity": "P",
+        "cardType": "CHARACTER",
+        "getInfo": "最強ジャンプ7月号付録（2026年6月4日売）",
+        "label": "通常",
+        "path": "CardsWebP/P/official/P-151.webp",
+        "fallbackPath": "Cards/P/official/P-151.png",
         "variantIndex": 0
       }
     ],

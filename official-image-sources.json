@@ -42298,5 +42298,23 @@
     "cardType": "CHARACTER",
     "getInfo": "スタートデッキ 黄 ユースタス・キッド【ST-36】",
     "label": "通常"
+  },
+  "Cards/P/official/P-150.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/P-150.png?260630",
+    "cardName": "クザン",
+    "rarity": "P",
+    "cardType": "CHARACTER",
+    "getInfo": "Vジャンプ7月特大号付録（2026年5月21日売）",
+    "label": "通常"
+  },
+  "Cards/P/official/P-151.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/P-151.png?260630",
+    "cardName": "スモーカー",
+    "rarity": "P",
+    "cardType": "CHARACTER",
+    "getInfo": "最強ジャンプ7月号付録（2026年6月4日売）",
+    "label": "通常"
   }
 }
