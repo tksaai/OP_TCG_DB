@@ -553,7 +553,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-003_OP17-003.png",
@@ -586,7 +586,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-004_OP17-004.png",
@@ -620,7 +620,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-005_OP17-005.png",
@@ -653,7 +653,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-007_OP17-007.png",
@@ -687,7 +687,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-012_OP17-012.png",
@@ -719,7 +719,39 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
+  },
+  {
+    "uniqueId": "OP17-013_OP17-013.png",
+    "cardNumber": "OP17-013",
+    "rawNumber": "OP17-013",
+    "cardName": "ポートガス・D・エース",
+    "furigana": "",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "color": [
+      "赤"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 6,
+    "power": 6000,
+    "counter": 1000,
+    "attribute": "特",
+    "features": [
+      "白ひげ海賊団"
+    ],
+    "block": 5,
+    "effectText": "手札のこのカードは、相手のパワー10000以上のキャラがいる場合、コスト-2。 登場時自分のリーダーが「エドワード・ニューゲート」の場合、相手のレストのキャラ1枚までを、このターン中、パワー-6000。",
+    "trigger": "",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "seriesTitle": "ブースターパック 世界最強の戦士",
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-013",
+    "imagePath": "https://www.mercardop.jp/data/mercardop/product/info/OP17-013.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP17",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-015_OP17-015.png",
@@ -751,7 +783,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-020_OP17-020.png",
@@ -784,7 +816,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-022_OP17-022.png",
@@ -817,7 +849,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-024_OP17-024.png",
@@ -849,7 +881,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-025_OP17-025.png",
@@ -881,7 +913,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-027_OP17-027.png",
@@ -913,7 +945,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-028_OP17-028.png",
@@ -946,7 +978,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-029_OP17-029.png",
@@ -978,7 +1010,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-031_OP17-031.png",
@@ -1010,7 +1042,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-034_OP17-034.png",
@@ -1042,7 +1074,40 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
+  },
+  {
+    "uniqueId": "OP17-046_OP17-046.png",
+    "cardNumber": "OP17-046",
+    "rawNumber": "OP17-046",
+    "cardName": "グロリオーサ",
+    "furigana": "",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "color": [
+      "青"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 4,
+    "power": 1000,
+    "counter": "-",
+    "attribute": "知",
+    "features": [
+      "アマゾン・リリー",
+      "ロックス海賊団"
+    ],
+    "block": 5,
+    "effectText": "ブロッカー (相手のアタックの後、このカードをレストにし、アタックの対象をこのカードにできる) 登場時 コスト5以下のキャラ1枚までを、持ち主のデッキの下に置く。",
+    "trigger": "",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "seriesTitle": "ブースターパック 世界最強の戦士",
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-046",
+    "imagePath": "https://www.mercardop.jp/data/mercardop/product/info/OP17-046.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP17",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-058_OP17-058.png",
@@ -1075,7 +1140,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-060_OP17-060.png",
@@ -1107,7 +1172,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-062_OP17-062.png",
@@ -1140,7 +1205,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-063_OP17-063.png",
@@ -1173,7 +1238,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-064_OP17-064.png",
@@ -1206,7 +1271,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-065_OP17-065.png",
@@ -1238,7 +1303,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-071_OP17-071.png",
@@ -1271,7 +1336,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-072_OP17-072.png",
@@ -1303,7 +1368,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-079_OP17-079.png",
@@ -1337,7 +1402,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-080_OP17-080.png",
@@ -1370,7 +1435,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-082_OP17-082.png",
@@ -1403,7 +1468,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-084_OP17-084.png",
@@ -1437,7 +1502,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-087_OP17-087.png",
@@ -1470,7 +1535,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-089_OP17-089.png",
@@ -1504,7 +1569,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-090_OP17-090.png",
@@ -1537,7 +1602,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-091_OP17-091.png",
@@ -1570,7 +1635,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-093_OP17-093.png",
@@ -1604,7 +1669,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-099_OP17-099.png",
@@ -1637,7 +1702,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-104_OP17-104.png",
@@ -1669,7 +1734,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-105_OP17-105.png",
@@ -1702,7 +1767,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-106_OP17-106.png",
@@ -1734,7 +1799,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-109_OP17-109.png",
@@ -1766,7 +1831,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-112_OP17-112.png",
@@ -1799,7 +1864,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-114_OP17-114.png",
@@ -1831,7 +1896,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "OP17-119_OP17-119.png",
@@ -1864,7 +1929,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-27"
+    "provisionalUpdatedAt": "2026-07-30"
   },
   {
     "uniqueId": "P-122_VJ20260405-P-122.png",
