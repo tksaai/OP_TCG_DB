@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-30T11:09:57.897Z",
-  "totalCards": 2684,
-  "totalImages": 4761,
+  "generatedAt": "2026-07-31T11:31:16.748Z",
+  "totalCards": 2687,
+  "totalImages": 4772,
   "cards": {
     "EB01-001": [
       {
@@ -45925,6 +45925,18 @@
         "path": "CardsWebP/OP15/official/OP15-068.webp",
         "fallbackPath": "Cards/OP15/official/OP15-068.png",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP15-068_p1.png?260630",
+        "cardName": "神兵",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "getInfo": "スタンダードバトルパックVol.17",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP15/official/OP15-068_p1.webp",
+        "fallbackPath": "Cards/OP15/official/OP15-068_p1.png",
+        "variantIndex": 1
       }
     ],
     "OP15-069": [
@@ -46663,6 +46675,18 @@
         "path": "CardsWebP/OP15/official/OP15-113_p1.webp",
         "fallbackPath": "Cards/OP15/official/OP15-113_p1.png",
         "variantIndex": 1
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP15-113_p2.png?260630",
+        "cardName": "ロロノア・ゾロ",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "getInfo": "フラッグシップバトル2026 7月ベスト8記念品",
+        "label": "別イラスト 3",
+        "path": "CardsWebP/OP15/official/OP15-113_p2.webp",
+        "fallbackPath": "Cards/OP15/official/OP15-113_p2.png",
+        "variantIndex": 2
       }
     ],
     "OP15-114": [
@@ -46971,6 +46995,18 @@
         "path": "CardsWebP/OP16/official/OP16-010.webp",
         "fallbackPath": "Cards/OP16/official/OP16-010.png",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-010_p1.png?260630",
+        "cardName": "ナミュール",
+        "rarity": "UC",
+        "cardType": "CHARACTER",
+        "getInfo": "スタンダードバトルパックVol.17",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP16/official/OP16-010_p1.webp",
+        "fallbackPath": "Cards/OP16/official/OP16-010_p1.png",
+        "variantIndex": 1
       }
     ],
     "OP16-011": [
@@ -47215,6 +47251,18 @@
         "path": "CardsWebP/OP16/official/OP16-024.webp",
         "fallbackPath": "Cards/OP16/official/OP16-024.png",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-024_p1.png?260630",
+        "cardName": "イナズマ",
+        "rarity": "UC",
+        "cardType": "CHARACTER",
+        "getInfo": "スタンダードバトルパックVol.17",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP16/official/OP16-024_p1.webp",
+        "fallbackPath": "Cards/OP16/official/OP16-024_p1.png",
+        "variantIndex": 1
       }
     ],
     "OP16-025": [
@@ -47351,6 +47399,18 @@
         "path": "CardsWebP/OP16/official/OP16-032_p1.webp",
         "fallbackPath": "Cards/OP16/official/OP16-032_p1.png",
         "variantIndex": 1
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-032_p2.png?260630",
+        "cardName": "ボア・ハンコック",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "getInfo": "フラッグシップバトル2026 7月優勝記念品",
+        "label": "別イラスト 3",
+        "path": "CardsWebP/OP16/official/OP16-032_p2.webp",
+        "fallbackPath": "Cards/OP16/official/OP16-032_p2.png",
+        "variantIndex": 2
       }
     ],
     "OP16-033": [
@@ -48395,6 +48455,30 @@
         "path": "CardsWebP/OP16/official/OP16-092.webp",
         "fallbackPath": "Cards/OP16/official/OP16-092.png",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-092_p1.png?260630",
+        "cardName": "ニコ・ロビン",
+        "rarity": "UC",
+        "cardType": "CHARACTER",
+        "getInfo": "スタンダードバトル 2026年9月優勝記念品",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP16/official/OP16-092_p1.webp",
+        "fallbackPath": "Cards/OP16/official/OP16-092_p1.png",
+        "variantIndex": 1
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-092_p2.png?260630",
+        "cardName": "ニコ・ロビン",
+        "rarity": "UC",
+        "cardType": "CHARACTER",
+        "getInfo": "スタンダードバトルパックVol.17",
+        "label": "別イラスト 3",
+        "path": "CardsWebP/OP16/official/OP16-092_p2.webp",
+        "fallbackPath": "Cards/OP16/official/OP16-092_p2.png",
+        "variantIndex": 2
       }
     ],
     "OP16-093": [
@@ -51769,6 +51853,60 @@
         "path": "CardsWebP/P/official/P-151.webp",
         "fallbackPath": "Cards/P/official/P-151.png",
         "variantIndex": 0
+      }
+    ],
+    "P-155": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/P-155.png?260630",
+        "cardName": "トラファルガー・ロー",
+        "rarity": "P",
+        "cardType": "CHARACTER",
+        "getInfo": "交流会 2026年7月開催記念品",
+        "label": "通常",
+        "path": "CardsWebP/P/official/P-155.webp",
+        "fallbackPath": "Cards/P/official/P-155.png",
+        "variantIndex": 0
+      }
+    ],
+    "P-157": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/P-157.png?260630",
+        "cardName": "モンキー・D・ルフィ",
+        "rarity": "P",
+        "cardType": "CHARACTER",
+        "getInfo": "交流会 2026年9月開催記念品",
+        "label": "通常",
+        "path": "CardsWebP/P/official/P-157.webp",
+        "fallbackPath": "Cards/P/official/P-157.png",
+        "variantIndex": 0
+      }
+    ],
+    "P-159": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/P-159.png?260630",
+        "cardName": "モンキー・D・ルフィ",
+        "rarity": "P",
+        "cardType": "CHARACTER",
+        "getInfo": "週刊少年ジャンプ33号付録（2026年7月13日売）",
+        "label": "通常",
+        "path": "CardsWebP/P/official/P-159.webp",
+        "fallbackPath": "Cards/P/official/P-159.png",
+        "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/P-159_p1.png?260630",
+        "cardName": "モンキー・D・ルフィ",
+        "rarity": "P",
+        "cardType": "CHARACTER",
+        "getInfo": "週刊少年ジャンプ33号付録応募者全員サービス（2026年7月13日売）",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/P/official/P-159_p1.webp",
+        "fallbackPath": "Cards/P/official/P-159_p1.png",
+        "variantIndex": 1
       }
     ],
     "PRB01-001": [
