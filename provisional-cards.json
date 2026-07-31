@@ -1077,6 +1077,38 @@
     "provisionalUpdatedAt": "2026-07-30"
   },
   {
+    "uniqueId": "OP17-038_OP17-038.png",
+    "cardNumber": "OP17-038",
+    "rawNumber": "OP17-038",
+    "cardName": "やべェ未来が見えた様だ…",
+    "furigana": "",
+    "rarity": "C",
+    "cardType": "EVENT",
+    "color": [
+      "緑"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": "-",
+    "power": "-",
+    "counter": "-",
+    "attribute": "-",
+    "features": [
+      "赤髪海賊団"
+    ],
+    "block": 5,
+    "effectText": "メイン 自分のカード4枚をレストにできる：相手のキャラ1枚までを、レストにする。 カウンター 自分の手札1枚を捨てることができる：自分のリーダーかキャラ1枚までを、このバトル中、パワー+3000。",
+    "trigger": "",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "seriesTitle": "ブースターパック 世界最強の戦士",
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-038",
+    "imagePath": "https://www.mercardop.jp/data/mercardop/product/info/OP17-038.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP17",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
+    "provisionalUpdatedAt": "2026-07-30"
+  },
+  {
     "uniqueId": "OP17-046_OP17-046.png",
     "cardNumber": "OP17-046",
     "rawNumber": "OP17-046",
@@ -1365,6 +1397,39 @@
     "seriesCode": "OP-17",
     "sourceModalId": "OP17-072",
     "imagePath": "https://www.mercardop.jp/data/mercardop/product/info/OP17-072.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP17",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
+    "provisionalUpdatedAt": "2026-07-30"
+  },
+  {
+    "uniqueId": "OP17-078_OP17-078.png",
+    "cardNumber": "OP17-078",
+    "rawNumber": "OP17-078",
+    "cardName": "酒龍八卦",
+    "furigana": "",
+    "rarity": "C",
+    "cardType": "EVENT",
+    "color": [
+      "紫"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 2,
+    "power": "-",
+    "counter": "-",
+    "attribute": "-",
+    "features": [
+      "四皇",
+      "百獣海賊団"
+    ],
+    "block": 5,
+    "effectText": "メイン 自分のドン!!2枚をレストにし、自分の手札2枚を捨てることができる：自分のリーダーが特徴《百獣海賊団》を持つ場合、ドン!!デッキからドン!!3枚までを、レストで追加する。 カウンター 自分のリーダーかキャラ1枚までを、このバトル中、パワー+4000。",
+    "trigger": "",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "seriesTitle": "ブースターパック 世界最強の戦士",
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-078",
+    "imagePath": "https://www.mercardop.jp/data/mercardop/product/info/OP17-078.png",
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
@@ -1672,6 +1737,40 @@
     "provisionalUpdatedAt": "2026-07-30"
   },
   {
+    "uniqueId": "OP17-098_OP17-098.png",
+    "cardNumber": "OP17-098",
+    "rawNumber": "OP17-098",
+    "cardName": "ゴムゴムの猿王銃",
+    "furigana": "",
+    "rarity": "C",
+    "cardType": "EVENT",
+    "color": [
+      "黒"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 1,
+    "power": "-",
+    "counter": "-",
+    "attribute": "-",
+    "features": [
+      "エルバフ",
+      "四皇",
+      "麦わらの一味"
+    ],
+    "block": 5,
+    "effectText": "メイン 自分のドン!!6枚をレストにできる：コスト12以上のキャラがいる場合、相手のコスト6以下のキャラ2枚までを、KOする。 カウンター 自分のリーダーを、このバトル中、パワー+3000。",
+    "trigger": "",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "seriesTitle": "ブースターパック 世界最強の戦士",
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-098",
+    "imagePath": "https://www.mercardop.jp/data/mercardop/product/info/OP17-098.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP17",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
+    "provisionalUpdatedAt": "2026-07-30"
+  },
+  {
     "uniqueId": "OP17-099_OP17-099.png",
     "cardNumber": "OP17-099",
     "rawNumber": "OP17-099",
@@ -1893,6 +1992,39 @@
     "seriesCode": "OP-17",
     "sourceModalId": "OP17-114",
     "imagePath": "https://www.mercardop.jp/data/mercardop/product/info/OP17-114.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP17",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
+    "provisionalUpdatedAt": "2026-07-30"
+  },
+  {
+    "uniqueId": "OP17-117_OP17-117.png",
+    "cardNumber": "OP17-117",
+    "rawNumber": "OP17-117",
+    "cardName": "鳴光剣",
+    "furigana": "",
+    "rarity": "C",
+    "cardType": "EVENT",
+    "color": [
+      "黄"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 1,
+    "power": "-",
+    "counter": "-",
+    "attribute": "-",
+    "features": [
+      "四皇",
+      "ビッグ・マム・海賊団"
+    ],
+    "block": 5,
+    "effectText": "カウンター 自分の「シャーロット・リンリン」1枚までを、このバトル中、パワー+3000。",
+    "trigger": "相手は自身の手札3枚を捨ててもよい。そうしなかった場合、相手のコスト6以下のキャラ1枚までを、KOする。",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "seriesTitle": "ブースターパック 世界最強の戦士",
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-117",
+    "imagePath": "https://www.mercardop.jp/data/mercardop/product/info/OP17-117.png",
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
