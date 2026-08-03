@@ -523,39 +523,6 @@
     "provisionalUpdatedAt": "2026-05-31"
   },
   {
-    "uniqueId": "OP17-001_OP17-001.png",
-    "cardNumber": "OP17-001",
-    "rawNumber": "OP17-001",
-    "cardName": "エドワード・ニューゲート",
-    "furigana": "",
-    "rarity": "L",
-    "cardType": "LEADER",
-    "color": [
-      "赤"
-    ],
-    "costLifeType": "ライフ",
-    "costLifeValue": 5,
-    "power": 5000,
-    "counter": "-",
-    "attribute": "特",
-    "features": [
-      "四皇",
-      "白ひげ海賊団"
-    ],
-    "block": 5,
-    "effectText": "相手のアタック時ターン1回自分の手札1枚を捨てることができる：自分のリーダーかキャラ1枚までを、このバトル中、パワー+4000。",
-    "trigger": "",
-    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
-    "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-001",
-    "imagePath": "https://www.mercardop.jp/data/mercardop/product/info/OP17-001.png",
-    "provisionalSource": "akihabara-cardshop",
-    "provisionalScope": "OP17",
-    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
-  },
-  {
     "uniqueId": "OP17-003_OP17-003.png",
     "cardNumber": "OP17-003",
     "rawNumber": "OP17-003",
@@ -586,7 +553,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-004_OP17-004.png",
@@ -620,7 +587,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-005_OP17-005.png",
@@ -653,7 +620,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-007_OP17-007.png",
@@ -687,7 +654,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-012_OP17-012.png",
@@ -719,7 +686,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-013_OP17-013.png",
@@ -751,7 +718,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-015_OP17-015.png",
@@ -783,7 +750,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-020_OP17-020.png",
@@ -816,7 +783,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-022_OP17-022.png",
@@ -849,7 +816,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-024_OP17-024.png",
@@ -881,7 +848,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-025_OP17-025.png",
@@ -913,7 +880,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-027_OP17-027.png",
@@ -945,7 +912,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-028_OP17-028.png",
@@ -978,7 +945,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-029_OP17-029.png",
@@ -1010,7 +977,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-031_OP17-031.png",
@@ -1042,7 +1009,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-034_OP17-034.png",
@@ -1074,7 +1041,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-038_OP17-038.png",
@@ -1106,7 +1073,199 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
+  },
+  {
+    "uniqueId": "OP17-040_OP17-040.png",
+    "cardNumber": "OP17-040",
+    "rawNumber": "OP17-040",
+    "cardName": "エドワード・ニューゲート",
+    "furigana": "",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "color": [
+      "青"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 6,
+    "power": 8000,
+    "counter": "-",
+    "attribute": "特",
+    "features": [
+      "ロックス海賊団"
+    ],
+    "block": 5,
+    "effectText": "登場時カード1枚を引く。 ターン1回自分の『ロックス海賊団』を含む特徴を持つリーダーがアタックした時かアタックされた時、自分の手札1枚を捨てて発動できる。自分のリーダーを、このバトル中、パワー+3000。",
+    "trigger": "",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "seriesTitle": "ブースターパック 世界最強の戦士",
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-040",
+    "imagePath": "https://www.mercardop.jp/data/mercardop/product/info/OP17-040.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP17",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
+    "provisionalUpdatedAt": "2026-08-03"
+  },
+  {
+    "uniqueId": "OP17-041_OP17-041.png",
+    "cardNumber": "OP17-041",
+    "rawNumber": "OP17-041",
+    "cardName": "王直",
+    "furigana": "",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "color": [
+      "青"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 4,
+    "power": 6000,
+    "counter": "-",
+    "attribute": "打",
+    "features": [
+      "ロックス海賊団"
+    ],
+    "block": 5,
+    "effectText": "ブロッカー 登場時自分の手札1枚を捨てることができる：相手の元々のコスト1のキャラすべてを、持ち主が好きな順番でデッキの下に置く。",
+    "trigger": "",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "seriesTitle": "ブースターパック 世界最強の戦士",
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-041",
+    "imagePath": "https://www.mercardop.jp/data/mercardop/product/info/OP17-041.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP17",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
+    "provisionalUpdatedAt": "2026-08-03"
+  },
+  {
+    "uniqueId": "OP17-042_OP17-042.png",
+    "cardNumber": "OP17-042",
+    "rawNumber": "OP17-042",
+    "cardName": "カイドウ",
+    "furigana": "",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "color": [
+      "青"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 4,
+    "power": 6000,
+    "counter": "-",
+    "attribute": "打",
+    "features": [
+      "ロックス海賊団"
+    ],
+    "block": 5,
+    "effectText": "ブロッカー 登場時自分の手札から『ロックス海賊団』を含む特徴を持つカード3枚を公開できる：相手のキャラ1枚までを、このターン中、パワー-3000。",
+    "trigger": "",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "seriesTitle": "ブースターパック 世界最強の戦士",
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-042",
+    "imagePath": "https://www.mercardop.jp/data/mercardop/product/info/OP17-042.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP17",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
+    "provisionalUpdatedAt": "2026-08-03"
+  },
+  {
+    "uniqueId": "OP17-043_OP17-043.png",
+    "cardNumber": "OP17-043",
+    "rawNumber": "OP17-043",
+    "cardName": "ガンズイ",
+    "furigana": "",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "color": [
+      "青"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 5,
+    "power": 7000,
+    "counter": "-",
+    "attribute": "特",
+    "features": [
+      "ロックス海賊団"
+    ],
+    "block": 5,
+    "effectText": "このキャラが場を離れる場合、変わりに自分の手札2枚を捨てることができる。 登場時相手のリーダーを、次の相手のエンドフェイズ終了時まで、元々のパワー6000にする。",
+    "trigger": "",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "seriesTitle": "ブースターパック 世界最強の戦士",
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-043",
+    "imagePath": "https://www.mercardop.jp/data/mercardop/product/info/OP17-043.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP17",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
+    "provisionalUpdatedAt": "2026-08-03"
+  },
+  {
+    "uniqueId": "OP17-044_OP17-044.png",
+    "cardNumber": "OP17-044",
+    "rawNumber": "OP17-044",
+    "cardName": "キャプテン・ジョン",
+    "furigana": "",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "color": [
+      "青"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 4,
+    "power": 6000,
+    "counter": "-",
+    "attribute": "特",
+    "features": [
+      "ロックス海賊団"
+    ],
+    "block": 5,
+    "effectText": "自分のリーダーが『ロックス海賊団』を含む特徴を持ち、このキャラがレストの場合、相手はキャラの「キャプテン・ジョン」以外にアタックできない。 起動メインこのキャラをレストにできる：カード1枚を引き、自分の手札1枚を捨てる。",
+    "trigger": "",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "seriesTitle": "ブースターパック 世界最強の戦士",
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-044",
+    "imagePath": "https://www.mercardop.jp/data/mercardop/product/info/OP17-044.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP17",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
+    "provisionalUpdatedAt": "2026-08-03"
+  },
+  {
+    "uniqueId": "OP17-045_OP17-045.png",
+    "cardNumber": "OP17-045",
+    "rawNumber": "OP17-045",
+    "cardName": "凶",
+    "furigana": "",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "color": [
+      "青"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 2,
+    "power": 4000,
+    "counter": "-",
+    "attribute": "斬",
+    "features": [
+      "ロックス海賊団"
+    ],
+    "block": 5,
+    "effectText": "自分のキャラが相手の効果で場を離れる場合、代わりに自分の手札2枚を捨てることができる。 登場時カード1枚を引く。",
+    "trigger": "",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "seriesTitle": "ブースターパック 世界最強の戦士",
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-045",
+    "imagePath": "https://www.mercardop.jp/data/mercardop/product/info/OP17-045.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP17",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-046_OP17-046.png",
@@ -1139,7 +1298,199 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
+  },
+  {
+    "uniqueId": "OP17-050_OP17-050.png",
+    "cardNumber": "OP17-050",
+    "rawNumber": "OP17-050",
+    "cardName": "シュトロイゼン",
+    "furigana": "",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "青"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 1,
+    "power": 2000,
+    "counter": "-",
+    "attribute": "斬",
+    "features": [
+      "ロックス海賊団"
+    ],
+    "block": 5,
+    "effectText": "登場時自分のデッキの上から2枚を見て、好きな順番に並び替え、デッキの上か下に置く。その後、カード1枚を引く。",
+    "trigger": "",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "seriesTitle": "ブースターパック 世界最強の戦士",
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-050",
+    "imagePath": "https://www.mercardop.jp/data/mercardop/product/info/OP17-050.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP17",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
+    "provisionalUpdatedAt": "2026-08-03"
+  },
+  {
+    "uniqueId": "OP17-052_OP17-052.png",
+    "cardNumber": "OP17-052",
+    "rawNumber": "OP17-052",
+    "cardName": "首領・マーロン",
+    "furigana": "",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "青"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 3,
+    "power": 5000,
+    "counter": "-",
+    "attribute": "射",
+    "features": [
+      "ロックス海賊団"
+    ],
+    "block": 5,
+    "effectText": "登場時自分のトラッシュからコスト0の青のイベント1枚までを、手札に加える。",
+    "trigger": "",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "seriesTitle": "ブースターパック 世界最強の戦士",
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-052",
+    "imagePath": "https://www.mercardop.jp/data/mercardop/product/info/OP17-052.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP17",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
+    "provisionalUpdatedAt": "2026-08-03"
+  },
+  {
+    "uniqueId": "OP17-053_OP17-053.png",
+    "cardNumber": "OP17-053",
+    "rawNumber": "OP17-053",
+    "cardName": "バーベル",
+    "furigana": "",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "青"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 5,
+    "power": 7000,
+    "counter": "-",
+    "attribute": "打",
+    "features": [
+      "ロックス海賊団"
+    ],
+    "block": 5,
+    "effectText": "KO時相手は自身の手札2枚を好きな順番でデッキの下に置く。 起動メインターン1回自分の手札1枚を捨てることができる：このキャラは、このターン中、パワー+3000。",
+    "trigger": "",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "seriesTitle": "ブースターパック 世界最強の戦士",
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-053",
+    "imagePath": "https://www.mercardop.jp/data/mercardop/product/info/OP17-053.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP17",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
+    "provisionalUpdatedAt": "2026-08-03"
+  },
+  {
+    "uniqueId": "OP17-055_OP17-055.png",
+    "cardNumber": "OP17-055",
+    "rawNumber": "OP17-055",
+    "cardName": "永遠に続く権力などこの世にゃねェんだ!!!",
+    "furigana": "",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "color": [
+      "青"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": "-",
+    "power": "-",
+    "counter": "-",
+    "attribute": "-",
+    "features": [
+      "ロックス海賊団"
+    ],
+    "block": 5,
+    "effectText": "メイン自分のドン!!1枚をレストにできる：自分の「ロックス・D・ジーベック」1枚までは、このターン中、ブロック不可を得る。 カウンター自分の『ロックス海賊団』を含む特徴を持つ、リーダーかキャラ1枚までを、このバトル中、パワー+2000。",
+    "trigger": "",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "seriesTitle": "ブースターパック 世界最強の戦士",
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-055",
+    "imagePath": "https://www.mercardop.jp/data/mercardop/product/info/OP17-055.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP17",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
+    "provisionalUpdatedAt": "2026-08-03"
+  },
+  {
+    "uniqueId": "OP17-056_OP17-056.png",
+    "cardNumber": "OP17-056",
+    "rawNumber": "OP17-056",
+    "cardName": "ロックス海賊団",
+    "furigana": "",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "color": [
+      "青"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": "-",
+    "power": "-",
+    "counter": "-",
+    "attribute": "-",
+    "features": [
+      "ロックス海賊団"
+    ],
+    "block": 5,
+    "effectText": "メイン自分のドン!!5枚をレストにできる：コスト6以下のキャラ1枚までを、持ち主の手札に戻す。 カウンター自分の『ロックス海賊団』を含む特徴を持つ、リーダーかキャラ1枚までを、このバトル中、パワー+2000。",
+    "trigger": "",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "seriesTitle": "ブースターパック 世界最強の戦士",
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-056",
+    "imagePath": "https://www.mercardop.jp/data/mercardop/product/info/OP17-056.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP17",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
+    "provisionalUpdatedAt": "2026-08-03"
+  },
+  {
+    "uniqueId": "OP17-057_OP17-057.png",
+    "cardNumber": "OP17-057",
+    "rawNumber": "OP17-057",
+    "cardName": "ハチノス",
+    "furigana": "",
+    "rarity": "UC",
+    "cardType": "STAGE",
+    "color": [
+      "青"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 1,
+    "power": "-",
+    "counter": "-",
+    "attribute": "-",
+    "features": [
+      "ロックス海賊団"
+    ],
+    "block": 5,
+    "effectText": "相手のアタック時このステージをレストにし、自分の手札1枚を捨てることができる：自分の『ロックス海賊団』を含む特徴を持つ、リーダーかキャラ1枚までを、このバトル中、パワー+1000",
+    "trigger": "",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "seriesTitle": "ブースターパック 世界最強の戦士",
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-057",
+    "imagePath": "https://www.mercardop.jp/data/mercardop/product/info/OP17-057.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP17",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-058_OP17-058.png",
@@ -1172,7 +1523,40 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
+  },
+  {
+    "uniqueId": "OP17-059_OP17-059.png",
+    "cardNumber": "OP17-059",
+    "rawNumber": "OP17-059",
+    "cardName": "アラマキ",
+    "furigana": "",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "color": [
+      "紫"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 7,
+    "power": 8000,
+    "counter": "-",
+    "attribute": "特",
+    "features": [
+      "大将",
+      "海軍"
+    ],
+    "block": 5,
+    "effectText": "ブロッカー(相手のアタックの後、このカードをレストにし、アタックの対象をこのカードにできる)登場時ドン!!-1：カード1枚を引き、相手のコスト2以下のキャラ2枚までを、KOする。",
+    "trigger": "",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "seriesTitle": "ブースターパック 世界最強の戦士",
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-059",
+    "imagePath": "https://www.mercardop.jp/data/mercardop/product/info/OP17-059.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP17",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-060_OP17-060.png",
@@ -1204,7 +1588,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-062_OP17-062.png",
@@ -1237,7 +1621,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-063_OP17-063.png",
@@ -1270,7 +1654,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-064_OP17-064.png",
@@ -1303,7 +1687,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-065_OP17-065.png",
@@ -1335,7 +1719,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-071_OP17-071.png",
@@ -1368,7 +1752,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-072_OP17-072.png",
@@ -1400,7 +1784,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-078_OP17-078.png",
@@ -1433,7 +1817,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-079_OP17-079.png",
@@ -1467,7 +1851,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-080_OP17-080.png",
@@ -1500,7 +1884,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-082_OP17-082.png",
@@ -1533,7 +1917,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-084_OP17-084.png",
@@ -1567,7 +1951,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-087_OP17-087.png",
@@ -1600,7 +1984,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-089_OP17-089.png",
@@ -1634,7 +2018,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-090_OP17-090.png",
@@ -1667,7 +2051,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-091_OP17-091.png",
@@ -1700,7 +2084,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-093_OP17-093.png",
@@ -1734,7 +2118,40 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
+  },
+  {
+    "uniqueId": "OP17-095_OP17-095.png",
+    "cardNumber": "OP17-095",
+    "rawNumber": "OP17-095",
+    "cardName": "ロロノア・ゾロ",
+    "furigana": "",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "黒"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 2,
+    "power": 2000,
+    "counter": 2000,
+    "attribute": "斬",
+    "features": [
+      "エルバフ",
+      "麦わらの一味"
+    ],
+    "block": 5,
+    "effectText": "コスト12以上のキャラがいる場合、このキャラのパワー+3000。 自分のキャラが相手の効果で場を離れる場合、代わりに自分のトラッシュからカード3枚を好きな順番でデッキの下に置くことができる。",
+    "trigger": "",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "seriesTitle": "ブースターパック 世界最強の戦士",
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-095",
+    "imagePath": "https://www.mercardop.jp/data/mercardop/product/info/OP17-095.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP17",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-098_OP17-098.png",
@@ -1768,7 +2185,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-099_OP17-099.png",
@@ -1801,7 +2218,39 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
+  },
+  {
+    "uniqueId": "OP17-103_OP17-103.png",
+    "cardNumber": "OP17-103",
+    "rawNumber": "OP17-103",
+    "cardName": "シャーロット・カタクリ",
+    "furigana": "",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "color": [
+      "黄"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 6,
+    "power": 4000,
+    "counter": 1000,
+    "attribute": "打",
+    "features": [
+      "ビッグ・マム海賊団"
+    ],
+    "block": 5,
+    "effectText": "自分のターン中登場時自分のリーダーが特徴《ビッグ・マム海賊団》を持つ場合、自分のデッキの上から1枚までを、ライフの上に加える。その後、相手のキャラ1枚までを、このターン中、パワー-3000。",
+    "trigger": "",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "seriesTitle": "ブースターパック 世界最強の戦士",
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-103",
+    "imagePath": "https://www.mercardop.jp/data/mercardop/product/info/OP17-103.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP17",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-104_OP17-104.png",
@@ -1833,7 +2282,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-105_OP17-105.png",
@@ -1866,7 +2315,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-106_OP17-106.png",
@@ -1898,7 +2347,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-109_OP17-109.png",
@@ -1930,7 +2379,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-112_OP17-112.png",
@@ -1963,7 +2412,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-114_OP17-114.png",
@@ -1995,7 +2444,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-117_OP17-117.png",
@@ -2028,7 +2477,39 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
+  },
+  {
+    "uniqueId": "OP17-118_OP17-118.png",
+    "cardNumber": "OP17-118",
+    "rawNumber": "OP17-118",
+    "cardName": "ロックス・D・ジーベック",
+    "furigana": "",
+    "rarity": "SEC",
+    "cardType": "CHARACTER",
+    "color": [
+      "青"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 10,
+    "power": 12000,
+    "counter": "-",
+    "attribute": "斬",
+    "features": [
+      "ロックス海賊団"
+    ],
+    "block": 5,
+    "effectText": "手札のこのカードは、自分のキャラがカウンターを持たないキャラのみの場合、カウンター+2000を持つ。 登場時カード1枚を引き、自分の手札からカード名の異なる特徴《ロックス海賊団》を持つカード2枚までを、コストの合計が9以下になるように登場させる。",
+    "trigger": "",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "seriesTitle": "ブースターパック 世界最強の戦士",
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-118",
+    "imagePath": "https://www.mercardop.jp/data/mercardop/product/info/OP17-118.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP17",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "OP17-119_OP17-119.png",
@@ -2061,7 +2542,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
-    "provisionalUpdatedAt": "2026-07-30"
+    "provisionalUpdatedAt": "2026-08-03"
   },
   {
     "uniqueId": "P-122_VJ20260405-P-122.png",
