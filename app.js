@@ -30,7 +30,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.6.3'; // バージョン更新
+    const APP_VERSION = '1.6.4'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -191,10 +191,12 @@
 
             sharedDeckConfirmModal: $('#shared-deck-confirm-modal'),
             sharedDeckConfirmCloseBtn: $('#shared-deck-confirm-close-btn'),
+            sharedDeckConfirmBody: $('#shared-deck-confirm-body'),
             sharedDeckConfirmName: $('#shared-deck-confirm-name'),
             sharedDeckConfirmLeader: $('#shared-deck-confirm-leader'),
             sharedDeckConfirmCardCount: $('#shared-deck-confirm-card-count'),
             sharedDeckConfirmTypeCount: $('#shared-deck-confirm-type-count'),
+            sharedDeckConfirmPreview: $('#shared-deck-confirm-preview'),
             sharedDeckConfirmCancelBtn: $('#shared-deck-confirm-cancel-btn'),
             sharedDeckConfirmAcceptBtn: $('#shared-deck-confirm-accept-btn'),
 
@@ -1883,10 +1885,112 @@
             dom.sharedDeckConfirmModal.style.display = 'none';
             dom.sharedDeckConfirmModal.setAttribute('aria-hidden', 'true');
         }
+        dom.sharedDeckConfirmPreview?.replaceChildren();
         document.body.classList.remove('shared-deck-confirm-open');
         const resolve = sharedDeckConfirmationResolve;
         sharedDeckConfirmationResolve = null;
         if (resolve) resolve(Boolean(confirmed));
+    }
+
+    function createSharedDeckPreviewCard(card, count, isLeader = false) {
+        const cardNumber = card?.cardNumber || '?';
+        const cardName = card?.cardName || '未登録カード';
+        const item = document.createElement('article');
+        item.className = `shared-deck-preview-card${isLeader ? ' is-leader' : ''}`;
+        item.setAttribute('aria-label', `${cardNumber} ${cardName} ${isLeader ? 'リーダー' : `${count}枚`}`);
+
+        const imageShell = document.createElement('div');
+        imageShell.className = 'shared-deck-preview-image-shell';
+        const visual = document.createElement('div');
+        visual.className = 'shared-deck-preview-visual';
+        imageShell.appendChild(visual);
+
+        const sources = card?.cardNumber
+            ? [...new Set([
+                getCardImagePath(card, 0),
+                getCardImageFallbackPath(card, 0)
+            ].filter(Boolean))]
+            : [];
+        const showFallback = () => {
+            const fallback = document.createElement('div');
+            fallback.className = 'shared-deck-preview-fallback';
+            fallback.textContent = cardNumber;
+            visual.replaceChildren(fallback);
+        };
+
+        if (sources.length > 0) {
+            const image = document.createElement('img');
+            let sourceIndex = 0;
+            image.className = 'shared-deck-preview-image';
+            image.alt = cardName === '未登録カード' ? cardNumber : `${cardName} ${cardNumber}`;
+            image.loading = 'eager';
+            image.decoding = 'async';
+            image.onerror = () => {
+                sourceIndex += 1;
+                if (sourceIndex < sources.length) {
+                    image.src = sources[sourceIndex];
+                } else {
+                    showFallback();
+                }
+            };
+            image.src = sources[sourceIndex];
+            visual.appendChild(image);
+        } else {
+            showFallback();
+        }
+
+        const badge = document.createElement('span');
+        badge.className = 'shared-deck-preview-count';
+        badge.textContent = isLeader ? 'L' : `x${count}`;
+        imageShell.appendChild(badge);
+
+        const number = document.createElement('span');
+        number.className = 'shared-deck-preview-number';
+        number.textContent = cardNumber;
+        const name = document.createElement('span');
+        name.className = 'shared-deck-preview-card-name';
+        name.textContent = cardName;
+        name.title = cardName;
+
+        item.appendChild(imageShell);
+        item.appendChild(number);
+        item.appendChild(name);
+        return item;
+    }
+
+    function createSharedDeckPreviewGroup(title, entries, isLeader = false) {
+        const group = document.createElement('section');
+        group.className = `shared-deck-preview-group${isLeader ? ' is-leader' : ''}`;
+        const heading = document.createElement('h3');
+        heading.className = 'shared-deck-preview-heading';
+        heading.textContent = title;
+        const grid = document.createElement('div');
+        grid.className = 'shared-deck-preview-grid';
+
+        entries.forEach(entry => {
+            grid.appendChild(createSharedDeckPreviewCard(entry.card, entry.count, isLeader));
+        });
+        if (entries.length === 0) {
+            const empty = document.createElement('p');
+            empty.className = 'shared-deck-preview-empty';
+            empty.textContent = 'カードがありません';
+            grid.appendChild(empty);
+        }
+
+        group.appendChild(heading);
+        group.appendChild(grid);
+        return group;
+    }
+
+    function renderSharedDeckPreview(imported) {
+        if (!dom.sharedDeckConfirmPreview) return;
+        const leaderCard = findCardByNumber(imported.leader) || {
+            cardNumber: imported.leader,
+            cardName: '未登録カード'
+        };
+        const leaderGroup = createSharedDeckPreviewGroup('リーダー', [{ card: leaderCard, count: 1 }], true);
+        const deckGroup = createSharedDeckPreviewGroup('デッキ', getDeckImageEntries(imported));
+        dom.sharedDeckConfirmPreview.replaceChildren(leaderGroup, deckGroup);
     }
 
     function confirmSharedDeckImport(imported) {
@@ -1911,13 +2015,17 @@
         dom.sharedDeckConfirmLeader.textContent = imported.leader;
         dom.sharedDeckConfirmCardCount.textContent = `${totalCards}枚`;
         dom.sharedDeckConfirmTypeCount.textContent = `${typeCount}種`;
+        renderSharedDeckPreview(imported);
         dom.sharedDeckConfirmModal.style.display = 'flex';
         dom.sharedDeckConfirmModal.setAttribute('aria-hidden', 'false');
         document.body.classList.add('shared-deck-confirm-open');
 
         return new Promise(resolve => {
             sharedDeckConfirmationResolve = resolve;
-            requestAnimationFrame(() => dom.sharedDeckConfirmAcceptBtn?.focus());
+            requestAnimationFrame(() => {
+                if (dom.sharedDeckConfirmBody) dom.sharedDeckConfirmBody.scrollTop = 0;
+                dom.sharedDeckConfirmAcceptBtn?.focus({ preventScroll: true });
+            });
         });
     }
 

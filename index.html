@@ -219,10 +219,10 @@
         <div class="modal-content-wrapper shared-deck-confirm-wrapper">
             <div class="modal-content shared-deck-confirm-content">
                 <div class="modal-header">
-                    <h2 id="shared-deck-confirm-title">共有デッキを追加</h2>
+                    <h2 id="shared-deck-confirm-title">共有デッキを確認</h2>
                     <button id="shared-deck-confirm-close-btn" class="modal-close-btn" type="button" aria-label="確認画面を閉じる">&times;</button>
                 </div>
-                <div class="modal-body shared-deck-confirm-body">
+                <div id="shared-deck-confirm-body" class="modal-body shared-deck-confirm-body">
                     <strong id="shared-deck-confirm-name" class="shared-deck-confirm-name"></strong>
                     <dl class="shared-deck-confirm-summary">
                         <div>
@@ -238,6 +238,7 @@
                             <dd id="shared-deck-confirm-type-count"></dd>
                         </div>
                     </dl>
+                    <section id="shared-deck-confirm-preview" class="shared-deck-confirm-preview" aria-label="デッキ内容"></section>
                 </div>
                 <div class="modal-footer shared-deck-confirm-actions">
                     <button id="shared-deck-confirm-cancel-btn" class="modal-btn modal-btn-secondary" type="button">キャンセル</button>
