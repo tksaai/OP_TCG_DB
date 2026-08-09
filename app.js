@@ -27,7 +27,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.5.4'; // バージョン更新
+    const APP_VERSION = '1.5.5'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -616,9 +616,16 @@
         return provisionalCards.filter(card => card?.cardNumber && !officialCardNumbers.has(card.cardNumber));
     }
 
+    function getDeckCardPool() {
+        return normalizeCardsData([...allCards, ...getProvisionalCardsForDisplay()]);
+    }
+
     function getActiveCardSource() {
         if (currentMode === 'view' && activeCardView === 'new') {
             return getProvisionalCardsForDisplay();
+        }
+        if (currentMode === 'leader_select' || currentMode === 'deck_edit' || currentMode === 'deck_view') {
+            return getDeckCardPool();
         }
         return allCards;
     }
@@ -1716,7 +1723,9 @@
 
     function findCardByNumber(cardNumber) {
         if (!cardNumber) return null;
-        return allCards.find(c => c && c.cardNumber === cardNumber) || null;
+        return allCards.find(card => card?.cardNumber === cardNumber)
+            || provisionalCards.find(card => card?.cardNumber === cardNumber)
+            || null;
     }
 
     function setModeMessage(text) {
@@ -1789,14 +1798,15 @@
 
     // デッキ表示モード (読み取り専用)
     function startDeckView(deck) {
-        if (allCards.length === 0) return;
+        const deckCardPool = getDeckCardPool();
+        if (deckCardPool.length === 0) return;
         currentMode = 'deck_view';
         activeCardView = 'cards';
         viewingDeck = deck;
         editingDeckData = { ...(deck.cards || {}) }; // バッジ表示用 (読み取り専用)
 
         showCardListView();
-        populateFilters(allCards);
+        populateFilters(deckCardPool);
         setDeckStatusBarVisible(true);
         syncDeckStatusButtons();
         setModeMessage(deck.name || 'デッキ表示');
@@ -1967,14 +1977,15 @@
 
     // === デッキ作成・編集フロー ===
     function startLeaderSelection() {
-        if (allCards.length === 0) {
+        const deckCardPool = getDeckCardPool();
+        if (deckCardPool.length === 0) {
             showMessageToast('カードデータが読み込まれていません。', 'error');
             return;
         }
         currentMode = 'leader_select';
         activeCardView = 'cards';
         showCardListView();
-        populateFilters(allCards);
+        populateFilters(deckCardPool);
         setModeMessage('リーダーカードを選択してください');
 
         dom.searchBar.value = '';
@@ -1985,6 +1996,7 @@
     }
 
     function startDeckEdit(deck) {
+        const deckCardPool = getDeckCardPool();
         const leaderCard = findCardByNumber(deck.leader);
         const colors = leaderCard && Array.isArray(leaderCard.color) ? leaderCard.color : [];
 
@@ -2002,6 +2014,7 @@
         syncDeckShowToggleBtn();
 
         showCardListView();
+        populateFilters(deckCardPool);
         setDeckStatusBarVisible(true);
         syncDeckStatusButtons();
         const leaderLabel = leaderCard ? `${leaderCard.cardName} (${colors.join('/')})` : (deck.leader || '');
