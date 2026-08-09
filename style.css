@@ -599,6 +599,92 @@ body.shared-deck-confirm-open {
     }
 }
 
+body.shared-deck-url-open {
+    overflow: hidden;
+}
+
+.shared-deck-url-wrapper {
+    max-width: 520px;
+}
+
+.shared-deck-url-content {
+    border-radius: 8px;
+}
+
+.shared-deck-url-body {
+    padding-top: 20px;
+}
+
+.shared-deck-url-label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--color-on-surface);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.shared-deck-url-input {
+    width: 100%;
+    min-height: 112px;
+    padding: 12px;
+    resize: none;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background-color: var(--color-background);
+    color: var(--color-on-surface);
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+}
+
+.shared-deck-url-input:focus {
+    border-color: var(--color-secondary);
+    outline: 2px solid transparent;
+    box-shadow: 0 0 0 2px rgba(3, 218, 198, 0.3);
+}
+
+.shared-deck-url-tools {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.shared-deck-url-paste-btn {
+    min-height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+}
+
+.shared-deck-url-status {
+    min-height: 20px;
+    margin: 8px 0 0;
+    color: var(--color-error);
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+.shared-deck-url-actions .modal-btn {
+    min-width: 116px;
+    min-height: 44px;
+}
+
+@media (max-width: 520px) {
+    .shared-deck-url-actions {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+
+    .shared-deck-url-actions .modal-btn {
+        min-width: 0;
+        padding-right: 10px;
+        padding-left: 10px;
+        font-size: 14px;
+    }
+}
+
 
 /* === 8. フィルタモーダル特有 === */
 .filter-options-container {
@@ -1261,20 +1347,46 @@ body.mode-bar-visible .main-content {
     padding: 4px 2px;
 }
 
-.create-deck-btn {
-    width: 100%;
-    padding: 15px;
-    background-color: var(--color-primary);
-    color: var(--color-on-primary);
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: bold;
+.deck-list-toolbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 10px;
     margin-bottom: 16px;
+}
+
+.deck-list-action-btn {
+    min-width: 0;
+    min-height: 52px;
+    padding: 10px 12px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    font-weight: 700;
     cursor: pointer;
 }
-.create-deck-btn:hover {
+
+.deck-list-action-primary {
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+}
+
+.deck-list-action-secondary {
+    border-color: var(--color-border);
+    background-color: var(--color-surface);
+    color: var(--color-on-surface);
+}
+
+.deck-list-action-btn:hover {
     opacity: 0.85;
+}
+
+.deck-list-action-btn:focus-visible {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 2px;
 }
 
 .deck-item {

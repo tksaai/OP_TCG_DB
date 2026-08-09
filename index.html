@@ -65,7 +65,22 @@
             </div>
             <!-- デッキ一覧 (Decksタブ) -->
             <div id="deck-list-view" class="deck-list-view" style="display: none;">
-                <button id="create-new-deck-btn" class="create-deck-btn">+ 新規デッキ作成</button>
+                <div class="deck-list-toolbar">
+                    <button id="create-new-deck-btn" class="deck-list-action-btn deck-list-action-primary" type="button">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                            <path d="M12 5v14"></path>
+                            <path d="M5 12h14"></path>
+                        </svg>
+                        <span>新規デッキ</span>
+                    </button>
+                    <button id="import-shared-deck-btn" class="deck-list-action-btn deck-list-action-secondary" type="button">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                        </svg>
+                        <span>URLから追加</span>
+                    </button>
+                </div>
                 <div id="deck-list-container">
                     <!-- デッキリストはJavaScriptによってここに挿入されます -->
                 </div>
@@ -232,7 +247,37 @@
         </div>
     </div>
 
-    <!-- 13. モーダル: ライトボックス (画像拡大) -->
+    <!-- 13. モーダル: 共有URL入力 -->
+    <div id="shared-deck-url-modal" class="modal-overlay" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="shared-deck-url-title" aria-hidden="true">
+        <div class="modal-content-wrapper shared-deck-url-wrapper">
+            <div class="modal-content shared-deck-url-content">
+                <div class="modal-header">
+                    <h2 id="shared-deck-url-title">共有URLから追加</h2>
+                    <button id="shared-deck-url-close-btn" class="modal-close-btn" type="button" aria-label="URL入力画面を閉じる">&times;</button>
+                </div>
+                <div class="modal-body shared-deck-url-body">
+                    <label for="shared-deck-url-input" class="shared-deck-url-label">共有URL</label>
+                    <textarea id="shared-deck-url-input" class="shared-deck-url-input" rows="4" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="https://.../#deck=..." aria-describedby="shared-deck-url-status"></textarea>
+                    <div class="shared-deck-url-tools">
+                        <button id="shared-deck-url-paste-btn" class="modal-btn modal-btn-secondary shared-deck-url-paste-btn" type="button">
+                            <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <rect width="14" height="14" x="8" y="8" rx="2"></rect>
+                                <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"></path>
+                            </svg>
+                            <span>貼り付け</span>
+                        </button>
+                    </div>
+                    <p id="shared-deck-url-status" class="shared-deck-url-status" aria-live="polite"></p>
+                </div>
+                <div class="modal-footer shared-deck-url-actions">
+                    <button id="shared-deck-url-cancel-btn" class="modal-btn modal-btn-secondary" type="button">キャンセル</button>
+                    <button id="shared-deck-url-submit-btn" class="modal-btn modal-btn-primary" type="button">内容を確認</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 14. モーダル: ライトボックス (画像拡大) -->
     <div id="lightbox-modal" class="lightbox-overlay" style="display: none;">
         <span id="lightbox-close-btn" class="lightbox-close-btn" aria-label="閉じる">&times;</span>
         <img id="lightbox-image" class="lightbox-image" src="" alt="拡大画像">
@@ -252,7 +297,7 @@
         </div>
     </div>
 
-    <!-- 14. デッキ画像プレビュー -->
+    <!-- 15. デッキ画像プレビュー -->
     <div id="deck-image-preview-modal" class="modal-overlay deck-image-preview-overlay" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="deck-image-preview-title" aria-hidden="true">
         <div class="deck-image-preview-wrapper">
             <div class="modal-content deck-image-preview-content">
@@ -291,7 +336,7 @@
         </div>
     </div>
 
-    <!-- 15. 通知エリア -->
+    <!-- 16. 通知エリア -->
     <div id="notification-area">
         <!-- DB更新通知 -->
         <div id="db-update-notification" class="notification-toast" style="display: none;">
@@ -311,7 +356,7 @@
         </div>
     </div>
 
-    <!-- 16. メインスクリプト (defer を追加) -->
+    <!-- 17. メインスクリプト (defer を追加) -->
     <script src="app.js" defer></script>
 
 </body>

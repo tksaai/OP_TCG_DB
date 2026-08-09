@@ -30,7 +30,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.6.2'; // バージョン更新
+    const APP_VERSION = '1.6.3'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -197,6 +197,14 @@
             sharedDeckConfirmTypeCount: $('#shared-deck-confirm-type-count'),
             sharedDeckConfirmCancelBtn: $('#shared-deck-confirm-cancel-btn'),
             sharedDeckConfirmAcceptBtn: $('#shared-deck-confirm-accept-btn'),
+
+            sharedDeckUrlModal: $('#shared-deck-url-modal'),
+            sharedDeckUrlCloseBtn: $('#shared-deck-url-close-btn'),
+            sharedDeckUrlInput: $('#shared-deck-url-input'),
+            sharedDeckUrlPasteBtn: $('#shared-deck-url-paste-btn'),
+            sharedDeckUrlStatus: $('#shared-deck-url-status'),
+            sharedDeckUrlCancelBtn: $('#shared-deck-url-cancel-btn'),
+            sharedDeckUrlSubmitBtn: $('#shared-deck-url-submit-btn'),
     
             columnToggleBtn: $('#column-toggle-btn'),
             columnCountDisplay: $('#column-count-display'),
@@ -208,6 +216,7 @@
             deckListView: $('#deck-list-view'),
             deckListContainer: $('#deck-list-container'),
             createNewDeckBtn: $('#create-new-deck-btn'),
+            importSharedDeckBtn: $('#import-shared-deck-btn'),
             deckStatusBar: $('#deck-status-bar'),
             deckStatusInfo: $('#deck-status-info'),
             deckSaveBtn: $('#deck-save-btn'),
@@ -1912,6 +1921,65 @@
         });
     }
 
+    function setSharedDeckUrlStatus(message = '') {
+        if (dom.sharedDeckUrlStatus) dom.sharedDeckUrlStatus.textContent = message;
+    }
+
+    function openSharedDeckUrlImport() {
+        if (!dom.sharedDeckUrlModal || isImportingSharedDeck) return;
+        dom.sharedDeckUrlInput.value = '';
+        setSharedDeckUrlStatus();
+        dom.sharedDeckUrlModal.style.display = 'flex';
+        dom.sharedDeckUrlModal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('shared-deck-url-open');
+        requestAnimationFrame(() => dom.sharedDeckUrlInput?.focus());
+    }
+
+    function closeSharedDeckUrlImport() {
+        if (!dom.sharedDeckUrlModal) return;
+        dom.sharedDeckUrlModal.style.display = 'none';
+        dom.sharedDeckUrlModal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('shared-deck-url-open');
+        setSharedDeckUrlStatus();
+    }
+
+    async function pasteSharedDeckUrl() {
+        if (!dom.sharedDeckUrlInput) return;
+        try {
+            if (!navigator.clipboard || typeof navigator.clipboard.readText !== 'function') {
+                throw new Error('クリップボードを読み取れません。入力欄を長押しして貼り付けてください。');
+            }
+            const clipboardText = await navigator.clipboard.readText();
+            if (!clipboardText.trim()) throw new Error('クリップボードにテキストがありません。');
+            dom.sharedDeckUrlInput.value = clipboardText.trim();
+            setSharedDeckUrlStatus();
+            dom.sharedDeckUrlInput.focus();
+        } catch (error) {
+            setSharedDeckUrlStatus(error.message || '共有URLを貼り付けられませんでした。');
+            dom.sharedDeckUrlInput.focus();
+        }
+    }
+
+    function extractSharedDeckHashValue(text) {
+        const input = String(text || '').trim();
+        if (!input || input.length > 20000) {
+            throw new Error('共有URLを入力してください。');
+        }
+
+        const candidates = [input, ...(input.match(/https?:\/\/[^\s<>"']+/gi) || [])];
+        for (const candidate of [...new Set(candidates)]) {
+            try {
+                const cleanCandidate = candidate.replace(/[\])}>,.!?、。）」』】]+$/g, '');
+                const url = new URL(cleanCandidate, window.location.href);
+                const encodedDeck = new URLSearchParams(url.hash.slice(1)).get(DECK_SHARE_HASH_KEY);
+                if (encodedDeck) return encodedDeck;
+            } catch (error) {
+                // Continue searching when shared text contains a label before the URL.
+            }
+        }
+        throw new Error('共有デッキURLを確認できませんでした。');
+    }
+
     async function getUniqueDeckName(baseName) {
         const normalizedBase = normalizeDeckName(baseName);
         const decks = await db.getAll(STORE_DECKS);
@@ -1925,6 +1993,28 @@
         return `${sharedBase} ${suffix}`;
     }
 
+    async function saveImportedSharedDeck(imported) {
+        const now = new Date().toISOString();
+        const deck = {
+            id: createDeckId(),
+            name: await getUniqueDeckName(imported.name),
+            leader: imported.leader,
+            cards: imported.cards,
+            createdAt: now,
+            updatedAt: now
+        };
+        await saveDeck(deck);
+        setActiveNav('decks');
+        startDeckView(deck);
+        showMessageToast(`共有デッキ「${deck.name}」を追加しました。`, 'success');
+        return true;
+    }
+
+    async function confirmAndSaveSharedDeck(imported) {
+        const confirmed = await confirmSharedDeckImport(imported);
+        return confirmed ? saveImportedSharedDeck(imported) : false;
+    }
+
     async function importSharedDeckFromUrl() {
         const encodedDeck = getSharedDeckHashValue();
         if (!encodedDeck || !db || isImportingSharedDeck) return false;
@@ -1932,22 +2022,7 @@
         isImportingSharedDeck = true;
         try {
             const imported = decodeSharedDeck(encodedDeck);
-            const confirmed = await confirmSharedDeckImport(imported);
-            if (!confirmed) return false;
-            const now = new Date().toISOString();
-            const deck = {
-                id: createDeckId(),
-                name: await getUniqueDeckName(imported.name),
-                leader: imported.leader,
-                cards: imported.cards,
-                createdAt: now,
-                updatedAt: now
-            };
-            await saveDeck(deck);
-            setActiveNav('decks');
-            startDeckView(deck);
-            showMessageToast(`共有デッキ「${deck.name}」を追加しました。`, 'success');
-            return true;
+            return await confirmAndSaveSharedDeck(imported);
         } catch (error) {
             console.error('Failed to import shared deck:', error);
             showMessageToast(error.message || '共有デッキの追加に失敗しました。', 'error');
@@ -1958,10 +2033,37 @@
         }
     }
 
+    async function importSharedDeckFromText() {
+        if (!db || isImportingSharedDeck || !dom.sharedDeckUrlInput) return false;
+
+        isImportingSharedDeck = true;
+        try {
+            const encodedDeck = extractSharedDeckHashValue(dom.sharedDeckUrlInput.value);
+            const imported = decodeSharedDeck(encodedDeck);
+            closeSharedDeckUrlImport();
+            return await confirmAndSaveSharedDeck(imported);
+        } catch (error) {
+            if (dom.sharedDeckUrlModal?.style.display !== 'none') {
+                setSharedDeckUrlStatus(error.message || '共有URLを読み取れませんでした。');
+                dom.sharedDeckUrlInput.focus();
+            } else {
+                console.error('Failed to import shared deck text:', error);
+                showMessageToast(error.message || '共有デッキの追加に失敗しました。', 'error');
+            }
+            return false;
+        } finally {
+            isImportingSharedDeck = false;
+        }
+    }
+
     async function copyTextToClipboard(text) {
         if (navigator.clipboard && window.isSecureContext) {
-            await navigator.clipboard.writeText(text);
-            return;
+            try {
+                await navigator.clipboard.writeText(text);
+                return;
+            } catch (error) {
+                // Fall back for standalone PWAs where clipboard permission is unavailable.
+            }
         }
         const textarea = document.createElement('textarea');
         textarea.value = text;
@@ -1975,37 +2077,14 @@
         if (!copied) throw new Error('URLをコピーできませんでした。');
     }
 
-    async function shareDeckUrl(deck) {
-        let shareUrl;
+    async function copyDeckShareUrl(deck) {
         try {
-            shareUrl = createDeckShareUrl(deck);
-            const canUseNativeShare = navigator.maxTouchPoints > 0
-                && typeof navigator.share === 'function'
-                && (typeof navigator.canShare !== 'function' || navigator.canShare({ url: shareUrl }));
-            if (canUseNativeShare) {
-                await navigator.share({
-                    title: deck.name || 'OP TCG デッキ',
-                    text: 'OP TCG DB デッキ共有',
-                    url: shareUrl
-                });
-                showMessageToast('デッキURLを共有しました。', 'success');
-                return;
-            }
+            const shareUrl = createDeckShareUrl(deck);
             await copyTextToClipboard(shareUrl);
             showMessageToast('共有URLをコピーしました。', 'success');
         } catch (error) {
-            if (error?.name === 'AbortError') return;
-            if (shareUrl) {
-                try {
-                    await copyTextToClipboard(shareUrl);
-                    showMessageToast('共有URLをコピーしました。', 'success');
-                    return;
-                } catch (copyError) {
-                    console.error('Failed to copy deck share URL:', copyError);
-                }
-            }
-            console.error('Failed to share deck:', error);
-            showMessageToast('デッキURLの共有に失敗しました。', 'error');
+            console.error('Failed to copy deck share URL:', error);
+            showMessageToast('共有URLをコピーできませんでした。', 'error');
         }
     }
 
@@ -2673,7 +2752,7 @@
 
         dom.deckListContainer.innerHTML = '';
         if (decks.length === 0) {
-            dom.deckListContainer.innerHTML = '<p class="no-decks">デッキがありません。<br>「+ 新規デッキ作成」からリーダーを選んで作成できます。</p>';
+            dom.deckListContainer.innerHTML = '<p class="no-decks">デッキがありません。<br>「新規デッキ」からリーダーを選んで作成できます。</p>';
             return;
         }
 
@@ -2766,7 +2845,7 @@
         menu.hidden = true;
         moreBtn.setAttribute('aria-controls', menu.id);
         menu.appendChild(createDeckMenuItem('JSON出力', 'export', () => exportDeckJson(deck)));
-        menu.appendChild(createDeckMenuItem('URL共有', 'share', () => shareDeckUrl(deck)));
+        menu.appendChild(createDeckMenuItem('URLをコピー', 'share', () => copyDeckShareUrl(deck)));
         menu.appendChild(createDeckMenuItem('画像出力', 'image', () => exportDeckImage(deck)));
         menu.appendChild(createDeckMenuItem('削除', 'delete', () => deleteDeck(deck), true));
         menu.addEventListener('click', event => event.stopPropagation());
@@ -3298,6 +3377,9 @@
                 } else if (dom.sharedDeckConfirmModal?.style.display !== 'none') {
                     event.preventDefault();
                     resolveSharedDeckImportConfirmation(false);
+                } else if (dom.sharedDeckUrlModal?.style.display !== 'none') {
+                    event.preventDefault();
+                    closeSharedDeckUrlImport();
                 } else if (openDeckActionMenu) {
                     event.preventDefault();
                     closeDeckActionMenu(true);
@@ -3488,6 +3570,32 @@
                 }
             });
         }
+        if (dom.sharedDeckUrlCloseBtn) {
+            dom.sharedDeckUrlCloseBtn.addEventListener('click', closeSharedDeckUrlImport);
+        }
+        if (dom.sharedDeckUrlCancelBtn) {
+            dom.sharedDeckUrlCancelBtn.addEventListener('click', closeSharedDeckUrlImport);
+        }
+        if (dom.sharedDeckUrlModal) {
+            dom.sharedDeckUrlModal.addEventListener('click', event => {
+                if (event.target === dom.sharedDeckUrlModal) closeSharedDeckUrlImport();
+            });
+        }
+        if (dom.sharedDeckUrlPasteBtn) {
+            dom.sharedDeckUrlPasteBtn.addEventListener('click', pasteSharedDeckUrl);
+        }
+        if (dom.sharedDeckUrlSubmitBtn) {
+            dom.sharedDeckUrlSubmitBtn.addEventListener('click', importSharedDeckFromText);
+        }
+        if (dom.sharedDeckUrlInput) {
+            dom.sharedDeckUrlInput.addEventListener('input', () => setSharedDeckUrlStatus());
+            dom.sharedDeckUrlInput.addEventListener('keydown', event => {
+                if (event.key === 'Enter' && (event.ctrlKey || event.metaKey)) {
+                    event.preventDefault();
+                    importSharedDeckFromText();
+                }
+            });
+        }
         if (dom.lightboxFuriganaSaveBtn) {
             dom.lightboxFuriganaSaveBtn.addEventListener('click', async (event) => {
                 event.stopPropagation();
@@ -3616,6 +3724,9 @@
 
         if (dom.createNewDeckBtn) {
             dom.createNewDeckBtn.addEventListener('click', startLeaderSelection);
+        }
+        if (dom.importSharedDeckBtn) {
+            dom.importSharedDeckBtn.addEventListener('click', openSharedDeckUrlImport);
         }
         if (dom.deckSaveBtn) {
             dom.deckSaveBtn.addEventListener('click', () => {
