@@ -524,6 +524,81 @@ input[type="search"]::-webkit-search-cancel-button {
     opacity: 0.8;
 }
 
+body.shared-deck-confirm-open {
+    overflow: hidden;
+}
+
+.shared-deck-confirm-wrapper {
+    max-width: 440px;
+}
+
+.shared-deck-confirm-content {
+    border-radius: 8px;
+}
+
+.shared-deck-confirm-body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.shared-deck-confirm-name {
+    display: block;
+    color: var(--color-on-surface);
+    font-size: 19px;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+}
+
+.shared-deck-confirm-summary {
+    margin: 16px 0 0;
+}
+
+.shared-deck-confirm-summary > div {
+    min-height: 44px;
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr);
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.shared-deck-confirm-summary > div:last-child {
+    border-bottom: 0;
+}
+
+.shared-deck-confirm-summary dt {
+    color: var(--color-on-background);
+    font-size: 13px;
+}
+
+.shared-deck-confirm-summary dd {
+    margin: 0;
+    color: var(--color-on-surface);
+    font-size: 14px;
+    font-weight: 700;
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+.shared-deck-confirm-actions .modal-btn {
+    min-width: 116px;
+    min-height: 44px;
+}
+
+@media (max-width: 520px) {
+    .shared-deck-confirm-actions {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+
+    .shared-deck-confirm-actions .modal-btn {
+        min-width: 0;
+        padding-right: 10px;
+        padding-left: 10px;
+        font-size: 14px;
+    }
+}
+
 
 /* === 8. フィルタモーダル特有 === */
 .filter-options-container {

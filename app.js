@@ -30,7 +30,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.6.1'; // バージョン更新
+    const APP_VERSION = '1.6.2'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -87,6 +87,7 @@
     let deckImagePreviewBlob = null;
     let deckImagePreviewUrl = '';
     let deckImagePreviewFilename = '';
+    let sharedDeckConfirmationResolve = null;
 
     // === 2. DOM要素のキャッシュ ===
     const $ = (selector) => document.querySelector(selector);
@@ -187,6 +188,15 @@
             listBadgesToggle: $('#list-badges-toggle'),
             appVersionInfo: $('#app-version-info'),
             cardDataVersionInfo: $('#card-data-version-info'),
+
+            sharedDeckConfirmModal: $('#shared-deck-confirm-modal'),
+            sharedDeckConfirmCloseBtn: $('#shared-deck-confirm-close-btn'),
+            sharedDeckConfirmName: $('#shared-deck-confirm-name'),
+            sharedDeckConfirmLeader: $('#shared-deck-confirm-leader'),
+            sharedDeckConfirmCardCount: $('#shared-deck-confirm-card-count'),
+            sharedDeckConfirmTypeCount: $('#shared-deck-confirm-type-count'),
+            sharedDeckConfirmCancelBtn: $('#shared-deck-confirm-cancel-btn'),
+            sharedDeckConfirmAcceptBtn: $('#shared-deck-confirm-accept-btn'),
     
             columnToggleBtn: $('#column-toggle-btn'),
             columnCountDisplay: $('#column-count-display'),
@@ -1859,6 +1869,49 @@
         };
     }
 
+    function resolveSharedDeckImportConfirmation(confirmed) {
+        if (dom.sharedDeckConfirmModal) {
+            dom.sharedDeckConfirmModal.style.display = 'none';
+            dom.sharedDeckConfirmModal.setAttribute('aria-hidden', 'true');
+        }
+        document.body.classList.remove('shared-deck-confirm-open');
+        const resolve = sharedDeckConfirmationResolve;
+        sharedDeckConfirmationResolve = null;
+        if (resolve) resolve(Boolean(confirmed));
+    }
+
+    function confirmSharedDeckImport(imported) {
+        const totalCards = Object.values(imported.cards || {})
+            .reduce((sum, count) => sum + Number(count || 0), 0);
+        const typeCount = Object.keys(imported.cards || {}).length;
+
+        if (!dom.sharedDeckConfirmModal) {
+            return Promise.resolve(window.confirm([
+                '共有デッキを追加しますか？',
+                '',
+                imported.name,
+                `リーダー: ${imported.leader}`,
+                `カード: ${totalCards}枚 / ${typeCount}種`
+            ].join('\n')));
+        }
+
+        if (sharedDeckConfirmationResolve) {
+            resolveSharedDeckImportConfirmation(false);
+        }
+        dom.sharedDeckConfirmName.textContent = imported.name;
+        dom.sharedDeckConfirmLeader.textContent = imported.leader;
+        dom.sharedDeckConfirmCardCount.textContent = `${totalCards}枚`;
+        dom.sharedDeckConfirmTypeCount.textContent = `${typeCount}種`;
+        dom.sharedDeckConfirmModal.style.display = 'flex';
+        dom.sharedDeckConfirmModal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('shared-deck-confirm-open');
+
+        return new Promise(resolve => {
+            sharedDeckConfirmationResolve = resolve;
+            requestAnimationFrame(() => dom.sharedDeckConfirmAcceptBtn?.focus());
+        });
+    }
+
     async function getUniqueDeckName(baseName) {
         const normalizedBase = normalizeDeckName(baseName);
         const decks = await db.getAll(STORE_DECKS);
@@ -1879,6 +1932,8 @@
         isImportingSharedDeck = true;
         try {
             const imported = decodeSharedDeck(encodedDeck);
+            const confirmed = await confirmSharedDeckImport(imported);
+            if (!confirmed) return false;
             const now = new Date().toISOString();
             const deck = {
                 id: createDeckId(),
@@ -3240,6 +3295,9 @@
                 if (dom.deckImagePreviewModal?.style.display !== 'none') {
                     event.preventDefault();
                     closeDeckImagePreview();
+                } else if (dom.sharedDeckConfirmModal?.style.display !== 'none') {
+                    event.preventDefault();
+                    resolveSharedDeckImportConfirmation(false);
                 } else if (openDeckActionMenu) {
                     event.preventDefault();
                     closeDeckActionMenu(true);
@@ -3407,6 +3465,28 @@
         }
         if (dom.deckImagePreviewShareBtn) {
             dom.deckImagePreviewShareBtn.addEventListener('click', shareOrSaveDeckImage);
+        }
+        if (dom.sharedDeckConfirmCloseBtn) {
+            dom.sharedDeckConfirmCloseBtn.addEventListener('click', () => {
+                resolveSharedDeckImportConfirmation(false);
+            });
+        }
+        if (dom.sharedDeckConfirmCancelBtn) {
+            dom.sharedDeckConfirmCancelBtn.addEventListener('click', () => {
+                resolveSharedDeckImportConfirmation(false);
+            });
+        }
+        if (dom.sharedDeckConfirmAcceptBtn) {
+            dom.sharedDeckConfirmAcceptBtn.addEventListener('click', () => {
+                resolveSharedDeckImportConfirmation(true);
+            });
+        }
+        if (dom.sharedDeckConfirmModal) {
+            dom.sharedDeckConfirmModal.addEventListener('click', event => {
+                if (event.target === dom.sharedDeckConfirmModal) {
+                    resolveSharedDeckImportConfirmation(false);
+                }
+            });
         }
         if (dom.lightboxFuriganaSaveBtn) {
             dom.lightboxFuriganaSaveBtn.addEventListener('click', async (event) => {

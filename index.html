@@ -199,7 +199,40 @@
         </div>
     </div>
 
-    <!-- 12. モーダル: ライトボックス (画像拡大) -->
+    <!-- 12. モーダル: 共有デッキ追加確認 -->
+    <div id="shared-deck-confirm-modal" class="modal-overlay" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="shared-deck-confirm-title" aria-hidden="true">
+        <div class="modal-content-wrapper shared-deck-confirm-wrapper">
+            <div class="modal-content shared-deck-confirm-content">
+                <div class="modal-header">
+                    <h2 id="shared-deck-confirm-title">共有デッキを追加</h2>
+                    <button id="shared-deck-confirm-close-btn" class="modal-close-btn" type="button" aria-label="確認画面を閉じる">&times;</button>
+                </div>
+                <div class="modal-body shared-deck-confirm-body">
+                    <strong id="shared-deck-confirm-name" class="shared-deck-confirm-name"></strong>
+                    <dl class="shared-deck-confirm-summary">
+                        <div>
+                            <dt>リーダー</dt>
+                            <dd id="shared-deck-confirm-leader"></dd>
+                        </div>
+                        <div>
+                            <dt>カード枚数</dt>
+                            <dd id="shared-deck-confirm-card-count"></dd>
+                        </div>
+                        <div>
+                            <dt>カード種類</dt>
+                            <dd id="shared-deck-confirm-type-count"></dd>
+                        </div>
+                    </dl>
+                </div>
+                <div class="modal-footer shared-deck-confirm-actions">
+                    <button id="shared-deck-confirm-cancel-btn" class="modal-btn modal-btn-secondary" type="button">キャンセル</button>
+                    <button id="shared-deck-confirm-accept-btn" class="modal-btn modal-btn-primary" type="button">デッキを追加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 13. モーダル: ライトボックス (画像拡大) -->
     <div id="lightbox-modal" class="lightbox-overlay" style="display: none;">
         <span id="lightbox-close-btn" class="lightbox-close-btn" aria-label="閉じる">&times;</span>
         <img id="lightbox-image" class="lightbox-image" src="" alt="拡大画像">
@@ -219,7 +252,7 @@
         </div>
     </div>
 
-    <!-- 13. デッキ画像プレビュー -->
+    <!-- 14. デッキ画像プレビュー -->
     <div id="deck-image-preview-modal" class="modal-overlay deck-image-preview-overlay" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="deck-image-preview-title" aria-hidden="true">
         <div class="deck-image-preview-wrapper">
             <div class="modal-content deck-image-preview-content">
@@ -258,7 +291,7 @@
         </div>
     </div>
 
-    <!-- 14. 通知エリア -->
+    <!-- 15. 通知エリア -->
     <div id="notification-area">
         <!-- DB更新通知 -->
         <div id="db-update-notification" class="notification-toast" style="display: none;">
@@ -278,7 +311,7 @@
         </div>
     </div>
 
-    <!-- 15. メインスクリプト (defer を追加) -->
+    <!-- 16. メインスクリプト (defer を追加) -->
     <script src="app.js" defer></script>
 
 </body>

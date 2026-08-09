@@ -5,7 +5,7 @@
  */
 
 // === 1. 定数 ===
-const CACHE_APP_SHELL = 'app-shell-v16';
+const CACHE_APP_SHELL = 'app-shell-v17';
 const CACHE_CARD_DATA = 'card-data-v9';
 const CACHE_IMAGES = 'card-images-v1';
 
