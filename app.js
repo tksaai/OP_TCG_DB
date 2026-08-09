@@ -11,6 +11,9 @@
     const STORE_DECKS = 'decks';
     const DECK_MAX_CARDS = 50;
     const DECK_MAX_COPIES = 4;
+    const DECK_SHARE_VERSION = 1;
+    const DECK_SHARE_HASH_KEY = 'deck';
+    const DECK_EXPORT_FORMAT = 'op-tcg-db-deck';
     const CACHE_APP_SHELL = 'app-shell-v1';
     const CACHE_IMAGES = 'card-images-v1';
     const CARDS_JSON_PATH = './cards.json';
@@ -27,7 +30,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.5.5'; // バージョン更新
+    const APP_VERSION = '1.6.0'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -79,6 +82,8 @@
     let deckShowOnlyDeckCards = false;
     let cardElementMap = {};    // { cardNumber: HTMLElement } DOM高速アクセス用
     let activeCardView = 'cards'; // 'cards' | 'new'
+    let openDeckActionMenu = null;
+    let isImportingSharedDeck = false;
 
     // === 2. DOM要素のキャッシュ ===
     const $ = (selector) => document.querySelector(selector);
@@ -250,6 +255,7 @@
         }
         if (db) {
             await checkCardDataVersion();
+            await importSharedDeckFromUrl();
         }
         setDefaultColumnLayout();
     }
@@ -1167,17 +1173,10 @@
         // デッキ表示モード: リーダー先頭 → 種別 → コスト → カード番号順に整列
         if (currentMode === 'deck_view' && viewingDeck) {
             const leaderNumber = viewingDeck.leader;
-            const typeOrder = { 'CHARACTER': 0, 'EVENT': 1, 'STAGE': 2 };
             currentFilteredCards.sort((a, b) => {
                 if (a.cardNumber === leaderNumber) return -1;
                 if (b.cardNumber === leaderNumber) return 1;
-                const ta = typeOrder[a.cardType] !== undefined ? typeOrder[a.cardType] : 3;
-                const tb = typeOrder[b.cardType] !== undefined ? typeOrder[b.cardType] : 3;
-                if (ta !== tb) return ta - tb;
-                const ca = Number(a.costLifeValue) || 0;
-                const cb = Number(b.costLifeValue) || 0;
-                if (ca !== cb) return ca - cb;
-                return String(a.cardNumber).localeCompare(String(b.cardNumber), 'en', { numeric: true });
+                return compareDeckCards(a, b);
             });
         }
 
@@ -1728,6 +1727,568 @@
             || null;
     }
 
+    function createDeckId() {
+        return crypto.randomUUID
+            ? crypto.randomUUID()
+            : `deck-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+    }
+
+    function normalizeDeckName(value, fallback = '共有デッキ') {
+        const name = String(value || '')
+            .replace(/[\u0000-\u001f\u007f]/g, ' ')
+            .replace(/\s+/g, ' ')
+            .trim()
+            .slice(0, 80);
+        return name || fallback;
+    }
+
+    function normalizeSharedCardNumber(value) {
+        const cardNumber = String(value || '').trim().toUpperCase();
+        return /^[A-Z0-9]{1,12}-[A-Z0-9]{1,12}$/.test(cardNumber) ? cardNumber : '';
+    }
+
+    function normalizeDeckTransferEntries(entries, leader) {
+        if (!Array.isArray(entries)) throw new Error('カード情報の形式が正しくありません。');
+        if (entries.length > DECK_MAX_CARDS * 2) throw new Error('カード種類が多すぎます。');
+
+        const cards = {};
+        for (const entry of entries) {
+            if (!Array.isArray(entry) || entry.length < 2) {
+                throw new Error('カード情報の形式が正しくありません。');
+            }
+            const cardNumber = normalizeSharedCardNumber(entry[0]);
+            const count = Number(entry[1]);
+            if (!cardNumber || !Number.isInteger(count) || count < 1 || count > DECK_MAX_COPIES) {
+                throw new Error('カード番号または枚数が正しくありません。');
+            }
+            if (cardNumber === leader) continue;
+            cards[cardNumber] = (cards[cardNumber] || 0) + count;
+            if (cards[cardNumber] > DECK_MAX_COPIES) {
+                throw new Error(`${cardNumber} の枚数が上限を超えています。`);
+            }
+        }
+
+        const total = Object.values(cards).reduce((sum, count) => sum + count, 0);
+        if (total > DECK_MAX_CARDS * DECK_MAX_COPIES) {
+            throw new Error('デッキ枚数が多すぎます。');
+        }
+        return cards;
+    }
+
+    function createDeckSharePayload(deck) {
+        const leader = normalizeSharedCardNumber(deck?.leader);
+        if (!leader) throw new Error('リーダーカードが設定されていません。');
+        const cards = normalizeDeckTransferEntries(Object.entries(deck.cards || {}), leader);
+        return {
+            v: DECK_SHARE_VERSION,
+            n: normalizeDeckName(deck.name, 'デッキ'),
+            l: leader,
+            c: Object.entries(cards).sort(([a], [b]) => a.localeCompare(b, 'en', { numeric: true }))
+        };
+    }
+
+    function encodeBase64Url(text) {
+        const bytes = new TextEncoder().encode(text);
+        let binary = '';
+        for (let offset = 0; offset < bytes.length; offset += 0x8000) {
+            binary += String.fromCharCode(...bytes.subarray(offset, offset + 0x8000));
+        }
+        return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/g, '');
+    }
+
+    function decodeBase64Url(value) {
+        if (!value || value.length > 12000 || !/^[A-Za-z0-9_-]+$/.test(value)) {
+            throw new Error('共有データの形式が正しくありません。');
+        }
+        const base64 = value.replace(/-/g, '+').replace(/_/g, '/');
+        const padded = base64 + '='.repeat((4 - (base64.length % 4)) % 4);
+        const binary = atob(padded);
+        const bytes = Uint8Array.from(binary, char => char.charCodeAt(0));
+        return new TextDecoder().decode(bytes);
+    }
+
+    function createDeckShareUrl(deck) {
+        const payload = createDeckSharePayload(deck);
+        const url = new URL(window.location.href);
+        const hashParams = new URLSearchParams(url.hash.slice(1));
+        hashParams.set(DECK_SHARE_HASH_KEY, encodeBase64Url(JSON.stringify(payload)));
+        url.hash = hashParams.toString();
+        return url.toString();
+    }
+
+    function getSharedDeckHashValue() {
+        const hashParams = new URLSearchParams(window.location.hash.slice(1));
+        return hashParams.get(DECK_SHARE_HASH_KEY) || '';
+    }
+
+    function clearSharedDeckHash() {
+        const url = new URL(window.location.href);
+        const hashParams = new URLSearchParams(url.hash.slice(1));
+        hashParams.delete(DECK_SHARE_HASH_KEY);
+        url.hash = hashParams.toString();
+        history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`);
+    }
+
+    function decodeSharedDeck(value) {
+        let payload;
+        try {
+            payload = JSON.parse(decodeBase64Url(value));
+        } catch (error) {
+            throw new Error('共有URLのデッキ情報を読み取れませんでした。');
+        }
+        if (!payload || payload.v !== DECK_SHARE_VERSION) {
+            throw new Error('この共有URLの形式には対応していません。');
+        }
+        const leader = normalizeSharedCardNumber(payload.l);
+        if (!leader) throw new Error('共有デッキのリーダー情報が正しくありません。');
+        return {
+            name: normalizeDeckName(payload.n),
+            leader,
+            cards: normalizeDeckTransferEntries(payload.c, leader)
+        };
+    }
+
+    async function getUniqueDeckName(baseName) {
+        const normalizedBase = normalizeDeckName(baseName);
+        const decks = await db.getAll(STORE_DECKS);
+        const existingNames = new Set(decks.map(deck => deck.name));
+        if (!existingNames.has(normalizedBase)) return normalizedBase;
+
+        const sharedBase = `${normalizedBase} (共有)`;
+        if (!existingNames.has(sharedBase)) return sharedBase;
+        let suffix = 2;
+        while (existingNames.has(`${sharedBase} ${suffix}`)) suffix += 1;
+        return `${sharedBase} ${suffix}`;
+    }
+
+    async function importSharedDeckFromUrl() {
+        const encodedDeck = getSharedDeckHashValue();
+        if (!encodedDeck || !db || isImportingSharedDeck) return false;
+
+        isImportingSharedDeck = true;
+        try {
+            const imported = decodeSharedDeck(encodedDeck);
+            const now = new Date().toISOString();
+            const deck = {
+                id: createDeckId(),
+                name: await getUniqueDeckName(imported.name),
+                leader: imported.leader,
+                cards: imported.cards,
+                createdAt: now,
+                updatedAt: now
+            };
+            await saveDeck(deck);
+            setActiveNav('decks');
+            startDeckView(deck);
+            showMessageToast(`共有デッキ「${deck.name}」を追加しました。`, 'success');
+            return true;
+        } catch (error) {
+            console.error('Failed to import shared deck:', error);
+            showMessageToast(error.message || '共有デッキの追加に失敗しました。', 'error');
+            return false;
+        } finally {
+            clearSharedDeckHash();
+            isImportingSharedDeck = false;
+        }
+    }
+
+    async function copyTextToClipboard(text) {
+        if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(text);
+            return;
+        }
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.setAttribute('readonly', '');
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        const copied = document.execCommand('copy');
+        textarea.remove();
+        if (!copied) throw new Error('URLをコピーできませんでした。');
+    }
+
+    async function shareDeckUrl(deck) {
+        let shareUrl;
+        try {
+            shareUrl = createDeckShareUrl(deck);
+            const canUseNativeShare = navigator.maxTouchPoints > 0
+                && typeof navigator.share === 'function'
+                && (typeof navigator.canShare !== 'function' || navigator.canShare({ url: shareUrl }));
+            if (canUseNativeShare) {
+                await navigator.share({
+                    title: deck.name || 'OP TCG デッキ',
+                    text: 'OP TCG DB デッキ共有',
+                    url: shareUrl
+                });
+                showMessageToast('デッキURLを共有しました。', 'success');
+                return;
+            }
+            await copyTextToClipboard(shareUrl);
+            showMessageToast('共有URLをコピーしました。', 'success');
+        } catch (error) {
+            if (error?.name === 'AbortError') return;
+            if (shareUrl) {
+                try {
+                    await copyTextToClipboard(shareUrl);
+                    showMessageToast('共有URLをコピーしました。', 'success');
+                    return;
+                } catch (copyError) {
+                    console.error('Failed to copy deck share URL:', copyError);
+                }
+            }
+            console.error('Failed to share deck:', error);
+            showMessageToast('デッキURLの共有に失敗しました。', 'error');
+        }
+    }
+
+    function sanitizeDownloadName(value, fallback = 'deck') {
+        const sanitized = String(value || '')
+            .normalize('NFKC')
+            .replace(/[\\/:*?"<>|\u0000-\u001f]/g, '-')
+            .replace(/\s+/g, ' ')
+            .trim()
+            .slice(0, 60);
+        return sanitized || fallback;
+    }
+
+    function downloadBlob(blob, filename) {
+        const blobUrl = URL.createObjectURL(blob);
+        const anchor = document.createElement('a');
+        anchor.href = blobUrl;
+        anchor.download = filename;
+        anchor.style.display = 'none';
+        document.body.appendChild(anchor);
+        anchor.click();
+        anchor.remove();
+        setTimeout(() => URL.revokeObjectURL(blobUrl), 30000);
+    }
+
+    function exportDeckJson(deck) {
+        try {
+            const payload = createDeckSharePayload(deck);
+            const exported = {
+                format: DECK_EXPORT_FORMAT,
+                version: DECK_SHARE_VERSION,
+                appVersion: APP_VERSION,
+                exportedAt: new Date().toISOString(),
+                deck: {
+                    name: payload.n,
+                    leader: payload.l,
+                    cards: Object.fromEntries(payload.c),
+                    createdAt: deck.createdAt || null,
+                    updatedAt: deck.updatedAt || null
+                }
+            };
+            const blob = new Blob([JSON.stringify(exported, null, 2)], { type: 'application/json;charset=utf-8' });
+            downloadBlob(blob, `${sanitizeDownloadName(deck.name)}.json`);
+            showMessageToast('デッキJSONを出力しました。', 'success');
+        } catch (error) {
+            console.error('Failed to export deck JSON:', error);
+            showMessageToast(error.message || 'デッキJSONの出力に失敗しました。', 'error');
+        }
+    }
+
+    function compareDeckCards(a, b) {
+        const typeOrder = { CHARACTER: 0, EVENT: 1, STAGE: 2 };
+        const typeA = typeOrder[a?.cardType] !== undefined ? typeOrder[a.cardType] : 3;
+        const typeB = typeOrder[b?.cardType] !== undefined ? typeOrder[b.cardType] : 3;
+        if (typeA !== typeB) return typeA - typeB;
+        const costA = Number(a?.costLifeValue) || 0;
+        const costB = Number(b?.costLifeValue) || 0;
+        if (costA !== costB) return costA - costB;
+        return String(a?.cardNumber || '').localeCompare(String(b?.cardNumber || ''), 'en', { numeric: true });
+    }
+
+    function getDeckImageEntries(deck) {
+        return Object.entries(deck.cards || {})
+            .filter(([, count]) => Number.isInteger(Number(count)) && Number(count) > 0)
+            .map(([cardNumber, count]) => ({
+                card: findCardByNumber(cardNumber) || {
+                    cardNumber,
+                    cardName: '未登録カード',
+                    cardType: '',
+                    color: []
+                },
+                count: Number(count)
+            }))
+            .sort((a, b) => compareDeckCards(a.card, b.card));
+    }
+
+    function createRoundedRectPath(ctx, x, y, width, height, radius) {
+        const r = Math.min(radius, width / 2, height / 2);
+        ctx.beginPath();
+        ctx.moveTo(x + r, y);
+        ctx.lineTo(x + width - r, y);
+        ctx.quadraticCurveTo(x + width, y, x + width, y + r);
+        ctx.lineTo(x + width, y + height - r);
+        ctx.quadraticCurveTo(x + width, y + height, x + width - r, y + height);
+        ctx.lineTo(x + r, y + height);
+        ctx.quadraticCurveTo(x, y + height, x, y + height - r);
+        ctx.lineTo(x, y + r);
+        ctx.quadraticCurveTo(x, y, x + r, y);
+        ctx.closePath();
+    }
+
+    function setFittedCanvasFont(ctx, text, maxWidth, preferredSize, minSize = 18, weight = 700) {
+        let size = preferredSize;
+        do {
+            ctx.font = `${weight} ${size}px sans-serif`;
+            if (ctx.measureText(text).width <= maxWidth) break;
+            size -= 2;
+        } while (size > minSize);
+        return size;
+    }
+
+    function truncateCanvasText(ctx, text, maxWidth) {
+        const value = String(text || '');
+        if (ctx.measureText(value).width <= maxWidth) return value;
+        let result = value;
+        while (result.length > 1 && ctx.measureText(`${result}…`).width > maxWidth) {
+            result = result.slice(0, -1);
+        }
+        return `${result}…`;
+    }
+
+    function getCanvasCardColor(card) {
+        const colorMap = {
+            '赤': '#df5353',
+            '緑': '#39ad67',
+            '青': '#4b86d1',
+            '紫': '#9566cc',
+            '黒': '#62656c',
+            '黄': '#e5bd3d'
+        };
+        const cardColor = Array.isArray(card?.color) ? card.color[0] : '';
+        return colorMap[cardColor] || '#777b82';
+    }
+
+    function loadCanvasImage(source) {
+        if (!source) return Promise.resolve(null);
+        return new Promise(resolve => {
+            const image = new Image();
+            const resolvedUrl = new URL(source, document.baseURI);
+            let finished = false;
+            const finish = value => {
+                if (finished) return;
+                finished = true;
+                clearTimeout(timeoutId);
+                resolve(value);
+            };
+            const timeoutId = setTimeout(() => finish(null), 12000);
+            if (resolvedUrl.origin !== window.location.origin) image.crossOrigin = 'anonymous';
+            image.decoding = 'async';
+            image.onload = () => finish(image);
+            image.onerror = () => finish(null);
+            image.src = resolvedUrl.href;
+        });
+    }
+
+    async function loadCardCanvasImage(card) {
+        if (!card?.cardNumber) return null;
+        const sources = [...new Set([
+            getCardImagePath(card, 0),
+            getCardImageFallbackPath(card, 0)
+        ].filter(Boolean))];
+        for (const source of sources) {
+            const image = await loadCanvasImage(source);
+            if (image) return image;
+        }
+        return null;
+    }
+
+    function drawCanvasCard(ctx, card, image, x, y, width, height, count = 0) {
+        const borderColor = getCanvasCardColor(card);
+        ctx.save();
+        createRoundedRectPath(ctx, x, y, width, height, 8);
+        ctx.clip();
+        ctx.fillStyle = '#262a2f';
+        ctx.fillRect(x, y, width, height);
+
+        if (image) {
+            const sourceRatio = image.naturalWidth / image.naturalHeight;
+            const targetRatio = width / height;
+            let sourceX = 0;
+            let sourceY = 0;
+            let sourceWidth = image.naturalWidth;
+            let sourceHeight = image.naturalHeight;
+            if (sourceRatio > targetRatio) {
+                sourceWidth = image.naturalHeight * targetRatio;
+                sourceX = (image.naturalWidth - sourceWidth) / 2;
+            } else if (sourceRatio < targetRatio) {
+                sourceHeight = image.naturalWidth / targetRatio;
+                sourceY = (image.naturalHeight - sourceHeight) / 2;
+            }
+            ctx.drawImage(image, sourceX, sourceY, sourceWidth, sourceHeight, x, y, width, height);
+        } else {
+            ctx.fillStyle = borderColor;
+            ctx.fillRect(x, y, width, 10);
+            ctx.fillStyle = '#f4f5f6';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            setFittedCanvasFont(ctx, card.cardNumber || '?', width - 20, 24, 16, 800);
+            ctx.fillText(card.cardNumber || '?', x + width / 2, y + height / 2 - 18);
+            ctx.fillStyle = '#b8bdc4';
+            ctx.font = '600 16px sans-serif';
+            ctx.fillText(truncateCanvasText(ctx, card.cardName || '画像なし', width - 20), x + width / 2, y + height / 2 + 18);
+        }
+        ctx.restore();
+
+        ctx.strokeStyle = borderColor;
+        ctx.lineWidth = 4;
+        createRoundedRectPath(ctx, x, y, width, height, 8);
+        ctx.stroke();
+
+        if (count > 0) {
+            const badgeSize = 48;
+            const badgeX = x + width - badgeSize - 8;
+            const badgeY = y + height - badgeSize - 8;
+            ctx.fillStyle = '#ffca28';
+            createRoundedRectPath(ctx, badgeX, badgeY, badgeSize, badgeSize, 8);
+            ctx.fill();
+            ctx.fillStyle = '#111315';
+            ctx.font = '900 28px sans-serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(String(count), badgeX + badgeSize / 2, badgeY + badgeSize / 2 + 1);
+        }
+    }
+
+    function canvasToPngBlob(canvas) {
+        return new Promise((resolve, reject) => {
+            try {
+                canvas.toBlob(blob => {
+                    if (blob) resolve(blob);
+                    else reject(new Error('PNGデータを作成できませんでした。'));
+                }, 'image/png');
+            } catch (error) {
+                reject(error);
+            }
+        });
+    }
+
+    async function exportDeckImage(deck) {
+        const entries = getDeckImageEntries(deck);
+        if (entries.length > DECK_MAX_CARDS * 2) {
+            showMessageToast('画像に出力できるカード種類数を超えています。', 'error');
+            return;
+        }
+
+        showMessageToast('デッキ画像を作成しています...', 'info');
+        try {
+            const leaderCard = findCardByNumber(deck.leader) || {
+                cardNumber: deck.leader,
+                cardName: '未登録リーダー',
+                color: []
+            };
+            const [leaderImage, ...cardImages] = await Promise.all([
+                loadCardCanvasImage(leaderCard),
+                ...entries.map(entry => loadCardCanvasImage(entry.card))
+            ]);
+
+            const canvasWidth = 1600;
+            const headerHeight = 176;
+            const footerHeight = 76;
+            const outerPadding = 48;
+            const leaderColumnWidth = 260;
+            const sectionGap = 42;
+            const cardGap = 14;
+            const columns = 8;
+            const cardWidth = 138;
+            const cardHeight = Math.round(cardWidth * 1.4);
+            const rowCount = Math.max(1, Math.ceil(entries.length / columns));
+            const gridHeight = rowCount * cardHeight + (rowCount - 1) * cardGap;
+            const contentHeight = Math.max(430, gridHeight);
+            const canvasHeight = headerHeight + outerPadding + contentHeight + outerPadding + footerHeight;
+            const canvas = document.createElement('canvas');
+            canvas.width = canvasWidth;
+            canvas.height = canvasHeight;
+            const ctx = canvas.getContext('2d');
+            if (!ctx) throw new Error('画像描画を開始できませんでした。');
+
+            ctx.fillStyle = '#101214';
+            ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+            ctx.fillStyle = '#1b1e22';
+            ctx.fillRect(0, 0, canvasWidth, headerHeight);
+            ctx.fillStyle = '#27c7b8';
+            ctx.fillRect(0, headerHeight - 8, canvasWidth, 8);
+
+            const deckName = normalizeDeckName(deck.name, 'デッキ');
+            ctx.fillStyle = '#f7f8f9';
+            ctx.textAlign = 'left';
+            ctx.textBaseline = 'alphabetic';
+            setFittedCanvasFont(ctx, deckName, 1120, 64, 34, 800);
+            ctx.fillText(deckName, outerPadding, 88);
+            ctx.fillStyle = '#aeb4bb';
+            ctx.font = '700 25px sans-serif';
+            ctx.fillText('OP TCG DB · DECK LIST', outerPadding, 132);
+
+            const total = entries.reduce((sum, entry) => sum + entry.count, 0);
+            ctx.textAlign = 'right';
+            ctx.fillStyle = '#f7f8f9';
+            ctx.font = '800 35px sans-serif';
+            ctx.fillText(`${total}/${DECK_MAX_CARDS} CARDS`, canvasWidth - outerPadding, 82);
+            ctx.fillStyle = '#aeb4bb';
+            ctx.font = '600 22px sans-serif';
+            ctx.fillText(`${entries.length} TYPES`, canvasWidth - outerPadding, 122);
+
+            const contentY = headerHeight + outerPadding;
+            ctx.fillStyle = '#aeb4bb';
+            ctx.textAlign = 'left';
+            ctx.font = '800 20px sans-serif';
+            ctx.fillText('LEADER', outerPadding, contentY - 14);
+            const leaderWidth = 220;
+            const leaderHeight = Math.round(leaderWidth * 1.4);
+            drawCanvasCard(ctx, leaderCard, leaderImage, outerPadding, contentY, leaderWidth, leaderHeight);
+            ctx.fillStyle = '#f7f8f9';
+            ctx.font = '800 24px sans-serif';
+            ctx.fillText(truncateCanvasText(ctx, leaderCard.cardName || deck.leader, leaderColumnWidth), outerPadding, contentY + leaderHeight + 38);
+            ctx.fillStyle = '#aeb4bb';
+            ctx.font = '600 20px sans-serif';
+            ctx.fillText(leaderCard.cardNumber || deck.leader || '', outerPadding, contentY + leaderHeight + 70);
+
+            const gridX = outerPadding + leaderColumnWidth + sectionGap;
+            ctx.fillStyle = '#aeb4bb';
+            ctx.font = '800 20px sans-serif';
+            ctx.fillText('DECK', gridX, contentY - 14);
+            if (entries.length === 0) {
+                ctx.fillStyle = '#5b6169';
+                ctx.font = '700 32px sans-serif';
+                ctx.fillText('カード未登録', gridX, contentY + 54);
+            }
+            entries.forEach((entry, index) => {
+                const column = index % columns;
+                const row = Math.floor(index / columns);
+                const x = gridX + column * (cardWidth + cardGap);
+                const y = contentY + row * (cardHeight + cardGap);
+                drawCanvasCard(ctx, entry.card, cardImages[index], x, y, cardWidth, cardHeight, entry.count);
+            });
+
+            const footerY = canvasHeight - footerHeight;
+            ctx.fillStyle = '#1b1e22';
+            ctx.fillRect(0, footerY, canvasWidth, footerHeight);
+            ctx.fillStyle = '#8c939b';
+            ctx.font = '600 19px sans-serif';
+            ctx.textAlign = 'left';
+            ctx.fillText(`Leader: ${leaderCard.cardNumber || deck.leader || '-'}`, outerPadding, footerY + 46);
+            ctx.textAlign = 'right';
+            ctx.fillText(new Date().toLocaleDateString('ja-JP'), canvasWidth - outerPadding, footerY + 46);
+
+            const blob = await canvasToPngBlob(canvas);
+            downloadBlob(blob, `${sanitizeDownloadName(deck.name)}.png`);
+            const missingImages = [leaderImage, ...cardImages].filter(image => !image).length;
+            if (missingImages > 0) {
+                showMessageToast(`デッキ画像を出力しました (${missingImages}枚は番号表示)。`, 'info');
+            } else {
+                showMessageToast('デッキ画像を出力しました。', 'success');
+            }
+        } catch (error) {
+            console.error('Failed to export deck image:', error);
+            showMessageToast('デッキ画像の出力に失敗しました。', 'error');
+        }
+    }
+
     function setModeMessage(text) {
         if (!dom.modeMessageBar) return;
         if (text) {
@@ -1840,7 +2401,7 @@
 
         const now = new Date().toISOString();
         const newDeck = {
-            id: (crypto.randomUUID ? crypto.randomUUID() : `deck-${Date.now()}-${Math.random().toString(16).slice(2)}`),
+            id: createDeckId(),
             name: `${card.cardName}デッキ`,
             leader: card.cardNumber,
             cards: {},
@@ -1880,9 +2441,75 @@
         updateDeckStatusBar();
     }
 
+    function createDeckActionIcon(name) {
+        const iconMarkup = {
+            edit: '<path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/>',
+            more: '<circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/>',
+            export: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/>',
+            share: '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>',
+            image: '<rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/><path d="M12 3v6"/><path d="m9 6 3 3 3-3"/>',
+            delete: '<path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v5"/><path d="M14 11v5"/>'
+        };
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('viewBox', '0 0 24 24');
+        svg.setAttribute('width', '20');
+        svg.setAttribute('height', '20');
+        svg.setAttribute('fill', 'none');
+        svg.setAttribute('stroke', 'currentColor');
+        svg.setAttribute('stroke-width', '2');
+        svg.setAttribute('stroke-linecap', 'round');
+        svg.setAttribute('stroke-linejoin', 'round');
+        svg.setAttribute('aria-hidden', 'true');
+        svg.innerHTML = iconMarkup[name] || iconMarkup.more;
+        return svg;
+    }
+
+    function closeDeckActionMenu(restoreFocus = false) {
+        if (!openDeckActionMenu) return;
+        const { menu, button } = openDeckActionMenu;
+        menu.hidden = true;
+        menu.classList.remove('open-up');
+        button.setAttribute('aria-expanded', 'false');
+        openDeckActionMenu = null;
+        if (restoreFocus) button.focus();
+    }
+
+    function toggleDeckActionMenu(menu, button) {
+        if (openDeckActionMenu?.menu === menu) {
+            closeDeckActionMenu(true);
+            return;
+        }
+        closeDeckActionMenu();
+        menu.hidden = false;
+        button.setAttribute('aria-expanded', 'true');
+        openDeckActionMenu = { menu, button };
+        const footerClearance = 82;
+        if (menu.getBoundingClientRect().bottom > window.innerHeight - footerClearance) {
+            menu.classList.add('open-up');
+        }
+    }
+
+    function createDeckMenuItem(label, iconName, action, destructive = false) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = `deck-menu-item${destructive ? ' destructive' : ''}`;
+        button.setAttribute('role', 'menuitem');
+        button.appendChild(createDeckActionIcon(iconName));
+        const labelElement = document.createElement('span');
+        labelElement.textContent = label;
+        button.appendChild(labelElement);
+        button.addEventListener('click', async event => {
+            event.stopPropagation();
+            closeDeckActionMenu();
+            await action();
+        });
+        return button;
+    }
+
     // === デッキ一覧 ===
     async function loadDeckList() {
         if (!db || !dom.deckListContainer) return;
+        closeDeckActionMenu();
         let decks = [];
         try {
             decks = await db.getAll(STORE_DECKS);
@@ -1956,20 +2583,48 @@
         actions.className = 'deck-actions';
         const editBtn = document.createElement('button');
         editBtn.className = 'deck-btn btn-edit';
-        editBtn.textContent = '編集';
+        editBtn.type = 'button';
+        editBtn.title = 'デッキを編集';
+        editBtn.setAttribute('aria-label', 'デッキを編集');
+        editBtn.appendChild(createDeckActionIcon('edit'));
+        const editLabel = document.createElement('span');
+        editLabel.className = 'deck-edit-label';
+        editLabel.textContent = '編集';
+        editBtn.appendChild(editLabel);
         editBtn.addEventListener('click', (e) => {
             e.stopPropagation();
+            closeDeckActionMenu();
             startDeckEdit(deck);
         });
-        const deleteBtn = document.createElement('button');
-        deleteBtn.className = 'deck-btn btn-delete';
-        deleteBtn.textContent = '削除';
-        deleteBtn.addEventListener('click', (e) => {
+
+        const moreBtn = document.createElement('button');
+        moreBtn.className = 'deck-icon-btn';
+        moreBtn.type = 'button';
+        moreBtn.title = 'デッキ操作';
+        moreBtn.setAttribute('aria-label', 'デッキ操作');
+        moreBtn.setAttribute('aria-haspopup', 'menu');
+        moreBtn.setAttribute('aria-expanded', 'false');
+        moreBtn.appendChild(createDeckActionIcon('more'));
+
+        const menu = document.createElement('div');
+        menu.className = 'deck-action-menu';
+        menu.id = `deck-menu-${deck.id}`;
+        menu.setAttribute('role', 'menu');
+        menu.hidden = true;
+        moreBtn.setAttribute('aria-controls', menu.id);
+        menu.appendChild(createDeckMenuItem('JSON出力', 'export', () => exportDeckJson(deck)));
+        menu.appendChild(createDeckMenuItem('URL共有', 'share', () => shareDeckUrl(deck)));
+        menu.appendChild(createDeckMenuItem('画像出力', 'image', () => exportDeckImage(deck)));
+        menu.appendChild(createDeckMenuItem('削除', 'delete', () => deleteDeck(deck), true));
+        menu.addEventListener('click', event => event.stopPropagation());
+        moreBtn.addEventListener('click', e => {
             e.stopPropagation();
-            deleteDeck(deck);
+            toggleDeckActionMenu(menu, moreBtn);
         });
+
         actions.appendChild(editBtn);
-        actions.appendChild(deleteBtn);
+        actions.appendChild(moreBtn);
+        actions.appendChild(menu);
         el.appendChild(actions);
 
         return el;
@@ -2478,8 +3133,19 @@
 
     // === 10. イベントリスナー設定 ===
     function setupEventListeners() {
-        
+
         if (!dom.searchBar) return;
+
+        document.addEventListener('click', () => closeDeckActionMenu());
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape' && openDeckActionMenu) {
+                event.preventDefault();
+                closeDeckActionMenu(true);
+            }
+        });
+        window.addEventListener('hashchange', () => {
+            importSharedDeckFromUrl();
+        });
 
         // 検索バー
         let searchTimeout;

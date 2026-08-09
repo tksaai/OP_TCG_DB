@@ -1212,6 +1212,7 @@ body.mode-bar-visible .main-content {
     gap: 12px;
     border: 1px solid var(--color-border);
     cursor: pointer;
+    position: relative;
 }
 .deck-item:hover {
     border-color: var(--color-primary);
@@ -1260,8 +1261,10 @@ body.mode-bar-visible .main-content {
 
 .deck-actions {
     display: flex;
+    align-items: center;
     flex-shrink: 0;
-    gap: 8px;
+    gap: 6px;
+    position: relative;
 }
 .deck-btn {
     padding: 8px 12px;
@@ -1270,14 +1273,85 @@ body.mode-bar-visible .main-content {
     cursor: pointer;
     font-size: 0.9rem;
     font-weight: 600;
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
 }
 .btn-edit {
     background-color: var(--color-secondary);
     color: #001b18;
 }
-.btn-delete {
+.deck-icon-btn {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%;
+    color: var(--color-on-background);
+    background-color: #292929;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.deck-icon-btn:hover,
+.deck-icon-btn[aria-expanded="true"] {
     background-color: var(--color-border);
+    color: var(--color-secondary);
+}
+.deck-btn:focus-visible,
+.deck-icon-btn:focus-visible,
+.deck-menu-item:focus-visible {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 2px;
+}
+
+.deck-action-menu {
+    position: absolute;
+    z-index: 20;
+    top: calc(100% + 6px);
+    right: 0;
+    min-width: 174px;
+    padding: 6px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background-color: #252525;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.deck-action-menu[hidden] {
+    display: none;
+}
+.deck-action-menu.open-up {
+    top: auto;
+    bottom: calc(100% + 6px);
+}
+.deck-menu-item {
+    width: 100%;
+    min-height: 42px;
+    padding: 9px 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    color: var(--color-on-surface);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: left;
+    white-space: nowrap;
+}
+.deck-menu-item:hover {
+    background-color: #353535;
+}
+.deck-menu-item.destructive {
     color: var(--color-error);
+}
+.deck-menu-item svg,
+.deck-btn svg,
+.deck-icon-btn svg {
+    flex: 0 0 auto;
 }
 
 .no-decks {
@@ -1285,6 +1359,29 @@ body.mode-bar-visible .main-content {
     padding: 24px 12px;
     color: var(--color-on-background);
     line-height: 1.8;
+}
+
+@media (max-width: 520px) {
+    .deck-item {
+        gap: 8px;
+        padding: 8px;
+    }
+    .deck-leader-thumb {
+        width: 44px;
+    }
+    .deck-actions {
+        gap: 4px;
+    }
+    .deck-btn.btn-edit {
+        width: 40px;
+        padding: 0;
+    }
+    .deck-edit-label {
+        display: none;
+    }
+    .deck-action-menu {
+        min-width: 168px;
+    }
 }
 
 /* デッキ編集ステータスバー (フッターの上に固定) */
