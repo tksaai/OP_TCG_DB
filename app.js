@@ -30,7 +30,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.6.0'; // バージョン更新
+    const APP_VERSION = '1.6.1'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -84,6 +84,9 @@
     let activeCardView = 'cards'; // 'cards' | 'new'
     let openDeckActionMenu = null;
     let isImportingSharedDeck = false;
+    let deckImagePreviewBlob = null;
+    let deckImagePreviewUrl = '';
+    let deckImagePreviewFilename = '';
 
     // === 2. DOM要素のキャッシュ ===
     const $ = (selector) => document.querySelector(selector);
@@ -213,6 +216,14 @@
             lightboxFuriganaSaveBtn: $('#lightbox-furigana-save-btn'),
             lightboxFuriganaStatus: $('#lightbox-furigana-status'),
             lightboxVariants: $('#lightbox-variants'),
+
+            deckImagePreviewModal: $('#deck-image-preview-modal'),
+            deckImagePreviewCloseBtn: $('#deck-image-preview-close-btn'),
+            deckImagePreviewImage: $('#deck-image-preview-image'),
+            deckImagePreviewFilename: $('#deck-image-preview-filename'),
+            deckImagePreviewDetails: $('#deck-image-preview-details'),
+            deckImagePreviewDownloadBtn: $('#deck-image-preview-download-btn'),
+            deckImagePreviewShareBtn: $('#deck-image-preview-share-btn'),
     
             dbUpdateNotification: $('#db-update-notification'),
             dbUpdateText: $('#db-update-text'),
@@ -1965,6 +1976,90 @@
         setTimeout(() => URL.revokeObjectURL(blobUrl), 30000);
     }
 
+    function formatFileSize(bytes) {
+        if (!Number.isFinite(bytes) || bytes <= 0) return '0 KB';
+        if (bytes < 1024 * 1024) return `${Math.max(1, Math.round(bytes / 1024))} KB`;
+        return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+    }
+
+    function closeDeckImagePreview() {
+        if (!dom.deckImagePreviewModal) return;
+        dom.deckImagePreviewModal.style.display = 'none';
+        dom.deckImagePreviewModal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('deck-image-preview-open');
+        if (dom.deckImagePreviewImage) dom.deckImagePreviewImage.removeAttribute('src');
+        if (deckImagePreviewUrl) URL.revokeObjectURL(deckImagePreviewUrl);
+        deckImagePreviewBlob = null;
+        deckImagePreviewUrl = '';
+        deckImagePreviewFilename = '';
+    }
+
+    function showDeckImagePreview(blob, filename, missingImages = 0) {
+        if (!dom.deckImagePreviewModal || !dom.deckImagePreviewImage) {
+            downloadBlob(blob, filename);
+            showMessageToast('デッキ画像をダウンロードしました。', 'success');
+            return;
+        }
+
+        closeDeckImagePreview();
+        deckImagePreviewBlob = blob;
+        deckImagePreviewFilename = filename;
+        deckImagePreviewUrl = URL.createObjectURL(blob);
+        dom.deckImagePreviewImage.src = deckImagePreviewUrl;
+        dom.deckImagePreviewImage.alt = `${filename}のプレビュー`;
+        dom.deckImagePreviewFilename.textContent = filename;
+        dom.deckImagePreviewDetails.textContent = [
+            `PNG画像 · ${formatFileSize(blob.size)}`,
+            missingImages > 0 ? `${missingImages}枚は番号表示` : ''
+        ].filter(Boolean).join(' · ');
+        dom.deckImagePreviewModal.style.display = 'flex';
+        dom.deckImagePreviewModal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('deck-image-preview-open');
+        requestAnimationFrame(() => dom.deckImagePreviewCloseBtn?.focus());
+    }
+
+    function downloadDeckImagePreview() {
+        if (!deckImagePreviewBlob || !deckImagePreviewFilename) return;
+        downloadBlob(deckImagePreviewBlob, deckImagePreviewFilename);
+        showMessageToast('デッキ画像をダウンロードしました。', 'success');
+    }
+
+    async function shareOrSaveDeckImage() {
+        if (!deckImagePreviewBlob || !deckImagePreviewFilename) return;
+
+        const canCreateFile = typeof File === 'function';
+        const file = canCreateFile
+            ? new File([deckImagePreviewBlob], deckImagePreviewFilename, { type: 'image/png' })
+            : null;
+        let canShareFile = false;
+        if (file && typeof navigator.share === 'function') {
+            try {
+                canShareFile = typeof navigator.canShare !== 'function'
+                    || navigator.canShare({ files: [file] });
+            } catch (error) {
+                console.warn('Unable to check image sharing support:', error);
+            }
+        }
+
+        if (!canShareFile) {
+            downloadDeckImagePreview();
+            return;
+        }
+
+        try {
+            await navigator.share({
+                title: deckImagePreviewFilename.replace(/\.png$/i, ''),
+                files: [file]
+            });
+            closeDeckImagePreview();
+            showMessageToast('デッキ画像を共有しました。', 'success');
+        } catch (error) {
+            if (error?.name === 'AbortError') return;
+            console.error('Failed to share deck image:', error);
+            showMessageToast('共有を開始できませんでした。ダウンロードをお試しください。', 'error');
+        }
+    }
+
     function exportDeckJson(deck) {
         try {
             const payload = createDeckSharePayload(deck);
@@ -2197,8 +2292,10 @@
             const columns = 8;
             const cardWidth = 138;
             const cardHeight = Math.round(cardWidth * 1.4);
+            const cardNumberLabelHeight = 34;
+            const gridRowHeight = cardHeight + cardNumberLabelHeight;
             const rowCount = Math.max(1, Math.ceil(entries.length / columns));
-            const gridHeight = rowCount * cardHeight + (rowCount - 1) * cardGap;
+            const gridHeight = rowCount * gridRowHeight + (rowCount - 1) * cardGap;
             const contentHeight = Math.max(430, gridHeight);
             const canvasHeight = headerHeight + outerPadding + contentHeight + outerPadding + footerHeight;
             const canvas = document.createElement('canvas');
@@ -2261,8 +2358,13 @@
                 const column = index % columns;
                 const row = Math.floor(index / columns);
                 const x = gridX + column * (cardWidth + cardGap);
-                const y = contentY + row * (cardHeight + cardGap);
+                const y = contentY + row * (gridRowHeight + cardGap);
                 drawCanvasCard(ctx, entry.card, cardImages[index], x, y, cardWidth, cardHeight, entry.count);
+                ctx.fillStyle = '#c9ced4';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                setFittedCanvasFont(ctx, entry.card.cardNumber || '', cardWidth, 18, 14, 700);
+                ctx.fillText(entry.card.cardNumber || '', x + cardWidth / 2, y + cardHeight + cardNumberLabelHeight / 2 + 1);
             });
 
             const footerY = canvasHeight - footerHeight;
@@ -2276,13 +2378,9 @@
             ctx.fillText(new Date().toLocaleDateString('ja-JP'), canvasWidth - outerPadding, footerY + 46);
 
             const blob = await canvasToPngBlob(canvas);
-            downloadBlob(blob, `${sanitizeDownloadName(deck.name)}.png`);
+            const filename = `${sanitizeDownloadName(deck.name)}.png`;
             const missingImages = [leaderImage, ...cardImages].filter(image => !image).length;
-            if (missingImages > 0) {
-                showMessageToast(`デッキ画像を出力しました (${missingImages}枚は番号表示)。`, 'info');
-            } else {
-                showMessageToast('デッキ画像を出力しました。', 'success');
-            }
+            showDeckImagePreview(blob, filename, missingImages);
         } catch (error) {
             console.error('Failed to export deck image:', error);
             showMessageToast('デッキ画像の出力に失敗しました。', 'error');
@@ -3138,9 +3236,14 @@
 
         document.addEventListener('click', () => closeDeckActionMenu());
         document.addEventListener('keydown', event => {
-            if (event.key === 'Escape' && openDeckActionMenu) {
-                event.preventDefault();
-                closeDeckActionMenu(true);
+            if (event.key === 'Escape') {
+                if (dom.deckImagePreviewModal?.style.display !== 'none') {
+                    event.preventDefault();
+                    closeDeckImagePreview();
+                } else if (openDeckActionMenu) {
+                    event.preventDefault();
+                    closeDeckActionMenu(true);
+                }
             }
         });
         window.addEventListener('hashchange', () => {
@@ -3290,6 +3393,20 @@
                 setListBadgesVisible(dom.listBadgesToggle.checked);
             });
             syncListBadgesVisibility();
+        }
+        if (dom.deckImagePreviewCloseBtn) {
+            dom.deckImagePreviewCloseBtn.addEventListener('click', closeDeckImagePreview);
+        }
+        if (dom.deckImagePreviewModal) {
+            dom.deckImagePreviewModal.addEventListener('click', event => {
+                if (event.target === dom.deckImagePreviewModal) closeDeckImagePreview();
+            });
+        }
+        if (dom.deckImagePreviewDownloadBtn) {
+            dom.deckImagePreviewDownloadBtn.addEventListener('click', downloadDeckImagePreview);
+        }
+        if (dom.deckImagePreviewShareBtn) {
+            dom.deckImagePreviewShareBtn.addEventListener('click', shareOrSaveDeckImage);
         }
         if (dom.lightboxFuriganaSaveBtn) {
             dom.lightboxFuriganaSaveBtn.addEventListener('click', async (event) => {

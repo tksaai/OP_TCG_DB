@@ -219,7 +219,46 @@
         </div>
     </div>
 
-    <!-- 13. 通知エリア -->
+    <!-- 13. デッキ画像プレビュー -->
+    <div id="deck-image-preview-modal" class="modal-overlay deck-image-preview-overlay" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="deck-image-preview-title" aria-hidden="true">
+        <div class="deck-image-preview-wrapper">
+            <div class="modal-content deck-image-preview-content">
+                <div class="modal-header deck-image-preview-header">
+                    <h2 id="deck-image-preview-title">デッキ画像</h2>
+                    <button id="deck-image-preview-close-btn" class="modal-close-btn" type="button" aria-label="プレビューを閉じる">&times;</button>
+                </div>
+                <div class="deck-image-preview-body">
+                    <img id="deck-image-preview-image" class="deck-image-preview-image" src="" alt="デッキ画像プレビュー">
+                </div>
+                <div class="deck-image-preview-footer">
+                    <div class="deck-image-preview-meta">
+                        <strong id="deck-image-preview-filename"></strong>
+                        <span id="deck-image-preview-details"></span>
+                    </div>
+                    <div class="deck-image-preview-actions">
+                        <button id="deck-image-preview-download-btn" class="modal-btn modal-btn-secondary deck-image-preview-action" type="button">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M12 3v12"></path>
+                                <path d="m7 10 5 5 5-5"></path>
+                                <path d="M5 21h14"></path>
+                            </svg>
+                            <span>ダウンロード</span>
+                        </button>
+                        <button id="deck-image-preview-share-btn" class="modal-btn modal-btn-primary deck-image-preview-action" type="button">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M12 16V3"></path>
+                                <path d="m7 8 5-5 5 5"></path>
+                                <path d="M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"></path>
+                            </svg>
+                            <span>共有・保存</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 14. 通知エリア -->
     <div id="notification-area">
         <!-- DB更新通知 -->
         <div id="db-update-notification" class="notification-toast" style="display: none;">
@@ -239,7 +278,7 @@
         </div>
     </div>
 
-    <!-- 14. メインスクリプト (defer を追加) -->
+    <!-- 15. メインスクリプト (defer を追加) -->
     <script src="app.js" defer></script>
 
 </body>

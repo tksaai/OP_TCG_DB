@@ -166,6 +166,7 @@ function parseCardItem(html, sourceUrl, sourceUpdatedAt, seriesInfo, scope) {
         seriesCode: seriesInfo.seriesCode,
         sourceModalId: rawNumber || cardNumber,
         imagePath: imageUrl,
+        provisionalImageUrl: imageUrl,
         provisionalSource: PROVISIONAL_SOURCE,
         provisionalScope: scope,
         provisionalSourceUrl: sourceUrl,
@@ -310,7 +311,15 @@ function normalizeForCompare(value) {
 }
 
 function isSameCard(left, right) {
-    return JSON.stringify(normalizeForCompare(left)) === JSON.stringify(normalizeForCompare(right));
+    const normalizeCard = card => {
+        const comparable = { ...card };
+        const remoteImageUrl = comparable.provisionalImageUrl
+            || (/^https?:\/\//i.test(String(comparable.imagePath || '')) ? comparable.imagePath : '');
+        if (remoteImageUrl) comparable.imagePath = remoteImageUrl;
+        delete comparable.provisionalImageUrl;
+        return normalizeForCompare(comparable);
+    };
+    return JSON.stringify(normalizeCard(left)) === JSON.stringify(normalizeCard(right));
 }
 
 function getCardScope(card) {
