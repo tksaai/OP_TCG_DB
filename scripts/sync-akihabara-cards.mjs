@@ -7,6 +7,9 @@ const AKIHABARA_PROMO_INDEX_URL = `${AKIHABARA_BASE_URL}/card-list-op-promo/`;
 const PROVISIONAL_CARDS_JSON = 'provisional-cards.json';
 const PROVISIONAL_SOURCE = 'akihabara-cardshop';
 const PROMO_SCOPE = 'PROMO';
+const FETCH_MAX_ATTEMPTS = 4;
+const FETCH_TIMEOUT_MS = 30_000;
+const FETCH_RETRY_BASE_DELAY_MS = 5_000;
 
 const args = process.argv.slice(2);
 const dryRun = args.includes('--dry-run');
@@ -206,14 +209,52 @@ function parseAkihabaraCards(html, sourceUrl, fallbackSeriesCode, options = {}) 
     };
 }
 
+function wait(milliseconds) {
+    return new Promise(resolve => setTimeout(resolve, milliseconds));
+}
+
+function isRetryableFetchError(error) {
+    const status = Number(error?.httpStatus);
+    if (!Number.isInteger(status)) return true;
+    return status === 408 || status === 425 || status === 429 || status >= 500;
+}
+
+function describeFetchError(error) {
+    const causeCode = error?.cause?.code;
+    return causeCode ? `${error.message} (${causeCode})` : error.message;
+}
+
 async function fetchText(url) {
-    const response = await fetch(url, {
-        headers: {
-            'User-Agent': 'OP_TCG_DB provisional Akihabara sync (+https://github.com/tksaai/OP_TCG_DB)'
+    let lastError;
+
+    for (let attempt = 1; attempt <= FETCH_MAX_ATTEMPTS; attempt += 1) {
+        try {
+            const response = await fetch(url, {
+                headers: {
+                    'User-Agent': 'OP_TCG_DB provisional Akihabara sync (+https://github.com/tksaai/OP_TCG_DB)'
+                },
+                signal: AbortSignal.timeout(FETCH_TIMEOUT_MS)
+            });
+            if (!response.ok) {
+                const error = new Error(`Failed to fetch ${url}: ${response.status} ${response.statusText}`);
+                error.httpStatus = response.status;
+                throw error;
+            }
+            return await response.text();
+        } catch (error) {
+            lastError = error;
+            if (attempt === FETCH_MAX_ATTEMPTS || !isRetryableFetchError(error)) throw error;
+
+            const delay = FETCH_RETRY_BASE_DELAY_MS * (2 ** (attempt - 1));
+            console.warn(
+                `Fetch attempt ${attempt}/${FETCH_MAX_ATTEMPTS} failed for ${url}: `
+                + `${describeFetchError(error)}. Retrying in ${delay / 1000}s.`
+            );
+            await wait(delay);
         }
-    });
-    if (!response.ok) throw new Error(`Failed to fetch ${url}: ${response.status} ${response.statusText}`);
-    return response.text();
+    }
+
+    throw lastError;
 }
 
 async function readJsonArray(filePath) {
