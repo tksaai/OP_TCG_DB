@@ -166,7 +166,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "PROMO",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-lae7/",
-    "provisionalUpdatedAt": "2026-06-20"
+    "provisionalUpdatedAt": "2026-08-17"
   },
   {
     "uniqueId": "OP10-042_OP10-042mera.png",
@@ -200,7 +200,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "PROMO",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-lae7/",
-    "provisionalUpdatedAt": "2026-06-20"
+    "provisionalUpdatedAt": "2026-08-17"
   },
   {
     "uniqueId": "OP13-004_OP13-004mera.png",
@@ -214,7 +214,7 @@
       "多色"
     ],
     "costLifeType": "ライフ",
-    "costLifeValue": 4,
+    "costLifeValue": 5,
     "power": 5000,
     "counter": "-",
     "attribute": "特",
@@ -234,7 +234,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "PROMO",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-lae7/",
-    "provisionalUpdatedAt": "2026-06-20"
+    "provisionalUpdatedAt": "2026-08-17"
   },
   {
     "uniqueId": "OP13-007_VJ20260405-OP13-007.png",
@@ -314,7 +314,7 @@
       "紫"
     ],
     "costLifeType": "ライフ",
-    "costLifeValue": 4,
+    "costLifeValue": 5,
     "power": 5000,
     "counter": "-",
     "attribute": "特",
@@ -334,7 +334,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "PROMO",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-lae7/",
-    "provisionalUpdatedAt": "2026-06-20"
+    "provisionalUpdatedAt": "2026-08-17"
   },
   {
     "uniqueId": "OP14-083_OP14-083ex04.jpg",
@@ -401,7 +401,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "PROMO",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-lae7/",
-    "provisionalUpdatedAt": "2026-06-20"
+    "provisionalUpdatedAt": "2026-08-17"
   },
   {
     "uniqueId": "OP15-039_OP15-039mera.png",
@@ -415,7 +415,7 @@
       "青"
     ],
     "costLifeType": "ライフ",
-    "costLifeValue": 4,
+    "costLifeValue": 5,
     "power": 5000,
     "counter": "-",
     "attribute": "知",
@@ -434,7 +434,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "PROMO",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-lae7/",
-    "provisionalUpdatedAt": "2026-06-20"
+    "provisionalUpdatedAt": "2026-08-17"
   },
   {
     "uniqueId": "OP15-113_OP15-113fc.jpg",
@@ -501,7 +501,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "PROMO",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-lae7/",
-    "provisionalUpdatedAt": "2026-06-20"
+    "provisionalUpdatedAt": "2026-08-17"
   },
   {
     "uniqueId": "OP16-032_op16-032fc.jpg",
@@ -2208,6 +2208,39 @@
     "provisionalScope": "OP17",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-17/",
     "provisionalUpdatedAt": "2026-08-11"
+  },
+  {
+    "uniqueId": "OP17-054_OP17-054.jpg",
+    "cardNumber": "OP17-054",
+    "rawNumber": "OP17-054",
+    "cardName": "ミス・バッキンガム・ステューシー",
+    "furigana": "",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "color": [
+      "青"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 3,
+    "power": 5000,
+    "counter": "-",
+    "attribute": "知",
+    "features": [
+      "ロックス海賊団"
+    ],
+    "block": 5,
+    "effectText": "登場時相手の元々のコスト6以下のキャラ1枚までは、次の相手のエンドフェイズ終了時まで、アタックできない。起動メイン自分のドン!!3枚とこのキャラをレストにできる：相手のキャラ1枚までは、次の相手のエンドフェイズ終了時まで、アタックできない。",
+    "trigger": "",
+    "getInfo": "エクストラグランドバトル10月景品【PROMO】",
+    "seriesTitle": "エクストラグランドバトル10月景品",
+    "seriesCode": "PROMO",
+    "sourceModalId": "OP17-054",
+    "imagePath": "Cards/Provisional/PROMO/OP17-054_OP17-054.jpg",
+    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/OP17-054.jpg",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "PROMO",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-lae8/",
+    "provisionalUpdatedAt": "2026-08-17"
   },
   {
     "uniqueId": "OP17-055_OP17-055.png",
@@ -4776,6 +4809,238 @@
     "provisionalUpdatedAt": "2026-04-13"
   },
   {
+    "uniqueId": "P-136_p136-2026Vol2P.png",
+    "cardNumber": "P-136",
+    "rawNumber": "P-136",
+    "cardName": "ウソップ",
+    "furigana": "",
+    "rarity": "P",
+    "cardType": "CHARACTER",
+    "color": [
+      "赤"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 1,
+    "power": 2000,
+    "counter": 2000,
+    "attribute": "射",
+    "features": [
+      "麦わらの一味"
+    ],
+    "block": 5,
+    "effectText": "起動メインこのキャラをレストにできる：自分の特徴《麦わらの一味》を持つ、リーダーかキャラ1枚にレストのドン!!1枚までを、付与する。",
+    "trigger": "",
+    "getInfo": "プロモーションカードセット2026 Vol.2【PROMO】",
+    "seriesTitle": "プロモーションカードセット2026 Vol.2",
+    "seriesCode": "PROMO",
+    "sourceModalId": "P-136",
+    "imagePath": "Cards/Provisional/PROMO/P-136_p136-2026Vol2P.png",
+    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/p136-2026Vol2P.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "PROMO",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-lae9/",
+    "provisionalUpdatedAt": "2026-08-18"
+  },
+  {
+    "uniqueId": "P-137_p137-2026Vol2P.png",
+    "cardNumber": "P-137",
+    "rawNumber": "P-137",
+    "cardName": "サンジ",
+    "furigana": "",
+    "rarity": "P",
+    "cardType": "CHARACTER",
+    "color": [
+      "赤"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 6,
+    "power": 7000,
+    "counter": 1000,
+    "attribute": "打",
+    "features": [
+      "麦わらの一味"
+    ],
+    "block": 5,
+    "effectText": "ダブルアタック(このカードが与えるダメージは2になる)アタック時自分のリーダーかキャラ1枚にレストのドン!!1枚までを、付与する。ダブルアタック(このカードが与えるダメージは2になる)",
+    "trigger": "",
+    "getInfo": "プロモーションカードセット2026 Vol.2【PROMO】",
+    "seriesTitle": "プロモーションカードセット2026 Vol.2",
+    "seriesCode": "PROMO",
+    "sourceModalId": "P-137",
+    "imagePath": "Cards/Provisional/PROMO/P-137_p137-2026Vol2P.png",
+    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/p137-2026Vol2P.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "PROMO",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-lae9/",
+    "provisionalUpdatedAt": "2026-08-18"
+  },
+  {
+    "uniqueId": "P-138_p138-2026Vol2P.png",
+    "cardNumber": "P-138",
+    "rawNumber": "P-138",
+    "cardName": "トニートニー・チョッパー",
+    "furigana": "",
+    "rarity": "P",
+    "cardType": "CHARACTER",
+    "color": [
+      "赤"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 3,
+    "power": 4000,
+    "counter": 1000,
+    "attribute": "打",
+    "features": [
+      "動物",
+      "麦わらの一味"
+    ],
+    "block": 5,
+    "effectText": "相手のターン中このキャラのパワー+2000",
+    "trigger": "",
+    "getInfo": "プロモーションカードセット2026 Vol.2【PROMO】",
+    "seriesTitle": "プロモーションカードセット2026 Vol.2",
+    "seriesCode": "PROMO",
+    "sourceModalId": "P-138",
+    "imagePath": "Cards/Provisional/PROMO/P-138_p138-2026Vol2P.png",
+    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/p138-2026Vol2P.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "PROMO",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-lae9/",
+    "provisionalUpdatedAt": "2026-08-18"
+  },
+  {
+    "uniqueId": "P-139_p139-2026Vol2P.png",
+    "cardNumber": "P-139",
+    "rawNumber": "P-139",
+    "cardName": "ナミ",
+    "furigana": "",
+    "rarity": "P",
+    "cardType": "CHARACTER",
+    "color": [
+      "赤"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 5,
+    "power": 6000,
+    "counter": 1000,
+    "attribute": "知",
+    "features": [
+      "麦わらの一味"
+    ],
+    "block": 5,
+    "effectText": "登場時自分のリーダーかキャラ1枚にレストのドン!!1枚までを、付与する。ドン!!×1アタック時カード1枚を引く。",
+    "trigger": "",
+    "getInfo": "プロモーションカードセット2026 Vol.2【PROMO】",
+    "seriesTitle": "プロモーションカードセット2026 Vol.2",
+    "seriesCode": "PROMO",
+    "sourceModalId": "P-139",
+    "imagePath": "Cards/Provisional/PROMO/P-139_p139-2026Vol2P.png",
+    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/p139-2026Vol2P.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "PROMO",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-lae9/",
+    "provisionalUpdatedAt": "2026-08-18"
+  },
+  {
+    "uniqueId": "P-140_p140-2026Vol2P.png",
+    "cardNumber": "P-140",
+    "rawNumber": "P-140",
+    "cardName": "モンキー・D・ルフィ",
+    "furigana": "",
+    "rarity": "P",
+    "cardType": "CHARACTER",
+    "color": [
+      "赤"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 7,
+    "power": 8000,
+    "counter": "-",
+    "attribute": "打",
+    "features": [
+      "麦わらの一味"
+    ],
+    "block": 5,
+    "effectText": "ブロッカー(相手のアタックの後、このカードをレストにし、アタックの対象をこのカードにできる)登場時自分のリーダーかキャラ1枚にレストのドン!!2枚までを、付与する。",
+    "trigger": "",
+    "getInfo": "プロモーションカードセット2026 Vol.2【PROMO】",
+    "seriesTitle": "プロモーションカードセット2026 Vol.2",
+    "seriesCode": "PROMO",
+    "sourceModalId": "P-140",
+    "imagePath": "Cards/Provisional/PROMO/P-140_p140-2026Vol2P.png",
+    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/p140-2026Vol2P.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "PROMO",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-lae9/",
+    "provisionalUpdatedAt": "2026-08-18"
+  },
+  {
+    "uniqueId": "P-141_p141-2026Vol2P.png",
+    "cardNumber": "P-141",
+    "rawNumber": "P-141",
+    "cardName": "ロロノア・ゾロ",
+    "furigana": "",
+    "rarity": "P",
+    "cardType": "CHARACTER",
+    "color": [
+      "赤"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 7,
+    "power": 6000,
+    "counter": 1000,
+    "attribute": "斬",
+    "features": [
+      "麦わらの一味"
+    ],
+    "block": 5,
+    "effectText": "速攻(このカードは登場したターンにアタックできる)登場時相手のリーダーかキャラ1枚までを、このターン中、パワー-1000。",
+    "trigger": "",
+    "getInfo": "プロモーションカードセット2026 Vol.2【PROMO】",
+    "seriesTitle": "プロモーションカードセット2026 Vol.2",
+    "seriesCode": "PROMO",
+    "sourceModalId": "P-141",
+    "imagePath": "Cards/Provisional/PROMO/P-141_p141-2026Vol2P.png",
+    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/p141-2026Vol2P.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "PROMO",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-lae9/",
+    "provisionalUpdatedAt": "2026-08-18"
+  },
+  {
+    "uniqueId": "P-142_p142-2026Vol2P.png",
+    "cardNumber": "P-142",
+    "rawNumber": "P-142",
+    "cardName": "ゴーイング・メリー号",
+    "furigana": "",
+    "rarity": "P",
+    "cardType": "STAGE",
+    "color": [
+      "赤"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 1,
+    "power": "-",
+    "counter": "-",
+    "attribute": "-",
+    "features": [
+      "麦わらの一味"
+    ],
+    "block": 5,
+    "effectText": "自分の元々のパワー8000以下の特徴《麦わらの一味》を持つキャラがKOされる場合、代わりにこのステージをトラッシュに置くことができる。",
+    "trigger": "",
+    "getInfo": "プロモーションカードセット2026 Vol.2【PROMO】",
+    "seriesTitle": "プロモーションカードセット2026 Vol.2",
+    "seriesCode": "PROMO",
+    "sourceModalId": "P-142",
+    "imagePath": "Cards/Provisional/PROMO/P-142_p142-2026Vol2P.png",
+    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/p142-2026Vol2P.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "PROMO",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-lae9/",
+    "provisionalUpdatedAt": "2026-08-18"
+  },
+  {
     "uniqueId": "P-143_P-143.png",
     "cardNumber": "P-143",
     "rawNumber": "P-143",
@@ -4808,6 +5073,40 @@
     "provisionalScope": "PROMO",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-lae2/",
     "provisionalUpdatedAt": "2026-04-13"
+  },
+  {
+    "uniqueId": "P-143_p143-2026Vol2P.png",
+    "cardNumber": "P-143",
+    "rawNumber": "P-143",
+    "cardName": "クロコダイル",
+    "furigana": "",
+    "rarity": "P",
+    "cardType": "CHARACTER",
+    "color": [
+      "黒"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 6,
+    "power": 8000,
+    "counter": "-",
+    "attribute": "特",
+    "features": [
+      "王下七武海",
+      "B・W"
+    ],
+    "block": 5,
+    "effectText": "登場時コスト0のキャラがいる場合、このキャラは、このターン中、速攻を得る。(このカードは登場したターンにアタックできる)",
+    "trigger": "",
+    "getInfo": "プロモーションカードセット2026 Vol.2【PROMO】",
+    "seriesTitle": "プロモーションカードセット2026 Vol.2",
+    "seriesCode": "PROMO",
+    "sourceModalId": "P-143",
+    "imagePath": "Cards/Provisional/PROMO/P-143_p143-2026Vol2P.png",
+    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/p143-2026Vol2P.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "PROMO",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-lae9/",
+    "provisionalUpdatedAt": "2026-08-18"
   },
   {
     "uniqueId": "P-144_P-144.png",
@@ -4843,6 +5142,39 @@
     "provisionalUpdatedAt": "2026-04-13"
   },
   {
+    "uniqueId": "P-144_p144-2026Vol2P.png",
+    "cardNumber": "P-144",
+    "rawNumber": "P-144",
+    "cardName": "ミス・オールサンデー",
+    "furigana": "",
+    "rarity": "P",
+    "cardType": "CHARACTER",
+    "color": [
+      "黒"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 5,
+    "power": 6000,
+    "counter": 1000,
+    "attribute": "打",
+    "features": [
+      "B・W"
+    ],
+    "block": 5,
+    "effectText": "登場時自分の『B・W』を含む特徴を持つキャラ1枚をKOできる：カード1枚を引く。",
+    "trigger": "",
+    "getInfo": "プロモーションカードセット2026 Vol.2【PROMO】",
+    "seriesTitle": "プロモーションカードセット2026 Vol.2",
+    "seriesCode": "PROMO",
+    "sourceModalId": "P-144",
+    "imagePath": "Cards/Provisional/PROMO/P-144_p144-2026Vol2P.png",
+    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/p144-2026Vol2P.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "PROMO",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-lae9/",
+    "provisionalUpdatedAt": "2026-08-18"
+  },
+  {
     "uniqueId": "P-145_P-145.png",
     "cardNumber": "P-145",
     "rawNumber": "P-145",
@@ -4874,6 +5206,39 @@
     "provisionalScope": "PROMO",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-lae2/",
     "provisionalUpdatedAt": "2026-04-13"
+  },
+  {
+    "uniqueId": "P-145_p145-2026Vol2P.png",
+    "cardNumber": "P-145",
+    "rawNumber": "P-145",
+    "cardName": "ミス・ウェンズデー",
+    "furigana": "",
+    "rarity": "P",
+    "cardType": "CHARACTER",
+    "color": [
+      "黒"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 4,
+    "power": 5000,
+    "counter": 1000,
+    "attribute": "斬",
+    "features": [
+      "B・W"
+    ],
+    "block": 5,
+    "effectText": "登場時カード1枚を引き、自分の手札1枚を捨てる。KO時相手の手札が6枚以上ある場合、相手は自身の手札2枚を捨てる。",
+    "trigger": "",
+    "getInfo": "プロモーションカードセット2026 Vol.2【PROMO】",
+    "seriesTitle": "プロモーションカードセット2026 Vol.2",
+    "seriesCode": "PROMO",
+    "sourceModalId": "P-145",
+    "imagePath": "Cards/Provisional/PROMO/P-145_p145-2026Vol2P.png",
+    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/p145-2026Vol2P.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "PROMO",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-lae9/",
+    "provisionalUpdatedAt": "2026-08-18"
   },
   {
     "uniqueId": "P-146_P-146.png",
@@ -4909,6 +5274,39 @@
     "provisionalUpdatedAt": "2026-04-13"
   },
   {
+    "uniqueId": "P-146_p146-2026Vol2P.png",
+    "cardNumber": "P-146",
+    "rawNumber": "P-146",
+    "cardName": "ミス・ゴールデンウィーク(マリアンヌ)",
+    "furigana": "",
+    "rarity": "P",
+    "cardType": "CHARACTER",
+    "color": [
+      "黒"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 1,
+    "power": 2000,
+    "counter": 1000,
+    "attribute": "知",
+    "features": [
+      "B・W"
+    ],
+    "block": 5,
+    "effectText": "KO時カード1枚を引き、相手のコスト0のキャラ1枚までを、レストにする。",
+    "trigger": "",
+    "getInfo": "プロモーションカードセット2026 Vol.2【PROMO】",
+    "seriesTitle": "プロモーションカードセット2026 Vol.2",
+    "seriesCode": "PROMO",
+    "sourceModalId": "P-146",
+    "imagePath": "Cards/Provisional/PROMO/P-146_p146-2026Vol2P.png",
+    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/p146-2026Vol2P.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "PROMO",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-lae9/",
+    "provisionalUpdatedAt": "2026-08-18"
+  },
+  {
     "uniqueId": "P-147_P-147.png",
     "cardNumber": "P-147",
     "rawNumber": "P-147",
@@ -4940,6 +5338,39 @@
     "provisionalScope": "PROMO",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-lae2/",
     "provisionalUpdatedAt": "2026-04-13"
+  },
+  {
+    "uniqueId": "P-147_p147-2026Vol2P.png",
+    "cardNumber": "P-147",
+    "rawNumber": "P-147",
+    "cardName": "ミス・バレンタイン(ミキータ)",
+    "furigana": "",
+    "rarity": "P",
+    "cardType": "CHARACTER",
+    "color": [
+      "黒"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 3,
+    "power": 3000,
+    "counter": 1000,
+    "attribute": "打",
+    "features": [
+      "B・W"
+    ],
+    "block": 5,
+    "effectText": "コスト0か8以上のキャラがいる場合、このキャラのパワー+2000。KO時自分のトラッシュから『B・W』を含む特徴を持つキャラカード1枚までを、手札に加える。",
+    "trigger": "",
+    "getInfo": "プロモーションカードセット2026 Vol.2【PROMO】",
+    "seriesTitle": "プロモーションカードセット2026 Vol.2",
+    "seriesCode": "PROMO",
+    "sourceModalId": "P-147",
+    "imagePath": "Cards/Provisional/PROMO/P-147_p147-2026Vol2P.png",
+    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/p147-2026Vol2P.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "PROMO",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-lae9/",
+    "provisionalUpdatedAt": "2026-08-18"
   },
   {
     "uniqueId": "P-148_P-148.png",
@@ -4975,6 +5406,39 @@
     "provisionalUpdatedAt": "2026-04-13"
   },
   {
+    "uniqueId": "P-148_p148-2026Vol2P.png",
+    "cardNumber": "P-148",
+    "rawNumber": "P-148",
+    "cardName": "Mr.3(ギャルディーノ)",
+    "furigana": "",
+    "rarity": "P",
+    "cardType": "CHARACTER",
+    "color": [
+      "黒"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 5,
+    "power": 6000,
+    "counter": 1000,
+    "attribute": "特",
+    "features": [
+      "B・W"
+    ],
+    "block": 5,
+    "effectText": "ブロッカー起動メインターン1回コスト0か8以上のキャラがいる場合、自分のリーダーかキャラ1枚にレストのドン!!1枚までを、付与する。",
+    "trigger": "",
+    "getInfo": "プロモーションカードセット2026 Vol.2【PROMO】",
+    "seriesTitle": "プロモーションカードセット2026 Vol.2",
+    "seriesCode": "PROMO",
+    "sourceModalId": "P-148",
+    "imagePath": "Cards/Provisional/PROMO/P-148_p148-2026Vol2P.png",
+    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/p148-2026Vol2P.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "PROMO",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-lae9/",
+    "provisionalUpdatedAt": "2026-08-18"
+  },
+  {
     "uniqueId": "P-149_P-149.png",
     "cardNumber": "P-149",
     "rawNumber": "P-149",
@@ -5008,6 +5472,39 @@
     "provisionalUpdatedAt": "2026-04-13"
   },
   {
+    "uniqueId": "P-149_p149-2026Vol2P.png",
+    "cardNumber": "P-149",
+    "rawNumber": "P-149",
+    "cardName": "Mr.5(ジェム)",
+    "furigana": "",
+    "rarity": "P",
+    "cardType": "CHARACTER",
+    "color": [
+      "黒"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 5,
+    "power": 6000,
+    "counter": 1000,
+    "attribute": "特",
+    "features": [
+      "B・W"
+    ],
+    "block": 5,
+    "effectText": "速攻：キャラ(このカードは登場したターンにキャラへアタックできる)登場時コスト0か8以上のキャラがいる場合、カード2枚を引き、自分の手札1枚を捨てる。",
+    "trigger": "",
+    "getInfo": "プロモーションカードセット2026 Vol.2【PROMO】",
+    "seriesTitle": "プロモーションカードセット2026 Vol.2",
+    "seriesCode": "PROMO",
+    "sourceModalId": "P-149",
+    "imagePath": "Cards/Provisional/PROMO/P-149_p149-2026Vol2P.png",
+    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/p149-2026Vol2P.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "PROMO",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-lae9/",
+    "provisionalUpdatedAt": "2026-08-18"
+  },
+  {
     "uniqueId": "P-152_p-152mera.png",
     "cardNumber": "P-152",
     "rawNumber": "p-152",
@@ -5039,7 +5536,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "PROMO",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-lae7/",
-    "provisionalUpdatedAt": "2026-06-20"
+    "provisionalUpdatedAt": "2026-08-17"
   },
   {
     "uniqueId": "P-153_p-153mera.png",
@@ -5072,7 +5569,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "PROMO",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-lae7/",
-    "provisionalUpdatedAt": "2026-06-20"
+    "provisionalUpdatedAt": "2026-08-17"
   },
   {
     "uniqueId": "P-154_p-154mera.png",
@@ -5105,7 +5602,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "PROMO",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-lae7/",
-    "provisionalUpdatedAt": "2026-06-20"
+    "provisionalUpdatedAt": "2026-08-17"
   },
   {
     "uniqueId": "PRB02-005_PRB02-005ex04.jpg",
@@ -5207,5 +5704,39 @@
     "provisionalScope": "PROMO",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op-lae5/",
     "provisionalUpdatedAt": "2026-05-31"
+  },
+  {
+    "uniqueId": "ST30-012_ST30-012.jpg",
+    "cardNumber": "ST30-012",
+    "rawNumber": "ST30-012",
+    "cardName": "モンキー・D・ルフィ",
+    "furigana": "",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "color": [
+      "緑"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 4,
+    "power": 6000,
+    "counter": "-",
+    "attribute": "打",
+    "features": [
+      "インペルダウン",
+      "麦わらの一味"
+    ],
+    "block": 5,
+    "effectText": "登場時自分のドン!! 1枚をレストにできる：このキャラは、このターン中、速攻を得る。(このカードは登場したターンにアタックできる)アタック時相手のブロッカーを持つキャラ1枚までを、レストにする。",
+    "trigger": "",
+    "getInfo": "エクストラグランドバトル10月景品【PROMO】",
+    "seriesTitle": "エクストラグランドバトル10月景品",
+    "seriesCode": "PROMO",
+    "sourceModalId": "ST30-012",
+    "imagePath": "Cards/Provisional/PROMO/ST30-012_ST30-012.jpg",
+    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/ST30-012.jpg",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "PROMO",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op-lae8/",
+    "provisionalUpdatedAt": "2026-08-17"
   }
 ]
