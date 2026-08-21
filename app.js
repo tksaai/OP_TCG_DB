@@ -30,7 +30,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.6.4'; // バージョン更新
+    const APP_VERSION = '1.6.5'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -2353,6 +2353,12 @@
             .sort((a, b) => compareDeckCards(a.card, b.card));
     }
 
+    function getDeckImageCardMeta(card, fallbackNumber = '') {
+        const cardNumber = card?.cardNumber || fallbackNumber;
+        const rarity = getRarityLabel(card);
+        return [cardNumber, rarity].filter(Boolean).join(' · ');
+    }
+
     function createRoundedRectPath(ctx, x, y, width, height, radius) {
         const r = Math.min(radius, width / 2, height / 2);
         ctx.beginPath();
@@ -2585,7 +2591,7 @@
             ctx.fillText(truncateCanvasText(ctx, leaderCard.cardName || deck.leader, leaderColumnWidth), outerPadding, contentY + leaderHeight + 38);
             ctx.fillStyle = '#aeb4bb';
             ctx.font = '600 20px sans-serif';
-            ctx.fillText(leaderCard.cardNumber || deck.leader || '', outerPadding, contentY + leaderHeight + 70);
+            ctx.fillText(getDeckImageCardMeta(leaderCard, deck.leader), outerPadding, contentY + leaderHeight + 70);
 
             const gridX = outerPadding + leaderColumnWidth + sectionGap;
             ctx.fillStyle = '#aeb4bb';
@@ -2605,8 +2611,9 @@
                 ctx.fillStyle = '#c9ced4';
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'middle';
-                setFittedCanvasFont(ctx, entry.card.cardNumber || '', cardWidth, 18, 14, 700);
-                ctx.fillText(entry.card.cardNumber || '', x + cardWidth / 2, y + cardHeight + cardNumberLabelHeight / 2 + 1);
+                const cardMeta = getDeckImageCardMeta(entry.card);
+                setFittedCanvasFont(ctx, cardMeta, cardWidth, 18, 12, 700);
+                ctx.fillText(cardMeta, x + cardWidth / 2, y + cardHeight + cardNumberLabelHeight / 2 + 1);
             });
 
             const footerY = canvasHeight - footerHeight;
