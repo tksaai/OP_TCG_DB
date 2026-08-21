@@ -14,6 +14,8 @@
     const DECK_SHARE_VERSION = 1;
     const DECK_SHARE_HASH_KEY = 'deck';
     const DECK_EXPORT_FORMAT = 'op-tcg-db-deck';
+    const WANTED_CARDS_METADATA_KEY = 'wantedCards';
+    const CARD_LIST_IMAGE_MAX_TYPES = 120;
     const CACHE_APP_SHELL = 'app-shell-v1';
     const CACHE_IMAGES = 'card-images-v1';
     const CARDS_JSON_PATH = './cards.json';
@@ -30,7 +32,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.6.6'; // バージョン更新
+    const APP_VERSION = '1.7.0'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -87,10 +89,15 @@
     let deckImagePreviewBlob = null;
     let deckImagePreviewUrl = '';
     let deckImagePreviewFilename = '';
+    let deckImagePreviewKind = '画像';
     let sharedDeckConfirmationResolve = null;
     let missingCardsDeck = null;
     let missingCardsOwned = {};
     let missingCardsSaveTimer = null;
+    let wantedCards = {};
+    let wantedSelectionMode = false;
+    let wantedShowOnlySelected = false;
+    let wantedCardsSaveTimer = null;
 
     // === 2. DOM要素のキャッシュ ===
     const $ = (selector) => document.querySelector(selector);
@@ -170,6 +177,8 @@
             searchBar: $('#search-bar'),
             clearSearchBtn: $('#clear-search-btn'),
             filterBtn: $('#filter-btn'),
+            wantedListBtn: $('#wanted-list-btn'),
+            wantedListCount: $('#wanted-list-count'),
             settingsBtn: $('#settings-btn'),
             mainContent: $('#main-content'),
     
@@ -226,6 +235,11 @@
             deckStatusInfo: $('#deck-status-info'),
             deckSaveBtn: $('#deck-save-btn'),
             deckShowToggleBtn: $('#deck-show-toggle-btn'),
+            wantedStatusBar: $('#wanted-status-bar'),
+            wantedStatusInfo: $('#wanted-status-info'),
+            wantedShowToggleBtn: $('#wanted-show-toggle-btn'),
+            wantedImageBtn: $('#wanted-image-btn'),
+            wantedDoneBtn: $('#wanted-done-btn'),
 
             lightboxModal: $('#lightbox-modal'),
             lightboxImage: $('#lightbox-image'),
@@ -242,6 +256,7 @@
             lightboxVariants: $('#lightbox-variants'),
 
             deckImagePreviewModal: $('#deck-image-preview-modal'),
+            deckImagePreviewTitle: $('#deck-image-preview-title'),
             deckImagePreviewCloseBtn: $('#deck-image-preview-close-btn'),
             deckImagePreviewImage: $('#deck-image-preview-image'),
             deckImagePreviewFilename: $('#deck-image-preview-filename'),
@@ -257,6 +272,7 @@
             missingCardsClearBtn: $('#missing-cards-clear-btn'),
             missingCardsFillBtn: $('#missing-cards-fill-btn'),
             missingCardsCopyBtn: $('#missing-cards-copy-btn'),
+            missingCardsImageBtn: $('#missing-cards-image-btn'),
             missingCardsShareBtn: $('#missing-cards-share-btn'),
     
             dbUpdateNotification: $('#db-update-notification'),
@@ -290,6 +306,7 @@
         setupEventListeners();
         try {
             await initDB();
+            await loadWantedCards();
             await loadImageManifest();
             await loadFuriganaOverrides();
             await loadProvisionalCards();
@@ -844,6 +861,15 @@
                 cardItem.appendChild(badge);
             }
 
+            if (wantedSelectionMode && wantedCards[card.cardNumber]) {
+                const count = wantedCards[card.cardNumber];
+                const badge = document.createElement('div');
+                badge.className = 'card-wanted-badge';
+                badge.textContent = count;
+                badge.dataset.count = count;
+                cardItem.appendChild(badge);
+            }
+
             fragment.appendChild(cardItem);
         });
 
@@ -1047,6 +1073,10 @@
 
         currentFilteredCards = sourceCards.filter(card => {
             if (!card || !card.cardNumber) return false;
+
+            if (wantedSelectionMode && wantedShowOnlySelected && !wantedCards[card.cardNumber]) {
+                return false;
+            }
 
             // ★ デッキ構築モード別フィルタ
             if (currentMode === 'leader_select') {
@@ -2220,6 +2250,13 @@
         return sanitized || fallback;
     }
 
+    function formatLocalDateStamp(date = new Date()) {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+    }
+
     function downloadBlob(blob, filename) {
         const blobUrl = URL.createObjectURL(blob);
         const anchor = document.createElement('a');
@@ -2248,19 +2285,24 @@
         deckImagePreviewBlob = null;
         deckImagePreviewUrl = '';
         deckImagePreviewFilename = '';
+        deckImagePreviewKind = '画像';
     }
 
-    function showDeckImagePreview(blob, filename, missingImages = 0) {
+    function showDeckImagePreview(blob, filename, missingImages = 0, options = {}) {
+        const previewTitle = options.title || 'デッキ画像';
+        const previewKind = options.kind || previewTitle;
         if (!dom.deckImagePreviewModal || !dom.deckImagePreviewImage) {
             downloadBlob(blob, filename);
-            showMessageToast('デッキ画像をダウンロードしました。', 'success');
+            showMessageToast(`${previewKind}をダウンロードしました。`, 'success');
             return;
         }
 
         closeDeckImagePreview();
         deckImagePreviewBlob = blob;
         deckImagePreviewFilename = filename;
+        deckImagePreviewKind = previewKind;
         deckImagePreviewUrl = URL.createObjectURL(blob);
+        if (dom.deckImagePreviewTitle) dom.deckImagePreviewTitle.textContent = previewTitle;
         dom.deckImagePreviewImage.src = deckImagePreviewUrl;
         dom.deckImagePreviewImage.alt = `${filename}のプレビュー`;
         dom.deckImagePreviewFilename.textContent = filename;
@@ -2277,7 +2319,7 @@
     function downloadDeckImagePreview() {
         if (!deckImagePreviewBlob || !deckImagePreviewFilename) return;
         downloadBlob(deckImagePreviewBlob, deckImagePreviewFilename);
-        showMessageToast('デッキ画像をダウンロードしました。', 'success');
+        showMessageToast(`${deckImagePreviewKind}をダウンロードしました。`, 'success');
     }
 
     async function shareOrSaveDeckImage() {
@@ -2303,12 +2345,13 @@
         }
 
         try {
+            const sharedKind = deckImagePreviewKind;
             await navigator.share({
                 title: deckImagePreviewFilename.replace(/\.png$/i, ''),
                 files: [file]
             });
             closeDeckImagePreview();
-            showMessageToast('デッキ画像を共有しました。', 'success');
+            showMessageToast(`${sharedKind}を共有しました。`, 'success');
         } catch (error) {
             if (error?.name === 'AbortError') return;
             console.error('Failed to share deck image:', error);
@@ -2416,6 +2459,156 @@
                 missingCount: entry.requiredCount - ownedCount
             };
         });
+    }
+
+    function normalizeWantedCards(value = {}) {
+        const normalized = {};
+        if (!value || typeof value !== 'object' || Array.isArray(value)) return normalized;
+        Object.entries(value).forEach(([cardNumber, rawCount]) => {
+            const count = Number(rawCount);
+            if (!cardNumber || !Number.isInteger(count) || count <= 0) return;
+            normalized[cardNumber] = Math.min(count, DECK_MAX_COPIES);
+        });
+        return normalized;
+    }
+
+    async function loadWantedCards() {
+        if (!db) return;
+        try {
+            const record = await db.get(STORE_METADATA, WANTED_CARDS_METADATA_KEY);
+            wantedCards = normalizeWantedCards(record?.value);
+        } catch (error) {
+            console.warn('Failed to load wanted cards:', error);
+            wantedCards = {};
+        }
+        syncWantedListControls();
+    }
+
+    async function persistWantedCards() {
+        if (!db) return false;
+        wantedCards = normalizeWantedCards(wantedCards);
+        try {
+            await db.put(STORE_METADATA, {
+                key: WANTED_CARDS_METADATA_KEY,
+                value: wantedCards,
+                updatedAt: new Date().toISOString()
+            });
+            return true;
+        } catch (error) {
+            console.error('Failed to save wanted cards:', error);
+            showMessageToast('欲しいカードリストを保存できませんでした。', 'error');
+            return false;
+        }
+    }
+
+    function scheduleWantedCardsSave() {
+        clearTimeout(wantedCardsSaveTimer);
+        wantedCardsSaveTimer = setTimeout(() => {
+            wantedCardsSaveTimer = null;
+            persistWantedCards();
+        }, 250);
+    }
+
+    function getWantedCardEntries() {
+        return Object.entries(wantedCards)
+            .filter(([, count]) => Number(count) > 0)
+            .map(([cardNumber, count]) => ({
+                card: findCardByNumber(cardNumber) || {
+                    cardNumber,
+                    cardName: '未登録カード',
+                    cardType: '',
+                    color: []
+                },
+                count: Number(count)
+            }))
+            .sort((a, b) => String(a.card.cardNumber).localeCompare(
+                String(b.card.cardNumber),
+                'en',
+                { numeric: true }
+            ));
+    }
+
+    function setWantedStatusBarVisible(visible) {
+        if (dom.wantedStatusBar) dom.wantedStatusBar.classList.toggle('active', visible);
+        document.body.classList.toggle('wanted-bar-visible', visible);
+    }
+
+    function syncWantedListControls() {
+        const entries = getWantedCardEntries();
+        const total = entries.reduce((sum, entry) => sum + entry.count, 0);
+        if (dom.wantedListBtn) {
+            dom.wantedListBtn.classList.toggle('active', wantedSelectionMode);
+            dom.wantedListBtn.setAttribute('aria-pressed', wantedSelectionMode ? 'true' : 'false');
+        }
+        if (dom.wantedListCount) {
+            dom.wantedListCount.textContent = String(entries.length);
+            dom.wantedListCount.hidden = entries.length === 0;
+        }
+        if (dom.wantedStatusInfo) {
+            dom.wantedStatusInfo.textContent = `欲しいカード: ${total}枚 / ${entries.length}種類`;
+        }
+        if (dom.wantedShowToggleBtn) {
+            dom.wantedShowToggleBtn.textContent = wantedShowOnlySelected ? '全カード' : '選択のみ';
+            dom.wantedShowToggleBtn.classList.toggle('active', wantedShowOnlySelected);
+            dom.wantedShowToggleBtn.disabled = entries.length === 0;
+        }
+        if (dom.wantedImageBtn) dom.wantedImageBtn.disabled = entries.length === 0;
+        setWantedStatusBarVisible(wantedSelectionMode);
+    }
+
+    function startWantedCardsSelection() {
+        if (currentMode !== 'view') {
+            showMessageToast('デッキ編集を終了してから欲しいカードを選択してください。', 'info');
+            return;
+        }
+        wantedSelectionMode = true;
+        showCardListView();
+        setActiveNav(activeCardView === 'new' ? 'new' : 'cards');
+        setModeMessage('欲しいカードをタップして枚数を選択してください');
+        populateFilters(getActiveCardSource());
+        syncWantedListControls();
+        applyFiltersAndDisplay();
+    }
+
+    function finishWantedCardsSelection() {
+        if (!wantedSelectionMode) return;
+        wantedSelectionMode = false;
+        wantedShowOnlySelected = false;
+        clearTimeout(wantedCardsSaveTimer);
+        wantedCardsSaveTimer = null;
+        persistWantedCards();
+        setModeMessage(null);
+        syncWantedListControls();
+        applyFiltersAndDisplay();
+    }
+
+    function toggleWantedCardCount(cardNumber) {
+        const current = Number(wantedCards[cardNumber]) || 0;
+        const next = current >= DECK_MAX_COPIES ? 0 : current + 1;
+        if (next > 0) wantedCards[cardNumber] = next;
+        else delete wantedCards[cardNumber];
+
+        if (wantedShowOnlySelected && next === 0) {
+            applyFiltersAndDisplay();
+        } else {
+            const cardItem = cardElementMap[cardNumber];
+            if (cardItem) {
+                let badge = cardItem.querySelector('.card-wanted-badge');
+                if (next > 0) {
+                    if (!badge) {
+                        badge = document.createElement('div');
+                        badge.className = 'card-wanted-badge';
+                        cardItem.appendChild(badge);
+                    }
+                    badge.textContent = String(next);
+                    badge.dataset.count = String(next);
+                } else if (badge) {
+                    badge.remove();
+                }
+            }
+        }
+        syncWantedListControls();
+        scheduleWantedCardsSave();
     }
 
     function createMissingCardThumbnail(card) {
@@ -2542,6 +2735,7 @@
                 : '不足カードはありません';
         }
         if (dom.missingCardsCopyBtn) dom.missingCardsCopyBtn.disabled = missingTotal === 0;
+        if (dom.missingCardsImageBtn) dom.missingCardsImageBtn.disabled = missingTotal === 0;
         if (dom.missingCardsShareBtn) dom.missingCardsShareBtn.disabled = missingTotal === 0;
         if (dom.missingCardsClearBtn) {
             dom.missingCardsClearBtn.disabled = entries.every(entry => entry.ownedCount === 0);
@@ -2869,6 +3063,167 @@
         });
     }
 
+    async function exportCardCollectionImage({
+        title,
+        subtitle,
+        entries,
+        filename,
+        previewTitle,
+        kind
+    }) {
+        const imageEntries = (entries || []).filter(entry => entry?.card && Number(entry.count) > 0);
+        if (imageEntries.length === 0) {
+            showMessageToast(`${kind || 'カードリスト'}は空です。`, 'info');
+            return;
+        }
+        if (imageEntries.length > CARD_LIST_IMAGE_MAX_TYPES) {
+            showMessageToast(`画像出力は${CARD_LIST_IMAGE_MAX_TYPES}種類までです。`, 'error');
+            return;
+        }
+
+        const imageKind = kind || 'カードリスト画像';
+        showMessageToast(`${imageKind}を作成しています...`, 'info');
+        try {
+            const cardImages = await Promise.all(
+                imageEntries.map(entry => loadCardCanvasImage(entry.card))
+            );
+            const canvasWidth = 1600;
+            const headerHeight = 174;
+            const footerHeight = 76;
+            const outerPadding = 48;
+            const columns = 8;
+            const cardGap = 14;
+            const rowGap = 20;
+            const labelHeight = 62;
+            const cardWidth = Math.floor(
+                (canvasWidth - outerPadding * 2 - cardGap * (columns - 1)) / columns
+            );
+            const cardHeight = Math.round(cardWidth * 1.4);
+            const rowHeight = cardHeight + labelHeight;
+            const rowCount = Math.ceil(imageEntries.length / columns);
+            const gridHeight = rowCount * rowHeight + Math.max(0, rowCount - 1) * rowGap;
+            const canvasHeight = headerHeight + outerPadding + gridHeight + outerPadding + footerHeight;
+            const canvas = document.createElement('canvas');
+            canvas.width = canvasWidth;
+            canvas.height = canvasHeight;
+            const ctx = canvas.getContext('2d');
+            if (!ctx) throw new Error('画像描画を開始できませんでした。');
+
+            ctx.fillStyle = '#101214';
+            ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+            ctx.fillStyle = '#1b1e22';
+            ctx.fillRect(0, 0, canvasWidth, headerHeight);
+            ctx.fillStyle = '#27c7b8';
+            ctx.fillRect(0, headerHeight - 8, canvasWidth, 8);
+
+            const total = imageEntries.reduce((sum, entry) => sum + Number(entry.count), 0);
+            ctx.textAlign = 'left';
+            ctx.textBaseline = 'alphabetic';
+            ctx.fillStyle = '#f4f5f6';
+            setFittedCanvasFont(ctx, title, canvasWidth - outerPadding * 2 - 350, 52, 30, 800);
+            ctx.fillText(title, outerPadding, 76);
+            ctx.fillStyle = '#aeb4bc';
+            ctx.font = '700 22px sans-serif';
+            ctx.fillText(subtitle, outerPadding, 118);
+
+            ctx.textAlign = 'right';
+            ctx.fillStyle = '#f4f5f6';
+            ctx.font = '800 30px sans-serif';
+            ctx.fillText(`${total} CARDS`, canvasWidth - outerPadding, 68);
+            ctx.fillStyle = '#aeb4bc';
+            ctx.font = '700 20px sans-serif';
+            ctx.fillText(`${imageEntries.length} TYPES`, canvasWidth - outerPadding, 108);
+
+            const gridTop = headerHeight + outerPadding;
+            imageEntries.forEach((entry, index) => {
+                const column = index % columns;
+                const row = Math.floor(index / columns);
+                const x = outerPadding + column * (cardWidth + cardGap);
+                const y = gridTop + row * (rowHeight + rowGap);
+                drawCanvasCard(ctx, entry.card, cardImages[index], x, y, cardWidth, cardHeight, entry.count);
+
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'alphabetic';
+                ctx.fillStyle = '#f4f5f6';
+                ctx.font = '700 18px sans-serif';
+                ctx.fillText(
+                    truncateCanvasText(ctx, getDeckImageCardMeta(entry.card), cardWidth),
+                    x,
+                    y + cardHeight + 24
+                );
+                ctx.fillStyle = '#aeb4bc';
+                ctx.font = '600 16px sans-serif';
+                ctx.fillText(
+                    truncateCanvasText(ctx, entry.card.cardName || '未登録カード', cardWidth),
+                    x,
+                    y + cardHeight + 49
+                );
+            });
+
+            const footerY = canvasHeight - footerHeight;
+            ctx.fillStyle = '#1b1e22';
+            ctx.fillRect(0, footerY, canvasWidth, footerHeight);
+            ctx.textBaseline = 'alphabetic';
+            ctx.textAlign = 'left';
+            ctx.fillStyle = '#8f969f';
+            ctx.font = '600 19px sans-serif';
+            ctx.fillText('OP TCG DB · CARD LIST', outerPadding, footerY + 47);
+            ctx.textAlign = 'right';
+            ctx.fillText(new Date().toLocaleDateString('ja-JP'), canvasWidth - outerPadding, footerY + 47);
+
+            const blob = await canvasToPngBlob(canvas);
+            const missingImages = cardImages.filter(image => !image).length;
+            showDeckImagePreview(blob, filename, missingImages, {
+                title: previewTitle || imageKind,
+                kind: imageKind
+            });
+        } catch (error) {
+            console.error('Failed to export card collection image:', error);
+            showMessageToast(`${imageKind}の出力に失敗しました。`, 'error');
+        }
+    }
+
+    async function exportMissingCardsImage() {
+        if (!missingCardsDeck) return;
+        const deck = missingCardsDeck;
+        const entries = getMissingCardEntries(deck, missingCardsOwned)
+            .filter(entry => entry.missingCount > 0)
+            .map(entry => ({ card: entry.card, count: entry.missingCount }));
+        if (entries.length === 0) {
+            showMessageToast('不足カードはありません。', 'info');
+            return;
+        }
+        await flushMissingCardsOwnership();
+        const deckName = normalizeDeckName(deck.name, 'デッキ');
+        await exportCardCollectionImage({
+            title: `${deckName} 不足カード`,
+            subtitle: 'OP TCG DB · MISSING CARD LIST',
+            entries,
+            filename: `${sanitizeDownloadName(deckName)}-不足カード.png`,
+            previewTitle: '不足カード画像',
+            kind: '不足カード画像'
+        });
+    }
+
+    async function exportWantedCardsImage() {
+        const entries = getWantedCardEntries();
+        if (entries.length === 0) {
+            showMessageToast('欲しいカードリストは空です。', 'info');
+            return;
+        }
+        clearTimeout(wantedCardsSaveTimer);
+        wantedCardsSaveTimer = null;
+        await persistWantedCards();
+        await exportCardCollectionImage({
+            title: '欲しいカードリスト',
+            subtitle: 'OP TCG DB · WANTED CARD LIST',
+            entries,
+            filename: `欲しいカードリスト-${formatLocalDateStamp()}.png`,
+            previewTitle: '欲しいカード画像',
+            kind: '欲しいカード画像'
+        });
+    }
+
     async function exportDeckImage(deck) {
         const entries = getDeckImageEntries(deck);
         if (entries.length > DECK_MAX_CARDS * 2) {
@@ -3090,7 +3445,9 @@
         if (index < 0 || index >= currentFilteredCards.length) return;
         const card = currentFilteredCards[index];
 
-        if (currentMode === 'leader_select') {
+        if (wantedSelectionMode && currentMode === 'view') {
+            toggleWantedCardCount(card.cardNumber);
+        } else if (currentMode === 'leader_select') {
             confirmLeaderSelection(card);
         } else if (currentMode === 'deck_edit') {
             toggleDeckCardCount(card.cardNumber);
@@ -3851,12 +4208,12 @@
         document.addEventListener('click', () => closeDeckActionMenu());
         document.addEventListener('keydown', event => {
             if (event.key === 'Escape') {
-                if (dom.missingCardsModal?.style.display !== 'none') {
-                    event.preventDefault();
-                    closeMissingCardsModal();
-                } else if (dom.deckImagePreviewModal?.style.display !== 'none') {
+                if (dom.deckImagePreviewModal?.style.display !== 'none') {
                     event.preventDefault();
                     closeDeckImagePreview();
+                } else if (dom.missingCardsModal?.style.display !== 'none') {
+                    event.preventDefault();
+                    closeMissingCardsModal();
                 } else if (dom.sharedDeckConfirmModal?.style.display !== 'none') {
                     event.preventDefault();
                     resolveSharedDeckImportConfirmation(false);
@@ -3894,6 +4251,13 @@
             syncFilterModalWithState(); // ★ 変更: 現在のフィルタ状態に同期
             dom.filterModal.style.display = 'flex';
         });
+
+        if (dom.wantedListBtn) {
+            dom.wantedListBtn.addEventListener('click', () => {
+                if (wantedSelectionMode) finishWantedCardsSelection();
+                else startWantedCardsSelection();
+            });
+        }
 
         // 設定ボタン
         dom.settingsBtn.addEventListener('click', () => {
@@ -4048,6 +4412,9 @@
         if (dom.missingCardsCopyBtn) {
             dom.missingCardsCopyBtn.addEventListener('click', copyMissingCardsList);
         }
+        if (dom.missingCardsImageBtn) {
+            dom.missingCardsImageBtn.addEventListener('click', exportMissingCardsImage);
+        }
         if (dom.missingCardsShareBtn) {
             dom.missingCardsShareBtn.addEventListener('click', shareMissingCardsList);
         }
@@ -4133,8 +4500,8 @@
             cardListTapMoveY = 0;
             cardListLongPressed = false;
 
-            // デッキ構築モード中はロングプレスで拡大表示
-            if (currentMode !== 'view') {
+            // 選択モード中はロングプレスで拡大表示
+            if (currentMode !== 'view' || wantedSelectionMode) {
                 const cardItem = cardListTapElement.closest('.card-item');
                 if (cardItem && cardItem.dataset.index) {
                     const index = parseInt(cardItem.dataset.index, 10);
@@ -4187,10 +4554,14 @@
                 if (currentMode === 'leader_select' || currentMode === 'deck_edit') {
                     if (!confirm('デッキ作成・編集を中断しますか？(未保存の変更は破棄されます)')) return;
                 }
-                exitDeckBuildingMode();
+                if (currentMode !== 'view') exitDeckBuildingMode();
+                activeCardView = 'cards';
                 setActiveNav('cards');
                 showCardListView();
                 populateFilters(allCards);
+                if (wantedSelectionMode) {
+                    setModeMessage('欲しいカードをタップして枚数を選択してください');
+                }
                 applyFiltersAndDisplay();
             });
         }
@@ -4200,6 +4571,7 @@
                 if (currentMode === 'leader_select' || currentMode === 'deck_edit') {
                     if (!confirm('デッキ作成・編集を中断しますか？(未保存の変更は破棄されます)')) return;
                 }
+                if (wantedSelectionMode) finishWantedCardsSelection();
                 exitDeckBuildingMode();
                 setActiveNav('decks');
                 showDeckListView();
@@ -4212,7 +4584,7 @@
                 if (currentMode === 'leader_select' || currentMode === 'deck_edit') {
                     if (!confirm('デッキ作成・編集を中断しますか？(未保存の変更は破棄されます)')) return;
                 }
-                exitDeckBuildingMode();
+                if (currentMode !== 'view') exitDeckBuildingMode();
                 activeCardView = 'new';
                 setActiveNav('new');
                 showCardListView();
@@ -4220,6 +4592,9 @@
                 dom.searchBar.value = '';
                 dom.clearSearchBtn.style.display = 'none';
                 resetFilters();
+                if (wantedSelectionMode) {
+                    setModeMessage('欲しいカードをタップして枚数を選択してください');
+                }
                 applyFiltersAndDisplay();
                 dom.mainContent.scrollTop = 0;
             });
@@ -4246,6 +4621,19 @@
                 syncDeckShowToggleBtn();
                 applyFiltersAndDisplay();
             });
+        }
+        if (dom.wantedShowToggleBtn) {
+            dom.wantedShowToggleBtn.addEventListener('click', () => {
+                wantedShowOnlySelected = !wantedShowOnlySelected;
+                syncWantedListControls();
+                applyFiltersAndDisplay();
+            });
+        }
+        if (dom.wantedImageBtn) {
+            dom.wantedImageBtn.addEventListener('click', exportWantedCardsImage);
+        }
+        if (dom.wantedDoneBtn) {
+            dom.wantedDoneBtn.addEventListener('click', finishWantedCardsSelection);
         }
 
         // ライトボックス

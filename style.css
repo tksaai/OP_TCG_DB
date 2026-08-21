@@ -160,6 +160,46 @@ input[type="search"]::-webkit-search-cancel-button {
     background-color: var(--color-border);
 }
 
+.wanted-list-btn {
+    position: relative;
+    color: #ff7da4;
+}
+
+.wanted-list-btn.active,
+.wanted-list-btn[aria-pressed="true"] {
+    background-color: rgba(255, 125, 164, 0.16);
+    color: #ff9bbb;
+}
+
+.wanted-list-count {
+    position: absolute;
+    top: -2px;
+    right: -3px;
+    min-width: 17px;
+    height: 17px;
+    padding: 0 4px;
+    border: 2px solid var(--color-surface);
+    border-radius: 9px;
+    background-color: #ffca28;
+    color: #171200;
+    font-size: 10px;
+    font-weight: 900;
+    line-height: 13px;
+    text-align: center;
+}
+
+@media (max-width: 380px) {
+    .header-content {
+        gap: 6px;
+        padding-right: 8px;
+        padding-left: 8px;
+    }
+
+    .header-btn {
+        padding: 5px;
+    }
+}
+
 /* 3b. メインコンテンツ (スクロールエリア) */
 .main-content {
     /* ★ 修正: position: absolute を削除 */
@@ -1500,6 +1540,27 @@ body.mode-bar-visible .main-content {
     color: #000;
 }
 
+/* 欲しいカード選択時の枚数バッジ */
+.card-wanted-badge {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    z-index: 3;
+    width: 28px;
+    height: 28px;
+    border: 2px solid rgba(255, 255, 255, 0.82);
+    border-radius: 7px;
+    background-color: #ff5d8f;
+    color: #21000b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 900;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.72);
+    pointer-events: none;
+}
+
 /* デッキ一覧 */
 .deck-list-view {
     padding: 4px 2px;
@@ -1792,6 +1853,124 @@ body.deck-bar-visible .main-content {
 /* 通知エリアがステータスバーと被らないように */
 body.deck-bar-visible #notification-area {
     bottom: calc(var(--footer-height) + var(--safe-area-bottom) + 46px + 12px);
+}
+
+/* 欲しいカード選択ステータスバー */
+.wanted-status-bar {
+    position: fixed;
+    bottom: calc(var(--footer-height) + var(--safe-area-bottom));
+    left: 0;
+    right: 0;
+    z-index: 9;
+    height: 52px;
+    padding: 0 calc(var(--safe-area-right) + 10px) 0 calc(var(--safe-area-left) + 12px);
+    border-top: 1px solid rgba(255, 125, 164, 0.5);
+    background-color: #34252c;
+    color: #fff;
+    display: none;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.38);
+}
+
+.wanted-status-bar.active {
+    display: grid;
+}
+
+body.wanted-bar-visible .main-content {
+    padding-bottom: calc(var(--footer-height) + var(--safe-area-bottom) + 8px + 52px);
+}
+
+.wanted-count-info {
+    min-width: 0;
+    color: #ffe2eb;
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.wanted-status-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.wanted-toggle-btn,
+.wanted-done-btn,
+.wanted-icon-btn {
+    min-height: 36px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.wanted-toggle-btn {
+    min-width: 68px;
+    padding: 5px 8px;
+    border: 1px solid rgba(255, 255, 255, 0.42);
+}
+
+.wanted-toggle-btn.active {
+    border-color: var(--color-secondary);
+    background-color: var(--color-secondary);
+    color: #001b18;
+}
+
+.wanted-icon-btn {
+    width: 36px;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.42);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wanted-done-btn {
+    min-width: 48px;
+    padding: 5px 10px;
+    background-color: #ff7da4;
+    color: #21000b;
+}
+
+.wanted-toggle-btn:focus-visible,
+.wanted-icon-btn:focus-visible,
+.wanted-done-btn:focus-visible,
+.wanted-list-btn:focus-visible {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 2px;
+}
+
+body.wanted-bar-visible #notification-area {
+    bottom: calc(var(--footer-height) + var(--safe-area-bottom) + 52px + 12px);
+}
+
+@media (max-width: 380px) {
+    .wanted-status-bar {
+        padding-right: calc(var(--safe-area-right) + 6px);
+        padding-left: calc(var(--safe-area-left) + 8px);
+        gap: 5px;
+    }
+
+    .wanted-count-info {
+        font-size: 11px;
+    }
+
+    .wanted-status-actions {
+        gap: 4px;
+    }
+
+    .wanted-toggle-btn {
+        min-width: 62px;
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+
+    .wanted-done-btn {
+        min-width: 44px;
+        padding-right: 7px;
+        padding-left: 7px;
+    }
 }
 
 /* === 14. デッキ画像プレビュー === */

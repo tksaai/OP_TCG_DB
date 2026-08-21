@@ -37,6 +37,12 @@
                     <input type="search" id="search-bar" placeholder="名前, テキスト, カード番号...">
                     <button id="clear-search-btn" class="clear-search-btn" aria-label="検索クリア">&times;</button>
                 </div>
+                <button id="wanted-list-btn" class="header-btn wanted-list-btn" type="button" aria-label="欲しいカードリスト" aria-pressed="false" title="欲しいカードリスト">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78Z"></path>
+                    </svg>
+                    <span id="wanted-list-count" class="wanted-list-count" hidden>0</span>
+                </button>
                 <button id="filter-btn" class="header-btn filter-btn" aria-label="フィルタ">
                     <!-- SVG Filter Icon -->
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
@@ -93,6 +99,22 @@
             <div class="deck-status-actions">
                 <button id="deck-show-toggle-btn" class="deck-toggle-btn">デッキ表示</button>
                 <button id="deck-save-btn" class="deck-save-btn">完了</button>
+            </div>
+        </div>
+
+        <!-- 8c. 欲しいカード選択用ステータスバー -->
+        <div id="wanted-status-bar" class="wanted-status-bar">
+            <span id="wanted-status-info" class="wanted-count-info">欲しいカード: 0枚 / 0種類</span>
+            <div class="wanted-status-actions">
+                <button id="wanted-show-toggle-btn" class="wanted-toggle-btn" type="button">選択のみ</button>
+                <button id="wanted-image-btn" class="wanted-icon-btn" type="button" aria-label="欲しいカード画像を作成" title="画像を作成">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+                        <circle cx="9" cy="9" r="2"></circle>
+                        <path d="m21 15-3.1-3.1a2 2 0 0 0-2.8 0L6 21"></path>
+                    </svg>
+                </button>
+                <button id="wanted-done-btn" class="wanted-done-btn" type="button">完了</button>
             </div>
         </div>
 
@@ -363,6 +385,14 @@
                             <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"></path>
                         </svg>
                         <span>コピー</span>
+                    </button>
+                    <button id="missing-cards-image-btn" class="modal-btn modal-btn-secondary missing-cards-action" type="button">
+                        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+                            <circle cx="9" cy="9" r="2"></circle>
+                            <path d="m21 15-3.1-3.1a2 2 0 0 0-2.8 0L6 21"></path>
+                        </svg>
+                        <span>画像</span>
                     </button>
                     <button id="missing-cards-share-btn" class="modal-btn modal-btn-primary missing-cards-action" type="button">
                         <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
