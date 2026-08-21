@@ -42415,5 +42415,1454 @@
     "cardType": "CHARACTER",
     "getInfo": "週刊少年ジャンプ33号付録応募者全員サービス（2026年7月13日売）",
     "label": "公式差分 2"
+  },
+  "Cards/OP17/official/OP17-001.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-001.png?260821",
+    "cardName": "エドワード・ニューゲート",
+    "rarity": "L",
+    "cardType": "LEADER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-001_p1.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-001_p1.png?260821",
+    "cardName": "エドワード・ニューゲート",
+    "rarity": "L",
+    "cardType": "LEADER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "公式差分 2"
+  },
+  "Cards/OP17/official/OP17-002.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-002.png?260821",
+    "cardName": "アトモス",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-003.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-003.png?260821",
+    "cardName": "イゾウ",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-004.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-004.png?260821",
+    "cardName": "イヌアラシ＆ネコマムシ",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-005.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-005.png?260821",
+    "cardName": "エドワード・ニューゲート",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-005_p1.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-005_p1.png?260821",
+    "cardName": "エドワード・ニューゲート",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "公式差分 2"
+  },
+  "Cards/OP17/official/OP17-005_p2.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-005_p2.png?260821",
+    "cardName": "エドワード・ニューゲート",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "公式差分 3"
+  },
+  "Cards/OP17/official/OP17-006.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-006.png?260821",
+    "cardName": "キングデュー",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-006_p1.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-006_p1.png?260821",
+    "cardName": "キングデュー",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "公式差分 2"
+  },
+  "Cards/OP17/official/OP17-007.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-007.png?260821",
+    "cardName": "光月おでん",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-008.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-008.png?260821",
+    "cardName": "ジョズ",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-009.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-009.png?260821",
+    "cardName": "ハルタ",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-010.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-010.png?260821",
+    "cardName": "フォッサ",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-011.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-011.png?260821",
+    "cardName": "ブラメンコ",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-012.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-012.png?260821",
+    "cardName": "ブレンハイム",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-013.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-013.png?260821",
+    "cardName": "ポートガス・Ｄ・エース",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-014.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-014.png?260821",
+    "cardName": "ホワイティベイ",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-015.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-015.png?260821",
+    "cardName": "マルコ",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-016.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-016.png?260821",
+    "cardName": "ラクヨウ",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-017.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-017.png?260821",
+    "cardName": "グララララララ!!!",
+    "rarity": "C",
+    "cardType": "EVENT",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-018.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-018.png?260821",
+    "cardName": "世界を滅ぼす力",
+    "rarity": "UC",
+    "cardType": "EVENT",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-019.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-019.png?260821",
+    "cardName": "ハナッたれとは話したくねェよアホンダラ",
+    "rarity": "R",
+    "cardType": "EVENT",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-020.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-020.png?260821",
+    "cardName": "シャンクス",
+    "rarity": "L",
+    "cardType": "LEADER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-020_p1.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-020_p1.png?260821",
+    "cardName": "シャンクス",
+    "rarity": "L",
+    "cardType": "LEADER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "公式差分 2"
+  },
+  "Cards/OP17/official/OP17-021.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-021.png?260821",
+    "cardName": "オリ婆",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-022.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-022.png?260821",
+    "cardName": "シャンクス",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-022_p1.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-022_p1.png?260821",
+    "cardName": "シャンクス",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "公式差分 2"
+  },
+  "Cards/OP17/official/OP17-022_p2.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-022_p2.png?260821",
+    "cardName": "シャンクス",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "公式差分 3"
+  },
+  "Cards/OP17/official/OP17-023.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-023.png?260821",
+    "cardName": "ナミ",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-024.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-024.png?260821",
+    "cardName": "\"ハウリング\"ガブ",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-025.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-025.png?260821",
+    "cardName": "ビルディング・スネイク",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-025_p1.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-025_p1.png?260821",
+    "cardName": "ビルディング・スネイク",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "公式差分 2"
+  },
+  "Cards/OP17/official/OP17-026.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-026.png?260821",
+    "cardName": "フガー",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-027.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-027.png?260821",
+    "cardName": "ベン・ベックマン",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-027_p1.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-027_p1.png?260821",
+    "cardName": "ベン・ベックマン",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "公式差分 2"
+  },
+  "Cards/OP17/official/OP17-028.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-028.png?260821",
+    "cardName": "ボンク・パンチ＆モンスター",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-029.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-029.png?260821",
+    "cardName": "ホンゴウ",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-030.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-030.png?260821",
+    "cardName": "モンキー・Ｄ・ルフィ",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-031.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-031.png?260821",
+    "cardName": "ヤソップ",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-031_p1.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-031_p1.png?260821",
+    "cardName": "ヤソップ",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "公式差分 2"
+  },
+  "Cards/OP17/official/OP17-032.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-032.png?260821",
+    "cardName": "ライムジュース",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-033.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-033.png?260821",
+    "cardName": "ラッキー・ルウ",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-033_p1.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-033_p1.png?260821",
+    "cardName": "ラッキー・ルウ",
+    "rarity": "TR",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "公式差分 2"
+  },
+  "Cards/OP17/official/OP17-034.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-034.png?260821",
+    "cardName": "ロックスター",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-035.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-035.png?260821",
+    "cardName": "ロロノア・ゾロ",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-036.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-036.png?260821",
+    "cardName": "全員 この場はおれの顔を立てて貰おう",
+    "rarity": "UC",
+    "cardType": "EVENT",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-037.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-037.png?260821",
+    "cardName": "そんなに恐いか？「新時代」が!!!",
+    "rarity": "R",
+    "cardType": "EVENT",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-037_p1.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-037_p1.png?260821",
+    "cardName": "そんなに恐いか？「新時代」が!!!",
+    "rarity": "R",
+    "cardType": "EVENT",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "公式差分 2"
+  },
+  "Cards/OP17/official/OP17-038.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-038.png?260821",
+    "cardName": "やべェ未来が見えた様だ…",
+    "rarity": "C",
+    "cardType": "EVENT",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-039.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-039.png?260821",
+    "cardName": "ロックス・Ｄ・ジーベック",
+    "rarity": "L",
+    "cardType": "LEADER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-039_p1.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-039_p1.png?260821",
+    "cardName": "ロックス・Ｄ・ジーベック",
+    "rarity": "L",
+    "cardType": "LEADER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "公式差分 2"
+  },
+  "Cards/OP17/official/OP17-040.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-040.png?260821",
+    "cardName": "エドワード・ニューゲート",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-041.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-041.png?260821",
+    "cardName": "王直",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-042.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-042.png?260821",
+    "cardName": "カイドウ",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-043.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-043.png?260821",
+    "cardName": "ガンズイ",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-044.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-044.png?260821",
+    "cardName": "キャプテン・ジョン",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-045.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-045.png?260821",
+    "cardName": "凶",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-045_p1.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-045_p1.png?260821",
+    "cardName": "凶",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "公式差分 2"
+  },
+  "Cards/OP17/official/OP17-046.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-046.png?260821",
+    "cardName": "グロリオーサ",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-046_p1.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-046_p1.png?260821",
+    "cardName": "グロリオーサ",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "公式差分 2"
+  },
+  "Cards/OP17/official/OP17-047.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-047.png?260821",
+    "cardName": "シキ",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-048.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-048.png?260821",
+    "cardName": "シキ",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-048_p1.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-048_p1.png?260821",
+    "cardName": "シキ",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "公式差分 2"
+  },
+  "Cards/OP17/official/OP17-049.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-049.png?260821",
+    "cardName": "シャーロット・リンリン",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-049_p1.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-049_p1.png?260821",
+    "cardName": "シャーロット・リンリン",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "公式差分 2"
+  },
+  "Cards/OP17/official/OP17-050.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-050.png?260821",
+    "cardName": "シュトロイゼン",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-051.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-051.png?260821",
+    "cardName": "ジンベエ",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-052.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-052.png?260821",
+    "cardName": "首領・マーロン",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-053.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-053.png?260821",
+    "cardName": "バーベル",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-054.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-054.png?260821",
+    "cardName": "ミス・バッキンガム・ステューシー",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-054_p1.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-054_p1.png?260821",
+    "cardName": "ミス・バッキンガム・ステューシー",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "公式差分 2"
+  },
+  "Cards/OP17/official/OP17-055.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-055.png?260821",
+    "cardName": "永遠に続く権力などこの世にゃねェんだ!!!",
+    "rarity": "R",
+    "cardType": "EVENT",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-056.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-056.png?260821",
+    "cardName": "ロックス海賊団",
+    "rarity": "UC",
+    "cardType": "EVENT",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-057.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-057.png?260821",
+    "cardName": "ハチノス",
+    "rarity": "C",
+    "cardType": "STAGE",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-058.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-058.png?260821",
+    "cardName": "カイドウ",
+    "rarity": "L",
+    "cardType": "LEADER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-058_p1.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-058_p1.png?260821",
+    "cardName": "カイドウ",
+    "rarity": "L",
+    "cardType": "LEADER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "公式差分 2"
+  },
+  "Cards/OP17/official/OP17-059.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-059.png?260821",
+    "cardName": "アラマキ",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-060.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-060.png?260821",
+    "cardName": "うるティ＆ページワン",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-061.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-061.png?260821",
+    "cardName": "大看板",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-061_p1.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-061_p1.png?260821",
+    "cardName": "大看板",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "公式差分 2"
+  },
+  "Cards/OP17/official/OP17-062.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-062.png?260821",
+    "cardName": "カイドウ",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-062_p1.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-062_p1.png?260821",
+    "cardName": "カイドウ",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "公式差分 2"
+  },
+  "Cards/OP17/official/OP17-062_p2.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-062_p2.png?260821",
+    "cardName": "カイドウ",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "公式差分 3"
+  },
+  "Cards/OP17/official/OP17-062_p3.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-062_p3.png?260821",
+    "cardName": "カイドウ",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "公式差分 4"
+  },
+  "Cards/OP17/official/OP17-063.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-063.png?260821",
+    "cardName": "カイドウ",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-063_p1.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-063_p1.png?260821",
+    "cardName": "カイドウ",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "公式差分 2"
+  },
+  "Cards/OP17/official/OP17-064.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-064.png?260821",
+    "cardName": "キング",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-065.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-065.png?260821",
+    "cardName": "クイーン",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-066.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-066.png?260821",
+    "cardName": "黒炭オロチ",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-067.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-067.png?260821",
+    "cardName": "黒炭カン十郎",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-068.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-068.png?260821",
+    "cardName": "ササキ",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-069.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-069.png?260821",
+    "cardName": "ジャック",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-070.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-070.png?260821",
+    "cardName": "スクラッチメン・アプー",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-070_p1.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-070_p1.png?260821",
+    "cardName": "スクラッチメン・アプー",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "公式差分 2"
+  },
+  "Cards/OP17/official/OP17-071.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-071.png?260821",
+    "cardName": "フーズ・フー",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-072.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-072.png?260821",
+    "cardName": "ブラックマリア",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-073.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-073.png?260821",
+    "cardName": "バジル・ホーキンス",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-074.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-074.png?260821",
+    "cardName": "ヤマト",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-075.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-075.png?260821",
+    "cardName": "Ｘ・ドレーク",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-076.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-076.png?260821",
+    "cardName": "ウォロロロロ…!!すっかり酔いが醒めたぜ",
+    "rarity": "R",
+    "cardType": "EVENT",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-077.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-077.png?260821",
+    "cardName": "軍荼利龍盛軍",
+    "rarity": "UC",
+    "cardType": "EVENT",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-078.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-078.png?260821",
+    "cardName": "酒龍八卦",
+    "rarity": "C",
+    "cardType": "EVENT",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-079.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-079.png?260821",
+    "cardName": "モンキー・Ｄ・ルフィ",
+    "rarity": "L",
+    "cardType": "LEADER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-079_p1.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-079_p1.png?260821",
+    "cardName": "モンキー・Ｄ・ルフィ",
+    "rarity": "L",
+    "cardType": "LEADER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "公式差分 2"
+  },
+  "Cards/OP17/official/OP17-079_p2.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-079_p2.png?260821",
+    "cardName": "モンキー・Ｄ・ルフィ",
+    "rarity": "L",
+    "cardType": "LEADER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "公式差分 3"
+  },
+  "Cards/OP17/official/OP17-080.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-080.png?260821",
+    "cardName": "ウソップ",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-080_p1.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-080_p1.png?260821",
+    "cardName": "ウソップ",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "公式差分 2"
+  },
+  "Cards/OP17/official/OP17-081.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-081.png?260821",
+    "cardName": "ゲルズ",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-082.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-082.png?260821",
+    "cardName": "サンジ",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-083.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-083.png?260821",
+    "cardName": "ジンベエ",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-084.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-084.png?260821",
+    "cardName": "トニートニー・チョッパー",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-085.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-085.png?260821",
+    "cardName": "ドリー",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-086.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-086.png?260821",
+    "cardName": "ナミ",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-087.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-087.png?260821",
+    "cardName": "ニコ・ロビン",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-087_p1.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-087_p1.png?260821",
+    "cardName": "ニコ・ロビン",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "公式差分 2"
+  },
+  "Cards/OP17/official/OP17-088.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-088.png?260821",
+    "cardName": "ハイルディン",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-088_p1.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-088_p1.png?260821",
+    "cardName": "ハイルディン",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "公式差分 2"
+  },
+  "Cards/OP17/official/OP17-089.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-089.png?260821",
+    "cardName": "ハグワール・Ｄ・サウロ",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-090.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-090.png?260821",
+    "cardName": "フランキー",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-091.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-091.png?260821",
+    "cardName": "ブルック",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-092.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-092.png?260821",
+    "cardName": "ブロギー",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-093.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-093.png?260821",
+    "cardName": "モンキー・Ｄ・ルフィ",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-093_p1.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-093_p1.png?260821",
+    "cardName": "モンキー・Ｄ・ルフィ",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "公式差分 2"
+  },
+  "Cards/OP17/official/OP17-094.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-094.png?260821",
+    "cardName": "ロード",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-095.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-095.png?260821",
+    "cardName": "ロロノア・ゾロ",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-096.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-096.png?260821",
+    "cardName": "おれはルフィ!!海賊王になる男だ!!",
+    "rarity": "R",
+    "cardType": "EVENT",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-097.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-097.png?260821",
+    "cardName": "この怒りを食らっておれは!!!“世界”を滅ぼしてやる!!!",
+    "rarity": "C",
+    "cardType": "EVENT",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-098.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-098.png?260821",
+    "cardName": "ゴムゴムの猿王銃",
+    "rarity": "C",
+    "cardType": "EVENT",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-099.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-099.png?260821",
+    "cardName": "シャーロット・リンリン",
+    "rarity": "L",
+    "cardType": "LEADER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-099_p1.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-099_p1.png?260821",
+    "cardName": "シャーロット・リンリン",
+    "rarity": "L",
+    "cardType": "LEADER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "公式差分 2"
+  },
+  "Cards/OP17/official/OP17-100.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-100.png?260821",
+    "cardName": "カポネ・ベッジ",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-101.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-101.png?260821",
+    "cardName": "カリブー",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-102.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-102.png?260821",
+    "cardName": "シャーロット・オーブン",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-103.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-103.png?260821",
+    "cardName": "シャーロット・カタクリ",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-104.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-104.png?260821",
+    "cardName": "シャーロット・クラッカー",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-105.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-105.png?260821",
+    "cardName": "シャーロット・シフォン",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-106.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-106.png?260821",
+    "cardName": "シャーロット・スムージー",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-107.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-107.png?260821",
+    "cardName": "シャーロット・ダイフク",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-107_p1.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-107_p1.png?260821",
+    "cardName": "シャーロット・ダイフク",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "公式差分 2"
+  },
+  "Cards/OP17/official/OP17-108.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-108.png?260821",
+    "cardName": "シャーロット・ブリュレ",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-109.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-109.png?260821",
+    "cardName": "シャーロット・プリン",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-110.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-110.png?260821",
+    "cardName": "シャーロット・ペロスペロー",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-111.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-111.png?260821",
+    "cardName": "シャーロット・モンドール",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-112.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-112.png?260821",
+    "cardName": "シャーロット・リンリン",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-112_p1.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-112_p1.png?260821",
+    "cardName": "シャーロット・リンリン",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "公式差分 2"
+  },
+  "Cards/OP17/official/OP17-112_p2.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-112_p2.png?260821",
+    "cardName": "シャーロット・リンリン",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "公式差分 3"
+  },
+  "Cards/OP17/official/OP17-113.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-113.png?260821",
+    "cardName": "シュトロイゼン",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-114.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-114.png?260821",
+    "cardName": "スイート３将星",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-114_p1.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-114_p1.png?260821",
+    "cardName": "スイート３将星",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "公式差分 2"
+  },
+  "Cards/OP17/official/OP17-115.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-115.png?260821",
+    "cardName": "仁義ってモンがあんだろうが アホンダラァ!!!",
+    "rarity": "R",
+    "cardType": "EVENT",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-116.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-116.png?260821",
+    "cardName": "震御雷",
+    "rarity": "UC",
+    "cardType": "EVENT",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-117.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-117.png?260821",
+    "cardName": "鳴光剣",
+    "rarity": "C",
+    "cardType": "EVENT",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-118.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-118.png?260821",
+    "cardName": "ロックス・Ｄ・ジーベック",
+    "rarity": "SEC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-118_p1.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-118_p1.png?260821",
+    "cardName": "ロックス・Ｄ・ジーベック",
+    "rarity": "SEC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "公式差分 2"
+  },
+  "Cards/OP17/official/OP17-118_p2.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-118_p2.png?260821",
+    "cardName": "ロックス・Ｄ・ジーベック",
+    "rarity": "SEC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "公式差分 3"
+  },
+  "Cards/OP17/official/OP17-119.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-119.png?260821",
+    "cardName": "ロキ",
+    "rarity": "SEC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "通常"
+  },
+  "Cards/OP17/official/OP17-119_p1.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-119_p1.png?260821",
+    "cardName": "ロキ",
+    "rarity": "SEC",
+    "cardType": "CHARACTER",
+    "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+    "label": "公式差分 2"
+  },
+  "Cards/P/official/P-152.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/P-152.png?260821",
+    "cardName": "エドワード・ニューゲート",
+    "rarity": "P",
+    "cardType": "CHARACTER",
+    "getInfo": "最強ジャンプ5月号​ 応募者全員大サービス（2026年4月3日売）",
+    "label": "通常"
+  },
+  "Cards/P/official/P-153.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/P-153.png?260821",
+    "cardName": "ポートガス・D・エース",
+    "rarity": "P",
+    "cardType": "CHARACTER",
+    "getInfo": "最強ジャンプ5月号​ 応募者全員大サービス（2026年4月3日売）",
+    "label": "通常"
+  },
+  "Cards/P/official/P-154.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/P-154.png?260821",
+    "cardName": "モンキー・D・ルフィ",
+    "rarity": "P",
+    "cardType": "CHARACTER",
+    "getInfo": "最強ジャンプ5月号​ 応募者全員大サービス（2026年4月3日売）",
+    "label": "通常"
   }
 }
