@@ -30,7 +30,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.6.5'; // バージョン更新
+    const APP_VERSION = '1.6.6'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -88,6 +88,9 @@
     let deckImagePreviewUrl = '';
     let deckImagePreviewFilename = '';
     let sharedDeckConfirmationResolve = null;
+    let missingCardsDeck = null;
+    let missingCardsOwned = {};
+    let missingCardsSaveTimer = null;
 
     // === 2. DOM要素のキャッシュ ===
     const $ = (selector) => document.querySelector(selector);
@@ -245,6 +248,16 @@
             deckImagePreviewDetails: $('#deck-image-preview-details'),
             deckImagePreviewDownloadBtn: $('#deck-image-preview-download-btn'),
             deckImagePreviewShareBtn: $('#deck-image-preview-share-btn'),
+
+            missingCardsModal: $('#missing-cards-modal'),
+            missingCardsCloseBtn: $('#missing-cards-close-btn'),
+            missingCardsDeckName: $('#missing-cards-deck-name'),
+            missingCardsSummary: $('#missing-cards-summary'),
+            missingCardsList: $('#missing-cards-list'),
+            missingCardsClearBtn: $('#missing-cards-clear-btn'),
+            missingCardsFillBtn: $('#missing-cards-fill-btn'),
+            missingCardsCopyBtn: $('#missing-cards-copy-btn'),
+            missingCardsShareBtn: $('#missing-cards-share-btn'),
     
             dbUpdateNotification: $('#db-update-notification'),
             dbUpdateText: $('#db-update-text'),
@@ -2108,6 +2121,7 @@
             name: await getUniqueDeckName(imported.name),
             leader: imported.leader,
             cards: imported.cards,
+            ownedCards: {},
             createdAt: now,
             updatedAt: now
         };
@@ -2182,7 +2196,7 @@
         textarea.select();
         const copied = document.execCommand('copy');
         textarea.remove();
-        if (!copied) throw new Error('URLをコピーできませんでした。');
+        if (!copied) throw new Error('テキストをコピーできませんでした。');
     }
 
     async function copyDeckShareUrl(deck) {
@@ -2351,6 +2365,350 @@
                 count: Number(count)
             }))
             .sort((a, b) => compareDeckCards(a.card, b.card));
+    }
+
+    function getDeckRequirementEntries(deck) {
+        const entries = [];
+        if (deck?.leader) {
+            entries.push({
+                card: findCardByNumber(deck.leader) || {
+                    cardNumber: deck.leader,
+                    cardName: '未登録リーダー',
+                    color: []
+                },
+                requiredCount: 1,
+                isLeader: true
+            });
+        }
+        getDeckImageEntries(deck).forEach(entry => {
+            entries.push({
+                card: entry.card,
+                requiredCount: entry.count,
+                isLeader: false
+            });
+        });
+        return entries;
+    }
+
+    function clampOwnedCardCount(value, requiredCount) {
+        const count = Number(value);
+        if (!Number.isInteger(count)) return 0;
+        return Math.min(Math.max(count, 0), requiredCount);
+    }
+
+    function normalizeOwnedCardsForDeck(deck, ownedCards = {}) {
+        const normalized = {};
+        getDeckRequirementEntries(deck).forEach(entry => {
+            const cardNumber = entry.card.cardNumber;
+            const count = clampOwnedCardCount(ownedCards[cardNumber], entry.requiredCount);
+            if (count > 0) normalized[cardNumber] = count;
+        });
+        return normalized;
+    }
+
+    function getMissingCardEntries(deck, ownedCards = {}) {
+        return getDeckRequirementEntries(deck).map(entry => {
+            const cardNumber = entry.card.cardNumber;
+            const ownedCount = clampOwnedCardCount(ownedCards[cardNumber], entry.requiredCount);
+            return {
+                ...entry,
+                ownedCount,
+                missingCount: entry.requiredCount - ownedCount
+            };
+        });
+    }
+
+    function createMissingCardThumbnail(card) {
+        const shell = document.createElement('div');
+        shell.className = 'missing-card-thumbnail';
+        const cardNumber = card?.cardNumber || '?';
+        const sources = card?.cardNumber
+            ? [...new Set([
+                getCardImagePath(card, 0),
+                getCardImageFallbackPath(card, 0)
+            ].filter(Boolean))]
+            : [];
+        const showFallback = () => {
+            const fallback = document.createElement('span');
+            fallback.className = 'missing-card-thumbnail-fallback';
+            fallback.textContent = cardNumber;
+            shell.replaceChildren(fallback);
+        };
+
+        if (sources.length === 0) {
+            showFallback();
+            return shell;
+        }
+
+        const image = document.createElement('img');
+        let sourceIndex = 0;
+        image.alt = card?.cardName || cardNumber;
+        image.loading = 'lazy';
+        image.decoding = 'async';
+        image.onerror = () => {
+            sourceIndex += 1;
+            if (sourceIndex < sources.length) image.src = sources[sourceIndex];
+            else showFallback();
+        };
+        image.src = sources[sourceIndex];
+        shell.appendChild(image);
+        return shell;
+    }
+
+    function createMissingCardStepperButton(symbol, label, action) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'missing-card-stepper-btn';
+        button.textContent = symbol;
+        button.setAttribute('aria-label', label);
+        button.title = label;
+        button.addEventListener('click', action);
+        return button;
+    }
+
+    function renderMissingCardsList() {
+        if (!dom.missingCardsList || !missingCardsDeck) return;
+        const fragment = document.createDocumentFragment();
+
+        getMissingCardEntries(missingCardsDeck, missingCardsOwned).forEach(entry => {
+            const cardNumber = entry.card.cardNumber;
+            const row = document.createElement('article');
+            row.className = 'missing-card-row';
+            row.dataset.cardNumber = cardNumber;
+            row.appendChild(createMissingCardThumbnail(entry.card));
+
+            const info = document.createElement('div');
+            info.className = 'missing-card-info';
+            const number = document.createElement('strong');
+            number.className = 'missing-card-number';
+            number.textContent = [cardNumber, getRarityLabel(entry.card)].filter(Boolean).join(' · ');
+            const name = document.createElement('span');
+            name.className = 'missing-card-name';
+            name.textContent = entry.card.cardName || '未登録カード';
+            const required = document.createElement('span');
+            required.className = 'missing-card-required';
+            required.textContent = entry.isLeader ? 'リーダー · 必要1枚' : `必要${entry.requiredCount}枚`;
+            info.append(number, name, required);
+            row.appendChild(info);
+
+            const controls = document.createElement('div');
+            controls.className = 'missing-card-controls';
+            const decrement = createMissingCardStepperButton('−', `${cardNumber}の所持枚数を減らす`, () => {
+                adjustMissingOwnedCount(cardNumber, -1);
+            });
+            decrement.dataset.role = 'decrement';
+            const owned = document.createElement('output');
+            owned.className = 'missing-card-owned';
+            owned.dataset.role = 'owned';
+            const increment = createMissingCardStepperButton('+', `${cardNumber}の所持枚数を増やす`, () => {
+                adjustMissingOwnedCount(cardNumber, 1);
+            });
+            increment.dataset.role = 'increment';
+            const shortage = document.createElement('span');
+            shortage.className = 'missing-card-shortage';
+            shortage.dataset.role = 'shortage';
+            controls.append(decrement, owned, increment, shortage);
+            row.appendChild(controls);
+            fragment.appendChild(row);
+        });
+
+        dom.missingCardsList.replaceChildren(fragment);
+        syncMissingCardsModal();
+    }
+
+    function syncMissingCardsModal() {
+        if (!missingCardsDeck) return;
+        const entries = getMissingCardEntries(missingCardsDeck, missingCardsOwned);
+        const entryMap = new Map(entries.map(entry => [entry.card.cardNumber, entry]));
+        dom.missingCardsList?.querySelectorAll('.missing-card-row').forEach(row => {
+            const entry = entryMap.get(row.dataset.cardNumber);
+            if (!entry) return;
+            const decrement = row.querySelector('[data-role="decrement"]');
+            const increment = row.querySelector('[data-role="increment"]');
+            const owned = row.querySelector('[data-role="owned"]');
+            const shortage = row.querySelector('[data-role="shortage"]');
+            if (decrement) decrement.disabled = entry.ownedCount <= 0;
+            if (increment) increment.disabled = entry.ownedCount >= entry.requiredCount;
+            if (owned) owned.textContent = `所持 ${entry.ownedCount}/${entry.requiredCount}`;
+            if (shortage) shortage.textContent = entry.missingCount > 0 ? `不足 ${entry.missingCount}` : '所持済み';
+            row.classList.toggle('is-complete', entry.missingCount === 0);
+        });
+
+        const missingEntries = entries.filter(entry => entry.missingCount > 0);
+        const missingTotal = missingEntries.reduce((sum, entry) => sum + entry.missingCount, 0);
+        if (dom.missingCardsSummary) {
+            dom.missingCardsSummary.textContent = missingTotal > 0
+                ? `不足 ${missingTotal}枚 / ${missingEntries.length}種類`
+                : '不足カードはありません';
+        }
+        if (dom.missingCardsCopyBtn) dom.missingCardsCopyBtn.disabled = missingTotal === 0;
+        if (dom.missingCardsShareBtn) dom.missingCardsShareBtn.disabled = missingTotal === 0;
+        if (dom.missingCardsClearBtn) {
+            dom.missingCardsClearBtn.disabled = entries.every(entry => entry.ownedCount === 0);
+        }
+        if (dom.missingCardsFillBtn) {
+            dom.missingCardsFillBtn.disabled = entries.every(entry => entry.missingCount === 0);
+        }
+    }
+
+    function adjustMissingOwnedCount(cardNumber, delta) {
+        if (!missingCardsDeck) return;
+        const entry = getDeckRequirementEntries(missingCardsDeck)
+            .find(item => item.card.cardNumber === cardNumber);
+        if (!entry) return;
+        const current = clampOwnedCardCount(missingCardsOwned[cardNumber], entry.requiredCount);
+        const next = clampOwnedCardCount(current + delta, entry.requiredCount);
+        if (next > 0) missingCardsOwned[cardNumber] = next;
+        else delete missingCardsOwned[cardNumber];
+        syncMissingCardsModal();
+        scheduleMissingCardsOwnershipSave();
+    }
+
+    function setAllMissingOwnedCards(owned) {
+        if (!missingCardsDeck) return;
+        missingCardsOwned = {};
+        if (owned) {
+            getDeckRequirementEntries(missingCardsDeck).forEach(entry => {
+                missingCardsOwned[entry.card.cardNumber] = entry.requiredCount;
+            });
+        }
+        syncMissingCardsModal();
+        scheduleMissingCardsOwnershipSave();
+    }
+
+    async function persistMissingCardsOwnership() {
+        if (!missingCardsDeck) return true;
+        const deck = missingCardsDeck;
+        const ownedCards = normalizeOwnedCardsForDeck(deck, missingCardsOwned);
+        deck.ownedCards = ownedCards;
+        try {
+            await saveDeck(deck);
+            return true;
+        } catch (error) {
+            console.error('Failed to save owned card counts:', error);
+            showMessageToast('所持枚数を保存できませんでした。', 'error');
+            return false;
+        }
+    }
+
+    function scheduleMissingCardsOwnershipSave() {
+        clearTimeout(missingCardsSaveTimer);
+        missingCardsSaveTimer = setTimeout(() => {
+            missingCardsSaveTimer = null;
+            persistMissingCardsOwnership();
+        }, 250);
+    }
+
+    function flushMissingCardsOwnership() {
+        clearTimeout(missingCardsSaveTimer);
+        missingCardsSaveTimer = null;
+        return persistMissingCardsOwnership();
+    }
+
+    function hideMissingCardsModal() {
+        if (dom.missingCardsModal) {
+            dom.missingCardsModal.style.display = 'none';
+            dom.missingCardsModal.setAttribute('aria-hidden', 'true');
+        }
+        document.body.classList.remove('missing-cards-open');
+        dom.missingCardsList?.replaceChildren();
+        missingCardsDeck = null;
+        missingCardsOwned = {};
+    }
+
+    async function closeMissingCardsModal() {
+        const savePromise = flushMissingCardsOwnership();
+        hideMissingCardsModal();
+        await savePromise;
+    }
+
+    function openMissingCardsModal(deck) {
+        if (!dom.missingCardsModal || !deck) return;
+        missingCardsDeck = deck;
+        missingCardsOwned = normalizeOwnedCardsForDeck(deck, deck.ownedCards || {});
+        if (dom.missingCardsDeckName) {
+            dom.missingCardsDeckName.textContent = normalizeDeckName(deck.name, 'デッキ');
+        }
+        renderMissingCardsList();
+        dom.missingCardsModal.style.display = 'flex';
+        dom.missingCardsModal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('missing-cards-open');
+        requestAnimationFrame(() => dom.missingCardsCloseBtn?.focus());
+    }
+
+    function buildMissingCardsShareText(deck, ownedCards) {
+        const entries = getMissingCardEntries(deck, ownedCards)
+            .filter(entry => entry.missingCount > 0);
+        if (entries.length === 0) return '';
+
+        const lines = [`【${normalizeDeckName(deck.name, 'デッキ')}】不足カード`, ''];
+        entries.forEach(entry => {
+            const rarity = getRarityLabel(entry.card);
+            const details = [
+                entry.card.cardNumber,
+                rarity ? `[${rarity}]` : '',
+                entry.card.cardName || '未登録カード'
+            ].filter(Boolean).join(' ');
+            lines.push(`${details} ×${entry.missingCount}${entry.isLeader ? '（リーダー）' : ''}`);
+        });
+        const total = entries.reduce((sum, entry) => sum + entry.missingCount, 0);
+        lines.push('', `合計 ${total}枚 / ${entries.length}種類`);
+        return lines.join('\n');
+    }
+
+    async function copyMissingCardsList() {
+        if (!missingCardsDeck) return;
+        const text = buildMissingCardsShareText(missingCardsDeck, missingCardsOwned);
+        if (!text) {
+            showMessageToast('不足カードはありません。', 'info');
+            return;
+        }
+        const savePromise = flushMissingCardsOwnership();
+        try {
+            await copyTextToClipboard(text);
+            await savePromise;
+            showMessageToast('不足カードリストをコピーしました。', 'success');
+        } catch (error) {
+            console.error('Failed to copy missing card list:', error);
+            showMessageToast('不足カードリストをコピーできませんでした。', 'error');
+        }
+    }
+
+    async function shareMissingCardsList() {
+        if (!missingCardsDeck) return;
+        const deck = missingCardsDeck;
+        const text = buildMissingCardsShareText(deck, missingCardsOwned);
+        if (!text) {
+            showMessageToast('不足カードはありません。', 'info');
+            return;
+        }
+
+        const title = `${normalizeDeckName(deck.name, 'デッキ')} 不足カード`;
+        const savePromise = flushMissingCardsOwnership();
+        if (typeof navigator.share === 'function') {
+            try {
+                await navigator.share({ title, text });
+                await savePromise;
+                hideMissingCardsModal();
+                showMessageToast('不足カードリストを共有しました。', 'success');
+                return;
+            } catch (error) {
+                if (error?.name === 'AbortError') {
+                    await savePromise;
+                    return;
+                }
+                console.warn('Unable to share missing card list:', error);
+            }
+        }
+
+        try {
+            await copyTextToClipboard(text);
+            await savePromise;
+            showMessageToast('共有に対応していないため、リストをコピーしました。', 'success');
+        } catch (error) {
+            console.error('Failed to share missing card list:', error);
+            showMessageToast('不足カードリストを共有できませんでした。', 'error');
+        }
     }
 
     function getDeckImageCardMeta(card, fallbackNumber = '') {
@@ -2752,6 +3110,7 @@
             name: `${card.cardName}デッキ`,
             leader: card.cardNumber,
             cards: {},
+            ownedCards: {},
             createdAt: now,
             updatedAt: now
         };
@@ -2962,6 +3321,7 @@
         menu.appendChild(createDeckMenuItem('JSON出力', 'export', () => exportDeckJson(deck)));
         menu.appendChild(createDeckMenuItem('URLをコピー', 'share', () => copyDeckShareUrl(deck)));
         menu.appendChild(createDeckMenuItem('画像出力', 'image', () => exportDeckImage(deck)));
+        menu.appendChild(createDeckMenuItem('不足カードを共有', 'share', () => openMissingCardsModal(deck)));
         menu.appendChild(createDeckMenuItem('削除', 'delete', () => deleteDeck(deck), true));
         menu.addEventListener('click', event => event.stopPropagation());
         moreBtn.addEventListener('click', e => {
@@ -3010,6 +3370,7 @@
             name: deck.name,
             leader: deck.leader,
             colors: colors,
+            ownedCards: { ...(deck.ownedCards || {}) },
             createdAt: deck.createdAt || new Date().toISOString()
         };
         deckShowOnlyDeckCards = false;
@@ -3056,6 +3417,10 @@
             name: editingDeckMeta.name,
             leader: editingDeckMeta.leader,
             cards: editingDeckData,
+            ownedCards: normalizeOwnedCardsForDeck({
+                leader: editingDeckMeta.leader,
+                cards: editingDeckData
+            }, editingDeckMeta.ownedCards || {}),
             createdAt: editingDeckMeta.createdAt,
             updatedAt: new Date().toISOString()
         };
@@ -3486,7 +3851,10 @@
         document.addEventListener('click', () => closeDeckActionMenu());
         document.addEventListener('keydown', event => {
             if (event.key === 'Escape') {
-                if (dom.deckImagePreviewModal?.style.display !== 'none') {
+                if (dom.missingCardsModal?.style.display !== 'none') {
+                    event.preventDefault();
+                    closeMissingCardsModal();
+                } else if (dom.deckImagePreviewModal?.style.display !== 'none') {
                     event.preventDefault();
                     closeDeckImagePreview();
                 } else if (dom.sharedDeckConfirmModal?.style.display !== 'none') {
@@ -3662,6 +4030,26 @@
         }
         if (dom.deckImagePreviewShareBtn) {
             dom.deckImagePreviewShareBtn.addEventListener('click', shareOrSaveDeckImage);
+        }
+        if (dom.missingCardsCloseBtn) {
+            dom.missingCardsCloseBtn.addEventListener('click', closeMissingCardsModal);
+        }
+        if (dom.missingCardsModal) {
+            dom.missingCardsModal.addEventListener('click', event => {
+                if (event.target === dom.missingCardsModal) closeMissingCardsModal();
+            });
+        }
+        if (dom.missingCardsClearBtn) {
+            dom.missingCardsClearBtn.addEventListener('click', () => setAllMissingOwnedCards(false));
+        }
+        if (dom.missingCardsFillBtn) {
+            dom.missingCardsFillBtn.addEventListener('click', () => setAllMissingOwnedCards(true));
+        }
+        if (dom.missingCardsCopyBtn) {
+            dom.missingCardsCopyBtn.addEventListener('click', copyMissingCardsList);
+        }
+        if (dom.missingCardsShareBtn) {
+            dom.missingCardsShareBtn.addEventListener('click', shareMissingCardsList);
         }
         if (dom.sharedDeckConfirmCloseBtn) {
             dom.sharedDeckConfirmCloseBtn.addEventListener('click', () => {

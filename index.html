@@ -337,7 +337,49 @@
         </div>
     </div>
 
-    <!-- 16. 通知エリア -->
+    <!-- 16. モーダル: 不足カード共有 -->
+    <div id="missing-cards-modal" class="modal-overlay" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="missing-cards-title" aria-hidden="true">
+        <div class="modal-content-wrapper missing-cards-wrapper">
+            <div class="modal-content missing-cards-content">
+                <div class="modal-header">
+                    <h2 id="missing-cards-title">不足カードを共有</h2>
+                    <button id="missing-cards-close-btn" class="modal-close-btn" type="button" aria-label="不足カード画面を閉じる">&times;</button>
+                </div>
+                <div class="modal-body missing-cards-body">
+                    <strong id="missing-cards-deck-name" class="missing-cards-deck-name"></strong>
+                    <div class="missing-cards-toolbar">
+                        <span id="missing-cards-summary" class="missing-cards-summary" aria-live="polite"></span>
+                        <div class="missing-cards-quick-actions">
+                            <button id="missing-cards-clear-btn" class="missing-cards-quick-btn" type="button">すべて0枚</button>
+                            <button id="missing-cards-fill-btn" class="missing-cards-quick-btn" type="button">すべて所持</button>
+                        </div>
+                    </div>
+                    <section id="missing-cards-list" class="missing-cards-list" aria-label="デッキ内の所持枚数"></section>
+                </div>
+                <div class="modal-footer missing-cards-actions">
+                    <button id="missing-cards-copy-btn" class="modal-btn modal-btn-secondary missing-cards-action" type="button">
+                        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect width="14" height="14" x="8" y="8" rx="2"></rect>
+                            <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"></path>
+                        </svg>
+                        <span>コピー</span>
+                    </button>
+                    <button id="missing-cards-share-btn" class="modal-btn modal-btn-primary missing-cards-action" type="button">
+                        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="18" cy="5" r="3"></circle>
+                            <circle cx="6" cy="12" r="3"></circle>
+                            <circle cx="18" cy="19" r="3"></circle>
+                            <path d="m8.59 13.51 6.83 3.98"></path>
+                            <path d="m15.41 6.51-6.82 3.98"></path>
+                        </svg>
+                        <span>共有</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 17. 通知エリア -->
     <div id="notification-area">
         <!-- DB更新通知 -->
         <div id="db-update-notification" class="notification-toast" style="display: none;">
@@ -357,7 +399,7 @@
         </div>
     </div>
 
-    <!-- 17. メインスクリプト (defer を追加) -->
+    <!-- 18. メインスクリプト (defer を追加) -->
     <script src="app.js" defer></script>
 
 </body>
