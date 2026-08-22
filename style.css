@@ -1945,6 +1945,524 @@ body.wanted-bar-visible #notification-area {
     bottom: calc(var(--footer-height) + var(--safe-area-bottom) + 52px + 12px);
 }
 
+/* === 所持カード・開封記録 === */
+.collection-btn {
+    color: #55d6a8;
+}
+
+.collection-btn:hover,
+.collection-btn:focus-visible {
+    background-color: rgba(85, 214, 168, 0.14);
+}
+
+.card-variant-label {
+    position: absolute;
+    right: 4px;
+    bottom: 4px;
+    z-index: 2;
+    max-width: calc(100% - 8px);
+    min-height: 22px;
+    padding: 3px 6px;
+    overflow: hidden;
+    border-radius: 4px;
+    background-color: rgba(14, 17, 20, 0.86);
+    color: #f4f5f6;
+    font-size: 10px;
+    font-weight: 800;
+    line-height: 16px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.card-variant-label.variant-alternate-art {
+    background-color: rgba(255, 202, 40, 0.94);
+    color: #251b00;
+}
+
+.card-variant-label.variant-alternate-rarity {
+    background-color: rgba(85, 214, 168, 0.94);
+    color: #002117;
+}
+
+.card-new-badge ~ .card-variant-label {
+    max-width: calc(100% - 54px);
+}
+
+.card-collection-badge {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    z-index: 4;
+    min-width: 30px;
+    height: 30px;
+    padding: 0 6px;
+    border: 2px solid rgba(255, 255, 255, 0.82);
+    border-radius: 6px;
+    background-color: #55d6a8;
+    color: #002117;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 900;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.72);
+    pointer-events: none;
+}
+
+.variant-display-options {
+    gap: 8px;
+}
+
+.variant-display-options .filter-radio-ui {
+    min-height: 46px;
+    padding: 8px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    line-height: 1.25;
+}
+
+.filter-radio:disabled + .filter-radio-ui {
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
+.collection-status-bar {
+    position: fixed;
+    right: 0;
+    bottom: calc(var(--footer-height) + var(--safe-area-bottom));
+    left: 0;
+    z-index: 9;
+    min-height: 58px;
+    padding: 6px calc(var(--safe-area-right) + 10px) 6px calc(var(--safe-area-left) + 12px);
+    border-top: 1px solid rgba(85, 214, 168, 0.5);
+    background-color: #1b2b27;
+    color: #fff;
+    display: none;
+    grid-template-columns: minmax(90px, 1fr) auto;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.38);
+}
+
+.collection-status-bar.active {
+    display: grid;
+}
+
+body.collection-bar-visible .main-content {
+    padding-bottom: calc(var(--footer-height) + var(--safe-area-bottom) + 8px + 58px);
+}
+
+body.collection-bar-visible #notification-area {
+    bottom: calc(var(--footer-height) + var(--safe-area-bottom) + 58px + 12px);
+}
+
+.collection-status-info {
+    min-width: 0;
+    color: #dffbef;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.25;
+}
+
+.collection-status-actions,
+.collection-direction-control {
+    display: flex;
+    align-items: center;
+}
+
+.collection-status-actions {
+    gap: 5px;
+}
+
+.collection-direction-control {
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.42);
+    border-radius: 6px;
+}
+
+.collection-direction-btn,
+.collection-icon-btn,
+.collection-toggle-btn,
+.collection-done-btn {
+    min-height: 36px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.collection-direction-btn {
+    width: 34px;
+    padding: 0;
+    border-radius: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.collection-direction-btn + .collection-direction-btn {
+    border-left: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+.collection-direction-btn.active {
+    background-color: #55d6a8;
+    color: #002117;
+}
+
+.collection-toggle-btn {
+    min-width: 62px;
+    padding: 4px 7px;
+    border: 1px solid rgba(255, 255, 255, 0.42);
+}
+
+.collection-toggle-btn.active {
+    border-color: #55d6a8;
+    color: #8ff0cc;
+}
+
+.collection-icon-btn {
+    width: 36px;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.42);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.collection-done-btn {
+    min-width: 46px;
+    padding: 4px 9px;
+    background-color: #55d6a8;
+    color: #002117;
+}
+
+.collection-manager-wrapper {
+    max-width: 820px;
+}
+
+.collection-manager-content,
+.opening-form-content {
+    border-radius: 8px;
+}
+
+.collection-manager-body {
+    min-height: 300px;
+}
+
+.collection-summary {
+    margin-bottom: 14px;
+    color: #b8f1dc;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.collection-manager-actions {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 22px;
+}
+
+.collection-manager-btn {
+    min-width: 0;
+    min-height: 48px;
+    padding: 8px;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    background-color: #26292d;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    color: #e5e8eb;
+    font-size: 13px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.collection-manager-btn.primary {
+    border-color: #55d6a8;
+    color: #8ff0cc;
+}
+
+.collection-manager-btn.accent {
+    border-color: #ffca28;
+    color: #ffe083;
+}
+
+.collection-import-btn {
+    cursor: pointer;
+}
+
+.collection-import-input {
+    display: none;
+}
+
+.collection-section-heading {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.collection-section-heading h3 {
+    color: #f4f5f6;
+    font-size: 16px;
+}
+
+.collection-section-heading span {
+    color: #9ba2a9;
+    font-size: 12px;
+}
+
+.collection-sessions-list {
+    border-top: 1px solid var(--color-border);
+}
+
+.collection-session-item {
+    min-width: 0;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--color-border);
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 10px;
+}
+
+.collection-session-thumbnail {
+    width: 48px;
+    aspect-ratio: 5 / 7;
+    overflow: hidden;
+    border: 1px solid #41464c;
+    border-radius: 4px;
+    background-color: #262a2f;
+    color: #cbd0d5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.collection-session-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.collection-session-info {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.collection-session-info strong,
+.collection-session-info span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.collection-session-info strong {
+    color: #f4f5f6;
+    font-size: 14px;
+}
+
+.collection-session-info span {
+    color: #aab0b7;
+    font-size: 11px;
+}
+
+.collection-session-actions {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.collection-session-action {
+    min-height: 36px;
+    padding: 6px 8px;
+    border: 1px solid #41464c;
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: #dfe3e6;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.collection-session-action.primary {
+    border-color: #55d6a8;
+    color: #8ff0cc;
+}
+
+.collection-session-action.destructive {
+    color: #ff9cad;
+}
+
+.collection-empty {
+    padding: 24px 8px;
+    color: #9ba2a9;
+    text-align: center;
+}
+
+.opening-form-wrapper {
+    max-width: 520px;
+}
+
+.opening-form-body {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.opening-form-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(110px, 0.45fr);
+    gap: 12px;
+}
+
+.opening-form-field {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.opening-form-field span {
+    color: #cbd0d5;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.opening-form-field input,
+.opening-form-field select {
+    width: 100%;
+    min-height: 44px;
+    padding: 8px 10px;
+    border: 1px solid #454b51;
+    border-radius: 5px;
+    outline: none;
+    background-color: #111315;
+    color: #f4f5f6;
+    font: inherit;
+}
+
+.opening-form-field input:focus,
+.opening-form-field select:focus {
+    border-color: #55d6a8;
+    box-shadow: 0 0 0 2px rgba(85, 214, 168, 0.2);
+}
+
+@media (max-width: 700px) {
+    .header-content {
+        gap: 7px;
+        padding-right: 8px;
+        padding-left: 8px;
+    }
+
+    .search-bar-container {
+        min-width: 0;
+    }
+
+    .header-btn {
+        padding: 5px;
+    }
+
+    .collection-manager-actions {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .collection-session-item {
+        grid-template-columns: 44px minmax(0, 1fr);
+    }
+
+    .collection-session-thumbnail {
+        width: 44px;
+    }
+
+    .collection-session-actions {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .collection-session-action {
+        min-width: 0;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 420px) {
+    .header-content {
+        gap: 4px;
+        padding-right: 6px;
+        padding-left: 6px;
+    }
+
+    .header-btn svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .collection-status-bar {
+        grid-template-columns: minmax(72px, 1fr) auto;
+        gap: 4px;
+        padding-right: calc(var(--safe-area-right) + 5px);
+        padding-left: calc(var(--safe-area-left) + 7px);
+    }
+
+    .collection-status-info {
+        font-size: 10px;
+    }
+
+    .collection-status-actions {
+        gap: 3px;
+    }
+
+    .collection-direction-btn {
+        width: 30px;
+    }
+
+    .collection-toggle-btn {
+        min-width: 55px;
+        padding-right: 4px;
+        padding-left: 4px;
+        font-size: 11px;
+    }
+
+    .collection-icon-btn {
+        width: 34px;
+    }
+
+    .collection-done-btn {
+        min-width: 42px;
+        padding-right: 6px;
+        padding-left: 6px;
+    }
+
+    .collection-session-action span {
+        display: none;
+    }
+
+    .collection-session-action {
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+
+    .opening-form-row {
+        grid-template-columns: minmax(0, 1fr) 100px;
+        gap: 8px;
+    }
+}
+
 @media (max-width: 380px) {
     .wanted-status-bar {
         padding-right: calc(var(--safe-area-right) + 6px);

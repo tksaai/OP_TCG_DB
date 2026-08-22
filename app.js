@@ -5,16 +5,21 @@
 
     // === 1. グローバル変数と定数 ===
     const DB_NAME = 'OPCardDB';
-    const DB_VERSION = 3;
+    const DB_VERSION = 4;
     const STORE_CARDS = 'cards';
     const STORE_METADATA = 'metadata';
     const STORE_DECKS = 'decks';
+    const STORE_COLLECTION = 'collection';
+    const STORE_OPENING_SESSIONS = 'openingSessions';
     const DECK_MAX_CARDS = 50;
     const DECK_MAX_COPIES = 4;
     const DECK_SHARE_VERSION = 1;
     const DECK_SHARE_HASH_KEY = 'deck';
     const DECK_EXPORT_FORMAT = 'op-tcg-db-deck';
     const WANTED_CARDS_METADATA_KEY = 'wantedCards';
+    const VARIANT_DISPLAY_MODE_STORAGE_KEY = 'variantDisplayMode';
+    const COLLECTION_EXPORT_FORMAT = 'op-tcg-db-collection';
+    const COLLECTION_EXPORT_VERSION = 1;
     const CARD_LIST_IMAGE_MAX_TYPES = 120;
     const CACHE_APP_SHELL = 'app-shell-v1';
     const CACHE_IMAGES = 'card-images-v1';
@@ -32,7 +37,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.7.0'; // バージョン更新
+    const APP_VERSION = '1.8.0'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -75,7 +80,7 @@
     let cardListLongPressed = false;
 
     // --- デッキ構築 状態管理 ---
-    // currentMode: 'view' | 'leader_select' | 'deck_edit' | 'deck_view'
+    // currentMode: 'view' | 'leader_select' | 'deck_edit' | 'deck_view' | 'collection_edit' | 'opening_edit'
     let currentMode = 'view';
     let viewingDeck = null;    // deck_view で表示中のデッキ
     let editingDeckId = null;
@@ -98,6 +103,18 @@
     let wantedSelectionMode = false;
     let wantedShowOnlySelected = false;
     let wantedCardsSaveTimer = null;
+    let variantDisplayMode = getStoredVariantDisplayMode();
+    let collectionItems = new Map();
+    let openingSessions = [];
+    let activeOpeningSession = null;
+    let openingDraftItems = {};
+    let openingDraftDirty = false;
+    let openingSessionSaveTimer = null;
+    let openingFormSessionId = null;
+    let collectionAdjustDirection = 1;
+    let collectionShowOnlyOwned = true;
+    let collectionWriteQueue = Promise.resolve();
+    let openingWriteQueue = Promise.resolve();
 
     // === 2. DOM要素のキャッシュ ===
     const $ = (selector) => document.querySelector(selector);
@@ -177,6 +194,7 @@
             searchBar: $('#search-bar'),
             clearSearchBtn: $('#clear-search-btn'),
             filterBtn: $('#filter-btn'),
+            collectionBtn: $('#collection-btn'),
             wantedListBtn: $('#wanted-list-btn'),
             wantedListCount: $('#wanted-list-count'),
             settingsBtn: $('#settings-btn'),
@@ -240,6 +258,33 @@
             wantedShowToggleBtn: $('#wanted-show-toggle-btn'),
             wantedImageBtn: $('#wanted-image-btn'),
             wantedDoneBtn: $('#wanted-done-btn'),
+            collectionStatusBar: $('#collection-status-bar'),
+            collectionStatusInfo: $('#collection-status-info'),
+            collectionMinusBtn: $('#collection-minus-btn'),
+            collectionPlusBtn: $('#collection-plus-btn'),
+            collectionOwnedToggleBtn: $('#collection-owned-toggle-btn'),
+            collectionImageBtn: $('#collection-image-btn'),
+            collectionDoneBtn: $('#collection-done-btn'),
+
+            collectionModal: $('#collection-modal'),
+            collectionCloseBtn: $('#collection-close-btn'),
+            collectionSummary: $('#collection-summary'),
+            collectionViewBtn: $('#collection-view-btn'),
+            openingNewBtn: $('#opening-new-btn'),
+            collectionExportBtn: $('#collection-export-btn'),
+            collectionImportBtn: $('#collection-import-btn'),
+            collectionImportInput: $('#collection-import-input'),
+            collectionSessionsList: $('#collection-sessions-list'),
+
+            openingFormModal: $('#opening-form-modal'),
+            openingFormCloseBtn: $('#opening-form-close-btn'),
+            openingFormTitle: $('#opening-form-title'),
+            openingNameInput: $('#opening-name-input'),
+            openingSeriesSelect: $('#opening-series-select'),
+            openingDateInput: $('#opening-date-input'),
+            openingBoxCountInput: $('#opening-box-count-input'),
+            openingFormCancelBtn: $('#opening-form-cancel-btn'),
+            openingFormSubmitBtn: $('#opening-form-submit-btn'),
 
             lightboxModal: $('#lightbox-modal'),
             lightboxImage: $('#lightbox-image'),
@@ -310,6 +355,7 @@
             await loadImageManifest();
             await loadFuriganaOverrides();
             await loadProvisionalCards();
+            await loadCollectionItems();
         } catch (dbError) {
             console.error("Critical error during DB initialization:", dbError);
             dom.loadingIndicator.textContent = 'データベースの初期化に致命的なエラーが発生しました。';
@@ -343,6 +389,13 @@
                     if (!db.objectStoreNames.contains(STORE_DECKS)) {
                         const deckStore = db.createObjectStore(STORE_DECKS, { keyPath: 'id' });
                         deckStore.createIndex('updatedAt', 'updatedAt', { unique: false });
+                    }
+                    if (!db.objectStoreNames.contains(STORE_COLLECTION)) {
+                        db.createObjectStore(STORE_COLLECTION, { keyPath: 'id' });
+                    }
+                    if (!db.objectStoreNames.contains(STORE_OPENING_SESSIONS)) {
+                        const sessionStore = db.createObjectStore(STORE_OPENING_SESSIONS, { keyPath: 'id' });
+                        sessionStore.createIndex('updatedAt', 'updatedAt', { unique: false });
                     }
                 },
                 blocked() {
@@ -593,6 +646,100 @@
         return fallback ? [fallback] : [];
     }
 
+    function getStoredVariantDisplayMode() {
+        const value = localStorage.getItem(VARIANT_DISPLAY_MODE_STORAGE_KEY);
+        return ['representative', 'all', 'alternate'].includes(value) ? value : 'representative';
+    }
+
+    function setVariantDisplayMode(value) {
+        variantDisplayMode = ['representative', 'all', 'alternate'].includes(value)
+            ? value
+            : 'representative';
+        localStorage.setItem(VARIANT_DISPLAY_MODE_STORAGE_KEY, variantDisplayMode);
+    }
+
+    function getVariantStableIndex(variant, arrayIndex = 0) {
+        const value = Number(variant?.variantIndex);
+        return Number.isInteger(value) && value >= 0 ? value : Math.max(0, Number(arrayIndex) || 0);
+    }
+
+    function getCardVariantId(card, variant, arrayIndex = 0) {
+        const cardNumber = card?.cardNumber || '';
+        const stableIndex = getVariantStableIndex(variant, arrayIndex);
+        if (stableIndex >= 1000) return `${cardNumber}_r${stableIndex - 1000}`;
+        if (stableIndex > 0) return `${cardNumber}_p${stableIndex}`;
+        return cardNumber;
+    }
+
+    function getCardVariantType(variant, arrayIndex = 0) {
+        const stableIndex = getVariantStableIndex(variant, arrayIndex);
+        if (stableIndex >= 1000) return 'alternate-rarity';
+        if (stableIndex > 0) return 'alternate-art';
+        return 'normal';
+    }
+
+    function getVariantTypeLabel(type) {
+        if (type === 'alternate-art') return '別イラスト';
+        if (type === 'alternate-rarity') return '別レアリティ';
+        return '通常';
+    }
+
+    function getVariantKey(cardNumber, variantId) {
+        return `${cardNumber}::${variantId || cardNumber}`;
+    }
+
+    function getCardDisplayVariantIndex(card) {
+        if (Number.isInteger(card?._displayVariantIndex)) return card._displayVariantIndex;
+        return getVariantIndexForSeries(card, currentFilter.series);
+    }
+
+    function getCardDisplayVariantKey(card) {
+        const variants = getCardImageVariants(card);
+        const variantIndex = getCardDisplayVariantIndex(card);
+        const variant = variants[variantIndex] || variants[0] || {};
+        const variantId = card?._displayVariantId || getCardVariantId(card, variant, variantIndex);
+        return getVariantKey(card?.cardNumber || '', variantId);
+    }
+
+    function getEffectiveVariantDisplayMode() {
+        if (currentMode === 'collection_edit' || currentMode === 'opening_edit') return 'all';
+        if (currentMode !== 'view' || wantedSelectionMode) return 'representative';
+        return variantDisplayMode;
+    }
+
+    function variantMatchesSeries(card, variant, arrayIndex, seriesId) {
+        if (!seriesId) return true;
+        const prefix = normalizeSeriesId(card?.cardNumber?.split('-')[0]);
+        if (seriesId === 'P') return prefix === 'P';
+        const variantSeries = new Set();
+        extractSeriesIdsFromText(variant?.getInfo, variantSeries);
+        if (variantSeries.size > 0) return variantSeries.has(seriesId);
+        return prefix === seriesId;
+    }
+
+    function expandCardsForVariantDisplay(cards) {
+        const mode = getEffectiveVariantDisplayMode();
+        if (mode === 'representative') return cards;
+
+        const expanded = [];
+        cards.forEach(card => {
+            const variants = getCardImageVariants(card);
+            variants.forEach((variant, variantIndex) => {
+                const variantType = getCardVariantType(variant, variantIndex);
+                if (mode === 'alternate' && variantType !== 'alternate-art') return;
+                if (!variantMatchesSeries(card, variant, variantIndex, currentFilter.series)) return;
+                expanded.push({
+                    ...card,
+                    _displayVariantIndex: variantIndex,
+                    _displayVariantId: getCardVariantId(card, variant, variantIndex),
+                    _displayVariantType: variantType,
+                    _displayVariantLabel: variant.label || getVariantTypeLabel(variantType)
+                });
+            });
+        });
+        return expanded;
+    }
+
     function normalizeSeriesId(value) {
         return String(value || '').replace(/-/g, '').toUpperCase();
     }
@@ -692,7 +839,7 @@
         if (currentMode === 'view' && activeCardView === 'new') {
             return getProvisionalCardsForDisplay();
         }
-        if (currentMode === 'leader_select' || currentMode === 'deck_edit' || currentMode === 'deck_view') {
+        if (['leader_select', 'deck_edit', 'deck_view', 'collection_edit', 'opening_edit'].includes(currentMode)) {
             return getDeckCardPool();
         }
         return allCards;
@@ -793,14 +940,17 @@
             const cardItem = document.createElement('div');
             cardItem.className = 'card-item';
             cardItem.dataset.index = index;
-            cardItem.dataset.id = card.cardNumber;
-            cardElementMap[card.cardNumber] = cardItem;
+            const displayKey = getEffectiveVariantDisplayMode() === 'representative'
+                ? card.cardNumber
+                : getCardDisplayVariantKey(card);
+            cardItem.dataset.id = displayKey;
+            cardElementMap[displayKey] = cardItem;
             
             const img = document.createElement('img');
             img.className = 'card-image';
             
             const variants = getCardImageVariants(card);
-            const displayVariantIndex = getVariantIndexForSeries(card, currentFilter.series);
+            const displayVariantIndex = getCardDisplayVariantIndex(card);
             const relativeImagePath = getCardImagePath(card, displayVariantIndex);
 
             img.src = relativeImagePath; 
@@ -836,7 +986,7 @@
                     cardItem.appendChild(rarityBadge);
                 }
 
-                if (variants.length > 1) {
+                if (getEffectiveVariantDisplayMode() === 'representative' && variants.length > 1) {
                     const variantBadge = document.createElement('span');
                     variantBadge.className = 'card-variant-count';
                     variantBadge.textContent = `+${variants.length - 1}`;
@@ -870,6 +1020,27 @@
                 cardItem.appendChild(badge);
             }
 
+            if (currentMode === 'collection_edit' || currentMode === 'opening_edit') {
+                const key = getCardDisplayVariantKey(card);
+                const count = currentMode === 'opening_edit'
+                    ? getOpeningDraftCount(key)
+                    : getCollectionCount(key);
+                if (count > 0) {
+                    const badge = document.createElement('div');
+                    badge.className = 'card-collection-badge';
+                    badge.textContent = String(count);
+                    badge.dataset.count = String(count);
+                    cardItem.appendChild(badge);
+                }
+            }
+
+            if (getEffectiveVariantDisplayMode() !== 'representative') {
+                const variantBadge = document.createElement('span');
+                variantBadge.className = `card-variant-label variant-${card._displayVariantType || 'normal'}`;
+                variantBadge.textContent = card._displayVariantLabel || getVariantTypeLabel(card._displayVariantType);
+                cardItem.appendChild(variantBadge);
+            }
+
             fragment.appendChild(cardItem);
         });
 
@@ -896,7 +1067,7 @@
         currentLightboxIndex = -1;
         currentLightboxVariantIndex = 0;
         dom.lightboxModal.style.display = 'grid';
-        const initialVariantIndex = getVariantIndexForSeries(currentFilteredCards[index], currentFilter.series);
+        const initialVariantIndex = getCardDisplayVariantIndex(currentFilteredCards[index]);
         updateLightboxImage(index, initialVariantIndex);
     }
     
@@ -1014,7 +1185,7 @@
         const card = currentFilteredCards[indexToPreload];
         if (!card || !card.cardNumber) return;
 
-        const relativeLargePath = getCardImagePath(card, currentLightboxVariantIndex);
+        const relativeLargePath = getCardImagePath(card, getCardDisplayVariantIndex(card));
 
         if (relativeLargePath) {
             const img = new Image();
@@ -1071,7 +1242,7 @@
         // 検索モード (デフォルトは AND)
         const searchMode = currentFilter.searchMode || 'AND';
 
-        currentFilteredCards = sourceCards.filter(card => {
+        let filteredCards = sourceCards.filter(card => {
             if (!card || !card.cardNumber) return false;
 
             if (wantedSelectionMode && wantedShowOnlySelected && !wantedCards[card.cardNumber]) {
@@ -1248,11 +1419,16 @@
         // デッキ表示モード: リーダー先頭 → 種別 → コスト → カード番号順に整列
         if (currentMode === 'deck_view' && viewingDeck) {
             const leaderNumber = viewingDeck.leader;
-            currentFilteredCards.sort((a, b) => {
+            filteredCards.sort((a, b) => {
                 if (a.cardNumber === leaderNumber) return -1;
                 if (b.cardNumber === leaderNumber) return 1;
                 return compareDeckCards(a, b);
             });
+        }
+
+        currentFilteredCards = expandCardsForVariantDisplay(filteredCards);
+        if (currentMode === 'collection_edit' && collectionShowOnlyOwned) {
+            currentFilteredCards = currentFilteredCards.filter(card => getCollectionCount(getCardDisplayVariantKey(card)) > 0);
         }
 
         displayCards(currentFilteredCards);
@@ -1374,6 +1550,7 @@
         // HTML生成
         dom.filterOptionsContainer.innerHTML = `
             ${createSearchModeFilter()}
+            ${createVariantDisplayFilter()}
             ${createFilterGroup('colors', '色 (OR)', sortedColors, 'colors')}
             ${createFilterGroup('costs', 'コスト (リーダー除外)', sortedCosts.map(String), 'costs')}
             ${createFilterGroup('powers', 'パワー', sortedPowers.map(String), 'powers')}
@@ -1399,6 +1576,28 @@
                     <label class="filter-radio-label">
                         <input type="radio" class="filter-radio" name="searchMode" value="OR">
                         <span class="filter-radio-ui">OR (いずれか)</span>
+                    </label>
+                </div>
+            </fieldset>
+        `;
+    }
+
+    function createVariantDisplayFilter() {
+        return `
+            <fieldset class="filter-group">
+                <legend>カード画像の表示</legend>
+                <div class="filter-radio-group variant-display-options">
+                    <label class="filter-radio-label">
+                        <input type="radio" class="filter-radio" name="variantDisplayMode" value="representative">
+                        <span class="filter-radio-ui">代表画像</span>
+                    </label>
+                    <label class="filter-radio-label">
+                        <input type="radio" class="filter-radio" name="variantDisplayMode" value="all">
+                        <span class="filter-radio-ui">通常 + 絵違い</span>
+                    </label>
+                    <label class="filter-radio-label">
+                        <input type="radio" class="filter-radio" name="variantDisplayMode" value="alternate">
+                        <span class="filter-radio-ui">絵違いのみ</span>
                     </label>
                 </div>
             </fieldset>
@@ -1507,6 +1706,10 @@
         // ラジオボタンの値取得
         const searchModeInput = $(`input[name="searchMode"]:checked`);
         const searchMode = searchModeInput ? searchModeInput.value : 'AND';
+        const variantModeInput = $(`input[name="variantDisplayMode"]:checked`);
+        if (variantModeInput && !variantModeInput.disabled) {
+            setVariantDisplayMode(variantModeInput.value);
+        }
 
         currentFilter = {
             searchMode: searchMode,
@@ -1536,7 +1739,12 @@
         const andRadio = $(`input[name="searchMode"][value="AND"]`);
         if (andRadio) andRadio.checked = true;
 
-        currentFilter = { searchMode: 'AND', colors: [], costs: [], powers: [], counters: [], attributes: [], types: [], rarities: [], blocks: [], extras: [], series: '' };
+        const variantRadio = $(`input[name="variantDisplayMode"][value="${variantDisplayMode}"]`);
+        if (variantRadio) variantRadio.checked = true;
+
+        const lockedSeries = currentMode === 'opening_edit' ? (activeOpeningSession?.seriesId || '') : '';
+        if (seriesSelect) seriesSelect.value = lockedSeries;
+        currentFilter = { searchMode: 'AND', colors: [], costs: [], powers: [], counters: [], attributes: [], types: [], rarities: [], blocks: [], extras: [], series: lockedSeries };
         console.log('Filters reset.');
     }
 
@@ -1584,6 +1792,14 @@
         const mode = currentFilter.searchMode || 'AND';
         const radio = $(`input[name="searchMode"][value="${mode}"]`);
         if (radio) radio.checked = true;
+
+        const effectiveVariantMode = getEffectiveVariantDisplayMode();
+        const variantModeRadio = $(`input[name="variantDisplayMode"][value="${effectiveVariantMode}"]`);
+        if (variantModeRadio) variantModeRadio.checked = true;
+        const variantModeLocked = effectiveVariantMode !== variantDisplayMode;
+        $$('input[name="variantDisplayMode"]').forEach(input => {
+            input.disabled = variantModeLocked;
+        });
     }
 
 
@@ -2611,6 +2827,716 @@
         scheduleWantedCardsSave();
     }
 
+    // === 所持カード・開封記録 ===
+    function clampCollectionCount(value) {
+        const count = Number(value);
+        if (!Number.isFinite(count)) return 0;
+        return Math.min(Math.max(Math.trunc(count), 0), 9999);
+    }
+
+    function normalizeVariantCounts(value = {}) {
+        const normalized = {};
+        if (!value || typeof value !== 'object' || Array.isArray(value)) return normalized;
+        Object.entries(value).forEach(([key, rawCount]) => {
+            const count = clampCollectionCount(rawCount);
+            if (key.includes('::') && count > 0) normalized[key] = count;
+        });
+        return normalized;
+    }
+
+    function getVariantCountDeltas(previousValue = {}, nextValue = {}) {
+        const previous = normalizeVariantCounts(previousValue);
+        const next = normalizeVariantCounts(nextValue);
+        const keys = new Set([...Object.keys(previous), ...Object.keys(next)]);
+        return [...keys]
+            .map(key => ({ key, delta: (next[key] || 0) - (previous[key] || 0) }))
+            .filter(change => change.delta !== 0);
+    }
+
+    function getCollectionCount(key) {
+        return clampCollectionCount(collectionItems.get(key)?.count);
+    }
+
+    function getOpeningDraftCount(key) {
+        return clampCollectionCount(openingDraftItems[key]);
+    }
+
+    function resolveVariantEntry(key, fallbackRecord = null) {
+        const [cardNumber, variantId = cardNumber] = String(key || '').split('::');
+        const card = findCardByNumber(cardNumber) || {
+            cardNumber,
+            cardName: fallbackRecord?.cardName || '未登録カード',
+            cardType: '',
+            color: []
+        };
+        const variants = getCardImageVariants(card);
+        let variantIndex = variants.findIndex((variant, index) => (
+            getCardVariantId(card, variant, index) === variantId
+        ));
+        if (variantIndex < 0 && Number.isInteger(fallbackRecord?.variantIndex)) {
+            const stableIndex = Number(fallbackRecord.variantIndex);
+            variantIndex = variants.findIndex((variant, index) => getVariantStableIndex(variant, index) === stableIndex);
+        }
+        if (variantIndex < 0) variantIndex = 0;
+        const variant = variants[variantIndex] || {};
+        const variantType = fallbackRecord?.variantType || getCardVariantType(variant, variantIndex);
+        return {
+            key: getVariantKey(cardNumber, variantId),
+            card,
+            cardNumber,
+            variant,
+            variantId,
+            variantIndex,
+            variantType,
+            variantLabel: variant.label || getVariantTypeLabel(variantType)
+        };
+    }
+
+    function createCollectionRecord(card, key, count, fallbackRecord = null) {
+        const resolved = resolveVariantEntry(key, fallbackRecord);
+        return {
+            id: key,
+            cardNumber: card?.cardNumber || resolved.cardNumber,
+            cardName: card?.cardName || resolved.card.cardName || '',
+            variantId: resolved.variantId,
+            variantType: resolved.variantType,
+            variantIndex: getVariantStableIndex(resolved.variant, resolved.variantIndex),
+            count: clampCollectionCount(count),
+            updatedAt: new Date().toISOString()
+        };
+    }
+
+    async function loadCollectionItems() {
+        if (!db) return;
+        try {
+            const records = await db.getAll(STORE_COLLECTION);
+            collectionItems = new Map(
+                records
+                    .filter(record => record?.id && clampCollectionCount(record.count) > 0)
+                    .map(record => [record.id, { ...record, count: clampCollectionCount(record.count) }])
+            );
+        } catch (error) {
+            console.warn('Failed to load collection items:', error);
+            collectionItems = new Map();
+        }
+    }
+
+    async function loadOpeningSessions() {
+        if (!db) return [];
+        try {
+            openingSessions = await db.getAll(STORE_OPENING_SESSIONS);
+            openingSessions = openingSessions
+                .filter(session => session?.id)
+                .map(session => ({
+                    ...session,
+                    items: normalizeVariantCounts(session.items),
+                    draftItems: session.draftItems === null || session.draftItems === undefined
+                        ? null
+                        : normalizeVariantCounts(session.draftItems)
+                }))
+                .sort((a, b) => new Date(b.updatedAt || 0) - new Date(a.updatedAt || 0));
+        } catch (error) {
+            console.warn('Failed to load opening sessions:', error);
+            openingSessions = [];
+        }
+        return openingSessions;
+    }
+
+    function upsertOpeningSessionInMemory(session) {
+        const index = openingSessions.findIndex(item => item.id === session.id);
+        if (index >= 0) openingSessions[index] = session;
+        else openingSessions.unshift(session);
+        openingSessions.sort((a, b) => new Date(b.updatedAt || 0) - new Date(a.updatedAt || 0));
+    }
+
+    function getOpeningSessionCounts(session) {
+        return session?.draftItems === null || session?.draftItems === undefined
+            ? normalizeVariantCounts(session?.items)
+            : normalizeVariantCounts(session.draftItems);
+    }
+
+    function scheduleOpeningDraftSave() {
+        if (!activeOpeningSession) return;
+        clearTimeout(openingSessionSaveTimer);
+        openingSessionSaveTimer = setTimeout(() => {
+            openingSessionSaveTimer = null;
+            persistActiveOpeningDraft();
+        }, 250);
+    }
+
+    function persistActiveOpeningDraft() {
+        if (!db || !activeOpeningSession) return Promise.resolve(false);
+        if (!openingDraftDirty) return Promise.resolve(true);
+        const session = {
+            ...activeOpeningSession,
+            draftItems: normalizeVariantCounts(openingDraftItems),
+            status: 'draft',
+            updatedAt: new Date().toISOString()
+        };
+        activeOpeningSession = session;
+        upsertOpeningSessionInMemory(session);
+        openingWriteQueue = openingWriteQueue
+            .then(() => db.put(STORE_OPENING_SESSIONS, session))
+            .then(() => true)
+            .catch(error => {
+                console.error('Failed to save opening session draft:', error);
+                showMessageToast('開封記録の下書きを保存できませんでした。', 'error');
+                return false;
+            });
+        return openingWriteQueue;
+    }
+
+    async function flushOpeningDraft() {
+        clearTimeout(openingSessionSaveTimer);
+        openingSessionSaveTimer = null;
+        if (activeOpeningSession) await persistActiveOpeningDraft();
+        await openingWriteQueue;
+    }
+
+    function getCollectionSummary() {
+        const entries = [...collectionItems.values()].filter(item => clampCollectionCount(item.count) > 0);
+        return {
+            types: entries.length,
+            total: entries.reduce((sum, item) => sum + clampCollectionCount(item.count), 0)
+        };
+    }
+
+    function getOpeningSummary(counts = openingDraftItems) {
+        const values = Object.values(normalizeVariantCounts(counts));
+        return {
+            types: values.length,
+            total: values.reduce((sum, count) => sum + count, 0)
+        };
+    }
+
+    function updateCollectionCardBadge(card, count) {
+        const key = getCardDisplayVariantKey(card);
+        const cardItem = cardElementMap[key];
+        if (!cardItem) return;
+        let badge = cardItem.querySelector('.card-collection-badge');
+        if (count > 0) {
+            if (!badge) {
+                badge = document.createElement('div');
+                badge.className = 'card-collection-badge';
+                cardItem.appendChild(badge);
+            }
+            badge.textContent = String(count);
+            badge.dataset.count = String(count);
+        } else if (badge) {
+            badge.remove();
+        }
+    }
+
+    function adjustCollectionCard(card) {
+        const key = getCardDisplayVariantKey(card);
+        const existingRecord = collectionItems.get(key);
+        const current = clampCollectionCount(existingRecord?.count);
+        const next = clampCollectionCount(current + collectionAdjustDirection);
+        if (next === current) return;
+
+        const record = createCollectionRecord(card, key, next, existingRecord);
+        if (next > 0) collectionItems.set(key, record);
+        else collectionItems.delete(key);
+        updateCollectionCardBadge(card, next);
+        syncCollectionStatusBar();
+
+        collectionWriteQueue = collectionWriteQueue
+            .then(() => next > 0
+                ? db.put(STORE_COLLECTION, record)
+                : db.delete(STORE_COLLECTION, key))
+            .catch(error => {
+                console.error('Failed to save collection count:', error);
+                showMessageToast('所持枚数を保存できませんでした。', 'error');
+            });
+
+        if (collectionShowOnlyOwned && next === 0) applyFiltersAndDisplay();
+    }
+
+    function adjustOpeningCard(card) {
+        if (!activeOpeningSession) return;
+        const key = getCardDisplayVariantKey(card);
+        const current = getOpeningDraftCount(key);
+        const next = clampCollectionCount(current + collectionAdjustDirection);
+        if (next === current) return;
+        if (next > 0) openingDraftItems[key] = next;
+        else delete openingDraftItems[key];
+        activeOpeningSession = {
+            ...activeOpeningSession,
+            draftItems: { ...openingDraftItems },
+            status: 'draft'
+        };
+        openingDraftDirty = true;
+        updateCollectionCardBadge(card, next);
+        syncCollectionStatusBar();
+        scheduleOpeningDraftSave();
+    }
+
+    async function finalizeOpeningSession() {
+        if (!db || !activeOpeningSession) return;
+        clearTimeout(openingSessionSaveTimer);
+        openingSessionSaveTimer = null;
+        await openingWriteQueue;
+
+        const previousItems = normalizeVariantCounts(activeOpeningSession.items);
+        const nextItems = normalizeVariantCounts(openingDraftItems);
+        const now = new Date().toISOString();
+        const nextCollection = new Map(collectionItems);
+        const collectionChanges = [];
+
+        getVariantCountDeltas(previousItems, nextItems).forEach(({ key, delta }) => {
+            const currentRecord = nextCollection.get(key);
+            const nextCount = clampCollectionCount((currentRecord?.count || 0) + delta);
+            if (nextCount > 0) {
+                const resolved = resolveVariantEntry(key, currentRecord);
+                const record = createCollectionRecord(resolved.card, key, nextCount, currentRecord);
+                nextCollection.set(key, record);
+                collectionChanges.push({ type: 'put', record });
+            } else {
+                nextCollection.delete(key);
+                collectionChanges.push({ type: 'delete', key });
+            }
+        });
+
+        const savedSession = {
+            ...activeOpeningSession,
+            items: nextItems,
+            draftItems: null,
+            status: 'saved',
+            updatedAt: now
+        };
+
+        try {
+            const tx = db.transaction([STORE_COLLECTION, STORE_OPENING_SESSIONS], 'readwrite');
+            const collectionStore = tx.objectStore(STORE_COLLECTION);
+            const sessionStore = tx.objectStore(STORE_OPENING_SESSIONS);
+            for (const change of collectionChanges) {
+                if (change.type === 'put') await collectionStore.put(change.record);
+                else await collectionStore.delete(change.key);
+            }
+            await sessionStore.put(savedSession);
+            await tx.done;
+            collectionItems = nextCollection;
+            upsertOpeningSessionInMemory(savedSession);
+            activeOpeningSession = null;
+            openingDraftItems = {};
+            openingDraftDirty = false;
+            await leaveCollectionTrackingMode();
+            await showCollectionManager();
+            showMessageToast('開封記録を所持カードへ反映しました。', 'success');
+        } catch (error) {
+            console.error('Failed to finalize opening session:', error);
+            showMessageToast('開封記録を確定できませんでした。', 'error');
+        }
+    }
+
+    function setCollectionStatusBarVisible(visible) {
+        if (dom.collectionStatusBar) dom.collectionStatusBar.classList.toggle('active', visible);
+        document.body.classList.toggle('collection-bar-visible', visible);
+    }
+
+    function syncCollectionStatusBar() {
+        const openingMode = currentMode === 'opening_edit';
+        const summary = openingMode ? getOpeningSummary() : getCollectionSummary();
+        if (dom.collectionStatusInfo) {
+            const label = openingMode
+                ? (activeOpeningSession?.name || '開封記録')
+                : '所持カード';
+            dom.collectionStatusInfo.textContent = `${label}: ${summary.total}枚 / ${summary.types}種類`;
+        }
+        if (dom.collectionMinusBtn) dom.collectionMinusBtn.classList.toggle('active', collectionAdjustDirection < 0);
+        if (dom.collectionPlusBtn) dom.collectionPlusBtn.classList.toggle('active', collectionAdjustDirection > 0);
+        if (dom.collectionOwnedToggleBtn) {
+            dom.collectionOwnedToggleBtn.hidden = openingMode;
+            dom.collectionOwnedToggleBtn.textContent = collectionShowOnlyOwned ? '全カード' : '所持のみ';
+            dom.collectionOwnedToggleBtn.classList.toggle('active', collectionShowOnlyOwned);
+        }
+        if (dom.collectionDoneBtn) dom.collectionDoneBtn.textContent = openingMode ? '確定' : '完了';
+        if (dom.collectionImageBtn) dom.collectionImageBtn.disabled = summary.types === 0;
+    }
+
+    function startCollectionEdit() {
+        closeCollectionManager();
+        currentMode = 'collection_edit';
+        activeCardView = 'cards';
+        activeOpeningSession = null;
+        openingDraftItems = {};
+        openingDraftDirty = false;
+        collectionAdjustDirection = 1;
+        collectionShowOnlyOwned = true;
+        showCardListView();
+        setActiveNav('cards');
+        populateFilters(getDeckCardPool());
+        resetFilters();
+        setModeMessage('通常版・絵違い別に所持枚数を編集');
+        setCollectionStatusBarVisible(true);
+        syncCollectionStatusBar();
+        applyFiltersAndDisplay();
+        dom.mainContent.scrollTop = 0;
+    }
+
+    async function startOpeningEdit(session) {
+        if (!session) return;
+        closeCollectionManager();
+        currentMode = 'opening_edit';
+        activeCardView = 'cards';
+        activeOpeningSession = {
+            ...session,
+            items: normalizeVariantCounts(session.items),
+            draftItems: session.draftItems === null || session.draftItems === undefined
+                ? normalizeVariantCounts(session.items)
+                : normalizeVariantCounts(session.draftItems),
+            status: 'draft'
+        };
+        openingDraftItems = { ...activeOpeningSession.draftItems };
+        openingDraftDirty = session.draftItems !== null && session.draftItems !== undefined;
+        collectionAdjustDirection = 1;
+        showCardListView();
+        setActiveNav('cards');
+        populateFilters(getDeckCardPool());
+        resetFilters();
+        setModeMessage(`${activeOpeningSession.name || '開封記録'}にカードを追加`);
+        setCollectionStatusBarVisible(true);
+        syncCollectionStatusBar();
+        applyFiltersAndDisplay();
+        dom.mainContent.scrollTop = 0;
+    }
+
+    async function leaveCollectionTrackingMode() {
+        if (currentMode === 'opening_edit' && activeOpeningSession) await flushOpeningDraft();
+        await collectionWriteQueue;
+        currentMode = 'view';
+        activeCardView = 'cards';
+        activeOpeningSession = null;
+        openingDraftItems = {};
+        openingDraftDirty = false;
+        collectionAdjustDirection = 1;
+        setCollectionStatusBarVisible(false);
+        setModeMessage(null);
+        showCardListView();
+        setActiveNav('cards');
+        populateFilters(allCards);
+        resetFilters();
+        applyFiltersAndDisplay();
+    }
+
+    function getOpeningSeriesOptions() {
+        const labels = new Map();
+        getDeckCardPool().forEach(card => {
+            const prefix = normalizeSeriesId(card?.cardNumber?.split('-')[0]);
+            if (prefix) {
+                const title = card.seriesTitle || String(card.series || '').split(' - ').slice(1).join(' - ');
+                labels.set(prefix, prefix === 'P' ? 'P - プロモカード' : `${prefix}${title ? ` - ${title}` : ''}`);
+            }
+            getCardSeriesIds(card).forEach(seriesId => {
+                if (!labels.has(seriesId)) labels.set(seriesId, seriesId);
+            });
+        });
+        return [...labels.entries()].sort(([a], [b]) => {
+            if (a === 'P') return 1;
+            if (b === 'P') return -1;
+            return a.localeCompare(b, 'en', { numeric: true });
+        });
+    }
+
+    function openOpeningForm(session = null) {
+        if (!dom.openingFormModal) return;
+        openingFormSessionId = session?.id || null;
+        if (dom.openingFormTitle) dom.openingFormTitle.textContent = session ? '開封記録の情報を編集' : '新しい開封記録';
+        if (dom.openingNameInput) dom.openingNameInput.value = session?.name || '';
+        if (dom.openingDateInput) dom.openingDateInput.value = session?.openedAt || formatLocalDateStamp();
+        if (dom.openingBoxCountInput) dom.openingBoxCountInput.value = session?.boxCount || '';
+        if (dom.openingSeriesSelect) {
+            dom.openingSeriesSelect.innerHTML = '<option value="">シリーズを選択</option>';
+            getOpeningSeriesOptions().forEach(([id, label]) => {
+                const option = document.createElement('option');
+                option.value = id;
+                option.textContent = label;
+                dom.openingSeriesSelect.appendChild(option);
+            });
+            dom.openingSeriesSelect.value = session?.seriesId || '';
+        }
+        if (dom.openingFormSubmitBtn) dom.openingFormSubmitBtn.textContent = session ? '保存' : '記録を開始';
+        if (dom.collectionModal?.style.display !== 'none') {
+            dom.collectionModal.setAttribute('aria-hidden', 'true');
+        }
+        dom.openingFormModal.style.display = 'flex';
+        dom.openingFormModal.setAttribute('aria-hidden', 'false');
+        requestAnimationFrame(() => dom.openingNameInput?.focus());
+    }
+
+    function closeOpeningForm() {
+        if (!dom.openingFormModal) return;
+        dom.openingFormModal.style.display = 'none';
+        dom.openingFormModal.setAttribute('aria-hidden', 'true');
+        if (dom.collectionModal?.style.display !== 'none') {
+            dom.collectionModal.setAttribute('aria-hidden', 'false');
+        }
+        openingFormSessionId = null;
+    }
+
+    function createOpeningSessionId() {
+        return crypto.randomUUID
+            ? `opening-${crypto.randomUUID()}`
+            : `opening-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+    }
+
+    async function submitOpeningForm() {
+        const name = normalizeDeckName(dom.openingNameInput?.value, '開封記録');
+        const seriesId = normalizeSeriesId(dom.openingSeriesSelect?.value);
+        const openedAt = dom.openingDateInput?.value || formatLocalDateStamp();
+        const boxCount = Math.min(999, Math.max(0, Math.trunc(Number(dom.openingBoxCountInput?.value) || 0)));
+        if (!seriesId) {
+            showMessageToast('シリーズを選択してください。', 'info');
+            dom.openingSeriesSelect?.focus();
+            return;
+        }
+
+        const existing = openingFormSessionId
+            ? openingSessions.find(session => session.id === openingFormSessionId)
+            : null;
+        const now = new Date().toISOString();
+        const session = existing
+            ? { ...existing, name, seriesId, openedAt, boxCount, updatedAt: now }
+            : {
+                id: createOpeningSessionId(),
+                name,
+                seriesId,
+                openedAt,
+                boxCount,
+                items: {},
+                draftItems: {},
+                status: 'draft',
+                createdAt: now,
+                updatedAt: now
+            };
+
+        try {
+            await db.put(STORE_OPENING_SESSIONS, session);
+            upsertOpeningSessionInMemory(session);
+            closeOpeningForm();
+            if (existing) {
+                renderCollectionManager();
+                showMessageToast('開封記録の情報を更新しました。', 'success');
+            } else {
+                await startOpeningEdit(session);
+            }
+        } catch (error) {
+            console.error('Failed to save opening session:', error);
+            showMessageToast('開封記録を保存できませんでした。', 'error');
+        }
+    }
+
+    function closeCollectionManager() {
+        if (!dom.collectionModal) return;
+        dom.collectionModal.style.display = 'none';
+        dom.collectionModal.setAttribute('aria-hidden', 'true');
+    }
+
+    async function showCollectionManager() {
+        if (!dom.collectionModal) return;
+        if (!db) {
+            showMessageToast('データベースの準備が完了していません。', 'info');
+            return;
+        }
+        if (currentMode !== 'view' || wantedSelectionMode) {
+            showMessageToast('編集中の操作を完了してから所持カードを開いてください。', 'info');
+            return;
+        }
+        await loadCollectionItems();
+        await loadOpeningSessions();
+        renderCollectionManager();
+        dom.collectionModal.style.display = 'flex';
+        dom.collectionModal.setAttribute('aria-hidden', 'false');
+        requestAnimationFrame(() => dom.collectionCloseBtn?.focus());
+    }
+
+    function createCollectionSessionThumbnail(session) {
+        const shell = document.createElement('div');
+        shell.className = 'collection-session-thumbnail';
+        const firstKey = Object.keys(getOpeningSessionCounts(session))[0];
+        if (!firstKey) {
+            shell.textContent = session.seriesId || '?';
+            return shell;
+        }
+        const entry = resolveVariantEntry(firstKey);
+        const sources = [...new Set([
+            getCardImagePath(entry.card, entry.variantIndex),
+            getCardImageFallbackPath(entry.card, entry.variantIndex)
+        ].filter(Boolean))];
+        if (sources.length === 0) {
+            shell.textContent = entry.cardNumber;
+            return shell;
+        }
+        const image = document.createElement('img');
+        let sourceIndex = 0;
+        image.src = sources[sourceIndex];
+        image.alt = '';
+        image.loading = 'lazy';
+        image.onerror = () => {
+            sourceIndex += 1;
+            if (sourceIndex < sources.length) image.src = sources[sourceIndex];
+            else shell.textContent = entry.cardNumber;
+        };
+        shell.appendChild(image);
+        return shell;
+    }
+
+    function createCollectionActionButton(label, iconName, action, className = '') {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = `collection-session-action ${className}`.trim();
+        button.title = label;
+        button.setAttribute('aria-label', label);
+        button.appendChild(createDeckActionIcon(iconName));
+        const text = document.createElement('span');
+        text.textContent = label;
+        button.appendChild(text);
+        button.addEventListener('click', action);
+        return button;
+    }
+
+    function renderCollectionManager() {
+        const summary = getCollectionSummary();
+        if (dom.collectionSummary) {
+            dom.collectionSummary.textContent = `所持 ${summary.total}枚 / ${summary.types}種類（通常版・絵違い別）`;
+        }
+        if (!dom.collectionSessionsList) return;
+        dom.collectionSessionsList.innerHTML = '';
+        if (openingSessions.length === 0) {
+            dom.collectionSessionsList.innerHTML = '<p class="collection-empty">開封記録はまだありません。</p>';
+            return;
+        }
+
+        const fragment = document.createDocumentFragment();
+        openingSessions.forEach(session => {
+            const counts = getOpeningSessionCounts(session);
+            const summary = getOpeningSummary(counts);
+            const row = document.createElement('article');
+            row.className = 'collection-session-item';
+            row.appendChild(createCollectionSessionThumbnail(session));
+
+            const info = document.createElement('div');
+            info.className = 'collection-session-info';
+            const name = document.createElement('strong');
+            name.textContent = session.name || '開封記録';
+            const meta = document.createElement('span');
+            meta.textContent = [
+                session.openedAt,
+                session.seriesId,
+                session.boxCount ? `${session.boxCount} BOX` : '',
+                `${summary.total}枚 / ${summary.types}種類`,
+                session.draftItems !== null && session.draftItems !== undefined ? '下書きあり' : ''
+            ].filter(Boolean).join(' · ');
+            info.append(name, meta);
+            row.appendChild(info);
+
+            const actions = document.createElement('div');
+            actions.className = 'collection-session-actions';
+            actions.appendChild(createCollectionActionButton('追記', 'edit', () => startOpeningEdit(session), 'primary'));
+            actions.appendChild(createCollectionActionButton('画像', 'image', () => exportOpeningSessionImage(session)));
+            actions.appendChild(createCollectionActionButton('情報', 'more', () => openOpeningForm(session)));
+            actions.appendChild(createCollectionActionButton('削除', 'delete', () => deleteOpeningSession(session), 'destructive'));
+            row.appendChild(actions);
+            fragment.appendChild(row);
+        });
+        dom.collectionSessionsList.appendChild(fragment);
+    }
+
+    async function deleteOpeningSession(session) {
+        const committed = normalizeVariantCounts(session?.items);
+        const hasCommittedItems = Object.keys(committed).length > 0;
+        const message = hasCommittedItems
+            ? `「${session.name}」を削除しますか？\nこの記録で追加した枚数を所持カードから差し引きます。`
+            : `「${session.name}」を削除しますか？`;
+        if (!confirm(message)) return;
+
+        const nextCollection = new Map(collectionItems);
+        try {
+            const tx = db.transaction([STORE_COLLECTION, STORE_OPENING_SESSIONS], 'readwrite');
+            const collectionStore = tx.objectStore(STORE_COLLECTION);
+            const sessionStore = tx.objectStore(STORE_OPENING_SESSIONS);
+            for (const [key, count] of Object.entries(committed)) {
+                const record = nextCollection.get(key);
+                const nextCount = clampCollectionCount((record?.count || 0) - count);
+                if (nextCount > 0 && record) {
+                    const nextRecord = { ...record, count: nextCount, updatedAt: new Date().toISOString() };
+                    nextCollection.set(key, nextRecord);
+                    await collectionStore.put(nextRecord);
+                } else {
+                    nextCollection.delete(key);
+                    await collectionStore.delete(key);
+                }
+            }
+            await sessionStore.delete(session.id);
+            await tx.done;
+            collectionItems = nextCollection;
+            openingSessions = openingSessions.filter(item => item.id !== session.id);
+            renderCollectionManager();
+            showMessageToast('開封記録を削除しました。', 'success');
+        } catch (error) {
+            console.error('Failed to delete opening session:', error);
+            showMessageToast('開封記録を削除できませんでした。', 'error');
+        }
+    }
+
+    async function exportCollectionJson() {
+        await collectionWriteQueue;
+        await loadOpeningSessions();
+        const payload = {
+            format: COLLECTION_EXPORT_FORMAT,
+            version: COLLECTION_EXPORT_VERSION,
+            appVersion: APP_VERSION,
+            exportedAt: new Date().toISOString(),
+            items: [...collectionItems.values()],
+            openingSessions
+        };
+        const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json;charset=utf-8' });
+        downloadBlob(blob, `所持カード-${formatLocalDateStamp()}.json`);
+        showMessageToast('所持カードと開封記録をJSON保存しました。', 'success');
+    }
+
+    async function importCollectionJson(file) {
+        if (!file) return;
+        try {
+            const payload = JSON.parse(await file.text());
+            if (payload?.format !== COLLECTION_EXPORT_FORMAT || !Array.isArray(payload.items)) {
+                throw new Error('所持カードJSONの形式ではありません。');
+            }
+            if (!confirm('現在の所持カードと開封記録を、このJSONの内容で置き換えますか？')) return;
+
+            const records = payload.items
+                .filter(item => item?.id && clampCollectionCount(item.count) > 0)
+                .map(item => ({ ...item, count: clampCollectionCount(item.count) }));
+            const sessions = Array.isArray(payload.openingSessions)
+                ? payload.openingSessions.filter(session => session?.id).map(session => ({
+                    ...session,
+                    items: normalizeVariantCounts(session.items),
+                    draftItems: session.draftItems === null || session.draftItems === undefined
+                        ? null
+                        : normalizeVariantCounts(session.draftItems)
+                }))
+                : [];
+
+            const tx = db.transaction([STORE_COLLECTION, STORE_OPENING_SESSIONS], 'readwrite');
+            const collectionStore = tx.objectStore(STORE_COLLECTION);
+            const sessionStore = tx.objectStore(STORE_OPENING_SESSIONS);
+            await collectionStore.clear();
+            await sessionStore.clear();
+            for (const record of records) await collectionStore.put(record);
+            for (const session of sessions) await sessionStore.put(session);
+            await tx.done;
+            collectionItems = new Map(records.map(record => [record.id, record]));
+            openingSessions = sessions;
+            renderCollectionManager();
+            showMessageToast('所持カードと開封記録を復元しました。', 'success');
+        } catch (error) {
+            console.error('Failed to import collection JSON:', error);
+            showMessageToast(error.message || 'JSONを読み込めませんでした。', 'error');
+        } finally {
+            if (dom.collectionImportInput) dom.collectionImportInput.value = '';
+        }
+    }
+
     function createMissingCardThumbnail(card) {
         const shell = document.createElement('div');
         shell.className = 'missing-card-thumbnail';
@@ -2980,11 +3906,11 @@
         });
     }
 
-    async function loadCardCanvasImage(card) {
+    async function loadCardCanvasImage(card, variantIndex = 0) {
         if (!card?.cardNumber) return null;
         const sources = [...new Set([
-            getCardImagePath(card, 0),
-            getCardImageFallbackPath(card, 0)
+            getCardImagePath(card, variantIndex),
+            getCardImageFallbackPath(card, variantIndex)
         ].filter(Boolean))];
         for (const source of sources) {
             const image = await loadCanvasImage(source);
@@ -3085,7 +4011,7 @@
         showMessageToast(`${imageKind}を作成しています...`, 'info');
         try {
             const cardImages = await Promise.all(
-                imageEntries.map(entry => loadCardCanvasImage(entry.card))
+                imageEntries.map(entry => loadCardCanvasImage(entry.card, entry.variantIndex || 0))
             );
             const canvasWidth = 1600;
             const headerHeight = 174;
@@ -3147,7 +4073,10 @@
                 ctx.fillStyle = '#f4f5f6';
                 ctx.font = '700 18px sans-serif';
                 ctx.fillText(
-                    truncateCanvasText(ctx, getDeckImageCardMeta(entry.card), cardWidth),
+                    truncateCanvasText(ctx, [
+                        getDeckImageCardMeta(entry.card),
+                        entry.variantLabel
+                    ].filter(Boolean).join(' · '), cardWidth),
                     x,
                     y + cardHeight + 24
                 );
@@ -3221,6 +4150,82 @@
             filename: `欲しいカードリスト-${formatLocalDateStamp()}.png`,
             previewTitle: '欲しいカード画像',
             kind: '欲しいカード画像'
+        });
+    }
+
+    function getVariantImageEntriesFromCounts(counts) {
+        return Object.entries(normalizeVariantCounts(counts))
+            .map(([key, count]) => {
+                const record = collectionItems.get(key);
+                const resolved = resolveVariantEntry(key, record);
+                return {
+                    card: resolved.card,
+                    count,
+                    variantIndex: resolved.variantIndex,
+                    variantLabel: resolved.variantLabel,
+                    variantId: resolved.variantId,
+                    key
+                };
+            })
+            .sort((a, b) => {
+                const cardOrder = String(a.card.cardNumber).localeCompare(
+                    String(b.card.cardNumber),
+                    'en',
+                    { numeric: true }
+                );
+                return cardOrder || a.variantIndex - b.variantIndex;
+            });
+    }
+
+    async function exportCurrentCollectionImage() {
+        const visibleKeys = new Set(currentFilteredCards.map(getCardDisplayVariantKey));
+        const counts = {};
+        collectionItems.forEach((record, key) => {
+            if (visibleKeys.has(key) && clampCollectionCount(record.count) > 0) {
+                counts[key] = clampCollectionCount(record.count);
+            }
+        });
+        const entries = getVariantImageEntriesFromCounts(counts);
+        if (entries.length === 0) {
+            showMessageToast('現在の表示条件に所持カードがありません。', 'info');
+            return;
+        }
+        const seriesLabel = currentFilter.series ? ` · ${currentFilter.series}` : '';
+        await exportCardCollectionImage({
+            title: `所持カードリスト${seriesLabel}`,
+            subtitle: 'OP TCG DB · COLLECTION',
+            entries,
+            filename: `所持カード${currentFilter.series ? `-${currentFilter.series}` : ''}-${formatLocalDateStamp()}.png`,
+            previewTitle: '所持カード画像',
+            kind: '所持カード画像'
+        });
+    }
+
+    async function exportOpeningSessionImage(session = activeOpeningSession) {
+        if (!session) return;
+        const isActiveSession = session.id === activeOpeningSession?.id;
+        if (isActiveSession) await flushOpeningDraft();
+        const counts = isActiveSession
+            ? normalizeVariantCounts(openingDraftItems)
+            : getOpeningSessionCounts(session);
+        const entries = getVariantImageEntriesFromCounts(counts);
+        if (entries.length === 0) {
+            showMessageToast('開封記録にカードがありません。', 'info');
+            return;
+        }
+        const name = normalizeDeckName(session.name, '開封記録');
+        const details = [
+            session.seriesId,
+            session.openedAt,
+            session.boxCount ? `${session.boxCount} BOX` : ''
+        ].filter(Boolean).join(' · ');
+        await exportCardCollectionImage({
+            title: name,
+            subtitle: `OP TCG DB · OPENING RECORD${details ? ` · ${details}` : ''}`,
+            entries,
+            filename: `${sanitizeDownloadName(name)}-${session.openedAt || formatLocalDateStamp()}.png`,
+            previewTitle: '開封記録画像',
+            kind: '開封記録画像'
         });
     }
 
@@ -3447,6 +4452,10 @@
 
         if (wantedSelectionMode && currentMode === 'view') {
             toggleWantedCardCount(card.cardNumber);
+        } else if (currentMode === 'collection_edit') {
+            adjustCollectionCard(card);
+        } else if (currentMode === 'opening_edit') {
+            adjustOpeningCard(card);
         } else if (currentMode === 'leader_select') {
             confirmLeaderSelection(card);
         } else if (currentMode === 'deck_edit') {
@@ -4211,6 +5220,12 @@
                 if (dom.deckImagePreviewModal?.style.display !== 'none') {
                     event.preventDefault();
                     closeDeckImagePreview();
+                } else if (dom.openingFormModal?.style.display !== 'none') {
+                    event.preventDefault();
+                    closeOpeningForm();
+                } else if (dom.collectionModal?.style.display !== 'none') {
+                    event.preventDefault();
+                    closeCollectionManager();
                 } else if (dom.missingCardsModal?.style.display !== 'none') {
                     event.preventDefault();
                     closeMissingCardsModal();
@@ -4257,6 +5272,10 @@
                 if (wantedSelectionMode) finishWantedCardsSelection();
                 else startWantedCardsSelection();
             });
+        }
+
+        if (dom.collectionBtn) {
+            dom.collectionBtn.addEventListener('click', showCollectionManager);
         }
 
         // 設定ボタン
@@ -4318,7 +5337,7 @@
                 const radioLabel = filterTapElement.closest('.filter-radio-label');
                 if (radioLabel) {
                     const input = radioLabel.querySelector('input[type="radio"]');
-                    if (input && !input.checked) {
+                    if (input && !input.disabled && !input.checked) {
                         e.preventDefault();
                         input.checked = true;
                         // ラジオボタン変更時は特にアクション不要（適用ボタン待ち）
@@ -4417,6 +5436,80 @@
         }
         if (dom.missingCardsShareBtn) {
             dom.missingCardsShareBtn.addEventListener('click', shareMissingCardsList);
+        }
+        if (dom.collectionCloseBtn) {
+            dom.collectionCloseBtn.addEventListener('click', closeCollectionManager);
+        }
+        if (dom.collectionModal) {
+            dom.collectionModal.addEventListener('click', event => {
+                if (event.target === dom.collectionModal) closeCollectionManager();
+            });
+        }
+        if (dom.collectionViewBtn) {
+            dom.collectionViewBtn.addEventListener('click', startCollectionEdit);
+        }
+        if (dom.openingNewBtn) {
+            dom.openingNewBtn.addEventListener('click', () => openOpeningForm());
+        }
+        if (dom.collectionExportBtn) {
+            dom.collectionExportBtn.addEventListener('click', exportCollectionJson);
+        }
+        if (dom.collectionImportBtn) {
+            dom.collectionImportBtn.addEventListener('click', () => dom.collectionImportInput?.click());
+        }
+        if (dom.collectionImportInput) {
+            dom.collectionImportInput.addEventListener('change', event => {
+                importCollectionJson(event.target.files?.[0]);
+            });
+        }
+        if (dom.openingFormCloseBtn) {
+            dom.openingFormCloseBtn.addEventListener('click', closeOpeningForm);
+        }
+        if (dom.openingFormCancelBtn) {
+            dom.openingFormCancelBtn.addEventListener('click', closeOpeningForm);
+        }
+        if (dom.openingFormModal) {
+            dom.openingFormModal.addEventListener('click', event => {
+                if (event.target === dom.openingFormModal) closeOpeningForm();
+            });
+        }
+        if (dom.openingFormSubmitBtn) {
+            dom.openingFormSubmitBtn.addEventListener('click', submitOpeningForm);
+        }
+        if (dom.collectionMinusBtn) {
+            dom.collectionMinusBtn.addEventListener('click', () => {
+                collectionAdjustDirection = -1;
+                syncCollectionStatusBar();
+            });
+        }
+        if (dom.collectionPlusBtn) {
+            dom.collectionPlusBtn.addEventListener('click', () => {
+                collectionAdjustDirection = 1;
+                syncCollectionStatusBar();
+            });
+        }
+        if (dom.collectionOwnedToggleBtn) {
+            dom.collectionOwnedToggleBtn.addEventListener('click', () => {
+                collectionShowOnlyOwned = !collectionShowOnlyOwned;
+                syncCollectionStatusBar();
+                applyFiltersAndDisplay();
+            });
+        }
+        if (dom.collectionImageBtn) {
+            dom.collectionImageBtn.addEventListener('click', () => {
+                if (currentMode === 'opening_edit') exportOpeningSessionImage(activeOpeningSession);
+                else exportCurrentCollectionImage();
+            });
+        }
+        if (dom.collectionDoneBtn) {
+            dom.collectionDoneBtn.addEventListener('click', async () => {
+                if (currentMode === 'opening_edit') {
+                    await finalizeOpeningSession();
+                } else {
+                    await leaveCollectionTrackingMode();
+                    await showCollectionManager();
+                }
+            });
         }
         if (dom.sharedDeckConfirmCloseBtn) {
             dom.sharedDeckConfirmCloseBtn.addEventListener('click', () => {
@@ -4550,11 +5643,15 @@
 
         // === デッキ構築 (フッターナビ・デッキ操作) ===
         if (dom.navCards) {
-            dom.navCards.addEventListener('click', () => {
+            dom.navCards.addEventListener('click', async () => {
                 if (currentMode === 'leader_select' || currentMode === 'deck_edit') {
                     if (!confirm('デッキ作成・編集を中断しますか？(未保存の変更は破棄されます)')) return;
                 }
-                if (currentMode !== 'view') exitDeckBuildingMode();
+                if (currentMode === 'collection_edit' || currentMode === 'opening_edit') {
+                    await leaveCollectionTrackingMode();
+                } else if (currentMode !== 'view') {
+                    exitDeckBuildingMode();
+                }
                 activeCardView = 'cards';
                 setActiveNav('cards');
                 showCardListView();
@@ -4567,12 +5664,16 @@
         }
 
         if (dom.navDecks) {
-            dom.navDecks.addEventListener('click', () => {
+            dom.navDecks.addEventListener('click', async () => {
                 if (currentMode === 'leader_select' || currentMode === 'deck_edit') {
                     if (!confirm('デッキ作成・編集を中断しますか？(未保存の変更は破棄されます)')) return;
                 }
                 if (wantedSelectionMode) finishWantedCardsSelection();
-                exitDeckBuildingMode();
+                if (currentMode === 'collection_edit' || currentMode === 'opening_edit') {
+                    await leaveCollectionTrackingMode();
+                } else {
+                    exitDeckBuildingMode();
+                }
                 setActiveNav('decks');
                 showDeckListView();
                 loadDeckList();
@@ -4580,11 +5681,15 @@
         }
 
         if (dom.navNew) {
-            dom.navNew.addEventListener('click', () => {
+            dom.navNew.addEventListener('click', async () => {
                 if (currentMode === 'leader_select' || currentMode === 'deck_edit') {
                     if (!confirm('デッキ作成・編集を中断しますか？(未保存の変更は破棄されます)')) return;
                 }
-                if (currentMode !== 'view') exitDeckBuildingMode();
+                if (currentMode === 'collection_edit' || currentMode === 'opening_edit') {
+                    await leaveCollectionTrackingMode();
+                } else if (currentMode !== 'view') {
+                    exitDeckBuildingMode();
+                }
                 activeCardView = 'new';
                 setActiveNav('new');
                 showCardListView();
