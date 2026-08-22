@@ -37,7 +37,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.8.0'; // バージョン更新
+    const APP_VERSION = '1.8.1'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -283,6 +283,7 @@
             openingSeriesSelect: $('#opening-series-select'),
             openingDateInput: $('#opening-date-input'),
             openingBoxCountInput: $('#opening-box-count-input'),
+            openingPackCountInput: $('#opening-pack-count-input'),
             openingFormCancelBtn: $('#opening-form-cancel-btn'),
             openingFormSubmitBtn: $('#opening-form-submit-btn'),
 
@@ -3009,6 +3010,15 @@
         };
     }
 
+    function formatOpeningQuantity(session) {
+        const boxCount = Math.min(999, Math.max(0, Math.trunc(Number(session?.boxCount) || 0)));
+        const packCount = Math.min(9999, Math.max(0, Math.trunc(Number(session?.packCount) || 0)));
+        return [
+            boxCount > 0 ? `${boxCount} BOX` : '',
+            packCount > 0 ? `バラ ${packCount}パック` : ''
+        ].filter(Boolean).join(' + ');
+    }
+
     function updateCollectionCardBadge(card, count) {
         const key = getCardDisplayVariantKey(card);
         const cardItem = cardElementMap[key];
@@ -3245,6 +3255,7 @@
         if (dom.openingNameInput) dom.openingNameInput.value = session?.name || '';
         if (dom.openingDateInput) dom.openingDateInput.value = session?.openedAt || formatLocalDateStamp();
         if (dom.openingBoxCountInput) dom.openingBoxCountInput.value = session?.boxCount || '';
+        if (dom.openingPackCountInput) dom.openingPackCountInput.value = session?.packCount || '';
         if (dom.openingSeriesSelect) {
             dom.openingSeriesSelect.innerHTML = '<option value="">シリーズを選択</option>';
             getOpeningSeriesOptions().forEach(([id, label]) => {
@@ -3285,6 +3296,7 @@
         const seriesId = normalizeSeriesId(dom.openingSeriesSelect?.value);
         const openedAt = dom.openingDateInput?.value || formatLocalDateStamp();
         const boxCount = Math.min(999, Math.max(0, Math.trunc(Number(dom.openingBoxCountInput?.value) || 0)));
+        const packCount = Math.min(9999, Math.max(0, Math.trunc(Number(dom.openingPackCountInput?.value) || 0)));
         if (!seriesId) {
             showMessageToast('シリーズを選択してください。', 'info');
             dom.openingSeriesSelect?.focus();
@@ -3296,13 +3308,14 @@
             : null;
         const now = new Date().toISOString();
         const session = existing
-            ? { ...existing, name, seriesId, openedAt, boxCount, updatedAt: now }
+            ? { ...existing, name, seriesId, openedAt, boxCount, packCount, updatedAt: now }
             : {
                 id: createOpeningSessionId(),
                 name,
                 seriesId,
                 openedAt,
                 boxCount,
+                packCount,
                 items: {},
                 draftItems: {},
                 status: 'draft',
@@ -3423,7 +3436,7 @@
             meta.textContent = [
                 session.openedAt,
                 session.seriesId,
-                session.boxCount ? `${session.boxCount} BOX` : '',
+                formatOpeningQuantity(session),
                 `${summary.total}枚 / ${summary.types}種類`,
                 session.draftItems !== null && session.draftItems !== undefined ? '下書きあり' : ''
             ].filter(Boolean).join(' · ');
@@ -4217,7 +4230,7 @@
         const details = [
             session.seriesId,
             session.openedAt,
-            session.boxCount ? `${session.boxCount} BOX` : ''
+            formatOpeningQuantity(session)
         ].filter(Boolean).join(' · ');
         await exportCardCollectionImage({
             title: name,

@@ -2323,9 +2323,9 @@ body.collection-bar-visible #notification-area {
     gap: 14px;
 }
 
-.opening-form-row {
+.opening-form-quantity-row {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(110px, 0.45fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 12px;
 }
 
@@ -2353,6 +2353,11 @@ body.collection-bar-visible #notification-area {
     background-color: #111315;
     color: #f4f5f6;
     font: inherit;
+}
+
+.opening-form-field input[type="date"] {
+    min-width: 0;
+    max-width: 100%;
 }
 
 .opening-form-field input:focus,
@@ -2457,8 +2462,7 @@ body.collection-bar-visible #notification-area {
         padding-left: 5px;
     }
 
-    .opening-form-row {
-        grid-template-columns: minmax(0, 1fr) 100px;
+    .opening-form-quantity-row {
         gap: 8px;
     }
 }
