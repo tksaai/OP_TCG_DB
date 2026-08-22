@@ -37,7 +37,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.8.2'; // バージョン更新
+    const APP_VERSION = '1.9.0'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -660,61 +660,104 @@
 
     function rebuildProvisionalVariants() {
         provisionalVariantsByNumber = new Map();
+        const groupedCards = new Map();
         provisionalCards.forEach(card => {
             const cardNumber = String(card?.cardNumber || '').trim();
             const imagePath = card?.imagePath || card?.provisionalImageUrl;
             if (!cardNumber || !imagePath) return;
-            const variants = provisionalVariantsByNumber.get(cardNumber) || [];
-            variants.push({
-                source: 'provisional',
-                sourceUrl: card.provisionalImageUrl || '',
-                path: imagePath,
-                fallbackPath: imagePath,
-                label: card.seriesTitle ? `仮DB: ${card.seriesTitle}` : '仮DB画像',
-                getInfo: card.getInfo || '',
-                cardName: card.cardName || '',
-                rarity: card.rarity || ''
+            const cards = groupedCards.get(cardNumber) || [];
+            cards.push(card);
+            groupedCards.set(cardNumber, cards);
+        });
+
+        groupedCards.forEach((cards, cardNumber) => {
+            const officialVariants = Array.isArray(imageManifest.cards?.[cardNumber])
+                ? imageManifest.cards[cardNumber]
+                : [];
+            const usedIdentities = new Set(officialVariants.flatMap(getVariantImageIdentities));
+            const usedIndexes = new Set(officialVariants.map((variant, index) => getVariantStableIndex(variant, index)));
+            const variants = [];
+            let hasPrimaryVariant = officialVariants.length > 0;
+            let nextIndex = 1;
+
+            cards.forEach(card => {
+                const imagePath = card.imagePath || card.provisionalImageUrl;
+                const baseVariant = {
+                    source: 'provisional',
+                    sourceUrl: card.provisionalImageUrl || '',
+                    path: imagePath,
+                    fallbackPath: imagePath,
+                    label: card.seriesTitle ? `仮DB: ${card.seriesTitle}` : '仮DB画像',
+                    getInfo: card.getInfo || '',
+                    cardName: card.cardName || '',
+                    rarity: card.rarity || '',
+                    provisionalUniqueId: card.uniqueId || imagePath
+                };
+                const identities = getVariantImageIdentities(baseVariant);
+                const officialMatchIndex = officialVariants.findIndex(variant => {
+                    const officialIdentities = getVariantImageIdentities(variant);
+                    return identities.some(identity => officialIdentities.includes(identity));
+                });
+
+                if (officialMatchIndex >= 0) {
+                    variants.push({
+                        ...baseVariant,
+                        variantIndex: getVariantStableIndex(officialVariants[officialMatchIndex], officialMatchIndex),
+                        isOfficialDuplicate: true
+                    });
+                    return;
+                }
+
+                const isProvisionalDuplicate = identities.some(identity => usedIdentities.has(identity));
+                if (isProvisionalDuplicate) {
+                    variants.push({
+                        ...baseVariant,
+                        variantIndex: 0,
+                        isOfficialDuplicate: false,
+                        isProvisionalDuplicate: true
+                    });
+                    return;
+                }
+
+                let variantIndex = 0;
+                if (hasPrimaryVariant) {
+                    while (usedIndexes.has(nextIndex)) nextIndex++;
+                    variantIndex = nextIndex;
+                    usedIndexes.add(nextIndex);
+                    nextIndex++;
+                } else {
+                    hasPrimaryVariant = true;
+                    usedIndexes.add(0);
+                }
+                identities.forEach(identity => usedIdentities.add(identity));
+                variants.push({
+                    ...baseVariant,
+                    variantIndex,
+                    isOfficialDuplicate: false,
+                    isProvisionalDuplicate: false
+                });
             });
             provisionalVariantsByNumber.set(cardNumber, variants);
         });
     }
 
-    function mergeProvisionalImageVariants(cardNumber, manifestVariants = []) {
-        const merged = manifestVariants.map(variant => ({ ...variant }));
-        const provisionalVariants = provisionalVariantsByNumber.get(cardNumber) || [];
-        if (provisionalVariants.length === 0) return merged;
-
-        const usedIdentities = new Set(merged.flatMap(getVariantImageIdentities));
-        const usedIndexes = new Set(merged
-            .map((variant, index) => getVariantStableIndex(variant, index))
-            .filter(index => index > 0 && index < 1000));
-        let hasPrimaryVariant = merged.length > 0;
-        let nextIndex = 1;
-
-        provisionalVariants.forEach(variant => {
-            const identities = getVariantImageIdentities(variant);
-            if (identities.some(identity => usedIdentities.has(identity))) return;
-            if (!hasPrimaryVariant) {
-                merged.push({ ...variant, variantIndex: 0 });
-                hasPrimaryVariant = true;
-                identities.forEach(identity => usedIdentities.add(identity));
-                return;
-            }
-            while (usedIndexes.has(nextIndex)) nextIndex++;
-            merged.push({ ...variant, variantIndex: nextIndex });
-            usedIndexes.add(nextIndex);
-            identities.forEach(identity => usedIdentities.add(identity));
-            nextIndex++;
-        });
-        return merged;
+    function getProvisionalImageVariant(card) {
+        if (!card?.cardNumber) return null;
+        const variants = provisionalVariantsByNumber.get(card.cardNumber) || [];
+        const uniqueId = card.uniqueId || card.imagePath || card.provisionalImageUrl;
+        return variants.find(variant => variant.provisionalUniqueId === uniqueId) || null;
     }
 
     function getCardImageVariants(card) {
         if (!card || !card.cardNumber) return [];
-        if (isProvisionalCard(card) && card.imagePath) {
+        if (isProvisionalCard(card)) {
+            const provisionalVariant = getProvisionalImageVariant(card);
+            if (provisionalVariant) return [{ ...provisionalVariant }];
+            const imagePath = card.imagePath || card.provisionalImageUrl;
+            if (!imagePath) return [];
             return [{
-                path: card.imagePath,
-                fallbackPath: card.imagePath,
+                path: imagePath,
+                fallbackPath: imagePath,
                 sourceUrl: card.provisionalImageUrl || '',
                 label: card.seriesTitle ? `仮DB: ${card.seriesTitle}` : '仮DB画像',
                 getInfo: card.getInfo || '',
@@ -723,11 +766,7 @@
         }
         const manifestVariants = imageManifest.cards?.[card.cardNumber];
         if (Array.isArray(manifestVariants) && manifestVariants.length > 0) {
-            return mergeProvisionalImageVariants(card.cardNumber, manifestVariants);
-        }
-        const provisionalVariants = mergeProvisionalImageVariants(card.cardNumber);
-        if (provisionalVariants.length > 0) {
-            return provisionalVariants;
+            return manifestVariants;
         }
         if (card.imagePath) {
             return [{ path: card.imagePath, label: '通常', variantIndex: 0 }];
@@ -900,6 +939,7 @@
             const response = await fetch(PROVISIONAL_CARDS_JSON_PATH, { cache: 'no-store' });
             if (response.status === 404) {
                 provisionalCards = [];
+                rebuildProvisionalVariants();
                 return;
             }
             if (!response.ok) throw new Error(`Failed to fetch provisional cards: ${response.status}`);
@@ -920,7 +960,12 @@
 
     function getProvisionalCardsForDisplay() {
         const officialCardNumbers = new Set(allCards.map(card => card?.cardNumber).filter(Boolean));
-        return provisionalCards.filter(card => card?.cardNumber && !officialCardNumbers.has(card.cardNumber));
+        return provisionalCards.filter(card => {
+            if (!card?.cardNumber) return false;
+            const variant = getProvisionalImageVariant(card);
+            if (variant) return !variant.isOfficialDuplicate && !variant.isProvisionalDuplicate;
+            return !officialCardNumbers.has(card.cardNumber);
+        });
     }
 
     function getDeckCardPool() {
@@ -2460,6 +2505,7 @@
             leader: imported.leader,
             cards: imported.cards,
             ownedCards: {},
+            ownedCardsLinked: true,
             createdAt: now,
             updatedAt: now
         };
@@ -2757,14 +2803,39 @@
         return normalized;
     }
 
+    function getCollectionRecordsForCardNumber(cardNumber) {
+        const normalizedNumber = String(cardNumber || '').trim();
+        if (!normalizedNumber) return [];
+        return [...collectionItems.entries()]
+            .filter(([key, record]) => (
+                String(record?.cardNumber || key.split('::')[0] || '').trim() === normalizedNumber
+            ))
+            .map(([key, record]) => ({ key, record }));
+    }
+
+    function getCollectionOwnedCountForCardNumber(cardNumber) {
+        return getCollectionRecordsForCardNumber(cardNumber)
+            .reduce((sum, { record }) => sum + clampCollectionCount(record?.count), 0);
+    }
+
+    function getCollectionOwnedCardsForDeck(deck) {
+        const ownedCards = {};
+        getDeckRequirementEntries(deck).forEach(entry => {
+            const cardNumber = entry.card.cardNumber;
+            const count = getCollectionOwnedCountForCardNumber(cardNumber);
+            if (count > 0) ownedCards[cardNumber] = count;
+        });
+        return ownedCards;
+    }
+
     function getMissingCardEntries(deck, ownedCards = {}) {
         return getDeckRequirementEntries(deck).map(entry => {
             const cardNumber = entry.card.cardNumber;
-            const ownedCount = clampOwnedCardCount(ownedCards[cardNumber], entry.requiredCount);
+            const ownedCount = clampCollectionCount(ownedCards[cardNumber]);
             return {
                 ...entry,
                 ownedCount,
-                missingCount: entry.requiredCount - ownedCount
+                missingCount: Math.max(0, entry.requiredCount - ownedCount)
             };
         });
     }
@@ -2955,16 +3026,31 @@
 
     function resolveVariantEntry(key, fallbackRecord = null) {
         const [cardNumber, variantId = cardNumber] = String(key || '').split('::');
-        const card = findCardByNumber(cardNumber) || {
+        let card = findCardByNumber(cardNumber) || {
             cardNumber,
             cardName: fallbackRecord?.cardName || '未登録カード',
             cardType: '',
             color: []
         };
-        const variants = getCardImageVariants(card);
+        let variants = getCardImageVariants(card);
         let variantIndex = variants.findIndex((variant, index) => (
             getCardVariantId(card, variant, index) === variantId
         ));
+        if (variantIndex < 0) {
+            const provisionalCard = provisionalCards.find(candidate => {
+                if (candidate?.cardNumber !== cardNumber) return false;
+                return getCardImageVariants(candidate).some((variant, index) => (
+                    getCardVariantId(candidate, variant, index) === variantId
+                ));
+            });
+            if (provisionalCard) {
+                card = provisionalCard;
+                variants = getCardImageVariants(card);
+                variantIndex = variants.findIndex((variant, index) => (
+                    getCardVariantId(card, variant, index) === variantId
+                ));
+            }
+        }
         if (variantIndex < 0 && Number.isInteger(fallbackRecord?.variantIndex)) {
             const stableIndex = Number(fallbackRecord.variantIndex);
             variantIndex = variants.findIndex((variant, index) => getVariantStableIndex(variant, index) === stableIndex);
@@ -2996,6 +3082,95 @@
             count: clampCollectionCount(count),
             updatedAt: new Date().toISOString()
         };
+    }
+
+    function buildCollectionOwnedCountChanges(cardNumber, requestedCount) {
+        const targetCount = clampCollectionCount(requestedCount);
+        const entries = getCollectionRecordsForCardNumber(cardNumber);
+        const currentCount = entries.reduce(
+            (sum, { record }) => sum + clampCollectionCount(record?.count),
+            0
+        );
+        if (targetCount === currentCount) return [];
+
+        const changes = [];
+        if (targetCount > currentCount) {
+            const defaultKey = getVariantKey(cardNumber, cardNumber);
+            const existing = collectionItems.get(defaultKey);
+            const card = findCardByNumber(cardNumber) || {
+                cardNumber,
+                cardName: existing?.cardName || '未登録カード',
+                cardType: '',
+                color: []
+            };
+            const record = createCollectionRecord(
+                card,
+                defaultKey,
+                clampCollectionCount(existing?.count) + (targetCount - currentCount),
+                existing
+            );
+            collectionItems.set(defaultKey, record);
+            changes.push({ type: 'put', record });
+            return changes;
+        }
+
+        let removeCount = currentCount - targetCount;
+        entries
+            .sort((a, b) => {
+                const aNormal = a.record?.variantId === cardNumber || a.record?.variantType === 'normal';
+                const bNormal = b.record?.variantId === cardNumber || b.record?.variantType === 'normal';
+                return Number(bNormal) - Number(aNormal);
+            })
+            .forEach(({ key, record }) => {
+                if (removeCount <= 0) return;
+                const current = clampCollectionCount(record?.count);
+                const next = Math.max(0, current - removeCount);
+                removeCount -= current - next;
+                if (next > 0) {
+                    const nextRecord = { ...record, count: next, updatedAt: new Date().toISOString() };
+                    collectionItems.set(key, nextRecord);
+                    changes.push({ type: 'put', record: nextRecord });
+                } else {
+                    collectionItems.delete(key);
+                    changes.push({ type: 'delete', key });
+                }
+            });
+        return changes;
+    }
+
+    function queueCollectionOwnedCountChanges(changes) {
+        if (!db || changes.length === 0) return;
+        collectionWriteQueue = collectionWriteQueue
+            .then(async () => {
+                const tx = db.transaction(STORE_COLLECTION, 'readwrite');
+                for (const change of changes) {
+                    if (change.type === 'put') await tx.store.put(change.record);
+                    else await tx.store.delete(change.key);
+                }
+                await tx.done;
+            })
+            .catch(error => {
+                console.error('Failed to link collection ownership:', error);
+                showMessageToast('所持枚数を保存できませんでした。', 'error');
+            });
+    }
+
+    function setCollectionOwnedCountForCardNumber(cardNumber, count) {
+        const changes = buildCollectionOwnedCountChanges(cardNumber, count);
+        queueCollectionOwnedCountChanges(changes);
+        return getCollectionOwnedCountForCardNumber(cardNumber);
+    }
+
+    async function linkLegacyDeckOwnership(deck) {
+        if (!deck || deck.ownedCardsLinked === true) return false;
+        const legacyOwnedCards = normalizeOwnedCardsForDeck(deck, deck.ownedCards || {});
+        Object.entries(legacyOwnedCards).forEach(([cardNumber, count]) => {
+            const current = getCollectionOwnedCountForCardNumber(cardNumber);
+            if (count > current) setCollectionOwnedCountForCardNumber(cardNumber, count);
+        });
+        await collectionWriteQueue;
+        deck.ownedCardsLinked = true;
+        return true;
     }
 
     async function loadCollectionItems() {
@@ -3348,7 +3523,7 @@
         if (dom.openingBoxCountInput) dom.openingBoxCountInput.value = session?.boxCount || '';
         if (dom.openingPackCountInput) dom.openingPackCountInput.value = session?.packCount || '';
         if (dom.openingSeriesSelect) {
-            dom.openingSeriesSelect.innerHTML = '<option value="">シリーズを選択</option>';
+            dom.openingSeriesSelect.innerHTML = '<option value="">すべてのシリーズ（カード整理）</option>';
             getOpeningSeriesOptions().forEach(([id, label]) => {
                 const option = document.createElement('option');
                 option.value = id;
@@ -3388,11 +3563,6 @@
         const openedAt = dom.openingDateInput?.value || formatLocalDateStamp();
         const boxCount = Math.min(999, Math.max(0, Math.trunc(Number(dom.openingBoxCountInput?.value) || 0)));
         const packCount = Math.min(9999, Math.max(0, Math.trunc(Number(dom.openingPackCountInput?.value) || 0)));
-        if (!seriesId) {
-            showMessageToast('シリーズを選択してください。', 'info');
-            dom.openingSeriesSelect?.focus();
-            return;
-        }
 
         const existing = openingFormSessionId
             ? openingSessions.find(session => session.id === openingFormSessionId)
@@ -3459,7 +3629,7 @@
         shell.className = 'collection-session-thumbnail';
         const firstKey = Object.keys(getOpeningSessionCounts(session))[0];
         if (!firstKey) {
-            shell.textContent = session.seriesId || '?';
+            shell.textContent = session.seriesId || 'ALL';
             return shell;
         }
         const entry = resolveVariantEntry(firstKey);
@@ -3526,7 +3696,7 @@
             const meta = document.createElement('span');
             meta.textContent = [
                 session.openedAt,
-                session.seriesId,
+                session.seriesId || '全シリーズ',
                 formatOpeningQuantity(session),
                 `${summary.total}枚 / ${summary.types}種類`,
                 session.draftItems !== null && session.draftItems !== undefined ? '下書きあり' : ''
@@ -3751,7 +3921,7 @@
             const owned = row.querySelector('[data-role="owned"]');
             const shortage = row.querySelector('[data-role="shortage"]');
             if (decrement) decrement.disabled = entry.ownedCount <= 0;
-            if (increment) increment.disabled = entry.ownedCount >= entry.requiredCount;
+            if (increment) increment.disabled = entry.ownedCount >= 9999;
             if (owned) owned.textContent = `所持 ${entry.ownedCount}/${entry.requiredCount}`;
             if (shortage) shortage.textContent = entry.missingCount > 0 ? `不足 ${entry.missingCount}` : '所持済み';
             row.classList.toggle('is-complete', entry.missingCount === 0);
@@ -3777,11 +3947,8 @@
 
     function adjustMissingOwnedCount(cardNumber, delta) {
         if (!missingCardsDeck) return;
-        const entry = getDeckRequirementEntries(missingCardsDeck)
-            .find(item => item.card.cardNumber === cardNumber);
-        if (!entry) return;
-        const current = clampOwnedCardCount(missingCardsOwned[cardNumber], entry.requiredCount);
-        const next = clampOwnedCardCount(current + delta, entry.requiredCount);
+        const current = getCollectionOwnedCountForCardNumber(cardNumber);
+        const next = setCollectionOwnedCountForCardNumber(cardNumber, current + delta);
         if (next > 0) missingCardsOwned[cardNumber] = next;
         else delete missingCardsOwned[cardNumber];
         syncMissingCardsModal();
@@ -3790,12 +3957,17 @@
 
     function setAllMissingOwnedCards(owned) {
         if (!missingCardsDeck) return;
-        missingCardsOwned = {};
-        if (owned) {
-            getDeckRequirementEntries(missingCardsDeck).forEach(entry => {
-                missingCardsOwned[entry.card.cardNumber] = entry.requiredCount;
-            });
+        if (!owned && !confirm('このデッキに含まれるカードの所持枚数を、所持カードリストでも0枚にしますか？')) {
+            return;
         }
+        getDeckRequirementEntries(missingCardsDeck).forEach(entry => {
+            const cardNumber = entry.card.cardNumber;
+            const current = getCollectionOwnedCountForCardNumber(cardNumber);
+            const target = owned ? Math.max(current, entry.requiredCount) : 0;
+            const next = setCollectionOwnedCountForCardNumber(cardNumber, target);
+            if (next > 0) missingCardsOwned[cardNumber] = next;
+            else delete missingCardsOwned[cardNumber];
+        });
         syncMissingCardsModal();
         scheduleMissingCardsOwnershipSave();
     }
@@ -3803,8 +3975,11 @@
     async function persistMissingCardsOwnership() {
         if (!missingCardsDeck) return true;
         const deck = missingCardsDeck;
-        const ownedCards = normalizeOwnedCardsForDeck(deck, missingCardsOwned);
+        const ownedSnapshot = { ...missingCardsOwned };
+        await collectionWriteQueue;
+        const ownedCards = normalizeOwnedCardsForDeck(deck, ownedSnapshot);
         deck.ownedCards = ownedCards;
+        deck.ownedCardsLinked = true;
         try {
             await saveDeck(deck);
             return true;
@@ -3846,10 +4021,17 @@
         await savePromise;
     }
 
-    function openMissingCardsModal(deck) {
+    async function openMissingCardsModal(deck) {
         if (!dom.missingCardsModal || !deck) return;
         missingCardsDeck = deck;
-        missingCardsOwned = normalizeOwnedCardsForDeck(deck, deck.ownedCards || {});
+        await collectionWriteQueue;
+        await loadCollectionItems();
+
+        await linkLegacyDeckOwnership(deck);
+
+        missingCardsOwned = getCollectionOwnedCardsForDeck(deck);
+        deck.ownedCardsLinked = true;
+        await persistMissingCardsOwnership();
         if (dom.missingCardsDeckName) {
             dom.missingCardsDeckName.textContent = normalizeDeckName(deck.name, 'デッキ');
         }
@@ -4319,7 +4501,7 @@
         }
         const name = normalizeDeckName(session.name, '開封記録');
         const details = [
-            session.seriesId,
+            session.seriesId || '全シリーズ',
             session.openedAt,
             formatOpeningQuantity(session)
         ].filter(Boolean).join(' · ');
@@ -4581,6 +4763,7 @@
             leader: card.cardNumber,
             cards: {},
             ownedCards: {},
+            ownedCardsLinked: true,
             createdAt: now,
             updatedAt: now
         };
@@ -4841,6 +5024,7 @@
             leader: deck.leader,
             colors: colors,
             ownedCards: { ...(deck.ownedCards || {}) },
+            ownedCardsLinked: deck.ownedCardsLinked === true,
             createdAt: deck.createdAt || new Date().toISOString()
         };
         deckShowOnlyDeckCards = false;
@@ -4882,15 +5066,25 @@
 
     async function saveCurrentDeck() {
         if (!editingDeckId) return;
+        const deckRequirements = {
+            leader: editingDeckMeta.leader,
+            cards: editingDeckData
+        };
+        await linkLegacyDeckOwnership({
+            ...deckRequirements,
+            ownedCards: editingDeckMeta.ownedCards || {},
+            ownedCardsLinked: editingDeckMeta.ownedCardsLinked === true
+        });
         const deck = {
             id: editingDeckId,
             name: editingDeckMeta.name,
             leader: editingDeckMeta.leader,
             cards: editingDeckData,
-            ownedCards: normalizeOwnedCardsForDeck({
-                leader: editingDeckMeta.leader,
-                cards: editingDeckData
-            }, editingDeckMeta.ownedCards || {}),
+            ownedCards: normalizeOwnedCardsForDeck(
+                deckRequirements,
+                getCollectionOwnedCardsForDeck(deckRequirements)
+            ),
+            ownedCardsLinked: true,
             createdAt: editingDeckMeta.createdAt,
             updatedAt: new Date().toISOString()
         };

@@ -397,12 +397,15 @@
                     <button id="missing-cards-close-btn" class="modal-close-btn" type="button" aria-label="不足カード画面を閉じる">&times;</button>
                 </div>
                 <div class="modal-body missing-cards-body">
-                    <strong id="missing-cards-deck-name" class="missing-cards-deck-name"></strong>
+                    <div class="missing-cards-heading-row">
+                        <strong id="missing-cards-deck-name" class="missing-cards-deck-name"></strong>
+                        <span class="missing-cards-link-status">所持カード連動</span>
+                    </div>
                     <div class="missing-cards-toolbar">
                         <span id="missing-cards-summary" class="missing-cards-summary" aria-live="polite"></span>
                         <div class="missing-cards-quick-actions">
-                            <button id="missing-cards-clear-btn" class="missing-cards-quick-btn" type="button">すべて0枚</button>
-                            <button id="missing-cards-fill-btn" class="missing-cards-quick-btn" type="button">すべて所持</button>
+                            <button id="missing-cards-clear-btn" class="missing-cards-quick-btn" type="button">所持を0枚</button>
+                            <button id="missing-cards-fill-btn" class="missing-cards-quick-btn" type="button">必要数まで追加</button>
                         </div>
                     </div>
                     <section id="missing-cards-list" class="missing-cards-list" aria-label="デッキ内の所持枚数"></section>
@@ -491,7 +494,7 @@
                         <input id="opening-name-input" type="text" maxlength="80" autocomplete="off" placeholder="例: OP-18 発売日開封">
                     </label>
                     <label class="opening-form-field">
-                        <span>シリーズ</span>
+                        <span>対象シリーズ</span>
                         <select id="opening-series-select"></select>
                     </label>
                     <label class="opening-form-field">
