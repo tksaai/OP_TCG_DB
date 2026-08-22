@@ -76,7 +76,8 @@
     "trigger": "",
     "getInfo": "Vジャンプ10月特大号応募者全員サービス（2024年8月21日売）",
     "seriesTitle": "Vジャンプ10月特大号応募者全員サービス（2024年8月21日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "EB01-003_p2"
   },
   {
     "uniqueId": "EB01-004_dummy.gif",
@@ -152,7 +153,9 @@
     "trigger": "",
     "getInfo": "始めようキャンペーン プロモーションパック",
     "seriesTitle": "始めようキャンペーン プロモーションパック",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "EB01-006_p5",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "EB01-007_dummy.gif",
@@ -306,7 +309,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "EB01-012_p2"
   },
   {
     "uniqueId": "EB01-013_dummy.gif",
@@ -358,7 +362,8 @@
     "trigger": "",
     "getInfo": "スタンダードバトルパックVol.9",
     "seriesTitle": "スタンダードバトルパックVol.9",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "EB01-014_p1"
   },
   {
     "uniqueId": "EB01-015_dummy.gif",
@@ -384,7 +389,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "EB01-015_p1"
   },
   {
     "uniqueId": "EB01-016_dummy.gif",
@@ -1174,7 +1180,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "EB01-046_p3"
   },
   {
     "uniqueId": "EB01-047_dummy.gif",
@@ -1704,7 +1711,8 @@
     "trigger": "",
     "getInfo": "エクストラグランドバトル2026 4月優勝記念品",
     "seriesTitle": "エクストラグランドバトル2026 4月優勝記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "EB02-006_p2"
   },
   {
     "uniqueId": "EB02-007_dummy.gif",
@@ -1987,7 +1995,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD GAME 3rd ANNIVERSARY COMPLETE GUIDE付録",
     "seriesTitle": "ONE PIECE CARD GAME 3rd ANNIVERSARY COMPLETE GUIDE付録",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "EB02-017_p2"
   },
   {
     "uniqueId": "EB02-018_dummy.gif",
@@ -2039,7 +2048,8 @@
     "trigger": "",
     "getInfo": "スタンダードバトル 2025年3月優勝記念品",
     "seriesTitle": "スタンダードバトル 2025年3月優勝記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "EB02-019_p2"
   },
   {
     "uniqueId": "EB02-020_dummy.gif",
@@ -2218,7 +2228,8 @@
     "trigger": "",
     "getInfo": "プロモーションパックEX Vol.3",
     "seriesTitle": "プロモーションパックEX Vol.3",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "EB02-026_p2"
   },
   {
     "uniqueId": "EB02-027_dummy.gif",
@@ -2449,7 +2460,8 @@
     "trigger": "",
     "getInfo": "8パックバトル 2026年4月",
     "seriesTitle": "8パックバトル 2026年4月",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "EB02-035_p2"
   },
   {
     "uniqueId": "EB02-036_dummy.gif",
@@ -2929,7 +2941,8 @@
     "trigger": "",
     "getInfo": "プロモーションパックEX Vol.3",
     "seriesTitle": "プロモーションパックEX Vol.3",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "EB02-054_p2"
   },
   {
     "uniqueId": "EB02-055_dummy.gif",
@@ -2955,7 +2968,8 @@
     "trigger": "【】自分のリーダーが特徴《魚人族》か《人魚族》を持ち、自分のライフが2枚以下の場合、このカードを登場させる。",
     "getInfo": "スタンダードバトルパックVol.11",
     "seriesTitle": "スタンダードバトルパックVol.11",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "EB02-055_p1"
   },
   {
     "uniqueId": "EB02-056_dummy.gif",
@@ -3107,7 +3121,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "EB03-001_dummy.gif",
@@ -3261,7 +3276,8 @@
     "trigger": "",
     "getInfo": "プロモーションパックEX Vol.4",
     "seriesTitle": "プロモーションパックEX Vol.4",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "EB03-006_p1"
   },
   {
     "uniqueId": "EB03-007_dummy.gif",
@@ -3794,7 +3810,8 @@
     "trigger": "",
     "getInfo": "プロモーションパックEX Vol.4",
     "seriesTitle": "プロモーションパックEX Vol.4",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "EB03-027_p1"
   },
   {
     "uniqueId": "EB03-028_dummy.gif",
@@ -5270,7 +5287,8 @@
     "trigger": "",
     "getInfo": "スタンダードバトルパック Vol.15",
     "seriesTitle": "スタンダードバトルパック Vol.15",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "EB04-023_p1"
   },
   {
     "uniqueId": "EB04-024_dummy.gif",
@@ -6171,7 +6189,8 @@
     "trigger": "",
     "getInfo": "プロモーションパックEX Vol.4",
     "seriesTitle": "プロモーションパックEX Vol.4",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "EB04-058_p2"
   },
   {
     "uniqueId": "EB04-059_dummy.gif",
@@ -6252,7 +6271,8 @@
     "trigger": "",
     "getInfo": "フラッグシップバトル2026 4月優勝記念品",
     "seriesTitle": "フラッグシップバトル2026 4月優勝記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "EB04-061_p2"
   },
   {
     "uniqueId": "OP01-001_dummy.gif",
@@ -6357,7 +6377,8 @@
     "trigger": "",
     "getInfo": "チャンピオンシップ2022 予選 ベスト32記念品",
     "seriesTitle": "チャンピオンシップ2022 予選 ベスト32記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP01-004_p2"
   },
   {
     "uniqueId": "OP01-005_dummy.gif",
@@ -6382,7 +6403,8 @@
     "trigger": "",
     "getInfo": "『ONE PIECE FILM RED』入場者プレゼント フィナーレセット",
     "seriesTitle": "『ONE PIECE FILM RED』入場者プレゼント フィナーレセット",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP01-005_p4"
   },
   {
     "uniqueId": "OP01-006_dummy.gif",
@@ -6585,7 +6607,8 @@
     "trigger": "",
     "getInfo": "プロモーションカードセット",
     "seriesTitle": "プロモーションカードセット",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP01-013_p3"
   },
   {
     "uniqueId": "OP01-014_dummy.gif",
@@ -6611,7 +6634,8 @@
     "trigger": "",
     "getInfo": "『ONE PIECE FILM RED』入場者プレゼント フィナーレセット",
     "seriesTitle": "『ONE PIECE FILM RED』入場者プレゼント フィナーレセット",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP01-014_p1"
   },
   {
     "uniqueId": "OP01-015_dummy.gif",
@@ -6637,7 +6661,8 @@
     "trigger": "",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.6",
     "seriesTitle": "ONE PIECEカードゲーム プロモーションパックVol.6",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP01-015_p1"
   },
   {
     "uniqueId": "OP01-016_dummy.gif",
@@ -6662,7 +6687,9 @@
     "trigger": "",
     "getInfo": "ジャンプGIGA 2023 SPRING 応募者全員サービス",
     "seriesTitle": "ジャンプGIGA 2023 SPRING 応募者全員サービス",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP01-016_p6",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP01-017_dummy.gif",
@@ -6687,7 +6714,8 @@
     "trigger": "",
     "getInfo": "『ONE PIECE FILM RED』入場者プレゼント フィナーレセット",
     "seriesTitle": "『ONE PIECE FILM RED』入場者プレゼント フィナーレセット",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP01-017_p3"
   },
   {
     "uniqueId": "OP01-018_dummy.gif",
@@ -6789,7 +6817,8 @@
     "trigger": "",
     "getInfo": "『ONE PIECE FILM RED』入場者プレゼント フィナーレセット",
     "seriesTitle": "『ONE PIECE FILM RED』入場者プレゼント フィナーレセット",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP01-021_p5"
   },
   {
     "uniqueId": "OP01-022_dummy.gif",
@@ -6891,7 +6920,8 @@
     "trigger": "",
     "getInfo": "フラッグシップバトル2023 4月優勝記念品",
     "seriesTitle": "フラッグシップバトル2023 4月優勝記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP01-025_p4"
   },
   {
     "uniqueId": "OP01-026_dummy.gif",
@@ -7096,7 +7126,8 @@
     "trigger": "",
     "getInfo": "スタンダードバトルパック2022 Vol.1",
     "seriesTitle": "スタンダードバトルパック2022 Vol.1",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP01-033_p1"
   },
   {
     "uniqueId": "OP01-034_dummy.gif",
@@ -7149,7 +7180,8 @@
     "trigger": "",
     "getInfo": "スタンダードバトルパック Vol.3",
     "seriesTitle": "スタンダードバトルパック Vol.3",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP01-035_p1"
   },
   {
     "uniqueId": "OP01-036_dummy.gif",
@@ -7253,7 +7285,9 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "OP01-039_p3",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "OP01-040_dummy.gif",
@@ -7305,7 +7339,8 @@
     "trigger": "",
     "getInfo": "スタンダードバトルパックVol.7",
     "seriesTitle": "スタンダードバトルパックVol.7",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP01-041_p1"
   },
   {
     "uniqueId": "OP01-042_dummy.gif",
@@ -7666,7 +7701,9 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "OP01-055_p2",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "OP01-056_dummy.gif",
@@ -8055,7 +8092,8 @@
     "trigger": "",
     "getInfo": "フラッグシップバトル2024 1月優勝記念品",
     "seriesTitle": "フラッグシップバトル2024 1月優勝記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP01-070_p2"
   },
   {
     "uniqueId": "OP01-071_dummy.gif",
@@ -8235,7 +8273,8 @@
     "trigger": "",
     "getInfo": "ジャンプGIGA 2023 SPRING 応募者全員サービス",
     "seriesTitle": "ジャンプGIGA 2023 SPRING 応募者全員サービス",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP01-077_p5"
   },
   {
     "uniqueId": "OP01-078_dummy.gif",
@@ -8666,7 +8705,8 @@
     "trigger": "",
     "getInfo": "フラッグシップバトル2023 10月優勝記念品",
     "seriesTitle": "フラッグシップバトル2023 10月優勝記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP01-094_p3"
   },
   {
     "uniqueId": "OP01-095_dummy.gif",
@@ -9026,7 +9066,8 @@
     "trigger": "",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.5",
     "seriesTitle": "ONE PIECEカードゲーム プロモーションパックVol.5",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP01-108_p1"
   },
   {
     "uniqueId": "OP01-109_dummy.gif",
@@ -9180,7 +9221,8 @@
     "trigger": "",
     "getInfo": "プロモーションパックEX Vol.1",
     "seriesTitle": "プロモーションパックEX Vol.1",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP01-114_p1"
   },
   {
     "uniqueId": "OP01-115_dummy.gif",
@@ -9335,7 +9377,9 @@
     "trigger": "",
     "getInfo": "フラッグシップバトル2023 7月優勝記念品",
     "seriesTitle": "フラッグシップバトル2023 7月優勝記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP01-120_p4",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP01-121_dummy.gif",
@@ -9463,7 +9507,8 @@
     "trigger": "",
     "getInfo": "プロモーションパックEX Vol.1",
     "seriesTitle": "プロモーションパックEX Vol.1",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP02-004_p3"
   },
   {
     "uniqueId": "OP02-005_dummy.gif",
@@ -9488,7 +9533,9 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "OP02-005_p4",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "OP02-006_dummy.gif",
@@ -9563,7 +9610,8 @@
     "trigger": "",
     "getInfo": "プロモーションパックEX Vol.1",
     "seriesTitle": "プロモーションパックEX Vol.1",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP02-008_p1"
   },
   {
     "uniqueId": "OP02-009_dummy.gif",
@@ -9688,7 +9736,8 @@
     "trigger": "",
     "getInfo": "頂上決戦【OP-02】",
     "seriesTitle": "頂上決戦",
-    "seriesCode": "OP-02"
+    "seriesCode": "OP-02",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP02-014_dummy.gif",
@@ -10096,7 +10145,8 @@
     "trigger": "",
     "getInfo": "ジャンプGIGA 2023 SPRING 応募者全員サービス",
     "seriesTitle": "ジャンプGIGA 2023 SPRING 応募者全員サービス",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP02-029_p2"
   },
   {
     "uniqueId": "OP02-030_dummy.gif",
@@ -10227,7 +10277,8 @@
     "trigger": "",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.5",
     "seriesTitle": "ONE PIECEカードゲーム プロモーションパックVol.5",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP02-034_p3"
   },
   {
     "uniqueId": "OP02-035_dummy.gif",
@@ -10254,7 +10305,8 @@
     "trigger": "",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.3",
     "seriesTitle": "ONE PIECEカードゲーム プロモーションパックVol.3",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP02-035_p1"
   },
   {
     "uniqueId": "OP02-036_dummy.gif",
@@ -10878,7 +10930,8 @@
     "trigger": "",
     "getInfo": "プロモーションカードセット",
     "seriesTitle": "プロモーションカードセット",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP02-059_p2"
   },
   {
     "uniqueId": "OP02-060_dummy.gif",
@@ -10981,7 +11034,8 @@
     "trigger": "",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.6",
     "seriesTitle": "ONE PIECEカードゲーム プロモーションパックVol.6",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP02-063_p1"
   },
   {
     "uniqueId": "OP02-064_dummy.gif",
@@ -11110,7 +11164,9 @@
     "trigger": "【】コスト2以下のキャラ1枚までを、持ち主の手札に戻す。",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "OP02-068_p2",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "OP02-069_dummy.gif",
@@ -11822,7 +11878,8 @@
     "trigger": "",
     "getInfo": "チャンピオンシップ2023 1次予選エリア大会 ベスト8記念品",
     "seriesTitle": "チャンピオンシップ2023 1次予選エリア大会 ベスト8記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP02-096_p3"
   },
   {
     "uniqueId": "OP02-097_dummy.gif",
@@ -11872,7 +11929,8 @@
     "trigger": "",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.3",
     "seriesTitle": "ONE PIECEカードゲーム プロモーションパックVol.3",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP02-098_p3"
   },
   {
     "uniqueId": "OP02-099_dummy.gif",
@@ -11897,7 +11955,8 @@
     "trigger": "",
     "getInfo": "チャンピオンシップ2023 1次予選決勝大会 ベスト32記念品",
     "seriesTitle": "チャンピオンシップ2023 1次予選決勝大会 ベスト32記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP02-099_p4"
   },
   {
     "uniqueId": "OP02-100_dummy.gif",
@@ -12047,7 +12106,8 @@
     "trigger": "",
     "getInfo": "ジャンプGIGA 2023 SPRING 応募者全員サービス",
     "seriesTitle": "ジャンプGIGA 2023 SPRING 応募者全員サービス",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP02-105_p3"
   },
   {
     "uniqueId": "OP02-106_dummy.gif",
@@ -12123,7 +12183,8 @@
     "trigger": "",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.5",
     "seriesTitle": "ONE PIECEカードゲーム プロモーションパックVol.5",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP02-108_p2"
   },
   {
     "uniqueId": "OP02-109_dummy.gif",
@@ -12274,7 +12335,8 @@
     "trigger": "",
     "getInfo": "チャンピオンシップ2023 1次予選エリア大会 ベスト16記念品",
     "seriesTitle": "チャンピオンシップ2023 1次予選エリア大会 ベスト16記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP02-114_p3"
   },
   {
     "uniqueId": "OP02-115_dummy.gif",
@@ -12651,7 +12713,9 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "OP03-008_p3",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "OP03-009_dummy.gif",
@@ -12776,7 +12840,8 @@
     "trigger": "",
     "getInfo": "プロモーションパックEX Vol.1",
     "seriesTitle": "プロモーションパックEX Vol.1",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP03-013_p2"
   },
   {
     "uniqueId": "OP03-014_dummy.gif",
@@ -13294,7 +13359,8 @@
     "trigger": "【】自分のリーダーが特徴《東の海》を持つ場合、このカードを登場させる。",
     "getInfo": "スタンダードバトルパックVol.6",
     "seriesTitle": "スタンダードバトルパックVol.6",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP03-033_p1"
   },
   {
     "uniqueId": "OP03-034_dummy.gif",
@@ -13576,7 +13642,9 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "OP03-044_p4",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "OP03-045_dummy.gif",
@@ -13676,7 +13744,9 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "OP03-048_p2",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "OP03-049_dummy.gif",
@@ -14295,7 +14365,9 @@
     "trigger": "【】ドン‼デッキからドン‼1枚までを、アクティブで追加する。",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "OP03-072_p2",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "OP03-073_dummy.gif",
@@ -14701,7 +14773,8 @@
     "trigger": "",
     "getInfo": "スタンダードバトルパックVol.6",
     "seriesTitle": "スタンダードバトルパックVol.6",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP03-088_p1"
   },
   {
     "uniqueId": "OP03-089_dummy.gif",
@@ -14726,7 +14799,8 @@
     "trigger": "",
     "getInfo": "スタンダードバトルパックVol.4",
     "seriesTitle": "スタンダードバトルパックVol.4",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP03-089_p1"
   },
   {
     "uniqueId": "OP03-090_dummy.gif",
@@ -14926,7 +15000,9 @@
     "trigger": "【】カード1枚を引く。その後、相手のコスト1以下のキャラ1枚までを、KOする。",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "OP03-097_p1",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "OP03-098_dummy.gif",
@@ -15052,7 +15128,8 @@
     "trigger": "",
     "getInfo": "スタンダードバトルパックVol.4",
     "seriesTitle": "スタンダードバトルパックVol.4",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP03-102_p1"
   },
   {
     "uniqueId": "OP03-103_dummy.gif",
@@ -15303,7 +15380,8 @@
     "trigger": "",
     "getInfo": "スタンダードバトルパックVol.8",
     "seriesTitle": "スタンダードバトルパックVol.8",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP03-112_p3"
   },
   {
     "uniqueId": "OP03-113_dummy.gif",
@@ -15404,7 +15482,8 @@
     "trigger": "【】このカードを登場させる。",
     "getInfo": "スタンダードバトルパックVol.6",
     "seriesTitle": "スタンダードバトルパックVol.6",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP03-116_p4"
   },
   {
     "uniqueId": "OP03-117_dummy.gif",
@@ -15557,7 +15636,8 @@
     "trigger": "",
     "getInfo": "強大な敵【OP-03】",
     "seriesTitle": "強大な敵",
-    "seriesCode": "OP-03"
+    "seriesCode": "OP-03",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP03-123_dummy.gif",
@@ -15582,7 +15662,8 @@
     "trigger": "",
     "getInfo": "チャンピオンシップ2024 WAVE1 エリア大会 ベスト8記念品",
     "seriesTitle": "チャンピオンシップ2024 WAVE1 エリア大会 ベスト8記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP03-123_p2"
   },
   {
     "uniqueId": "OP04-001_dummy.gif",
@@ -15840,7 +15921,8 @@
     "trigger": "",
     "getInfo": "スタンダードバトルパックVol.8",
     "seriesTitle": "スタンダードバトルパックVol.8",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP04-010_p1"
   },
   {
     "uniqueId": "OP04-011_dummy.gif",
@@ -15994,7 +16076,9 @@
     "trigger": "【】相手のリーダーかキャラ1枚までを、このターン中、パワー-3000。",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "OP04-016_p2",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "OP04-017_dummy.gif",
@@ -17544,7 +17628,9 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "OP04-077_p2",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "OP04-078_dummy.gif",
@@ -17698,7 +17784,9 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "OP04-083_p3",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP04-084_dummy.gif",
@@ -17930,7 +18018,8 @@
     "trigger": "",
     "getInfo": "スタンダードバトル 2024年12月優勝記念品",
     "seriesTitle": "スタンダードバトル 2024年12月優勝記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP04-092_p2"
   },
   {
     "uniqueId": "OP04-093_dummy.gif",
@@ -18032,7 +18121,9 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "OP04-096_p2",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "OP04-097_dummy.gif",
@@ -18134,7 +18225,8 @@
     "trigger": "【】相手のリーダーかキャラ1枚までは、このターン中、アタックできない。",
     "getInfo": "プロモーションパックEX Vol.1",
     "seriesTitle": "プロモーションパックEX Vol.1",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP04-100_p2"
   },
   {
     "uniqueId": "OP04-101_dummy.gif",
@@ -18436,7 +18528,8 @@
     "trigger": "",
     "getInfo": "フラッグシップバトル2024 7月ベスト8記念品",
     "seriesTitle": "フラッグシップバトル2024 7月ベスト8記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP04-112_p2"
   },
   {
     "uniqueId": "OP04-113_dummy.gif",
@@ -18768,7 +18861,8 @@
     "trigger": "",
     "getInfo": "8パックバトル 2025年10月",
     "seriesTitle": "8パックバトル 2025年10月",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP05-006_p3"
   },
   {
     "uniqueId": "OP05-007_dummy.gif",
@@ -19527,7 +19621,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "OP05-036_p1"
   },
   {
     "uniqueId": "OP05-037_dummy.gif",
@@ -19552,7 +19647,8 @@
     "trigger": "【】相手のコスト4以下のキャラ1枚までを、レストにする。",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "OP05-037_p2"
   },
   {
     "uniqueId": "OP05-038_dummy.gif",
@@ -20133,7 +20229,8 @@
     "trigger": "",
     "getInfo": "ONE PIECEカードゲーム SOUND LOADER Volume.1 特典カード",
     "seriesTitle": "ONE PIECEカードゲーム SOUND LOADER Volume.1 特典カード",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP05-060_p2"
   },
   {
     "uniqueId": "OP05-061_dummy.gif",
@@ -20309,7 +20406,8 @@
     "trigger": "",
     "getInfo": "「ONE PIECE CARD GAME 2nd ANNIVERSARY COMPLETE GUIDE」限定特典カード",
     "seriesTitle": "「ONE PIECE CARD GAME 2nd ANNIVERSARY COMPLETE GUIDE」限定特典カード",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP05-067_p2"
   },
   {
     "uniqueId": "OP05-068_dummy.gif",
@@ -20360,7 +20458,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST【PRB-01】",
     "seriesTitle": "ONE PIECE CARD THE BEST",
-    "seriesCode": "PRB-01"
+    "seriesCode": "PRB-01",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP05-070_dummy.gif",
@@ -20486,7 +20585,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST【PRB-01】",
     "seriesTitle": "ONE PIECE CARD THE BEST",
-    "seriesCode": "PRB-01"
+    "seriesCode": "PRB-01",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP05-075_dummy.gif",
@@ -20787,7 +20887,8 @@
     "trigger": "",
     "getInfo": "チャンピオンシップ2024 WAVE2 3on3 Autumn ベスト8記念品",
     "seriesTitle": "チャンピオンシップ2024 WAVE2 3on3 Autumn ベスト8記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP05-086_p1"
   },
   {
     "uniqueId": "OP05-087_dummy.gif",
@@ -20914,7 +21015,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "OP05-091_p3"
   },
   {
     "uniqueId": "OP05-092_dummy.gif",
@@ -21091,7 +21193,8 @@
     "trigger": "",
     "getInfo": "ONE PIECEカードゲーム SOUND LOADER Volume.2 特典カード",
     "seriesTitle": "ONE PIECEカードゲーム SOUND LOADER Volume.2 特典カード",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP05-098_p2"
   },
   {
     "uniqueId": "OP05-099_dummy.gif",
@@ -21193,7 +21296,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "OP05-102_p2"
   },
   {
     "uniqueId": "OP05-103_dummy.gif",
@@ -21295,7 +21399,8 @@
     "trigger": "【】このカードを登場させる。",
     "getInfo": "スタンダードバトルパックVol.7",
     "seriesTitle": "スタンダードバトルパックVol.7",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP05-106_p1"
   },
   {
     "uniqueId": "OP05-107_dummy.gif",
@@ -21624,7 +21729,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST【PRB-01】",
     "seriesTitle": "ONE PIECE CARD THE BEST",
-    "seriesCode": "PRB-01"
+    "seriesCode": "PRB-01",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP06-001_dummy.gif",
@@ -22273,7 +22379,8 @@
     "trigger": "",
     "getInfo": "双璧の覇者【OP-06】",
     "seriesTitle": "双璧の覇者",
-    "seriesCode": "OP-06"
+    "seriesCode": "OP-06",
+    "sourceModalId": "OP06-025_p2"
   },
   {
     "uniqueId": "OP06-026_dummy.gif",
@@ -22836,7 +22943,8 @@
     "trigger": "",
     "getInfo": "双璧の覇者【OP-06】",
     "seriesTitle": "双璧の覇者",
-    "seriesCode": "OP-06"
+    "seriesCode": "OP-06",
+    "sourceModalId": "OP06-047_p2"
   },
   {
     "uniqueId": "OP06-048_dummy.gif",
@@ -22936,7 +23044,8 @@
     "trigger": "",
     "getInfo": "双璧の覇者【OP-06】",
     "seriesTitle": "双璧の覇者",
-    "seriesCode": "OP-06"
+    "seriesCode": "OP-06",
+    "sourceModalId": "OP06-051_p2"
   },
   {
     "uniqueId": "OP06-052_dummy.gif",
@@ -23241,7 +23350,8 @@
     "trigger": "",
     "getInfo": "双璧の覇者【OP-06】",
     "seriesTitle": "双璧の覇者",
-    "seriesCode": "OP-06"
+    "seriesCode": "OP-06",
+    "sourceModalId": "OP06-063_p1"
   },
   {
     "uniqueId": "OP06-064_dummy.gif",
@@ -23397,7 +23507,8 @@
     "trigger": "",
     "getInfo": "双璧の覇者【OP-06】",
     "seriesTitle": "双璧の覇者",
-    "seriesCode": "OP-06"
+    "seriesCode": "OP-06",
+    "sourceModalId": "OP06-069_p2"
   },
   {
     "uniqueId": "OP06-070_dummy.gif",
@@ -23579,7 +23690,8 @@
     "trigger": "",
     "getInfo": "双璧の覇者【OP-06】",
     "seriesTitle": "双璧の覇者",
-    "seriesCode": "OP-06"
+    "seriesCode": "OP-06",
+    "sourceModalId": "OP06-076_p1"
   },
   {
     "uniqueId": "OP06-077_dummy.gif",
@@ -23985,7 +24097,8 @@
     "trigger": "",
     "getInfo": "双璧の覇者【OP-06】",
     "seriesTitle": "双璧の覇者",
-    "seriesCode": "OP-06"
+    "seriesCode": "OP-06",
+    "sourceModalId": "OP06-092_p1"
   },
   {
     "uniqueId": "OP06-093_dummy.gif",
@@ -24010,7 +24123,8 @@
     "trigger": "",
     "getInfo": "双璧の覇者【OP-06】",
     "seriesTitle": "双璧の覇者",
-    "seriesCode": "OP-06"
+    "seriesCode": "OP-06",
+    "sourceModalId": "OP06-093_p2"
   },
   {
     "uniqueId": "OP06-094_dummy.gif",
@@ -24213,7 +24327,8 @@
     "trigger": "【】相手のコスト5以下のキャラ1枚までを、KOする。",
     "getInfo": "双璧の覇者【OP-06】",
     "seriesTitle": "双璧の覇者",
-    "seriesCode": "OP-06"
+    "seriesCode": "OP-06",
+    "sourceModalId": "OP06-101_p3"
   },
   {
     "uniqueId": "OP06-102_dummy.gif",
@@ -24449,7 +24564,8 @@
     "trigger": "【】相手のライフが3枚以下の場合、このカードを登場させる。",
     "getInfo": "双璧の覇者【OP-06】",
     "seriesTitle": "双璧の覇者",
-    "seriesCode": "OP-06"
+    "seriesCode": "OP-06",
+    "sourceModalId": "OP06-110_p3"
   },
   {
     "uniqueId": "OP06-111_dummy.gif",
@@ -24654,7 +24770,8 @@
     "trigger": "",
     "getInfo": "双璧の覇者【OP-06】",
     "seriesTitle": "双璧の覇者",
-    "seriesCode": "OP-06"
+    "seriesCode": "OP-06",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP06-119_dummy.gif",
@@ -24679,7 +24796,8 @@
     "trigger": "",
     "getInfo": "双璧の覇者【OP-06】",
     "seriesTitle": "双璧の覇者",
-    "seriesCode": "OP-06"
+    "seriesCode": "OP-06",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP07-001_dummy.gif",
@@ -25061,7 +25179,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "OP07-015_p3"
   },
   {
     "uniqueId": "OP07-016_dummy.gif",
@@ -25215,7 +25334,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "OP07-021_p3"
   },
   {
     "uniqueId": "OP07-022_dummy.gif",
@@ -25524,7 +25644,8 @@
     "trigger": "",
     "getInfo": "3周年！ワンピースカードトレジャーキャンペーンパック",
     "seriesTitle": "3周年！ワンピースカードトレジャーキャンペーンパック",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP07-033_p2"
   },
   {
     "uniqueId": "OP07-034_dummy.gif",
@@ -25885,7 +26006,8 @@
     "trigger": "",
     "getInfo": "Vジャンプ10月特大号応募者全員サービス（2024年8月21日売）",
     "seriesTitle": "Vジャンプ10月特大号応募者全員サービス（2024年8月21日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP07-047_p2"
   },
   {
     "uniqueId": "OP07-048_dummy.gif",
@@ -25987,7 +26109,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE カードゲーム China 2nd ANNIVERSARY SET",
     "seriesTitle": "ONE PIECE カードゲーム China 2nd ANNIVERSARY SET",
-    "seriesCode": ""
+    "seriesCode": "",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP07-052_dummy.gif",
@@ -26037,7 +26160,8 @@
     "trigger": "",
     "getInfo": "スタンダードバトルパックVol.8",
     "seriesTitle": "スタンダードバトルパックVol.8",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP07-053_p4"
   },
   {
     "uniqueId": "OP07-054_dummy.gif",
@@ -26317,7 +26441,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "OP07-064_p3"
   },
   {
     "uniqueId": "OP07-065_dummy.gif",
@@ -26368,7 +26493,8 @@
     "trigger": "",
     "getInfo": "最強ジャンプ5月号応募者全員サービス（2025年4月4日売）",
     "seriesTitle": "最強ジャンプ5月号応募者全員サービス（2025年4月4日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP07-066_p1"
   },
   {
     "uniqueId": "OP07-067_dummy.gif",
@@ -26545,7 +26671,8 @@
     "trigger": "",
     "getInfo": "BANDAI CARD GAMES Fest 25-26 in Tokyo 来場記念品",
     "seriesTitle": "BANDAI CARD GAMES Fest 25-26 in Tokyo 来場記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP07-073_p1"
   },
   {
     "uniqueId": "OP07-074_dummy.gif",
@@ -26722,7 +26849,8 @@
     "trigger": "",
     "getInfo": "スタンダードバトルパックVol.9",
     "seriesTitle": "スタンダードバトルパックVol.9",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP07-080_p1"
   },
   {
     "uniqueId": "OP07-081_dummy.gif",
@@ -27000,7 +27128,8 @@
     "trigger": "",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.6",
     "seriesTitle": "ONE PIECEカードゲーム プロモーションパックVol.6",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP07-091_p1"
   },
   {
     "uniqueId": "OP07-092_dummy.gif",
@@ -27229,7 +27358,8 @@
     "trigger": "【】自分のリーダーが「ベガパンク」の場合、このカードを登場させる。",
     "getInfo": "スタンダードバトルパックVol.8",
     "seriesTitle": "スタンダードバトルパックVol.8",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP07-100_p1"
   },
   {
     "uniqueId": "OP07-101_dummy.gif",
@@ -27413,7 +27543,8 @@
     "trigger": "【】カード1枚を引く。その後、自分のライフが1枚以下の場合、このカードを登場させる。",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "OP07-107_p2"
   },
   {
     "uniqueId": "OP07-108_dummy.gif",
@@ -27465,7 +27596,8 @@
     "trigger": "【】相手のコスト4以下のキャラ1枚までを、KOする。",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "OP07-109_p5"
   },
   {
     "uniqueId": "OP07-110_dummy.gif",
@@ -27569,7 +27701,8 @@
     "trigger": "【】自分のリーダーが特徴《エッグヘッド》を持つ場合、相手のリーダーかキャラ1枚までを、レストにする。",
     "getInfo": "Vジャンプ10月特大号 応募者全員サービス",
     "seriesTitle": "Vジャンプ10月特大号 応募者全員サービス",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP07-113_p1"
   },
   {
     "uniqueId": "OP07-114_dummy.gif",
@@ -27722,7 +27855,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "OP07-119_p2"
   },
   {
     "uniqueId": "OP08-001_dummy.gif",
@@ -28234,7 +28368,8 @@
     "trigger": "",
     "getInfo": "プロモーションパックEX Vol.2",
     "seriesTitle": "プロモーションパックEX Vol.2",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP08-020_p1"
   },
   {
     "uniqueId": "OP08-021_dummy.gif",
@@ -28914,7 +29049,8 @@
     "trigger": "",
     "getInfo": "プロモーションパックEX Vol.4",
     "seriesTitle": "プロモーションパックEX Vol.4",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP08-047_p1"
   },
   {
     "uniqueId": "OP08-048_dummy.gif",
@@ -29293,7 +29429,8 @@
     "trigger": "",
     "getInfo": "スタンダードバトルパックVol.11",
     "seriesTitle": "スタンダードバトルパックVol.11",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP08-062_p1"
   },
   {
     "uniqueId": "OP08-063_dummy.gif",
@@ -29418,7 +29555,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "OP08-067_p2"
   },
   {
     "uniqueId": "OP08-068_dummy.gif",
@@ -29594,7 +29732,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "OP08-074_p3"
   },
   {
     "uniqueId": "OP08-075_dummy.gif",
@@ -29849,7 +29988,8 @@
     "trigger": "",
     "getInfo": "フラッグシップバトル2024 10月ベスト8記念品",
     "seriesTitle": "フラッグシップバトル2024 10月ベスト8記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP08-084_p2"
   },
   {
     "uniqueId": "OP08-085_dummy.gif",
@@ -30416,7 +30556,8 @@
     "trigger": "【】このカードの【登場時】効果を発動する。",
     "getInfo": "シリアルナンバー入りナミ ゲットキャンペーン",
     "seriesTitle": "シリアルナンバー入りナミ ゲットキャンペーン",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP08-106_p5"
   },
   {
     "uniqueId": "OP08-107_dummy.gif",
@@ -30520,7 +30661,8 @@
     "trigger": "",
     "getInfo": "スタンダードバトルパックVol.10",
     "seriesTitle": "スタンダードバトルパックVol.10",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP08-110_p2"
   },
   {
     "uniqueId": "OP08-111_dummy.gif",
@@ -30727,7 +30869,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP08-119_dummy.gif",
@@ -30805,7 +30948,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 新たなる皇帝【OP-09】",
     "seriesTitle": "ブースターパック 新たなる皇帝",
-    "seriesCode": "OP-09"
+    "seriesCode": "OP-09",
+    "sourceModalId": "OP09-002_p2"
   },
   {
     "uniqueId": "OP09-003_dummy.gif",
@@ -30856,7 +31000,9 @@
     "trigger": "",
     "getInfo": "ブースターパック 新たなる皇帝【OP-09】",
     "seriesTitle": "ブースターパック 新たなる皇帝",
-    "seriesCode": "OP-09"
+    "seriesCode": "OP-09",
+    "sourceModalId": "OP09-004_p4",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP09-005_dummy.gif",
@@ -31031,7 +31177,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 新たなる皇帝【OP-09】",
     "seriesTitle": "ブースターパック 新たなる皇帝",
-    "seriesCode": "OP-09"
+    "seriesCode": "OP-09",
+    "sourceModalId": "OP09-011_p1"
   },
   {
     "uniqueId": "OP09-012_dummy.gif",
@@ -31439,7 +31586,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 新たなる皇帝【OP-09】",
     "seriesTitle": "ブースターパック 新たなる皇帝",
-    "seriesCode": "OP-09"
+    "seriesCode": "OP-09",
+    "sourceModalId": "OP09-027_p1"
   },
   {
     "uniqueId": "OP09-028_dummy.gif",
@@ -31625,7 +31773,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 新たなる皇帝【OP-09】",
     "seriesTitle": "ブースターパック 新たなる皇帝",
-    "seriesCode": "OP-09"
+    "seriesCode": "OP-09",
+    "sourceModalId": "OP09-034_p2"
   },
   {
     "uniqueId": "OP09-035_dummy.gif",
@@ -31860,7 +32009,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 新たなる皇帝【OP-09】",
     "seriesTitle": "ブースターパック 新たなる皇帝",
-    "seriesCode": "OP-09"
+    "seriesCode": "OP-09",
+    "sourceModalId": "OP09-043_p1"
   },
   {
     "uniqueId": "OP09-044_dummy.gif",
@@ -32038,7 +32188,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 新たなる皇帝【OP-09】",
     "seriesTitle": "ブースターパック 新たなる皇帝",
-    "seriesCode": "OP-09"
+    "seriesCode": "OP-09",
+    "sourceModalId": "OP09-050_p3"
   },
   {
     "uniqueId": "OP09-051_dummy.gif",
@@ -32064,7 +32215,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 新たなる皇帝【OP-09】",
     "seriesTitle": "ブースターパック 新たなる皇帝",
-    "seriesCode": "OP-09"
+    "seriesCode": "OP-09",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP09-052_dummy.gif",
@@ -32420,7 +32572,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 新たなる皇帝【OP-09】",
     "seriesTitle": "ブースターパック 新たなる皇帝",
-    "seriesCode": "OP-09"
+    "seriesCode": "OP-09",
+    "sourceModalId": "OP09-065_p2"
   },
   {
     "uniqueId": "OP09-066_dummy.gif",
@@ -32522,7 +32675,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 新たなる皇帝【OP-09】",
     "seriesTitle": "ブースターパック 新たなる皇帝",
-    "seriesCode": "OP-09"
+    "seriesCode": "OP-09",
+    "sourceModalId": "OP09-069_p2"
   },
   {
     "uniqueId": "OP09-070_dummy.gif",
@@ -32698,7 +32852,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 新たなる皇帝【OP-09】",
     "seriesTitle": "ブースターパック 新たなる皇帝",
-    "seriesCode": "OP-09"
+    "seriesCode": "OP-09",
+    "sourceModalId": "OP09-076_p2"
   },
   {
     "uniqueId": "OP09-077_dummy.gif",
@@ -33028,7 +33183,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 新たなる皇帝【OP-09】",
     "seriesTitle": "ブースターパック 新たなる皇帝",
-    "seriesCode": "OP-09"
+    "seriesCode": "OP-09",
+    "sourceModalId": "OP09-089_p1"
   },
   {
     "uniqueId": "OP09-090_dummy.gif",
@@ -33129,7 +33285,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 新たなる皇帝【OP-09】",
     "seriesTitle": "ブースターパック 新たなる皇帝",
-    "seriesCode": "OP-09"
+    "seriesCode": "OP-09",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP09-094_dummy.gif",
@@ -33456,7 +33613,8 @@
     "trigger": "【】自分のリーダーが「ニコ・ロビン」の場合、カード3枚を引き、自分の手札2枚を捨てる。",
     "getInfo": "ブースターパック 新たなる皇帝【OP-09】",
     "seriesTitle": "ブースターパック 新たなる皇帝",
-    "seriesCode": "OP-09"
+    "seriesCode": "OP-09",
+    "sourceModalId": "OP09-106_p2"
   },
   {
     "uniqueId": "OP09-107_dummy.gif",
@@ -33507,7 +33665,8 @@
     "trigger": "【】自分のリーダーが特徴《革命軍》を持ち、お互いのライフの合計枚数が5枚以下の場合、このカードを登場させる。",
     "getInfo": "ブースターパック 新たなる皇帝【OP-09】",
     "seriesTitle": "ブースターパック 新たなる皇帝",
-    "seriesCode": "OP-09"
+    "seriesCode": "OP-09",
+    "sourceModalId": "OP09-108_p2"
   },
   {
     "uniqueId": "OP09-109_dummy.gif",
@@ -33764,7 +33923,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 新たなる皇帝【OP-09】",
     "seriesTitle": "ブースターパック 新たなる皇帝",
-    "seriesCode": "OP-09"
+    "seriesCode": "OP-09",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP09-119_dummy.gif",
@@ -33789,7 +33949,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 新たなる皇帝【OP-09】",
     "seriesTitle": "ブースターパック 新たなる皇帝",
-    "seriesCode": "OP-09"
+    "seriesCode": "OP-09",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP10-001_dummy.gif",
@@ -33922,7 +34083,8 @@
     "trigger": "",
     "getInfo": "フラッグシップバトル2025 10月優勝記念品",
     "seriesTitle": "フラッグシップバトル2025 10月優勝記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP10-005_p2"
   },
   {
     "uniqueId": "OP10-006_dummy.gif",
@@ -34626,7 +34788,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "OP10-032_p2"
   },
   {
     "uniqueId": "OP10-033_dummy.gif",
@@ -34652,7 +34815,8 @@
     "trigger": "",
     "getInfo": "最強ジャンプ5月号応募者全員サービス（2025年4月4日売）",
     "seriesTitle": "最強ジャンプ5月号応募者全員サービス（2025年4月4日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP10-033_p1"
   },
   {
     "uniqueId": "OP10-034_dummy.gif",
@@ -35072,7 +35236,8 @@
     "trigger": "",
     "getInfo": "3周年！ワンピースカードトレジャーキャンペーンパック",
     "seriesTitle": "3周年！ワンピースカードトレジャーキャンペーンパック",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP10-049_p2"
   },
   {
     "uniqueId": "OP10-050_dummy.gif",
@@ -36564,7 +36729,8 @@
     "trigger": "",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.7",
     "seriesTitle": "ONE PIECEカードゲーム プロモーションパックVol.7",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP10-107_p1"
   },
   {
     "uniqueId": "OP10-108_dummy.gif",
@@ -36878,7 +37044,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP11-001_dummy.gif",
@@ -37134,7 +37301,8 @@
     "trigger": "",
     "getInfo": "フラッグシップバトル2025 4月ベスト8記念品",
     "seriesTitle": "フラッグシップバトル2025 4月ベスト8記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP11-010_p2"
   },
   {
     "uniqueId": "OP11-011_dummy.gif",
@@ -37185,7 +37353,8 @@
     "trigger": "",
     "getInfo": "プロモーションパックVol.8",
     "seriesTitle": "プロモーションパックVol.8",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP11-012_p1"
   },
   {
     "uniqueId": "OP11-013_dummy.gif",
@@ -38378,7 +38547,8 @@
     "trigger": "",
     "getInfo": "プロモーションパックVol.8",
     "seriesTitle": "プロモーションパックVol.8",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP11-058_p1"
   },
   {
     "uniqueId": "OP11-059_dummy.gif",
@@ -38553,7 +38723,8 @@
     "trigger": "",
     "getInfo": "プロモーションパックVol.8",
     "seriesTitle": "プロモーションパックVol.8",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP11-065_p1"
   },
   {
     "uniqueId": "OP11-066_dummy.gif",
@@ -38703,7 +38874,8 @@
     "trigger": "",
     "getInfo": "プロモーションパックEX Vol.3",
     "seriesTitle": "プロモーションパックEX Vol.3",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP11-071_p1"
   },
   {
     "uniqueId": "OP11-072_dummy.gif",
@@ -39338,7 +39510,8 @@
     "trigger": "",
     "getInfo": "プロモーションパックVol.8",
     "seriesTitle": "プロモーションパックVol.8",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP11-096_p1"
   },
   {
     "uniqueId": "OP11-097_dummy.gif",
@@ -39903,7 +40076,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 神速の拳【OP-11】",
     "seriesTitle": "ブースターパック 神速の拳",
-    "seriesCode": "OP-11"
+    "seriesCode": "OP-11",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP11-119_dummy.gif",
@@ -39929,7 +40103,8 @@
     "trigger": "",
     "getInfo": "フラッグシップバトル2025 4月優勝記念品",
     "seriesTitle": "フラッグシップバトル2025 4月優勝記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP11-119_p2"
   },
   {
     "uniqueId": "OP12-001_dummy.gif",
@@ -40440,7 +40615,8 @@
     "trigger": "",
     "getInfo": "フラッグシップバトル2026 1月 優勝記念品",
     "seriesTitle": "フラッグシップバトル2026 1月 優勝記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP12-020_p3"
   },
   {
     "uniqueId": "OP12-021_dummy.gif",
@@ -40649,7 +40825,8 @@
     "trigger": "",
     "getInfo": "スタンダードバトルパック Vol.13",
     "seriesTitle": "スタンダードバトルパック Vol.13",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP12-028_p2"
   },
   {
     "uniqueId": "OP12-029_dummy.gif",
@@ -40728,7 +40905,8 @@
     "trigger": "",
     "getInfo": "フラッグシップバトル2025 10月ベスト8記念品",
     "seriesTitle": "フラッグシップバトル2025 10月ベスト8記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP12-031_p2"
   },
   {
     "uniqueId": "OP12-032_dummy.gif",
@@ -40859,7 +41037,8 @@
     "trigger": "",
     "getInfo": "プロモーションパックVol.8",
     "seriesTitle": "プロモーションパックVol.8",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP12-036_p1"
   },
   {
     "uniqueId": "OP12-037_dummy.gif",
@@ -41520,7 +41699,8 @@
     "trigger": "",
     "getInfo": "スタンダードバトルパック Vol.13",
     "seriesTitle": "スタンダードバトルパック Vol.13",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP12-062_p1"
   },
   {
     "uniqueId": "OP12-063_dummy.gif",
@@ -41752,7 +41932,8 @@
     "trigger": "",
     "getInfo": "プロモーションパックEX Vol.3",
     "seriesTitle": "プロモーションパックEX Vol.3",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP12-071_p1"
   },
   {
     "uniqueId": "OP12-072_dummy.gif",
@@ -42212,7 +42393,8 @@
     "trigger": "",
     "getInfo": "プロモーションパックEX Vol.3",
     "seriesTitle": "プロモーションパックEX Vol.3",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP12-089_p1"
   },
   {
     "uniqueId": "OP12-090_dummy.gif",
@@ -42315,7 +42497,8 @@
     "trigger": "",
     "getInfo": "スタンダードバトルパック Vol.13",
     "seriesTitle": "スタンダードバトルパック Vol.13",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP12-093_p1"
   },
   {
     "uniqueId": "OP12-094_dummy.gif",
@@ -42653,7 +42836,8 @@
     "trigger": "",
     "getInfo": "『ONE PIECE学園 10巻』付録",
     "seriesTitle": "『ONE PIECE学園 10巻』付録",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP12-106_p2"
   },
   {
     "uniqueId": "OP12-107_dummy.gif",
@@ -42807,7 +42991,8 @@
     "trigger": "【】自分のリーダーが多色の場合、カード2枚を引く。",
     "getInfo": "スタンダードバトルパック Vol.13",
     "seriesTitle": "スタンダードバトルパック Vol.13",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP12-112_p1"
   },
   {
     "uniqueId": "OP12-113_dummy.gif",
@@ -42964,7 +43149,8 @@
     "trigger": "",
     "getInfo": "師弟の絆【OP-12】",
     "seriesTitle": "師弟の絆",
-    "seriesCode": "OP-12"
+    "seriesCode": "OP-12",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP12-119_dummy.gif",
@@ -43017,7 +43203,8 @@
     "trigger": "",
     "getInfo": "一番くじ ONE PIECE CARD GAME 購入者特典",
     "seriesTitle": "一番くじ ONE PIECE CARD GAME 購入者特典",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP13-001_p1"
   },
   {
     "uniqueId": "OP13-002_dummy.gif",
@@ -43474,7 +43661,8 @@
     "trigger": "",
     "getInfo": "3周年！ワンピースカードトレジャーキャンペーンパック",
     "seriesTitle": "3周年！ワンピースカードトレジャーキャンペーンパック",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP13-019_p1"
   },
   {
     "uniqueId": "OP13-020_dummy.gif",
@@ -44022,7 +44210,8 @@
     "trigger": "",
     "getInfo": "3周年！ワンピースカードトレジャーキャンペーンパック",
     "seriesTitle": "3周年！ワンピースカードトレジャーキャンペーンパック",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP13-040_p1"
   },
   {
     "uniqueId": "OP13-041_dummy.gif",
@@ -44174,7 +44363,8 @@
     "trigger": "",
     "getInfo": "プロモーションパックVol.9",
     "seriesTitle": "プロモーションパックVol.9",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP13-046_p1"
   },
   {
     "uniqueId": "OP13-047_dummy.gif",
@@ -44451,7 +44641,8 @@
     "trigger": "",
     "getInfo": "3周年！ワンピースカードトレジャーキャンペーンパック",
     "seriesTitle": "3周年！ワンピースカードトレジャーキャンペーンパック",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP13-057_p1"
   },
   {
     "uniqueId": "OP13-058_dummy.gif",
@@ -44706,7 +44897,8 @@
     "trigger": "",
     "getInfo": "プロモーションパックEX Vol.4",
     "seriesTitle": "プロモーションパックEX Vol.4",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP13-067_p1"
   },
   {
     "uniqueId": "OP13-068_dummy.gif",
@@ -44810,7 +45002,8 @@
     "trigger": "",
     "getInfo": "プロモーションパックVol.9",
     "seriesTitle": "プロモーションパックVol.9",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP13-071_p1"
   },
   {
     "uniqueId": "OP13-072_dummy.gif",
@@ -45219,7 +45412,8 @@
     "trigger": "",
     "getInfo": "プロモーションパックVol.9",
     "seriesTitle": "プロモーションパックVol.9",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP13-087_p1"
   },
   {
     "uniqueId": "OP13-088_dummy.gif",
@@ -45759,7 +45953,8 @@
     "trigger": "【】自分のライフが1枚以下の場合、相手のコスト7以下のキャラ1枚までを、レストにする。",
     "getInfo": "フラッグシップバトル2026 1月 ベスト8記念品",
     "seriesTitle": "フラッグシップバトル2026 1月 ベスト8記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP13-108_p2"
   },
   {
     "uniqueId": "OP13-109_dummy.gif",
@@ -46021,7 +46216,9 @@
     "trigger": "",
     "getInfo": "チャンピオンシップ25-26 Season2 決勝大会 ベスト32記念品",
     "seriesTitle": "チャンピオンシップ25-26 Season2 決勝大会 ベスト32記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP13-118_p5",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP13-119_dummy.gif",
@@ -46046,7 +46243,9 @@
     "trigger": "",
     "getInfo": "チャンピオンシップ25-26Season 2 決勝トーナメント上位記念品",
     "seriesTitle": "チャンピオンシップ25-26Season 2 決勝トーナメント上位記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP13-119_p5",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP13-120_dummy.gif",
@@ -46072,7 +46271,9 @@
     "trigger": "",
     "getInfo": "チャンピオンシップ25-26Season 2 エリア決勝大会権利獲得記念品",
     "seriesTitle": "チャンピオンシップ25-26Season 2 エリア決勝大会権利獲得記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP13-120_p5",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP14-001_dummy.gif",
@@ -46676,7 +46877,8 @@
     "trigger": "",
     "getInfo": "スタンダードバトルパック Vol.15",
     "seriesTitle": "スタンダードバトルパック Vol.15",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP14-023_p1"
   },
   {
     "uniqueId": "OP14-024_dummy.gif",
@@ -46754,7 +46956,8 @@
     "trigger": "",
     "getInfo": "プロモーションパックVol.9",
     "seriesTitle": "プロモーションパックVol.9",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP14-026_p1"
   },
   {
     "uniqueId": "OP14-027_dummy.gif",
@@ -46934,7 +47137,8 @@
     "trigger": "",
     "getInfo": "エクストラグランドバトル2026 4月上位記念品",
     "seriesTitle": "エクストラグランドバトル2026 4月上位記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP14-033_p2"
   },
   {
     "uniqueId": "OP14-034_dummy.gif",
@@ -48222,7 +48426,8 @@
     "trigger": "",
     "getInfo": "プロモーションパックEX Vol.4",
     "seriesTitle": "プロモーションパックEX Vol.4",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP14-083_p1"
   },
   {
     "uniqueId": "OP14-084_dummy.gif",
@@ -48322,7 +48527,8 @@
     "trigger": "",
     "getInfo": "スタンダードバトルパック Vol.15",
     "seriesTitle": "スタンダードバトルパック Vol.15",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP14-087_p2"
   },
   {
     "uniqueId": "OP14-088_dummy.gif",
@@ -48780,7 +48986,8 @@
     "trigger": "【】自分のリーダーが特徴《九蛇海賊団》を持つ場合、このカードを登場させる。",
     "getInfo": "スタンダードバトルパック Vol.15",
     "seriesTitle": "スタンダードバトルパック Vol.15",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP14-105_p1"
   },
   {
     "uniqueId": "OP14-106_dummy.gif",
@@ -48831,7 +49038,8 @@
     "trigger": "【】自分のリーダーが特徴《九蛇海賊団》を持つ場合、このカードを登場させる。",
     "getInfo": "プロモーションパックVol.9",
     "seriesTitle": "プロモーションパックVol.9",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP14-107_p1"
   },
   {
     "uniqueId": "OP14-108_dummy.gif",
@@ -49133,7 +49341,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 蒼海の七傑【OP-14】",
     "seriesTitle": "ブースターパック 蒼海の七傑",
-    "seriesCode": "OP-14"
+    "seriesCode": "OP-14",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP14-120_dummy.gif",
@@ -50712,7 +50921,8 @@
     "trigger": "",
     "getInfo": "フラッグシップバトル2026 4月上位記念品",
     "seriesTitle": "フラッグシップバトル2026 4月上位記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP15-060_p2"
   },
   {
     "uniqueId": "OP15-061_dummy.gif",
@@ -50918,7 +51128,8 @@
     "trigger": "",
     "getInfo": "スタンダードバトルパックVol.17",
     "seriesTitle": "スタンダードバトルパックVol.17",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP15-068_p1"
   },
   {
     "uniqueId": "OP15-069_dummy.gif",
@@ -52065,7 +52276,8 @@
     "trigger": "",
     "getInfo": "フラッグシップバトル2026 7月ベスト8記念品",
     "seriesTitle": "フラッグシップバトル2026 7月ベスト8記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP15-113_p2"
   },
   {
     "uniqueId": "OP15-114_dummy.gif",
@@ -52473,7 +52685,8 @@
     "trigger": "",
     "getInfo": "スタンダードバトルパックVol.17",
     "seriesTitle": "スタンダードバトルパックVol.17",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP16-010_p1"
   },
   {
     "uniqueId": "OP16-011_dummy.gif",
@@ -52831,7 +53044,8 @@
     "trigger": "",
     "getInfo": "スタンダードバトルパックVol.17",
     "seriesTitle": "スタンダードバトルパックVol.17",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP16-024_p1"
   },
   {
     "uniqueId": "OP16-025_dummy.gif",
@@ -53038,7 +53252,8 @@
     "trigger": "",
     "getInfo": "フラッグシップバトル2026 7月優勝記念品",
     "seriesTitle": "フラッグシップバトル2026 7月優勝記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP16-032_p2"
   },
   {
     "uniqueId": "OP16-033_dummy.gif",
@@ -54577,7 +54792,8 @@
     "trigger": "",
     "getInfo": "スタンダードバトル 2026年9月優勝記念品",
     "seriesTitle": "スタンダードバトル 2026年9月優勝記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "OP16-092_p2"
   },
   {
     "uniqueId": "OP16-093_dummy.gif",
@@ -55292,7 +55508,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-001_p1"
   },
   {
     "uniqueId": "OP17-002_dummy.gif",
@@ -55317,7 +55534,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-002"
   },
   {
     "uniqueId": "OP17-003_dummy.gif",
@@ -55343,7 +55561,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-003"
   },
   {
     "uniqueId": "OP17-004_dummy.gif",
@@ -55370,7 +55589,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-004"
   },
   {
     "uniqueId": "OP17-005_dummy.gif",
@@ -55396,7 +55616,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-005_p2"
   },
   {
     "uniqueId": "OP17-006_dummy.gif",
@@ -55421,7 +55642,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-006_p1"
   },
   {
     "uniqueId": "OP17-007_dummy.gif",
@@ -55448,7 +55670,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-007"
   },
   {
     "uniqueId": "OP17-008_dummy.gif",
@@ -55473,7 +55696,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-008"
   },
   {
     "uniqueId": "OP17-009_dummy.gif",
@@ -55498,7 +55722,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-009"
   },
   {
     "uniqueId": "OP17-010_dummy.gif",
@@ -55523,7 +55748,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-010"
   },
   {
     "uniqueId": "OP17-011_dummy.gif",
@@ -55548,7 +55774,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-011"
   },
   {
     "uniqueId": "OP17-012_dummy.gif",
@@ -55573,7 +55800,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-012"
   },
   {
     "uniqueId": "OP17-013_dummy.gif",
@@ -55598,7 +55826,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-013"
   },
   {
     "uniqueId": "OP17-014_dummy.gif",
@@ -55623,7 +55852,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-014"
   },
   {
     "uniqueId": "OP17-015_dummy.gif",
@@ -55648,7 +55878,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-015"
   },
   {
     "uniqueId": "OP17-016_dummy.gif",
@@ -55673,7 +55904,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-016"
   },
   {
     "uniqueId": "OP17-017_dummy.gif",
@@ -55699,7 +55931,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-017"
   },
   {
     "uniqueId": "OP17-018_dummy.gif",
@@ -55725,7 +55958,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-018"
   },
   {
     "uniqueId": "OP17-019_dummy.gif",
@@ -55751,7 +55985,8 @@
     "trigger": "【】自分のリーダーを、このターン中、パワー+1000。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-019"
   },
   {
     "uniqueId": "OP17-020_dummy.gif",
@@ -55777,7 +56012,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-020_p1"
   },
   {
     "uniqueId": "OP17-021_dummy.gif",
@@ -55802,7 +56038,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-021"
   },
   {
     "uniqueId": "OP17-022_dummy.gif",
@@ -55828,7 +56065,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-022_p2"
   },
   {
     "uniqueId": "OP17-023_dummy.gif",
@@ -55854,7 +56092,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-023"
   },
   {
     "uniqueId": "OP17-024_dummy.gif",
@@ -55879,7 +56118,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-024"
   },
   {
     "uniqueId": "OP17-025_dummy.gif",
@@ -55904,7 +56144,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-025_p1"
   },
   {
     "uniqueId": "OP17-026_dummy.gif",
@@ -55929,7 +56170,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-026"
   },
   {
     "uniqueId": "OP17-027_dummy.gif",
@@ -55954,7 +56196,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-027_p1"
   },
   {
     "uniqueId": "OP17-028_dummy.gif",
@@ -55980,7 +56223,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-028"
   },
   {
     "uniqueId": "OP17-029_dummy.gif",
@@ -56005,7 +56249,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-029"
   },
   {
     "uniqueId": "OP17-030_dummy.gif",
@@ -56031,7 +56276,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-030"
   },
   {
     "uniqueId": "OP17-031_dummy.gif",
@@ -56056,7 +56302,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-031_p1"
   },
   {
     "uniqueId": "OP17-032_dummy.gif",
@@ -56081,7 +56328,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-032"
   },
   {
     "uniqueId": "OP17-033_dummy.gif",
@@ -56106,7 +56354,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-033_p1"
   },
   {
     "uniqueId": "OP17-034_dummy.gif",
@@ -56131,7 +56380,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-034"
   },
   {
     "uniqueId": "OP17-035_dummy.gif",
@@ -56157,7 +56407,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-035"
   },
   {
     "uniqueId": "OP17-036_dummy.gif",
@@ -56183,7 +56434,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-036"
   },
   {
     "uniqueId": "OP17-037_dummy.gif",
@@ -56209,7 +56461,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-037_p1"
   },
   {
     "uniqueId": "OP17-038_dummy.gif",
@@ -56234,7 +56487,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-038"
   },
   {
     "uniqueId": "OP17-039_dummy.gif",
@@ -56259,7 +56513,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-039_p1"
   },
   {
     "uniqueId": "OP17-040_dummy.gif",
@@ -56284,7 +56539,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-040"
   },
   {
     "uniqueId": "OP17-041_dummy.gif",
@@ -56309,7 +56565,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-041"
   },
   {
     "uniqueId": "OP17-042_dummy.gif",
@@ -56334,7 +56591,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-042"
   },
   {
     "uniqueId": "OP17-043_dummy.gif",
@@ -56359,7 +56617,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-043"
   },
   {
     "uniqueId": "OP17-044_dummy.gif",
@@ -56384,7 +56643,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-044"
   },
   {
     "uniqueId": "OP17-045_dummy.gif",
@@ -56409,7 +56669,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-045_p1"
   },
   {
     "uniqueId": "OP17-046_dummy.gif",
@@ -56435,7 +56696,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-046_p1"
   },
   {
     "uniqueId": "OP17-047_dummy.gif",
@@ -56462,7 +56724,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-047"
   },
   {
     "uniqueId": "OP17-048_dummy.gif",
@@ -56487,7 +56750,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-048_p1"
   },
   {
     "uniqueId": "OP17-049_dummy.gif",
@@ -56512,7 +56776,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-049_p1"
   },
   {
     "uniqueId": "OP17-050_dummy.gif",
@@ -56537,7 +56802,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-050"
   },
   {
     "uniqueId": "OP17-051_dummy.gif",
@@ -56564,7 +56830,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-051"
   },
   {
     "uniqueId": "OP17-052_dummy.gif",
@@ -56589,7 +56856,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-052"
   },
   {
     "uniqueId": "OP17-053_dummy.gif",
@@ -56615,7 +56883,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-053"
   },
   {
     "uniqueId": "OP17-054_dummy.gif",
@@ -56640,7 +56909,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-054_p1"
   },
   {
     "uniqueId": "OP17-055_dummy.gif",
@@ -56665,7 +56935,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-055"
   },
   {
     "uniqueId": "OP17-056_dummy.gif",
@@ -56690,7 +56961,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-056"
   },
   {
     "uniqueId": "OP17-057_dummy.gif",
@@ -56715,7 +56987,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-057"
   },
   {
     "uniqueId": "OP17-058_dummy.gif",
@@ -56741,7 +57014,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-058_p1"
   },
   {
     "uniqueId": "OP17-059_dummy.gif",
@@ -56767,7 +57041,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-059"
   },
   {
     "uniqueId": "OP17-060_dummy.gif",
@@ -56792,7 +57067,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-060"
   },
   {
     "uniqueId": "OP17-061_dummy.gif",
@@ -56818,7 +57094,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-061_p1"
   },
   {
     "uniqueId": "OP17-062_dummy.gif",
@@ -56844,7 +57121,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-062_p3"
   },
   {
     "uniqueId": "OP17-063_dummy.gif",
@@ -56870,7 +57148,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-063_p1"
   },
   {
     "uniqueId": "OP17-064_dummy.gif",
@@ -56896,7 +57175,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-064"
   },
   {
     "uniqueId": "OP17-065_dummy.gif",
@@ -56921,7 +57201,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-065"
   },
   {
     "uniqueId": "OP17-066_dummy.gif",
@@ -56947,7 +57228,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-066"
   },
   {
     "uniqueId": "OP17-067_dummy.gif",
@@ -56973,7 +57255,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-067"
   },
   {
     "uniqueId": "OP17-068_dummy.gif",
@@ -56998,7 +57281,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-068"
   },
   {
     "uniqueId": "OP17-069_dummy.gif",
@@ -57024,7 +57308,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-069"
   },
   {
     "uniqueId": "OP17-070_dummy.gif",
@@ -57050,7 +57335,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-070_p1"
   },
   {
     "uniqueId": "OP17-071_dummy.gif",
@@ -57076,7 +57362,8 @@
     "trigger": "【】このカードを登場させる。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-071"
   },
   {
     "uniqueId": "OP17-072_dummy.gif",
@@ -57101,7 +57388,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-072"
   },
   {
     "uniqueId": "OP17-073_dummy.gif",
@@ -57127,7 +57415,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-073"
   },
   {
     "uniqueId": "OP17-074_dummy.gif",
@@ -57152,7 +57441,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-074"
   },
   {
     "uniqueId": "OP17-075_dummy.gif",
@@ -57179,7 +57469,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-075"
   },
   {
     "uniqueId": "OP17-076_dummy.gif",
@@ -57205,7 +57496,8 @@
     "trigger": "【】ドン!!-1：カード2枚を引く。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-076"
   },
   {
     "uniqueId": "OP17-077_dummy.gif",
@@ -57231,7 +57523,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-077"
   },
   {
     "uniqueId": "OP17-078_dummy.gif",
@@ -57257,7 +57550,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-078"
   },
   {
     "uniqueId": "OP17-079_dummy.gif",
@@ -57284,7 +57578,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-079_p2"
   },
   {
     "uniqueId": "OP17-080_dummy.gif",
@@ -57310,7 +57605,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-080_p1"
   },
   {
     "uniqueId": "OP17-081_dummy.gif",
@@ -57337,7 +57633,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-081"
   },
   {
     "uniqueId": "OP17-082_dummy.gif",
@@ -57363,7 +57660,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-082"
   },
   {
     "uniqueId": "OP17-083_dummy.gif",
@@ -57390,7 +57688,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-083"
   },
   {
     "uniqueId": "OP17-084_dummy.gif",
@@ -57417,7 +57716,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-084"
   },
   {
     "uniqueId": "OP17-085_dummy.gif",
@@ -57444,7 +57744,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-085"
   },
   {
     "uniqueId": "OP17-086_dummy.gif",
@@ -57470,7 +57771,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-086"
   },
   {
     "uniqueId": "OP17-087_dummy.gif",
@@ -57496,7 +57798,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-087_p1"
   },
   {
     "uniqueId": "OP17-088_dummy.gif",
@@ -57523,7 +57826,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-088_p1"
   },
   {
     "uniqueId": "OP17-089_dummy.gif",
@@ -57550,7 +57854,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-089"
   },
   {
     "uniqueId": "OP17-090_dummy.gif",
@@ -57576,7 +57881,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-090"
   },
   {
     "uniqueId": "OP17-091_dummy.gif",
@@ -57602,7 +57908,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-091"
   },
   {
     "uniqueId": "OP17-092_dummy.gif",
@@ -57629,7 +57936,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-092"
   },
   {
     "uniqueId": "OP17-093_dummy.gif",
@@ -57656,7 +57964,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-093_p1"
   },
   {
     "uniqueId": "OP17-094_dummy.gif",
@@ -57683,7 +57992,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-094"
   },
   {
     "uniqueId": "OP17-095_dummy.gif",
@@ -57709,7 +58019,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-095"
   },
   {
     "uniqueId": "OP17-096_dummy.gif",
@@ -57736,7 +58047,8 @@
     "trigger": "【】自分のトラッシュから特徴《エルバフ》を持つカード1枚までを、手札に加える。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-096"
   },
   {
     "uniqueId": "OP17-097_dummy.gif",
@@ -57762,7 +58074,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-097"
   },
   {
     "uniqueId": "OP17-098_dummy.gif",
@@ -57789,7 +58102,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-098"
   },
   {
     "uniqueId": "OP17-099_dummy.gif",
@@ -57815,7 +58129,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-099_p1"
   },
   {
     "uniqueId": "OP17-100_dummy.gif",
@@ -57841,7 +58156,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-100"
   },
   {
     "uniqueId": "OP17-101_dummy.gif",
@@ -57867,7 +58183,8 @@
     "trigger": "【】自分の手札1枚を捨てることができる：相手のコスト5以下のキャラ1枚までを、KOする。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-101"
   },
   {
     "uniqueId": "OP17-102_dummy.gif",
@@ -57892,7 +58209,8 @@
     "trigger": "【】このカードを登場させる。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-102"
   },
   {
     "uniqueId": "OP17-103_dummy.gif",
@@ -57917,7 +58235,8 @@
     "trigger": "【】このカードを登場させる。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-103"
   },
   {
     "uniqueId": "OP17-104_dummy.gif",
@@ -57942,7 +58261,8 @@
     "trigger": "【】このカードを登場させる。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-104"
   },
   {
     "uniqueId": "OP17-105_dummy.gif",
@@ -57968,7 +58288,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-105"
   },
   {
     "uniqueId": "OP17-106_dummy.gif",
@@ -57993,7 +58314,8 @@
     "trigger": "【】このカードを登場させる。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-106"
   },
   {
     "uniqueId": "OP17-107_dummy.gif",
@@ -58018,7 +58340,8 @@
     "trigger": "【】このカードを登場させる。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-107_p1"
   },
   {
     "uniqueId": "OP17-108_dummy.gif",
@@ -58043,7 +58366,8 @@
     "trigger": "【】相手のコスト6以下のキャラ1枚までを、レストにする。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-108"
   },
   {
     "uniqueId": "OP17-109_dummy.gif",
@@ -58068,7 +58392,8 @@
     "trigger": "【】自分のデッキの上から5枚を見て、特徴《ビッグ・マム海賊団》を持つカード1枚までを公開し、手札に加える。その後、残りを好きな順番でデッキの下に置く。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-109"
   },
   {
     "uniqueId": "OP17-110_dummy.gif",
@@ -58093,7 +58418,8 @@
     "trigger": "【】このカードを登場させる。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-110"
   },
   {
     "uniqueId": "OP17-111_dummy.gif",
@@ -58118,7 +58444,8 @@
     "trigger": "【】このカードを登場させる。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-111"
   },
   {
     "uniqueId": "OP17-112_dummy.gif",
@@ -58144,7 +58471,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-112_p2"
   },
   {
     "uniqueId": "OP17-113_dummy.gif",
@@ -58169,7 +58497,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-113"
   },
   {
     "uniqueId": "OP17-114_dummy.gif",
@@ -58194,7 +58523,8 @@
     "trigger": "【】このカードを登場させる。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-114_p1"
   },
   {
     "uniqueId": "OP17-115_dummy.gif",
@@ -58220,7 +58550,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-115"
   },
   {
     "uniqueId": "OP17-116_dummy.gif",
@@ -58246,7 +58577,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-116"
   },
   {
     "uniqueId": "OP17-117_dummy.gif",
@@ -58272,7 +58604,8 @@
     "trigger": "【】相手は自身の手札3枚を捨ててもよい。そうしなかった場合、相手のコスト6以下のキャラ1枚までを、KOする。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-117"
   },
   {
     "uniqueId": "OP17-118_dummy.gif",
@@ -58297,7 +58630,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-118_p2"
   },
   {
     "uniqueId": "OP17-119_dummy.gif",
@@ -58323,7 +58657,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "sourceModalId": "OP17-119_p1"
   },
   {
     "uniqueId": "P-001_dummy.gif",
@@ -58349,7 +58684,8 @@
     "trigger": "",
     "getInfo": "ONE PIECEカードゲーム プロモーションパック2022",
     "seriesTitle": "ONE PIECEカードゲーム プロモーションパック2022",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-001_p5"
   },
   {
     "uniqueId": "P-002_dummy.gif",
@@ -58374,7 +58710,8 @@
     "trigger": "【】このカードの【メイン】効果を発動する。",
     "getInfo": "ONE PIECEカードゲーム プロモーションパック2022",
     "seriesTitle": "ONE PIECEカードゲーム プロモーションパック2022",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-002"
   },
   {
     "uniqueId": "P-003_dummy.gif",
@@ -58400,7 +58737,8 @@
     "trigger": "",
     "getInfo": "ONE PIECEカードゲーム プロモーションパック2022",
     "seriesTitle": "ONE PIECEカードゲーム プロモーションパック2022",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-003_p3"
   },
   {
     "uniqueId": "P-004_dummy.gif",
@@ -58426,7 +58764,8 @@
     "trigger": "",
     "getInfo": "ONE PIECEカードゲーム プロモーションパック2022",
     "seriesTitle": "ONE PIECEカードゲーム プロモーションパック2022",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-004"
   },
   {
     "uniqueId": "P-005_dummy.gif",
@@ -58452,7 +58791,8 @@
     "trigger": "",
     "getInfo": "ONE PIECEカードゲーム プロモーションパック2022",
     "seriesTitle": "ONE PIECEカードゲーム プロモーションパック2022",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-005"
   },
   {
     "uniqueId": "P-006_dummy.gif",
@@ -58478,7 +58818,8 @@
     "trigger": "",
     "getInfo": "Vジャンプ9月特大号付録（2022年7月21日売）",
     "seriesTitle": "Vジャンプ9月特大号付録（2022年7月21日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-006"
   },
   {
     "uniqueId": "P-007_dummy.gif",
@@ -58504,7 +58845,8 @@
     "trigger": "",
     "getInfo": "最強ジャンプ9月号付録（2022年8月4日売）",
     "seriesTitle": "最強ジャンプ9月号付録（2022年8月4日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-007"
   },
   {
     "uniqueId": "P-008_dummy.gif",
@@ -58529,7 +58871,8 @@
     "trigger": "",
     "getInfo": "最強ジャンプ9月号付録（2022年8月4日売）",
     "seriesTitle": "最強ジャンプ9月号付録（2022年8月4日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-008"
   },
   {
     "uniqueId": "P-009_dummy.gif",
@@ -58555,7 +58898,8 @@
     "trigger": "",
     "getInfo": "最強ジャンプ9月号付録（2022年8月4日売）",
     "seriesTitle": "最強ジャンプ9月号付録（2022年8月4日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-009"
   },
   {
     "uniqueId": "P-010_dummy.gif",
@@ -58581,7 +58925,8 @@
     "trigger": "",
     "getInfo": "最強ジャンプ9月号付録（2022年8月4日売）",
     "seriesTitle": "最強ジャンプ9月号付録（2022年8月4日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-010"
   },
   {
     "uniqueId": "P-011_dummy.gif",
@@ -58606,7 +58951,8 @@
     "trigger": "",
     "getInfo": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ",
     "seriesTitle": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-011"
   },
   {
     "uniqueId": "P-012_dummy.gif",
@@ -58632,7 +58978,8 @@
     "trigger": "",
     "getInfo": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ",
     "seriesTitle": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-012"
   },
   {
     "uniqueId": "P-013_dummy.gif",
@@ -58657,7 +59004,8 @@
     "trigger": "",
     "getInfo": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ",
     "seriesTitle": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-013"
   },
   {
     "uniqueId": "P-014_dummy.gif",
@@ -58683,7 +59031,8 @@
     "trigger": "【】このカードを登場させる。",
     "getInfo": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ",
     "seriesTitle": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-014"
   },
   {
     "uniqueId": "P-015_dummy.gif",
@@ -58709,7 +59058,8 @@
     "trigger": "",
     "getInfo": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ",
     "seriesTitle": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-015"
   },
   {
     "uniqueId": "P-016_dummy.gif",
@@ -58736,7 +59086,8 @@
     "trigger": "",
     "getInfo": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ",
     "seriesTitle": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-016_p1"
   },
   {
     "uniqueId": "P-017_dummy.gif",
@@ -58763,7 +59114,8 @@
     "trigger": "",
     "getInfo": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ",
     "seriesTitle": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-017_p2"
   },
   {
     "uniqueId": "P-018_dummy.gif",
@@ -58790,7 +59142,8 @@
     "trigger": "",
     "getInfo": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ",
     "seriesTitle": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-018"
   },
   {
     "uniqueId": "P-019_dummy.gif",
@@ -58817,7 +59170,8 @@
     "trigger": "",
     "getInfo": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ",
     "seriesTitle": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-019_p1"
   },
   {
     "uniqueId": "P-020_dummy.gif",
@@ -58843,7 +59197,8 @@
     "trigger": "",
     "getInfo": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ",
     "seriesTitle": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-020"
   },
   {
     "uniqueId": "P-021_dummy.gif",
@@ -58869,7 +59224,8 @@
     "trigger": "",
     "getInfo": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ",
     "seriesTitle": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-021"
   },
   {
     "uniqueId": "P-022_dummy.gif",
@@ -58896,7 +59252,8 @@
     "trigger": "",
     "getInfo": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ",
     "seriesTitle": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-022_p1"
   },
   {
     "uniqueId": "P-023_dummy.gif",
@@ -58922,7 +59279,8 @@
     "trigger": "",
     "getInfo": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ",
     "seriesTitle": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-023"
   },
   {
     "uniqueId": "P-024_dummy.gif",
@@ -58948,7 +59306,8 @@
     "trigger": "【】自分のリーダーかキャラ1枚までを、このターン中、パワー+1000。",
     "getInfo": "交流会 9月開催記念品",
     "seriesTitle": "交流会 9月開催記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-024"
   },
   {
     "uniqueId": "P-025_dummy.gif",
@@ -58973,7 +59332,8 @@
     "trigger": "",
     "getInfo": "Vジャンプ12月特大号付録（2022年10月21日売）",
     "seriesTitle": "Vジャンプ12月特大号付録（2022年10月21日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-025"
   },
   {
     "uniqueId": "P-026_dummy.gif",
@@ -58998,7 +59358,8 @@
     "trigger": "",
     "getInfo": "交流会12月開催記念品",
     "seriesTitle": "交流会12月開催記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-026"
   },
   {
     "uniqueId": "P-027_dummy.gif",
@@ -59023,7 +59384,8 @@
     "trigger": "",
     "getInfo": "最強ジャンプ12月号付録（2022年11月2日売）",
     "seriesTitle": "最強ジャンプ12月号付録（2022年11月2日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-027"
   },
   {
     "uniqueId": "P-028_dummy.gif",
@@ -59048,7 +59410,8 @@
     "trigger": "",
     "getInfo": "ONE PIECEカードゲーム プロモーションパック2022 Vol.2",
     "seriesTitle": "ONE PIECEカードゲーム プロモーションパック2022 Vol.2",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-028_p2"
   },
   {
     "uniqueId": "P-029_dummy.gif",
@@ -59075,7 +59438,8 @@
     "trigger": "",
     "getInfo": "ONE PIECEカードゲーム プロモーションパック2022 Vol.2",
     "seriesTitle": "ONE PIECEカードゲーム プロモーションパック2022 Vol.2",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-029"
   },
   {
     "uniqueId": "P-030_dummy.gif",
@@ -59102,7 +59466,8 @@
     "trigger": "",
     "getInfo": "ONE PIECEカードゲーム プロモーションパック2022 Vol.2",
     "seriesTitle": "ONE PIECEカードゲーム プロモーションパック2022 Vol.2",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-030"
   },
   {
     "uniqueId": "P-031_dummy.gif",
@@ -59127,7 +59492,8 @@
     "trigger": "",
     "getInfo": "ONE PIECEカードゲーム プロモーションパック2022 Vol.2",
     "seriesTitle": "ONE PIECEカードゲーム プロモーションパック2022 Vol.2",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-031"
   },
   {
     "uniqueId": "P-032_dummy.gif",
@@ -59152,7 +59518,8 @@
     "trigger": "",
     "getInfo": "ONE PIECEカードゲーム プロモーションパック2022 Vol.2",
     "seriesTitle": "ONE PIECEカードゲーム プロモーションパック2022 Vol.2",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-032"
   },
   {
     "uniqueId": "P-033_dummy.gif",
@@ -59177,7 +59544,8 @@
     "trigger": "",
     "getInfo": "週刊少年ジャンプ付録（2023年1月7日売）",
     "seriesTitle": "週刊少年ジャンプ付録（2023年1月7日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-033"
   },
   {
     "uniqueId": "P-034_dummy.gif",
@@ -59202,7 +59570,8 @@
     "trigger": "",
     "getInfo": "Vジャンプ3月特大号付録（2023年1月20日売）",
     "seriesTitle": "Vジャンプ3月特大号付録（2023年1月20日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-034"
   },
   {
     "uniqueId": "P-035_dummy.gif",
@@ -59227,7 +59596,8 @@
     "trigger": "",
     "getInfo": "交流会3月開催記念品",
     "seriesTitle": "交流会3月開催記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-035"
   },
   {
     "uniqueId": "P-036_dummy.gif",
@@ -59253,7 +59623,8 @@
     "trigger": "",
     "getInfo": "最強ジャンプ3月号付録（2023年2月3日売）",
     "seriesTitle": "最強ジャンプ3月号付録（2023年2月3日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-036"
   },
   {
     "uniqueId": "P-037_dummy.gif",
@@ -59278,7 +59649,8 @@
     "trigger": "",
     "getInfo": "最強ジャンプ6月号付録（2023年5月2日売）",
     "seriesTitle": "最強ジャンプ6月号付録（2023年5月2日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-037"
   },
   {
     "uniqueId": "P-038_dummy.gif",
@@ -59304,7 +59676,8 @@
     "trigger": "",
     "getInfo": "Vジャンプ7月特大号付録（2023年5月19日売）",
     "seriesTitle": "Vジャンプ7月特大号付録（2023年5月19日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-038"
   },
   {
     "uniqueId": "P-039_dummy.gif",
@@ -59329,7 +59702,8 @@
     "trigger": "",
     "getInfo": "交流会6月開催記念品",
     "seriesTitle": "交流会6月開催記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-039"
   },
   {
     "uniqueId": "P-040_dummy.gif",
@@ -59355,7 +59729,8 @@
     "trigger": "",
     "getInfo": "「ONE PIECE CARD GAME 1st ANNIVERSARY COMPLETE GUIDE」限定特典カード",
     "seriesTitle": "「ONE PIECE CARD GAME 1st ANNIVERSARY COMPLETE GUIDE」限定特典カード",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-040"
   },
   {
     "uniqueId": "P-041_dummy.gif",
@@ -59381,7 +59756,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE DAY’23来場者特典",
     "seriesTitle": "ONE PIECE DAY’23来場者特典",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-041_p4"
   },
   {
     "uniqueId": "P-042_dummy.gif",
@@ -59406,7 +59782,8 @@
     "trigger": "【】相手のコスト4以下のキャラ1枚までを、KOする。",
     "getInfo": "最強ジャンプ9月号付録（2023年8月4日売）",
     "seriesTitle": "最強ジャンプ9月号付録（2023年8月4日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-042"
   },
   {
     "uniqueId": "P-043_dummy.gif",
@@ -59431,7 +59808,8 @@
     "trigger": "",
     "getInfo": "週刊少年ジャンプ付録（2023年8月7日売）",
     "seriesTitle": "週刊少年ジャンプ付録（2023年8月7日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-043"
   },
   {
     "uniqueId": "P-044_dummy.gif",
@@ -59456,7 +59834,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "P-044"
   },
   {
     "uniqueId": "P-045_dummy.gif",
@@ -59481,7 +59860,8 @@
     "trigger": "",
     "getInfo": "交流会 2023年9月開催記念品",
     "seriesTitle": "交流会 2023年9月開催記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-045"
   },
   {
     "uniqueId": "P-046_dummy.gif",
@@ -59506,7 +59886,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE magazine Vol.17付録（2023年9月4日売）",
     "seriesTitle": "ONE PIECE magazine Vol.17付録（2023年9月4日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-046"
   },
   {
     "uniqueId": "P-047_dummy.gif",
@@ -59531,7 +59912,8 @@
     "trigger": "",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.4",
     "seriesTitle": "ONE PIECEカードゲーム プロモーションパックVol.4",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-047"
   },
   {
     "uniqueId": "P-048_dummy.gif",
@@ -59557,7 +59939,8 @@
     "trigger": "",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.4",
     "seriesTitle": "ONE PIECEカードゲーム プロモーションパックVol.4",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-048"
   },
   {
     "uniqueId": "P-049_dummy.gif",
@@ -59582,7 +59965,8 @@
     "trigger": "",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.4",
     "seriesTitle": "ONE PIECEカードゲーム プロモーションパックVol.4",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-049"
   },
   {
     "uniqueId": "P-050_dummy.gif",
@@ -59607,7 +59991,8 @@
     "trigger": "",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.4",
     "seriesTitle": "ONE PIECEカードゲーム プロモーションパックVol.4",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-050"
   },
   {
     "uniqueId": "P-051_dummy.gif",
@@ -59632,7 +60017,8 @@
     "trigger": "",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.4",
     "seriesTitle": "ONE PIECEカードゲーム プロモーションパックVol.4",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-051"
   },
   {
     "uniqueId": "P-052_dummy.gif",
@@ -59657,7 +60043,8 @@
     "trigger": "",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.4",
     "seriesTitle": "ONE PIECEカードゲーム プロモーションパックVol.4",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-052"
   },
   {
     "uniqueId": "P-053_dummy.gif",
@@ -59682,7 +60069,8 @@
     "trigger": "",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.4",
     "seriesTitle": "ONE PIECEカードゲーム プロモーションパックVol.4",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-053"
   },
   {
     "uniqueId": "P-054_dummy.gif",
@@ -59707,7 +60095,8 @@
     "trigger": "",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.4",
     "seriesTitle": "ONE PIECEカードゲーム プロモーションパックVol.4",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-054"
   },
   {
     "uniqueId": "P-055_dummy.gif",
@@ -59732,7 +60121,8 @@
     "trigger": "",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.4",
     "seriesTitle": "ONE PIECEカードゲーム プロモーションパックVol.4",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-055"
   },
   {
     "uniqueId": "P-056_dummy.gif",
@@ -59757,7 +60147,8 @@
     "trigger": "",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.4",
     "seriesTitle": "ONE PIECEカードゲーム プロモーションパックVol.4",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-056"
   },
   {
     "uniqueId": "P-057_dummy.gif",
@@ -59783,7 +60174,8 @@
     "trigger": "【】このカードの【メイン】効果を発動する。",
     "getInfo": "『ONE PIECE FILM RED』入場者プレゼント アンコールパック",
     "seriesTitle": "『ONE PIECE FILM RED』入場者プレゼント アンコールパック",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-057"
   },
   {
     "uniqueId": "P-058_dummy.gif",
@@ -59809,7 +60201,8 @@
     "trigger": "【】自分の特徴《FILM》を持つキャラすべてを、アクティブにする。",
     "getInfo": "『ONE PIECE FILM RED』入場者プレゼント アンコールパック",
     "seriesTitle": "『ONE PIECE FILM RED』入場者プレゼント アンコールパック",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-058"
   },
   {
     "uniqueId": "P-059_dummy.gif",
@@ -59835,7 +60228,8 @@
     "trigger": "",
     "getInfo": "『ONE PIECE FILM RED』入場者プレゼント アンコールパック",
     "seriesTitle": "『ONE PIECE FILM RED』入場者プレゼント アンコールパック",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-059"
   },
   {
     "uniqueId": "P-060_dummy.gif",
@@ -59861,7 +60255,8 @@
     "trigger": "",
     "getInfo": "『ONE PIECE FILM RED』入場者プレゼント アンコールパック",
     "seriesTitle": "『ONE PIECE FILM RED』入場者プレゼント アンコールパック",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-060"
   },
   {
     "uniqueId": "P-061_dummy.gif",
@@ -59887,7 +60282,8 @@
     "trigger": "",
     "getInfo": "『ONE PIECE FILM RED』入場者プレゼント アンコールパック",
     "seriesTitle": "『ONE PIECE FILM RED』入場者プレゼント アンコールパック",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-061"
   },
   {
     "uniqueId": "P-062_dummy.gif",
@@ -59914,7 +60310,8 @@
     "trigger": "",
     "getInfo": "交流会 2023年12月開催記念品",
     "seriesTitle": "交流会 2023年12月開催記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-062"
   },
   {
     "uniqueId": "P-063_dummy.gif",
@@ -59939,7 +60336,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "P-063"
   },
   {
     "uniqueId": "P-064_dummy.gif",
@@ -59965,7 +60363,8 @@
     "trigger": "",
     "getInfo": "最強ジャンプ1月号付録（2023年12月4日売）",
     "seriesTitle": "最強ジャンプ1月号付録（2023年12月4日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-064"
   },
   {
     "uniqueId": "P-065_dummy.gif",
@@ -59991,7 +60390,8 @@
     "trigger": "",
     "getInfo": "勉タメジャンプ2024 WINTER付録（2023年12月8日売）",
     "seriesTitle": "勉タメジャンプ2024 WINTER付録（2023年12月8日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-065"
   },
   {
     "uniqueId": "P-066_dummy.gif",
@@ -60017,7 +60417,8 @@
     "trigger": "",
     "getInfo": "最強ジャンプ4月号付録（2024年3月4日売）",
     "seriesTitle": "最強ジャンプ4月号付録（2024年3月4日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-066_p1"
   },
   {
     "uniqueId": "P-067_dummy.gif",
@@ -60043,7 +60444,8 @@
     "trigger": "",
     "getInfo": "Vジャンプ4月特大号付録（2024年2月21日売）",
     "seriesTitle": "Vジャンプ4月特大号付録（2024年2月21日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-067"
   },
   {
     "uniqueId": "P-068_dummy.gif",
@@ -60069,7 +60471,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "P-068"
   },
   {
     "uniqueId": "P-069_dummy.gif",
@@ -60094,7 +60497,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "P-069_p1"
   },
   {
     "uniqueId": "P-070_dummy.gif",
@@ -60119,7 +60523,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "P-070"
   },
   {
     "uniqueId": "P-071_dummy.gif",
@@ -60144,7 +60549,8 @@
     "trigger": "",
     "getInfo": "最強ジャンプ8月号付録（2024年7月4日売）",
     "seriesTitle": "最強ジャンプ8月号付録（2024年7月4日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-071"
   },
   {
     "uniqueId": "P-072_dummy.gif",
@@ -60169,7 +60575,8 @@
     "trigger": "",
     "getInfo": "『MONSTERS 一百三情飛龍侍極』セットBOX特典",
     "seriesTitle": "『MONSTERS 一百三情飛龍侍極』セットBOX特典",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-072"
   },
   {
     "uniqueId": "P-073_dummy.gif",
@@ -60195,7 +60602,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "P-073"
   },
   {
     "uniqueId": "P-074_dummy.gif",
@@ -60220,7 +60628,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "P-074"
   },
   {
     "uniqueId": "P-075_dummy.gif",
@@ -60246,7 +60655,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "P-075"
   },
   {
     "uniqueId": "P-076_dummy.gif",
@@ -60272,7 +60682,8 @@
     "trigger": "",
     "getInfo": "交流会 2024年5月開催記念品",
     "seriesTitle": "交流会 2024年5月開催記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-076"
   },
   {
     "uniqueId": "P-077_dummy.gif",
@@ -60297,7 +60708,8 @@
     "trigger": "",
     "getInfo": "交流会 2024年7月開催記念品",
     "seriesTitle": "交流会 2024年7月開催記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-077"
   },
   {
     "uniqueId": "P-078_dummy.gif",
@@ -60322,7 +60734,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "P-078_p1"
   },
   {
     "uniqueId": "P-079_dummy.gif",
@@ -60347,7 +60760,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "P-079_p1"
   },
   {
     "uniqueId": "P-080_dummy.gif",
@@ -60374,7 +60788,8 @@
     "trigger": "",
     "getInfo": "BANDAI CARD GAMES Fest 24-25 World Tour 来場記念品",
     "seriesTitle": "BANDAI CARD GAMES Fest 24-25 World Tour 来場記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-080_p1"
   },
   {
     "uniqueId": "P-081_dummy.gif",
@@ -60399,7 +60814,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "P-081_p1"
   },
   {
     "uniqueId": "P-082_dummy.gif",
@@ -60425,7 +60841,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "P-082_p1"
   },
   {
     "uniqueId": "P-083_dummy.gif",
@@ -60451,7 +60868,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "P-083"
   },
   {
     "uniqueId": "P-084_dummy.gif",
@@ -60477,7 +60895,8 @@
     "trigger": "",
     "getInfo": "週刊少年ジャンプ付録（2024年10月15日売）",
     "seriesTitle": "週刊少年ジャンプ付録（2024年10月15日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-084"
   },
   {
     "uniqueId": "P-085_dummy.gif",
@@ -60503,7 +60922,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "P-085"
   },
   {
     "uniqueId": "P-086_dummy.gif",
@@ -60529,7 +60949,8 @@
     "trigger": "",
     "getInfo": "交流会 2024年9月開催記念品",
     "seriesTitle": "交流会 2024年9月開催記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-086"
   },
   {
     "uniqueId": "P-087_dummy.gif",
@@ -60554,7 +60975,8 @@
     "trigger": "",
     "getInfo": "交流会 2025年1月開催記念品",
     "seriesTitle": "交流会 2025年1月開催記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-087"
   },
   {
     "uniqueId": "P-088_dummy.gif",
@@ -60580,7 +61002,8 @@
     "trigger": "【】自分のリーダーが特徴《超新星》を持ち、お互いのライフの合計枚数が5枚以下の場合、このカードを登場させる。",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "P-088"
   },
   {
     "uniqueId": "P-089_dummy.gif",
@@ -60606,7 +61029,8 @@
     "trigger": "",
     "getInfo": "最強ジャンプ2月特大号付録（2025年1月4日売）",
     "seriesTitle": "最強ジャンプ2月特大号付録（2025年1月4日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-089"
   },
   {
     "uniqueId": "P-090_dummy.gif",
@@ -60631,7 +61055,8 @@
     "trigger": "",
     "getInfo": "交流会 2025年3月開催記念品",
     "seriesTitle": "交流会 2025年3月開催記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-090"
   },
   {
     "uniqueId": "P-091_dummy.gif",
@@ -60657,7 +61082,8 @@
     "trigger": "",
     "getInfo": "Vジャンプ4月特大号付録（2025年2月20日売）",
     "seriesTitle": "Vジャンプ4月特大号付録（2025年2月20日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-091"
   },
   {
     "uniqueId": "P-092_dummy.gif",
@@ -60683,7 +61109,8 @@
     "trigger": "",
     "getInfo": "最強ジャンプ4月特大号付録（2025年3月4日売）",
     "seriesTitle": "最強ジャンプ4月特大号付録（2025年3月4日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-092"
   },
   {
     "uniqueId": "P-093_dummy.gif",
@@ -60708,7 +61135,8 @@
     "trigger": "",
     "getInfo": "交流会 2025年5月開催記念品",
     "seriesTitle": "交流会 2025年5月開催記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-093"
   },
   {
     "uniqueId": "P-094_dummy.gif",
@@ -60733,7 +61161,8 @@
     "trigger": "",
     "getInfo": "Vジャンプ7月特大号付録（2025年5月21日売）",
     "seriesTitle": "Vジャンプ7月特大号付録（2025年5月21日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-094"
   },
   {
     "uniqueId": "P-095_dummy.gif",
@@ -60758,7 +61187,8 @@
     "trigger": "",
     "getInfo": "最強ジャンプ7月号付録（2025年6月4日売）",
     "seriesTitle": "最強ジャンプ7月号付録（2025年6月4日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-095"
   },
   {
     "uniqueId": "P-096_dummy.gif",
@@ -60783,7 +61213,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE magazine別冊 Focus on〝ONE PIECE FAN LETTER〟付録",
     "seriesTitle": "ONE PIECE magazine別冊 Focus on〝ONE PIECE FAN LETTER〟付録",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-096"
   },
   {
     "uniqueId": "P-097_dummy.gif",
@@ -60809,7 +61240,8 @@
     "trigger": "",
     "getInfo": "交流会 2025年7月開催記念品",
     "seriesTitle": "交流会 2025年7月開催記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-097"
   },
   {
     "uniqueId": "P-098_dummy.gif",
@@ -60835,7 +61267,8 @@
     "trigger": "",
     "getInfo": "交流会 2025年7月開催記念品",
     "seriesTitle": "交流会 2025年7月開催記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-098"
   },
   {
     "uniqueId": "P-099_dummy.gif",
@@ -60861,7 +61294,8 @@
     "trigger": "",
     "getInfo": "交流会 2025年7月開催記念品",
     "seriesTitle": "交流会 2025年7月開催記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-099"
   },
   {
     "uniqueId": "P-100_dummy.gif",
@@ -60887,7 +61321,8 @@
     "trigger": "",
     "getInfo": "交流会 2025年7月開催記念品",
     "seriesTitle": "交流会 2025年7月開催記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-100"
   },
   {
     "uniqueId": "P-101_dummy.gif",
@@ -60913,7 +61348,8 @@
     "trigger": "",
     "getInfo": "「プロモーションカードセット2025」ゲットキャンペーン",
     "seriesTitle": "「プロモーションカードセット2025」ゲットキャンペーン",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-101_p1"
   },
   {
     "uniqueId": "P-102_dummy.gif",
@@ -60939,7 +61375,8 @@
     "trigger": "",
     "getInfo": "「プロモーションカードセット2025」ゲットキャンペーン",
     "seriesTitle": "「プロモーションカードセット2025」ゲットキャンペーン",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-102_p1"
   },
   {
     "uniqueId": "P-103_dummy.gif",
@@ -60964,7 +61401,8 @@
     "trigger": "",
     "getInfo": "「プロモーションカードセット2025」ゲットキャンペーン",
     "seriesTitle": "「プロモーションカードセット2025」ゲットキャンペーン",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-103_p1"
   },
   {
     "uniqueId": "P-104_dummy.gif",
@@ -60991,7 +61429,8 @@
     "trigger": "",
     "getInfo": "「プロモーションカードセット2025」ゲットキャンペーン",
     "seriesTitle": "「プロモーションカードセット2025」ゲットキャンペーン",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-104_p1"
   },
   {
     "uniqueId": "P-105_dummy.gif",
@@ -61016,7 +61455,8 @@
     "trigger": "",
     "getInfo": "「プロモーションカードセット2025」ゲットキャンペーン",
     "seriesTitle": "「プロモーションカードセット2025」ゲットキャンペーン",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-105_p1"
   },
   {
     "uniqueId": "P-106_dummy.gif",
@@ -61043,7 +61483,8 @@
     "trigger": "【】カード1枚を引き、相手のコスト2以下のキャラ1枚までを、KOする。",
     "getInfo": "「プロモーションカードセット2025」ゲットキャンペーン",
     "seriesTitle": "「プロモーションカードセット2025」ゲットキャンペーン",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-106_p2"
   },
   {
     "uniqueId": "P-107_dummy.gif",
@@ -61069,7 +61510,8 @@
     "trigger": "",
     "getInfo": "交流会 2025年9月開催記念品",
     "seriesTitle": "交流会 2025年9月開催記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-107"
   },
   {
     "uniqueId": "P-108_dummy.gif",
@@ -61095,7 +61537,8 @@
     "trigger": "",
     "getInfo": "Vジャンプ10月特大号付録（2025年8月21日売）",
     "seriesTitle": "Vジャンプ10月特大号付録（2025年8月21日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-108"
   },
   {
     "uniqueId": "P-109_dummy.gif",
@@ -61120,7 +61563,8 @@
     "trigger": "",
     "getInfo": "最強ジャンプ10月号付録（2025年9月4日売）",
     "seriesTitle": "最強ジャンプ10月号付録（2025年9月4日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-109"
   },
   {
     "uniqueId": "P-110_dummy.gif",
@@ -61172,7 +61616,8 @@
     "trigger": "",
     "getInfo": "交流会 2025年11月開催記念品",
     "seriesTitle": "交流会 2025年11月開催記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-111"
   },
   {
     "uniqueId": "P-112_dummy.gif",
@@ -61197,7 +61642,8 @@
     "trigger": "",
     "getInfo": "交流会 2025年11月開催記念品",
     "seriesTitle": "交流会 2025年11月開催記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-112"
   },
   {
     "uniqueId": "P-113_dummy.gif",
@@ -61222,7 +61668,8 @@
     "trigger": "【】相手のコスト3以下のキャラ1枚までを、KOする。",
     "getInfo": "交流会 2025年11月開催記念品",
     "seriesTitle": "交流会 2025年11月開催記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-113"
   },
   {
     "uniqueId": "P-114_dummy.gif",
@@ -61248,7 +61695,8 @@
     "trigger": "",
     "getInfo": "交流会 2025年11月開催記念品",
     "seriesTitle": "交流会 2025年11月開催記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-114"
   },
   {
     "uniqueId": "P-115_dummy.gif",
@@ -61274,7 +61722,8 @@
     "trigger": "【】自分の手札からパワー5000以下の黄の【】を持つキャラカード1枚までを、登場させる。",
     "getInfo": "Vジャンプ2026年1月特大号（2025年11月20日売）",
     "seriesTitle": "Vジャンプ2026年1月特大号（2025年11月20日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-115"
   },
   {
     "uniqueId": "P-116_dummy.gif",
@@ -61300,7 +61749,8 @@
     "trigger": "",
     "getInfo": "最強ジャンプ1月号付録（2025年12月4日売）",
     "seriesTitle": "最強ジャンプ1月号付録（2025年12月4日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-116"
   },
   {
     "uniqueId": "P-117_dummy.gif",
@@ -61325,7 +61775,8 @@
     "trigger": "",
     "getInfo": "交流会(小学生以下限定含む)",
     "seriesTitle": "交流会(小学生以下限定含む)",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-117"
   },
   {
     "uniqueId": "P-118_dummy.gif",
@@ -61351,7 +61802,8 @@
     "trigger": "",
     "getInfo": "交流会 2026年1月開催記念品",
     "seriesTitle": "交流会 2026年1月開催記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-118"
   },
   {
     "uniqueId": "P-119_dummy.gif",
@@ -61376,7 +61828,8 @@
     "trigger": "",
     "getInfo": "交流会 2026年3月開催記念品",
     "seriesTitle": "交流会 2026年3月開催記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-119"
   },
   {
     "uniqueId": "P-120_dummy.gif",
@@ -61402,7 +61855,8 @@
     "trigger": "",
     "getInfo": "Vジャンプ4月特大号付録（2026年2月20日売）",
     "seriesTitle": "Vジャンプ4月特大号付録（2026年2月20日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-120"
   },
   {
     "uniqueId": "P-121_dummy.gif",
@@ -61427,7 +61881,8 @@
     "trigger": "",
     "getInfo": "最強ジャンプ4月号付録（2026年3月4日売）",
     "seriesTitle": "最強ジャンプ4月号付録（2026年3月4日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-121"
   },
   {
     "uniqueId": "P-135_dummy.gif",
@@ -61452,7 +61907,8 @@
     "trigger": "",
     "getInfo": "交流会 2026年5月開催記念品",
     "seriesTitle": "交流会 2026年5月開催記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-135"
   },
   {
     "uniqueId": "P-136_dummy.gif",
@@ -61830,7 +62286,8 @@
     "trigger": "【】カード1枚を引き、相手のコスト6以下のキャラ1枚までは、このターン中、アタックできない。",
     "getInfo": "Vジャンプ7月特大号付録（2026年5月21日売）",
     "seriesTitle": "Vジャンプ7月特大号付録（2026年5月21日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-150"
   },
   {
     "uniqueId": "P-151_dummy.gif",
@@ -61855,7 +62312,8 @@
     "trigger": "",
     "getInfo": "最強ジャンプ7月号付録（2026年6月4日売）",
     "seriesTitle": "最強ジャンプ7月号付録（2026年6月4日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-151"
   },
   {
     "uniqueId": "P-152_dummy.gif",
@@ -61881,7 +62339,8 @@
     "trigger": "",
     "getInfo": "最強ジャンプ5月号​ 応募者全員大サービス（2026年4月3日売）",
     "seriesTitle": "最強ジャンプ5月号​ 応募者全員大サービス（2026年4月3日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-152"
   },
   {
     "uniqueId": "P-153_dummy.gif",
@@ -61906,7 +62365,8 @@
     "trigger": "",
     "getInfo": "最強ジャンプ5月号​ 応募者全員大サービス（2026年4月3日売）",
     "seriesTitle": "最強ジャンプ5月号​ 応募者全員大サービス（2026年4月3日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-153"
   },
   {
     "uniqueId": "P-154_dummy.gif",
@@ -61931,7 +62391,8 @@
     "trigger": "",
     "getInfo": "最強ジャンプ5月号​ 応募者全員大サービス（2026年4月3日売）",
     "seriesTitle": "最強ジャンプ5月号​ 応募者全員大サービス（2026年4月3日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-154"
   },
   {
     "uniqueId": "P-155_dummy.gif",
@@ -61957,7 +62418,8 @@
     "trigger": "【】相手のライフが3枚以下の場合、このカードを登場させる。",
     "getInfo": "交流会 2026年7月開催記念品",
     "seriesTitle": "交流会 2026年7月開催記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-155"
   },
   {
     "uniqueId": "P-157_dummy.gif",
@@ -61984,7 +62446,8 @@
     "trigger": "",
     "getInfo": "交流会 2026年9月開催記念品",
     "seriesTitle": "交流会 2026年9月開催記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-157"
   },
   {
     "uniqueId": "P-159_dummy.gif",
@@ -62011,7 +62474,8 @@
     "trigger": "",
     "getInfo": "週刊少年ジャンプ33号付録（2026年7月13日売）",
     "seriesTitle": "週刊少年ジャンプ33号付録（2026年7月13日売）",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "P-159_p1"
   },
   {
     "uniqueId": "PRB01-001_dummy.gif",
@@ -62166,7 +62630,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "PRB02-005_p2"
   },
   {
     "uniqueId": "PRB02-006_dummy.gif",
@@ -62527,7 +62992,8 @@
     "trigger": "",
     "getInfo": "ファミリーデッキセット",
     "seriesTitle": "ファミリーデッキセット",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST01-001_p3"
   },
   {
     "uniqueId": "ST01-002_dummy.gif",
@@ -62552,7 +63018,8 @@
     "trigger": "【】このカードを登場させる。",
     "getInfo": "ファミリーデッキセット",
     "seriesTitle": "ファミリーデッキセット",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST01-002_p2"
   },
   {
     "uniqueId": "ST01-003_dummy.gif",
@@ -62603,7 +63070,8 @@
     "trigger": "",
     "getInfo": "ファミリーデッキセット",
     "seriesTitle": "ファミリーデッキセット",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST01-004_p2"
   },
   {
     "uniqueId": "ST01-005_dummy.gif",
@@ -62629,7 +63097,8 @@
     "trigger": "",
     "getInfo": "ファミリーデッキセット",
     "seriesTitle": "ファミリーデッキセット",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST01-005_p3"
   },
   {
     "uniqueId": "ST01-006_dummy.gif",
@@ -62655,7 +63124,8 @@
     "trigger": "",
     "getInfo": "ファミリーデッキセット",
     "seriesTitle": "ファミリーデッキセット",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST01-006_p7"
   },
   {
     "uniqueId": "ST01-007_dummy.gif",
@@ -62680,7 +63150,8 @@
     "trigger": "",
     "getInfo": "ファミリーデッキセット",
     "seriesTitle": "ファミリーデッキセット",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST01-007_p3"
   },
   {
     "uniqueId": "ST01-008_dummy.gif",
@@ -62705,7 +63176,8 @@
     "trigger": "",
     "getInfo": "ファミリーデッキセット",
     "seriesTitle": "ファミリーデッキセット",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST01-008_p3"
   },
   {
     "uniqueId": "ST01-009_dummy.gif",
@@ -62730,7 +63202,8 @@
     "trigger": "",
     "getInfo": "ファミリーデッキセット",
     "seriesTitle": "ファミリーデッキセット",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST01-009_p1"
   },
   {
     "uniqueId": "ST01-010_dummy.gif",
@@ -62780,7 +63253,9 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "ST01-011_p6",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "ST01-012_dummy.gif",
@@ -62806,7 +63281,8 @@
     "trigger": "",
     "getInfo": "ファミリーデッキセット",
     "seriesTitle": "ファミリーデッキセット",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST01-012_p7"
   },
   {
     "uniqueId": "ST01-013_dummy.gif",
@@ -62832,7 +63308,8 @@
     "trigger": "",
     "getInfo": "ファミリーデッキセット",
     "seriesTitle": "ファミリーデッキセット",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST01-013_p5"
   },
   {
     "uniqueId": "ST01-014_dummy.gif",
@@ -62884,7 +63361,8 @@
     "trigger": "【】このカードの【メイン】効果を発動する。",
     "getInfo": "ファミリーデッキセット",
     "seriesTitle": "ファミリーデッキセット",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST01-015_p3"
   },
   {
     "uniqueId": "ST01-016_dummy.gif",
@@ -63114,7 +63592,9 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "ST02-007_p5",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "ST02-008_dummy.gif",
@@ -63140,7 +63620,8 @@
     "trigger": "",
     "getInfo": "ファミリーデッキセット",
     "seriesTitle": "ファミリーデッキセット",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST02-008_p2"
   },
   {
     "uniqueId": "ST02-009_dummy.gif",
@@ -63192,7 +63673,8 @@
     "trigger": "",
     "getInfo": "ファミリーデッキセット",
     "seriesTitle": "ファミリーデッキセット",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST02-010_p2"
   },
   {
     "uniqueId": "ST02-011_dummy.gif",
@@ -63269,7 +63751,8 @@
     "trigger": "",
     "getInfo": "ファミリーデッキセット",
     "seriesTitle": "ファミリーデッキセット",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST02-013_p3"
   },
   {
     "uniqueId": "ST02-014_dummy.gif",
@@ -63451,7 +63934,8 @@
     "trigger": "",
     "getInfo": "スタンダードバトルパックVol.5",
     "seriesTitle": "スタンダードバトルパックVol.5",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST03-003_p2"
   },
   {
     "uniqueId": "ST03-004_dummy.gif",
@@ -63477,7 +63961,8 @@
     "trigger": "",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.5",
     "seriesTitle": "ONE PIECEカードゲーム プロモーションパックVol.5",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST03-004_p1"
   },
   {
     "uniqueId": "ST03-005_dummy.gif",
@@ -63502,7 +63987,8 @@
     "trigger": "",
     "getInfo": "スタンダードバトルパック Vol.3",
     "seriesTitle": "スタンダードバトルパック Vol.3",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST03-005_p2"
   },
   {
     "uniqueId": "ST03-006_dummy.gif",
@@ -63554,7 +64040,8 @@
     "trigger": "",
     "getInfo": "スタンダードバトルパック2022 Vol.2",
     "seriesTitle": "スタンダードバトルパック2022 Vol.2",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST03-007_p1"
   },
   {
     "uniqueId": "ST03-008_dummy.gif",
@@ -63580,7 +64067,8 @@
     "trigger": "",
     "getInfo": "チャンピオンシップセット2022",
     "seriesTitle": "チャンピオンシップセット2022",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST03-008_p5"
   },
   {
     "uniqueId": "ST03-009_dummy.gif",
@@ -63736,7 +64224,8 @@
     "trigger": "",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.3",
     "seriesTitle": "ONE PIECEカードゲーム プロモーションパックVol.3",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST03-014_p1"
   },
   {
     "uniqueId": "ST03-015_dummy.gif",
@@ -63891,7 +64380,8 @@
     "trigger": "",
     "getInfo": "スタンダードバトルパックVol.5",
     "seriesTitle": "スタンダードバトルパックVol.5",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST04-003_p5"
   },
   {
     "uniqueId": "ST04-004_dummy.gif",
@@ -63941,7 +64431,8 @@
     "trigger": "",
     "getInfo": "フラッグシップバトル2023 4月ベスト8記念品",
     "seriesTitle": "フラッグシップバトル2023 4月ベスト8記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST04-005_p2"
   },
   {
     "uniqueId": "ST04-006_dummy.gif",
@@ -64017,7 +64508,8 @@
     "trigger": "",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.3",
     "seriesTitle": "ONE PIECEカードゲーム プロモーションパックVol.3",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST04-008_p1"
   },
   {
     "uniqueId": "ST04-009_dummy.gif",
@@ -64068,7 +64560,8 @@
     "trigger": "【】このカードを登場させる。",
     "getInfo": "スタンダードバトルパック2022 Vol.2",
     "seriesTitle": "スタンダードバトルパック2022 Vol.2",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST04-010_p1"
   },
   {
     "uniqueId": "ST04-011_dummy.gif",
@@ -64093,7 +64586,8 @@
     "trigger": "",
     "getInfo": "スタンダードバトルパック2022 Vol.1",
     "seriesTitle": "スタンダードバトルパック2022 Vol.1",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST04-011_p3"
   },
   {
     "uniqueId": "ST04-012_dummy.gif",
@@ -64839,7 +65333,8 @@
     "trigger": "",
     "getInfo": "スタンダードバトルパック Vol.3",
     "seriesTitle": "スタンダードバトルパック Vol.3",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST06-006_p1"
   },
   {
     "uniqueId": "ST06-007_dummy.gif",
@@ -64889,7 +65384,9 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "ST06-008_p3",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "ST06-009_dummy.gif",
@@ -65290,7 +65787,8 @@
     "trigger": "【】このカードを登場させる。",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.5",
     "seriesTitle": "ONE PIECEカードゲーム プロモーションパックVol.5",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST07-007_p1"
   },
   {
     "uniqueId": "ST07-008_dummy.gif",
@@ -65315,7 +65813,8 @@
     "trigger": "",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.3",
     "seriesTitle": "ONE PIECEカードゲーム プロモーションパックVol.3",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST07-008_p3"
   },
   {
     "uniqueId": "ST07-009_dummy.gif",
@@ -65366,7 +65865,8 @@
     "trigger": "",
     "getInfo": "フラッグシップバトル2023 10月ベスト8記念品",
     "seriesTitle": "フラッグシップバトル2023 10月ベスト8記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST07-010_p2"
   },
   {
     "uniqueId": "ST07-011_dummy.gif",
@@ -66226,7 +66726,8 @@
     "trigger": "",
     "getInfo": "プロモーションカードセット",
     "seriesTitle": "プロモーションカードセット",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST09-012_p1"
   },
   {
     "uniqueId": "ST09-013_dummy.gif",
@@ -66404,7 +66905,8 @@
     "trigger": "",
     "getInfo": "8パックバトル 2024年優勝記念品",
     "seriesTitle": "8パックバトル 2024年優勝記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST10-004_p1"
   },
   {
     "uniqueId": "ST10-005_dummy.gif",
@@ -66455,7 +66957,8 @@
     "trigger": "",
     "getInfo": "チャンピオンシップ2023 2次予選決勝大会 ベスト16記念品",
     "seriesTitle": "チャンピオンシップ2023 2次予選決勝大会 ベスト16記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST10-006_p4"
   },
   {
     "uniqueId": "ST10-007_dummy.gif",
@@ -66505,7 +67008,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "ST10-008_p1"
   },
   {
     "uniqueId": "ST10-009_dummy.gif",
@@ -66555,7 +67059,8 @@
     "trigger": "",
     "getInfo": "チャンピオンシップ2023 2次予選エリア大会 ベスト8記念品",
     "seriesTitle": "チャンピオンシップ2023 2次予選エリア大会 ベスト8記念品",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST10-010_p2"
   },
   {
     "uniqueId": "ST10-011_dummy.gif",
@@ -66631,7 +67136,8 @@
     "trigger": "",
     "getInfo": "プロモーションパックEX Vol.1",
     "seriesTitle": "プロモーションパックEX Vol.1",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST10-013_p2"
   },
   {
     "uniqueId": "ST10-014_dummy.gif",
@@ -66807,7 +67313,8 @@
     "trigger": "",
     "getInfo": "『ONE PIECE FILM RED』入場者プレゼント アンコールパック",
     "seriesTitle": "『ONE PIECE FILM RED』入場者プレゼント アンコールパック",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST11-003_p1"
   },
   {
     "uniqueId": "ST11-004_dummy.gif",
@@ -66833,7 +67340,8 @@
     "trigger": "",
     "getInfo": "『ONE PIECE FILM RED』入場者プレゼント アンコールパック",
     "seriesTitle": "『ONE PIECE FILM RED』入場者プレゼント アンコールパック",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST11-004_p1"
   },
   {
     "uniqueId": "ST11-005_dummy.gif",
@@ -66859,7 +67367,8 @@
     "trigger": "【】自分のリーダーかキャラ1枚までを、このターン中、パワー+1000。",
     "getInfo": "『ONE PIECE FILM RED』入場者プレゼント アンコールパック",
     "seriesTitle": "『ONE PIECE FILM RED』入場者プレゼント アンコールパック",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST11-005_p1"
   },
   {
     "uniqueId": "ST12-001_dummy.gif",
@@ -66936,7 +67445,8 @@
     "trigger": "",
     "getInfo": "Vジャンプ10月特大号 応募者全員サービス",
     "seriesTitle": "Vジャンプ10月特大号 応募者全員サービス",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST12-003_p1"
   },
   {
     "uniqueId": "ST12-004_dummy.gif",
@@ -68536,7 +69046,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "ST17-003_p1"
   },
   {
     "uniqueId": "ST17-004_dummy.gif",
@@ -68638,7 +69149,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "ST18-002_p1"
   },
   {
     "uniqueId": "ST18-003_dummy.gif",
@@ -68763,7 +69275,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "sourceModalId": "ST19-002_p1"
   },
   {
     "uniqueId": "ST19-003_dummy.gif",
@@ -69321,7 +69834,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE magazine 特集 週刊少年ジャンプとONE PIECE 020​ 付録",
     "seriesTitle": "ONE PIECE magazine 特集 週刊少年ジャンプとONE PIECE 020​ 付録",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST21-014_p2"
   },
   {
     "uniqueId": "ST21-015_dummy.gif",
@@ -69855,7 +70369,8 @@
     "trigger": "",
     "getInfo": "スタートデッキ 赤 シャンクス【ST-23】",
     "seriesTitle": "スタートデッキ 赤 シャンクス",
-    "seriesCode": "ST-23"
+    "seriesCode": "ST-23",
+    "sourceModalId": "ST23-001_p1"
   },
   {
     "uniqueId": "ST23-002_dummy.gif",
@@ -70836,7 +71351,8 @@
     "trigger": "【】自分のリーダーが「モンキー・Ｄ・ルフィ」の場合、このカードを登場させる。",
     "getInfo": "プロモーションパックEX Vol.4",
     "seriesTitle": "プロモーションパックEX Vol.4",
-    "seriesCode": ""
+    "seriesCode": "",
+    "sourceModalId": "ST29-009_p2"
   },
   {
     "uniqueId": "ST29-010_dummy.gif",

@@ -43873,5 +43873,131 @@
     "cardType": "CHARACTER",
     "getInfo": "プレミアムカードコレクション-Live Action Edition vol.2 バロックワークス-",
     "label": "通常"
+  },
+  "Cards/OP13/official/OP13-004_p2.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP13-004_p2.png?260821",
+    "cardName": "サボ",
+    "rarity": "L",
+    "cardType": "LEADER",
+    "getInfo": "スタートデッキ 赤黒 サボ【ST-35】",
+    "label": "公式差分 3"
+  },
+  "Cards/P/official/P-136.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/P-136.png?260821",
+    "cardName": "ウソップ",
+    "rarity": "P",
+    "cardType": "CHARACTER",
+    "getInfo": "プレミアムカードコレクション-Live Action Edition vol.2 麦わらの一味-",
+    "label": "通常"
+  },
+  "Cards/P/official/P-137.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/P-137.png?260821",
+    "cardName": "サンジ",
+    "rarity": "P",
+    "cardType": "CHARACTER",
+    "getInfo": "プレミアムカードコレクション-Live Action Edition vol.2 麦わらの一味-",
+    "label": "通常"
+  },
+  "Cards/P/official/P-138.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/P-138.png?260821",
+    "cardName": "トニートニー・チョッパー",
+    "rarity": "P",
+    "cardType": "CHARACTER",
+    "getInfo": "プレミアムカードコレクション-Live Action Edition vol.2 麦わらの一味-",
+    "label": "通常"
+  },
+  "Cards/P/official/P-139.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/P-139.png?260821",
+    "cardName": "ナミ",
+    "rarity": "P",
+    "cardType": "CHARACTER",
+    "getInfo": "プレミアムカードコレクション-Live Action Edition vol.2 麦わらの一味-",
+    "label": "通常"
+  },
+  "Cards/P/official/P-140.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/P-140.png?260821",
+    "cardName": "モンキー・D・ルフィ",
+    "rarity": "P",
+    "cardType": "CHARACTER",
+    "getInfo": "プレミアムカードコレクション-Live Action Edition vol.2 麦わらの一味-",
+    "label": "通常"
+  },
+  "Cards/P/official/P-141.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/P-141.png?260821",
+    "cardName": "ロロノア・ゾロ",
+    "rarity": "P",
+    "cardType": "CHARACTER",
+    "getInfo": "プレミアムカードコレクション-Live Action Edition vol.2 麦わらの一味-",
+    "label": "通常"
+  },
+  "Cards/P/official/P-142.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/P-142.png?260821",
+    "cardName": "ゴーイング・メリー号",
+    "rarity": "P",
+    "cardType": "STAGE",
+    "getInfo": "プレミアムカードコレクション-Live Action Edition vol.2 麦わらの一味-",
+    "label": "通常"
+  },
+  "Cards/P/official/P-144.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/P-144.png?260821",
+    "cardName": "ミス・オールサンデー",
+    "rarity": "P",
+    "cardType": "CHARACTER",
+    "getInfo": "プレミアムカードコレクション-Live Action Edition vol.2 バロックワークス-",
+    "label": "通常"
+  },
+  "Cards/P/official/P-145.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/P-145.png?260821",
+    "cardName": "ミス・ウェンズデー",
+    "rarity": "P",
+    "cardType": "CHARACTER",
+    "getInfo": "プレミアムカードコレクション-Live Action Edition vol.2 バロックワークス-",
+    "label": "通常"
+  },
+  "Cards/P/official/P-146.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/P-146.png?260821",
+    "cardName": "ミス・ゴールデンウィーク(マリアンヌ)",
+    "rarity": "P",
+    "cardType": "CHARACTER",
+    "getInfo": "プレミアムカードコレクション-Live Action Edition vol.2 バロックワークス-",
+    "label": "通常"
+  },
+  "Cards/P/official/P-147.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/P-147.png?260821",
+    "cardName": "ミス・バレンタイン(ミキータ)",
+    "rarity": "P",
+    "cardType": "CHARACTER",
+    "getInfo": "プレミアムカードコレクション-Live Action Edition vol.2 バロックワークス-",
+    "label": "通常"
+  },
+  "Cards/P/official/P-148.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/P-148.png?260821",
+    "cardName": "Mr.３(ギャルディーノ)",
+    "rarity": "P",
+    "cardType": "CHARACTER",
+    "getInfo": "プレミアムカードコレクション-Live Action Edition vol.2 バロックワークス-",
+    "label": "通常"
+  },
+  "Cards/P/official/P-149.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/P-149.png?260821",
+    "cardName": "Mr.５(ジェム)",
+    "rarity": "P",
+    "cardType": "CHARACTER",
+    "getInfo": "プレミアムカードコレクション-Live Action Edition vol.2 バロックワークス-",
+    "label": "通常"
   }
 }
