@@ -37,7 +37,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.8.1'; // バージョン更新
+    const APP_VERSION = '1.8.2'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -65,6 +65,7 @@
     let cardSeriesIdCache = new Map(); // cardNumber -> Set<正規化済みシリーズID>
     let lastAddedCardSet = new Set(); // 前回のデータ更新で追加されたカード番号
     let provisionalCards = [];
+    let provisionalVariantsByNumber = new Map();
     let furiganaOverrides = {};
     let touchStartX = 0;
     let touchEndX = 0;
@@ -634,11 +635,99 @@
         };
     }
 
+    function getImageIdentity(value) {
+        if (!value) return '';
+        try {
+            const pathname = new URL(String(value), document.baseURI).pathname;
+            return decodeURIComponent(pathname.split('/').pop() || '')
+                .replace(/\.(?:webp|png|jpe?g|gif)$/i, '')
+                .toLowerCase();
+        } catch {
+            return String(value)
+                .split(/[?#]/)[0]
+                .split('/')
+                .pop()
+                .replace(/\.(?:webp|png|jpe?g|gif)$/i, '')
+                .toLowerCase();
+        }
+    }
+
+    function getVariantImageIdentities(variant) {
+        return [variant?.path, variant?.fallbackPath, variant?.sourceUrl]
+            .map(getImageIdentity)
+            .filter(Boolean);
+    }
+
+    function rebuildProvisionalVariants() {
+        provisionalVariantsByNumber = new Map();
+        provisionalCards.forEach(card => {
+            const cardNumber = String(card?.cardNumber || '').trim();
+            const imagePath = card?.imagePath || card?.provisionalImageUrl;
+            if (!cardNumber || !imagePath) return;
+            const variants = provisionalVariantsByNumber.get(cardNumber) || [];
+            variants.push({
+                source: 'provisional',
+                sourceUrl: card.provisionalImageUrl || '',
+                path: imagePath,
+                fallbackPath: imagePath,
+                label: card.seriesTitle ? `仮DB: ${card.seriesTitle}` : '仮DB画像',
+                getInfo: card.getInfo || '',
+                cardName: card.cardName || '',
+                rarity: card.rarity || ''
+            });
+            provisionalVariantsByNumber.set(cardNumber, variants);
+        });
+    }
+
+    function mergeProvisionalImageVariants(cardNumber, manifestVariants = []) {
+        const merged = manifestVariants.map(variant => ({ ...variant }));
+        const provisionalVariants = provisionalVariantsByNumber.get(cardNumber) || [];
+        if (provisionalVariants.length === 0) return merged;
+
+        const usedIdentities = new Set(merged.flatMap(getVariantImageIdentities));
+        const usedIndexes = new Set(merged
+            .map((variant, index) => getVariantStableIndex(variant, index))
+            .filter(index => index > 0 && index < 1000));
+        let hasPrimaryVariant = merged.length > 0;
+        let nextIndex = 1;
+
+        provisionalVariants.forEach(variant => {
+            const identities = getVariantImageIdentities(variant);
+            if (identities.some(identity => usedIdentities.has(identity))) return;
+            if (!hasPrimaryVariant) {
+                merged.push({ ...variant, variantIndex: 0 });
+                hasPrimaryVariant = true;
+                identities.forEach(identity => usedIdentities.add(identity));
+                return;
+            }
+            while (usedIndexes.has(nextIndex)) nextIndex++;
+            merged.push({ ...variant, variantIndex: nextIndex });
+            usedIndexes.add(nextIndex);
+            identities.forEach(identity => usedIdentities.add(identity));
+            nextIndex++;
+        });
+        return merged;
+    }
+
     function getCardImageVariants(card) {
         if (!card || !card.cardNumber) return [];
+        if (isProvisionalCard(card) && card.imagePath) {
+            return [{
+                path: card.imagePath,
+                fallbackPath: card.imagePath,
+                sourceUrl: card.provisionalImageUrl || '',
+                label: card.seriesTitle ? `仮DB: ${card.seriesTitle}` : '仮DB画像',
+                getInfo: card.getInfo || '',
+                variantIndex: 0
+            }];
+        }
         const manifestVariants = imageManifest.cards?.[card.cardNumber];
         if (Array.isArray(manifestVariants) && manifestVariants.length > 0) {
-            return manifestVariants;
+            return mergeProvisionalImageVariants(card.cardNumber, manifestVariants);
+        }
+        const provisionalVariants = mergeProvisionalImageVariants(card.cardNumber);
+        if (provisionalVariants.length > 0) {
+            return provisionalVariants;
         }
         if (card.imagePath) {
             return [{ path: card.imagePath, label: '通常', variantIndex: 0 }];
@@ -816,10 +905,12 @@
             if (!response.ok) throw new Error(`Failed to fetch provisional cards: ${response.status}`);
             const data = await response.json();
             provisionalCards = normalizeCardsData(Array.isArray(data) ? data : []);
+            rebuildProvisionalVariants();
             applyFuriganaOverridesToCards(provisionalCards);
         } catch (error) {
             console.warn('Failed to load provisional cards.', error);
             provisionalCards = [];
+            rebuildProvisionalVariants();
         }
     }
 

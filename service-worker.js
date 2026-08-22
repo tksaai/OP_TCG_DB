@@ -5,9 +5,20 @@
  */
 
 // === 1. 定数 ===
-const CACHE_APP_SHELL = 'app-shell-v27';
-const CACHE_CARD_DATA = 'card-data-v9';
+const CACHE_APP_SHELL = 'app-shell-v28';
+const CACHE_CARD_DATA = 'card-data-v10';
 const CACHE_IMAGES = 'card-images-v1';
+
+const CARDS_JSON_PATH = './cards.json';
+const PROVISIONAL_CARDS_JSON_PATH = './provisional-cards.json';
+const IMAGE_MANIFEST_PATH = './image-manifest.json';
+const FURIGANA_OVERRIDES_PATH = './furigana-overrides.json';
+const CARD_DATA_FILES = [
+    CARDS_JSON_PATH,
+    PROVISIONAL_CARDS_JSON_PATH,
+    IMAGE_MANIFEST_PATH,
+    FURIGANA_OVERRIDES_PATH
+];
 
 // GitHub Pagesのリポジトリ名を考慮し、パスを `./` から始める
 // ファイル名を元の名前に修正
@@ -16,19 +27,11 @@ const APP_SHELL_FILES = [
     './index.html',
     './style.css',
     './app.js', // ファイル名を修正
-    './image-manifest.json',
-    './provisional-cards.json',
     './manifest.json',
     './icons/iconx192.png',
     './icons/iconx512.png',
     'https://cdn.jsdelivr.net/npm/idb@8/build/umd.js' // CDNはそのまま
 ];
-
-// cards.json のパスを相対パスに
-const CARDS_JSON_PATH = './cards.json';
-const PROVISIONAL_CARDS_JSON_PATH = './provisional-cards.json';
-const FURIGANA_OVERRIDES_PATH = './furigana-overrides.json';
-
 
 // === 2. インストール (Install) イベント ===
 self.addEventListener('install', (event) => {
@@ -55,11 +58,9 @@ self.addEventListener('install', (event) => {
             .then(() => caches.open(CACHE_CARD_DATA))
             .then((cache) => {
                 console.log('[SW] Caching initial card data...');
-                // cards.json のキャッシュも試行
-                return cache.add(CARDS_JSON_PATH).catch(err => {
-                    console.error(`[SW] Failed to cache initial ${CARDS_JSON_PATH}`, err);
-                    // cards.jsonの初回キャッシュ失敗はインストール失敗としない
-                });
+                return Promise.all(CARD_DATA_FILES.map(file => cache.add(file).catch(err => {
+                    console.error(`[SW] Failed to cache initial ${file}`, err);
+                })));
             })
             .then(() => {
                 console.log('[SW] Install complete.');
@@ -120,15 +121,15 @@ self.addEventListener('fetch', (event) => {
 
     // console.log(`[SW] Handling GET: ${requestPath}, Relative: ${relativePath}, Base: ${basePath}`);
 
-    // 1. アプリシェル (Stale-While-Revalidate)
-    if (APP_SHELL_FILES.includes(relativePath) || url.origin === 'https://cdn.jsdelivr.net') {
-        event.respondWith(staleWhileRevalidate(event.request, CACHE_APP_SHELL));
+    // 1. カードデータと画像マニフェスト (Network First)
+    if (CARD_DATA_FILES.includes(relativePath)) {
+        event.respondWith(networkFirst(event.request, CACHE_CARD_DATA));
         return;
     }
-    
-    // 2. カードデータ (cards.json) (Network First)
-    if (relativePath === CARDS_JSON_PATH || relativePath === PROVISIONAL_CARDS_JSON_PATH || relativePath === FURIGANA_OVERRIDES_PATH) {
-        event.respondWith(networkFirst(event.request, CACHE_CARD_DATA));
+
+    // 2. アプリシェル (Stale-While-Revalidate)
+    if (APP_SHELL_FILES.includes(relativePath) || url.origin === 'https://cdn.jsdelivr.net') {
+        event.respondWith(staleWhileRevalidate(event.request, CACHE_APP_SHELL));
         return;
     }
     

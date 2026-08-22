@@ -5,6 +5,7 @@ const OFFICIAL_BASE_URL = 'https://www.onepiece-cardgame.com';
 const PROMO_SERIES = 'PROMO';
 const PROMO_CATEGORY_ID = '550901';
 const CARDS_JSON = 'cards.json';
+const PROVISIONAL_CARDS_JSON = 'provisional-cards.json';
 const OUTPUT_ROOT = 'Cards';
 const METADATA_FILE = 'official-image-sources.json';
 
@@ -138,8 +139,28 @@ async function readMetadata() {
     }
 }
 
+async function readOptionalCards(filePath) {
+    try {
+        const data = JSON.parse(await readFile(filePath, 'utf8'));
+        return Array.isArray(data) ? data : [];
+    } catch (error) {
+        if (error?.code !== 'ENOENT') {
+            console.warn(`Skipped optional card data ${filePath}: ${error.message}`);
+        }
+        return [];
+    }
+}
+
+function getProvisionalPromoNumbers(cards) {
+    return new Set(cards
+        .filter(card => String(card?.provisionalScope || '').toUpperCase() === PROMO_SERIES)
+        .map(card => String(card?.cardNumber || '').trim().toUpperCase())
+        .filter(Boolean));
+}
+
 const cardsData = JSON.parse(await readFile(CARDS_JSON, 'utf8'));
-let cardNumbers = [...new Set(cardsData.map(card => String(card.cardNumber || '').toUpperCase()).filter(Boolean))];
+const candidateCardNumbers = new Set(cardsData.map(card => String(card.cardNumber || '').toUpperCase()).filter(Boolean));
+for (const cardNumber of onlyCards) candidateCardNumbers.add(cardNumber);
 const promoHtml = requestedSeries.has(PROMO_SERIES)
     ? await fetchText(`${OFFICIAL_BASE_URL}/cardlist/?series=${PROMO_CATEGORY_ID}`)
     : '';
@@ -149,6 +170,12 @@ for (const card of promoHtml ? parseOfficialCards(promoHtml) : []) {
     variants.push(card);
     promoCardsByNumber.set(card.cardNumber, variants);
 }
+const provisionalPromoNumbers = requestedSeries.has(PROMO_SERIES)
+    ? getProvisionalPromoNumbers(await readOptionalCards(PROVISIONAL_CARDS_JSON))
+    : new Set();
+for (const cardNumber of promoCardsByNumber.keys()) candidateCardNumbers.add(cardNumber);
+for (const cardNumber of provisionalPromoNumbers) candidateCardNumbers.add(cardNumber);
+let cardNumbers = [...candidateCardNumbers];
 
 if (onlyCards.size > 0) {
     cardNumbers = cardNumbers.filter(cardNumber => onlyCards.has(cardNumber));
@@ -167,7 +194,11 @@ for (const filePath of Object.keys(metadata)) {
 if (requestedSeries.size > 0) {
     cardNumbers = cardNumbers.filter(cardNumber => (
         regularSeries.has(cardNumber.split('-')[0])
-        || promoCardsByNumber.has(cardNumber)
+        || (requestedSeries.has(PROMO_SERIES) && (
+            promoCardsByNumber.has(cardNumber)
+            || provisionalPromoNumbers.has(cardNumber)
+        ))
+        || onlyCards.has(cardNumber)
     ));
 }
 

@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-21T09:38:10.203Z",
-  "totalCards": 2809,
-  "totalImages": 4933,
+  "generatedAt": "2026-08-22T05:11:09.561Z",
+  "totalCards": 2810,
+  "totalImages": 4934,
   "cards": {
     "EB01-001": [
       {
@@ -53958,6 +53958,20 @@
         "label": "通常",
         "path": "CardsWebP/P/official/P-135.webp",
         "fallbackPath": "Cards/P/official/P-135.png",
+        "variantIndex": 0
+      }
+    ],
+    "P-143": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/P-143.png?260821",
+        "cardName": "クロコダイル",
+        "rarity": "P",
+        "cardType": "CHARACTER",
+        "getInfo": "プレミアムカードコレクション-Live Action Edition vol.2 バロックワークス-",
+        "label": "通常",
+        "path": "CardsWebP/P/official/P-143.webp",
+        "fallbackPath": "Cards/P/official/P-143.png",
         "variantIndex": 0
       }
     ],

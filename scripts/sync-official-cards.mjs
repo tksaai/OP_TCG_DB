@@ -5,6 +5,7 @@ const OFFICIAL_BASE_URL = 'https://www.onepiece-cardgame.com';
 const PROMO_SERIES = 'PROMO';
 const PROMO_CATEGORY_ID = '550901';
 const CARDS_JSON = 'cards.json';
+const PROVISIONAL_CARDS_JSON = 'provisional-cards.json';
 const BLOCK_ICON_OVERRIDES_JSON = 'block-icon-overrides.json';
 
 const args = process.argv.slice(2);
@@ -218,6 +219,25 @@ async function fetchText(url) {
     return response.text();
 }
 
+async function readOptionalCards(filePath) {
+    try {
+        const data = JSON.parse(await readFile(filePath, 'utf8'));
+        return Array.isArray(data) ? data : [];
+    } catch (error) {
+        if (error?.code !== 'ENOENT') {
+            console.warn(`Skipped optional card data ${filePath}: ${error.message}`);
+        }
+        return [];
+    }
+}
+
+function getProvisionalPromoNumbers(cards) {
+    return new Set(cards
+        .filter(card => String(card?.provisionalScope || '').toUpperCase() === PROMO_SERIES)
+        .map(card => normalizeCardNumber(card?.cardNumber))
+        .filter(Boolean));
+}
+
 function officialSearchUrl(searchValue) {
     if (searchValue === PROMO_SERIES) {
         return `${OFFICIAL_BASE_URL}/cardlist/?series=${PROMO_CATEGORY_ID}`;
@@ -233,6 +253,9 @@ if (seriesList.length === 0 && onlyCards.size === 0) {
 const existingCards = JSON.parse(await readFile(CARDS_JSON, 'utf8'));
 const byCardNumber = new Map(existingCards.map(card => [String(card.cardNumber || '').toUpperCase(), card]));
 const fetchedCards = new Map();
+const provisionalPromoNumbers = seriesList.includes(PROMO_SERIES)
+    ? getProvisionalPromoNumbers(await readOptionalCards(PROVISIONAL_CARDS_JSON))
+    : new Set();
 
 const searches = seriesList.length > 0 ? seriesList : [...onlyCards];
 for (const searchValue of searches) {
@@ -242,6 +265,24 @@ for (const searchValue of searches) {
         ? new Set()
         : new Set([searchValue]);
     const parsed = parseOfficialCards(html, allowedPrefixes, onlyCards);
+    for (const card of parsed) {
+        fetchedCards.set(card.cardNumber, card);
+    }
+}
+
+const directCardSearches = new Set(onlyCards);
+if (seriesList.includes(PROMO_SERIES) && onlyCards.size === 0) {
+    for (const cardNumber of provisionalPromoNumbers) {
+        if (force || (!byCardNumber.has(cardNumber) && !fetchedCards.has(cardNumber))) {
+            directCardSearches.add(cardNumber);
+        }
+    }
+}
+
+for (const cardNumber of directCardSearches) {
+    if (fetchedCards.has(cardNumber)) continue;
+    const html = await fetchText(officialSearchUrl(cardNumber));
+    const parsed = parseOfficialCards(html, new Set(), new Set([cardNumber]));
     for (const card of parsed) {
         fetchedCards.set(card.cardNumber, card);
     }

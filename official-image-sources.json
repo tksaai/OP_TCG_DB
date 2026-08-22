@@ -43864,5 +43864,14 @@
     "cardType": "CHARACTER",
     "getInfo": "最強ジャンプ5月号​ 応募者全員大サービス（2026年4月3日売）",
     "label": "通常"
+  },
+  "Cards/P/official/P-143.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/P-143.png?260821",
+    "cardName": "クロコダイル",
+    "rarity": "P",
+    "cardType": "CHARACTER",
+    "getInfo": "プレミアムカードコレクション-Live Action Edition vol.2 バロックワークス-",
+    "label": "通常"
   }
 }
