@@ -37,7 +37,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.9.0'; // バージョン更新
+    const APP_VERSION = '1.10.0'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -367,6 +367,7 @@
             await checkCardDataVersion();
             await importSharedDeckFromUrl();
         }
+        initializeDeckImageImport();
         setDefaultColumnLayout();
     }
 
@@ -2498,22 +2499,90 @@
     }
 
     async function saveImportedSharedDeck(imported) {
+        const deck = await createImportedDeck(imported);
+        setActiveNav('decks');
+        startDeckView(deck);
+        showMessageToast(`共有デッキ「${deck.name}」を追加しました。`, 'success');
+        return true;
+    }
+
+    async function createImportedDeck(imported) {
         const now = new Date().toISOString();
         const deck = {
             id: createDeckId(),
             name: await getUniqueDeckName(imported.name),
             leader: imported.leader,
-            cards: imported.cards,
+            cards: normalizeDeckTransferEntries(Object.entries(imported.cards || {}), imported.leader),
             ownedCards: {},
             ownedCardsLinked: true,
             createdAt: now,
             updatedAt: now
         };
         await saveDeck(deck);
+        return deck;
+    }
+
+    function normalizeImageImportSearchText(value) {
+        return toHalfWidth(toKatakana(String(value || ''))).toUpperCase();
+    }
+
+    function searchCardsForImageImport(query = '', role = 'deck') {
+        const words = String(query || '')
+            .replace(/　/g, ' ')
+            .split(/\s+/)
+            .map(normalizeImageImportSearchText)
+            .filter(Boolean);
+        const uniqueCards = new Map();
+        getDeckCardPool().forEach(card => {
+            if (!card?.cardNumber || uniqueCards.has(card.cardNumber)) return;
+            const isLeader = card.cardType === 'LEADER';
+            if ((role === 'leader' && !isLeader) || (role !== 'leader' && isLeader)) return;
+            const searchable = normalizeImageImportSearchText([
+                card.cardNumber,
+                card.cardName,
+                card.furigana,
+                ...(Array.isArray(card.features) ? card.features : [])
+            ].filter(Boolean).join(' '));
+            if (words.every(word => searchable.includes(word))) {
+                uniqueCards.set(card.cardNumber, card);
+            }
+        });
+        return [...uniqueCards.values()].sort((a, b) => (
+            String(a.cardNumber).localeCompare(String(b.cardNumber), 'en', { numeric: true })
+        ));
+    }
+
+    async function saveImageImportedDeck(imported) {
+        const leader = findCardByNumber(imported?.leader);
+        if (!leader || leader.cardType !== 'LEADER') {
+            throw new Error('リーダーカードを確認してください。');
+        }
+        const deck = await createImportedDeck({
+            ...imported,
+            name: normalizeDeckName(imported.name, '画像から作成したデッキ')
+        });
         setActiveNav('decks');
-        startDeckView(deck);
-        showMessageToast(`共有デッキ「${deck.name}」を追加しました。`, 'success');
-        return true;
+        startDeckEdit(deck);
+        showMessageToast(`「${deck.name}」を作成しました。`, 'success');
+        return deck;
+    }
+
+    let deckImageImportInitialized = false;
+
+    function initializeDeckImageImport() {
+        if (deckImageImportInitialized || !window.OPTCGImageImport?.init) return;
+        window.OPTCGImageImport.init({
+            maxCards: DECK_MAX_CARDS,
+            maxCopies: DECK_MAX_COPIES,
+            findCard: findCardByNumber,
+            getCardImage: card => getCardImagePath(card, 0) || getCardImageFallbackPath(card, 0),
+            searchCards: searchCardsForImageImport,
+            validateCards: normalizeDeckTransferEntries,
+            saveAndEdit: saveImageImportedDeck,
+            copyShareUrl: copyDeckShareUrl,
+            showToast: showMessageToast
+        });
+        deckImageImportInitialized = true;
     }
 
     async function confirmAndSaveSharedDeck(imported) {

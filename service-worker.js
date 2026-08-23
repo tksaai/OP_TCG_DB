@@ -5,18 +5,20 @@
  */
 
 // === 1. 定数 ===
-const CACHE_APP_SHELL = 'app-shell-v29';
-const CACHE_CARD_DATA = 'card-data-v10';
+const CACHE_APP_SHELL = 'app-shell-v31';
+const CACHE_CARD_DATA = 'card-data-v11';
 const CACHE_IMAGES = 'card-images-v1';
 
 const CARDS_JSON_PATH = './cards.json';
 const PROVISIONAL_CARDS_JSON_PATH = './provisional-cards.json';
 const IMAGE_MANIFEST_PATH = './image-manifest.json';
+const CARD_FEATURES_PATH = './card-features.json';
 const FURIGANA_OVERRIDES_PATH = './furigana-overrides.json';
 const CARD_DATA_FILES = [
     CARDS_JSON_PATH,
     PROVISIONAL_CARDS_JSON_PATH,
     IMAGE_MANIFEST_PATH,
+    CARD_FEATURES_PATH,
     FURIGANA_OVERRIDES_PATH
 ];
 
@@ -26,6 +28,8 @@ const APP_SHELL_FILES = [
     './', // ルート (index.html を想定)
     './index.html',
     './style.css',
+    './image-import.js',
+    './image-import-worker.js',
     './app.js', // ファイル名を修正
     './manifest.json',
     './icons/iconx192.png',
@@ -41,19 +45,11 @@ self.addEventListener('install', (event) => {
         caches.open(CACHE_APP_SHELL)
             .then((cache) => {
                 console.log('[SW] Caching App Shell...');
-                // addAllはアトミック。一つでも失敗すると全体が失敗する。
-                return cache.addAll(APP_SHELL_FILES)
-                    .catch(err => {
-                        console.error('[SW] Failed to cache app shell files:', err, APP_SHELL_FILES);
-                        // 個別のファイルキャッシュ失敗をログに出力
-                        APP_SHELL_FILES.forEach(fileUrl => {
-                            // addAllが失敗した場合、個別にfetchして原因を探る
-                            fetch(new Request(fileUrl, { mode: 'no-cors' })) // CDN用 no-cors
-                                .catch(fetchErr => console.error(`[SW] Failed to fetch individually: ${fileUrl}`, fetchErr));
-                        });
-                        // インストール失敗として扱う
-                        throw err; 
-                    });
+                return Promise.all(APP_SHELL_FILES.map(fileUrl => (
+                    cache.add(fileUrl).catch(error => {
+                        console.error(`[SW] Failed to cache app shell file: ${fileUrl}`, error);
+                    })
+                )));
             })
             .then(() => caches.open(CACHE_CARD_DATA))
             .then((cache) => {

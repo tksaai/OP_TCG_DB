@@ -101,6 +101,7 @@ async function findSeriesWithoutOfficialImages() {
 const dryRun = hasArg('dry-run');
 const skipWebp = hasArg('skip-webp');
 const skipManifest = hasArg('skip-manifest');
+const skipFeatures = hasArg('skip-features');
 const pythonCommand = argValue('python', 'python');
 let requestedSeries = argValue('series', 'latest').trim();
 
@@ -150,6 +151,10 @@ if (!skipWebp) {
 
 if (!skipManifest) {
     run(process.execPath, [path.join('scripts', 'build-image-manifest.mjs')]);
+}
+
+if (!skipFeatures) {
+    run(pythonCommand, [path.join('scripts', 'build-card-features.py')]);
 }
 
 console.log('\nNew release sync complete.');

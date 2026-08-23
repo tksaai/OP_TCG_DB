@@ -41,6 +41,14 @@ jobs:
         with:
           node-version: "22"
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Python dependencies
+        run: python -m pip install --upgrade pillow
+
       - name: Sync provisional cards
         run: |
           SERIES="${{ inputs.series || 'auto' }}"
@@ -61,18 +69,22 @@ jobs:
           fi
           node scripts/sync-provisional-images.mjs $IMAGE_ARGS
 
+      - name: Rebuild image recognition features
+        if: ${{ inputs.dry_run != true }}
+        run: python scripts/build-card-features.py
+
       - name: Show changes
         run: git status --short
 
       - name: Commit and push
         if: ${{ inputs.dry_run != true }}
         run: |
-          if [ -z "$(git status --short -- provisional-cards.json Cards/Provisional)" ]; then
+          if [ -z "$(git status --short -- provisional-cards.json card-features.json Cards/Provisional)" ]; then
             echo "No provisional card or image changes to commit."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add provisional-cards.json Cards/Provisional
+          git add provisional-cards.json card-features.json Cards/Provisional
           git commit -m "Sync provisional cards"
           git push
