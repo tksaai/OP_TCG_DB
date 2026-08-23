@@ -376,7 +376,74 @@
         };
     }
 
-    function findDarkBands(imageData, width, height) {
+    function detectOfficialDeckImageLayout(imageData, width, height) {
+        const aspectRatio = height / width;
+        if (aspectRatio < 1.28 || aspectRatio > 1.38) return null;
+
+        const scale = width / 960;
+        const leader = {
+            x: 45 * scale,
+            y: 42 * scale,
+            width: 360 * scale,
+            height: 360 * 1.397 * scale,
+            hintRole: 'leader',
+            count: 1,
+            countMode: 'none'
+        };
+        const cardWidth = 84 * scale;
+        const cardHeight = cardWidth * 1.397;
+        const xStart = 45 * scale;
+        const xStride = 98 * scale;
+        const firstRowY = 448 * scale;
+        const fullRowsY = 582 * scale;
+        const rowStride = 134 * scale;
+        const regions = [];
+
+        for (let column = 4; column < 9; column += 1) {
+            regions.push({
+                x: xStart + column * xStride,
+                y: firstRowY,
+                width: cardWidth,
+                height: cardHeight,
+                hintRole: 'deck',
+                count: 1,
+                countMode: 'none'
+            });
+        }
+        for (let row = 0; row < 5; row += 1) {
+            for (let column = 0; column < 9; column += 1) {
+                regions.push({
+                    x: xStart + column * xStride,
+                    y: fullRowsY + row * rowStride,
+                    width: cardWidth,
+                    height: cardHeight,
+                    hintRole: 'deck',
+                    count: 1,
+                    countMode: 'none'
+                });
+            }
+        }
+
+        const qrSignal = regionSignal(imageData, width, height, {
+            x: 745 * scale,
+            y: 140 * scale,
+            width: 175 * scale,
+            height: 175 * scale
+        });
+        const activeCards = regions.reduce((total, rect) => (
+            total + (regionSignal(imageData, width, height, rect) >= 11 ? 1 : 0)
+        ), 0);
+        if (qrSignal < 24 || regionSignal(imageData, width, height, leader) < 13 || activeCards < 42) {
+            return null;
+        }
+
+        return {
+            layout: '公式デッキ画像',
+            regions: [leader, ...regions]
+        };
+    }
+
+    function findDarkBands(imageData, width, height, minHeightRatio = 0.025) {
         const stepX = Math.max(2, Math.floor(width / 220));
         const rowScores = new Float32Array(height);
         for (let y = 0; y < height; y += 1) {
@@ -397,13 +464,70 @@
             if (active && start < 0) start = y;
             if (!active && start >= 0) {
                 const bandHeight = y - start;
-                if (bandHeight >= Math.max(14, width * 0.025)) {
+                if (bandHeight >= Math.max(6, width * minHeightRatio)) {
                     bands.push({ start, end: y, height: bandHeight });
                 }
                 start = -1;
             }
         }
         return bands;
+    }
+
+    function detectFiveColumnDeckListLayout(imageData, width, height) {
+        const aspectRatio = height / width;
+        if (aspectRatio < 1.12 || aspectRatio > 1.32) return null;
+
+        const bands = findDarkBands(imageData, width, height, 0.016);
+        const mainBand = bands.find(band => band.start < height * 0.035 && band.end < height * 0.09);
+        const leaderBand = bands.find(band => (
+            band.start > height * 0.62
+            && band.start < height * 0.86
+            && (!mainBand || band.start > mainBand.end)
+        ));
+        if (!mainBand || !leaderBand) return null;
+
+        const cardWidth = width * (202 / 1065);
+        const cardHeight = cardWidth * 1.397;
+        const xStart = width * (7 / 1065);
+        const xStride = width * (212 / 1065);
+        const yStart = mainBand.end + width * (15 / 1065);
+        const rowStride = width * (299 / 1065);
+        const mainRegions = [];
+
+        for (let row = 0; row < 8; row += 1) {
+            const y = yStart + row * rowStride;
+            if (y + cardHeight > leaderBand.start - width * 0.012) break;
+            for (let column = 0; column < 5; column += 1) {
+                mainRegions.push({
+                    x: xStart + column * xStride,
+                    y,
+                    width: cardWidth,
+                    height: cardHeight,
+                    hintRole: 'deck',
+                    countMode: 'corner'
+                });
+            }
+        }
+        if (mainRegions.length < 10) return null;
+        const activeCards = mainRegions.reduce((total, rect) => (
+            total + (regionSignal(imageData, width, height, rect) >= 13 ? 1 : 0)
+        ), 0);
+        if (activeCards < mainRegions.length * 0.8) return null;
+
+        const leaderRect = {
+            x: xStart,
+            y: leaderBand.end + width * (17 / 1065),
+            width: cardWidth,
+            height: cardHeight,
+            hintRole: 'leader',
+            count: 1,
+            countMode: 'none'
+        };
+        if (leaderRect.y + leaderRect.height > height + width * 0.02) return null;
+        return {
+            layout: 'カード番号付き5列',
+            regions: [...mainRegions, leaderRect]
+        };
     }
 
     function detectBccgLayout(imageData, width, height) {
@@ -816,7 +940,7 @@
         return enclosed;
     }
 
-    function classifyDigit(mask) {
+    function classifyDigit(mask, mode = 'legacy') {
         const selected = selectDigitMaskComponent(mask.data, mask.width, mask.height);
         const normalized = normalizeDigitMask(selected, mask.width, mask.height);
         if (!normalized) return null;
@@ -824,14 +948,40 @@
         if (bounds && bounds.width / Math.max(1, bounds.height) < 0.48) {
             return { digit: 1, score: 1 };
         }
-        if (countEnclosedMaskPixels(normalized, 16, 24) >= 3) {
-            return { digit: 4, score: 1 };
+        if (mode === 'corner') {
+            let bottomStroke = 0;
+            for (let y = 19; y < 24; y += 1) {
+                for (let x = 0; x < 16; x += 1) bottomStroke += normalized[y * 16 + x];
+            }
+            let middleStroke = 0;
+            for (let y = 13; y < 18; y += 1) {
+                for (let x = 0; x < 16; x += 1) middleStroke += normalized[y * 16 + x];
+            }
+            if (bottomStroke <= 8 || (bottomStroke < 18 && middleStroke >= 28)) {
+                return { digit: 4, score: 0.95 };
+            }
+
+            let lowerLeftStroke = 0;
+            for (let y = 15; y < 21; y += 1) {
+                for (let x = 0; x < 8; x += 1) lowerLeftStroke += normalized[y * 16 + x];
+            }
+            if (lowerLeftStroke >= 5) return { digit: 2, score: 0.95 };
+        } else {
+            if (countEnclosedMaskPixels(normalized, 16, 24) >= 3) {
+                return { digit: 4, score: 1 };
+            }
+            let bottomLeft = 0;
+            for (let y = 12; y < 24; y += 1) {
+                for (let x = 0; x < 8; x += 1) bottomLeft += normalized[y * 16 + x];
+            }
+            let middleStroke = 0;
+            for (let y = 10; y < 16; y += 1) {
+                for (let x = 0; x < 16; x += 1) middleStroke += normalized[y * 16 + x];
+            }
+            if (bottomLeft >= 30 || (bottomLeft >= 20 && middleStroke <= 28)) {
+                return { digit: 2, score: 0.95 };
+            }
         }
-        let bottomLeft = 0;
-        for (let y = 12; y < 24; y += 1) {
-            for (let x = 0; x < 8; x += 1) bottomLeft += normalized[y * 16 + x];
-        }
-        if (bottomLeft >= 30) return { digit: 2, score: 0.95 };
 
         let best = null;
         getDigitTemplates().forEach((template, digit) => {
@@ -846,7 +996,14 @@
         if (mode === 'none') return 1;
         const attempts = mode === 'auto' ? ['top', 'bottom'] : [mode];
         for (const attempt of attempts) {
-            const badge = attempt === 'top'
+            const badge = attempt === 'corner'
+                ? {
+                    x: rect.x + rect.width * 0.84,
+                    y: rect.y - rect.width * 0.055,
+                    width: rect.width * 0.23,
+                    height: rect.width * 0.23
+                }
+                : attempt === 'top'
                 ? {
                     x: rect.x + rect.width * 0.75,
                     y: rect.y - rect.width * 0.25,
@@ -885,12 +1042,15 @@
                     const green = pixels[offset + 1];
                     const blue = pixels[offset + 2];
                     const luma = pixelLuma(pixels, offset);
-                    if (attempt === 'top') {
+                    if (attempt === 'top' || attempt === 'corner') {
                         const dx = x - 24;
                         const dy = y - 24;
                         if (dx * dx + dy * dy > 14 * 14) continue;
                         if (luma < 70) badgePixels += 1;
-                        if (luma > 155 && Math.max(red, green, blue) - Math.min(red, green, blue) < 95) mask[index] = 1;
+                        const whiteThreshold = attempt === 'corner' ? 125 : 155;
+                        if (luma > whiteThreshold && Math.max(red, green, blue) - Math.min(red, green, blue) < 95) {
+                            mask[index] = 1;
+                        }
                     } else {
                         if (red > 165 && green > 105 && blue < 135) badgePixels += 1;
                         if (x >= 8 && x <= 40 && y >= 8 && y <= 40 && luma < 105) mask[index] = 1;
@@ -898,7 +1058,7 @@
                 }
             }
             if (badgePixels < 80) continue;
-            const result = classifyDigit({ data: mask, width: 48, height: 48 });
+            const result = classifyDigit({ data: mask, width: 48, height: 48 }, attempt);
             if (result) return result.digit;
         }
         return 1;
@@ -908,6 +1068,8 @@
         const context = sourceCanvas.getContext('2d', { willReadFrequently: true });
         const imageData = context.getImageData(0, 0, sourceCanvas.width, sourceCanvas.height).data;
         const known = detectOptcgDbLayout(imageData, sourceCanvas.width, sourceCanvas.height)
+            || detectOfficialDeckImageLayout(imageData, sourceCanvas.width, sourceCanvas.height)
+            || detectFiveColumnDeckListLayout(imageData, sourceCanvas.width, sourceCanvas.height)
             || detectBccgLayout(imageData, sourceCanvas.width, sourceCanvas.height);
         const detected = known || detectGenericGrid(sourceCanvas);
         detected.regions = detected.regions.map((rect, index) => ({
