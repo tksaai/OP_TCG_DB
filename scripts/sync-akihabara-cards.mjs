@@ -273,7 +273,7 @@ async function readOfficialCardNumbers() {
         const cards = JSON.parse(await readFile('cards.json', 'utf8'));
         return new Set(cards.map(card => String(card.cardNumber || '').toUpperCase()).filter(Boolean));
     } catch (error) {
-        console.warn(`Could not read cards.json for auto filtering: ${error.message}`);
+        console.warn(`Could not read cards.json for provisional filtering: ${error.message}`);
         return new Set();
     }
 }
@@ -393,6 +393,7 @@ const outputPath = argValue('output', PROVISIONAL_CARDS_JSON);
 const requestedSeries = normalizeSeriesCode(argValue('series', 'OP17'));
 const isPromoSync = requestedSeries === PROMO_SCOPE;
 const isAutoSync = requestedSeries === 'AUTO' || requestedSeries === 'LATEST';
+const officialCardNumbers = await readOfficialCardNumbers();
 let sourceUrl = argValue('url');
 
 if (!sourceUrl) {
@@ -413,7 +414,6 @@ if (!sourceUrl) {
 
 let parsed;
 if (inputListPaths.length > 0) {
-    const officialCardNumbers = isAutoSync ? await readOfficialCardNumbers() : new Set();
     const parsedPages = [];
     for (let index = 0; index < inputListPaths.length; index += 1) {
         const pageSourceUrl = inputListUrls[index] || sourceUrl;
@@ -426,9 +426,6 @@ if (inputListPaths.length > 0) {
         });
         parsedPages.push({
             ...pageParsed,
-            cards: isAutoSync
-                ? pageParsed.cards.filter(card => !officialCardNumbers.has(String(card.cardNumber || '').toUpperCase()))
-                : pageParsed.cards,
             sourceUrl: pageSourceUrl
         });
     }
@@ -442,7 +439,6 @@ if (inputListPaths.length > 0) {
     const pageUrls = discoverCardListUrls(indexHtml, sourceUrl);
     if (pageUrls.length === 0) throw new Error(`No card list links found at ${sourceUrl}`);
 
-    const officialCardNumbers = await readOfficialCardNumbers();
     const parsedPages = [];
     for (const pageUrl of pageUrls) {
         const html = await fetchText(pageUrl);
@@ -453,7 +449,6 @@ if (inputListPaths.length > 0) {
         });
         parsedPages.push({
             ...pageParsed,
-            cards: pageParsed.cards.filter(card => !officialCardNumbers.has(String(card.cardNumber || '').toUpperCase())),
             sourceUrl: pageUrl
         });
     }
@@ -489,7 +484,20 @@ if (parsed.cards.length === 0 && !(parsed.scopesToReplace || []).length) {
     throw new Error(`No base cards found for ${parsed.seriesInfo.seriesId} at ${sourceUrl}`);
 }
 
-const existingCards = await readJsonArray(outputPath);
+const parsedOfficialCards = parsed.cards.filter(card => (
+    officialCardNumbers.has(String(card?.cardNumber || '').toUpperCase())
+));
+parsed.cards = parsed.cards.filter(card => (
+    !officialCardNumbers.has(String(card?.cardNumber || '').toUpperCase())
+));
+
+const storedCards = await readJsonArray(outputPath);
+const removedOfficialCards = storedCards.filter(card => (
+    officialCardNumbers.has(String(card?.cardNumber || '').toUpperCase())
+));
+const existingCards = storedCards.filter(card => (
+    !officialCardNumbers.has(String(card?.cardNumber || '').toUpperCase())
+));
 const replacementScopes = new Set((parsed.scopesToReplace || [parsed.seriesInfo.seriesId]).filter(Boolean));
 const existingSeriesCards = existingCards.filter(card => replacementScopes.has(getCardScope(card)));
 const existingSeriesBySyncKey = new Map(existingSeriesCards.map(card => [getCardSyncKey(card), card]));
@@ -506,7 +514,10 @@ const unchangedCards = parsed.cards.filter(card => {
 const removedCards = existingSeriesCards.filter(card => !parsedBySyncKey.has(getCardSyncKey(card)));
 const replaced = existingSeriesCards.length;
 const skipped = force ? 0 : existingCards.length - replaced;
-const hasChanges = addedCards.length > 0 || changedCards.length > 0 || removedCards.length > 0;
+const hasChanges = addedCards.length > 0
+    || changedCards.length > 0
+    || removedCards.length > 0
+    || removedOfficialCards.length > 0;
 
 const nextCards = [
     ...existingCards.filter(card => !replacementScopes.has(getCardScope(card))),
@@ -527,16 +538,19 @@ console.log(JSON.stringify({
     seriesTitle: parsed.seriesInfo.seriesTitle,
     scopes: [...replacementScopes],
     parsed: parsed.cards.length,
+    skippedOfficial: parsedOfficialCards.length,
     added: addedCards.length,
     changed: changedCards.length,
     unchanged: unchangedCards.length,
-    removed: removedCards.length,
+    removed: removedCards.length + removedOfficialCards.length,
+    removedOfficial: removedOfficialCards.length,
     replaced,
     skipped,
     hasChanges,
     addedCards: addedCards.map(cardSummaryId),
     changedCards: changedCards.map(cardSummaryId),
-    removedCards: removedCards.map(cardSummaryId),
+    removedCards: [...removedOfficialCards, ...removedCards].map(cardSummaryId),
+    removedOfficialCards: removedOfficialCards.map(cardSummaryId),
     totalCards: nextCards.length,
     dryRun
 }, null, 2));

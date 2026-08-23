@@ -37,7 +37,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.10.0'; // バージョン更新
+    const APP_VERSION = '1.10.1'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -811,7 +811,71 @@
     function getVariantTypeLabel(type) {
         if (type === 'alternate-art') return '別イラスト';
         if (type === 'alternate-rarity') return '別レアリティ';
+        if (type === 'provisional') return '仮DB画像';
         return '通常';
+    }
+
+    function normalizeVariantImagePath(value) {
+        const path = String(value || '').trim().replace(/^\.\//, '');
+        return /^(?:Cards|CardsWebP)\//.test(path) ? path : '';
+    }
+
+    function resolveCardVariantSelection(card, selection = {}) {
+        if (!card?.cardNumber) return null;
+        const variants = getCardImageVariants(card);
+        const requestedPath = normalizeVariantImagePath(selection?.path || selection?.variantPath);
+        const requestedIdentity = getImageIdentity(requestedPath);
+        const requestedStableIndex = Number(selection?.variantIndex);
+        let arrayIndex = -1;
+
+        if (requestedIdentity) {
+            arrayIndex = variants.findIndex(variant => (
+                getVariantImageIdentities(variant).includes(requestedIdentity)
+            ));
+        }
+        if (arrayIndex < 0 && Number.isInteger(requestedStableIndex) && requestedStableIndex >= 0) {
+            arrayIndex = variants.findIndex((variant, index) => (
+                getVariantStableIndex(variant, index) === requestedStableIndex
+            ));
+        }
+
+        if (arrayIndex >= 0) {
+            const variant = variants[arrayIndex] || {};
+            const type = getCardVariantType(variant, arrayIndex);
+            return {
+                arrayIndex,
+                stableIndex: getVariantStableIndex(variant, arrayIndex),
+                path: normalizeVariantImagePath(variant.path || requestedPath),
+                sources: [...new Set([
+                    getCardImagePath(card, arrayIndex),
+                    getCardImageFallbackPath(card, arrayIndex)
+                ].filter(Boolean))],
+                type,
+                label: variant.label || getVariantTypeLabel(type)
+            };
+        }
+
+        const fallbackStableIndex = Number.isInteger(requestedStableIndex) && requestedStableIndex >= 0
+            ? requestedStableIndex
+            : 0;
+        const isProvisional = requestedPath.includes('/Provisional/');
+        const type = isProvisional
+            ? 'provisional'
+            : fallbackStableIndex >= 1000
+                ? 'alternate-rarity'
+                : fallbackStableIndex > 0 ? 'alternate-art' : 'normal';
+        return {
+            arrayIndex: 0,
+            stableIndex: fallbackStableIndex,
+            path: requestedPath,
+            sources: [...new Set([
+                toRelativePath(requestedPath),
+                getCardImagePath(card, 0),
+                getCardImageFallbackPath(card, 0)
+            ].filter(Boolean))],
+            type,
+            label: getVariantTypeLabel(type)
+        };
     }
 
     function getVariantKey(cardNumber, variantId) {
@@ -960,12 +1024,15 @@
     }
 
     function getProvisionalCardsForDisplay() {
-        const officialCardNumbers = new Set(allCards.map(card => card?.cardNumber).filter(Boolean));
+        const officialCardNumbers = new Set(
+            allCards.map(card => String(card?.cardNumber || '').toUpperCase()).filter(Boolean)
+        );
         return provisionalCards.filter(card => {
-            if (!card?.cardNumber) return false;
+            const cardNumber = String(card?.cardNumber || '').toUpperCase();
+            if (!cardNumber || officialCardNumbers.has(cardNumber)) return false;
             const variant = getProvisionalImageVariant(card);
             if (variant) return !variant.isOfficialDuplicate && !variant.isProvisionalDuplicate;
-            return !officialCardNumbers.has(card.cardNumber);
+            return true;
         });
     }
 
@@ -2576,6 +2643,7 @@
             maxCopies: DECK_MAX_COPIES,
             findCard: findCardByNumber,
             getCardImage: card => getCardImagePath(card, 0) || getCardImageFallbackPath(card, 0),
+            getCardVariant: (card, selection) => resolveCardVariantSelection(card, selection),
             searchCards: searchCardsForImageImport,
             validateCards: normalizeDeckTransferEntries,
             saveAndEdit: saveImageImportedDeck,

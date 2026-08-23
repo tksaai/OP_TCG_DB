@@ -1887,6 +1887,21 @@ body.deck-image-import-open {
     text-overflow: ellipsis;
 }
 
+.deck-image-import-variant {
+    width: max-content;
+    max-width: 100%;
+    padding: 2px 6px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 202, 40, 0.58);
+    border-radius: 4px;
+    color: #ffdf7a;
+    font-size: 0.68rem;
+    font-weight: 800;
+    line-height: 1.25;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 .deck-image-import-confidence {
     width: max-content;
     padding: 3px 7px;
@@ -2017,6 +2032,11 @@ body.deck-image-import-open {
 .deck-image-import-picker-card strong {
     font-size: 0.78rem;
     white-space: nowrap;
+}
+
+.deck-image-import-picker-card .deck-image-import-picker-variant {
+    color: #ffdf7a;
+    font-weight: 800;
 }
 
 .deck-image-import-picker-card span {

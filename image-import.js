@@ -1200,6 +1200,51 @@
         })[0] || null;
     }
 
+    function getVariantVoteKey(candidate) {
+        const path = String(candidate?.variantPath || '').trim();
+        if (path) return `path:${path.toLowerCase()}`;
+        const variantIndex = Number(candidate?.variantIndex);
+        return `index:${Number.isInteger(variantIndex) && variantIndex >= 0 ? variantIndex : 0}`;
+    }
+
+    function selectVariantVote(row) {
+        const winner = (row.variantVotes || []).slice().sort((a, b) => (
+            b.count - a.count
+            || b.similarity - a.similarity
+            || String(a.key).localeCompare(String(b.key))
+        ))[0];
+        row.variantPath = winner?.variantPath || '';
+        row.variantIndex = Number.isInteger(winner?.variantIndex) ? winner.variantIndex : 0;
+    }
+
+    function addVariantVote(row, candidate, count = 1) {
+        if (!row || !candidate) return;
+        if (!Array.isArray(row.variantVotes)) row.variantVotes = [];
+        const key = getVariantVoteKey(candidate);
+        let vote = row.variantVotes.find(item => item.key === key);
+        if (!vote) {
+            const variantIndex = Number(candidate.variantIndex);
+            vote = {
+                key,
+                variantPath: String(candidate.variantPath || ''),
+                variantIndex: Number.isInteger(variantIndex) && variantIndex >= 0 ? variantIndex : 0,
+                count: 0,
+                similarity: 0
+            };
+            row.variantVotes.push(vote);
+        }
+        vote.count += Math.max(1, Number(count) || 1);
+        vote.similarity = Math.max(vote.similarity, Number(candidate.similarity || candidate.score) || 0);
+        selectVariantVote(row);
+    }
+
+    function setRowVariant(row, candidate = null) {
+        row.variantVotes = [];
+        row.variantPath = '';
+        row.variantIndex = 0;
+        if (candidate) addVariantVote(row, candidate, Math.max(1, Number(row.count) || 1));
+    }
+
     function aggregateDeckRows(regions, matches, leaderRegionId) {
         const grouped = new Map();
         regions.forEach(region => {
@@ -1208,11 +1253,13 @@
             const best = match?.candidates?.[0];
             if (!best?.cardNumber) return;
             const existing = grouped.get(best.cardNumber);
+            const regionCount = Math.max(1, Number(region.count) || 1);
             if (existing) {
-                existing.count += Math.max(1, Number(region.count) || 1);
+                existing.count += regionCount;
                 existing.confidence = Math.min(existing.confidence, match.confidence || 0);
                 existing.reviewed = existing.reviewed && (match.confidence || 0) >= CONFIDENCE_REVIEW;
                 existing.regionIds.push(region.id);
+                addVariantVote(existing, best, regionCount);
                 best.cardNumber && match.candidates.forEach(candidate => {
                     if (!existing.candidates.some(item => item.cardNumber === candidate.cardNumber)) {
                         existing.candidates.push(candidate);
@@ -1223,12 +1270,16 @@
             grouped.set(best.cardNumber, {
                 id: `row-${region.id}`,
                 cardNumber: best.cardNumber,
-                count: Math.max(1, Number(region.count) || 1),
+                count: regionCount,
                 confidence: match.confidence || 0,
                 reviewed: (match.confidence || 0) >= CONFIDENCE_REVIEW,
                 candidates: (match.candidates || []).slice(0, 3),
-                regionIds: [region.id]
+                regionIds: [region.id],
+                variantVotes: [],
+                variantPath: '',
+                variantIndex: 0
             });
+            addVariantVote(grouped.get(best.cardNumber), best, regionCount);
         });
         return [...grouped.values()].sort((a, b) => a.cardNumber.localeCompare(b.cardNumber, 'en', { numeric: true }));
     }
@@ -1283,7 +1334,9 @@
                 confidence: leaderResult.match.leader.confidence || 0,
                 reviewed: (leaderResult.match.leader.confidence || 0) >= CONFIDENCE_REVIEW,
                 candidates: leaderResult.match.leader.candidates || [],
-                regionId: leaderResult.region.id
+                regionId: leaderResult.region.id,
+                variantPath: leaderCandidate.variantPath || '',
+                variantIndex: Number(leaderCandidate.variantIndex) || 0
             } : null;
             state.rows = aggregateDeckRows(state.regions, matches, leaderResult?.region?.id || '');
             renderResults();
@@ -1314,10 +1367,33 @@
         }
     }
 
-    function getCardVisual(cardNumber, className = 'deck-image-import-card-thumb') {
+    function getVariantVisual(cardNumber, variantMatch = null) {
         const card = host.findCard(cardNumber);
-        const source = card ? host.getCardImage(card) : '';
-        if (!source) {
+        if (!card) return { card: null, sources: [], label: '', type: 'normal' };
+        if (typeof host.getCardVariant === 'function') {
+            const resolved = host.getCardVariant(card, variantMatch) || {};
+            const sources = Array.isArray(resolved.sources)
+                ? resolved.sources.filter(Boolean)
+                : [resolved.source].filter(Boolean);
+            return {
+                card,
+                sources: [...new Set(sources)],
+                label: resolved.label || '',
+                type: resolved.type || 'normal'
+            };
+        }
+        const source = host.getCardImage(card, variantMatch);
+        return {
+            card,
+            sources: source ? [source] : [],
+            label: Number(variantMatch?.variantIndex) > 0 ? '別イラスト' : '',
+            type: Number(variantMatch?.variantIndex) > 0 ? 'alternate-art' : 'normal'
+        };
+    }
+
+    function getCardVisual(cardNumber, variantMatch = null, className = 'deck-image-import-card-thumb') {
+        const visual = getVariantVisual(cardNumber, variantMatch);
+        if (!visual.sources.length) {
             const fallback = document.createElement('div');
             fallback.className = `${className}-fallback deck-image-import-card-thumb-fallback`;
             fallback.textContent = cardNumber || '?';
@@ -1325,10 +1401,18 @@
         }
         const image = document.createElement('img');
         image.className = className;
-        image.src = source;
-        image.alt = card?.cardName || cardNumber;
+        image.alt = visual.card?.cardName || cardNumber;
         image.loading = 'lazy';
-        image.onerror = () => image.replaceWith(getCardVisual('', className));
+        let sourceIndex = 0;
+        image.onerror = () => {
+            sourceIndex += 1;
+            if (sourceIndex < visual.sources.length) {
+                image.src = visual.sources[sourceIndex];
+            } else {
+                image.replaceWith(getCardVisual('', null, className));
+            }
+        };
+        image.src = visual.sources[sourceIndex];
         return image;
     }
 
@@ -1343,7 +1427,7 @@
         return { label: `信頼度 ${percent}%`, className: '' };
     }
 
-    function createCardCopy(cardNumber, confidence, reviewed) {
+    function createCardCopy(cardNumber, confidence, reviewed, variantMatch = null) {
         const card = host.findCard(cardNumber);
         const copy = document.createElement('div');
         copy.className = 'deck-image-import-card-copy';
@@ -1353,11 +1437,20 @@
         const name = document.createElement('span');
         name.className = 'deck-image-import-card-name';
         name.textContent = card?.cardName || '未登録カード';
+        const variant = getVariantVisual(cardNumber, variantMatch);
+        if (variant.type !== 'normal' && variant.label) {
+            const variantLabel = document.createElement('span');
+            variantLabel.className = 'deck-image-import-variant';
+            variantLabel.textContent = variant.label;
+            copy.append(number, name, variantLabel);
+        } else {
+            copy.append(number, name);
+        }
         const confidenceElement = document.createElement('span');
         const info = confidenceInfo(confidence, reviewed);
         confidenceElement.className = `deck-image-import-confidence${info.className ? ` ${info.className}` : ''}`;
         confidenceElement.textContent = info.label;
-        copy.append(number, name, confidenceElement);
+        copy.appendChild(confidenceElement);
         return copy;
     }
 
@@ -1383,8 +1476,13 @@
 
         const row = document.createElement('article');
         row.className = `deck-image-import-card-row${state.leader.reviewed ? '' : ' needs-review'}`;
-        row.appendChild(getCardVisual(state.leader.cardNumber));
-        row.appendChild(createCardCopy(state.leader.cardNumber, state.leader.confidence, state.leader.reviewed));
+        row.appendChild(getCardVisual(state.leader.cardNumber, state.leader));
+        row.appendChild(createCardCopy(
+            state.leader.cardNumber,
+            state.leader.confidence,
+            state.leader.reviewed,
+            state.leader
+        ));
         const tools = document.createElement('div');
         tools.className = 'deck-image-import-card-tools';
         const actions = document.createElement('div');
@@ -1424,8 +1522,13 @@
         state.rows.forEach(rowData => {
             const row = document.createElement('article');
             row.className = `deck-image-import-card-row${rowData.reviewed ? '' : ' needs-review'}`;
-            row.appendChild(getCardVisual(rowData.cardNumber));
-            row.appendChild(createCardCopy(rowData.cardNumber, rowData.confidence, rowData.reviewed));
+            row.appendChild(getCardVisual(rowData.cardNumber, rowData));
+            row.appendChild(createCardCopy(
+                rowData.cardNumber,
+                rowData.confidence,
+                rowData.reviewed,
+                rowData
+            ));
 
             const tools = document.createElement('div');
             tools.className = 'deck-image-import-card-tools';
@@ -1523,6 +1626,7 @@
             existing.candidates = [...existing.candidates, ...row.candidates]
                 .filter((candidate, index, all) => all.findIndex(item => item.cardNumber === candidate.cardNumber) === index)
                 .slice(0, 3);
+            (row.variantVotes || []).forEach(vote => addVariantVote(existing, vote, vote.count));
         });
         state.rows = [...grouped.values()].sort((a, b) => a.cardNumber.localeCompare(b.cardNumber, 'en', { numeric: true }));
     }
@@ -1550,18 +1654,23 @@
 
     function renderPickerList() {
         const query = dom.pickerSearch.value.trim();
-        let cards = [];
+        let options = [];
         if (query) {
-            cards = host.searchCards(query, getPickerRole()).slice(0, 40);
+            options = host.searchCards(query, getPickerRole()).slice(0, 40)
+                .map(card => ({ card, candidate: null }));
         } else if (state.pickerCandidates.length) {
-            cards = state.pickerCandidates
-                .map(candidate => host.findCard(candidate.cardNumber))
-                .filter(Boolean);
+            options = state.pickerCandidates
+                .map(candidate => ({
+                    card: host.findCard(candidate.cardNumber),
+                    candidate
+                }))
+                .filter(option => Boolean(option.card));
         } else {
-            cards = host.searchCards('', getPickerRole()).slice(0, 30);
+            options = host.searchCards('', getPickerRole()).slice(0, 30)
+                .map(card => ({ card, candidate: null }));
         }
         dom.pickerList.replaceChildren();
-        if (!cards.length) {
+        if (!options.length) {
             const empty = document.createElement('p');
             empty.className = 'deck-image-import-empty';
             empty.textContent = '該当するカードがありません。';
@@ -1569,24 +1678,31 @@
             return;
         }
 
-        cards.forEach(card => {
+        options.forEach(({ card, candidate }) => {
             const button = document.createElement('button');
             button.type = 'button';
             button.className = 'deck-image-import-picker-card';
-            button.appendChild(getCardVisual(card.cardNumber));
+            button.appendChild(getCardVisual(card.cardNumber, candidate));
             const copy = document.createElement('div');
             const number = document.createElement('strong');
             number.textContent = card.cardNumber;
             const name = document.createElement('span');
             name.textContent = card.cardName || '';
             copy.append(number, name);
+            const variant = getVariantVisual(card.cardNumber, candidate);
+            if (variant.type !== 'normal' && variant.label) {
+                const variantLabel = document.createElement('span');
+                variantLabel.className = 'deck-image-import-picker-variant';
+                variantLabel.textContent = variant.label;
+                copy.appendChild(variantLabel);
+            }
             button.appendChild(copy);
-            button.addEventListener('click', () => selectPickerCard(card));
+            button.addEventListener('click', () => selectPickerCard(card, candidate));
             dom.pickerList.appendChild(button);
         });
     }
 
-    function selectPickerCard(card) {
+    function selectPickerCard(card, candidate = null) {
         const target = state.pickerTarget;
         if (!target || !card?.cardNumber) return;
         if (target.type === 'leader') {
@@ -1595,7 +1711,9 @@
                 confidence: 1,
                 reviewed: true,
                 candidates: [{ cardNumber: card.cardNumber, score: 1 }],
-                regionId: state.leader?.regionId || ''
+                regionId: state.leader?.regionId || '',
+                variantPath: candidate?.variantPath || '',
+                variantIndex: Number(candidate?.variantIndex) || 0
             };
         } else if (target.type === 'row') {
             const row = state.rows.find(item => item.id === target.id);
@@ -1604,6 +1722,7 @@
                 row.confidence = 1;
                 row.reviewed = true;
                 row.candidates = [{ cardNumber: card.cardNumber, score: 1 }];
+                setRowVariant(row, candidate);
                 mergeDuplicateRows();
             }
         } else if (target.type === 'add') {
@@ -1619,7 +1738,10 @@
                     confidence: 1,
                     reviewed: true,
                     candidates: [{ cardNumber: card.cardNumber, score: 1 }],
-                    regionIds: []
+                    regionIds: [],
+                    variantVotes: [],
+                    variantPath: '',
+                    variantIndex: 0
                 });
                 mergeDuplicateRows();
             }
@@ -1699,6 +1821,8 @@
             detectCardRegions,
             createImageFeature,
             matchFeatures,
+            chooseLeaderResult,
+            aggregateDeckRows,
             featureWidth: FEATURE_WIDTH,
             featureHeight: FEATURE_HEIGHT
         };
