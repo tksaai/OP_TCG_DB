@@ -1,0 +1,8 @@
+# 改行コードをリポジトリ内で LF に統一する (以前は CRLF と混在していた)
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.ico binary

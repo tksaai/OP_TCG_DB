@@ -211,6 +211,12 @@
             closeSettingsModalBtn: $('#close-settings-modal-btn'),
             cacheAllImagesBtn: $('#cache-all-images-btn'),
             clearAllDataBtn: $('#clear-all-data-btn'),
+            appDialogModal: $('#app-dialog-modal'),
+            appDialogTitle: $('#app-dialog-title'),
+            appDialogMessage: $('#app-dialog-message'),
+            appDialogInput: $('#app-dialog-input'),
+            appDialogConfirmBtn: $('#app-dialog-confirm-btn'),
+            appDialogCancelBtn: $('#app-dialog-cancel-btn'),
             githubTokenInput: $('#github-token-input'),
             githubTokenSaveBtn: $('#github-token-save-btn'),
             githubTokenClearBtn: $('#github-token-clear-btn'),
@@ -1130,127 +1136,168 @@
         return parts.join(' / ');
     }
 
-    function displayCards(cards) {
-        const fragment = document.createDocumentFragment();
-        cardElementMap = {};
+    // 一覧は件数が多い (絵違い展開で 7,000 件超) ため、まとめて DOM を作らず
+    // 画面の下端が近づいたぶんだけ描き足す
+    const INITIAL_RENDER_COUNT = 300;
+    const RENDER_CHUNK_SIZE = 300;
+    let renderQueue = [];
+    let renderCursor = 0;
+    let renderObserver = null;
 
-        if (cards.length === 0) {
+    function createCardElement(card, index) {
+        if (!card || !card.cardNumber) return null;
+
+        const cardItem = document.createElement('div');
+        cardItem.className = 'card-item';
+        cardItem.dataset.index = index;
+        const displayKey = getEffectiveVariantDisplayMode() === 'representative'
+            ? card.cardNumber
+            : getCardDisplayVariantKey(card);
+        cardItem.dataset.id = displayKey;
+        cardElementMap[displayKey] = cardItem;
+        
+        const img = document.createElement('img');
+        img.className = 'card-image';
+        
+        const variants = getCardImageVariants(card);
+        const displayVariantIndex = getCardDisplayVariantIndex(card);
+        const relativeImagePath = getCardImagePath(card, displayVariantIndex);
+
+        img.src = relativeImagePath; 
+        img.alt = card.cardName || card.cardNumber;
+        img.loading = 'lazy';
+        
+        img.onerror = () => {
+            const fallback = document.createElement('div');
+            fallback.className = 'card-fallback';
+            fallback.textContent = card.cardNumber;
+            if(cardItem.contains(img)){
+                cardItem.replaceChild(fallback, img);
+            } else if (!cardItem.querySelector('.card-fallback')) {
+                 cardItem.appendChild(fallback);
+            }
+        };
+        
+        if (relativeImagePath) {
+              cardItem.appendChild(img);
+        } else {
+             const fallback = document.createElement('div');
+             fallback.className = 'card-fallback';
+             fallback.textContent = card.cardNumber;
+              cardItem.appendChild(fallback);
+        }
+
+        if (areListBadgesVisible()) {
+            const rarityLabel = getRarityLabel(card);
+            if (rarityLabel) {
+                const rarityBadge = document.createElement('span');
+                rarityBadge.className = `card-rarity rarity-${rarityLabel.toLowerCase()}`;
+                rarityBadge.textContent = rarityLabel;
+                cardItem.appendChild(rarityBadge);
+            }
+
+            if (getEffectiveVariantDisplayMode() === 'representative' && variants.length > 1) {
+                const variantBadge = document.createElement('span');
+                variantBadge.className = 'card-variant-count';
+                variantBadge.textContent = `+${variants.length - 1}`;
+                cardItem.appendChild(variantBadge);
+            }
+
+            if (lastAddedCardSet.has(card.cardNumber) || isProvisionalCard(card)) {
+                const newBadge = document.createElement('span');
+                newBadge.className = 'card-new-badge';
+                newBadge.textContent = 'NEW';
+                cardItem.appendChild(newBadge);
+            }
+        }
+
+        // デッキ編集・表示モード時: 採用枚数バッジ
+        if ((currentMode === 'deck_edit' || currentMode === 'deck_view') && editingDeckData[card.cardNumber]) {
+            const count = editingDeckData[card.cardNumber];
+            const badge = document.createElement('div');
+            badge.className = 'card-deck-badge';
+            badge.textContent = count;
+            badge.dataset.count = count;
+            cardItem.appendChild(badge);
+        }
+
+        if (wantedSelectionMode && wantedCards[card.cardNumber]) {
+            const count = wantedCards[card.cardNumber];
+            const badge = document.createElement('div');
+            badge.className = 'card-wanted-badge';
+            badge.textContent = count;
+            badge.dataset.count = count;
+            cardItem.appendChild(badge);
+        }
+
+        if (currentMode === 'collection_edit' || currentMode === 'opening_edit') {
+            const key = getCardDisplayVariantKey(card);
+            const count = currentMode === 'opening_edit'
+                ? getOpeningDraftCount(key)
+                : getCollectionCount(key);
+            if (count > 0) {
+                const badge = document.createElement('div');
+                badge.className = 'card-collection-badge';
+                badge.textContent = String(count);
+                badge.dataset.count = String(count);
+                cardItem.appendChild(badge);
+            }
+        }
+
+        if (getEffectiveVariantDisplayMode() !== 'representative') {
+            const variantBadge = document.createElement('span');
+            variantBadge.className = `card-variant-label variant-${card._displayVariantType || 'normal'}`;
+            variantBadge.textContent = card._displayVariantLabel || getVariantTypeLabel(card._displayVariantType);
+            cardItem.appendChild(variantBadge);
+        }
+
+        return cardItem;
+    }
+
+    function renderNextChunk(size = RENDER_CHUNK_SIZE) {
+        if (renderCursor >= renderQueue.length) return;
+        const fragment = document.createDocumentFragment();
+        const end = Math.min(renderCursor + size, renderQueue.length);
+        for (; renderCursor < end; renderCursor++) {
+            const element = createCardElement(renderQueue[renderCursor], renderCursor);
+            if (element) fragment.appendChild(element);
+        }
+        const sentinel = document.getElementById('card-render-sentinel');
+        if (sentinel) sentinel.remove();
+        dom.cardListContainer.appendChild(fragment);
+        updateRenderSentinel();
+    }
+
+    function updateRenderSentinel() {
+        if (renderObserver) renderObserver.disconnect();
+        if (renderCursor >= renderQueue.length) return;
+
+        const sentinel = document.createElement('div');
+        sentinel.id = 'card-render-sentinel';
+        sentinel.className = 'card-render-sentinel';
+        dom.cardListContainer.appendChild(sentinel);
+
+        if (!renderObserver) {
+            renderObserver = new IntersectionObserver((entries) => {
+                if (entries.some(entry => entry.isIntersecting)) renderNextChunk();
+            }, { root: dom.mainContent || null, rootMargin: '800px' });
+        }
+        renderObserver.observe(sentinel);
+    }
+
+    function displayCards(cards) {
+        cardElementMap = {};
+        renderQueue = Array.isArray(cards) ? cards : [];
+        renderCursor = 0;
+        if (renderObserver) renderObserver.disconnect();
+
+        if (renderQueue.length === 0) {
             dom.cardListContainer.innerHTML = '<p class="no-results">該当するカードがありません。</p>';
             return;
         }
 
-        cards.forEach((card, index) => {
-            if (!card || !card.cardNumber) return;
-
-            const cardItem = document.createElement('div');
-            cardItem.className = 'card-item';
-            cardItem.dataset.index = index;
-            const displayKey = getEffectiveVariantDisplayMode() === 'representative'
-                ? card.cardNumber
-                : getCardDisplayVariantKey(card);
-            cardItem.dataset.id = displayKey;
-            cardElementMap[displayKey] = cardItem;
-            
-            const img = document.createElement('img');
-            img.className = 'card-image';
-            
-            const variants = getCardImageVariants(card);
-            const displayVariantIndex = getCardDisplayVariantIndex(card);
-            const relativeImagePath = getCardImagePath(card, displayVariantIndex);
-
-            img.src = relativeImagePath; 
-            img.alt = card.cardName || card.cardNumber;
-            img.loading = 'lazy';
-            
-            img.onerror = () => {
-                const fallback = document.createElement('div');
-                fallback.className = 'card-fallback';
-                fallback.textContent = card.cardNumber;
-                if(cardItem.contains(img)){
-                    cardItem.replaceChild(fallback, img);
-                } else if (!cardItem.querySelector('.card-fallback')) {
-                     cardItem.appendChild(fallback);
-                }
-            };
-            
-            if (relativeImagePath) {
-                  cardItem.appendChild(img);
-            } else {
-                 const fallback = document.createElement('div');
-                 fallback.className = 'card-fallback';
-                 fallback.textContent = card.cardNumber;
-                  cardItem.appendChild(fallback);
-            }
-
-            if (areListBadgesVisible()) {
-                const rarityLabel = getRarityLabel(card);
-                if (rarityLabel) {
-                    const rarityBadge = document.createElement('span');
-                    rarityBadge.className = `card-rarity rarity-${rarityLabel.toLowerCase()}`;
-                    rarityBadge.textContent = rarityLabel;
-                    cardItem.appendChild(rarityBadge);
-                }
-
-                if (getEffectiveVariantDisplayMode() === 'representative' && variants.length > 1) {
-                    const variantBadge = document.createElement('span');
-                    variantBadge.className = 'card-variant-count';
-                    variantBadge.textContent = `+${variants.length - 1}`;
-                    cardItem.appendChild(variantBadge);
-                }
-
-                if (lastAddedCardSet.has(card.cardNumber) || isProvisionalCard(card)) {
-                    const newBadge = document.createElement('span');
-                    newBadge.className = 'card-new-badge';
-                    newBadge.textContent = 'NEW';
-                    cardItem.appendChild(newBadge);
-                }
-            }
-
-            // デッキ編集・表示モード時: 採用枚数バッジ
-            if ((currentMode === 'deck_edit' || currentMode === 'deck_view') && editingDeckData[card.cardNumber]) {
-                const count = editingDeckData[card.cardNumber];
-                const badge = document.createElement('div');
-                badge.className = 'card-deck-badge';
-                badge.textContent = count;
-                badge.dataset.count = count;
-                cardItem.appendChild(badge);
-            }
-
-            if (wantedSelectionMode && wantedCards[card.cardNumber]) {
-                const count = wantedCards[card.cardNumber];
-                const badge = document.createElement('div');
-                badge.className = 'card-wanted-badge';
-                badge.textContent = count;
-                badge.dataset.count = count;
-                cardItem.appendChild(badge);
-            }
-
-            if (currentMode === 'collection_edit' || currentMode === 'opening_edit') {
-                const key = getCardDisplayVariantKey(card);
-                const count = currentMode === 'opening_edit'
-                    ? getOpeningDraftCount(key)
-                    : getCollectionCount(key);
-                if (count > 0) {
-                    const badge = document.createElement('div');
-                    badge.className = 'card-collection-badge';
-                    badge.textContent = String(count);
-                    badge.dataset.count = String(count);
-                    cardItem.appendChild(badge);
-                }
-            }
-
-            if (getEffectiveVariantDisplayMode() !== 'representative') {
-                const variantBadge = document.createElement('span');
-                variantBadge.className = `card-variant-label variant-${card._displayVariantType || 'normal'}`;
-                variantBadge.textContent = card._displayVariantLabel || getVariantTypeLabel(card._displayVariantType);
-                cardItem.appendChild(variantBadge);
-            }
-
-            fragment.appendChild(cardItem);
-        });
-
         dom.cardListContainer.innerHTML = '';
-        dom.cardListContainer.appendChild(fragment);
+        renderNextChunk(INITIAL_RENDER_COUNT);
     }
 
     function setGridColumns(columns) {
@@ -3859,7 +3906,7 @@
         const message = hasCommittedItems
             ? `「${session.name}」を削除しますか？\nこの記録で追加した枚数を所持カードから差し引きます。`
             : `「${session.name}」を削除しますか？`;
-        if (!confirm(message)) return;
+        if (!await confirmDialog(message, { title: '開封記録を削除', confirmLabel: '削除', danger: true })) return;
 
         const nextCollection = new Map(collectionItems);
         try {
@@ -3913,7 +3960,7 @@
             if (payload?.format !== COLLECTION_EXPORT_FORMAT || !Array.isArray(payload.items)) {
                 throw new Error('所持カードJSONの形式ではありません。');
             }
-            if (!confirm('現在の所持カードと開封記録を、このJSONの内容で置き換えますか？')) return;
+            if (!await confirmDialog('現在の所持カードと開封記録を、このJSONの内容で置き換えます。', { title: 'JSONから復元', confirmLabel: '置き換える', danger: true })) return;
 
             const records = payload.items
                 .filter(item => item?.id && clampCollectionCount(item.count) > 0)
@@ -4092,9 +4139,9 @@
         scheduleMissingCardsOwnershipSave();
     }
 
-    function setAllMissingOwnedCards(owned) {
+    async function setAllMissingOwnedCards(owned) {
         if (!missingCardsDeck) return;
-        if (!owned && !confirm('このデッキに含まれるカードの所持枚数を、所持カードリストでも0枚にしますか？')) {
+        if (!owned && !await confirmDialog('このデッキに含まれるカードの所持枚数を、所持カードリストでも0枚にします。', { title: '所持枚数をリセット', confirmLabel: '0枚にする', danger: true })) {
             return;
         }
         getDeckRequirementEntries(missingCardsDeck).forEach(entry => {
@@ -4891,7 +4938,7 @@
 
     async function confirmLeaderSelection(card) {
         const colors = Array.isArray(card.color) ? card.color.join('/') : '';
-        if (!confirm(`「${card.cardName}」(${colors}) をリーダーにしますか？`)) return;
+        if (!await confirmDialog(`「${card.cardName}」(${colors}) をリーダーにします。`, { title: 'リーダーを選択', confirmLabel: 'このリーダーで作成' })) return;
 
         const now = new Date().toISOString();
         const newDeck = {
@@ -5247,7 +5294,7 @@
     }
 
     async function deleteDeck(deck) {
-        if (!confirm(`デッキ「${deck.name}」を削除しますか？`)) return;
+        if (!await confirmDialog(`デッキ「${deck.name}」を削除します。`, { title: 'デッキを削除', confirmLabel: '削除', danger: true })) return;
         try {
             await db.delete(STORE_DECKS, deck.id);
             showMessageToast('デッキを削除しました。', 'success');
@@ -5261,7 +5308,7 @@
     async function renameDeck(deck) {
         let newName = null;
         try {
-            newName = prompt('デッキ名を入力してください', deck.name || '');
+            newName = await promptDialog('デッキ名を入力してください', deck.name || '', { title: 'デッキ名の変更', confirmLabel: '変更' });
         } catch (e) {
             return;
         }
@@ -5370,7 +5417,7 @@
     async function clearAllData() {
         let confirmed = false;
         try {
-             const input = prompt("すべてのデータを削除しますか？ 'yes'と入力してください。");
+             const input = await promptDialog("すべてのデータを削除します。よろしければ yes と入力してください。", "", { title: '全データ削除', confirmLabel: '削除する', danger: true, placeholder: 'yes' });
              confirmed = input && input.toLowerCase() === 'yes';
         } catch (e) {
             confirmed = false;
@@ -5519,6 +5566,91 @@
         newApplyBtn.addEventListener('click', applyHandler, { once: true });
     }
 
+    // === 確認・入力ダイアログ =============================================
+    // ネイティブの confirm/prompt は PWA だと OS 標準の見た目で割り込むうえ、
+    // 環境によっては抑制される。アプリ内のモーダルに統一する。
+    let activeDialogResolve = null;
+
+    function closeAppDialog(result) {
+        if (!dom.appDialogModal) return;
+        dom.appDialogModal.style.display = 'none';
+        dom.appDialogInput.hidden = true;
+        dom.appDialogInput.value = '';
+        const resolve = activeDialogResolve;
+        activeDialogResolve = null;
+        if (resolve) resolve(result);
+    }
+
+    function openAppDialog({ title = '確認', message = '', confirmLabel = 'OK', cancelLabel = 'キャンセル', danger = false, input = null }) {
+        // ダイアログが無い環境ではネイティブにフォールバック
+        if (!dom.appDialogModal) {
+            if (input) return Promise.resolve(window.prompt(message, input.value || ''));
+            return Promise.resolve(window.confirm(message) ? true : null);
+        }
+        if (activeDialogResolve) closeAppDialog(null);
+
+        dom.appDialogTitle.textContent = title;
+        dom.appDialogMessage.textContent = message;
+        dom.appDialogConfirmBtn.textContent = confirmLabel;
+        dom.appDialogCancelBtn.textContent = cancelLabel;
+        dom.appDialogConfirmBtn.classList.toggle('modal-btn-danger', Boolean(danger));
+        dom.appDialogConfirmBtn.classList.toggle('modal-btn-primary', !danger);
+
+        if (input) {
+            dom.appDialogInput.hidden = false;
+            dom.appDialogInput.value = input.value || '';
+            dom.appDialogInput.placeholder = input.placeholder || '';
+        } else {
+            dom.appDialogInput.hidden = true;
+        }
+
+        dom.appDialogModal.style.display = 'flex';
+        setTimeout(() => {
+            if (input) dom.appDialogInput.focus();
+            else dom.appDialogConfirmBtn.focus();
+        }, 50);
+
+        return new Promise((resolve) => {
+            activeDialogResolve = resolve;
+        });
+    }
+
+    // 押されたら true、キャンセルなら false
+    async function confirmDialog(message, options = {}) {
+        const result = await openAppDialog({ message, ...options });
+        return result !== null && result !== false;
+    }
+
+    // 入力された文字列。キャンセルなら null
+    function promptDialog(message, defaultValue = '', options = {}) {
+        return openAppDialog({
+            message,
+            confirmLabel: options.confirmLabel || '決定',
+            ...options,
+            input: { value: defaultValue, placeholder: options.placeholder || '' }
+        });
+    }
+
+    function setupAppDialogEvents() {
+        if (!dom.appDialogModal) return;
+        dom.appDialogConfirmBtn.addEventListener('click', () => {
+            closeAppDialog(dom.appDialogInput.hidden ? true : dom.appDialogInput.value);
+        });
+        dom.appDialogCancelBtn.addEventListener('click', () => closeAppDialog(null));
+        dom.appDialogModal.addEventListener('click', (event) => {
+            if (event.target === dom.appDialogModal) closeAppDialog(null);
+        });
+        dom.appDialogInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                closeAppDialog(dom.appDialogInput.value);
+            }
+        });
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && activeDialogResolve) closeAppDialog(null);
+        });
+    }
+
     function showMessageToast(message, type = 'info') {
         if (showMessageToast.timeoutId) {
             clearTimeout(showMessageToast.timeoutId);
@@ -5646,6 +5778,7 @@
 
     // === 10. イベントリスナー設定 ===
     function setupEventListeners() {
+        setupAppDialogEvents();
 
         if (!dom.searchBar) return;
 
@@ -6080,7 +6213,7 @@
         if (dom.navCards) {
             dom.navCards.addEventListener('click', async () => {
                 if (currentMode === 'leader_select' || currentMode === 'deck_edit') {
-                    if (!confirm('デッキ作成・編集を中断しますか？(未保存の変更は破棄されます)')) return;
+                    if (!await confirmDialog('デッキの作成・編集を中断します。未保存の変更は破棄されます。', { title: '編集を中断', confirmLabel: '破棄して移動', danger: true })) return;
                 }
                 if (currentMode === 'collection_edit' || currentMode === 'opening_edit') {
                     await leaveCollectionTrackingMode();
@@ -6101,7 +6234,7 @@
         if (dom.navDecks) {
             dom.navDecks.addEventListener('click', async () => {
                 if (currentMode === 'leader_select' || currentMode === 'deck_edit') {
-                    if (!confirm('デッキ作成・編集を中断しますか？(未保存の変更は破棄されます)')) return;
+                    if (!await confirmDialog('デッキの作成・編集を中断します。未保存の変更は破棄されます。', { title: '編集を中断', confirmLabel: '破棄して移動', danger: true })) return;
                 }
                 if (wantedSelectionMode) finishWantedCardsSelection();
                 if (currentMode === 'collection_edit' || currentMode === 'opening_edit') {
@@ -6118,7 +6251,7 @@
         if (dom.navNew) {
             dom.navNew.addEventListener('click', async () => {
                 if (currentMode === 'leader_select' || currentMode === 'deck_edit') {
-                    if (!confirm('デッキ作成・編集を中断しますか？(未保存の変更は破棄されます)')) return;
+                    if (!await confirmDialog('デッキの作成・編集を中断します。未保存の変更は破棄されます。', { title: '編集を中断', confirmLabel: '破棄して移動', danger: true })) return;
                 }
                 if (currentMode === 'collection_edit' || currentMode === 'opening_edit') {
                     await leaveCollectionTrackingMode();

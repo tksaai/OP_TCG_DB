@@ -244,7 +244,7 @@
                     </fieldset>
 
                     <fieldset class="settings-group">
-                        <legend>GitHub update token</legend>
+                        <legend>表示</legend>
                         <div class="setting-item">
                             <label class="settings-toggle-label">
                                 <input id="furigana-editor-toggle" type="checkbox">
@@ -254,13 +254,7 @@
                                 <input id="list-badges-toggle" type="checkbox">
                                 <span>リスト上のレアリティ・別イラスト表示を表示</span>
                             </label>
-                            <p>furigana-overrides.json を更新するための fine-grained token をこのブラウザの localStorage に保存します。Contents の Read and write 権限が必要です。</p>
-                            <input id="github-token-input" class="settings-input" type="password" autocomplete="off" placeholder="github_pat_...">
-                            <div class="settings-actions">
-                                <button id="github-token-save-btn" class="modal-btn modal-btn-primary" type="button">保存</button>
-                                <button id="github-token-clear-btn" class="modal-btn modal-btn-secondary" type="button">削除</button>
-                            </div>
-                            <p id="github-token-status" class="settings-status"></p>
+                            <p>フリガナの修正を本体データへ保存するには、<a href="admin.html">データ整備ページ</a>で GitHub token を登録してください（データ整備者向けの機能です）。</p>
                         </div>
                     </fieldset>
 
@@ -594,6 +588,25 @@
                 <div class="modal-footer opening-form-actions">
                     <button id="opening-form-cancel-btn" class="modal-btn modal-btn-secondary" type="button">キャンセル</button>
                     <button id="opening-form-submit-btn" class="modal-btn modal-btn-primary" type="button">記録を開始</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 18b. モーダル: 確認・入力ダイアログ (ネイティブの confirm/prompt の置き換え) -->
+    <div id="app-dialog-modal" class="modal-overlay" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="app-dialog-title">
+        <div class="modal-content-wrapper app-dialog-wrapper">
+            <div class="modal-content app-dialog-content">
+                <div class="modal-header">
+                    <h2 id="app-dialog-title">確認</h2>
+                </div>
+                <div class="modal-body app-dialog-body">
+                    <p id="app-dialog-message" class="app-dialog-message"></p>
+                    <input id="app-dialog-input" class="app-dialog-input" type="text" autocomplete="off" hidden>
+                </div>
+                <div class="modal-footer app-dialog-actions">
+                    <button id="app-dialog-cancel-btn" class="modal-btn modal-btn-secondary" type="button">キャンセル</button>
+                    <button id="app-dialog-confirm-btn" class="modal-btn modal-btn-primary" type="button">OK</button>
                 </div>
             </div>
         </div>

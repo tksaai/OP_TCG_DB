@@ -61,9 +61,36 @@ function parseCardImage(filePath) {
     };
 }
 
-const files = await walk(CARDS_DIR);
+async function walkIfExists(dir) {
+    try {
+        return await walk(dir);
+    } catch {
+        return [];
+    }
+}
+
+function stemOf(filePath) {
+    return toWebPath(filePath).replace(/\.[^.]+$/, '');
+}
+
+// 配信するのは WebP だけで、Cards/ (元画像) は同期時の中間ファイル。
+// 元画像が手元に無い環境でも CardsWebP/ からマニフェストを作れるようにする。
+async function collectImageFiles() {
+    const originals = await walkIfExists(CARDS_DIR);
+    const webps = await walkIfExists(WEBP_DIR);
+    const covered = new Set(originals.map(file => stemOf(path.relative(CARDS_DIR, file))));
+    const webpOnly = webps.filter(file => !covered.has(stemOf(path.relative(WEBP_DIR, file))));
+    return [...originals, ...webpOnly];
+}
+
+const files = await collectImageFiles();
 const cards = {};
 const officialMetadata = await readOfficialMetadata();
+// メタデータのキーは Cards/ 側のパス。WebP しか無い画像からも引けるよう
+// 拡張子を落としたキーでも参照できるようにしておく
+const metadataByStem = new Map(
+    Object.entries(officialMetadata).map(([key, value]) => [stemOf(key), value])
+);
 let sharp = null;
 
 if (shouldGenerateWebp) {
@@ -102,21 +129,26 @@ for (const file of files) {
     const parsed = parseCardImage(file);
     if (!parsed) continue;
 
-    const originalPath = parsed.originalPath;
-    let webpPath = await existingWebpPath(file);
+    const fromWebpDir = toWebPath(file).startsWith(`${WEBP_DIR}/`);
+    const originalPath = fromWebpDir ? '' : parsed.originalPath;
+    let webpPath = fromWebpDir ? parsed.originalPath : await existingWebpPath(file);
     if (!webpPath && shouldGenerateWebp && path.extname(file).toLowerCase() !== '.webp') {
         webpPath = await createWebpVariant(file);
     }
     if (!webpPath) {
-        webpPath = originalPath;
+        webpPath = parsed.originalPath;
     }
+
+    const metadataStem = fromWebpDir
+        ? stemOf(toWebPath(file).replace(`${WEBP_DIR}/`, `${CARDS_DIR}/`))
+        : stemOf(originalPath);
 
     if (!cards[parsed.cardNumber]) {
         cards[parsed.cardNumber] = [];
     }
 
     cards[parsed.cardNumber].push({
-        ...officialMetadata[originalPath],
+        ...(officialMetadata[originalPath] || metadataByStem.get(metadataStem)),
         path: webpPath,
         fallbackPath: originalPath,
         label: parsed.label,

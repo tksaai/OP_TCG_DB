@@ -29,6 +29,40 @@ def convert_image(source: Path, source_root: Path, output_root: Path, quality: i
     return "converted"
 
 
+def prune_orphans(source_root: Path, output_root: Path, force: bool) -> int:
+    """元画像が無くなった WebP を削除する。
+
+    Cards/ はリポジトリに置かず同期時の一時ファイルとして扱うため、
+    元画像が手元に無い状態で実行すると全消しになりかねない。
+    そのため「元画像が 1 枚も無い」「削除対象が全体の 20% を超える」場合は
+    --force-prune が無いかぎり中止する。
+    """
+    if not output_root.exists():
+        return 0
+
+    source_stems = {path.relative_to(source_root).with_suffix("") for path in iter_images(source_root)}         if source_root.exists() else set()
+    targets = list(output_root.rglob("*.webp"))
+    if not source_stems:
+        print("[prune] 元画像が 1 枚も無いのでスキップします")
+        return 0
+
+    orphans = [t for t in targets if t.relative_to(output_root).with_suffix("") not in source_stems]
+    if not orphans:
+        print("[prune] 削除対象はありません")
+        return 0
+
+    ratio = len(orphans) / max(len(targets), 1)
+    if ratio > 0.2 and not force:
+        print(f"[prune] 削除対象が多すぎます ({len(orphans)}/{len(targets)})。"
+              " 意図した削除なら --force-prune を付けてください")
+        return 0
+
+    for target in orphans:
+        target.unlink()
+        print(f"[pruned] {target}")
+    return len(orphans)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Convert card images to WebP.")
     parser.add_argument("--source", default="Cards")
@@ -36,6 +70,10 @@ def main() -> int:
     parser.add_argument("--quality", type=int, default=76)
     parser.add_argument("--force", action="store_true")
     parser.add_argument("--limit", type=int, default=0)
+    parser.add_argument("--prune", action="store_true",
+                        help="元画像が無くなった WebP を削除する")
+    parser.add_argument("--force-prune", action="store_true",
+                        help="削除対象が多くても中止しない")
     args = parser.parse_args()
 
     source_root = Path(args.source)
@@ -53,6 +91,9 @@ def main() -> int:
         except Exception as error:
             counts["failed"] += 1
             print(f"[failed] {source}: {error}")
+
+    if args.prune:
+        counts["pruned"] = prune_orphans(source_root, output_root, args.force_prune)
 
     print(counts)
     return 1 if counts["failed"] else 0
