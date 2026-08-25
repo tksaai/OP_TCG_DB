@@ -5,9 +5,12 @@
  */
 
 // === 1. 定数 ===
-const CACHE_APP_SHELL = 'app-shell-v33';
-const CACHE_CARD_DATA = 'card-data-v11';
-const CACHE_IMAGES = 'card-images-v1';
+const CACHE_APP_SHELL = 'app-shell-v34';
+const CACHE_CARD_DATA = 'card-data-v12';
+// v2: 配信を WebP に一本化したタイミングで、古い JPEG/PNG のキャッシュを捨てる
+const CACHE_IMAGES = 'card-images-v2';
+// 全画像キャッシュを実行すると数千枚たまるため、上限を決めて古いものから捨てる
+const MAX_IMAGE_CACHE_ENTRIES = 8000;
 
 const CARDS_JSON_PATH = './cards.json';
 const PROVISIONAL_CARDS_JSON_PATH = './provisional-cards.json';
@@ -143,6 +146,25 @@ self.addEventListener('fetch', (event) => {
 // === 5. キャッシュ戦略 ===
 
 /**
+ * キャッシュ件数の上限を超えたぶんを、古い順に削除する
+ * (Cache Storage の keys() は追加順を保つ)
+ * @param {string} cacheName
+ * @param {number} maxEntries
+ */
+async function trimCache(cacheName, maxEntries) {
+    try {
+        const cache = await caches.open(cacheName);
+        const keys = await cache.keys();
+        if (keys.length <= maxEntries) return;
+        const excess = keys.slice(0, keys.length - maxEntries);
+        await Promise.all(excess.map(request => cache.delete(request)));
+        console.log(`[SW] Trimmed ${excess.length} entries from ${cacheName}`);
+    } catch (error) {
+        console.warn(`[SW] Failed to trim ${cacheName}`, error);
+    }
+}
+
+/**
  * Cache First (Cache, falling back to Network) - GETのみ対応
  * @param {Request} request - GET Request
  * @param {string} cacheName
@@ -161,6 +183,9 @@ async function cacheFirst(request, cacheName) {
         if (networkResponse && networkResponse.ok) {
             // cache.put は GET リクエストのみサポート
              await cache.put(request, networkResponse.clone());
+             if (cacheName === CACHE_IMAGES) {
+                 await trimCache(cacheName, MAX_IMAGE_CACHE_ENTRIES);
+             }
         } else if (networkResponse) {
              console.warn(`[SW] Cache First: Received non-OK response for ${request.url}: ${networkResponse.status}`);
         }

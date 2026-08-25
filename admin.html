@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>データ整備 - OP-TCG DB</title>
+    <link rel="icon" href="icons/iconx192.png" sizes="192x192">
+    <style>
+        :root { color-scheme: dark; }
+        body {
+            margin: 0;
+            padding: 24px 16px 64px;
+            background: #121212;
+            color: #e8e8e8;
+            font-family: "Hiragino Sans", "Yu Gothic UI", system-ui, sans-serif;
+            line-height: 1.8;
+        }
+        main { max-width: 640px; margin: 0 auto; }
+        h1 { font-size: 22px; margin: 0 0 4px; }
+        .lead { color: #9aa0a6; font-size: 14px; margin: 0 0 28px; }
+        section {
+            background: #1c1c1e;
+            border: 1px solid #2c2c2e;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        h2 { font-size: 16px; margin: 0 0 12px; }
+        p { margin: 0 0 12px; font-size: 14px; color: #c7c7cc; }
+        label { display: block; font-size: 13px; color: #9aa0a6; margin-bottom: 6px; }
+        input[type="password"] {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px;
+            font-size: 15px;
+            background: #2c2c2e;
+            border: 1px solid #3a3a3c;
+            border-radius: 8px;
+            color: #fff;
+        }
+        .actions { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+        button {
+            padding: 10px 18px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 8px;
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+        .primary { background: #a78bfa; color: #1b1b1f; }
+        .secondary { background: transparent; border-color: #48484a; color: #e8e8e8; }
+        .status { font-size: 13px; color: #8ee9c6; min-height: 1.5em; margin: 12px 0 0; }
+        .warning {
+            border-left: 3px solid #f0708a;
+            padding-left: 14px;
+            color: #f0a0b0;
+            font-size: 13px;
+        }
+        a { color: #8ee9c6; }
+        ul { margin: 0 0 12px; padding-left: 1.2em; font-size: 14px; color: #c7c7cc; }
+    </style>
+</head>
+<body>
+<main>
+    <h1>データ整備</h1>
+    <p class="lead">フリガナの修正を本体データ（furigana-overrides.json）へ反映するためのページです。通常の利用では開く必要はありません。</p>
+
+    <section>
+        <h2>GitHub token</h2>
+        <p>
+            fine-grained personal access token をこのブラウザの localStorage に保存します。
+            必要な権限は、このリポジトリに対する <strong>Contents: Read and write</strong> だけです。
+        </p>
+        <p class="warning">
+            保存したトークンは、このブラウザで動く JavaScript から読める状態に置かれます。
+            共用端末では使わず、有効期限を短く設定し、使い終わったら削除してください。
+        </p>
+        <label for="token-input">Token</label>
+        <input id="token-input" type="password" autocomplete="off" spellcheck="false" placeholder="github_pat_...">
+        <div class="actions">
+            <button id="save-btn" class="primary" type="button">保存</button>
+            <button id="clear-btn" class="secondary" type="button">削除</button>
+        </div>
+        <p id="status" class="status" aria-live="polite"></p>
+    </section>
+
+    <section>
+        <h2>使い方</h2>
+        <ul>
+            <li>ここでトークンを保存します。</li>
+            <li><a href="index.html">アプリ</a>の設定で「カード詳細にフリガナ編集欄を表示」をオンにします。</li>
+            <li>カードを拡大表示するとフリガナの入力欄が出るので、修正して Save を押します。</li>
+        </ul>
+        <p>保存に失敗する場合は、トークンの権限と有効期限を確認してください。</p>
+    </section>
+</main>
+
+<script>
+    (function () {
+        var STORAGE_KEY = 'githubToken';
+        var input = document.getElementById('token-input');
+        var status = document.getElementById('status');
+
+        function read() {
+            try {
+                return localStorage.getItem(STORAGE_KEY) || '';
+            } catch (error) {
+                return '';
+            }
+        }
+
+        function render(message) {
+            var token = read();
+            status.textContent = message || (token
+                ? 'このブラウザにトークンが保存されています。'
+                : 'トークンは保存されていません。');
+            input.value = token;
+        }
+
+        document.getElementById('save-btn').addEventListener('click', function () {
+            var value = input.value.trim();
+            try {
+                if (value) {
+                    localStorage.setItem(STORAGE_KEY, value);
+                    render('保存しました。');
+                } else {
+                    localStorage.removeItem(STORAGE_KEY);
+                    render('空だったため削除しました。');
+                }
+            } catch (error) {
+                render('保存できませんでした: ' + error.message);
+            }
+        });
+
+        document.getElementById('clear-btn').addEventListener('click', function () {
+            try {
+                localStorage.removeItem(STORAGE_KEY);
+                input.value = '';
+                render('削除しました。');
+            } catch (error) {
+                render('削除できませんでした: ' + error.message);
+            }
+        });
+
+        render();
+    })();
+</script>
+</body>
+</html>

@@ -3449,3 +3449,36 @@ body.missing-cards-open {
     from { transform: translateY(50px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
 }
+
+/* 一覧の追加描画トリガー (画面には出さない) */
+.card-render-sentinel {
+    grid-column: 1 / -1;
+    height: 1px;
+}
+
+/* 確認・入力ダイアログ (ネイティブ confirm/prompt の置き換え) */
+.app-dialog-wrapper {
+    max-width: 380px;
+    width: calc(100% - 48px);
+    margin: auto;
+}
+.app-dialog-message {
+    white-space: pre-wrap;
+    line-height: 1.7;
+    margin: 0;
+}
+.app-dialog-input {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 14px;
+    padding: 12px;
+    font-size: 16px;
+    color: var(--color-text-primary);
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+}
+.app-dialog-actions {
+    display: flex;
+    gap: 10px;
+}
