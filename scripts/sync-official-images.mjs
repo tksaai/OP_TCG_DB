@@ -7,6 +7,8 @@ const PROMO_CATEGORY_ID = '550901';
 const CARDS_JSON = 'cards.json';
 const PROVISIONAL_CARDS_JSON = 'provisional-cards.json';
 const OUTPUT_ROOT = 'Cards';
+// 変換後の WebP だけがリポジトリに残るため、再取得の要否は WebP の有無でも見る
+const WEBP_ROOT = 'CardsWebP';
 const METADATA_FILE = 'official-image-sources.json';
 
 const args = process.argv.slice(2);
@@ -106,6 +108,16 @@ async function exists(filePath) {
     } catch {
         return false;
     }
+}
+
+function webpPathFor(localPath) {
+    const relativePath = path.relative(OUTPUT_ROOT, localPath);
+    return path.join(WEBP_ROOT, relativePath).replace(/\.[^.]+$/, '.webp');
+}
+
+// 元画像 (Cards/) はコミットしないので、WebP が既にあれば取得済みとみなす
+async function alreadyDownloaded(localPath) {
+    return (await exists(localPath)) || (await exists(webpPathFor(localPath)));
 }
 
 async function fetchText(url) {
@@ -242,7 +254,7 @@ for (const cardNumber of cardNumbers) {
                 label: officialCard.label
             };
 
-            if (!force && await exists(officialCard.localPath)) {
+            if (!force && await alreadyDownloaded(officialCard.localPath)) {
                 summary.skipped++;
                 continue;
             }

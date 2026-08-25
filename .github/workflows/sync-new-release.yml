@@ -49,22 +49,30 @@ jobs:
       - name: Install Python dependencies
         run: python -m pip install --upgrade pillow
 
+      # 同期の前に、いま入っているデータと画面の前提が壊れていないかを確認する
+      - name: Test data integrity
+        run: node scripts/test-data-integrity.mjs
+
+      # 入力値は env 経由で渡す。${{ }} を run の中へ直接展開すると、
+      # 入力がそのままシェル片として実行される (script injection)
       - name: Sync official cards and images
+        env:
+          SERIES: ${{ inputs.series || 'latest' }}
+          DRY_RUN: ${{ inputs.dry_run }}
+          FORCE: ${{ inputs.force }}
         run: |
-          ARGS="--series=${{ inputs.series || 'latest' }}"
-          if [ "${{ inputs.dry_run }}" = "true" ]; then
-            ARGS="$ARGS --dry-run"
-          fi
-          if [ "${{ inputs.force }}" = "true" ]; then
-            ARGS="$ARGS --force"
-          fi
-          node scripts/sync-new-release.mjs $ARGS --python=python
+          ARGS=("--series=$SERIES")
+          if [ "$DRY_RUN" = "true" ]; then ARGS+=("--dry-run"); fi
+          if [ "$FORCE" = "true" ]; then ARGS+=("--force"); fi
+          node scripts/sync-new-release.mjs "${ARGS[@]}" --python=python
 
       - name: Show changes
         run: git status --short
 
       - name: Commit and push
         if: ${{ inputs.dry_run != true }}
+        env:
+          SERIES: ${{ inputs.series || 'latest' }}
         run: |
           if [ -z "$(git status --short)" ]; then
             echo "No changes to commit."
@@ -72,6 +80,6 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add cards.json image-manifest.json card-features.json official-image-sources.json Cards CardsWebP scripts
-          git commit -m "Sync ${{ inputs.series || 'latest' }} cards and images"
+          git add cards.json image-manifest.json card-features.json official-image-sources.json CardsWebP
+          git commit -m "Sync $SERIES cards and images"
           git push

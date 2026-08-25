@@ -1,0 +1,9 @@
+# 元画像は同期時の一時ファイル。配信・コミットするのは CardsWebP のみ
+Cards/
+
+node_modules/
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/
