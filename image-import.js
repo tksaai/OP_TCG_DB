@@ -443,6 +443,264 @@
         };
     }
 
+    function profileQuantile(values, ratio) {
+        if (!values.length) return 0;
+        const sorted = Array.from(values).sort((a, b) => a - b);
+        const index = clamp(Math.round((sorted.length - 1) * ratio), 0, sorted.length - 1);
+        return sorted[index];
+    }
+
+    function smoothProfile(values, radius = 2) {
+        const output = new Float32Array(values.length);
+        let sum = 0;
+        let start = 0;
+        let end = 0;
+        for (let index = 0; index < values.length; index += 1) {
+            const nextStart = Math.max(0, index - radius);
+            const nextEnd = Math.min(values.length, index + radius + 1);
+            while (start < nextStart) sum -= values[start++];
+            while (end < nextEnd) sum += values[end++];
+            output[index] = sum / Math.max(1, end - start);
+        }
+        return output;
+    }
+
+    function findProfileRuns(values, threshold, offset = 0) {
+        const runs = [];
+        let start = -1;
+        for (let index = 0; index <= values.length; index += 1) {
+            const active = index < values.length && values[index] >= threshold;
+            if (active && start < 0) start = index;
+            if (!active && start >= 0) {
+                runs.push({ start: start + offset, end: index + offset, width: index - start });
+                start = -1;
+            }
+        }
+        return runs;
+    }
+
+    function variation(values) {
+        const center = median(values);
+        if (!center) return Infinity;
+        return median(values.map(value => Math.abs(value - center))) / center;
+    }
+
+    function chooseRegularBands(bands, expectedCount) {
+        if (bands.length < expectedCount) return null;
+        let best = null;
+        for (let start = 0; start + expectedCount <= bands.length; start += 1) {
+            const group = bands.slice(start, start + expectedCount);
+            const widths = group.map(band => band.width);
+            const centers = group.map(band => (band.start + band.end) / 2);
+            const strides = centers.slice(1).map((center, index) => center - centers[index]);
+            const typicalWidth = median(widths);
+            const typicalStride = median(strides);
+            const strideRatio = typicalStride / Math.max(1, typicalWidth);
+            if (strideRatio < 0.98 || strideRatio > 1.55) continue;
+            const score = variation(widths) * 1.4
+                + variation(strides) * 2
+                + Math.abs(strideRatio - 1.15) * 0.08;
+            if (!best || score < best.score) best = { group, score, typicalWidth, typicalStride };
+        }
+        if (!best || best.score > 0.28) return null;
+        return best;
+    }
+
+    function findRegularRowSequence(starts, expectedCount, cardHeight) {
+        const minimumStride = cardHeight * 0.92;
+        const maximumStride = cardHeight * 1.32;
+        const tolerance = cardHeight * 0.16;
+        let best = null;
+        for (let startIndex = 0; startIndex < starts.length; startIndex += 1) {
+            for (let nextIndex = startIndex + 1; nextIndex < starts.length; nextIndex += 1) {
+                const stride = starts[nextIndex] - starts[startIndex];
+                if (stride < minimumStride || stride > maximumStride) continue;
+                const matched = [];
+                let error = 0;
+                for (let row = 0; row < expectedCount; row += 1) {
+                    const predicted = starts[startIndex] + row * stride;
+                    const nearest = starts.reduce((candidate, value) => (
+                        Math.abs(value - predicted) < Math.abs(candidate - predicted) ? value : candidate
+                    ), starts[0]);
+                    const distance = Math.abs(nearest - predicted);
+                    if (distance <= tolerance) {
+                        matched.push({ row, value: nearest });
+                        error += distance / cardHeight;
+                    }
+                }
+                if (matched.length < expectedCount - 1) continue;
+                const score = (expectedCount - matched.length) * 2 + error;
+                if (!best || score < best.score) best = { start: starts[startIndex], stride, matched, score };
+            }
+        }
+        if (!best) return null;
+        const refinedStride = best.matched.length > 1
+            ? median(best.matched.slice(1).map((match, index) => (
+                (match.value - best.matched[index].value) / (match.row - best.matched[index].row)
+            )))
+            : best.stride;
+        const refinedStart = median(best.matched.map(match => match.value - match.row * refinedStride));
+        return { start: refinedStart, stride: refinedStride, matches: best.matched.length };
+    }
+
+    function buildInkColumnProfile(imageData, width, height, xStart) {
+        const yStart = Math.round(height * 0.03);
+        const yEnd = Math.round(height * 0.96);
+        const stepY = Math.max(1, Math.floor((yEnd - yStart) / 420));
+        const profile = new Float32Array(width - xStart);
+        for (let x = xStart; x < width; x += 1) {
+            let ink = 0;
+            let samples = 0;
+            for (let y = yStart; y < yEnd; y += stepY) {
+                const offset = (y * width + x) * 4;
+                const red = imageData[offset];
+                const green = imageData[offset + 1];
+                const blue = imageData[offset + 2];
+                const luma = red * 0.299 + green * 0.587 + blue * 0.114;
+                const chroma = Math.max(red, green, blue) - Math.min(red, green, blue);
+                if (luma < 222 || chroma > 35) ink += 1;
+                samples += 1;
+            }
+            profile[x - xStart] = samples ? ink / samples : 0;
+        }
+        return smoothProfile(profile, Math.max(1, Math.round(width / 640)));
+    }
+
+    function buildInkRowProfile(imageData, width, height, bands) {
+        const profile = new Float32Array(height);
+        const stepX = Math.max(1, Math.floor(median(bands.map(band => band.width)) / 36));
+        for (let y = 0; y < height; y += 1) {
+            let ink = 0;
+            let samples = 0;
+            bands.forEach(band => {
+                for (let x = Math.ceil(band.start); x < Math.floor(band.end); x += stepX) {
+                    const offset = (y * width + x) * 4;
+                    const red = imageData[offset];
+                    const green = imageData[offset + 1];
+                    const blue = imageData[offset + 2];
+                    const luma = red * 0.299 + green * 0.587 + blue * 0.114;
+                    const chroma = Math.max(red, green, blue) - Math.min(red, green, blue);
+                    if (luma < 222 || chroma > 35) ink += 1;
+                    samples += 1;
+                }
+            });
+            profile[y] = samples ? ink / samples : 0;
+        }
+        return smoothProfile(profile, Math.max(1, Math.round(height / 360)));
+    }
+
+    function refineLeaderRect(imageData, width, height, baseRect, panelRight) {
+        let best = null;
+        for (let sizeOffset = -2; sizeOffset <= 2; sizeOffset += 1) {
+            const candidateWidth = baseRect.width * (1 + sizeOffset * 0.035);
+            const candidateHeight = candidateWidth * 1.397;
+            const step = Math.max(2, candidateWidth * 0.025);
+            for (let xOffset = -2; xOffset <= 2; xOffset += 1) {
+                const x = clamp(baseRect.x + xOffset * step, 0, panelRight - candidateWidth);
+                for (let yOffset = -2; yOffset <= 2; yOffset += 1) {
+                    const y = clamp(baseRect.y + yOffset * step, 0, height - candidateHeight);
+                    const rect = { x, y, width: candidateWidth, height: candidateHeight };
+                    const signal = regionSignal(imageData, width, height, rect);
+                    const borderSignal = regionBorderSignal(imageData, width, height, rect);
+                    const score = borderSignal + signal * 0.08;
+                    if (!best || score > best.score) best = { ...rect, signal, borderSignal, score };
+                }
+            }
+        }
+        return best;
+    }
+
+    function detectDenseIndividualGridLayout(imageData, width, height) {
+        const aspectRatio = width / height;
+        if (aspectRatio < 1.45 || aspectRatio > 2.6 || width < 700 || height < 360) return null;
+
+        const expectedColumns = 10;
+        const expectedRows = 5;
+        const xStart = Math.round(width * 0.18);
+        const columnProfile = buildInkColumnProfile(imageData, width, height, xStart);
+        let columnLow = profileQuantile(columnProfile, 0.2);
+        const columnHigh = profileQuantile(columnProfile, 0.82);
+        if (columnHigh - columnLow < 0.16) columnLow = profileQuantile(columnProfile, 0.08);
+        if (columnHigh - columnLow < 0.16) return null;
+        const columnThreshold = clamp(columnLow + (columnHigh - columnLow) * 0.56, 0.48, 0.68);
+        const allColumnRuns = findProfileRuns(columnProfile, columnThreshold, xStart);
+        const columnBands = allColumnRuns.filter(run => (
+            run.width >= width * 0.035 && run.width <= width * 0.1
+        ));
+        const regularColumns = chooseRegularBands(columnBands, expectedColumns);
+        if (!regularColumns) return null;
+
+        const rowProfile = buildInkRowProfile(imageData, width, height, regularColumns.group);
+        let rowLow = profileQuantile(rowProfile, 0.18);
+        const rowHigh = profileQuantile(rowProfile, 0.78);
+        if (rowHigh - rowLow < 0.14) rowLow = profileQuantile(rowProfile, 0.08);
+        if (rowHigh - rowLow < 0.14) return null;
+        const rowThreshold = clamp(rowLow + (rowHigh - rowLow) * 0.54, 0.44, 0.72);
+        const rowRuns = findProfileRuns(rowProfile, rowThreshold)
+            .filter(run => run.start < height * 0.94);
+
+        const cardWidth = regularColumns.typicalWidth * 1.055;
+        const cardHeight = cardWidth * 1.397;
+        const regularRows = findRegularRowSequence(
+            rowRuns.map(run => run.start),
+            expectedRows,
+            cardHeight
+        );
+        if (!regularRows) return null;
+
+        const centers = regularColumns.group.map(band => (band.start + band.end) / 2);
+        const firstCenter = median(centers.map((center, index) => center - index * regularColumns.typicalStride));
+        const firstRowY = regularRows.start - cardWidth * 0.04;
+        const regions = [];
+        for (let row = 0; row < expectedRows; row += 1) {
+            for (let column = 0; column < expectedColumns; column += 1) {
+                regions.push({
+                    x: firstCenter + column * regularColumns.typicalStride - cardWidth / 2,
+                    y: firstRowY + row * regularRows.stride,
+                    width: cardWidth,
+                    height: cardHeight,
+                    hintRole: 'deck',
+                    count: 1,
+                    countMode: 'none'
+                });
+            }
+        }
+        const activeCards = regions.reduce((total, rect) => (
+            total + (regionSignal(imageData, width, height, rect) >= 8 ? 1 : 0)
+        ), 0);
+        if (activeCards < 46) return null;
+
+        const gridLeft = regions[0].x;
+        const previousRun = allColumnRuns
+            .filter(run => run.end < gridLeft - cardWidth * 0.08)
+            .sort((a, b) => a.end - b.end)
+            .pop();
+        const panelRight = clamp(previousRun?.end || gridLeft - width * 0.018, cardWidth * 2.2, gridLeft);
+        const leaderWidth = Math.min(panelRight * 0.79, cardWidth * 3.25);
+        const leaderBase = {
+            x: (panelRight - leaderWidth) / 2,
+            y: Math.max(height * 0.025, firstRowY),
+            width: leaderWidth,
+            height: leaderWidth * 1.397
+        };
+        const leader = refineLeaderRect(imageData, width, height, leaderBase, panelRight);
+        if (!leader || leader.signal < 9) return null;
+
+        return {
+            layout: '可変50枚グリッド',
+            regions: [{
+                x: leader.x,
+                y: leader.y,
+                width: leader.width,
+                height: leader.height,
+                hintRole: 'leader',
+                count: 1,
+                countMode: 'none',
+                signal: leader.signal
+            }, ...regions]
+        };
+    }
+
     function findDarkBands(imageData, width, height, minHeightRatio = 0.025) {
         const stepX = Math.max(2, Math.floor(width / 220));
         const rowScores = new Float32Array(height);
@@ -1068,6 +1326,7 @@
         const context = sourceCanvas.getContext('2d', { willReadFrequently: true });
         const imageData = context.getImageData(0, 0, sourceCanvas.width, sourceCanvas.height).data;
         const known = detectOptcgDbLayout(imageData, sourceCanvas.width, sourceCanvas.height)
+            || detectDenseIndividualGridLayout(imageData, sourceCanvas.width, sourceCanvas.height)
             || detectOfficialDeckImageLayout(imageData, sourceCanvas.width, sourceCanvas.height)
             || detectFiveColumnDeckListLayout(imageData, sourceCanvas.width, sourceCanvas.height)
             || detectBccgLayout(imageData, sourceCanvas.width, sourceCanvas.height);
@@ -1819,6 +2078,7 @@
     if (['127.0.0.1', 'localhost'].includes(window.location.hostname)) {
         api.__test = {
             detectCardRegions,
+            detectDenseIndividualGridLayout,
             createImageFeature,
             matchFeatures,
             chooseLeaderResult,
