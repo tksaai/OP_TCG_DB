@@ -101,6 +101,19 @@
                         </svg>
                         <span>画像から作成</span>
                     </button>
+                    <a id="detailed-analyzer-link"
+                       class="deck-list-action-btn deck-list-action-secondary deck-detailed-analyzer-open-btn"
+                       href="https://tksaai.github.io/OP_TCG_DECK_IMAGE_ANALYZER/"
+                       referrerpolicy="no-referrer">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M3 7V5a2 2 0 0 1 2-2h2"></path>
+                            <path d="M17 3h2a2 2 0 0 1 2 2v2"></path>
+                            <path d="M21 17v2a2 2 0 0 1-2 2h-2"></path>
+                            <path d="M7 21H5a2 2 0 0 1-2-2v-2"></path>
+                            <rect width="10" height="14" x="7" y="5" rx="1.5"></rect>
+                        </svg>
+                        <span>詳細画像解析</span>
+                    </a>
                 </div>
                 <div id="deck-list-container">
                     <!-- デッキリストはJavaScriptによってここに挿入されます -->
@@ -277,6 +290,10 @@
                 </div>
                 <div id="shared-deck-confirm-body" class="modal-body shared-deck-confirm-body">
                     <strong id="shared-deck-confirm-name" class="shared-deck-confirm-name"></strong>
+                    <p id="shared-deck-confirm-warning"
+                       class="shared-deck-confirm-warning"
+                       role="status"
+                       hidden></p>
                     <dl class="shared-deck-confirm-summary">
                         <div>
                             <dt>リーダー</dt>

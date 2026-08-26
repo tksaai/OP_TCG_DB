@@ -5,7 +5,7 @@
  */
 
 // === 1. 定数 ===
-const CACHE_APP_SHELL = 'app-shell-v34';
+const CACHE_APP_SHELL = 'app-shell-v36';
 const CACHE_CARD_DATA = 'card-data-v12';
 // v2: 配信を WebP に一本化したタイミングで、古い JPEG/PNG のキャッシュを捨てる
 const CACHE_IMAGES = 'card-images-v2';
@@ -101,6 +101,11 @@ self.addEventListener('activate', (event) => {
 
 // === 4. フェッチ (Fetch) イベント ===
 self.addEventListener('fetch', (event) => {
+    // ワンタイム転送トークンを含む解析API通信は、Service Workerで処理・保存しない
+    if (event.request.headers.has('X-Transfer-Token')) {
+        return;
+    }
+
     // GETリクエスト以外は Service Worker で処理せず、そのままネットワークに流す
     // これにより HEAD リクエストの問題を回避
     if (event.request.method !== 'GET') {

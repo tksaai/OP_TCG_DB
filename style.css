@@ -589,6 +589,20 @@ body.shared-deck-confirm-open {
     overflow-wrap: anywhere;
 }
 
+.shared-deck-confirm-warning {
+    margin: 14px 0 0;
+    padding: 10px 12px;
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-secondary);
+    border-radius: 6px;
+    background-color: var(--color-background);
+    color: var(--color-on-background);
+    font-size: 13px;
+    line-height: 1.55;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+}
+
 .shared-deck-confirm-summary {
     margin: 16px 0 0;
 }
@@ -1568,7 +1582,7 @@ body.mode-bar-visible .main-content {
 
 .deck-list-toolbar {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 10px;
     margin-bottom: 16px;
 }
@@ -1585,6 +1599,7 @@ body.mode-bar-visible .main-content {
     gap: 8px;
     font-size: 0.95rem;
     font-weight: 700;
+    text-decoration: none;
     cursor: pointer;
 }
 
@@ -1597,6 +1612,11 @@ body.mode-bar-visible .main-content {
     border-color: var(--color-border);
     background-color: var(--color-surface);
     color: var(--color-on-surface);
+}
+
+.deck-detailed-analyzer-open-btn {
+    border-color: var(--color-secondary);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-secondary) 35%, transparent);
 }
 
 .deck-list-action-btn:hover {
@@ -2059,10 +2079,6 @@ body.deck-image-import-open {
 @media (max-width: 620px) {
     .deck-list-toolbar {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .deck-image-import-open-btn {
-        grid-column: 1 / -1;
     }
 
     .deck-image-import-wrapper {

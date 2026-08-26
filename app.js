@@ -15,6 +15,16 @@
     const DECK_MAX_COPIES = 4;
     const DECK_SHARE_VERSION = 1;
     const DECK_SHARE_HASH_KEY = 'deck';
+    const DETAILED_ANALYZER_APP_URL = 'https://tksaai.github.io/OP_TCG_DECK_IMAGE_ANALYZER/';
+    // GitHub Pages版は #deck= で連携する。将来Python APIを公開した場合だけ設定する。
+    const DETAILED_ANALYZER_API_BASE_URL = '';
+    const ANALYSIS_HASH_KEY = 'analysis';
+    const ANALYSIS_TOKEN_HASH_KEY = 'token';
+    const ANALYSIS_ID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/;
+    const ANALYSIS_TOKEN_PATTERN = /^[A-Za-z0-9_-]{32,128}$/;
+    const ANALYSIS_FETCH_TIMEOUT_MS = 15000;
+    const ANALYSIS_RESPONSE_MAX_BYTES = 64 * 1024;
+    const DETAILED_ANALYSIS_IMPORT_SOURCE = 'detailed-analysis';
     const DECK_EXPORT_FORMAT = 'op-tcg-db-deck';
     const WANTED_CARDS_METADATA_KEY = 'wantedCards';
     const VARIANT_DISPLAY_MODE_STORAGE_KEY = 'variantDisplayMode';
@@ -37,7 +47,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.10.1'; // バージョン更新
+    const APP_VERSION = '1.11.1'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -233,6 +243,7 @@
             sharedDeckConfirmLeader: $('#shared-deck-confirm-leader'),
             sharedDeckConfirmCardCount: $('#shared-deck-confirm-card-count'),
             sharedDeckConfirmTypeCount: $('#shared-deck-confirm-type-count'),
+            sharedDeckConfirmWarning: $('#shared-deck-confirm-warning'),
             sharedDeckConfirmPreview: $('#shared-deck-confirm-preview'),
             sharedDeckConfirmCancelBtn: $('#shared-deck-confirm-cancel-btn'),
             sharedDeckConfirmAcceptBtn: $('#shared-deck-confirm-accept-btn'),
@@ -256,6 +267,7 @@
             deckListContainer: $('#deck-list-container'),
             createNewDeckBtn: $('#create-new-deck-btn'),
             importSharedDeckBtn: $('#import-shared-deck-btn'),
+            detailedAnalyzerLink: $('#detailed-analyzer-link'),
             deckStatusBar: $('#deck-status-bar'),
             deckStatusInfo: $('#deck-status-info'),
             deckSaveBtn: $('#deck-save-btn'),
@@ -347,6 +359,10 @@
     async function initializeApp() {
         console.log('PWA Initializing...');
         cacheDomElements();
+
+        if (dom.detailedAnalyzerLink) {
+            dom.detailedAnalyzerLink.href = DETAILED_ANALYZER_APP_URL;
+        }
         
         if (dom.appVersionInfo) {
             dom.appVersionInfo.textContent = APP_VERSION;
@@ -371,7 +387,7 @@
         }
         if (db) {
             await checkCardDataVersion();
-            await importSharedDeckFromUrl();
+            await importDeckFromCurrentHash();
         }
         initializeDeckImageImport();
         setDefaultColumnLayout();
@@ -2372,6 +2388,36 @@
         history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`);
     }
 
+    function getDetailedAnalysisHashParams() {
+        const hashParams = new URLSearchParams(window.location.hash.slice(1));
+        const hasAnalysisId = hashParams.has(ANALYSIS_HASH_KEY);
+        const hasToken = hashParams.has(ANALYSIS_TOKEN_HASH_KEY);
+        if (!hasAnalysisId && !hasToken) return null;
+
+        const analysisIds = hashParams.getAll(ANALYSIS_HASH_KEY);
+        const tokens = hashParams.getAll(ANALYSIS_TOKEN_HASH_KEY);
+        if (!hasAnalysisId || !hasToken || analysisIds.length !== 1 || tokens.length !== 1) {
+            throw new Error('詳細解析リンクの形式が正しくありません。');
+        }
+
+        const analysisId = String(analysisIds[0] || '').trim().toLowerCase();
+        const token = String(tokens[0] || '').trim();
+        if (!ANALYSIS_ID_PATTERN.test(analysisId) || !ANALYSIS_TOKEN_PATTERN.test(token)) {
+            throw new Error('詳細解析リンクの形式が正しくありません。');
+        }
+        return { analysisId, token };
+    }
+
+    function clearDetailedAnalysisHash() {
+        const url = new URL(window.location.href);
+        const hashParams = new URLSearchParams(url.hash.slice(1));
+        if (!hashParams.has(ANALYSIS_HASH_KEY) && !hashParams.has(ANALYSIS_TOKEN_HASH_KEY)) return;
+        hashParams.delete(ANALYSIS_HASH_KEY);
+        hashParams.delete(ANALYSIS_TOKEN_HASH_KEY);
+        url.hash = hashParams.toString();
+        history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`);
+    }
+
     function decodeSharedDeck(value) {
         let payload;
         try {
@@ -2391,10 +2437,174 @@
         };
     }
 
+    function createDetailedAnalysisError(code, retryAfterSeconds = 0) {
+        const error = new Error('Detailed analysis import failed.');
+        error.name = 'DetailedAnalysisImportError';
+        error.code = code;
+        if (retryAfterSeconds > 0) error.retryAfterSeconds = retryAfterSeconds;
+        return error;
+    }
+
+    function createDetailedAnalysisImportError(status, retryAfter = '') {
+        if (status === 404) return createDetailedAnalysisError('link-unavailable');
+        if (status === 409) return createDetailedAnalysisError('deck-incomplete');
+        if (status === 429) {
+            const retryAfterSeconds = /^\d+$/.test(retryAfter)
+                ? Math.min(Number(retryAfter), 86400)
+                : 0;
+            return createDetailedAnalysisError('rate-limited', retryAfterSeconds);
+        }
+        if (status >= 500) return createDetailedAnalysisError('server-error');
+        return createDetailedAnalysisError('request-rejected');
+    }
+
+    function getDetailedAnalysisImportMessage(error) {
+        if (error?.name === 'AbortError') {
+            return '詳細解析結果の取得がタイムアウトしました。解析画面から再発行してください。';
+        }
+        switch (error?.code) {
+            case 'api-not-configured':
+                return '詳細画像解析APIはまだ設定されていません。既存の画像解析と共有URLは引き続き利用できます。';
+            case 'link-unavailable':
+                return 'リンクが無効または期限切れです。解析画面から再発行してください。';
+            case 'deck-incomplete':
+                return '解析画面でリーダー・枚数を修正してください。';
+            case 'rate-limited':
+                return error.retryAfterSeconds
+                    ? `アクセスが集中しています。${error.retryAfterSeconds}秒後に解析画面から再発行してください。`
+                    : 'アクセスが集中しています。時間をおいて解析画面から再発行してください。';
+            case 'server-error':
+                return '解析APIで問題が発生しました。時間をおいて再度お試しください。';
+            case 'response-too-large':
+            case 'invalid-response':
+            case 'unsupported-version':
+            case 'invalid-deck':
+                return '詳細解析結果の形式が正しくありません。解析画面から再発行してください。';
+            case 'request-rejected':
+                return '詳細解析リンクを使用できません。解析画面から再発行してください。';
+            default:
+                return '解析APIへ接続できませんでした。解析画面から再発行してください。';
+        }
+    }
+
+    async function readDetailedAnalysisJson(response) {
+        const contentLength = response.headers.get('Content-Length');
+        if (/^\d+$/.test(contentLength || '') && Number(contentLength) > ANALYSIS_RESPONSE_MAX_BYTES) {
+            throw createDetailedAnalysisError('response-too-large');
+        }
+
+        let bytes;
+        if (response.body?.getReader) {
+            const reader = response.body.getReader();
+            const chunks = [];
+            let totalBytes = 0;
+            try {
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) break;
+                    totalBytes += value.byteLength;
+                    if (totalBytes > ANALYSIS_RESPONSE_MAX_BYTES) {
+                        await reader.cancel();
+                        throw createDetailedAnalysisError('response-too-large');
+                    }
+                    chunks.push(value);
+                }
+            } finally {
+                reader.releaseLock();
+            }
+            bytes = new Uint8Array(totalBytes);
+            let offset = 0;
+            chunks.forEach(chunk => {
+                bytes.set(chunk, offset);
+                offset += chunk.byteLength;
+            });
+        } else {
+            const buffer = await response.arrayBuffer();
+            if (buffer.byteLength > ANALYSIS_RESPONSE_MAX_BYTES) {
+                throw createDetailedAnalysisError('response-too-large');
+            }
+            bytes = new Uint8Array(buffer);
+        }
+
+        try {
+            const payload = JSON.parse(new TextDecoder().decode(bytes));
+            if (!payload || typeof payload !== 'object' || Array.isArray(payload)) {
+                throw new Error('Not an object');
+            }
+            return payload;
+        } catch (error) {
+            throw createDetailedAnalysisError('invalid-response');
+        }
+    }
+
+    function normalizeDetailedAnalysisDeck(payload) {
+        if (!payload || typeof payload !== 'object' || Array.isArray(payload)) {
+            throw createDetailedAnalysisError('invalid-response');
+        }
+        if (Object.keys(payload).some(key => !['v', 'n', 'l', 'c'].includes(key))) {
+            throw createDetailedAnalysisError('invalid-response');
+        }
+        if (payload.v !== DECK_SHARE_VERSION) {
+            throw createDetailedAnalysisError('unsupported-version');
+        }
+
+        const name = typeof payload.n === 'string' ? normalizeDeckName(payload.n, '') : '';
+        const leader = normalizeSharedCardNumber(payload.l);
+        if (!name || !leader || !Array.isArray(payload.c) || payload.c.length > DECK_MAX_CARDS * 2) {
+            throw createDetailedAnalysisError('invalid-deck');
+        }
+        if (payload.c.some(entry => (
+            !Array.isArray(entry)
+            || entry.length !== 2
+            || typeof entry[0] !== 'string'
+            || !Number.isInteger(entry[1])
+        ))) {
+            throw createDetailedAnalysisError('invalid-deck');
+        }
+
+        let cards;
+        try {
+            cards = normalizeDeckTransferEntries(payload.c, leader);
+        } catch (error) {
+            throw createDetailedAnalysisError('invalid-deck');
+        }
+        const total = Object.values(cards).reduce((sum, count) => sum + count, 0);
+        if (total !== DECK_MAX_CARDS) throw createDetailedAnalysisError('invalid-deck');
+
+        const leaderCard = findCardByNumber(leader);
+        if (leaderCard && leaderCard.cardType !== 'LEADER') {
+            throw createDetailedAnalysisError('invalid-deck');
+        }
+        const unknownCardNumbers = [leader, ...Object.keys(cards)]
+            .filter((cardNumber, index, values) => values.indexOf(cardNumber) === index)
+            .filter(cardNumber => !findCardByNumber(cardNumber));
+
+        return {
+            name,
+            leader,
+            cards,
+            importSource: DETAILED_ANALYSIS_IMPORT_SOURCE,
+            unknownCardNumbers
+        };
+    }
+
+    function revalidateDetailedAnalysisDeck(imported) {
+        return normalizeDetailedAnalysisDeck({
+            v: DECK_SHARE_VERSION,
+            n: imported?.name,
+            l: imported?.leader,
+            c: Object.entries(imported?.cards || {})
+        });
+    }
+
     function resolveSharedDeckImportConfirmation(confirmed) {
         if (dom.sharedDeckConfirmModal) {
             dom.sharedDeckConfirmModal.style.display = 'none';
             dom.sharedDeckConfirmModal.setAttribute('aria-hidden', 'true');
+        }
+        if (dom.sharedDeckConfirmWarning) {
+            dom.sharedDeckConfirmWarning.textContent = '';
+            dom.sharedDeckConfirmWarning.hidden = true;
         }
         dom.sharedDeckConfirmPreview?.replaceChildren();
         document.body.classList.remove('shared-deck-confirm-open');
@@ -2504,10 +2714,24 @@
         dom.sharedDeckConfirmPreview.replaceChildren(leaderGroup, deckGroup);
     }
 
+    function getSharedDeckConfirmationWarning(imported) {
+        if (imported?.importSource !== DETAILED_ANALYSIS_IMPORT_SOURCE) return '';
+        const messages = [
+            '詳細画像解析から取り込んだ結果です。内容を確認してから追加してください。'
+        ];
+        if (Array.isArray(imported.unknownCardNumbers) && imported.unknownCardNumbers.length > 0) {
+            messages.push(
+                `現在のカードDBに未登録のカードが含まれています: ${imported.unknownCardNumbers.join('、')}`
+            );
+        }
+        return messages.join('\n');
+    }
+
     function confirmSharedDeckImport(imported) {
         const totalCards = Object.values(imported.cards || {})
             .reduce((sum, count) => sum + Number(count || 0), 0);
         const typeCount = Object.keys(imported.cards || {}).length;
+        const warning = getSharedDeckConfirmationWarning(imported);
 
         if (!dom.sharedDeckConfirmModal) {
             return Promise.resolve(window.confirm([
@@ -2515,7 +2739,8 @@
                 '',
                 imported.name,
                 `リーダー: ${imported.leader}`,
-                `カード: ${totalCards}枚 / ${typeCount}種`
+                `カード: ${totalCards}枚 / ${typeCount}種`,
+                ...(warning ? ['', warning] : [])
             ].join('\n')));
         }
 
@@ -2526,6 +2751,10 @@
         dom.sharedDeckConfirmLeader.textContent = imported.leader;
         dom.sharedDeckConfirmCardCount.textContent = `${totalCards}枚`;
         dom.sharedDeckConfirmTypeCount.textContent = `${typeCount}種`;
+        if (dom.sharedDeckConfirmWarning) {
+            dom.sharedDeckConfirmWarning.textContent = warning;
+            dom.sharedDeckConfirmWarning.hidden = !warning;
+        }
         renderSharedDeckPreview(imported);
         dom.sharedDeckConfirmModal.style.display = 'flex';
         dom.sharedDeckConfirmModal.setAttribute('aria-hidden', 'false');
@@ -2700,9 +2929,13 @@
         deckImageImportInitialized = true;
     }
 
-    async function confirmAndSaveSharedDeck(imported) {
+    async function confirmAndSaveSharedDeck(imported, revalidateBeforeSave = null) {
         const confirmed = await confirmSharedDeckImport(imported);
-        return confirmed ? saveImportedSharedDeck(imported) : false;
+        if (!confirmed) return false;
+        const validated = typeof revalidateBeforeSave === 'function'
+            ? revalidateBeforeSave(imported)
+            : imported;
+        return saveImportedSharedDeck(validated);
     }
 
     async function importSharedDeckFromUrl() {
@@ -2721,6 +2954,80 @@
             clearSharedDeckHash();
             isImportingSharedDeck = false;
         }
+    }
+
+    async function importDetailedAnalysisFromUrl() {
+        let transfer;
+        try {
+            transfer = getDetailedAnalysisHashParams();
+        } catch (error) {
+            clearDetailedAnalysisHash();
+            showMessageToast(error.message, 'error');
+            return false;
+        }
+        if (!transfer || !db) return false;
+
+        clearDetailedAnalysisHash();
+        if (isImportingSharedDeck) {
+            showMessageToast('別のデッキを確認中です。解析画面から新しいリンクを発行してください。', 'error');
+            return false;
+        }
+        if (!DETAILED_ANALYZER_API_BASE_URL) {
+            showMessageToast(
+                getDetailedAnalysisImportMessage(createDetailedAnalysisError('api-not-configured')),
+                'error'
+            );
+            return false;
+        }
+
+        isImportingSharedDeck = true;
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), ANALYSIS_FETCH_TIMEOUT_MS);
+        try {
+            showMessageToast('詳細解析結果を取得しています。', 'info');
+            const response = await fetch(
+                `${DETAILED_ANALYZER_API_BASE_URL}/api/v1/analyses/${transfer.analysisId}/deck`,
+                {
+                    method: 'GET',
+                    mode: 'cors',
+                    credentials: 'omit',
+                    cache: 'no-store',
+                    redirect: 'error',
+                    referrerPolicy: 'no-referrer',
+                    headers: {
+                        Accept: 'application/json',
+                        'X-Transfer-Token': transfer.token
+                    },
+                    signal: controller.signal
+                }
+            );
+            if (!response.ok) {
+                throw createDetailedAnalysisImportError(
+                    response.status,
+                    response.headers.get('Retry-After') || ''
+                );
+            }
+            const imported = normalizeDetailedAnalysisDeck(await readDetailedAnalysisJson(response));
+            clearTimeout(timeout);
+            dom.messageToastDismissBtn?.click();
+            return await confirmAndSaveSharedDeck(imported, revalidateDetailedAnalysisDeck);
+        } catch (error) {
+            console.error('Detailed analysis import failed.');
+            showMessageToast(getDetailedAnalysisImportMessage(error), 'error');
+            return false;
+        } finally {
+            clearTimeout(timeout);
+            isImportingSharedDeck = false;
+        }
+    }
+
+    async function importDeckFromCurrentHash() {
+        if (!db) return false;
+        const hashParams = new URLSearchParams(window.location.hash.slice(1));
+        if (hashParams.has(ANALYSIS_HASH_KEY) || hashParams.has(ANALYSIS_TOKEN_HASH_KEY)) {
+            return importDetailedAnalysisFromUrl();
+        }
+        return importSharedDeckFromUrl();
     }
 
     async function importSharedDeckFromText() {
@@ -5810,7 +6117,7 @@
             }
         });
         window.addEventListener('hashchange', () => {
-            importSharedDeckFromUrl();
+            importDeckFromCurrentHash();
         });
 
         // 検索バー
