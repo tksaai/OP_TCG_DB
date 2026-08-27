@@ -5,10 +5,11 @@
  */
 
 // === 1. 定数 ===
-const CACHE_APP_SHELL = 'app-shell-v37';
+const CACHE_APP_SHELL = 'app-shell-v38';
 const CACHE_CARD_DATA = 'card-data-v12';
 // v2: 配信を WebP に一本化したタイミングで、古い JPEG/PNG のキャッシュを捨てる
 const CACHE_IMAGES = 'card-images-v2';
+const OWNED_CACHE_PREFIXES = ['app-shell-', 'card-data-', 'card-images-'];
 // 全画像キャッシュを実行すると数千枚たまるため、上限を決めて古いものから捨てる
 const MAX_IMAGE_CACHE_ENTRIES = 8000;
 
@@ -84,7 +85,8 @@ self.addEventListener('activate', (event) => {
         caches.keys().then((cacheNames) => {
             return Promise.all(
                 cacheNames.map((cacheName) => {
-                    if (!cacheWhitelist.includes(cacheName)) {
+                    const isOwnedCache = OWNED_CACHE_PREFIXES.some((prefix) => cacheName.startsWith(prefix));
+                    if (isOwnedCache && !cacheWhitelist.includes(cacheName)) {
                         console.log(`[SW] Deleting old cache: ${cacheName}`);
                         return caches.delete(cacheName);
                     }

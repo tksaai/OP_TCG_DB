@@ -109,8 +109,26 @@ for (const layout of layouts) {
         assert.equal(result.layout, '可変50枚グリッド');
         assert.equal(result.regions.length, 51);
         assert.equal(result.regions.filter(region => region.hintRole === 'leader').length, 1);
+        const leader = result.regions.find(region => region.hintRole === 'leader');
+        const expectedLeaderWidth = layout.panelRight * 0.78;
+        const expectedLeaderX = (layout.panelRight - expectedLeaderWidth) / 2;
+        const leaderTolerance = layout.cardWidth * 0.1;
+        assert.ok(leader.x <= expectedLeaderX + leaderTolerance);
+        assert.ok(leader.y <= layout.gridY + leaderTolerance);
+        assert.ok(
+            leader.x + leader.width
+            >= expectedLeaderX + expectedLeaderWidth - leaderTolerance,
+            JSON.stringify({ leader, expectedLeaderX, expectedLeaderWidth, leaderTolerance })
+        );
+        assert.ok(
+            leader.y + leader.height
+            >= layout.gridY + expectedLeaderWidth * 1.397 - leaderTolerance,
+            JSON.stringify({ leader, expectedLeaderWidth, leaderTolerance })
+        );
         const deck = result.regions.filter(region => region.hintRole === 'deck');
         assert.equal(deck.length, 50);
         assert.ok(deck.every(region => region.count === 1 && region.countMode === 'none'));
+        assert.ok(Math.abs(deck[0].x - layout.gridX) <= layout.cardWidth * 0.12);
+        assert.ok(Math.abs(deck[0].y - layout.gridY) <= layout.cardWidth * 0.12);
     });
 }

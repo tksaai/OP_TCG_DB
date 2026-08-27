@@ -594,11 +594,21 @@
         for (let sizeOffset = -2; sizeOffset <= 2; sizeOffset += 1) {
             const candidateWidth = baseRect.width * (1 + sizeOffset * 0.035);
             const candidateHeight = candidateWidth * 1.397;
-            const step = Math.max(2, candidateWidth * 0.025);
+            const centeredX = (panelRight - candidateWidth) / 2;
+            const horizontalStep = Math.max(1, candidateWidth * 0.0125);
+            const verticalStep = Math.max(2, candidateWidth * 0.025);
             for (let xOffset = -2; xOffset <= 2; xOffset += 1) {
-                const x = clamp(baseRect.x + xOffset * step, 0, panelRight - candidateWidth);
+                const x = clamp(
+                    centeredX + xOffset * horizontalStep,
+                    0,
+                    panelRight - candidateWidth
+                );
                 for (let yOffset = -2; yOffset <= 2; yOffset += 1) {
-                    const y = clamp(baseRect.y + yOffset * step, 0, height - candidateHeight);
+                    const y = clamp(
+                        baseRect.y + yOffset * verticalStep,
+                        0,
+                        height - candidateHeight
+                    );
                     const rect = { x, y, width: candidateWidth, height: candidateHeight };
                     const signal = regionSignal(imageData, width, height, rect);
                     const borderSignal = regionBorderSignal(imageData, width, height, rect);
@@ -616,7 +626,9 @@
 
         const expectedColumns = 10;
         const expectedRows = 5;
-        const xStart = Math.round(width * 0.18);
+        // Start after the large leader panel. Beginning too far left lets the leader's
+        // right edge masquerade as column 1 and shifts every main-deck crop.
+        const xStart = Math.round(width * 0.225);
         const columnProfile = buildInkColumnProfile(imageData, width, height, xStart);
         let columnLow = profileQuantile(columnProfile, 0.2);
         const columnHigh = profileQuantile(columnProfile, 0.82);
@@ -671,12 +683,12 @@
         if (activeCards < 46) return null;
 
         const gridLeft = regions[0].x;
-        const previousRun = allColumnRuns
-            .filter(run => run.end < gridLeft - cardWidth * 0.08)
-            .sort((a, b) => a.end - b.end)
-            .pop();
-        const panelRight = clamp(previousRun?.end || gridLeft - width * 0.018, cardWidth * 2.2, gridLeft);
-        const leaderWidth = Math.min(panelRight * 0.79, cardWidth * 3.25);
+        // A dark leader-card edge can look like the end of the left panel. Derive the panel
+        // boundary from the stable main-grid origin instead, otherwise the leader crop becomes
+        // too narrow and the matcher can confidently select a different leader illustration.
+        const gridGap = Math.max(width * 0.018, cardWidth * 0.3);
+        const panelRight = clamp(gridLeft - gridGap, cardWidth * 2.9, gridLeft);
+        const leaderWidth = clamp(panelRight * 0.8, cardWidth * 2.9, cardWidth * 3.35);
         const leaderBase = {
             x: (panelRight - leaderWidth) / 2,
             y: Math.max(height * 0.025, firstRowY),

@@ -220,6 +220,7 @@
             settingsModal: $('#settings-modal'),
             closeSettingsModalBtn: $('#close-settings-modal-btn'),
             cacheAllImagesBtn: $('#cache-all-images-btn'),
+            refreshAppCacheBtn: $('#refresh-app-cache-btn'),
             clearAllDataBtn: $('#clear-all-data-btn'),
             appDialogModal: $('#app-dialog-modal'),
             appDialogTitle: $('#app-dialog-title'),
@@ -5774,6 +5775,53 @@
         }
     }
 
+    async function refreshAppCache() {
+        if (!await confirmDialog(
+            '保存デッキ・所持カード・設定は残したまま、アプリと画像解析のキャッシュを更新します。',
+            { title: 'キャッシュを更新', confirmLabel: '更新する' }
+        )) return;
+
+        const button = dom.refreshAppCacheBtn;
+        if (button) {
+            button.disabled = true;
+            button.textContent = '更新中...';
+        }
+        try {
+            const cachePrefixes = [
+                'app-shell-',
+                'card-data-',
+                'card-images-',
+                'op-tcg-browser-analyzer-'
+            ];
+            const cacheNames = await caches.keys();
+            await Promise.all(
+                cacheNames
+                    .filter(name => cachePrefixes.some(prefix => name.startsWith(prefix)))
+                    .map(name => caches.delete(name))
+            );
+
+            if ('serviceWorker' in navigator) {
+                const registrations = typeof navigator.serviceWorker.getRegistrations === 'function'
+                    ? await navigator.serviceWorker.getRegistrations()
+                    : [await navigator.serviceWorker.getRegistration()].filter(Boolean);
+                await Promise.all(registrations.map(registration => registration.update().catch(() => null)));
+                registrations.forEach(registration => {
+                    registration.waiting?.postMessage({ type: 'SKIP_WAITING' });
+                });
+            }
+
+            showMessageToast('ユーザーデータを保持したままキャッシュを更新しました。再読み込みします。', 'success');
+            setTimeout(() => window.location.reload(), 900);
+        } catch (error) {
+            console.error('Failed to refresh app cache:', error);
+            showMessageToast('キャッシュを更新できませんでした。', 'error');
+            if (button) {
+                button.disabled = false;
+                button.textContent = 'キャッシュを更新';
+            }
+        }
+    }
+
     // === 8. PWA機能 (Service Worker, 通知) ===
     async function registerServiceWorker() {
         if ('serviceWorker' in navigator) {
@@ -6248,6 +6296,7 @@
         });
         
         dom.cacheAllImagesBtn.addEventListener('click', cacheAllImages);
+        dom.refreshAppCacheBtn?.addEventListener('click', refreshAppCache);
         dom.clearAllDataBtn.addEventListener('click', clearAllData);
         if (dom.githubTokenSaveBtn) {
             dom.githubTokenSaveBtn.addEventListener('click', () => {
