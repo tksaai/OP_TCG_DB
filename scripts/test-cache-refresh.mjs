@@ -21,7 +21,37 @@ test('cache refresh UI preserves user data stores', async () => {
 
 test('service worker cache version is advanced for the recognition fix', async () => {
     const source = await readFile(new URL('service-worker.js', root), 'utf8');
-    assert.match(source, /CACHE_APP_SHELL = 'app-shell-v38'/);
+    assert.match(source, /CACHE_APP_SHELL = 'app-shell-v39'/);
     assert.match(source, /OWNED_CACHE_PREFIXES/);
     assert.match(source, /isOwnedCache && !cacheWhitelist\.includes/);
+});
+
+test('image display and bulk cache use the same cache version', async () => {
+    const appSource = await readFile(new URL('app.js', root), 'utf8');
+    const workerSource = await readFile(new URL('service-worker.js', root), 'utf8');
+    const appCache = appSource.match(/const CACHE_IMAGES = '([^']+)'/)?.[1];
+    const workerCache = workerSource.match(/const CACHE_IMAGES = '([^']+)'/)?.[1];
+
+    assert.equal(appCache, workerCache);
+});
+
+test('image cache trimming is batched instead of scanning after every miss', async () => {
+    const source = await readFile(new URL('service-worker.js', root), 'utf8');
+    const cacheFirstStart = source.indexOf('async function cacheFirst');
+    const cacheFirstEnd = source.indexOf('/**\n * Network First', cacheFirstStart);
+    const cacheFirstFunction = source.slice(cacheFirstStart, cacheFirstEnd);
+
+    assert.match(source, /IMAGE_CACHE_TRIM_INTERVAL = 100/);
+    assert.match(cacheFirstFunction, /trimImageCacheWhenDue/);
+    assert.doesNotMatch(cacheFirstFunction, /trimCache\(cacheName/);
+});
+
+test('startup data revalidates and the first card render stays bounded', async () => {
+    const source = await readFile(new URL('app.js', root), 'utf8');
+
+    assert.match(source, /fetch\(IMAGE_MANIFEST_PATH, \{ cache: 'no-cache' \}\)/);
+    assert.match(source, /fetch\(CARDS_JSON_PATH, \{ cache: 'no-cache' \}\)/);
+    assert.match(source, /const INITIAL_RENDER_COUNT = 120/);
+    assert.match(source, /const RENDER_CHUNK_SIZE = 120/);
+    assert.match(source, /img\.decoding = 'async'/);
 });

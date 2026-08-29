@@ -5,13 +5,15 @@
  */
 
 // === 1. 定数 ===
-const CACHE_APP_SHELL = 'app-shell-v38';
+const CACHE_APP_SHELL = 'app-shell-v39';
 const CACHE_CARD_DATA = 'card-data-v12';
 // v2: 配信を WebP に一本化したタイミングで、古い JPEG/PNG のキャッシュを捨てる
 const CACHE_IMAGES = 'card-images-v2';
 const OWNED_CACHE_PREFIXES = ['app-shell-', 'card-data-', 'card-images-'];
 // 全画像キャッシュを実行すると数千枚たまるため、上限を決めて古いものから捨てる
 const MAX_IMAGE_CACHE_ENTRIES = 8000;
+const IMAGE_CACHE_TRIM_INTERVAL = 100;
+let imageCacheWritesSinceTrim = 0;
 
 const CARDS_JSON_PATH = './cards.json';
 const PROVISIONAL_CARDS_JSON_PATH = './provisional-cards.json';
@@ -58,9 +60,12 @@ self.addEventListener('install', (event) => {
             .then(() => caches.open(CACHE_CARD_DATA))
             .then((cache) => {
                 console.log('[SW] Caching initial card data...');
-                return Promise.all(CARD_DATA_FILES.map(file => cache.add(file).catch(err => {
-                    console.error(`[SW] Failed to cache initial ${file}`, err);
-                })));
+                return Promise.all(CARD_DATA_FILES.map(async file => {
+                    if (await cache.match(file)) return;
+                    await cache.add(file).catch(err => {
+                        console.error(`[SW] Failed to cache initial ${file}`, err);
+                    });
+                }));
             })
             .then(() => {
                 console.log('[SW] Install complete.');
@@ -171,6 +176,13 @@ async function trimCache(cacheName, maxEntries) {
     }
 }
 
+async function trimImageCacheWhenDue() {
+    imageCacheWritesSinceTrim += 1;
+    if (imageCacheWritesSinceTrim < IMAGE_CACHE_TRIM_INTERVAL) return;
+    imageCacheWritesSinceTrim = 0;
+    await trimCache(CACHE_IMAGES, MAX_IMAGE_CACHE_ENTRIES);
+}
+
 /**
  * Cache First (Cache, falling back to Network) - GETのみ対応
  * @param {Request} request - GET Request
@@ -191,7 +203,7 @@ async function cacheFirst(request, cacheName) {
             // cache.put は GET リクエストのみサポート
              await cache.put(request, networkResponse.clone());
              if (cacheName === CACHE_IMAGES) {
-                 await trimCache(cacheName, MAX_IMAGE_CACHE_ENTRIES);
+                 await trimImageCacheWhenDue();
              }
         } else if (networkResponse) {
              console.warn(`[SW] Cache First: Received non-OK response for ${request.url}: ${networkResponse.status}`);

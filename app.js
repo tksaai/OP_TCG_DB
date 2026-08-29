@@ -32,7 +32,7 @@
     const COLLECTION_EXPORT_VERSION = 1;
     const CARD_LIST_IMAGE_MAX_TYPES = 120;
     const CACHE_APP_SHELL = 'app-shell-v1';
-    const CACHE_IMAGES = 'card-images-v1';
+    const CACHE_IMAGES = 'card-images-v2';
     const CARDS_JSON_PATH = './cards.json';
     const PROVISIONAL_CARDS_JSON_PATH = './provisional-cards.json';
     const IMAGE_MANIFEST_PATH = './image-manifest.json';
@@ -47,7 +47,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.11.1'; // バージョン更新
+    const APP_VERSION = '1.11.2'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -443,7 +443,7 @@
     // === 5. カード一覧表示 ===
     async function loadImageManifest() {
         try {
-            const response = await fetch(IMAGE_MANIFEST_PATH, { cache: 'no-store' });
+            const response = await fetch(IMAGE_MANIFEST_PATH, { cache: 'no-cache' });
             if (!response.ok) throw new Error(`Failed to fetch image manifest: ${response.status}`);
             const manifest = await response.json();
             imageManifest = manifest && manifest.cards ? manifest : { cards: {} };
@@ -1024,7 +1024,7 @@
 
     async function loadProvisionalCards() {
         try {
-            const response = await fetch(PROVISIONAL_CARDS_JSON_PATH, { cache: 'no-store' });
+            const response = await fetch(PROVISIONAL_CARDS_JSON_PATH, { cache: 'no-cache' });
             if (response.status === 404) {
                 provisionalCards = [];
                 rebuildProvisionalVariants();
@@ -1155,8 +1155,8 @@
 
     // 一覧は件数が多い (絵違い展開で 7,000 件超) ため、まとめて DOM を作らず
     // 画面の下端が近づいたぶんだけ描き足す
-    const INITIAL_RENDER_COUNT = 300;
-    const RENDER_CHUNK_SIZE = 300;
+    const INITIAL_RENDER_COUNT = 120;
+    const RENDER_CHUNK_SIZE = 120;
     let renderQueue = [];
     let renderCursor = 0;
     let renderObserver = null;
@@ -1180,9 +1180,10 @@
         const displayVariantIndex = getCardDisplayVariantIndex(card);
         const relativeImagePath = getCardImagePath(card, displayVariantIndex);
 
-        img.src = relativeImagePath; 
+        img.src = relativeImagePath;
         img.alt = card.cardName || card.cardNumber;
         img.loading = 'lazy';
+        img.decoding = 'async';
         
         img.onerror = () => {
             const fallback = document.createElement('div');
@@ -2077,7 +2078,7 @@
         if (!db) return;
 
         try {
-            const response = await fetch(CARDS_JSON_PATH, { cache: 'no-store' });
+            const response = await fetch(CARDS_JSON_PATH, { cache: 'no-cache' });
 
             if (!response.ok) throw new Error(`Failed to fetch cards.json: ${response.statusText} (${response.status})`);
 
@@ -2164,7 +2165,7 @@
             let responseLastModified = serverLastModified;
 
             if (!cardsData) {
-                const response = await fetch(CARDS_JSON_PATH, { cache: 'no-store' });
+                const response = await fetch(CARDS_JSON_PATH, { cache: 'no-cache' });
                 if (!response.ok) throw new Error(`Failed to download cards.json: ${response.statusText} (${response.status})`);
                 responseLastModified = response.headers.get('Last-Modified') || responseLastModified;
                 cardsData = await response.json();
