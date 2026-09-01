@@ -95,6 +95,7 @@
     "cardName": "キッド&キラー",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "Vジャンプ10月特大号応募者全員サービス（2024年8月21日売）",
     "label": "公式差分 3"
   },
@@ -290,6 +291,7 @@
     "cardName": "キャベンディッシュ",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "フラッグシップバトル2024 4月ベスト8記念品",
     "label": "公式差分 3"
   },
@@ -326,6 +328,7 @@
     "cardName": "サンジ",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "スタンダードバトルパックVol.9",
     "label": "公式差分 2"
   },
@@ -362,6 +365,7 @@
     "cardName": "スクラッチメン・アプー",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "スタンダードバトルパックVol.10",
     "label": "公式差分 2"
   },
@@ -821,6 +825,7 @@
     "cardName": "ブルック",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "始めようキャンペーン プロモーションパック",
     "label": "公式差分 3"
   },
@@ -830,6 +835,7 @@
     "cardName": "ブルック",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "始めようキャンペーン プロモーションパック",
     "label": "公式差分 4"
   },
@@ -1181,6 +1187,7 @@
     "cardName": "ヤマト",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "エクストラグランドバトル2026 4月優勝記念品",
     "label": "公式差分 3"
   },
@@ -1334,6 +1341,7 @@
     "cardName": "ナミ",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "ONE PIECE CARD GAME 3rd ANNIVERSARY COMPLETE GUIDE付録",
     "label": "公式差分 3"
   },
@@ -1361,6 +1369,7 @@
     "cardName": "ロロノア・ゾロ",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "スタンダードバトル 2025年3月優勝記念品",
     "label": "公式差分 2"
   },
@@ -1370,6 +1379,7 @@
     "cardName": "ロロノア・ゾロ",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "スタンダードバトルパックVol.11",
     "label": "公式差分 3"
   },
@@ -1460,6 +1470,7 @@
     "cardName": "ネフェルタリ・ビビ",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "プロモーションパックEX Vol.3",
     "label": "公式差分 3"
   },
@@ -1568,6 +1579,7 @@
     "cardName": "サンジ&プリン",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "8パックバトル 2026年4月",
     "label": "公式差分 3"
   },
@@ -1820,6 +1832,7 @@
     "cardName": "サンジ",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "プロモーションパックEX Vol.3",
     "label": "公式差分 3"
   },
@@ -1838,6 +1851,7 @@
     "cardName": "ジンベエ",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "スタンダードバトルパックVol.11",
     "label": "公式差分 2"
   },
@@ -2032,6 +2046,7 @@
     "cardName": "ナミ",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "プロモーションパックEX Vol.4",
     "label": "公式差分 2"
   },
@@ -2311,6 +2326,7 @@
     "cardName": "マーガレット",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "プロモーションパックEX Vol.4",
     "label": "公式差分 2"
   },
@@ -3061,6 +3077,7 @@
     "cardName": "チャカ&ペル",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "スタンダードバトルパック Vol.15",
     "label": "公式差分 2"
   },
@@ -3496,6 +3513,7 @@
     "cardName": "ボルサリーノ",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "プロモーションパックEX Vol.4",
     "label": "公式差分 3"
   },
@@ -3541,6 +3559,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "SEC",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "フラッグシップバトル2026 4月優勝記念品",
     "label": "公式差分 3"
   },
@@ -3631,6 +3650,7 @@
     "cardName": "ウソップ",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "チャンピオンシップ2022 予選 ベスト32記念品",
     "label": "公式差分 3"
   },
@@ -3649,6 +3669,7 @@
     "cardName": "ウタ",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "『ONE PIECE FILM RED』入場者プレゼント フィナーレセット",
     "label": "公式差分 2"
   },
@@ -3676,6 +3697,7 @@
     "cardName": "ウタ",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "プロモーションカードセット",
     "label": "公式差分 5"
   },
@@ -3829,6 +3851,7 @@
     "cardName": "サンジ",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "プロモーションカードセット",
     "label": "公式差分 4"
   },
@@ -3847,6 +3870,7 @@
     "cardName": "ジンベエ",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "『ONE PIECE FILM RED』入場者プレゼント フィナーレセット",
     "label": "公式差分 2"
   },
@@ -3874,6 +3898,7 @@
     "cardName": "トニートニー・チョッパー",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.6",
     "label": "公式差分 2"
   },
@@ -3972,6 +3997,7 @@
     "cardName": "ニコ・ロビン",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "『ONE PIECE FILM RED』入場者プレゼント フィナーレセット",
     "label": "公式差分 2"
   },
@@ -3990,6 +4016,7 @@
     "cardName": "ニコ・ロビン",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.5",
     "label": "公式差分 4"
   },
@@ -4035,6 +4062,7 @@
     "cardName": "フランキー",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "『ONE PIECE FILM RED』入場者プレゼント フィナーレセット",
     "label": "公式差分 2"
   },
@@ -4044,6 +4072,7 @@
     "cardName": "フランキー",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "スタンダードバトル 9月優勝記念品",
     "label": "公式差分 3"
   },
@@ -4053,6 +4082,7 @@
     "cardName": "フランキー",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "スタンダードバトルパック2022 Vol.1",
     "label": "公式差分 4"
   },
@@ -4071,6 +4101,7 @@
     "cardName": "フランキー",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "プロモーションカードセット",
     "label": "公式差分 6"
   },
@@ -4170,6 +4201,7 @@
     "cardName": "ロロノア・ゾロ",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "フラッグシップバトル2023 4月優勝記念品",
     "label": "公式差分 5"
   },
@@ -4314,6 +4346,7 @@
     "cardName": "イゾウ",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "スタンダードバトルパック2022 Vol.1",
     "label": "公式差分 2"
   },
@@ -4377,6 +4410,7 @@
     "cardName": "お菊",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "スタンダードバトルパック Vol.3",
     "label": "公式差分 2"
   },
@@ -4508,6 +4542,7 @@
     "cardName": "光月モモの助",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "スタンダードバトルパックVol.7",
     "label": "公式差分 2"
   },
@@ -5025,6 +5060,7 @@
     "cardName": "ジュラキュール・ミホーク",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "フラッグシップバトル2024 1月優勝記念品",
     "label": "公式差分 3"
   },
@@ -5142,6 +5178,7 @@
     "cardName": "ペローナ",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "ジャンプGIGA 2023 SPRING 応募者全員サービス",
     "label": "公式差分 4"
   },
@@ -5151,6 +5188,7 @@
     "cardName": "ペローナ",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "始めようキャンペーン プロモーションパック",
     "label": "公式差分 5"
   },
@@ -5160,6 +5198,7 @@
     "cardName": "ペローナ",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "始めようキャンペーン プロモーションパック",
     "label": "公式差分 6"
   },
@@ -5394,6 +5433,7 @@
     "cardName": "カイドウ",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "フラッグシップバトル2023 10月優勝記念品",
     "label": "公式差分 4"
   },
@@ -5556,6 +5596,7 @@
     "cardName": "人斬り鎌ぞう",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.5",
     "label": "公式差分 2"
   },
@@ -5628,6 +5669,7 @@
     "cardName": "X・ドレーク",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "プロモーションパックEX Vol.1",
     "label": "公式差分 2"
   },
@@ -5905,6 +5947,7 @@
     "cardName": "エドワード・ニューゲート",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "プロモーションパックEX Vol.1",
     "label": "公式差分 4"
   },
@@ -6009,6 +6052,7 @@
     "cardName": "ジョズ",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "プロモーションパックEX Vol.1",
     "label": "公式差分 2"
   },
@@ -6411,6 +6455,7 @@
     "cardName": "キャロット",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "ジャンプGIGA 2023 SPRING 応募者全員サービス",
     "label": "公式差分 3"
   },
@@ -6501,6 +6546,7 @@
     "cardName": "トニートニー・チョッパー",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.5",
     "label": "公式差分 4"
   },
@@ -6519,6 +6565,7 @@
     "cardName": "トラファルガー・ロー",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.3",
     "label": "公式差分 2"
   },
@@ -6888,6 +6935,7 @@
     "cardName": "ボア・ハンコック",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "プロモーションカードセット",
     "label": "公式差分 3"
   },
@@ -6942,6 +6990,7 @@
     "cardName": "Mr.1(ダズ・ボーネス)",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.6",
     "label": "公式差分 2"
   },
@@ -7405,6 +7454,7 @@
     "cardName": "クザン",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "チャンピオンシップ2023 1次予選エリア大会 ベスト8記念品",
     "label": "公式差分 4"
   },
@@ -7450,6 +7500,7 @@
     "cardName": "コビー",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.3",
     "label": "公式差分 2"
   },
@@ -7459,6 +7510,7 @@
     "cardName": "コビー",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "フラッグシップバトル2023 7月ベスト8記念品",
     "label": "公式差分 4"
   },
@@ -7504,6 +7556,7 @@
     "cardName": "サカズキ",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "チャンピオンシップ2023 1次予選決勝大会 ベスト32記念品",
     "label": "公式差分 5"
   },
@@ -7585,6 +7638,7 @@
     "cardName": "たしぎ",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "ジャンプGIGA 2023 SPRING 応募者全員サービス",
     "label": "公式差分 4"
   },
@@ -7684,6 +7738,7 @@
     "cardName": "ドンキホーテ・ロシナンテ",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.5",
     "label": "公式差分 3"
   },
@@ -7783,6 +7838,7 @@
     "cardName": "ボルサリーノ",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "チャンピオンシップ2023 1次予選エリア大会 ベスト16記念品",
     "label": "公式差分 4"
   },
@@ -8256,6 +8312,7 @@
     "cardName": "マルコ",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "プロモーションパックEX Vol.1",
     "label": "公式差分 3"
   },
@@ -8499,6 +8556,7 @@
     "cardName": "はっちゃん",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "スタンダードバトルパックVol.6",
     "label": "公式差分 2"
   },
@@ -9395,6 +9453,7 @@
     "cardName": "フクロウ",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "スタンダードバトルパックVol.6",
     "label": "公式差分 2"
   },
@@ -9431,6 +9490,7 @@
     "cardName": "ブランニュー",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "スタンダードバトルパックVol.4",
     "label": "公式差分 2"
   },
@@ -9668,6 +9728,7 @@
     "cardName": "サンジ",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "スタンダードバトルパックVol.4",
     "label": "公式差分 2"
   },
@@ -9875,6 +9936,7 @@
     "cardName": "シャーロット・プリン",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "スタンダードバトルパックVol.8",
     "label": "公式差分 3"
   },
@@ -9884,6 +9946,7 @@
     "cardName": "シャーロット・プリン",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "チャンピオンシップ2024 WAVE1 エリア大会 ベスト16記念品",
     "label": "公式差分 4"
   },
@@ -10001,6 +10064,7 @@
     "cardName": "しらほし",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "スタンダードバトルパックVol.6",
     "label": "公式差分 2"
   },
@@ -10028,6 +10092,7 @@
     "cardName": "しらほし",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "チャンピオンシップ2024 WAVE2 3on3 Autumn ベスト16記念品",
     "label": "公式差分 5"
   },
@@ -10203,6 +10268,7 @@
     "cardName": "シャーロット・カタクリ",
     "rarity": "SEC",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "チャンピオンシップ2024 WAVE1 エリア大会 ベスト8記念品",
     "label": "公式差分 3"
   },
@@ -10320,6 +10386,7 @@
     "cardName": "トニートニー・チョッパー",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "スタンダードバトルパックVol.8",
     "label": "公式差分 2"
   },
@@ -11568,6 +11635,7 @@
     "cardName": "レベッカ",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "スタンダードバトル 2024年12月優勝記念品",
     "label": "公式差分 2"
   },
@@ -11577,6 +11645,7 @@
     "cardName": "レベッカ",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "スタンダードバトルパックVol.10",
     "label": "公式差分 3"
   },
@@ -11743,6 +11812,7 @@
     "cardName": "カポネ・ベッジ",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "プロモーションパックEX Vol.1",
     "label": "公式差分 3"
   },
@@ -11941,6 +12011,7 @@
     "cardName": "ヤマト",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "フラッグシップバトル2024 7月ベスト8記念品",
     "label": "公式差分 3"
   },
@@ -12202,6 +12273,7 @@
     "cardName": "コアラ",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "8パックバトル 2025年10月",
     "label": "公式差分 4"
   },
@@ -12724,6 +12796,7 @@
     "cardName": "モネ",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.6",
     "label": "公式差分 2"
   },
@@ -12760,6 +12833,7 @@
     "cardName": "勝者だけが正義だ!!!!",
     "rarity": "R",
     "cardType": "EVENT",
+    "block": "2",
     "getInfo": "スタンダードバトルパックVol.12",
     "label": "公式差分 2"
   },
@@ -12769,6 +12843,7 @@
     "cardName": "勝者だけが正義だ!!!!",
     "rarity": "R",
     "cardType": "EVENT",
+    "block": "2",
     "getInfo": "スタンダードバトル 2025年6月優勝記念品",
     "label": "公式差分 3"
   },
@@ -13111,6 +13186,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "L",
     "cardType": "LEADER",
+    "block": "2",
     "getInfo": "ONE PIECEカードゲーム SOUND LOADER Volume.1 特典カード",
     "label": "公式差分 3"
   },
@@ -13264,6 +13340,7 @@
     "cardName": "ゾロ十郎",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "「ONE PIECE CARD GAME 2nd ANNIVERSARY COMPLETE GUIDE」限定特典カード",
     "label": "公式差分 3"
   },
@@ -13707,6 +13784,7 @@
     "cardName": "ネフェルタリ・ビビ",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "チャンピオンシップ2024 WAVE2 3on3 Autumn ベスト8記念品",
     "label": "公式差分 2"
   },
@@ -13797,6 +13875,7 @@
     "cardName": "レベッカ",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "チャンピオンシップ2024 WAVE2 決勝大会 ベスト32記念品",
     "label": "公式差分 4"
   },
@@ -13950,6 +14029,7 @@
     "cardName": "エネル",
     "rarity": "L",
     "cardType": "LEADER",
+    "block": "2",
     "getInfo": "ONE PIECEカードゲーム SOUND LOADER Volume.2 特典カード",
     "label": "公式差分 3"
   },
@@ -14049,6 +14129,7 @@
     "cardName": "ゲダツ",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "プロモーションパックEX Vol.2",
     "label": "公式差分 3"
   },
@@ -14130,6 +14211,7 @@
     "cardName": "シュラ",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "スタンダードバトルパックVol.7",
     "label": "公式差分 2"
   },
@@ -14932,6 +15014,7 @@
     "cardName": "ケイミー",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "プロモーションパックEX Vol.2",
     "label": "公式差分 3"
   },
@@ -15292,6 +15375,7 @@
     "cardName": "シャーロット・プリン",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "スタンダードバトル 2024年9月優勝記念品",
     "label": "公式差分 2"
   },
@@ -15301,6 +15385,7 @@
     "cardName": "シャーロット・プリン",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "スタンダードバトルパックVol.9",
     "label": "公式差分 3"
   },
@@ -15391,6 +15476,7 @@
     "cardName": "つる",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "スタンダードバトルパックVol.12",
     "label": "公式差分 3"
   },
@@ -15643,6 +15729,7 @@
     "cardName": "ヴィンスモーク・ソラ",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.7",
     "label": "公式差分 2"
   },
@@ -15886,6 +15973,7 @@
     "cardName": "ヴィンスモーク・レイジュ",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "フラッグシップバトル2024 4月優勝記念品",
     "label": "公式差分 3"
   },
@@ -15994,6 +16082,7 @@
     "cardName": "人斬り鎌ぞう",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "スタンダードバトルパックVol.9",
     "label": "公式差分 2"
   },
@@ -16300,6 +16389,7 @@
     "cardName": "ブルック",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "プロモーションパックEX Vol.2",
     "label": "公式差分 2"
   },
@@ -16327,6 +16417,7 @@
     "cardName": "ペローナ",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "フラッグシップバトル2024 1月ベスト8記念品",
     "label": "公式差分 3"
   },
@@ -16471,6 +16562,7 @@
     "cardName": "おナミ",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "「ONE PIECE CARD GAME 2nd ANNIVERSARY COMPLETE GUIDE」限定特典カード",
     "label": "公式差分 4"
   },
@@ -16678,6 +16770,7 @@
     "cardName": "ネコマムシ",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.6",
     "label": "公式差分 4"
   },
@@ -17121,6 +17214,7 @@
     "cardName": "モンキー・D・ドラゴン",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "プロモーションパックEX Vol.3",
     "label": "公式差分 4"
   },
@@ -17265,6 +17359,7 @@
     "cardName": "ウルージ",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "始めようキャンペーン プロモーションパック",
     "label": "公式差分 3"
   },
@@ -17274,6 +17369,7 @@
     "cardName": "ウルージ",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "始めようキャンペーン プロモーションパック",
     "label": "公式差分 4"
   },
@@ -17499,6 +17595,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "3周年！ワンピースカードトレジャーキャンペーンパック",
     "label": "公式差分 3"
   },
@@ -17769,6 +17866,7 @@
     "cardName": "トラファルガー・ロー",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "Vジャンプ10月特大号応募者全員サービス（2024年8月21日売）",
     "label": "公式差分 3"
   },
@@ -17901,6 +17999,7 @@
     "cardName": "ポートガス・D・エース",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "スタンダードバトルパックVol.8",
     "label": "公式差分 2"
   },
@@ -17910,6 +18009,7 @@
     "cardName": "ポートガス・D・エース",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "スタンダードバトル 2024年6月優勝記念品",
     "label": "公式差分 3"
   },
@@ -17919,6 +18019,7 @@
     "cardName": "ポートガス・D・エース",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "週刊少年ジャンプ19号応募者全員サービス（2025年4月7日売）",
     "label": "公式差分 4"
   },
@@ -17928,6 +18029,7 @@
     "cardName": "ポートガス・D・エース",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "3周年！ワンピースカードトレジャーキャンペーンパック",
     "label": "公式差分 5"
   },
@@ -18108,6 +18210,7 @@
     "cardName": "サンジ",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "プロモーションパックEX Vol.2",
     "label": "公式差分 4"
   },
@@ -18135,6 +18238,7 @@
     "cardName": "トニートニー・チョッパー",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "最強ジャンプ5月号応募者全員サービス（2025年4月4日売）",
     "label": "公式差分 2"
   },
@@ -18225,6 +18329,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "BANDAI CARD GAMES Fest 25-26 in Tokyo 来場記念品",
     "label": "公式差分 2"
   },
@@ -18333,6 +18438,7 @@
     "cardName": "カク",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "スタンダードバトルパックVol.9",
     "label": "公式差分 2"
   },
@@ -18459,6 +18565,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.6",
     "label": "公式差分 2"
   },
@@ -18576,6 +18683,7 @@
     "cardName": "エジソン",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "スタンダードバトルパックVol.8",
     "label": "公式差分 2"
   },
@@ -18666,6 +18774,7 @@
     "cardName": "フランキー",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "ONE PIECE CARD GAME 3rd ANNIVERSARY COMPLETE GUIDE付録",
     "label": "公式差分 3"
   },
@@ -18720,6 +18829,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "Vジャンプ10月特大号応募者全員サービス（2024年8月21日売）",
     "label": "公式差分 4"
   },
@@ -18729,6 +18839,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "シリアルナンバー入りルフィ ゲットキャンペーン",
     "label": "公式差分 6"
   },
@@ -18792,6 +18903,7 @@
     "cardName": "ロロノア・ゾロ",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "Vジャンプ10月特大号 応募者全員サービス",
     "label": "公式差分 2"
   },
@@ -18936,6 +19048,7 @@
     "cardName": "ポートガス・D・エース",
     "rarity": "SEC",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "フラッグシップバトル2023 7月優勝記念品",
     "label": "公式差分 3"
   },
@@ -19161,6 +19274,7 @@
     "cardName": "ドラム王国",
     "rarity": "C",
     "cardType": "STAGE",
+    "block": "2",
     "getInfo": "プロモーションパックEX Vol.2",
     "label": "公式差分 2"
   },
@@ -19494,6 +19608,7 @@
     "cardName": "ジョズ",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "プロモーションパックEX Vol.4",
     "label": "公式差分 2"
   },
@@ -19683,6 +19798,7 @@
     "cardName": "シャーロット・カタクリ",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "スタンダードバトルパックVol.11",
     "label": "公式差分 2"
   },
@@ -19755,6 +19871,7 @@
     "cardName": "シャーロット・プリン",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "フラッグシップバトル2025 1月ベスト8記念品",
     "label": "公式差分 3"
   },
@@ -19863,6 +19980,7 @@
     "cardName": "ブラックマリア",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "始めようキャンペーン プロモーションパック",
     "label": "公式差分 3"
   },
@@ -19872,6 +19990,7 @@
     "cardName": "ブラックマリア",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "始めようキャンペーン プロモーションパック",
     "label": "公式差分 4"
   },
@@ -20016,6 +20135,7 @@
     "cardName": "ジャック",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "フラッグシップバトル2024 10月ベスト8記念品",
     "label": "公式差分 3"
   },
@@ -20322,6 +20442,7 @@
     "cardName": "ナミ",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "シリアルナンバー入りナミ ゲットキャンペーン",
     "label": "公式差分 4"
   },
@@ -20340,6 +20461,7 @@
     "cardName": "ナミ",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "プロモーションパックEX Vol.3",
     "label": "公式差分 6"
   },
@@ -20394,6 +20516,7 @@
     "cardName": "ワイパー",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "スタンダードバトルパックVol.10",
     "label": "公式差分 3"
   },
@@ -20596,6 +20719,7 @@
     "cardName": "ウタ",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "フラッグシップバトル2024 10月優勝記念品",
     "label": "公式差分 3"
   },
@@ -20848,6 +20972,7 @@
     "cardName": "ホンゴウ",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "スタンダードバトルパックVol.10",
     "label": "公式差分 2"
   },
@@ -21136,6 +21261,7 @@
     "cardName": "サボ",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "週刊少年ジャンプ19号応募者全員サービス（2025年4月7日売）",
     "label": "公式差分 2"
   },
@@ -21244,6 +21370,7 @@
     "cardName": "ペローナ",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "Vジャンプ10月特大号 応募者全員サービス",
     "label": "公式差分 3"
   },
@@ -21397,6 +21524,7 @@
     "cardName": "アルビダ",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.7",
     "label": "公式差分 2"
   },
@@ -21523,6 +21651,7 @@
     "cardName": "ナミ",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "始めようキャンペーン プロモーションパック",
     "label": "公式差分 3"
   },
@@ -21532,6 +21661,7 @@
     "cardName": "ナミ",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "始めようキャンペーン プロモーションパック",
     "label": "公式差分 4"
   },
@@ -21891,6 +22021,7 @@
     "cardName": "サンジ",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "プロモーションパックEX Vol.2",
     "label": "公式差分 3"
   },
@@ -21954,6 +22085,7 @@
     "cardName": "トラファルガー・ロー",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "フラッグシップバトル2025 1月優勝記念品",
     "label": "公式差分 3"
   },
@@ -22089,6 +22221,7 @@
     "cardName": "ロロノア・ゾロ",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "プロモーションパックEX Vol.2",
     "label": "公式差分 3"
   },
@@ -22395,6 +22528,7 @@
     "cardName": "ストロンガー",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.7",
     "label": "公式差分 2"
   },
@@ -22736,6 +22870,7 @@
     "cardName": "ニコ・オルビア",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "始めようキャンペーン プロモーションパック",
     "label": "公式差分 2"
   },
@@ -22745,6 +22880,7 @@
     "cardName": "ニコ・オルビア",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "始めようキャンペーン プロモーションパック",
     "label": "公式差分 3"
   },
@@ -22781,6 +22917,7 @@
     "cardName": "バーソロミュー・くま",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "スタンダードバトルパックVol.12",
     "label": "公式差分 3"
   },
@@ -23050,6 +23187,7 @@
     "cardName": "サンジ",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "フラッグシップバトル2025 10月優勝記念品",
     "label": "公式差分 3"
   },
@@ -23410,6 +23548,7 @@
     "cardName": "たしぎ",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "プロモーションパックEX Vol.3",
     "label": "公式差分 3"
   },
@@ -23428,6 +23567,7 @@
     "cardName": "ナミ",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "最強ジャンプ5月号応募者全員サービス（2025年4月4日売）",
     "label": "公式差分 2"
   },
@@ -23653,6 +23793,7 @@
     "cardName": "サボ",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "3周年！ワンピースカードトレジャーキャンペーンパック",
     "label": "公式差分 3"
   },
@@ -24337,6 +24478,7 @@
     "cardName": "ジュエリー・ボニー",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.7",
     "label": "公式差分 2"
   },
@@ -24729,6 +24871,7 @@
     "cardName": "ひばり",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "フラッグシップバトル2025 4月ベスト8記念品",
     "label": "公式差分 3"
   },
@@ -24756,6 +24899,7 @@
     "cardName": "フランキー",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "プロモーションパックVol.8",
     "label": "公式差分 2"
   },
@@ -25269,6 +25413,7 @@
     "cardName": "モンキー・Ｄ・ルフィ",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "プロモーションパックVol.8",
     "label": "公式差分 2"
   },
@@ -25359,6 +25504,7 @@
     "cardName": "シャーロット・アナナ",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "プロモーションパックVol.8",
     "label": "公式差分 2"
   },
@@ -25440,6 +25586,7 @@
     "cardName": "シャーロット・ペロスペロー",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "プロモーションパックEX Vol.3",
     "label": "公式差分 2"
   },
@@ -25721,6 +25868,7 @@
     "cardName": "リッパー",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "プロモーションパックVol.8",
     "label": "公式差分 2"
   },
@@ -26003,6 +26151,7 @@
     "cardName": "コビー",
     "rarity": "SEC",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "フラッグシップバトル2025 4月優勝記念品",
     "label": "公式差分 3"
   },
@@ -26264,6 +26413,7 @@
     "cardName": "ロロノア・ゾロ",
     "rarity": "L",
     "cardType": "LEADER",
+    "block": "3",
     "getInfo": "フラッグシップバトル2026 1月 優勝記念品",
     "label": "公式差分 4"
   },
@@ -26354,6 +26504,7 @@
     "cardName": "光月日和",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "スタンダードバトルパック Vol.13",
     "label": "公式差分 2"
   },
@@ -26363,6 +26514,7 @@
     "cardName": "光月日和",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "スタンダードバトル 2025年9月~11月優勝記念品",
     "label": "公式差分 3"
   },
@@ -26426,6 +26578,7 @@
     "cardName": "たしぎ",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "フラッグシップバトル2025 10月ベスト8記念品",
     "label": "公式差分 3"
   },
@@ -26489,6 +26642,7 @@
     "cardName": "ロロノア・ゾロ",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "プロモーションパックVol.8",
     "label": "公式差分 2"
   },
@@ -26804,6 +26958,7 @@
     "cardName": "ヴィンスモーク・ソラ",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "スタンダードバトルパック Vol.13",
     "label": "公式差分 2"
   },
@@ -26912,6 +27067,7 @@
     "cardName": "シャーロット・プリン",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "プロモーションパックEX Vol.3",
     "label": "公式差分 2"
   },
@@ -27119,6 +27275,7 @@
     "cardName": "ハック",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "プロモーションパックEX Vol.3",
     "label": "公式差分 2"
   },
@@ -27164,6 +27321,7 @@
     "cardName": "モーリー",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "スタンダードバトルパック Vol.13",
     "label": "公式差分 2"
   },
@@ -27317,6 +27475,7 @@
     "cardName": "トラファルガー・ロー",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "『ONE PIECE学園 10巻』付録",
     "label": "公式差分 3"
   },
@@ -27389,6 +27548,7 @@
     "cardName": "ベビー５",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "スタンダードバトルパック Vol.13",
     "label": "公式差分 2"
   },
@@ -27509,6 +27669,7 @@
     "cardName": "モンキー・Ｄ・ルフィ",
     "rarity": "L",
     "cardType": "LEADER",
+    "block": "4",
     "getInfo": "一番くじ ONE PIECE CARD GAME 購入者特典",
     "label": "公式差分 2"
   },
@@ -27743,6 +27904,7 @@
     "cardName": "“火炎”が許さねェってよ!!",
     "rarity": "R",
     "cardType": "EVENT",
+    "block": "4",
     "getInfo": "3周年！ワンピースカードトレジャーキャンペーンパック",
     "label": "公式差分 2"
   },
@@ -27986,6 +28148,7 @@
     "cardName": "強ェとわかってんだから… 始めから全開だ!!!",
     "rarity": "R",
     "cardType": "EVENT",
+    "block": "4",
     "getInfo": "3周年！ワンピースカードトレジャーキャンペーンパック",
     "label": "公式差分 2"
   },
@@ -28076,6 +28239,7 @@
     "cardName": "ビスタ",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "プロモーションパックVol.9",
     "label": "公式差分 2"
   },
@@ -28202,6 +28366,7 @@
     "cardName": "“力”に屈したら男に生まれた意味がねェだろう",
     "rarity": "R",
     "cardType": "EVENT",
+    "block": "4",
     "getInfo": "3周年！ワンピースカードトレジャーキャンペーンパック",
     "label": "公式差分 2"
   },
@@ -28337,6 +28502,7 @@
     "cardName": "スコッパー・ギャバン",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "プロモーションパックEX Vol.4",
     "label": "公式差分 2"
   },
@@ -28382,6 +28548,7 @@
     "cardName": "ネコマムシ",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "プロモーションパックVol.9",
     "label": "公式差分 2"
   },
@@ -28634,6 +28801,7 @@
     "cardName": "チャルロス聖",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "プロモーションパックVol.9",
     "label": "公式差分 2"
   },
@@ -28895,6 +29063,7 @@
     "cardName": "ジュエリー・ボニー",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "フラッグシップバトル2026 1月 ベスト8記念品",
     "label": "公式差分 3"
   },
@@ -29453,6 +29622,7 @@
     "cardName": "菊之丞",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "スタンダードバトルパック Vol.15",
     "label": "公式差分 2"
   },
@@ -29489,6 +29659,7 @@
     "cardName": "光月おでん",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "プロモーションパックVol.9",
     "label": "公式差分 2"
   },
@@ -29588,6 +29759,7 @@
     "cardName": "ペローナ",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "エクストラグランドバトル2026 4月上位記念品",
     "label": "公式差分 3"
   },
@@ -30137,6 +30309,7 @@
     "cardName": "ミス・ウェンズデー",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "プロモーションパックEX Vol.4",
     "label": "公式差分 2"
   },
@@ -30191,6 +30364,7 @@
     "cardName": "ミス・バレンタイン(ミキータ)",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "スタンダードバトルパック Vol.15",
     "label": "公式差分 2"
   },
@@ -30200,6 +30374,7 @@
     "cardName": "ミス・バレンタイン(ミキータ)",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "スタンダードバトル 2026年3月優勝記念品",
     "label": "公式差分 3"
   },
@@ -30416,6 +30591,7 @@
     "cardName": "ゴルゴン三姉妹",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "スタンダードバトルパック Vol.15",
     "label": "公式差分 2"
   },
@@ -30443,6 +30619,7 @@
     "cardName": "シャクヤク",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "プロモーションパックVol.9",
     "label": "公式差分 2"
   },
@@ -31301,6 +31478,7 @@
     "cardName": "エネル",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "フラッグシップバトル2026 4月上位記念品",
     "label": "公式差分 3"
   },
@@ -31979,6 +32157,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "ONE PIECEカードゲーム プロモーションパック2022",
     "label": "通常"
   },
@@ -31997,6 +32176,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "チャンピオンシップセット2022",
     "label": "公式差分 3"
   },
@@ -32006,6 +32186,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "セブンイレブンタイアップキャンペーン オリジナルカード",
     "label": "公式差分 5"
   },
@@ -32015,6 +32196,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "プロモーションカードセット",
     "label": "公式差分 6"
   },
@@ -32024,6 +32206,7 @@
     "cardName": "冒険のにおいがするっ!!!",
     "rarity": "P",
     "cardType": "EVENT",
+    "block": "1",
     "getInfo": "ONE PIECEカードゲーム プロモーションパック2022",
     "label": "通常"
   },
@@ -32033,6 +32216,7 @@
     "cardName": "ユースタス・キッド",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "ONE PIECEカードゲーム プロモーションパック2022",
     "label": "通常"
   },
@@ -32042,6 +32226,7 @@
     "cardName": "ユースタス・キッド",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "チャンピオンシップセット2022",
     "label": "公式差分 2"
   },
@@ -32051,6 +32236,7 @@
     "cardName": "ユースタス・キッド",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "セブンイレブンタイアップキャンペーン オリジナルカード",
     "label": "公式差分 4"
   },
@@ -32060,6 +32246,7 @@
     "cardName": "クロコダイル",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "ONE PIECEカードゲーム プロモーションパック2022",
     "label": "通常"
   },
@@ -32069,6 +32256,7 @@
     "cardName": "カイドウ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "ONE PIECEカードゲーム プロモーションパック2022",
     "label": "通常"
   },
@@ -32078,6 +32266,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "Vジャンプ9月特大号付録（2022年7月21日売）",
     "label": "通常"
   },
@@ -32087,6 +32276,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "最強ジャンプ9月号付録（2022年8月4日売）",
     "label": "通常"
   },
@@ -32096,6 +32286,7 @@
     "cardName": "ヤマト",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "最強ジャンプ9月号付録（2022年8月4日売）",
     "label": "通常"
   },
@@ -32105,6 +32296,7 @@
     "cardName": "トラファルガー・ロー",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "最強ジャンプ9月号付録（2022年8月4日売）",
     "label": "通常"
   },
@@ -32114,6 +32306,7 @@
     "cardName": "カイドウ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "最強ジャンプ9月号付録（2022年8月4日売）",
     "label": "通常"
   },
@@ -32123,6 +32316,7 @@
     "cardName": "ウタ",
     "rarity": "L",
     "cardType": "LEADER",
+    "block": "1",
     "getInfo": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ",
     "label": "通常"
   },
@@ -32141,6 +32335,7 @@
     "cardName": "クラゲ海賊団",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ",
     "label": "通常"
   },
@@ -32150,6 +32345,7 @@
     "cardName": "ゴードン",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ",
     "label": "通常"
   },
@@ -32168,6 +32364,7 @@
     "cardName": "コビー",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ",
     "label": "通常"
   },
@@ -32195,6 +32392,7 @@
     "cardName": "サニーくん",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ",
     "label": "通常"
   },
@@ -32204,6 +32402,7 @@
     "cardName": "シャンクス",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ",
     "label": "通常"
   },
@@ -32213,6 +32412,7 @@
     "cardName": "シャンクス",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "『ONE PIECE FILM RED』入場者プレゼント フィナーレセット",
     "label": "公式差分 2"
   },
@@ -32231,6 +32431,7 @@
     "cardName": "トラファルガー・ロー",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ",
     "label": "通常"
   },
@@ -32240,6 +32441,7 @@
     "cardName": "トラファルガー・ロー",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "スタンダードバトルパックVol.7",
     "label": "公式差分 2"
   },
@@ -32249,6 +32451,7 @@
     "cardName": "トラファルガー・ロー",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "スタンダードバトル 2024年3月優勝記念品",
     "label": "公式差分 3"
   },
@@ -32258,6 +32461,7 @@
     "cardName": "バルトロメオ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ",
     "label": "通常"
   },
@@ -32267,6 +32471,7 @@
     "cardName": "ベポ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ",
     "label": "通常"
   },
@@ -32276,6 +32481,7 @@
     "cardName": "ベポ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "スタンダードバトルパックVol.7",
     "label": "公式差分 2"
   },
@@ -32285,6 +32491,7 @@
     "cardName": "ヘルメッポ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ",
     "label": "通常"
   },
@@ -32294,6 +32501,7 @@
     "cardName": "ベン・ベックマン",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ",
     "label": "通常"
   },
@@ -32303,6 +32511,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ",
     "label": "通常"
   },
@@ -32312,6 +32521,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "『ONE PIECE FILM RED』入場者プレゼント フィナーレセット",
     "label": "公式差分 2"
   },
@@ -32330,6 +32540,7 @@
     "cardName": "ヤソップ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ",
     "label": "通常"
   },
@@ -32339,6 +32550,7 @@
     "cardName": "海賊王に!!!おれはなるっ!!!!",
     "rarity": "P",
     "cardType": "EVENT",
+    "block": "1",
     "getInfo": "交流会 9月開催記念品",
     "label": "通常"
   },
@@ -32348,6 +32560,7 @@
     "cardName": "スモーカー",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "Vジャンプ12月特大号付録（2022年10月21日売）",
     "label": "通常"
   },
@@ -32357,6 +32570,7 @@
     "cardName": "モーガン",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "交流会12月開催記念品",
     "label": "通常"
   },
@@ -32366,6 +32580,7 @@
     "cardName": "フランキー将軍",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "最強ジャンプ12月号付録（2022年11月2日売）",
     "label": "通常"
   },
@@ -32375,6 +32590,7 @@
     "cardName": "ポートガス・D・エース",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "ONE PIECEカードゲーム プロモーションパック2022 Vol.2",
     "label": "通常"
   },
@@ -32384,6 +32600,7 @@
     "cardName": "ポートガス・D・エース",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "ワンピース・マガジン Vol.16付録（2023年3月2日売）",
     "label": "公式差分 2"
   },
@@ -32393,6 +32610,7 @@
     "cardName": "ポートガス・D・エース",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "プロモーションカードセット",
     "label": "公式差分 3"
   },
@@ -32420,6 +32638,7 @@
     "cardName": "バルトロメオ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "ONE PIECEカードゲーム プロモーションパック2022 Vol.2",
     "label": "通常"
   },
@@ -32456,6 +32675,7 @@
     "cardName": "ジンベエ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "ONE PIECEカードゲーム プロモーションパック2022 Vol.2",
     "label": "通常"
   },
@@ -32474,6 +32694,7 @@
     "cardName": "ウタ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "ONE PIECEカードゲーム プロモーションパック2022 Vol.2",
     "label": "通常"
   },
@@ -32492,6 +32713,7 @@
     "cardName": "センゴク",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "ONE PIECEカードゲーム プロモーションパック2022 Vol.2",
     "label": "通常"
   },
@@ -32501,6 +32723,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "週刊少年ジャンプ付録（2023年1月7日売）",
     "label": "通常"
   },
@@ -32510,6 +32733,7 @@
     "cardName": "サンジ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "Vジャンプ3月特大号付録（2023年1月20日売）",
     "label": "通常"
   },
@@ -32519,6 +32743,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "交流会3月開催記念品",
     "label": "通常"
   },
@@ -32528,6 +32753,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "最強ジャンプ3月号付録（2023年2月3日売）",
     "label": "通常"
   },
@@ -32537,6 +32763,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "最強ジャンプ6月号付録（2023年5月2日売）",
     "label": "通常"
   },
@@ -32546,6 +32773,7 @@
     "cardName": "トラファルガー・ロー",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "Vジャンプ7月特大号付録（2023年5月19日売）",
     "label": "通常"
   },
@@ -32555,6 +32783,7 @@
     "cardName": "ベラミー",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "交流会6月開催記念品",
     "label": "通常"
   },
@@ -32564,6 +32793,7 @@
     "cardName": "カイドウ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "「ONE PIECE CARD GAME 1st ANNIVERSARY COMPLETE GUIDE」限定特典カード",
     "label": "通常"
   },
@@ -32582,6 +32812,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "ONE PIECE DAY’23来場者特典",
     "label": "通常"
   },
@@ -32591,6 +32822,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "「ONE PIECE CARD GAME 1st ANNIVERSARY COMPLETE GUIDE」限定特典カード",
     "label": "公式差分 2"
   },
@@ -32600,6 +32832,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "セブンイレブンタイアップキャンペーン オリジナルカード",
     "label": "公式差分 4"
   },
@@ -32609,6 +32842,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "BANDAI CARD GAMES Fest23-24 World Tour　TOUR FINAL in JAPAN 来場記念品",
     "label": "公式差分 5"
   },
@@ -32618,6 +32852,7 @@
     "cardName": "ロロノア・ゾロ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "最強ジャンプ9月号付録（2023年8月4日売）",
     "label": "通常"
   },
@@ -32627,6 +32862,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "週刊少年ジャンプ付録（2023年8月7日売）",
     "label": "通常"
   },
@@ -32645,6 +32881,7 @@
     "cardName": "サボ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "Vジャンプ10月特大号付録（2023年8月21日売）",
     "label": "通常"
   },
@@ -32663,6 +32900,7 @@
     "cardName": "ロロノア・ゾロ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "交流会 2023年9月開催記念品",
     "label": "通常"
   },
@@ -32672,6 +32910,7 @@
     "cardName": "ヤマト",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "ONE PIECE magazine Vol.17付録（2023年9月4日売）",
     "label": "通常"
   },
@@ -32681,6 +32920,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "P",
     "cardType": "LEADER",
+    "block": "2",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.4",
     "label": "通常"
   },
@@ -32699,6 +32939,7 @@
     "cardName": "アーロン",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.4",
     "label": "通常"
   },
@@ -32717,6 +32958,7 @@
     "cardName": "ウソップ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.4",
     "label": "通常"
   },
@@ -32735,6 +32977,7 @@
     "cardName": "サンジ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.4",
     "label": "通常"
   },
@@ -32753,6 +32996,7 @@
     "cardName": "シャンクス",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.4",
     "label": "通常"
   },
@@ -32771,6 +33015,7 @@
     "cardName": "ジュラキュール・ミホーク",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.4",
     "label": "通常"
   },
@@ -32798,6 +33043,7 @@
     "cardName": "ナミ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.4",
     "label": "通常"
   },
@@ -32834,6 +33080,7 @@
     "cardName": "モンキー・D・ガープ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.4",
     "label": "通常"
   },
@@ -32852,6 +33099,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.4",
     "label": "通常"
   },
@@ -32888,6 +33136,7 @@
     "cardName": "ロロノア・ゾロ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.4",
     "label": "通常"
   },
@@ -32906,6 +33155,7 @@
     "cardName": "ウタカタララバイ",
     "rarity": "P",
     "cardType": "EVENT",
+    "block": "2",
     "getInfo": "『ONE PIECE FILM RED』入場者プレゼント アンコールパック",
     "label": "通常"
   },
@@ -32924,6 +33174,7 @@
     "cardName": "風のゆくえ",
     "rarity": "P",
     "cardType": "EVENT",
+    "block": "2",
     "getInfo": "『ONE PIECE FILM RED』入場者プレゼント アンコールパック",
     "label": "通常"
   },
@@ -32942,6 +33193,7 @@
     "cardName": "世界のつづき",
     "rarity": "P",
     "cardType": "EVENT",
+    "block": "2",
     "getInfo": "『ONE PIECE FILM RED』入場者プレゼント アンコールパック",
     "label": "通常"
   },
@@ -32960,6 +33212,7 @@
     "cardName": "Tot Musica",
     "rarity": "P",
     "cardType": "EVENT",
+    "block": "2",
     "getInfo": "『ONE PIECE FILM RED』入場者プレゼント アンコールパック",
     "label": "通常"
   },
@@ -32987,6 +33240,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "『ONE PIECE FILM RED』入場者プレゼント アンコールパック",
     "label": "通常"
   },
@@ -32996,6 +33250,7 @@
     "cardName": "ホーディ＆ヒョウゾウ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "交流会 2023年12月開催記念品",
     "label": "通常"
   },
@@ -33014,6 +33269,7 @@
     "cardName": "ジンベエ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "Vジャンプ1月特大号付録（2023年11月21日売）",
     "label": "通常"
   },
@@ -33041,6 +33297,7 @@
     "cardName": "光月モモの助",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "最強ジャンプ1月号付録（2023年12月4日売）",
     "label": "通常"
   },
@@ -33050,6 +33307,7 @@
     "cardName": "トニートニー・チョッパー",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "勉タメジャンプ2024 WINTER付録（2023年12月8日売）",
     "label": "通常"
   },
@@ -33059,6 +33317,7 @@
     "cardName": "ボア・ハンコック",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "最強ジャンプ4月号付録（2024年3月4日売）",
     "label": "通常"
   },
@@ -33068,6 +33327,7 @@
     "cardName": "ボア・ハンコック",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "プロモーションパックEX Vol.2",
     "label": "公式差分 2"
   },
@@ -33077,6 +33337,7 @@
     "cardName": "ユースタス・キッド",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "Vジャンプ4月特大号付録（2024年2月21日売）",
     "label": "通常"
   },
@@ -33095,6 +33356,7 @@
     "cardName": "サンジ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "交流会 2024年3月開催記念品",
     "label": "通常"
   },
@@ -33122,6 +33384,7 @@
     "cardName": "コアラ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "交流会 2024年5月開催記念品",
     "label": "通常"
   },
@@ -33131,6 +33394,7 @@
     "cardName": "コアラ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.7",
     "label": "公式差分 2"
   },
@@ -33158,6 +33422,7 @@
     "cardName": "キャロット",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "Vジャンプ7月特大号付録（2024年5月21日売）",
     "label": "通常"
   },
@@ -33176,6 +33441,7 @@
     "cardName": "マルコ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "最強ジャンプ8月号付録（2024年7月4日売）",
     "label": "通常"
   },
@@ -33185,6 +33451,7 @@
     "cardName": "リューマ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "『MONSTERS 一百三情飛龍侍極』セットBOX特典",
     "label": "通常"
   },
@@ -33212,6 +33479,7 @@
     "cardName": "サボ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "最強ジャンプ5月号応募者全員サービス（2024年4月4日売）",
     "label": "通常"
   },
@@ -33248,6 +33516,7 @@
     "cardName": "ポートガス・D・エース",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "最強ジャンプ5月号応募者全員サービス（2024年4月4日売）",
     "label": "通常"
   },
@@ -33284,6 +33553,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "最強ジャンプ5月号応募者全員サービス（2024年4月4日売）",
     "label": "通常"
   },
@@ -33311,6 +33581,7 @@
     "cardName": "サカズキ",
     "rarity": "P",
     "cardType": "LEADER",
+    "block": "2",
     "getInfo": "交流会 2024年5月開催記念品",
     "label": "通常"
   },
@@ -33320,6 +33591,7 @@
     "cardName": "うるティ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "交流会 2024年7月開催記念品",
     "label": "通常"
   },
@@ -33338,6 +33610,7 @@
     "cardName": "アディオ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "ONE PIECE ODYSSEYデラックスエディション",
     "label": "通常"
   },
@@ -33347,6 +33620,7 @@
     "cardName": "アディオ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "交流会 2024年9月開催記念品",
     "label": "公式差分 2"
   },
@@ -33374,6 +33648,7 @@
     "cardName": "リム",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "ONE PIECE ODYSSEYデラックスエディション",
     "label": "通常"
   },
@@ -33383,6 +33658,7 @@
     "cardName": "リム",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "交流会 2024年9月開催記念品",
     "label": "公式差分 2"
   },
@@ -33401,6 +33677,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "BANDAI CARD GAMES Fest 24-25 World Tour 来場記念品",
     "label": "通常"
   },
@@ -33410,6 +33687,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "モスバーガータイアップキャンペーン オリジナルカード",
     "label": "公式差分 2"
   },
@@ -33428,6 +33706,7 @@
     "cardName": "ジュラキュール・ミホーク",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "Vジャンプ10月特大号付録（2024年8月21日売）",
     "label": "公式差分 2"
   },
@@ -33455,6 +33734,7 @@
     "cardName": "クロコダイル",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "最強ジャンプ10月号付録（2024年9月4日売）",
     "label": "公式差分 2"
   },
@@ -33482,6 +33762,7 @@
     "cardName": "シャンクス",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "週刊少年ジャンプ付録（2024年10月7日売）",
     "label": "通常"
   },
@@ -33509,6 +33790,7 @@
     "cardName": "バギー",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "週刊少年ジャンプ付録（2024年10月15日売）",
     "label": "通常"
   },
@@ -33527,6 +33809,7 @@
     "cardName": "ジュエリー・ボニー",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "交流会 2024年11月開催記念品",
     "label": "通常"
   },
@@ -33545,6 +33828,7 @@
     "cardName": "トラファルガー・ロー",
     "rarity": "P",
     "cardType": "LEADER",
+    "block": "3",
     "getInfo": "交流会 2024年9月開催記念品",
     "label": "通常"
   },
@@ -33554,6 +33838,7 @@
     "cardName": "ニコ・ロビン",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "交流会 2025年1月開催記念品",
     "label": "通常"
   },
@@ -33572,6 +33857,7 @@
     "cardName": "トラファルガー・ロー",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "Vジャンプ1月特大号付録（2024年11月21日売）",
     "label": "通常"
   },
@@ -33590,6 +33876,7 @@
     "cardName": "トニートニー・チョッパー",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "最強ジャンプ2月特大号付録（2025年1月4日売）",
     "label": "通常"
   },
@@ -33599,6 +33886,7 @@
     "cardName": "シャーロット・スムージー",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "交流会 2025年3月開催記念品",
     "label": "通常"
   },
@@ -33608,6 +33896,7 @@
     "cardName": "しらほし",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "Vジャンプ4月特大号付録（2025年2月20日売）",
     "label": "通常"
   },
@@ -33617,6 +33906,7 @@
     "cardName": "コビー",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "最強ジャンプ4月特大号付録（2025年3月4日売）",
     "label": "通常"
   },
@@ -33626,6 +33916,7 @@
     "cardName": "トラファルガー・ロー",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "交流会 2025年5月開催記念品",
     "label": "通常"
   },
@@ -33635,6 +33926,7 @@
     "cardName": "ロロノア・ゾロ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "Vジャンプ7月特大号付録（2025年5月21日売）",
     "label": "通常"
   },
@@ -33644,6 +33936,7 @@
     "cardName": "サンジ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "最強ジャンプ7月号付録（2025年6月4日売）",
     "label": "通常"
   },
@@ -33653,6 +33946,7 @@
     "cardName": "少女",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "ONE PIECE magazine別冊 Focus on〝ONE PIECE FAN LETTER〟付録",
     "label": "通常"
   },
@@ -33662,6 +33956,7 @@
     "cardName": "シャンクス",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "交流会 2025年7月開催記念品",
     "label": "通常"
   },
@@ -33671,6 +33966,7 @@
     "cardName": "バギー",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "交流会 2025年7月開催記念品",
     "label": "通常"
   },
@@ -33680,6 +33976,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "交流会 2025年7月開催記念品",
     "label": "通常"
   },
@@ -33689,6 +33986,7 @@
     "cardName": "マーシャル・D・ティーチ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "交流会 2025年7月開催記念品",
     "label": "通常"
   },
@@ -33698,6 +33996,7 @@
     "cardName": "トニートニー・チョッパー",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "「プロモーションカードセット2025」ゲットキャンペーン",
     "label": "通常"
   },
@@ -33707,6 +34006,7 @@
     "cardName": "トニートニー・チョッパー",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "スタンダードバトルパック Vol.14",
     "label": "公式差分 2"
   },
@@ -33716,6 +34016,7 @@
     "cardName": "ナミ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "「プロモーションカードセット2025」ゲットキャンペーン",
     "label": "通常"
   },
@@ -33725,6 +34026,7 @@
     "cardName": "ナミ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "スタンダードバトルパック Vol.14",
     "label": "公式差分 2"
   },
@@ -33734,6 +34036,7 @@
     "cardName": "ポートガス・D・エース",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "「プロモーションカードセット2025」ゲットキャンペーン",
     "label": "通常"
   },
@@ -33743,6 +34046,7 @@
     "cardName": "ポートガス・D・エース",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "スタンダードバトルパック Vol.14",
     "label": "公式差分 2"
   },
@@ -33752,6 +34056,7 @@
     "cardName": "シャンクス",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "「プロモーションカードセット2025」ゲットキャンペーン",
     "label": "通常"
   },
@@ -33761,6 +34066,7 @@
     "cardName": "シャンクス",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "スタンダードバトルパック Vol.14",
     "label": "公式差分 2"
   },
@@ -33770,6 +34076,7 @@
     "cardName": "サボ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "「プロモーションカードセット2025」ゲットキャンペーン",
     "label": "通常"
   },
@@ -33779,6 +34086,7 @@
     "cardName": "サボ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "スタンダードバトルパック Vol.14",
     "label": "公式差分 2"
   },
@@ -33797,6 +34105,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "「プロモーションカードセット2025」ゲットキャンペーン",
     "label": "通常"
   },
@@ -33806,6 +34115,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "スタンダードバトルパック Vol.14",
     "label": "公式差分 2"
   },
@@ -33815,6 +34125,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "スタンダードバトルパック Vol.14",
     "label": "公式差分 3"
   },
@@ -33824,6 +34135,7 @@
     "cardName": "ゴール・Ｄ・ロジャー",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "交流会 2025年9月開催記念品",
     "label": "通常"
   },
@@ -33833,6 +34145,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "Vジャンプ10月特大号付録（2025年8月21日売）",
     "label": "通常"
   },
@@ -33842,6 +34155,7 @@
     "cardName": "ポートガス・D・エース",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "最強ジャンプ10月号付録（2025年9月4日売）",
     "label": "通常"
   },
@@ -33860,6 +34174,7 @@
     "cardName": "ニコ・ロビン",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "交流会 2025年11月開催記念品",
     "label": "通常"
   },
@@ -33869,6 +34184,7 @@
     "cardName": "ナミ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "交流会 2025年11月開催記念品",
     "label": "通常"
   },
@@ -33878,6 +34194,7 @@
     "cardName": "ジュエリー・ボニー",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "交流会 2025年11月開催記念品",
     "label": "通常"
   },
@@ -33887,6 +34204,7 @@
     "cardName": "ロロノア・ゾロ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "交流会 2025年11月開催記念品",
     "label": "通常"
   },
@@ -33896,6 +34214,7 @@
     "cardName": "ボア・ハンコック",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "Vジャンプ2026年1月特大号（2025年11月20日売）",
     "label": "通常"
   },
@@ -33905,6 +34224,7 @@
     "cardName": "ニコ・ロビン",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "最強ジャンプ1月号付録（2025年12月4日売）",
     "label": "通常"
   },
@@ -33914,6 +34234,7 @@
     "cardName": "ナミ",
     "rarity": "P",
     "cardType": "LEADER",
+    "block": "4",
     "getInfo": "交流会(小学生以下限定含む)",
     "label": "通常"
   },
@@ -33923,6 +34244,7 @@
     "cardName": "リリス",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "交流会 2026年1月開催記念品",
     "label": "通常"
   },
@@ -33932,6 +34254,7 @@
     "cardName": "ポートガス・D・エース",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "交流会 2026年3月開催記念品",
     "label": "通常"
   },
@@ -33941,6 +34264,7 @@
     "cardName": "サンジ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "Vジャンプ4月特大号付録（2026年2月20日売）",
     "label": "通常"
   },
@@ -33950,6 +34274,7 @@
     "cardName": "ブルック",
     "rarity": "R",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "最強ジャンプ4月号付録（2026年3月4日売）",
     "label": "通常"
   },
@@ -33959,6 +34284,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "5",
     "getInfo": "交流会 2026年5月開催記念品",
     "label": "通常"
   },
@@ -34076,6 +34402,7 @@
     "cardName": "モンキー・Ｄ・ルフィ",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "プロモーションパックEX Vol.4",
     "label": "公式差分 3"
   },
@@ -34355,6 +34682,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "L",
     "cardType": "LEADER",
+    "block": "1",
     "getInfo": "フラッグシップバトル2022 優勝記念品",
     "label": "公式差分 4"
   },
@@ -34400,6 +34728,7 @@
     "cardName": "ウソップ",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "『ONE PIECE FILM RED』入場者プレゼント フィナーレセット",
     "label": "公式差分 3"
   },
@@ -34454,6 +34783,7 @@
     "cardName": "サンジ",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "『ONE PIECE FILM RED』入場者プレゼント フィナーレセット",
     "label": "公式差分 2"
   },
@@ -34463,6 +34793,7 @@
     "cardName": "サンジ",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.3",
     "label": "公式差分 3"
   },
@@ -34508,6 +34839,7 @@
     "cardName": "ジンベエ",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "プロモーションカードセット",
     "label": "公式差分 4"
   },
@@ -34553,6 +34885,7 @@
     "cardName": "トニートニー・チョッパー",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "『ONE PIECE FILM RED』入場者プレゼント フィナーレセット",
     "label": "公式差分 3"
   },
@@ -34571,6 +34904,7 @@
     "cardName": "トニートニー・チョッパー",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "フラッグシップバトル2022 ベスト8記念品",
     "label": "公式差分 7"
   },
@@ -34580,6 +34914,7 @@
     "cardName": "トニートニー・チョッパー",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "プロモーションカードセット",
     "label": "公式差分 8"
   },
@@ -34634,6 +34969,7 @@
     "cardName": "ナミ",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "スタンダードバトル 12月優勝記念品",
     "label": "公式差分 2"
   },
@@ -34643,6 +34979,7 @@
     "cardName": "ナミ",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "スタンダードバトルパック2022 Vol.2",
     "label": "公式差分 3"
   },
@@ -34652,6 +34989,7 @@
     "cardName": "ナミ",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "『ONE PIECE FILM RED』入場者プレゼント フィナーレセット",
     "label": "公式差分 4"
   },
@@ -34715,6 +35053,7 @@
     "cardName": "ニコ・ロビン",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "プロモーションカードセット",
     "label": "公式差分 4"
   },
@@ -34742,6 +35081,7 @@
     "cardName": "ネフェルタリ・ビビ",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "ジャンプGIGA 2023 WINTER付録（2022年12月26日売）",
     "label": "公式差分 2"
   },
@@ -34903,6 +35243,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "スタンダードバトル 2023年10月優勝記念品",
     "label": "公式差分 6"
   },
@@ -34912,6 +35253,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "スタンダードバトルパックVol.5",
     "label": "公式差分 7"
   },
@@ -34921,6 +35263,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "週刊少年ジャンプ19号応募者全員サービス（2025年4月7日売）",
     "label": "公式差分 8"
   },
@@ -34948,6 +35291,7 @@
     "cardName": "ロロノア・ゾロ",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "『ONE PIECE FILM RED』入場者プレゼント フィナーレセット",
     "label": "公式差分 2"
   },
@@ -34966,6 +35310,7 @@
     "cardName": "ロロノア・ゾロ",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "プロモーションカードセット",
     "label": "公式差分 5"
   },
@@ -34975,6 +35320,7 @@
     "cardName": "ロロノア・ゾロ",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "チャンピオンシップ2022 予選 ベスト16記念品",
     "label": "公式差分 6"
   },
@@ -35047,6 +35393,7 @@
     "cardName": "ゴムゴムのJET銃",
     "rarity": "C",
     "cardType": "EVENT",
+    "block": "1",
     "getInfo": "スタンダードバトルパックVol.4",
     "label": "公式差分 3"
   },
@@ -35056,6 +35403,7 @@
     "cardName": "ゴムゴムのJET銃",
     "rarity": "C",
     "cardType": "EVENT",
+    "block": "1",
     "getInfo": "スタンダードバトル 6月優勝記念品",
     "label": "公式差分 4"
   },
@@ -35342,6 +35690,7 @@
     "cardName": "スクラッチメン・アプー",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "スタンダードバトルパックVol.4",
     "label": "公式差分 3"
   },
@@ -35387,6 +35736,7 @@
     "cardName": "バジル・ホーキンス",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "プロモーションパックEX Vol.1",
     "label": "公式差分 3"
   },
@@ -35450,6 +35800,7 @@
     "cardName": "ユースタス・キッド",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "スタンダードバトルパックVol.5",
     "label": "公式差分 4"
   },
@@ -35567,6 +35918,7 @@
     "cardName": "クロコダイル",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "スタンダードバトルパックVol.5",
     "label": "公式差分 3"
   },
@@ -35594,6 +35946,7 @@
     "cardName": "ゲッコー・モリア",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.5",
     "label": "公式差分 2"
   },
@@ -35648,6 +36001,7 @@
     "cardName": "ジュラキュール・ミホーク",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "スタンダードバトルパック Vol.3",
     "label": "公式差分 2"
   },
@@ -35657,6 +36011,7 @@
     "cardName": "ジュラキュール・ミホーク",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "スタンダードバトル3月優勝記念品",
     "label": "公式差分 3"
   },
@@ -35702,6 +36057,7 @@
     "cardName": "戦桃丸",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "スタンダードバトルパック2022 Vol.2",
     "label": "公式差分 2"
   },
@@ -35738,6 +36094,7 @@
     "cardName": "トラファルガー・ロー",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "チャンピオンシップセット2022",
     "label": "公式差分 2"
   },
@@ -35747,6 +36104,7 @@
     "cardName": "トラファルガー・ロー",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "セブンイレブンタイアップキャンペーン オリジナルカード",
     "label": "公式差分 4"
   },
@@ -35756,6 +36114,7 @@
     "cardName": "トラファルガー・ロー",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "プロモーションカードセット",
     "label": "公式差分 5"
   },
@@ -35765,6 +36124,7 @@
     "cardName": "トラファルガー・ロー",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "プロモーションパックEX Vol.1",
     "label": "公式差分 6"
   },
@@ -35909,6 +36269,7 @@
     "cardName": "マーシャル・D・ティーチ",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.3",
     "label": "公式差分 2"
   },
@@ -36008,6 +36369,7 @@
     "cardName": "カイドウ",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "スタンダードバトルパックVol.5",
     "label": "公式差分 4"
   },
@@ -36026,6 +36388,7 @@
     "cardName": "カイドウ",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "プロモーションパックEX Vol.2",
     "label": "公式差分 6"
   },
@@ -36062,6 +36425,7 @@
     "cardName": "クイーン",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "フラッグシップバトル2023 4月ベスト8記念品",
     "label": "公式差分 3"
   },
@@ -36125,6 +36489,7 @@
     "cardName": "ジャック",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.3",
     "label": "公式差分 2"
   },
@@ -36152,6 +36517,7 @@
     "cardName": "フーズ・フー",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "スタンダードバトルパック2022 Vol.2",
     "label": "公式差分 2"
   },
@@ -36170,6 +36536,7 @@
     "cardName": "ブラックマリア",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "スタンダードバトルパック2022 Vol.1",
     "label": "公式差分 2"
   },
@@ -36179,6 +36546,7 @@
     "cardName": "ブラックマリア",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "ジャンプGIGA 2023 SPRING 応募者全員サービス",
     "label": "公式差分 4"
   },
@@ -36674,6 +37042,7 @@
     "cardName": "たしぎ",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "スタンダードバトルパック Vol.3",
     "label": "公式差分 2"
   },
@@ -36967,6 +37336,7 @@
     "cardName": "シャーロット・ブリュレ",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.5",
     "label": "公式差分 2"
   },
@@ -37003,6 +37373,7 @@
     "cardName": "シャーロット・プリン",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.3",
     "label": "公式差分 2"
   },
@@ -37012,6 +37383,7 @@
     "cardName": "シャーロット・プリン",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "ジャンプGIGA 2023 SPRING 応募者全員サービス",
     "label": "公式差分 4"
   },
@@ -37039,6 +37411,7 @@
     "cardName": "シャーロット・リンリン",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "フラッグシップバトル2023 10月ベスト8記念品",
     "label": "公式差分 3"
   },
@@ -37372,6 +37745,7 @@
     "cardName": "ヤマト",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "1",
     "getInfo": "プロモーションカードセット",
     "label": "公式差分 2"
   },
@@ -37471,6 +37845,7 @@
     "cardName": "サンジ",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "8パックバトル 2024年優勝記念品",
     "label": "公式差分 2"
   },
@@ -37516,6 +37891,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "チャンピオンシップ2023 2次予選決勝大会 ベスト16記念品",
     "label": "公式差分 3"
   },
@@ -37525,6 +37901,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "ONE PIECE DAY’24 来場者特典",
     "label": "公式差分 4"
   },
@@ -37534,6 +37911,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "3周年！ワンピースカードトレジャーキャンペーンパック",
     "label": "公式差分 5"
   },
@@ -37570,6 +37948,7 @@
     "cardName": "シャチ＆ペンギン",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "スタンダードバトルパックVol.12",
     "label": "公式差分 2"
   },
@@ -37615,6 +37994,7 @@
     "cardName": "トラファルガー・ロー",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "チャンピオンシップ2023 2次予選エリア大会 ベスト8記念品",
     "label": "公式差分 3"
   },
@@ -37660,6 +38040,7 @@
     "cardName": "ユースタス・キッド",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "プロモーションパックEX Vol.1",
     "label": "公式差分 2"
   },
@@ -37669,6 +38050,7 @@
     "cardName": "ユースタス・キッド",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "チャンピオンシップ2023 2次予選エリア大会 ベスト16記念品",
     "label": "公式差分 3"
   },
@@ -37768,6 +38150,7 @@
     "cardName": "逆光",
     "rarity": "C",
     "cardType": "EVENT",
+    "block": "2",
     "getInfo": "『ONE PIECE FILM RED』入場者プレゼント アンコールパック",
     "label": "公式差分 2"
   },
@@ -37795,6 +38178,7 @@
     "cardName": "新時代",
     "rarity": "SR",
     "cardType": "EVENT",
+    "block": "2",
     "getInfo": "『ONE PIECE FILM RED』入場者プレゼント アンコールパック",
     "label": "公式差分 2"
   },
@@ -37822,6 +38206,7 @@
     "cardName": "私は最強",
     "rarity": "C",
     "cardType": "EVENT",
+    "block": "2",
     "getInfo": "『ONE PIECE FILM RED』入場者プレゼント アンコールパック",
     "label": "公式差分 2"
   },
@@ -37867,6 +38252,7 @@
     "cardName": "ジュラキュール・ミホーク",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "2",
     "getInfo": "Vジャンプ10月特大号 応募者全員サービス",
     "label": "公式差分 2"
   },
@@ -39028,6 +39414,7 @@
     "cardName": "バギー",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "最強ジャンプ5月号応募者全員サービス（2025年4月4日売）",
     "label": "公式差分 2"
   },
@@ -39181,6 +39568,7 @@
     "cardName": "おナミ",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "8パックバトル 2025年優勝記念品",
     "label": "公式差分 2"
   },
@@ -39289,6 +39677,7 @@
     "cardName": "センゴク",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "スタンダードバトルパックVol.11",
     "label": "公式差分 2"
   },
@@ -39685,6 +40074,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "ONE PIECE magazine 特集 週刊少年ジャンプとONE PIECE 020​ 付録",
     "label": "公式差分 3"
   },
@@ -40027,6 +40417,7 @@
     "cardName": "ウタ",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "3",
     "getInfo": "プロモーションパックEX Vol.4",
     "label": "公式差分 2"
   },
@@ -40468,6 +40859,7 @@
     "cardName": "ニコ・ロビン",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "プロモーションパックEX Vol.4",
     "label": "公式差分 3"
   },
@@ -42547,6 +42939,7 @@
     "cardName": "クザン",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "5",
     "getInfo": "Vジャンプ7月特大号付録（2026年5月21日売）",
     "label": "通常"
   },
@@ -42556,6 +42949,7 @@
     "cardName": "スモーカー",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "5",
     "getInfo": "最強ジャンプ7月号付録（2026年6月4日売）",
     "label": "通常"
   },
@@ -42565,6 +42959,7 @@
     "cardName": "神兵",
     "rarity": "C",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "スタンダードバトルパックVol.17",
     "label": "公式差分 2"
   },
@@ -42574,6 +42969,7 @@
     "cardName": "ロロノア・ゾロ",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "4",
     "getInfo": "フラッグシップバトル2026 7月ベスト8記念品",
     "label": "公式差分 3"
   },
@@ -42583,6 +42979,7 @@
     "cardName": "ナミュール",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "5",
     "getInfo": "スタンダードバトルパックVol.17",
     "label": "公式差分 2"
   },
@@ -42592,6 +42989,7 @@
     "cardName": "イナズマ",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "5",
     "getInfo": "スタンダードバトルパックVol.17",
     "label": "公式差分 2"
   },
@@ -42601,6 +42999,7 @@
     "cardName": "ボア・ハンコック",
     "rarity": "SR",
     "cardType": "CHARACTER",
+    "block": "5",
     "getInfo": "フラッグシップバトル2026 7月優勝記念品",
     "label": "公式差分 3"
   },
@@ -42610,6 +43009,7 @@
     "cardName": "ニコ・ロビン",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "5",
     "getInfo": "スタンダードバトル 2026年9月優勝記念品",
     "label": "公式差分 2"
   },
@@ -42619,6 +43019,7 @@
     "cardName": "ニコ・ロビン",
     "rarity": "UC",
     "cardType": "CHARACTER",
+    "block": "5",
     "getInfo": "スタンダードバトルパックVol.17",
     "label": "公式差分 3"
   },
@@ -42628,6 +43029,7 @@
     "cardName": "トラファルガー・ロー",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "5",
     "getInfo": "交流会 2026年7月開催記念品",
     "label": "通常"
   },
@@ -42637,6 +43039,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "5",
     "getInfo": "交流会 2026年9月開催記念品",
     "label": "通常"
   },
@@ -42646,6 +43049,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "5",
     "getInfo": "週刊少年ジャンプ33号付録（2026年7月13日売）",
     "label": "通常"
   },
@@ -42655,6 +43059,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "5",
     "getInfo": "週刊少年ジャンプ33号付録応募者全員サービス（2026年7月13日売）",
     "label": "公式差分 2"
   },
@@ -44244,6 +44649,7 @@
     "cardName": "エドワード・ニューゲート",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "5",
     "getInfo": "最強ジャンプ5月号​ 応募者全員大サービス（2026年4月3日売）",
     "label": "通常"
   },
@@ -44253,6 +44659,7 @@
     "cardName": "ポートガス・D・エース",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "5",
     "getInfo": "最強ジャンプ5月号​ 応募者全員大サービス（2026年4月3日売）",
     "label": "通常"
   },
@@ -44262,6 +44669,7 @@
     "cardName": "モンキー・D・ルフィ",
     "rarity": "P",
     "cardType": "CHARACTER",
+    "block": "5",
     "getInfo": "最強ジャンプ5月号​ 応募者全員大サービス（2026年4月3日売）",
     "label": "通常"
   },
