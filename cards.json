@@ -152,9 +152,7 @@
     "trigger": "",
     "getInfo": "始めようキャンペーン プロモーションパック",
     "seriesTitle": "始めようキャンペーン プロモーションパック",
-    "seriesCode": "EB-01",
-    "sourceModalId": "EB01-006",
-    "blockIconOverride": "X"
+    "seriesCode": ""
   },
   {
     "uniqueId": "EB01-007_dummy.gif",
@@ -3109,9 +3107,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "EB02-061",
-    "blockIconOverride": "X"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "EB03-001_dummy.gif",
@@ -4657,9 +4653,7 @@
     "trigger": "",
     "getInfo": "エクストラブースター ONE PIECE Heroines Edition【EB-03】",
     "seriesTitle": "エクストラブースター ONE PIECE Heroines Edition",
-    "seriesCode": "EB-03",
-    "sourceModalId": "EB03-061",
-    "blockIconOverride": "X"
+    "seriesCode": "EB-03"
   },
   {
     "uniqueId": "EB03-062_dummy.gif",
@@ -5815,9 +5809,7 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04",
-    "sourceModalId": "EB04-044",
-    "blockIconOverride": "X"
+    "seriesCode": "EB-04"
   },
   {
     "uniqueId": "EB04-045_dummy.gif",
@@ -6670,9 +6662,7 @@
     "trigger": "",
     "getInfo": "ジャンプGIGA 2023 SPRING 応募者全員サービス",
     "seriesTitle": "ジャンプGIGA 2023 SPRING 応募者全員サービス",
-    "seriesCode": "OP-01",
-    "sourceModalId": "OP01-016",
-    "blockIconOverride": "X"
+    "seriesCode": ""
   },
   {
     "uniqueId": "OP01-017_dummy.gif",
@@ -7263,9 +7253,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "blockIconOverride": "4",
-    "sourceModalId": "OP01-039"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "OP01-040_dummy.gif",
@@ -7678,9 +7666,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "blockIconOverride": "4",
-    "sourceModalId": "OP01-055"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "OP01-056_dummy.gif",
@@ -9349,9 +9335,7 @@
     "trigger": "",
     "getInfo": "フラッグシップバトル2023 7月優勝記念品",
     "seriesTitle": "フラッグシップバトル2023 7月優勝記念品",
-    "seriesCode": "OP-01",
-    "sourceModalId": "OP01-120",
-    "blockIconOverride": "X"
+    "seriesCode": ""
   },
   {
     "uniqueId": "OP01-121_dummy.gif",
@@ -9504,9 +9488,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "blockIconOverride": "4",
-    "sourceModalId": "OP02-005"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "OP02-006_dummy.gif",
@@ -9706,9 +9688,7 @@
     "trigger": "",
     "getInfo": "頂上決戦【OP-02】",
     "seriesTitle": "頂上決戦",
-    "seriesCode": "OP-02",
-    "sourceModalId": "OP02-013",
-    "blockIconOverride": "X"
+    "seriesCode": "OP-02"
   },
   {
     "uniqueId": "OP02-014_dummy.gif",
@@ -11130,9 +11110,7 @@
     "trigger": "【】コスト2以下のキャラ1枚までを、持ち主の手札に戻す。",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "blockIconOverride": "4",
-    "sourceModalId": "OP02-068"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "OP02-069_dummy.gif",
@@ -12673,9 +12651,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "blockIconOverride": "4",
-    "sourceModalId": "OP03-008"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "OP03-009_dummy.gif",
@@ -13600,9 +13576,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "blockIconOverride": "4",
-    "sourceModalId": "OP03-044"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "OP03-045_dummy.gif",
@@ -13702,9 +13676,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "blockIconOverride": "4",
-    "sourceModalId": "OP03-048"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "OP03-049_dummy.gif",
@@ -14323,9 +14295,7 @@
     "trigger": "【】ドン‼デッキからドン‼1枚までを、アクティブで追加する。",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "blockIconOverride": "4",
-    "sourceModalId": "OP03-072"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "OP03-073_dummy.gif",
@@ -14956,9 +14926,7 @@
     "trigger": "【】カード1枚を引く。その後、相手のコスト1以下のキャラ1枚までを、KOする。",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "blockIconOverride": "4",
-    "sourceModalId": "OP03-097"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "OP03-098_dummy.gif",
@@ -15589,9 +15557,7 @@
     "trigger": "",
     "getInfo": "強大な敵【OP-03】",
     "seriesTitle": "強大な敵",
-    "seriesCode": "OP-03",
-    "sourceModalId": "OP03-122",
-    "blockIconOverride": "X"
+    "seriesCode": "OP-03"
   },
   {
     "uniqueId": "OP03-123_dummy.gif",
@@ -16028,9 +15994,7 @@
     "trigger": "【】相手のリーダーかキャラ1枚までを、このターン中、パワー-3000。",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "blockIconOverride": "4",
-    "sourceModalId": "OP04-016"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "OP04-017_dummy.gif",
@@ -17580,9 +17544,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "blockIconOverride": "4",
-    "sourceModalId": "OP04-077"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "OP04-078_dummy.gif",
@@ -17736,9 +17698,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "OP04-083",
-    "blockIconOverride": "X"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "OP04-084_dummy.gif",
@@ -18072,9 +18032,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "blockIconOverride": "4",
-    "sourceModalId": "OP04-096"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "OP04-097_dummy.gif",
@@ -20402,9 +20360,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST【PRB-01】",
     "seriesTitle": "ONE PIECE CARD THE BEST",
-    "seriesCode": "PRB-01",
-    "sourceModalId": "OP05-069",
-    "blockIconOverride": "X"
+    "seriesCode": "PRB-01"
   },
   {
     "uniqueId": "OP05-070_dummy.gif",
@@ -20530,9 +20486,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST【PRB-01】",
     "seriesTitle": "ONE PIECE CARD THE BEST",
-    "seriesCode": "PRB-01",
-    "sourceModalId": "OP05-074",
-    "blockIconOverride": "X"
+    "seriesCode": "PRB-01"
   },
   {
     "uniqueId": "OP05-075_dummy.gif",
@@ -21670,9 +21624,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST【PRB-01】",
     "seriesTitle": "ONE PIECE CARD THE BEST",
-    "seriesCode": "PRB-01",
-    "sourceModalId": "OP05-119",
-    "blockIconOverride": "X"
+    "seriesCode": "PRB-01"
   },
   {
     "uniqueId": "OP06-001_dummy.gif",
@@ -24702,9 +24654,7 @@
     "trigger": "",
     "getInfo": "双璧の覇者【OP-06】",
     "seriesTitle": "双璧の覇者",
-    "seriesCode": "OP-06",
-    "sourceModalId": "OP06-118",
-    "blockIconOverride": "X"
+    "seriesCode": "OP-06"
   },
   {
     "uniqueId": "OP06-119_dummy.gif",
@@ -24729,9 +24679,7 @@
     "trigger": "",
     "getInfo": "双璧の覇者【OP-06】",
     "seriesTitle": "双璧の覇者",
-    "seriesCode": "OP-06",
-    "sourceModalId": "OP06-119",
-    "blockIconOverride": "X"
+    "seriesCode": "OP-06"
   },
   {
     "uniqueId": "OP07-001_dummy.gif",
@@ -26039,9 +25987,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE カードゲーム China 2nd ANNIVERSARY SET",
     "seriesTitle": "ONE PIECE カードゲーム China 2nd ANNIVERSARY SET",
-    "seriesCode": "OP-07",
-    "sourceModalId": "OP07-051",
-    "blockIconOverride": "X"
+    "seriesCode": ""
   },
   {
     "uniqueId": "OP07-052_dummy.gif",
@@ -30781,9 +30727,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "OP08-118",
-    "blockIconOverride": "X"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "OP08-119_dummy.gif",
@@ -30912,9 +30856,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 新たなる皇帝【OP-09】",
     "seriesTitle": "ブースターパック 新たなる皇帝",
-    "seriesCode": "OP-09",
-    "sourceModalId": "OP09-004",
-    "blockIconOverride": "X"
+    "seriesCode": "OP-09"
   },
   {
     "uniqueId": "OP09-005_dummy.gif",
@@ -32122,9 +32064,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 新たなる皇帝【OP-09】",
     "seriesTitle": "ブースターパック 新たなる皇帝",
-    "seriesCode": "OP-09",
-    "sourceModalId": "OP09-051",
-    "blockIconOverride": "X"
+    "seriesCode": "OP-09"
   },
   {
     "uniqueId": "OP09-052_dummy.gif",
@@ -33189,9 +33129,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 新たなる皇帝【OP-09】",
     "seriesTitle": "ブースターパック 新たなる皇帝",
-    "seriesCode": "OP-09",
-    "sourceModalId": "OP09-093",
-    "blockIconOverride": "X"
+    "seriesCode": "OP-09"
   },
   {
     "uniqueId": "OP09-094_dummy.gif",
@@ -33826,9 +33764,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 新たなる皇帝【OP-09】",
     "seriesTitle": "ブースターパック 新たなる皇帝",
-    "seriesCode": "OP-09",
-    "sourceModalId": "OP09-118",
-    "blockIconOverride": "X"
+    "seriesCode": "OP-09"
   },
   {
     "uniqueId": "OP09-119_dummy.gif",
@@ -33853,9 +33789,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 新たなる皇帝【OP-09】",
     "seriesTitle": "ブースターパック 新たなる皇帝",
-    "seriesCode": "OP-09",
-    "sourceModalId": "OP09-119",
-    "blockIconOverride": "X"
+    "seriesCode": "OP-09"
   },
   {
     "uniqueId": "OP10-001_dummy.gif",
@@ -36944,9 +36878,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "OP10-119",
-    "blockIconOverride": "X"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "OP11-001_dummy.gif",
@@ -39971,9 +39903,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 神速の拳【OP-11】",
     "seriesTitle": "ブースターパック 神速の拳",
-    "seriesCode": "OP-11",
-    "sourceModalId": "OP11-118",
-    "blockIconOverride": "X"
+    "seriesCode": "OP-11"
   },
   {
     "uniqueId": "OP11-119_dummy.gif",
@@ -43034,9 +42964,7 @@
     "trigger": "",
     "getInfo": "師弟の絆【OP-12】",
     "seriesTitle": "師弟の絆",
-    "seriesCode": "OP-12",
-    "sourceModalId": "OP12-118",
-    "blockIconOverride": "X"
+    "seriesCode": "OP-12"
   },
   {
     "uniqueId": "OP12-119_dummy.gif",
@@ -46093,9 +46021,7 @@
     "trigger": "",
     "getInfo": "チャンピオンシップ25-26 Season2 決勝大会 ベスト32記念品",
     "seriesTitle": "チャンピオンシップ25-26 Season2 決勝大会 ベスト32記念品",
-    "seriesCode": "OP-13",
-    "sourceModalId": "OP13-118",
-    "blockIconOverride": "X"
+    "seriesCode": ""
   },
   {
     "uniqueId": "OP13-119_dummy.gif",
@@ -46120,9 +46046,7 @@
     "trigger": "",
     "getInfo": "チャンピオンシップ25-26Season 2 決勝トーナメント上位記念品",
     "seriesTitle": "チャンピオンシップ25-26Season 2 決勝トーナメント上位記念品",
-    "seriesCode": "OP-13",
-    "sourceModalId": "OP13-119",
-    "blockIconOverride": "X"
+    "seriesCode": ""
   },
   {
     "uniqueId": "OP13-120_dummy.gif",
@@ -46148,9 +46072,7 @@
     "trigger": "",
     "getInfo": "チャンピオンシップ25-26Season 2 エリア決勝大会権利獲得記念品",
     "seriesTitle": "チャンピオンシップ25-26Season 2 エリア決勝大会権利獲得記念品",
-    "seriesCode": "OP-13",
-    "sourceModalId": "OP13-120",
-    "blockIconOverride": "X"
+    "seriesCode": ""
   },
   {
     "uniqueId": "OP14-001_dummy.gif",
@@ -49211,9 +49133,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 蒼海の七傑【OP-14】",
     "seriesTitle": "ブースターパック 蒼海の七傑",
-    "seriesCode": "OP-14",
-    "sourceModalId": "OP14-119",
-    "blockIconOverride": "X"
+    "seriesCode": "OP-14"
   },
   {
     "uniqueId": "OP14-120_dummy.gif",
@@ -52273,9 +52193,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 神の島の冒険【OP-15】",
     "seriesTitle": "ブースターパック 神の島の冒険",
-    "seriesCode": "OP-15",
-    "sourceModalId": "OP15-118",
-    "blockIconOverride": "X"
+    "seriesCode": "OP-15"
   },
   {
     "uniqueId": "OP15-119_dummy.gif",
@@ -53919,9 +53837,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-063",
-    "blockIconOverride": "X"
+    "seriesCode": "OP-16"
   },
   {
     "uniqueId": "OP16-064_dummy.gif",
@@ -53972,9 +53888,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-065",
-    "blockIconOverride": "X"
+    "seriesCode": "OP-16"
   },
   {
     "uniqueId": "OP16-066_dummy.gif",
@@ -54176,9 +54090,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-073",
-    "blockIconOverride": "X"
+    "seriesCode": "OP-16"
   },
   {
     "uniqueId": "OP16-074_dummy.gif",
@@ -55380,8 +55292,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-001"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-002_dummy.gif",
@@ -55406,8 +55317,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-002"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-003_dummy.gif",
@@ -55433,8 +55343,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-003"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-004_dummy.gif",
@@ -55461,8 +55370,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-004"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-005_dummy.gif",
@@ -55488,9 +55396,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-005",
-    "blockIconOverride": "X"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-006_dummy.gif",
@@ -55515,8 +55421,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-006"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-007_dummy.gif",
@@ -55543,8 +55448,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-007"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-008_dummy.gif",
@@ -55569,8 +55473,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-008"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-009_dummy.gif",
@@ -55595,8 +55498,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-009"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-010_dummy.gif",
@@ -55621,8 +55523,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-010"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-011_dummy.gif",
@@ -55647,8 +55548,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-011"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-012_dummy.gif",
@@ -55673,8 +55573,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-012"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-013_dummy.gif",
@@ -55699,8 +55598,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-013"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-014_dummy.gif",
@@ -55725,8 +55623,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-014"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-015_dummy.gif",
@@ -55751,8 +55648,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-015"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-016_dummy.gif",
@@ -55777,8 +55673,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-016"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-017_dummy.gif",
@@ -55804,8 +55699,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-017"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-018_dummy.gif",
@@ -55831,8 +55725,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-018"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-019_dummy.gif",
@@ -55858,8 +55751,7 @@
     "trigger": "【】自分のリーダーを、このターン中、パワー+1000。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-019"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-020_dummy.gif",
@@ -55885,8 +55777,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-020"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-021_dummy.gif",
@@ -55911,8 +55802,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-021"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-022_dummy.gif",
@@ -55938,9 +55828,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-022",
-    "blockIconOverride": "X"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-023_dummy.gif",
@@ -55966,8 +55854,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-023"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-024_dummy.gif",
@@ -55992,8 +55879,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-024"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-025_dummy.gif",
@@ -56018,8 +55904,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-025"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-026_dummy.gif",
@@ -56044,8 +55929,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-026"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-027_dummy.gif",
@@ -56070,8 +55954,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-027"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-028_dummy.gif",
@@ -56097,8 +55980,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-028"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-029_dummy.gif",
@@ -56123,8 +56005,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-029"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-030_dummy.gif",
@@ -56150,8 +56031,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-030"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-031_dummy.gif",
@@ -56176,8 +56056,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-031"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-032_dummy.gif",
@@ -56202,8 +56081,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-032"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-033_dummy.gif",
@@ -56228,8 +56106,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-033"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-034_dummy.gif",
@@ -56254,8 +56131,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-034"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-035_dummy.gif",
@@ -56281,8 +56157,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-035"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-036_dummy.gif",
@@ -56308,8 +56183,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-036"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-037_dummy.gif",
@@ -56335,8 +56209,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-037"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-038_dummy.gif",
@@ -56361,8 +56234,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-038"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-039_dummy.gif",
@@ -56387,8 +56259,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-039"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-040_dummy.gif",
@@ -56413,8 +56284,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-040"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-041_dummy.gif",
@@ -56439,8 +56309,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-041"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-042_dummy.gif",
@@ -56465,8 +56334,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-042"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-043_dummy.gif",
@@ -56491,8 +56359,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-043"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-044_dummy.gif",
@@ -56517,8 +56384,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-044"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-045_dummy.gif",
@@ -56543,8 +56409,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-045"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-046_dummy.gif",
@@ -56570,8 +56435,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-046"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-047_dummy.gif",
@@ -56598,8 +56462,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-047"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-048_dummy.gif",
@@ -56624,8 +56487,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-048"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-049_dummy.gif",
@@ -56650,8 +56512,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-049"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-050_dummy.gif",
@@ -56676,8 +56537,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-050"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-051_dummy.gif",
@@ -56704,8 +56564,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-051"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-052_dummy.gif",
@@ -56730,8 +56589,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-052"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-053_dummy.gif",
@@ -56757,8 +56615,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-053"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-054_dummy.gif",
@@ -56783,8 +56640,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-054"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-055_dummy.gif",
@@ -56809,8 +56665,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-055"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-056_dummy.gif",
@@ -56835,8 +56690,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-056"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-057_dummy.gif",
@@ -56861,8 +56715,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-057"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-058_dummy.gif",
@@ -56888,8 +56741,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-058"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-059_dummy.gif",
@@ -56915,8 +56767,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-059"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-060_dummy.gif",
@@ -56941,8 +56792,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-060"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-061_dummy.gif",
@@ -56968,8 +56818,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-061"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-062_dummy.gif",
@@ -56995,9 +56844,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-062",
-    "blockIconOverride": "X"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-063_dummy.gif",
@@ -57023,8 +56870,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-063"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-064_dummy.gif",
@@ -57050,8 +56896,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-064"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-065_dummy.gif",
@@ -57076,8 +56921,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-065"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-066_dummy.gif",
@@ -57103,8 +56947,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-066"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-067_dummy.gif",
@@ -57130,8 +56973,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-067"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-068_dummy.gif",
@@ -57156,8 +56998,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-068"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-069_dummy.gif",
@@ -57183,8 +57024,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-069"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-070_dummy.gif",
@@ -57210,8 +57050,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-070"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-071_dummy.gif",
@@ -57237,8 +57076,7 @@
     "trigger": "【】このカードを登場させる。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-071"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-072_dummy.gif",
@@ -57263,8 +57101,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-072"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-073_dummy.gif",
@@ -57290,8 +57127,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-073"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-074_dummy.gif",
@@ -57316,8 +57152,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-074"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-075_dummy.gif",
@@ -57344,8 +57179,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-075"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-076_dummy.gif",
@@ -57371,8 +57205,7 @@
     "trigger": "【】ドン!!-1：カード2枚を引く。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-076"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-077_dummy.gif",
@@ -57398,8 +57231,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-077"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-078_dummy.gif",
@@ -57425,8 +57257,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-078"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-079_dummy.gif",
@@ -57453,8 +57284,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-079"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-080_dummy.gif",
@@ -57480,8 +57310,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-080"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-081_dummy.gif",
@@ -57508,8 +57337,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-081"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-082_dummy.gif",
@@ -57535,8 +57363,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-082"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-083_dummy.gif",
@@ -57563,8 +57390,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-083"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-084_dummy.gif",
@@ -57591,8 +57417,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-084"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-085_dummy.gif",
@@ -57619,8 +57444,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-085"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-086_dummy.gif",
@@ -57646,8 +57470,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-086"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-087_dummy.gif",
@@ -57673,8 +57496,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-087"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-088_dummy.gif",
@@ -57701,8 +57523,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-088"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-089_dummy.gif",
@@ -57729,8 +57550,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-089"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-090_dummy.gif",
@@ -57756,8 +57576,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-090"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-091_dummy.gif",
@@ -57783,8 +57602,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-091"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-092_dummy.gif",
@@ -57811,8 +57629,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-092"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-093_dummy.gif",
@@ -57839,8 +57656,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-093"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-094_dummy.gif",
@@ -57867,8 +57683,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-094"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-095_dummy.gif",
@@ -57894,8 +57709,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-095"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-096_dummy.gif",
@@ -57922,8 +57736,7 @@
     "trigger": "【】自分のトラッシュから特徴《エルバフ》を持つカード1枚までを、手札に加える。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-096"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-097_dummy.gif",
@@ -57949,8 +57762,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-097"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-098_dummy.gif",
@@ -57977,8 +57789,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-098"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-099_dummy.gif",
@@ -58004,8 +57815,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-099"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-100_dummy.gif",
@@ -58031,8 +57841,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-100"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-101_dummy.gif",
@@ -58058,8 +57867,7 @@
     "trigger": "【】自分の手札1枚を捨てることができる：相手のコスト5以下のキャラ1枚までを、KOする。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-101"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-102_dummy.gif",
@@ -58084,8 +57892,7 @@
     "trigger": "【】このカードを登場させる。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-102"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-103_dummy.gif",
@@ -58110,8 +57917,7 @@
     "trigger": "【】このカードを登場させる。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-103"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-104_dummy.gif",
@@ -58136,8 +57942,7 @@
     "trigger": "【】このカードを登場させる。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-104"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-105_dummy.gif",
@@ -58163,8 +57968,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-105"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-106_dummy.gif",
@@ -58189,8 +57993,7 @@
     "trigger": "【】このカードを登場させる。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-106"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-107_dummy.gif",
@@ -58215,8 +58018,7 @@
     "trigger": "【】このカードを登場させる。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-107"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-108_dummy.gif",
@@ -58241,8 +58043,7 @@
     "trigger": "【】相手のコスト6以下のキャラ1枚までを、レストにする。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-108"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-109_dummy.gif",
@@ -58267,8 +58068,7 @@
     "trigger": "【】自分のデッキの上から5枚を見て、特徴《ビッグ・マム海賊団》を持つカード1枚までを公開し、手札に加える。その後、残りを好きな順番でデッキの下に置く。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-109"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-110_dummy.gif",
@@ -58293,8 +58093,7 @@
     "trigger": "【】このカードを登場させる。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-110"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-111_dummy.gif",
@@ -58319,8 +58118,7 @@
     "trigger": "【】このカードを登場させる。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-111"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-112_dummy.gif",
@@ -58346,9 +58144,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-112",
-    "blockIconOverride": "X"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-113_dummy.gif",
@@ -58373,8 +58169,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-113"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-114_dummy.gif",
@@ -58399,8 +58194,7 @@
     "trigger": "【】このカードを登場させる。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-114"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-115_dummy.gif",
@@ -58426,8 +58220,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-115"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-116_dummy.gif",
@@ -58453,8 +58246,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-116"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-117_dummy.gif",
@@ -58480,8 +58272,7 @@
     "trigger": "【】相手は自身の手札3枚を捨ててもよい。そうしなかった場合、相手のコスト6以下のキャラ1枚までを、KOする。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-117"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-118_dummy.gif",
@@ -58506,9 +58297,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-118",
-    "blockIconOverride": "X"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-119_dummy.gif",
@@ -58534,8 +58323,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-119"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "P-001_dummy.gif",
@@ -62992,9 +62780,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "blockIconOverride": "4",
-    "sourceModalId": "ST01-011"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "ST01-012_dummy.gif",
@@ -63328,9 +63114,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "blockIconOverride": "4",
-    "sourceModalId": "ST02-007"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "ST02-008_dummy.gif",
@@ -65105,9 +64889,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "blockIconOverride": "4",
-    "sourceModalId": "ST06-008"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "ST06-009_dummy.gif",
