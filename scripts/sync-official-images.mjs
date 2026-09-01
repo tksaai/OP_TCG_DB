@@ -1,4 +1,4 @@
-import { mkdir, readFile, stat, writeFile } from 'node:fs/promises';
+import { mkdir, open, readFile, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
 const OFFICIAL_BASE_URL = 'https://www.onepiece-cardgame.com';
@@ -45,6 +45,20 @@ function decodeHtml(value = '') {
         .trim();
 }
 
+function extractDiv(body, className) {
+    const match = body.match(new RegExp(`<div class="${className}">([\\s\\S]*?)<\\/div>`, 'i'));
+    return match ? match[1] : '';
+}
+
+function extractLabeledValue(body, className) {
+    return decodeHtml(extractDiv(body, className).replace(/<h3>[\s\S]*?<\/h3>/i, ''));
+}
+
+function normalizeBlockValue(value) {
+    const normalized = String(value || '').trim().toUpperCase();
+    return normalized && normalized !== 'NAN' ? normalized : '';
+}
+
 function normalizeImageUrl(src) {
     const decoded = decodeHtml(src);
     return new URL(decoded, `${OFFICIAL_BASE_URL}/cardlist/`).href;
@@ -74,6 +88,7 @@ function parseOfficialCards(html, expectedCardNumber = '') {
 
         const cardName = decodeHtml(body.match(/<div class="cardName">([\s\S]*?)<\/div>/)?.[1] || '');
         const getInfo = decodeHtml(body.match(/<div class="getInfo"><h3>入手情報<\/h3>([\s\S]*?)<\/div>/)?.[1] || '');
+        const block = normalizeBlockValue(extractLabeledValue(body, 'block'));
         const imageUrl = normalizeImageUrl(imageMatch[1]);
         const imageBaseName = path.basename(new URL(imageUrl).pathname, path.extname(new URL(imageUrl).pathname));
         const parallelMatch = imageBaseName.match(/_p(\d+)$/);
@@ -89,6 +104,7 @@ function parseOfficialCards(html, expectedCardNumber = '') {
             cardName,
             rarity: decodeHtml(infoMatch[2]),
             cardType: decodeHtml(infoMatch[3]),
+            block,
             getInfo,
             imageUrl,
             localPath: localImagePath(cardNumber, imageUrl),
@@ -101,13 +117,59 @@ function parseOfficialCards(html, expectedCardNumber = '') {
     return cards.sort((a, b) => a.variantIndex - b.variantIndex || a.imageUrl.localeCompare(b.imageUrl));
 }
 
-async function exists(filePath) {
+function hasKnownImageSignature(buffer) {
+    if (!buffer || buffer.length < 3) return false;
+    const isPng = buffer.length >= 8
+        && buffer[0] === 0x89
+        && buffer.subarray(1, 4).toString('ascii') === 'PNG';
+    const isJpeg = buffer[0] === 0xff && buffer[1] === 0xd8 && buffer[2] === 0xff;
+    const isWebp = buffer.length >= 12
+        && buffer.subarray(0, 4).toString('ascii') === 'RIFF'
+        && buffer.subarray(8, 12).toString('ascii') === 'WEBP';
+    const gifHeader = buffer.length >= 6 ? buffer.subarray(0, 6).toString('ascii') : '';
+    return isPng || isJpeg || isWebp || gifHeader === 'GIF87a' || gifHeader === 'GIF89a';
+}
+
+async function isUsableImageFile(filePath) {
+    let handle;
     try {
-        await stat(filePath);
-        return true;
+        const info = await stat(filePath);
+        if (!info.isFile() || info.size < 12) return false;
+        handle = await open(filePath, 'r');
+        const header = Buffer.alloc(12);
+        const { bytesRead } = await handle.read(header, 0, header.length, 0);
+        return hasKnownImageSignature(header.subarray(0, bytesRead));
+    } catch {
+        return false;
+    } finally {
+        await handle?.close();
+    }
+}
+
+async function isSuspiciousImageFile(filePath) {
+    try {
+        const info = await stat(filePath);
+        if (!info.isFile()) return false;
+        if (info.size >= 1024) return false;
+        return !await isUsableImageFile(filePath);
     } catch {
         return false;
     }
+}
+
+async function findInvalidOfficialWebps(metadata) {
+    const entries = Object.entries(metadata).filter(([, value]) => value?.source === 'official');
+    const invalid = [];
+    const batchSize = 200;
+    for (let index = 0; index < entries.length; index += batchSize) {
+        const batch = entries.slice(index, index + batchSize);
+        const results = await Promise.all(batch.map(async ([filePath]) => {
+            const webpPath = webpPathFor(filePath);
+            return await isSuspiciousImageFile(webpPath) ? filePath : '';
+        }));
+        invalid.push(...results.filter(Boolean));
+    }
+    return invalid;
 }
 
 function webpPathFor(localPath) {
@@ -117,7 +179,7 @@ function webpPathFor(localPath) {
 
 // 元画像 (Cards/) はコミットしないので、WebP が既にあれば取得済みとみなす
 async function alreadyDownloaded(localPath) {
-    return (await exists(localPath)) || (await exists(webpPathFor(localPath)));
+    return (await isUsableImageFile(localPath)) || (await isUsableImageFile(webpPathFor(localPath)));
 }
 
 async function fetchText(url) {
@@ -140,6 +202,9 @@ async function downloadFile(url, outputPath) {
 
     await mkdir(path.dirname(outputPath), { recursive: true });
     const buffer = Buffer.from(await response.arrayBuffer());
+    if (!hasKnownImageSignature(buffer.subarray(0, 12))) {
+        throw new Error(`Downloaded response is not a supported image (${buffer.length} bytes).`);
+    }
     await writeFile(outputPath, buffer);
 }
 
@@ -187,20 +252,28 @@ const provisionalPromoNumbers = requestedSeries.has(PROMO_SERIES)
     : new Set();
 for (const cardNumber of promoCardsByNumber.keys()) candidateCardNumbers.add(cardNumber);
 for (const cardNumber of provisionalPromoNumbers) candidateCardNumbers.add(cardNumber);
+const metadata = await readMetadata();
+const repairCardNumbers = new Set();
+for (const filePath of await findInvalidOfficialWebps(metadata)) {
+    const cardNumber = path.basename(filePath, path.extname(filePath)).match(/^([A-Z0-9]+-\d+)/i)?.[1]?.toUpperCase();
+    if (cardNumber) repairCardNumbers.add(cardNumber);
+}
+for (const cardNumber of repairCardNumbers) candidateCardNumbers.add(cardNumber);
 let cardNumbers = [...candidateCardNumbers];
 
 if (onlyCards.size > 0) {
     cardNumbers = cardNumbers.filter(cardNumber => onlyCards.has(cardNumber));
 }
 
-const metadata = await readMetadata();
 const officialImageCardNumbers = new Set();
-for (const filePath of Object.keys(metadata)) {
-    if (metadata[filePath]?.source !== 'official') continue;
-    if (!await exists(filePath)) continue;
+if (missingOnly) {
+    for (const filePath of Object.keys(metadata)) {
+        if (metadata[filePath]?.source !== 'official') continue;
+        if (!await alreadyDownloaded(filePath)) continue;
 
-    const cardNumber = path.basename(filePath, path.extname(filePath)).match(/^([A-Z0-9]+-\d+)/i)?.[1]?.toUpperCase();
-    if (cardNumber) officialImageCardNumbers.add(cardNumber);
+        const cardNumber = path.basename(filePath, path.extname(filePath)).match(/^([A-Z0-9]+-\d+)/i)?.[1]?.toUpperCase();
+        if (cardNumber) officialImageCardNumbers.add(cardNumber);
+    }
 }
 
 if (requestedSeries.size > 0) {
@@ -211,6 +284,7 @@ if (requestedSeries.size > 0) {
             || provisionalPromoNumbers.has(cardNumber)
         ))
         || onlyCards.has(cardNumber)
+        || repairCardNumbers.has(cardNumber)
     ));
 }
 
@@ -225,7 +299,14 @@ if (limit > 0) {
     cardNumbers = cardNumbers.slice(0, limit);
 }
 
-const summary = { checked: 0, found: 0, downloaded: 0, skipped: 0, failed: 0 };
+const summary = {
+    checked: 0,
+    found: 0,
+    downloaded: 0,
+    skipped: 0,
+    failed: 0,
+    repairCandidates: repairCardNumbers.size
+};
 
 for (const cardNumber of cardNumbers) {
     summary.checked++;
@@ -250,6 +331,7 @@ for (const cardNumber of cardNumbers) {
                 cardName: officialCard.cardName,
                 rarity: officialCard.rarity,
                 cardType: officialCard.cardType,
+                block: officialCard.block,
                 getInfo: officialCard.getInfo,
                 label: officialCard.label
             };

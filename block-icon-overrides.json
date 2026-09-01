@@ -1,9 +1,11 @@
 {
-  "sourceUrl": "https://www.onepiece-cardgame.com/rules/blockicon-card/",
-  "updatedAt": "2025-11-21",
-  "legacySuperParallelX": [
+  "sourceUrl": "https://www.onepiece-cardgame.com/news/blockicon-card.html",
+  "updatedAt": "2026-08-21",
+  "superParallelXCardNumbers": [
     "EB01-006",
     "EB02-061",
+    "EB03-061",
+    "EB04-044",
     "OP01-016",
     "OP01-120",
     "OP02-013",
@@ -27,7 +29,16 @@
     "OP13-118",
     "OP13-119",
     "OP13-120",
-    "OP14-119"
+    "OP14-119",
+    "OP15-118",
+    "OP16-063",
+    "OP16-065",
+    "OP16-073",
+    "OP17-005",
+    "OP17-022",
+    "OP17-062",
+    "OP17-112",
+    "OP17-118"
   ],
   "blockIconOverrides": {
     "OP01-039": "4",

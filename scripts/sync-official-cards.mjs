@@ -1,9 +1,17 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
+import {
+    applyBlockIconRules,
+    normalizeBlockValue,
+    normalizeCardNumber
+} from './block-icon-rules.mjs';
+import { preferOfficialCardVariant, stripOfficialSyncMetadata } from './official-card-utils.mjs';
+
 const OFFICIAL_BASE_URL = 'https://www.onepiece-cardgame.com';
 const PROMO_SERIES = 'PROMO';
 const PROMO_CATEGORY_ID = '550901';
+const OFFICIAL_IMAGE_SOURCES_JSON = 'official-image-sources.json';
 const CARDS_JSON = 'cards.json';
 const PROVISIONAL_CARDS_JSON = 'provisional-cards.json';
 const BLOCK_ICON_OVERRIDES_JSON = 'block-icon-overrides.json';
@@ -51,45 +59,6 @@ function normalizeNumber(value) {
     return Number.isFinite(number) ? number : text;
 }
 
-function normalizeCardNumber(value) {
-    return String(value || '').trim().toUpperCase();
-}
-
-function normalizeBlockValue(value) {
-    if (value === undefined || value === null) return '';
-    const normalized = String(value).trim().toUpperCase();
-    if (!normalized || normalized === 'NAN') return '';
-    return normalized;
-}
-
-function applyBlockIconOverrides(cards, overrides) {
-    const legacySuperParallelX = new Set(
-        Array.isArray(overrides.legacySuperParallelX)
-            ? overrides.legacySuperParallelX.map(normalizeCardNumber).filter(Boolean)
-            : []
-    );
-    const blockIconOverrides = overrides.blockIconOverrides && typeof overrides.blockIconOverrides === 'object'
-        ? overrides.blockIconOverrides
-        : {};
-
-    let changed = 0;
-    for (const card of cards) {
-        const cardNumber = normalizeCardNumber(card.cardNumber);
-        const override = legacySuperParallelX.has(cardNumber)
-            ? 'X'
-            : normalizeBlockValue(blockIconOverrides[cardNumber]);
-
-        if (override) {
-            if (card.blockIconOverride !== override) changed++;
-            card.blockIconOverride = override;
-        } else if (Object.prototype.hasOwnProperty.call(card, 'blockIconOverride')) {
-            delete card.blockIconOverride;
-            changed++;
-        }
-    }
-    return changed;
-}
-
 function isMissingValue(value) {
     if (value === undefined || value === null) return true;
     const text = String(value).trim();
@@ -116,6 +85,14 @@ function mergeMissingOfficialFields(existingCard, officialCard) {
     ];
 
     for (const field of fields) {
+        if (field === 'block') {
+            const officialBlock = normalizeBlockValue(officialCard[field]);
+            if (officialBlock && normalizeBlockValue(merged[field]) !== officialBlock) {
+                merged[field] = officialCard[field];
+                changed = true;
+            }
+            continue;
+        }
         if (isMissingValue(merged[field]) && !isMissingValue(officialCard[field])) {
             merged[field] = officialCard[field];
             changed = true;
@@ -180,6 +157,12 @@ function parseOfficialCards(html, allowedPrefixes = new Set(), allowedCards = ne
         const attribute = decodeHtml(extractDiv(body, 'attribute').match(/<img[^>]+alt="([^"]*)"/i)?.[1] || '-');
         const imageUrl = body.match(/<div class="frontCol">[\s\S]*?<img[^>]+data-src="([^"]+)"/s)?.[1] || '';
         const imageFile = imageUrl ? path.basename(new URL(decodeHtml(imageUrl), `${OFFICIAL_BASE_URL}/cardlist/`).pathname) : 'official';
+        const imageStem = path.basename(imageFile, path.extname(imageFile));
+        const parallelMatch = imageStem.match(/_p(\d+)$/i);
+        const rarityMatch = imageStem.match(/_r(\d+)$/i);
+        const sourceVariantIndex = rarityMatch
+            ? 1000 + Number(rarityMatch[1])
+            : parallelMatch ? Number(parallelMatch[1]) : 0;
         const series = parseSeries(getInfo);
 
         cards.push({
@@ -202,7 +185,8 @@ function parseOfficialCards(html, allowedPrefixes = new Set(), allowedCards = ne
             getInfo,
             seriesTitle: series.seriesTitle,
             seriesCode: series.seriesCode,
-            sourceModalId: modalId
+            sourceModalId: modalId,
+            _sourceVariantIndex: sourceVariantIndex
         });
     }
 
@@ -266,7 +250,10 @@ for (const searchValue of searches) {
         : new Set([searchValue]);
     const parsed = parseOfficialCards(html, allowedPrefixes, onlyCards);
     for (const card of parsed) {
-        fetchedCards.set(card.cardNumber, card);
+        fetchedCards.set(
+            card.cardNumber,
+            preferOfficialCardVariant(fetchedCards.get(card.cardNumber), card)
+        );
     }
 }
 
@@ -284,7 +271,10 @@ for (const cardNumber of directCardSearches) {
     const html = await fetchText(officialSearchUrl(cardNumber));
     const parsed = parseOfficialCards(html, new Set(), new Set([cardNumber]));
     for (const card of parsed) {
-        fetchedCards.set(card.cardNumber, card);
+        fetchedCards.set(
+            card.cardNumber,
+            preferOfficialCardVariant(fetchedCards.get(card.cardNumber), card)
+        );
     }
 }
 
@@ -292,7 +282,8 @@ let added = 0;
 let updated = 0;
 let patchedMissing = 0;
 let skipped = 0;
-for (const card of fetchedCards.values()) {
+for (const fetchedCard of fetchedCards.values()) {
+    const card = stripOfficialSyncMetadata(fetchedCard);
     if (byCardNumber.has(card.cardNumber)) {
         if (force) {
             byCardNumber.set(card.cardNumber, { ...byCardNumber.get(card.cardNumber), ...card });
@@ -319,7 +310,13 @@ const nextCards = [...byCardNumber.values()].sort((a, b) => {
 let blockIconOverrideChanged = 0;
 try {
     const overrides = JSON.parse(await readFile(BLOCK_ICON_OVERRIDES_JSON, 'utf8'));
-    blockIconOverrideChanged = applyBlockIconOverrides(nextCards, overrides);
+    let officialImageSources = {};
+    try {
+        officialImageSources = JSON.parse(await readFile(OFFICIAL_IMAGE_SOURCES_JSON, 'utf8'));
+    } catch {
+        // Existing rule data remains usable before the image metadata is generated.
+    }
+    blockIconOverrideChanged = applyBlockIconRules(nextCards, overrides, { officialImageSources });
 } catch (error) {
     console.warn(`Skipped block icon overrides: ${error.message}`);
 }

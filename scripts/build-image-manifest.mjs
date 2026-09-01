@@ -150,7 +150,7 @@ for (const file of files) {
     cards[parsed.cardNumber].push({
         ...(officialMetadata[originalPath] || metadataByStem.get(metadataStem)),
         path: webpPath,
-        fallbackPath: originalPath,
+        fallbackPath: webpPath.startsWith(`${WEBP_DIR}/`) ? '' : originalPath,
         label: parsed.label,
         variantIndex: parsed.variantIndex
     });

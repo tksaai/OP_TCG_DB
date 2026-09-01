@@ -5,8 +5,8 @@
  */
 
 // === 1. 定数 ===
-const CACHE_APP_SHELL = 'app-shell-v39';
-const CACHE_CARD_DATA = 'card-data-v12';
+const CACHE_APP_SHELL = 'app-shell-v40';
+const CACHE_CARD_DATA = 'card-data-v13';
 // v2: 配信を WebP に一本化したタイミングで、古い JPEG/PNG のキャッシュを捨てる
 const CACHE_IMAGES = 'card-images-v2';
 const OWNED_CACHE_PREFIXES = ['app-shell-', 'card-data-', 'card-images-'];

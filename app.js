@@ -47,7 +47,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.11.2'; // バージョン更新
+    const APP_VERSION = '1.11.3'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -169,7 +169,28 @@
 
     function getEffectiveBlockValue(card) {
         if (!card) return '';
-        return normalizeBlockValue(card.blockIconOverride) || normalizeBlockValue(card.block);
+        const override = normalizeBlockValue(card.blockIconOverride);
+        if (override) return override;
+
+        const variants = getCardImageVariants(card);
+        const variantIndex = Number.isInteger(card._displayVariantIndex)
+            ? card._displayVariantIndex
+            : getVariantIndexForSeries(card, currentFilter.series);
+        return normalizeBlockValue(variants[variantIndex]?.block) || normalizeBlockValue(card.block);
+    }
+
+    function getCardBlockValues(card) {
+        const override = normalizeBlockValue(card?.blockIconOverride);
+        if (override) return [override];
+
+        const values = new Set();
+        const cardBlock = normalizeBlockValue(card?.block);
+        if (cardBlock) values.add(cardBlock);
+        getCardImageVariants(card).forEach(variant => {
+            const variantBlock = normalizeBlockValue(variant?.block);
+            if (variantBlock) values.add(variantBlock);
+        });
+        return [...values];
     }
 
     function getStandardRegulationYear(date = new Date()) {
@@ -1470,13 +1491,14 @@
      * フィルタ条件に基づいてカードを抽出し、表示
      */
     function applyFiltersAndDisplay() {
-        const sourceCards = getActiveCardSource();
-        if (sourceCards.length === 0) {
+        const activeSourceCards = getActiveCardSource();
+        if (activeSourceCards.length === 0) {
             dom.cardListContainer.innerHTML = activeCardView === 'new'
                 ? '<p class="no-results">仮DBのカードはありません。</p>'
                 : '<p class="no-results">カードデータが読み込まれていません。</p>';
             return;
         }
+        const sourceCards = expandCardsForVariantDisplay(activeSourceCards);
 
         const rawInput = dom.searchBar.value.trim();
         // 全角スペースを半角に変換してから分割
@@ -1696,7 +1718,7 @@
             });
         }
 
-        currentFilteredCards = expandCardsForVariantDisplay(filteredCards);
+        currentFilteredCards = filteredCards;
         if (currentMode === 'collection_edit' && collectionShowOnlyOwned) {
             currentFilteredCards = currentFilteredCards.filter(card => getCollectionCount(getCardDisplayVariantKey(card)) > 0);
         }
@@ -1769,8 +1791,7 @@
                 card.attribute.split('/').forEach(a => attributes.add(a));
             }
 
-            const block = getEffectiveBlockValue(card);
-            if (block) blocks.add(block);
+            getCardBlockValues(card).forEach(block => blocks.add(block));
 
             const seriesId = card.cardNumber.split('-')[0];
             if (!seriesId || seriesSet.has(seriesId)) return;

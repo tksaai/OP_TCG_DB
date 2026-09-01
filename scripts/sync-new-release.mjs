@@ -27,6 +27,14 @@ function run(command, commandArgs) {
     }
 }
 
+async function readOptionalText(filePath) {
+    try {
+        return await readFile(filePath, 'utf8');
+    } catch {
+        return '';
+    }
+}
+
 function decodeHtml(value = '') {
     return value
         .replace(/&amp;/g, '&')
@@ -136,9 +144,29 @@ for (const arg of args) {
     }
 }
 
+const blockRulesBefore = await readOptionalText('block-icon-overrides.json');
+run(process.execPath, [
+    path.join('scripts', 'sync-block-icon-rules.mjs'),
+    '--allow-stale',
+    ...(dryRun ? ['--dry-run'] : [])
+]);
+const blockRulesAfter = await readOptionalText('block-icon-overrides.json');
+if (!dryRun && blockRulesAfter && blockRulesAfter !== blockRulesBefore) {
+    const blockRules = JSON.parse(blockRulesAfter);
+    const blockRuleCards = [...new Set([
+        ...(blockRules.superParallelXCardNumbers || blockRules.legacySuperParallelX || []),
+        ...Object.keys(blockRules.blockIconOverrides || {})
+    ])].filter(Boolean);
+    const targetedArgs = blockRuleCards.map(cardNumber => `--card=${cardNumber}`);
+    if (targetedArgs.length > 0) {
+        console.log(`Refreshing ${targetedArgs.length} cards referenced by updated block icon rules.`);
+        run(process.execPath, [path.join('scripts', 'sync-official-cards.mjs'), ...targetedArgs]);
+        run(process.execPath, [path.join('scripts', 'sync-official-images.mjs'), ...targetedArgs]);
+    }
+}
 run(process.execPath, cardSyncArgs);
-run(process.execPath, [path.join('scripts', 'apply-block-icon-overrides.mjs'), ...(dryRun ? ['--dry-run'] : [])]);
 run(process.execPath, officialSyncArgs);
+run(process.execPath, [path.join('scripts', 'apply-block-icon-overrides.mjs'), ...(dryRun ? ['--dry-run'] : [])]);
 
 if (dryRun) {
     console.log('\nDry run complete. WebP conversion and manifest rebuild were skipped.');

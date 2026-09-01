@@ -80,6 +80,6 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add cards.json image-manifest.json card-features.json official-image-sources.json CardsWebP
+          git add block-icon-overrides.json cards.json image-manifest.json card-features.json official-image-sources.json CardsWebP
           git commit -m "Sync $SERIES cards and images"
           git push
