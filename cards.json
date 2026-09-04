@@ -152,7 +152,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST【PRB-01】",
     "seriesTitle": "ONE PIECE CARD THE BEST",
-    "seriesCode": "PRB-01"
+    "seriesCode": "PRB-01",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "EB01-007_dummy.gif",
@@ -3107,7 +3108,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "EB03-001_dummy.gif",
@@ -4653,7 +4655,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター ONE PIECE Heroines Edition【EB-03】",
     "seriesTitle": "エクストラブースター ONE PIECE Heroines Edition",
-    "seriesCode": "EB-03"
+    "seriesCode": "EB-03",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "EB03-062_dummy.gif",
@@ -5809,7 +5812,8 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04"
+    "seriesCode": "EB-04",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "EB04-045_dummy.gif",
@@ -6662,7 +6666,8 @@
     "trigger": "",
     "getInfo": "プレミアムカードコレクション 25周年エディション",
     "seriesTitle": "プレミアムカードコレクション 25周年エディション",
-    "seriesCode": ""
+    "seriesCode": "",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP01-017_dummy.gif",
@@ -7253,7 +7258,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "OP01-040_dummy.gif",
@@ -7666,7 +7672,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "OP01-056_dummy.gif",
@@ -9335,7 +9342,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST【PRB-01】",
     "seriesTitle": "ONE PIECE CARD THE BEST",
-    "seriesCode": "PRB-01"
+    "seriesCode": "PRB-01",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP01-121_dummy.gif",
@@ -9488,7 +9496,8 @@
     "trigger": "",
     "getInfo": "プレミアムカードコレクション - ベストセレクションvol.1 -",
     "seriesTitle": "プレミアムカードコレクション - ベストセレクションvol.1 -",
-    "seriesCode": ""
+    "seriesCode": "",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "OP02-006_dummy.gif",
@@ -9688,7 +9697,8 @@
     "trigger": "",
     "getInfo": "2nd ANNIVERSARY SET",
     "seriesTitle": "2nd ANNIVERSARY SET",
-    "seriesCode": ""
+    "seriesCode": "",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP02-014_dummy.gif",
@@ -11110,7 +11120,8 @@
     "trigger": "【】コスト2以下のキャラ1枚までを、持ち主の手札に戻す。",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "OP02-069_dummy.gif",
@@ -12651,7 +12662,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "OP03-009_dummy.gif",
@@ -13576,7 +13588,8 @@
     "trigger": "",
     "getInfo": "2nd ANNIVERSARY SET",
     "seriesTitle": "2nd ANNIVERSARY SET",
-    "seriesCode": ""
+    "seriesCode": "",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "OP03-045_dummy.gif",
@@ -13676,7 +13689,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "OP03-049_dummy.gif",
@@ -14295,7 +14309,8 @@
     "trigger": "【】ドン‼デッキからドン‼1枚までを、アクティブで追加する。",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "OP03-073_dummy.gif",
@@ -14926,7 +14941,8 @@
     "trigger": "【】カード1枚を引く。その後、相手のコスト1以下のキャラ1枚までを、KOする。",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "OP03-098_dummy.gif",
@@ -15557,7 +15573,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST【PRB-01】",
     "seriesTitle": "ONE PIECE CARD THE BEST",
-    "seriesCode": "PRB-01"
+    "seriesCode": "PRB-01",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP03-123_dummy.gif",
@@ -15994,7 +16011,8 @@
     "trigger": "【】相手のリーダーかキャラ1枚までを、このターン中、パワー-3000。",
     "getInfo": "スタートデッキ 赤 モンキー・D・ルフィ【ST-31】",
     "seriesTitle": "スタートデッキ 赤 モンキー・D・ルフィ",
-    "seriesCode": "ST-31"
+    "seriesCode": "ST-31",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "OP04-017_dummy.gif",
@@ -17544,7 +17562,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "OP04-078_dummy.gif",
@@ -17698,7 +17717,8 @@
     "trigger": "",
     "getInfo": "2nd ANNIVERSARY SET",
     "seriesTitle": "2nd ANNIVERSARY SET",
-    "seriesCode": ""
+    "seriesCode": "",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP04-084_dummy.gif",
@@ -18032,7 +18052,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "OP04-097_dummy.gif",
@@ -20360,7 +20381,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST【PRB-01】",
     "seriesTitle": "ONE PIECE CARD THE BEST",
-    "seriesCode": "PRB-01"
+    "seriesCode": "PRB-01",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP05-070_dummy.gif",
@@ -20486,7 +20508,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST【PRB-01】",
     "seriesTitle": "ONE PIECE CARD THE BEST",
-    "seriesCode": "PRB-01"
+    "seriesCode": "PRB-01",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP05-075_dummy.gif",
@@ -21624,7 +21647,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE カードゲーム English 2nd ANNIVERSARY SET",
     "seriesTitle": "ONE PIECE カードゲーム English 2nd ANNIVERSARY SET",
-    "seriesCode": ""
+    "seriesCode": "",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP06-001_dummy.gif",
@@ -24654,7 +24678,8 @@
     "trigger": "",
     "getInfo": "2nd ANNIVERSARY SET",
     "seriesTitle": "2nd ANNIVERSARY SET",
-    "seriesCode": ""
+    "seriesCode": "",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP06-119_dummy.gif",
@@ -24679,7 +24704,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP07-001_dummy.gif",
@@ -25987,7 +26013,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE カードゲーム China 2nd ANNIVERSARY SET",
     "seriesTitle": "ONE PIECE カードゲーム China 2nd ANNIVERSARY SET",
-    "seriesCode": ""
+    "seriesCode": "",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP07-052_dummy.gif",
@@ -30727,7 +30754,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP08-119_dummy.gif",
@@ -30856,7 +30884,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE カードゲーム English 2nd ANNIVERSARY SET",
     "seriesTitle": "ONE PIECE カードゲーム English 2nd ANNIVERSARY SET",
-    "seriesCode": ""
+    "seriesCode": "",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP09-005_dummy.gif",
@@ -32064,7 +32093,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE カードゲーム English 2nd ANNIVERSARY SET",
     "seriesTitle": "ONE PIECE カードゲーム English 2nd ANNIVERSARY SET",
-    "seriesCode": ""
+    "seriesCode": "",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP09-052_dummy.gif",
@@ -33129,7 +33159,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE カードゲーム English 2nd ANNIVERSARY SET",
     "seriesTitle": "ONE PIECE カードゲーム English 2nd ANNIVERSARY SET",
-    "seriesCode": ""
+    "seriesCode": "",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP09-094_dummy.gif",
@@ -33764,7 +33795,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 新たなる皇帝【OP-09】",
     "seriesTitle": "ブースターパック 新たなる皇帝",
-    "seriesCode": "OP-09"
+    "seriesCode": "OP-09",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP09-119_dummy.gif",
@@ -33789,7 +33821,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 新たなる皇帝【OP-09】",
     "seriesTitle": "ブースターパック 新たなる皇帝",
-    "seriesCode": "OP-09"
+    "seriesCode": "OP-09",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP10-001_dummy.gif",
@@ -36878,7 +36911,8 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02"
+    "seriesCode": "PRB-02",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP11-001_dummy.gif",
@@ -39903,7 +39937,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 神速の拳【OP-11】",
     "seriesTitle": "ブースターパック 神速の拳",
-    "seriesCode": "OP-11"
+    "seriesCode": "OP-11",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP11-119_dummy.gif",
@@ -42964,7 +42999,8 @@
     "trigger": "",
     "getInfo": "師弟の絆【OP-12】",
     "seriesTitle": "師弟の絆",
-    "seriesCode": "OP-12"
+    "seriesCode": "OP-12",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP12-119_dummy.gif",
@@ -46021,7 +46057,8 @@
     "trigger": "",
     "getInfo": "受け継がれる意志【OP-13】",
     "seriesTitle": "受け継がれる意志",
-    "seriesCode": "OP-13"
+    "seriesCode": "OP-13",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP13-119_dummy.gif",
@@ -46046,7 +46083,8 @@
     "trigger": "",
     "getInfo": "受け継がれる意志【OP-13】",
     "seriesTitle": "受け継がれる意志",
-    "seriesCode": "OP-13"
+    "seriesCode": "OP-13",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP13-120_dummy.gif",
@@ -46072,7 +46110,8 @@
     "trigger": "",
     "getInfo": "受け継がれる意志【OP-13】",
     "seriesTitle": "受け継がれる意志",
-    "seriesCode": "OP-13"
+    "seriesCode": "OP-13",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP14-001_dummy.gif",
@@ -49133,7 +49172,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 蒼海の七傑【OP-14】",
     "seriesTitle": "ブースターパック 蒼海の七傑",
-    "seriesCode": "OP-14"
+    "seriesCode": "OP-14",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP14-120_dummy.gif",
@@ -52193,7 +52233,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 神の島の冒険【OP-15】",
     "seriesTitle": "ブースターパック 神の島の冒険",
-    "seriesCode": "OP-15"
+    "seriesCode": "OP-15",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP15-119_dummy.gif",
@@ -53837,7 +53878,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP16-064_dummy.gif",
@@ -53888,7 +53930,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP16-066_dummy.gif",
@@ -54090,7 +54133,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16"
+    "seriesCode": "OP-16",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP16-074_dummy.gif",
@@ -55396,7 +55440,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP17-006_dummy.gif",
@@ -55828,7 +55873,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP17-023_dummy.gif",
@@ -56844,7 +56890,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP17-063_dummy.gif",
@@ -58144,7 +58191,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP17-113_dummy.gif",
@@ -58297,7 +58345,8 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17"
+    "seriesCode": "OP-17",
+    "blockIconOverride": "X"
   },
   {
     "uniqueId": "OP17-119_dummy.gif",
@@ -62780,7 +62829,8 @@
     "trigger": "",
     "getInfo": "ファミリーデッキセット",
     "seriesTitle": "ファミリーデッキセット",
-    "seriesCode": ""
+    "seriesCode": "",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "ST01-012_dummy.gif",
@@ -63114,7 +63164,8 @@
     "trigger": "",
     "getInfo": "ファミリーデッキセット",
     "seriesTitle": "ファミリーデッキセット",
-    "seriesCode": ""
+    "seriesCode": "",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "ST02-008_dummy.gif",
@@ -64889,7 +64940,8 @@
     "trigger": "",
     "getInfo": "プレミアムカードコレクション - ベストセレクションvol.2 -",
     "seriesTitle": "プレミアムカードコレクション - ベストセレクションvol.2 -",
-    "seriesCode": ""
+    "seriesCode": "",
+    "blockIconOverride": "4"
   },
   {
     "uniqueId": "ST06-009_dummy.gif",

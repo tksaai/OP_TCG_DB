@@ -5,8 +5,8 @@
  */
 
 // === 1. 定数 ===
-const CACHE_APP_SHELL = 'app-shell-v40';
-const CACHE_CARD_DATA = 'card-data-v13';
+const CACHE_APP_SHELL = 'app-shell-v41';
+const CACHE_CARD_DATA = 'card-data-v14';
 // v2: 配信を WebP に一本化したタイミングで、古い JPEG/PNG のキャッシュを捨てる
 const CACHE_IMAGES = 'card-images-v2';
 const OWNED_CACHE_PREFIXES = ['app-shell-', 'card-data-', 'card-images-'];
@@ -18,12 +18,14 @@ let imageCacheWritesSinceTrim = 0;
 const CARDS_JSON_PATH = './cards.json';
 const PROVISIONAL_CARDS_JSON_PATH = './provisional-cards.json';
 const IMAGE_MANIFEST_PATH = './image-manifest.json';
+const BLOCK_ICON_RULES_PATH = './block-icon-overrides.json';
 const CARD_FEATURES_PATH = './card-features.json';
 const FURIGANA_OVERRIDES_PATH = './furigana-overrides.json';
 const CARD_DATA_FILES = [
     CARDS_JSON_PATH,
     PROVISIONAL_CARDS_JSON_PATH,
     IMAGE_MANIFEST_PATH,
+    BLOCK_ICON_RULES_PATH,
     CARD_FEATURES_PATH,
     FURIGANA_OVERRIDES_PATH
 ];

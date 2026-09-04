@@ -1,8 +1,8 @@
 // リポジトリに置くデータと画面の前提が崩れていないかを確認する。
-// 同期ワークフローの頭で実行し、壊れたデータをコミットしないようにする。
+// 同期ワークフローで実行し、壊れたデータをコミットしないようにする。
 
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
+import { access, readFile } from 'node:fs/promises';
 
 const readJson = async (name) => JSON.parse(await readFile(new URL(`../${name}`, import.meta.url), 'utf8'));
 
@@ -11,6 +11,7 @@ const manifest = await readJson('image-manifest.json');
 const provisional = await readJson('provisional-cards.json');
 const indexHtml = await readFile(new URL('../index.html', import.meta.url), 'utf8');
 const appJs = await readFile(new URL('../app.js', import.meta.url), 'utf8');
+const provisionalWorkflow = await readFile(new URL('../.github/workflows/sync-provisional-cards.yml', import.meta.url), 'utf8');
 
 // --- カードデータ ---------------------------------------------------------
 assert.ok(Array.isArray(cards) && cards.length > 1000, 'cards.json のカード数が少なすぎます');
@@ -39,11 +40,30 @@ assert.equal(
 // --- 仮DB -----------------------------------------------------------------
 const provisionalCards = Array.isArray(provisional) ? provisional : provisional.cards;
 assert.ok(Array.isArray(provisionalCards), 'provisional-cards.json からカード配列を取得できません');
-const provisionalOriginals = provisionalCards.filter(card => String(card?.imagePath || '').startsWith('Cards/'));
+const provisionalWithoutWebp = provisionalCards.filter(
+  card => !String(card?.imagePath || '').startsWith('CardsWebP/Provisional/')
+);
 assert.equal(
-  provisionalOriginals.length,
+  provisionalWithoutWebp.length,
   0,
-  `仮DBの imagePath が Cards/ のままのカードが ${provisionalOriginals.length} 件あります`
+  `仮DBの imagePath が配信用WebPではないカードが ${provisionalWithoutWebp.length} 件あります: ${provisionalWithoutWebp[0]?.imagePath}`
+);
+await Promise.all(provisionalCards.map(async card => {
+  const imagePath = String(card?.imagePath || '');
+  try {
+    await access(new URL(`../${imagePath}`, import.meta.url));
+  } catch {
+    assert.fail(`仮DB画像が存在しません: ${card?.cardNumber || 'unknown'} ${imagePath}`);
+  }
+}));
+
+const convertStep = provisionalWorkflow.indexOf('python scripts/convert-images-to-webp.py');
+const updatePathsStep = provisionalWorkflow.indexOf('node scripts/update-provisional-image-paths.mjs');
+const finalIntegrityStep = provisionalWorkflow.lastIndexOf('node scripts/test-data-integrity.mjs');
+const commitStep = provisionalWorkflow.indexOf('git commit -m "Sync provisional cards"');
+assert.ok(
+  convertStep >= 0 && convertStep < updatePathsStep && updatePathsStep < finalIntegrityStep && finalIntegrityStep < commitStep,
+  '仮DB同期は WebP変換、参照更新、整合性検査の順でコミット前に実行してください'
 );
 
 // --- 画面 -----------------------------------------------------------------

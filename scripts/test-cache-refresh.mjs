@@ -19,10 +19,11 @@ test('cache refresh UI preserves user data stores', async () => {
     assert.doesNotMatch(refreshFunction, /deleteDB/);
 });
 
-test('service worker cache version is advanced for the block icon fix', async () => {
+test('service worker cache version is advanced for the provisional image fix', async () => {
     const source = await readFile(new URL('service-worker.js', root), 'utf8');
-    assert.match(source, /CACHE_APP_SHELL = 'app-shell-v40'/);
-    assert.match(source, /CACHE_CARD_DATA = 'card-data-v13'/);
+    assert.match(source, /CACHE_APP_SHELL = 'app-shell-v41'/);
+    assert.match(source, /CACHE_CARD_DATA = 'card-data-v14'/);
+    assert.match(source, /BLOCK_ICON_RULES_PATH/);
     assert.match(source, /OWNED_CACHE_PREFIXES/);
     assert.match(source, /isOwnedCache && !cacheWhitelist\.includes/);
 });

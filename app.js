@@ -36,6 +36,7 @@
     const CARDS_JSON_PATH = './cards.json';
     const PROVISIONAL_CARDS_JSON_PATH = './provisional-cards.json';
     const IMAGE_MANIFEST_PATH = './image-manifest.json';
+    const BLOCK_ICON_RULES_PATH = './block-icon-overrides.json';
     const FURIGANA_OVERRIDES_PATH = './furigana-overrides.json';
     const GITHUB_OWNER = 'tksaai';
     const GITHUB_REPO = 'OP_TCG_DB';
@@ -47,7 +48,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.11.3'; // バージョン更新
+    const APP_VERSION = '1.11.4'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -72,6 +73,7 @@
     let currentLightboxIndex = -1;
     let currentLightboxVariantIndex = 0;
     let imageManifest = { cards: {} };
+    let blockIconRules = { loaded: false, superParallelXCardNumbers: new Set(), blockIconOverrides: {} };
     let cardSeriesIdCache = new Map(); // cardNumber -> Set<正規化済みシリーズID>
     let lastAddedCardSet = new Set(); // 前回のデータ更新で追加されたカード番号
     let provisionalCards = [];
@@ -191,6 +193,25 @@
             if (variantBlock) values.add(variantBlock);
         });
         return [...values];
+    }
+
+    function applyBlockIconRulesToCards(cards) {
+        if (!Array.isArray(cards)) return cards;
+        const superParallelX = blockIconRules.superParallelXCardNumbers;
+        const overrides = blockIconRules.blockIconOverrides;
+
+        cards.forEach(card => {
+            const cardNumber = String(card?.cardNumber || '').trim().toUpperCase();
+            if (!cardNumber) return;
+            const hasXVariant = (imageManifest.cards?.[cardNumber] || [])
+                .some(variant => normalizeBlockValue(variant?.block) === 'X');
+            const override = superParallelX.has(cardNumber) || hasXVariant
+                ? 'X'
+                : normalizeBlockValue(overrides[cardNumber]);
+            if (override) card.blockIconOverride = override;
+            else if (blockIconRules.loaded) delete card.blockIconOverride;
+        });
+        return cards;
     }
 
     function getStandardRegulationYear(date = new Date()) {
@@ -399,6 +420,7 @@
             await initDB();
             await loadWantedCards();
             await loadImageManifest();
+            await loadBlockIconRules();
             await loadFuriganaOverrides();
             await loadProvisionalCards();
             await loadCollectionItems();
@@ -473,6 +495,28 @@
             imageManifest = { cards: {} };
         }
         cardSeriesIdCache.clear();
+    }
+
+    async function loadBlockIconRules() {
+        try {
+            const response = await fetch(BLOCK_ICON_RULES_PATH, { cache: 'no-cache' });
+            if (!response.ok) throw new Error(`Failed to fetch block icon rules: ${response.status}`);
+            const rules = await response.json();
+            const configuredX = Array.isArray(rules?.superParallelXCardNumbers)
+                ? rules.superParallelXCardNumbers
+                : Array.isArray(rules?.legacySuperParallelX) ? rules.legacySuperParallelX : [];
+            blockIconRules = {
+                loaded: true,
+                superParallelXCardNumbers: new Set(
+                    configuredX.map(value => String(value || '').trim().toUpperCase()).filter(Boolean)
+                ),
+                blockIconOverrides: rules?.blockIconOverrides && typeof rules.blockIconOverrides === 'object'
+                    ? rules.blockIconOverrides
+                    : {}
+            };
+        } catch (error) {
+            console.warn('Failed to load block icon rules.', error);
+        }
     }
 
     function getOverrideFurigana(cardNumber) {
@@ -2106,6 +2150,7 @@
             const serverLastModified = response.headers.get('Last-Modified');
             const cardsText = await response.text();
             const cardsData = JSON.parse(cardsText);
+            applyBlockIconRulesToCards(cardsData);
             const serverHash = await hashCardsData(cardsData);
             const localHashMeta = await db.get(STORE_METADATA, 'cardsContentHash');
             let localHash = localHashMeta ? localHashMeta.value : null;
@@ -2192,6 +2237,7 @@
                 cardsData = await response.json();
             }
 
+            applyBlockIconRulesToCards(cardsData);
             const cardsArray = normalizeCardsData(cardsData);
             if (!contentHash) contentHash = await hashCardsData(cardsData);
 
@@ -2265,6 +2311,7 @@
         if (!db) return;
         try {
             allCards = await db.getAll(STORE_CARDS);
+            applyBlockIconRulesToCards(allCards);
             cardSeriesIdCache.clear();
             try {
                 const lastAddedMeta = await db.get(STORE_METADATA, 'lastAddedCards');

@@ -3,6 +3,7 @@ import path from 'node:path';
 
 const DEFAULT_INPUT = 'provisional-cards.json';
 const DEFAULT_IMAGE_DIR = path.join('Cards', 'Provisional');
+const DEFAULT_WEBP_DIR = path.join('CardsWebP', 'Provisional');
 const IMAGE_EXTENSIONS = new Set(['.jpg', '.jpeg', '.png', '.webp']);
 const USER_AGENT = 'OP_TCG_DB provisional image sync (+https://github.com/tksaai/OP_TCG_DB)';
 
@@ -18,6 +19,7 @@ function argValue(name, fallback = '') {
 
 const inputPath = argValue('input', DEFAULT_INPUT);
 const imageRoot = argValue('image-dir', DEFAULT_IMAGE_DIR);
+const webpRoot = argValue('webp-dir', DEFAULT_WEBP_DIR);
 const requestedConcurrency = Number(argValue('concurrency', '6'));
 const concurrency = Number.isInteger(requestedConcurrency) && requestedConcurrency > 0
     ? Math.min(requestedConcurrency, 12)
@@ -55,6 +57,11 @@ function getLocalImagePath(card, remoteUrl) {
     const scope = safePathSegment(card.provisionalScope || card.cardNumber?.split('-')[0], 'OTHER');
     const fileName = `${safePathSegment(uniqueStem, card.cardNumber || 'card')}${extension}`;
     return path.join(imageRoot, scope, fileName);
+}
+
+function getLocalWebpPath(localPath) {
+    const relativePath = path.relative(imageRoot, localPath);
+    return path.join(webpRoot, relativePath).replace(/\.[^.]+$/, '.webp');
 }
 
 async function readCards() {
@@ -160,14 +167,20 @@ await mapWithConcurrency(cards, concurrency, async card => {
 
     stats.remoteImages += 1;
     const localPath = getLocalImagePath(card, remoteUrl);
+    const localWebpPath = getLocalWebpPath(localPath);
     const localWebPath = toWebPath(localPath);
+    const localWebpWebPath = toWebPath(localWebpPath);
     desiredPaths.add(path.normalize(localPath));
     card.provisionalImageUrl = remoteUrl;
 
     const existing = await readExistingFile(localPath);
+    const existingWebp = await readExistingFile(localWebpPath);
     if (dryRun) {
         if (existing) {
             card.imagePath = localWebPath;
+            stats.unchanged += 1;
+        } else if (existingWebp) {
+            card.imagePath = localWebpWebPath;
             stats.unchanged += 1;
         } else {
             stats.missing += 1;
@@ -189,6 +202,9 @@ await mapWithConcurrency(cards, concurrency, async card => {
     } catch (error) {
         if (existing) {
             card.imagePath = localWebPath;
+        } else if (existingWebp) {
+            card.imagePath = localWebpWebPath;
+            stats.unchanged += 1;
         } else {
             card.imagePath = remoteUrl;
             stats.missing += 1;

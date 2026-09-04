@@ -75,6 +75,7 @@ test('repository rules and applied card data remain consistent', async () => {
     const rules = JSON.parse(await readFile(new URL('block-icon-overrides.json', root), 'utf8'));
     const cards = JSON.parse(await readFile(new URL('cards.json', root), 'utf8'));
     const manifest = JSON.parse(await readFile(new URL('image-manifest.json', root), 'utf8'));
+    applyBlockIconRules(cards, rules);
     const byNumber = new Map(cards.map(card => [card.cardNumber, card]));
 
     assert.equal(Object.hasOwn(rules, 'standardEligibleCardNumbers'), false);
@@ -106,6 +107,8 @@ test('app gives card-number overrides priority over variant blocks', async () =>
 
     assert.match(source, /variants\[variantIndex\]\?\.block/);
     assert.match(source, /if \(override\) return override/);
+    assert.match(source, /applyBlockIconRulesToCards\(cardsData\)/);
+    assert.match(source, /superParallelX\.has\(cardNumber\) \|\| hasXVariant/);
     assert.doesNotMatch(source, /standardLegalOverride/);
 });
 
