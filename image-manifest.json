@@ -1,465 +1,8 @@
 {
-  "generatedAt": "2026-09-05T12:27:37.549Z",
+  "generatedAt": "2026-09-05T12:50:11.741Z",
   "totalCards": 2823,
   "totalImages": 4961,
   "cards": {
-    "OP10-022": [
-      {
-        "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP10-022.png?260428",
-        "cardName": "トラファルガー・ロー",
-        "rarity": "L",
-        "cardType": "LEADER",
-        "getInfo": "ブースターパック 王族の血統【OP-10】",
-        "label": "通常",
-        "path": "CardsWebP/OP10/official/OP10-022.webp",
-        "fallbackPath": "",
-        "variantIndex": 0
-      },
-      {
-        "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP10-022_p1.png?260428",
-        "cardName": "トラファルガー・ロー",
-        "rarity": "L",
-        "cardType": "LEADER",
-        "getInfo": "ブースターパック 王族の血統【OP-10】",
-        "label": "別イラスト 2",
-        "path": "CardsWebP/OP10/official/OP10-022_p1.webp",
-        "fallbackPath": "",
-        "variantIndex": 1
-      },
-      {
-        "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP10-022_p2.png?260828",
-        "cardName": "トラファルガー・ロー",
-        "rarity": "L",
-        "cardType": "LEADER",
-        "block": "3",
-        "getInfo": "メラメラの実争奪戦 上位記念品",
-        "label": "別イラスト 3",
-        "path": "CardsWebP/OP10/official/OP10-022_p2.webp",
-        "fallbackPath": "",
-        "variantIndex": 2
-      }
-    ],
-    "OP10-042": [
-      {
-        "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP10-042.png?260428",
-        "cardName": "ウソップ",
-        "rarity": "L",
-        "cardType": "LEADER",
-        "getInfo": "ブースターパック 王族の血統【OP-10】",
-        "label": "通常",
-        "path": "CardsWebP/OP10/official/OP10-042.webp",
-        "fallbackPath": "",
-        "variantIndex": 0
-      },
-      {
-        "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP10-042_p1.png?260428",
-        "cardName": "ウソップ",
-        "rarity": "L",
-        "cardType": "LEADER",
-        "getInfo": "ブースターパック 王族の血統【OP-10】",
-        "label": "別イラスト 2",
-        "path": "CardsWebP/OP10/official/OP10-042_p1.webp",
-        "fallbackPath": "",
-        "variantIndex": 1
-      },
-      {
-        "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP10-042_p2.png?260428",
-        "cardName": "ウソップ",
-        "rarity": "L",
-        "cardType": "LEADER",
-        "getInfo": "ONE PIECEカードゲーム オフィシャルプレイマット リミテッドエディション vol.3",
-        "label": "別イラスト 3",
-        "path": "CardsWebP/OP10/official/OP10-042_p2.webp",
-        "fallbackPath": "",
-        "variantIndex": 2
-      },
-      {
-        "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP10-042_p3.png?260428",
-        "cardName": "ウソップ",
-        "rarity": "L",
-        "cardType": "LEADER",
-        "getInfo": "ONE PIECEカードゲーム BASE SHOPリミテッドカードコレクションvol.1",
-        "label": "別イラスト 4",
-        "path": "CardsWebP/OP10/official/OP10-042_p3.webp",
-        "fallbackPath": "",
-        "variantIndex": 3
-      },
-      {
-        "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP10-042_p4.png?260828",
-        "cardName": "ウソップ",
-        "rarity": "L",
-        "cardType": "LEADER",
-        "block": "3",
-        "getInfo": "メラメラの実争奪戦 上位記念品",
-        "label": "別イラスト 5",
-        "path": "CardsWebP/OP10/official/OP10-042_p4.webp",
-        "fallbackPath": "",
-        "variantIndex": 4
-      }
-    ],
-    "OP13-004": [
-      {
-        "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP13-004.png?260428",
-        "cardName": "サボ",
-        "rarity": "L",
-        "cardType": "LEADER",
-        "getInfo": "受け継がれる意志【OP-13】",
-        "label": "通常",
-        "path": "CardsWebP/OP13/official/OP13-004.webp",
-        "fallbackPath": "",
-        "variantIndex": 0
-      },
-      {
-        "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP13-004_p1.png?260428",
-        "cardName": "サボ",
-        "rarity": "L",
-        "cardType": "LEADER",
-        "getInfo": "受け継がれる意志【OP-13】",
-        "label": "別イラスト 2",
-        "path": "CardsWebP/OP13/official/OP13-004_p1.webp",
-        "fallbackPath": "",
-        "variantIndex": 1
-      },
-      {
-        "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP13-004_p2.png?260821",
-        "cardName": "サボ",
-        "rarity": "L",
-        "cardType": "LEADER",
-        "getInfo": "スタートデッキ 赤黒 サボ【ST-35】",
-        "label": "別イラスト 3",
-        "path": "CardsWebP/OP13/official/OP13-004_p2.webp",
-        "fallbackPath": "",
-        "variantIndex": 2
-      },
-      {
-        "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP13-004_p3.png?260828",
-        "cardName": "サボ",
-        "rarity": "L",
-        "cardType": "LEADER",
-        "block": "4",
-        "getInfo": "メラメラの実争奪戦 上位記念品",
-        "label": "別イラスト 4",
-        "path": "CardsWebP/OP13/official/OP13-004_p3.webp",
-        "fallbackPath": "",
-        "variantIndex": 3
-      }
-    ],
-    "OP14-060": [
-      {
-        "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP14-060.png?260428",
-        "cardName": "ドンキホーテ・ドフラミンゴ",
-        "rarity": "L",
-        "cardType": "LEADER",
-        "getInfo": "ブースターパック 蒼海の七傑【OP-14】",
-        "label": "通常",
-        "path": "CardsWebP/OP14/official/OP14-060.webp",
-        "fallbackPath": "",
-        "variantIndex": 0
-      },
-      {
-        "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP14-060_p1.png?260428",
-        "cardName": "ドンキホーテ・ドフラミンゴ",
-        "rarity": "L",
-        "cardType": "LEADER",
-        "getInfo": "ブースターパック 蒼海の七傑【OP-14】",
-        "label": "別イラスト 2",
-        "path": "CardsWebP/OP14/official/OP14-060_p1.webp",
-        "fallbackPath": "",
-        "variantIndex": 1
-      },
-      {
-        "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP14-060_p2.png?260828",
-        "cardName": "ドンキホーテ・ドフラミンゴ",
-        "rarity": "L",
-        "cardType": "LEADER",
-        "block": "4",
-        "getInfo": "メラメラの実争奪戦 上位記念品",
-        "label": "別イラスト 3",
-        "path": "CardsWebP/OP14/official/OP14-060_p2.webp",
-        "fallbackPath": "",
-        "variantIndex": 2
-      }
-    ],
-    "OP15-002": [
-      {
-        "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP15-002.png?260428",
-        "cardName": "ルーシー",
-        "rarity": "L",
-        "cardType": "LEADER",
-        "getInfo": "ブースターパック 神の島の冒険【OP-15】",
-        "label": "通常",
-        "path": "CardsWebP/OP15/official/OP15-002.webp",
-        "fallbackPath": "",
-        "variantIndex": 0
-      },
-      {
-        "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP15-002_p1.png?260428",
-        "cardName": "ルーシー",
-        "rarity": "L",
-        "cardType": "LEADER",
-        "getInfo": "ブースターパック 神の島の冒険【OP-15】",
-        "label": "別イラスト 2",
-        "path": "CardsWebP/OP15/official/OP15-002_p1.webp",
-        "fallbackPath": "",
-        "variantIndex": 1
-      },
-      {
-        "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP15-002_p2.png?260828",
-        "cardName": "ルーシー",
-        "rarity": "L",
-        "cardType": "LEADER",
-        "block": "4",
-        "getInfo": "メラメラの実争奪戦 上位記念品",
-        "label": "別イラスト 3",
-        "path": "CardsWebP/OP15/official/OP15-002_p2.webp",
-        "fallbackPath": "",
-        "variantIndex": 2
-      }
-    ],
-    "OP15-039": [
-      {
-        "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP15-039.png?260428",
-        "cardName": "レベッカ",
-        "rarity": "L",
-        "cardType": "LEADER",
-        "getInfo": "ブースターパック 神の島の冒険【OP-15】",
-        "label": "通常",
-        "path": "CardsWebP/OP15/official/OP15-039.webp",
-        "fallbackPath": "",
-        "variantIndex": 0
-      },
-      {
-        "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP15-039_p1.png?260428",
-        "cardName": "レベッカ",
-        "rarity": "L",
-        "cardType": "LEADER",
-        "getInfo": "ブースターパック 神の島の冒険【OP-15】",
-        "label": "別イラスト 2",
-        "path": "CardsWebP/OP15/official/OP15-039_p1.webp",
-        "fallbackPath": "",
-        "variantIndex": 1
-      },
-      {
-        "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP15-039_p2.png?260828",
-        "cardName": "レベッカ",
-        "rarity": "L",
-        "cardType": "LEADER",
-        "block": "4",
-        "getInfo": "メラメラの実争奪戦 上位記念品",
-        "label": "別イラスト 3",
-        "path": "CardsWebP/OP15/official/OP15-039_p2.webp",
-        "fallbackPath": "",
-        "variantIndex": 2
-      }
-    ],
-    "OP16-034": [
-      {
-        "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-034.png?260630",
-        "cardName": "モンキー・Ｄ・ルフィ",
-        "rarity": "R",
-        "cardType": "CHARACTER",
-        "getInfo": "ブースターパック 決戦の刻【OP-16】",
-        "label": "通常",
-        "path": "CardsWebP/OP16/official/OP16-034.webp",
-        "fallbackPath": "",
-        "variantIndex": 0
-      },
-      {
-        "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-034_p1.png?260630",
-        "cardName": "モンキー・Ｄ・ルフィ",
-        "rarity": "R",
-        "cardType": "CHARACTER",
-        "getInfo": "ブースターパック 決戦の刻【OP-16】",
-        "label": "別イラスト 2",
-        "path": "CardsWebP/OP16/official/OP16-034_p1.webp",
-        "fallbackPath": "",
-        "variantIndex": 1
-      },
-      {
-        "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-034_p2.png?260828",
-        "cardName": "モンキー・Ｄ・ルフィ",
-        "rarity": "R",
-        "cardType": "CHARACTER",
-        "block": "5",
-        "getInfo": "8パックバトル 2026年10月",
-        "label": "別イラスト 3",
-        "path": "CardsWebP/OP16/official/OP16-034_p2.webp",
-        "fallbackPath": "",
-        "variantIndex": 2
-      }
-    ],
-    "OP17-027": [
-      {
-        "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-027.png?260821",
-        "cardName": "ベン・ベックマン",
-        "rarity": "R",
-        "cardType": "CHARACTER",
-        "block": "5",
-        "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
-        "label": "通常",
-        "path": "CardsWebP/OP17/official/OP17-027.webp",
-        "fallbackPath": "",
-        "variantIndex": 0
-      },
-      {
-        "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-027_p1.png?260821",
-        "cardName": "ベン・ベックマン",
-        "rarity": "R",
-        "cardType": "CHARACTER",
-        "block": "5",
-        "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
-        "label": "別イラスト 2",
-        "path": "CardsWebP/OP17/official/OP17-027_p1.webp",
-        "fallbackPath": "",
-        "variantIndex": 1
-      },
-      {
-        "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-027_p2.png?260828",
-        "cardName": "ベン・ベックマン",
-        "rarity": "R",
-        "cardType": "CHARACTER",
-        "block": "5",
-        "getInfo": "フラッグシップバトル2026 10月上位記念品",
-        "label": "別イラスト 3",
-        "path": "CardsWebP/OP17/official/OP17-027_p2.webp",
-        "fallbackPath": "",
-        "variantIndex": 2
-      }
-    ],
-    "OP17-054": [
-      {
-        "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-054.png?260821",
-        "cardName": "ミス・バッキンガム・ステューシー",
-        "rarity": "R",
-        "cardType": "CHARACTER",
-        "block": "5",
-        "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
-        "label": "通常",
-        "path": "CardsWebP/OP17/official/OP17-054.webp",
-        "fallbackPath": "",
-        "variantIndex": 0
-      },
-      {
-        "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-054_p1.png?260821",
-        "cardName": "ミス・バッキンガム・ステューシー",
-        "rarity": "R",
-        "cardType": "CHARACTER",
-        "block": "5",
-        "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
-        "label": "別イラスト 2",
-        "path": "CardsWebP/OP17/official/OP17-054_p1.webp",
-        "fallbackPath": "",
-        "variantIndex": 1
-      },
-      {
-        "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-054_p2.png?260828",
-        "cardName": "ミス・バッキンガム・ステューシー",
-        "rarity": "R",
-        "cardType": "CHARACTER",
-        "block": "5",
-        "getInfo": "エクストラグランドバトル2026 10月上位記念品",
-        "label": "別イラスト 3",
-        "path": "CardsWebP/OP17/official/OP17-054_p2.webp",
-        "fallbackPath": "",
-        "variantIndex": 2
-      }
-    ],
-    "ST30-012": [
-      {
-        "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST30-012.png?260428",
-        "cardName": "モンキー・D・ルフィ",
-        "rarity": "SR",
-        "cardType": "CHARACTER",
-        "getInfo": "スタートデッキEX ルフィ&エース【ST-30】",
-        "label": "通常",
-        "path": "CardsWebP/ST30/official/ST30-012.webp",
-        "fallbackPath": "",
-        "variantIndex": 0
-      },
-      {
-        "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST30-012_p1.png?260428",
-        "cardName": "モンキー・D・ルフィ",
-        "rarity": "SR",
-        "cardType": "CHARACTER",
-        "getInfo": "スタートデッキEX ルフィ&エース【ST-30】",
-        "label": "別イラスト 2",
-        "path": "CardsWebP/ST30/official/ST30-012_p1.webp",
-        "fallbackPath": "",
-        "variantIndex": 1
-      },
-      {
-        "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST30-012_p2.png?260828",
-        "cardName": "モンキー・D・ルフィ",
-        "rarity": "SR",
-        "cardType": "CHARACTER",
-        "block": "5",
-        "getInfo": "エクストラグランドバトル2026 10月優勝記念品",
-        "label": "別イラスト 3",
-        "path": "CardsWebP/ST30/official/ST30-012_p2.webp",
-        "fallbackPath": "",
-        "variantIndex": 2
-      }
-    ],
-    "ST32-003": [
-      {
-        "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST32-003.png?260630",
-        "cardName": "ジュラキュール・ミホーク",
-        "rarity": "SR",
-        "cardType": "CHARACTER",
-        "getInfo": "スタートデッキ 緑 ロロノア・ゾロ【ST-32】",
-        "label": "通常",
-        "path": "CardsWebP/ST32/official/ST32-003.webp",
-        "fallbackPath": "",
-        "variantIndex": 0
-      },
-      {
-        "source": "official",
-        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST32-003_p1.png?260828",
-        "cardName": "ジュラキュール・ミホーク",
-        "rarity": "SR",
-        "cardType": "CHARACTER",
-        "block": "5",
-        "getInfo": "フラッグシップバトル2026 10月優勝記念品",
-        "label": "別イラスト 2",
-        "path": "CardsWebP/ST32/official/ST32-003_p1.webp",
-        "fallbackPath": "",
-        "variantIndex": 1
-      }
-    ],
     "EB01-001": [
       {
         "source": "official",
@@ -34636,6 +34179,45 @@
         "variantIndex": 0
       }
     ],
+    "OP10-022": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP10-022.png?260428",
+        "cardName": "トラファルガー・ロー",
+        "rarity": "L",
+        "cardType": "LEADER",
+        "getInfo": "ブースターパック 王族の血統【OP-10】",
+        "label": "通常",
+        "path": "CardsWebP/OP10/official/OP10-022.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP10-022_p1.png?260428",
+        "cardName": "トラファルガー・ロー",
+        "rarity": "L",
+        "cardType": "LEADER",
+        "getInfo": "ブースターパック 王族の血統【OP-10】",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP10/official/OP10-022_p1.webp",
+        "fallbackPath": "",
+        "variantIndex": 1
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP10-022_p2.png?260828",
+        "cardName": "トラファルガー・ロー",
+        "rarity": "L",
+        "cardType": "LEADER",
+        "block": "3",
+        "getInfo": "メラメラの実争奪戦 上位記念品",
+        "label": "別イラスト 3",
+        "path": "CardsWebP/OP10/official/OP10-022_p2.webp",
+        "fallbackPath": "",
+        "variantIndex": 2
+      }
+    ],
     "OP10-023": [
       {
         "source": "official",
@@ -34998,6 +34580,69 @@
         "path": "CardsWebP/OP10/official/OP10-041.webp",
         "fallbackPath": "",
         "variantIndex": 0
+      }
+    ],
+    "OP10-042": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP10-042.png?260428",
+        "cardName": "ウソップ",
+        "rarity": "L",
+        "cardType": "LEADER",
+        "getInfo": "ブースターパック 王族の血統【OP-10】",
+        "label": "通常",
+        "path": "CardsWebP/OP10/official/OP10-042.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP10-042_p1.png?260428",
+        "cardName": "ウソップ",
+        "rarity": "L",
+        "cardType": "LEADER",
+        "getInfo": "ブースターパック 王族の血統【OP-10】",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP10/official/OP10-042_p1.webp",
+        "fallbackPath": "",
+        "variantIndex": 1
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP10-042_p2.png?260428",
+        "cardName": "ウソップ",
+        "rarity": "L",
+        "cardType": "LEADER",
+        "getInfo": "ONE PIECEカードゲーム オフィシャルプレイマット リミテッドエディション vol.3",
+        "label": "別イラスト 3",
+        "path": "CardsWebP/OP10/official/OP10-042_p2.webp",
+        "fallbackPath": "",
+        "variantIndex": 2
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP10-042_p3.png?260428",
+        "cardName": "ウソップ",
+        "rarity": "L",
+        "cardType": "LEADER",
+        "getInfo": "ONE PIECEカードゲーム BASE SHOPリミテッドカードコレクションvol.1",
+        "label": "別イラスト 4",
+        "path": "CardsWebP/OP10/official/OP10-042_p3.webp",
+        "fallbackPath": "",
+        "variantIndex": 3
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP10-042_p4.png?260828",
+        "cardName": "ウソップ",
+        "rarity": "L",
+        "cardType": "LEADER",
+        "block": "3",
+        "getInfo": "メラメラの実争奪戦 上位記念品",
+        "label": "別イラスト 5",
+        "path": "CardsWebP/OP10/official/OP10-042_p4.webp",
+        "fallbackPath": "",
+        "variantIndex": 4
       }
     ],
     "OP10-043": [
@@ -40998,6 +40643,57 @@
         "variantIndex": 1
       }
     ],
+    "OP13-004": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP13-004.png?260428",
+        "cardName": "サボ",
+        "rarity": "L",
+        "cardType": "LEADER",
+        "getInfo": "受け継がれる意志【OP-13】",
+        "label": "通常",
+        "path": "CardsWebP/OP13/official/OP13-004.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP13-004_p1.png?260428",
+        "cardName": "サボ",
+        "rarity": "L",
+        "cardType": "LEADER",
+        "getInfo": "受け継がれる意志【OP-13】",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP13/official/OP13-004_p1.webp",
+        "fallbackPath": "",
+        "variantIndex": 1
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP13-004_p2.png?260821",
+        "cardName": "サボ",
+        "rarity": "L",
+        "cardType": "LEADER",
+        "getInfo": "スタートデッキ 赤黒 サボ【ST-35】",
+        "label": "別イラスト 3",
+        "path": "CardsWebP/OP13/official/OP13-004_p2.webp",
+        "fallbackPath": "",
+        "variantIndex": 2
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP13-004_p3.png?260828",
+        "cardName": "サボ",
+        "rarity": "L",
+        "cardType": "LEADER",
+        "block": "4",
+        "getInfo": "メラメラの実争奪戦 上位記念品",
+        "label": "別イラスト 4",
+        "path": "CardsWebP/OP13/official/OP13-004_p3.webp",
+        "fallbackPath": "",
+        "variantIndex": 3
+      }
+    ],
     "OP13-005": [
       {
         "source": "official",
@@ -44413,6 +44109,45 @@
         "variantIndex": 0
       }
     ],
+    "OP14-060": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP14-060.png?260428",
+        "cardName": "ドンキホーテ・ドフラミンゴ",
+        "rarity": "L",
+        "cardType": "LEADER",
+        "getInfo": "ブースターパック 蒼海の七傑【OP-14】",
+        "label": "通常",
+        "path": "CardsWebP/OP14/official/OP14-060.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP14-060_p1.png?260428",
+        "cardName": "ドンキホーテ・ドフラミンゴ",
+        "rarity": "L",
+        "cardType": "LEADER",
+        "getInfo": "ブースターパック 蒼海の七傑【OP-14】",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP14/official/OP14-060_p1.webp",
+        "fallbackPath": "",
+        "variantIndex": 1
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP14-060_p2.png?260828",
+        "cardName": "ドンキホーテ・ドフラミンゴ",
+        "rarity": "L",
+        "cardType": "LEADER",
+        "block": "4",
+        "getInfo": "メラメラの実争奪戦 上位記念品",
+        "label": "別イラスト 3",
+        "path": "CardsWebP/OP14/official/OP14-060_p2.webp",
+        "fallbackPath": "",
+        "variantIndex": 2
+      }
+    ],
     "OP14-061": [
       {
         "source": "official",
@@ -45551,6 +45286,45 @@
         "variantIndex": 1
       }
     ],
+    "OP15-002": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP15-002.png?260428",
+        "cardName": "ルーシー",
+        "rarity": "L",
+        "cardType": "LEADER",
+        "getInfo": "ブースターパック 神の島の冒険【OP-15】",
+        "label": "通常",
+        "path": "CardsWebP/OP15/official/OP15-002.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP15-002_p1.png?260428",
+        "cardName": "ルーシー",
+        "rarity": "L",
+        "cardType": "LEADER",
+        "getInfo": "ブースターパック 神の島の冒険【OP-15】",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP15/official/OP15-002_p1.webp",
+        "fallbackPath": "",
+        "variantIndex": 1
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP15-002_p2.png?260828",
+        "cardName": "ルーシー",
+        "rarity": "L",
+        "cardType": "LEADER",
+        "block": "4",
+        "getInfo": "メラメラの実争奪戦 上位記念品",
+        "label": "別イラスト 3",
+        "path": "CardsWebP/OP15/official/OP15-002_p2.webp",
+        "fallbackPath": "",
+        "variantIndex": 2
+      }
+    ],
     "OP15-003": [
       {
         "source": "official",
@@ -46125,6 +45899,45 @@
         "path": "CardsWebP/OP15/official/OP15-038.webp",
         "fallbackPath": "",
         "variantIndex": 0
+      }
+    ],
+    "OP15-039": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP15-039.png?260428",
+        "cardName": "レベッカ",
+        "rarity": "L",
+        "cardType": "LEADER",
+        "getInfo": "ブースターパック 神の島の冒険【OP-15】",
+        "label": "通常",
+        "path": "CardsWebP/OP15/official/OP15-039.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP15-039_p1.png?260428",
+        "cardName": "レベッカ",
+        "rarity": "L",
+        "cardType": "LEADER",
+        "getInfo": "ブースターパック 神の島の冒険【OP-15】",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP15/official/OP15-039_p1.webp",
+        "fallbackPath": "",
+        "variantIndex": 1
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP15-039_p2.png?260828",
+        "cardName": "レベッカ",
+        "rarity": "L",
+        "cardType": "LEADER",
+        "block": "4",
+        "getInfo": "メラメラの実争奪戦 上位記念品",
+        "label": "別イラスト 3",
+        "path": "CardsWebP/OP15/official/OP15-039_p2.webp",
+        "fallbackPath": "",
+        "variantIndex": 2
       }
     ],
     "OP15-040": [
@@ -48126,6 +47939,45 @@
         "variantIndex": 0
       }
     ],
+    "OP16-034": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-034.png?260630",
+        "cardName": "モンキー・Ｄ・ルフィ",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "getInfo": "ブースターパック 決戦の刻【OP-16】",
+        "label": "通常",
+        "path": "CardsWebP/OP16/official/OP16-034.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-034_p1.png?260630",
+        "cardName": "モンキー・Ｄ・ルフィ",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "getInfo": "ブースターパック 決戦の刻【OP-16】",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP16/official/OP16-034_p1.webp",
+        "fallbackPath": "",
+        "variantIndex": 1
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-034_p2.png?260828",
+        "cardName": "モンキー・Ｄ・ルフィ",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "8パックバトル 2026年10月",
+        "label": "別イラスト 3",
+        "path": "CardsWebP/OP16/official/OP16-034_p2.webp",
+        "fallbackPath": "",
+        "variantIndex": 2
+      }
+    ],
     "OP16-035": [
       {
         "source": "official",
@@ -50097,6 +49949,47 @@
         "variantIndex": 0
       }
     ],
+    "OP17-027": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-027.png?260821",
+        "cardName": "ベン・ベックマン",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+        "label": "通常",
+        "path": "CardsWebP/OP17/official/OP17-027.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-027_p1.png?260821",
+        "cardName": "ベン・ベックマン",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP17/official/OP17-027_p1.webp",
+        "fallbackPath": "",
+        "variantIndex": 1
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-027_p2.png?260828",
+        "cardName": "ベン・ベックマン",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "フラッグシップバトル2026 10月上位記念品",
+        "label": "別イラスト 3",
+        "path": "CardsWebP/OP17/official/OP17-027_p2.webp",
+        "fallbackPath": "",
+        "variantIndex": 2
+      }
+    ],
     "OP17-028": [
       {
         "source": "official",
@@ -50589,6 +50482,47 @@
         "path": "CardsWebP/OP17/official/OP17-053.webp",
         "fallbackPath": "",
         "variantIndex": 0
+      }
+    ],
+    "OP17-054": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-054.png?260821",
+        "cardName": "ミス・バッキンガム・ステューシー",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+        "label": "通常",
+        "path": "CardsWebP/OP17/official/OP17-054.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-054_p1.png?260821",
+        "cardName": "ミス・バッキンガム・ステューシー",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP17/official/OP17-054_p1.webp",
+        "fallbackPath": "",
+        "variantIndex": 1
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-054_p2.png?260828",
+        "cardName": "ミス・バッキンガム・ステューシー",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラグランドバトル2026 10月上位記念品",
+        "label": "別イラスト 3",
+        "path": "CardsWebP/OP17/official/OP17-054_p2.webp",
+        "fallbackPath": "",
+        "variantIndex": 2
       }
     ],
     "OP17-055": [
@@ -65112,6 +65046,45 @@
         "variantIndex": 1
       }
     ],
+    "ST30-012": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST30-012.png?260428",
+        "cardName": "モンキー・D・ルフィ",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "getInfo": "スタートデッキEX ルフィ&エース【ST-30】",
+        "label": "通常",
+        "path": "CardsWebP/ST30/official/ST30-012.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST30-012_p1.png?260428",
+        "cardName": "モンキー・D・ルフィ",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "getInfo": "スタートデッキEX ルフィ&エース【ST-30】",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/ST30/official/ST30-012_p1.webp",
+        "fallbackPath": "",
+        "variantIndex": 1
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST30-012_p2.png?260828",
+        "cardName": "モンキー・D・ルフィ",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラグランドバトル2026 10月優勝記念品",
+        "label": "別イラスト 3",
+        "path": "CardsWebP/ST30/official/ST30-012_p2.webp",
+        "fallbackPath": "",
+        "variantIndex": 2
+      }
+    ],
     "ST30-013": [
       {
         "source": "official",
@@ -65338,6 +65311,33 @@
         "path": "CardsWebP/ST32/official/ST32-002.webp",
         "fallbackPath": "",
         "variantIndex": 0
+      }
+    ],
+    "ST32-003": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST32-003.png?260630",
+        "cardName": "ジュラキュール・ミホーク",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "getInfo": "スタートデッキ 緑 ロロノア・ゾロ【ST-32】",
+        "label": "通常",
+        "path": "CardsWebP/ST32/official/ST32-003.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST32-003_p1.png?260828",
+        "cardName": "ジュラキュール・ミホーク",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "フラッグシップバトル2026 10月優勝記念品",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/ST32/official/ST32-003_p1.webp",
+        "fallbackPath": "",
+        "variantIndex": 1
       }
     ],
     "ST32-004": [

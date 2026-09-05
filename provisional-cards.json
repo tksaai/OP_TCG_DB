@@ -1,5 +1,38 @@
 [
   {
+    "uniqueId": "EB05-005_EB05-005.png",
+    "cardNumber": "EB05-005",
+    "rawNumber": "EB05-005",
+    "cardName": "ベロ・べティ",
+    "furigana": "",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "赤"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 2,
+    "power": 3000,
+    "counter": 1000,
+    "attribute": "特",
+    "features": [
+      "革命軍"
+    ],
+    "block": 5,
+    "effectText": "登場時 自分の特徴《革命軍》とトリガーを両方持つキャラ3枚までを、このターン中、パワー+2000。 起動メイン このキャラをトラッシュに置くことができる：相手のキャラ1枚までを、このターン中、パワー-2000。",
+    "trigger": "",
+    "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】",
+    "seriesTitle": "エクストラブースター ONE PIECE Heroines Edition vol.2",
+    "seriesCode": "EB-05",
+    "sourceModalId": "EB05-005",
+    "imagePath": "CardsWebP/Provisional/EB05/EB05-005_EB05-005.webp",
+    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/EB05-005.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "EB05",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
+    "provisionalUpdatedAt": "2026-09-05"
+  },
+  {
     "uniqueId": "EB05-007_EB05-007.png",
     "cardNumber": "EB05-007",
     "rawNumber": "EB05-007",
@@ -31,7 +64,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-08-31"
+    "provisionalUpdatedAt": "2026-09-05"
   },
   {
     "uniqueId": "EB05-010_EB05-010L.png",
@@ -65,7 +98,41 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-08-31"
+    "provisionalUpdatedAt": "2026-09-05"
+  },
+  {
+    "uniqueId": "EB05-011_EB05-011.png",
+    "cardNumber": "EB05-011",
+    "rawNumber": "EB05-011",
+    "cardName": "オトヒメ",
+    "furigana": "",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "緑"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 1,
+    "power": "-",
+    "counter": 2000,
+    "attribute": "知",
+    "features": [
+      "人魚族",
+      "魚人島"
+    ],
+    "block": 5,
+    "effectText": "登場時 自分のリーダーが「しらほし」の場合、自分のライフの上から1枚を裏向きにできる：相手のコスト5以下のキャラ1枚までを、レストにする。",
+    "trigger": "",
+    "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】",
+    "seriesTitle": "エクストラブースター ONE PIECE Heroines Edition vol.2",
+    "seriesCode": "EB-05",
+    "sourceModalId": "EB05-011",
+    "imagePath": "CardsWebP/Provisional/EB05/EB05-011_EB05-011.webp",
+    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/EB05-011.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "EB05",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
+    "provisionalUpdatedAt": "2026-09-05"
   },
   {
     "uniqueId": "EB05-013_EB05-013.png",
@@ -99,7 +166,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-08-31"
+    "provisionalUpdatedAt": "2026-09-05"
   },
   {
     "uniqueId": "EB05-023_EB05-023.png",
@@ -132,7 +199,74 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-08-31"
+    "provisionalUpdatedAt": "2026-09-05"
+  },
+  {
+    "uniqueId": "EB05-025_EB05-025.png",
+    "cardNumber": "EB05-025",
+    "rawNumber": "EB05-025",
+    "cardName": "ドミノ",
+    "furigana": "",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "知"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 2,
+    "power": 3000,
+    "counter": 1000,
+    "attribute": "知",
+    "features": [
+      "インペルダウン"
+    ],
+    "block": 5,
+    "effectText": "登場時 自分のデッキの上から3枚を見て、特徴《インペルダウン》を持つカード1枚までを公開し、手札に加える。その後、残りを好きな順番でデッキの下に置く。",
+    "trigger": "このカードの登場時効果を発動する",
+    "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】",
+    "seriesTitle": "エクストラブースター ONE PIECE Heroines Edition vol.2",
+    "seriesCode": "EB-05",
+    "sourceModalId": "EB05-025",
+    "imagePath": "CardsWebP/Provisional/EB05/EB05-025_EB05-025.webp",
+    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/EB05-025.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "EB05",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
+    "provisionalUpdatedAt": "2026-09-05"
+  },
+  {
+    "uniqueId": "EB05-035_EB05-035.png",
+    "cardNumber": "EB05-035",
+    "rawNumber": "EB05-035",
+    "cardName": "スピード",
+    "furigana": "",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "紫"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 6,
+    "power": 6000,
+    "counter": 1000,
+    "attribute": "打",
+    "features": [
+      "SMILE",
+      "百獣海賊団"
+    ],
+    "block": 5,
+    "effectText": "登場時ドン!!-1：自分のデッキの上から5枚を見て、特徴《SMILE》を持つカード2枚までを公開し、手札に加え、残りを好きな順番でデッキの下に置く。その後、自分の手札からパワー5000以下の特徴《SMILE》を持つキャラカード2枚までを、登場させる。",
+    "trigger": "",
+    "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】",
+    "seriesTitle": "エクストラブースター ONE PIECE Heroines Edition vol.2",
+    "seriesCode": "EB-05",
+    "sourceModalId": "EB05-035",
+    "imagePath": "CardsWebP/Provisional/EB05/EB05-035_EB05-035.webp",
+    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/EB05-035.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "EB05",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
+    "provisionalUpdatedAt": "2026-09-05"
   },
   {
     "uniqueId": "EB05-036_EB05-036.png",
@@ -165,7 +299,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-08-31"
+    "provisionalUpdatedAt": "2026-09-05"
   },
   {
     "uniqueId": "EB05-042_EB05-042.png",
@@ -198,7 +332,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-08-31"
+    "provisionalUpdatedAt": "2026-09-05"
   },
   {
     "uniqueId": "EB05-045_EB05-045.png",
@@ -231,7 +365,40 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-08-31"
+    "provisionalUpdatedAt": "2026-09-05"
+  },
+  {
+    "uniqueId": "EB05-051_EB05-051.png",
+    "cardNumber": "EB05-051",
+    "rawNumber": "EB05-051",
+    "cardName": "あひる",
+    "furigana": "",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "黄"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 3,
+    "power": 4000,
+    "counter": 1000,
+    "attribute": "射",
+    "features": [
+      "革命軍"
+    ],
+    "block": 5,
+    "effectText": "登場時 お互いのライフの合計枚数以下のコストを持つ相手のキャラ1枚までを、レストにする。",
+    "trigger": "このカードを登場させる。",
+    "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】",
+    "seriesTitle": "エクストラブースター ONE PIECE Heroines Edition vol.2",
+    "seriesCode": "EB-05",
+    "sourceModalId": "EB05-051",
+    "imagePath": "CardsWebP/Provisional/EB05/EB05-051_EB05-051.webp",
+    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/EB05-051.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "EB05",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
+    "provisionalUpdatedAt": "2026-09-05"
   },
   {
     "uniqueId": "EB05-054_EB05-054.png",
@@ -264,7 +431,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-08-31"
+    "provisionalUpdatedAt": "2026-09-05"
   },
   {
     "uniqueId": "EB05-056_EB05-056.png",
@@ -297,7 +464,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-08-31"
+    "provisionalUpdatedAt": "2026-09-05"
   },
   {
     "uniqueId": "OP18-021_OP18-021L.png",
