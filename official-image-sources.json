@@ -44827,5 +44827,115 @@
     "block": "4",
     "getInfo": "スタートデッキ 赤 モンキー・D・ルフィ【ST-31】",
     "label": "公式差分 4"
+  },
+  "Cards/OP10/official/OP10-022_p2.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP10-022_p2.png?260828",
+    "cardName": "トラファルガー・ロー",
+    "rarity": "L",
+    "cardType": "LEADER",
+    "block": "3",
+    "getInfo": "メラメラの実争奪戦 上位記念品",
+    "label": "公式差分 3"
+  },
+  "Cards/OP10/official/OP10-042_p4.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP10-042_p4.png?260828",
+    "cardName": "ウソップ",
+    "rarity": "L",
+    "cardType": "LEADER",
+    "block": "3",
+    "getInfo": "メラメラの実争奪戦 上位記念品",
+    "label": "公式差分 5"
+  },
+  "Cards/OP13/official/OP13-004_p3.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP13-004_p3.png?260828",
+    "cardName": "サボ",
+    "rarity": "L",
+    "cardType": "LEADER",
+    "block": "4",
+    "getInfo": "メラメラの実争奪戦 上位記念品",
+    "label": "公式差分 4"
+  },
+  "Cards/OP14/official/OP14-060_p2.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP14-060_p2.png?260828",
+    "cardName": "ドンキホーテ・ドフラミンゴ",
+    "rarity": "L",
+    "cardType": "LEADER",
+    "block": "4",
+    "getInfo": "メラメラの実争奪戦 上位記念品",
+    "label": "公式差分 3"
+  },
+  "Cards/OP15/official/OP15-002_p2.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP15-002_p2.png?260828",
+    "cardName": "ルーシー",
+    "rarity": "L",
+    "cardType": "LEADER",
+    "block": "4",
+    "getInfo": "メラメラの実争奪戦 上位記念品",
+    "label": "公式差分 3"
+  },
+  "Cards/OP15/official/OP15-039_p2.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP15-039_p2.png?260828",
+    "cardName": "レベッカ",
+    "rarity": "L",
+    "cardType": "LEADER",
+    "block": "4",
+    "getInfo": "メラメラの実争奪戦 上位記念品",
+    "label": "公式差分 3"
+  },
+  "Cards/OP16/official/OP16-034_p2.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-034_p2.png?260828",
+    "cardName": "モンキー・Ｄ・ルフィ",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "block": "5",
+    "getInfo": "8パックバトル 2026年10月",
+    "label": "公式差分 3"
+  },
+  "Cards/OP17/official/OP17-027_p2.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-027_p2.png?260828",
+    "cardName": "ベン・ベックマン",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "block": "5",
+    "getInfo": "フラッグシップバトル2026 10月上位記念品",
+    "label": "公式差分 3"
+  },
+  "Cards/OP17/official/OP17-054_p2.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-054_p2.png?260828",
+    "cardName": "ミス・バッキンガム・ステューシー",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "block": "5",
+    "getInfo": "エクストラグランドバトル2026 10月上位記念品",
+    "label": "公式差分 3"
+  },
+  "Cards/ST30/official/ST30-012_p2.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST30-012_p2.png?260828",
+    "cardName": "モンキー・D・ルフィ",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "block": "5",
+    "getInfo": "エクストラグランドバトル2026 10月優勝記念品",
+    "label": "公式差分 3"
+  },
+  "Cards/ST32/official/ST32-003_p1.png": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST32-003_p1.png?260828",
+    "cardName": "ジュラキュール・ミホーク",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "block": "5",
+    "getInfo": "フラッグシップバトル2026 10月優勝記念品",
+    "label": "公式差分 2"
   }
 }
