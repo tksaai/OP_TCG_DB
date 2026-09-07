@@ -30,7 +30,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-05"
+    "provisionalUpdatedAt": "2026-09-07"
   },
   {
     "uniqueId": "EB05-007_EB05-007.png",
@@ -64,7 +64,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-05"
+    "provisionalUpdatedAt": "2026-09-07"
   },
   {
     "uniqueId": "EB05-010_EB05-010L.png",
@@ -98,7 +98,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-05"
+    "provisionalUpdatedAt": "2026-09-07"
   },
   {
     "uniqueId": "EB05-011_EB05-011.png",
@@ -132,7 +132,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-05"
+    "provisionalUpdatedAt": "2026-09-07"
   },
   {
     "uniqueId": "EB05-013_EB05-013.png",
@@ -166,7 +166,41 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-05"
+    "provisionalUpdatedAt": "2026-09-07"
+  },
+  {
+    "uniqueId": "EB05-022_EB05-022.png",
+    "cardNumber": "EB05-022",
+    "rawNumber": "EB05-022",
+    "cardName": "オクトパ子",
+    "furigana": "",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "青"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 1,
+    "power": 2000,
+    "counter": 1000,
+    "attribute": "知",
+    "features": [
+      "魚人族",
+      "魚人島"
+    ],
+    "block": 5,
+    "effectText": "KO時 カード2枚を引く。",
+    "trigger": "",
+    "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】",
+    "seriesTitle": "エクストラブースター ONE PIECE Heroines Edition vol.2",
+    "seriesCode": "EB-05",
+    "sourceModalId": "EB05-022",
+    "imagePath": "CardsWebP/Provisional/EB05/EB05-022_EB05-022.webp",
+    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/EB05-022.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "EB05",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
+    "provisionalUpdatedAt": "2026-09-07"
   },
   {
     "uniqueId": "EB05-023_EB05-023.png",
@@ -199,7 +233,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-05"
+    "provisionalUpdatedAt": "2026-09-07"
   },
   {
     "uniqueId": "EB05-025_EB05-025.png",
@@ -232,7 +266,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-05"
+    "provisionalUpdatedAt": "2026-09-07"
   },
   {
     "uniqueId": "EB05-035_EB05-035.png",
@@ -266,7 +300,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-05"
+    "provisionalUpdatedAt": "2026-09-07"
   },
   {
     "uniqueId": "EB05-036_EB05-036.png",
@@ -299,7 +333,40 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-05"
+    "provisionalUpdatedAt": "2026-09-07"
+  },
+  {
+    "uniqueId": "EB05-038_EB05-038.png",
+    "cardNumber": "EB05-038",
+    "rawNumber": "EB05-038",
+    "cardName": "ルシアン",
+    "furigana": "",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "紫"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 1,
+    "power": "-",
+    "counter": 2000,
+    "attribute": "知",
+    "features": [
+      "セニョール・ピンクの妻"
+    ],
+    "block": 5,
+    "effectText": "登場時 自分の「セニョール・ピンク」1枚までを、このターン中、パワー＋3000",
+    "trigger": "",
+    "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】",
+    "seriesTitle": "エクストラブースター ONE PIECE Heroines Edition vol.2",
+    "seriesCode": "EB-05",
+    "sourceModalId": "EB05-038",
+    "imagePath": "CardsWebP/Provisional/EB05/EB05-038_EB05-038.webp",
+    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/EB05-038.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "EB05",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
+    "provisionalUpdatedAt": "2026-09-07"
   },
   {
     "uniqueId": "EB05-042_EB05-042.png",
@@ -332,7 +399,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-05"
+    "provisionalUpdatedAt": "2026-09-07"
   },
   {
     "uniqueId": "EB05-045_EB05-045.png",
@@ -365,7 +432,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-05"
+    "provisionalUpdatedAt": "2026-09-07"
   },
   {
     "uniqueId": "EB05-051_EB05-051.png",
@@ -398,7 +465,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-05"
+    "provisionalUpdatedAt": "2026-09-07"
   },
   {
     "uniqueId": "EB05-054_EB05-054.png",
@@ -431,7 +498,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-05"
+    "provisionalUpdatedAt": "2026-09-07"
   },
   {
     "uniqueId": "EB05-056_EB05-056.png",
@@ -464,7 +531,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-05"
+    "provisionalUpdatedAt": "2026-09-07"
   },
   {
     "uniqueId": "OP18-021_OP18-021L.png",
