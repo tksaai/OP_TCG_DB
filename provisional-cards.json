@@ -1,5 +1,38 @@
 [
   {
+    "uniqueId": "EB05-002_EB05-002.png",
+    "cardNumber": "EB05-002",
+    "rawNumber": "EB05-002",
+    "cardName": "ドール",
+    "furigana": "",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "color": [
+      "赤"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 1,
+    "power": 2000,
+    "counter": 1000,
+    "attribute": "打",
+    "features": [
+      "海軍"
+    ],
+    "block": 5,
+    "effectText": "登場時 自分のデッキの上から5枚を見て、コスト2以上の特徴《海軍》を持つカード2枚までを公開し、手札に加え、残りを好きな順番でデッキの下に置く。その後、自分の手札1枚を捨てる",
+    "trigger": "",
+    "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】",
+    "seriesTitle": "エクストラブースター ONE PIECE Heroines Edition vol.2",
+    "seriesCode": "EB-05",
+    "sourceModalId": "EB05-002",
+    "imagePath": "CardsWebP/Provisional/EB05/EB05-002_EB05-002.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/EB05-002.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "EB05",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
+    "provisionalUpdatedAt": "2026-09-10"
+  },
+  {
     "uniqueId": "EB05-005_EB05-005.png",
     "cardNumber": "EB05-005",
     "rawNumber": "EB05-005",
@@ -26,11 +59,11 @@
     "seriesCode": "EB-05",
     "sourceModalId": "EB05-005",
     "imagePath": "CardsWebP/Provisional/EB05/EB05-005_EB05-005.webp",
-    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/EB05-005.png",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/EB05-005.png",
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-08"
+    "provisionalUpdatedAt": "2026-09-10"
   },
   {
     "uniqueId": "EB05-007_EB05-007.png",
@@ -60,11 +93,11 @@
     "seriesCode": "EB-05",
     "sourceModalId": "EB05-007",
     "imagePath": "CardsWebP/Provisional/EB05/EB05-007_EB05-007.webp",
-    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/EB05-007.png",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/EB05-007.png",
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-08"
+    "provisionalUpdatedAt": "2026-09-10"
   },
   {
     "uniqueId": "EB05-010_EB05-010L.png",
@@ -94,11 +127,11 @@
     "seriesCode": "EB-05",
     "sourceModalId": "EB05-010",
     "imagePath": "CardsWebP/Provisional/EB05/EB05-010_EB05-010L.webp",
-    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/EB05-010L.png",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/EB05-010L.png",
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-08"
+    "provisionalUpdatedAt": "2026-09-10"
   },
   {
     "uniqueId": "EB05-011_EB05-011.png",
@@ -128,11 +161,11 @@
     "seriesCode": "EB-05",
     "sourceModalId": "EB05-011",
     "imagePath": "CardsWebP/Provisional/EB05/EB05-011_EB05-011.webp",
-    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/EB05-011.png",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/EB05-011.png",
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-08"
+    "provisionalUpdatedAt": "2026-09-10"
   },
   {
     "uniqueId": "EB05-013_EB05-013.png",
@@ -162,11 +195,11 @@
     "seriesCode": "EB-05",
     "sourceModalId": "EB05-013",
     "imagePath": "CardsWebP/Provisional/EB05/EB05-013_EB05-013.webp",
-    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/EB05-013.png",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/EB05-013.png",
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-08"
+    "provisionalUpdatedAt": "2026-09-10"
   },
   {
     "uniqueId": "EB05-017_EB05-017.png",
@@ -196,11 +229,11 @@
     "seriesCode": "EB-05",
     "sourceModalId": "EB05-017",
     "imagePath": "CardsWebP/Provisional/EB05/EB05-017_EB05-017.webp",
-    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/EB05-017.png",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/EB05-017.png",
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-08"
+    "provisionalUpdatedAt": "2026-09-10"
   },
   {
     "uniqueId": "EB05-022_EB05-022.png",
@@ -230,11 +263,11 @@
     "seriesCode": "EB-05",
     "sourceModalId": "EB05-022",
     "imagePath": "CardsWebP/Provisional/EB05/EB05-022_EB05-022.webp",
-    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/EB05-022.png",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/EB05-022.png",
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-08"
+    "provisionalUpdatedAt": "2026-09-10"
   },
   {
     "uniqueId": "EB05-023_EB05-023.png",
@@ -263,11 +296,11 @@
     "seriesCode": "EB-05",
     "sourceModalId": "EB05-023",
     "imagePath": "CardsWebP/Provisional/EB05/EB05-023_EB05-023.webp",
-    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/EB05-023.png",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/EB05-023.png",
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-08"
+    "provisionalUpdatedAt": "2026-09-10"
   },
   {
     "uniqueId": "EB05-025_EB05-025.png",
@@ -296,11 +329,11 @@
     "seriesCode": "EB-05",
     "sourceModalId": "EB05-025",
     "imagePath": "CardsWebP/Provisional/EB05/EB05-025_EB05-025.webp",
-    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/EB05-025.png",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/EB05-025.png",
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-08"
+    "provisionalUpdatedAt": "2026-09-10"
   },
   {
     "uniqueId": "EB05-035_EB05-035.png",
@@ -330,11 +363,11 @@
     "seriesCode": "EB-05",
     "sourceModalId": "EB05-035",
     "imagePath": "CardsWebP/Provisional/EB05/EB05-035_EB05-035.webp",
-    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/EB05-035.png",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/EB05-035.png",
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-08"
+    "provisionalUpdatedAt": "2026-09-10"
   },
   {
     "uniqueId": "EB05-036_EB05-036.png",
@@ -363,11 +396,11 @@
     "seriesCode": "EB-05",
     "sourceModalId": "EB05-036",
     "imagePath": "CardsWebP/Provisional/EB05/EB05-036_EB05-036.webp",
-    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/EB05-036.png",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/EB05-036.png",
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-08"
+    "provisionalUpdatedAt": "2026-09-10"
   },
   {
     "uniqueId": "EB05-038_EB05-038.png",
@@ -396,11 +429,11 @@
     "seriesCode": "EB-05",
     "sourceModalId": "EB05-038",
     "imagePath": "CardsWebP/Provisional/EB05/EB05-038_EB05-038.webp",
-    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/EB05-038.png",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/EB05-038.png",
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-08"
+    "provisionalUpdatedAt": "2026-09-10"
   },
   {
     "uniqueId": "EB05-042_EB05-042.png",
@@ -429,11 +462,11 @@
     "seriesCode": "EB-05",
     "sourceModalId": "EB05-042",
     "imagePath": "CardsWebP/Provisional/EB05/EB05-042_EB05-042.webp",
-    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/EB05-042.png",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/EB05-042.png",
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-08"
+    "provisionalUpdatedAt": "2026-09-10"
   },
   {
     "uniqueId": "EB05-045_EB05-045.png",
@@ -462,11 +495,45 @@
     "seriesCode": "EB-05",
     "sourceModalId": "EB05-045",
     "imagePath": "CardsWebP/Provisional/EB05/EB05-045_EB05-045.webp",
-    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/EB05-045.png",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/EB05-045.png",
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-08"
+    "provisionalUpdatedAt": "2026-09-10"
+  },
+  {
+    "uniqueId": "EB05-047_EB05-047.png",
+    "cardNumber": "EB05-047",
+    "rawNumber": "EB05-047",
+    "cardName": "リプリー",
+    "furigana": "",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "color": [
+      "黒"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 4,
+    "power": 4000,
+    "counter": 2000,
+    "attribute": "知",
+    "features": [
+      "巨人族",
+      "エルバフ"
+    ],
+    "block": 5,
+    "effectText": "このキャラのコスト＋12 登場時 自分の手札1枚を捨てることができる：自分のトラッシュからコスト2以下のキャラカード1枚までを、登場させる",
+    "trigger": "",
+    "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】",
+    "seriesTitle": "エクストラブースター ONE PIECE Heroines Edition vol.2",
+    "seriesCode": "EB-05",
+    "sourceModalId": "EB05-047",
+    "imagePath": "CardsWebP/Provisional/EB05/EB05-047_EB05-047.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/EB05-047.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "EB05",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
+    "provisionalUpdatedAt": "2026-09-10"
   },
   {
     "uniqueId": "EB05-051_EB05-051.png",
@@ -495,11 +562,11 @@
     "seriesCode": "EB-05",
     "sourceModalId": "EB05-051",
     "imagePath": "CardsWebP/Provisional/EB05/EB05-051_EB05-051.webp",
-    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/EB05-051.png",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/EB05-051.png",
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-08"
+    "provisionalUpdatedAt": "2026-09-10"
   },
   {
     "uniqueId": "EB05-054_EB05-054.png",
@@ -528,11 +595,11 @@
     "seriesCode": "EB-05",
     "sourceModalId": "EB05-054",
     "imagePath": "CardsWebP/Provisional/EB05/EB05-054_EB05-054.webp",
-    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/EB05-054.png",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/EB05-054.png",
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-08"
+    "provisionalUpdatedAt": "2026-09-10"
   },
   {
     "uniqueId": "EB05-056_EB05-056.png",
@@ -561,11 +628,11 @@
     "seriesCode": "EB-05",
     "sourceModalId": "EB05-056",
     "imagePath": "CardsWebP/Provisional/EB05/EB05-056_EB05-056.webp",
-    "provisionalImageUrl": "https://www.mercardop.jp/data/mercardop/product/info/EB05-056.png",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/EB05-056.png",
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-08"
+    "provisionalUpdatedAt": "2026-09-10"
   },
   {
     "uniqueId": "OP18-021_OP18-021L.png",
