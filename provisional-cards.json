@@ -30,7 +30,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-15"
+    "provisionalUpdatedAt": "2026-09-17"
   },
   {
     "uniqueId": "EB05-005_EB05-005.png",
@@ -63,7 +63,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-15"
+    "provisionalUpdatedAt": "2026-09-17"
   },
   {
     "uniqueId": "EB05-007_EB05-007.png",
@@ -97,7 +97,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-15"
+    "provisionalUpdatedAt": "2026-09-17"
   },
   {
     "uniqueId": "EB05-010_EB05-010L.png",
@@ -131,7 +131,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-15"
+    "provisionalUpdatedAt": "2026-09-17"
   },
   {
     "uniqueId": "EB05-011_EB05-011.png",
@@ -165,7 +165,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-15"
+    "provisionalUpdatedAt": "2026-09-17"
   },
   {
     "uniqueId": "EB05-012_EB05-012.png",
@@ -199,7 +199,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-15"
+    "provisionalUpdatedAt": "2026-09-17"
   },
   {
     "uniqueId": "EB05-013_EB05-013.png",
@@ -233,7 +233,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-15"
+    "provisionalUpdatedAt": "2026-09-17"
   },
   {
     "uniqueId": "EB05-017_EB05-017.png",
@@ -267,7 +267,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-15"
+    "provisionalUpdatedAt": "2026-09-17"
   },
   {
     "uniqueId": "EB05-022_EB05-022.png",
@@ -301,7 +301,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-15"
+    "provisionalUpdatedAt": "2026-09-17"
   },
   {
     "uniqueId": "EB05-023_EB05-023.png",
@@ -334,7 +334,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-15"
+    "provisionalUpdatedAt": "2026-09-17"
   },
   {
     "uniqueId": "EB05-025_EB05-025.png",
@@ -367,7 +367,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-15"
+    "provisionalUpdatedAt": "2026-09-17"
   },
   {
     "uniqueId": "EB05-027_EB05-027.png",
@@ -401,7 +401,42 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-15"
+    "provisionalUpdatedAt": "2026-09-17"
+  },
+  {
+    "uniqueId": "EB05-028_EB05-028.png",
+    "cardNumber": "EB05-028",
+    "rawNumber": "EB05-028",
+    "cardName": "ボア・ハンコック",
+    "furigana": "",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "color": [
+      "青"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 4,
+    "power": 5000,
+    "counter": 1000,
+    "attribute": "特",
+    "features": [
+      "インペルダウン",
+      "王下七武海",
+      "九蛇海賊団"
+    ],
+    "block": 5,
+    "effectText": "登場時 相手の手札が9枚以上ある場合、相手は自身の手札4枚を捨てる。",
+    "trigger": "",
+    "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】",
+    "seriesTitle": "エクストラブースター ONE PIECE Heroines Edition vol.2",
+    "seriesCode": "EB-05",
+    "sourceModalId": "EB05-028",
+    "imagePath": "CardsWebP/Provisional/EB05/EB05-028_EB05-028.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/EB05-028.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "EB05",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
+    "provisionalUpdatedAt": "2026-09-17"
   },
   {
     "uniqueId": "EB05-035_EB05-035.png",
@@ -435,7 +470,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-15"
+    "provisionalUpdatedAt": "2026-09-17"
   },
   {
     "uniqueId": "EB05-036_EB05-036.png",
@@ -468,7 +503,40 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-15"
+    "provisionalUpdatedAt": "2026-09-17"
+  },
+  {
+    "uniqueId": "EB05-037_EB05-037.png",
+    "cardNumber": "EB05-037",
+    "rawNumber": "EB05-037",
+    "cardName": "ブラックマリア",
+    "furigana": "",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "color": [
+      "紫"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 1,
+    "power": 2000,
+    "counter": 2000,
+    "attribute": "特",
+    "features": [
+      "百獣海賊団"
+    ],
+    "block": 5,
+    "effectText": "登場時 自分のデッキの上から3枚を見て、特徴《百獣海賊団》を持つカード1枚までを公開し、手札に加える。その後、残りを好きな順番でデッキの下に置く。",
+    "trigger": "",
+    "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】",
+    "seriesTitle": "エクストラブースター ONE PIECE Heroines Edition vol.2",
+    "seriesCode": "EB-05",
+    "sourceModalId": "EB05-037",
+    "imagePath": "CardsWebP/Provisional/EB05/EB05-037_EB05-037.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/EB05-037.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "EB05",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
+    "provisionalUpdatedAt": "2026-09-17"
   },
   {
     "uniqueId": "EB05-038_EB05-038.png",
@@ -501,7 +569,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-15"
+    "provisionalUpdatedAt": "2026-09-17"
   },
   {
     "uniqueId": "EB05-042_EB05-042.png",
@@ -534,7 +602,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-15"
+    "provisionalUpdatedAt": "2026-09-17"
   },
   {
     "uniqueId": "EB05-044_EB05-044.png",
@@ -567,7 +635,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-15"
+    "provisionalUpdatedAt": "2026-09-17"
   },
   {
     "uniqueId": "EB05-045_EB05-045.png",
@@ -600,7 +668,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-15"
+    "provisionalUpdatedAt": "2026-09-17"
   },
   {
     "uniqueId": "EB05-047_EB05-047.png",
@@ -634,7 +702,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-15"
+    "provisionalUpdatedAt": "2026-09-17"
   },
   {
     "uniqueId": "EB05-051_EB05-051.png",
@@ -667,7 +735,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-15"
+    "provisionalUpdatedAt": "2026-09-17"
   },
   {
     "uniqueId": "EB05-054_EB05-054.png",
@@ -700,7 +768,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-15"
+    "provisionalUpdatedAt": "2026-09-17"
   },
   {
     "uniqueId": "EB05-056_EB05-056.png",
@@ -733,7 +801,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-15"
+    "provisionalUpdatedAt": "2026-09-17"
   },
   {
     "uniqueId": "EB05-057_EB05-057.png",
@@ -766,7 +834,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "EB05",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/eb-05/",
-    "provisionalUpdatedAt": "2026-09-15"
+    "provisionalUpdatedAt": "2026-09-17"
   },
   {
     "uniqueId": "OP18-021_OP18-021L.png",
