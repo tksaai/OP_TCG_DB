@@ -21,8 +21,8 @@ test('cache refresh UI preserves user data stores', async () => {
 
 test('service worker cache version is advanced for the current data release', async () => {
     const source = await readFile(new URL('service-worker.js', root), 'utf8');
-    assert.match(source, /CACHE_APP_SHELL = 'app-shell-v42'/);
-    assert.match(source, /CACHE_CARD_DATA = 'card-data-v15'/);
+    assert.match(source, /CACHE_APP_SHELL = 'app-shell-v43'/);
+    assert.match(source, /CACHE_CARD_DATA = 'card-data-v16'/);
     assert.match(source, /BLOCK_ICON_RULES_PATH/);
     assert.match(source, /OWNED_CACHE_PREFIXES/);
     assert.match(source, /isOwnedCache && !cacheWhitelist\.includes/);
@@ -56,4 +56,19 @@ test('startup data revalidates and the first card render stays bounded', async (
     assert.match(source, /const INITIAL_RENDER_COUNT = 120/);
     assert.match(source, /const RENDER_CHUNK_SIZE = 120/);
     assert.match(source, /img\.decoding = 'async'/);
+});
+
+test('official card master updates automatically without touching user stores', async () => {
+    const source = await readFile(new URL('app.js', root), 'utf8');
+    const start = source.indexOf('async function checkCardDataVersion()');
+    const end = source.indexOf('async function checkCardDataByFetching()', start);
+    const versionCheck = source.slice(start, end);
+
+    assert.ok(start >= 0 && end > start);
+    assert.match(
+        versionCheck,
+        /await fetchAndUpdateCardData\(serverLastModified, cardsData, serverHash, diff\)/
+    );
+    assert.doesNotMatch(versionCheck, /showDbUpdateNotification/);
+    assert.doesNotMatch(versionCheck, /STORE_DECKS|STORE_COLLECTION|STORE_OPENING_SESSIONS/);
 });

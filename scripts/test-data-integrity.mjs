@@ -122,5 +122,13 @@ assert.doesNotMatch(indexHtml, /id="github-token-input"/u, 'index.html に GitHu
 assert.match(appJs, /INITIAL_RENDER_COUNT/u, '一覧の分割描画が入っていません');
 assert.match(appJs, /cardNumber === 'P'/u, 'カード番号 P を共有デッキで扱えません');
 assert.match(newReleaseSync, /sync-eight-pack-leader\.mjs/u, '日次同期に8パックバトル専用リーダー同期がありません');
+const searchableTextStart = appJs.indexOf('let searchableText = [');
+const searchableTextEnd = appJs.indexOf("].join(' ');", searchableTextStart);
+const searchableTextSource = appJs.slice(searchableTextStart, searchableTextEnd);
+assert.ok(searchableTextStart >= 0 && searchableTextEnd > searchableTextStart, '検索対象を確認できません');
+assert.match(searchableTextSource, /card\.seriesTitle/u, '収録名を検索できません');
+assert.match(searchableTextSource, /card\.getInfo/u, '入手情報を検索できません');
+assert.match(searchableTextSource, /card\.color/u, 'カード色を検索できません');
+assert.match(searchableTextSource, /全色/u, '6色カードを「全色」で検索できません');
 
 console.log(`Data integrity tests passed. (cards: ${cards.length}, images: ${variants.length})`);

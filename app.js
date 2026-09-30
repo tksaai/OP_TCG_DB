@@ -48,7 +48,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.11.5'; // バージョン更新
+    const APP_VERSION = '1.11.6'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -1613,7 +1613,12 @@
                     card.effectText || '',
                     (card.features || []).join(' '),
                     card.cardNumber || '',
-                    card.trigger || ''
+                    card.trigger || '',
+                    card.seriesTitle || '',
+                    card.seriesCode || '',
+                    card.getInfo || '',
+                    Array.isArray(card.color) ? card.color.join(' ') : (card.color || ''),
+                    Array.isArray(card.color) && new Set(card.color).size >= 6 ? '全色' : ''
                 ].join(' ');
                 
                 searchableText = toKatakana(searchableText);
@@ -2184,8 +2189,8 @@
                         }
                         await loadCardsFromDB();
                     } else {
-                        showDbUpdateNotification(serverLastModified, cardsData, serverHash, diff);
-                        await loadCardsFromDB();
+                        // 公式カードマスターはユーザーデータと別ストアなので、安全に自動更新する。
+                        await fetchAndUpdateCardData(serverLastModified, cardsData, serverHash, diff);
                     }
                 }
             } else {
