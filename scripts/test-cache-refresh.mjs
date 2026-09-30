@@ -21,8 +21,8 @@ test('cache refresh UI preserves user data stores', async () => {
 
 test('service worker cache version is advanced for the current data release', async () => {
     const source = await readFile(new URL('service-worker.js', root), 'utf8');
-    assert.match(source, /CACHE_APP_SHELL = 'app-shell-v43'/);
-    assert.match(source, /CACHE_CARD_DATA = 'card-data-v16'/);
+    assert.match(source, /CACHE_APP_SHELL = 'app-shell-v44'/);
+    assert.match(source, /CACHE_CARD_DATA = 'card-data-v17'/);
     assert.match(source, /BLOCK_ICON_RULES_PATH/);
     assert.match(source, /OWNED_CACHE_PREFIXES/);
     assert.match(source, /isOwnedCache && !cacheWhitelist\.includes/);
@@ -71,4 +71,17 @@ test('official card master updates automatically without touching user stores', 
     );
     assert.doesNotMatch(versionCheck, /showDbUpdateNotification/);
     assert.doesNotMatch(versionCheck, /STORE_DECKS|STORE_COLLECTION|STORE_OPENING_SESSIONS/);
+});
+
+test('app shell loads a revisioned script and bypasses stale HTTP cache', async () => {
+    const html = await readFile(new URL('index.html', root), 'utf8');
+    const appSource = await readFile(new URL('app.js', root), 'utf8');
+    const workerSource = await readFile(new URL('service-worker.js', root), 'utf8');
+    const version = appSource.match(/const APP_VERSION = '([^']+)'/)?.[1];
+
+    assert.ok(version);
+    assert.match(html, new RegExp(`app\\.js\\?v=${version}`));
+    assert.match(workerSource, new RegExp(`app\\.js\\?v=${version}`));
+    assert.match(workerSource, /cache: 'reload'/);
+    assert.match(workerSource, /new Request\(request, \{ cache: 'no-cache' \}\)/);
 });

@@ -5,8 +5,8 @@
  */
 
 // === 1. 定数 ===
-const CACHE_APP_SHELL = 'app-shell-v43';
-const CACHE_CARD_DATA = 'card-data-v16';
+const CACHE_APP_SHELL = 'app-shell-v44';
+const CACHE_CARD_DATA = 'card-data-v17';
 // v2: 配信を WebP に一本化したタイミングで、古い JPEG/PNG のキャッシュを捨てる
 const CACHE_IMAGES = 'card-images-v2';
 const OWNED_CACHE_PREFIXES = ['app-shell-', 'card-data-', 'card-images-'];
@@ -38,7 +38,7 @@ const APP_SHELL_FILES = [
     './style.css',
     './image-import.js',
     './image-import-worker.js',
-    './app.js', // ファイル名を修正
+    './app.js?v=1.11.7',
     './manifest.json',
     './icons/iconx192.png',
     './icons/iconx512.png',
@@ -53,11 +53,19 @@ self.addEventListener('install', (event) => {
         caches.open(CACHE_APP_SHELL)
             .then((cache) => {
                 console.log('[SW] Caching App Shell...');
-                return Promise.all(APP_SHELL_FILES.map(fileUrl => (
-                    cache.add(fileUrl).catch(error => {
+                return Promise.all(APP_SHELL_FILES.map(async fileUrl => {
+                    const request = new Request(new URL(fileUrl, self.registration.scope), {
+                        cache: 'reload'
+                    });
+                    return fetch(request).then(response => {
+                        if (!response.ok && response.type !== 'opaque') {
+                            throw new Error(`HTTP ${response.status}`);
+                        }
+                        return cache.put(request, response);
+                    }).catch(error => {
                         console.error(`[SW] Failed to cache app shell file: ${fileUrl}`, error);
-                    })
-                )));
+                    });
+                }));
             })
             .then(() => caches.open(CACHE_CARD_DATA))
             .then((cache) => {
@@ -141,7 +149,10 @@ self.addEventListener('fetch', (event) => {
     }
 
     // 2. アプリシェル (Stale-While-Revalidate)
-    if (APP_SHELL_FILES.includes(relativePath) || url.origin === 'https://cdn.jsdelivr.net') {
+    const isAppShellPath = APP_SHELL_FILES.some(file => (
+        new URL(file, self.registration.scope).pathname === requestPath
+    ));
+    if (isAppShellPath || url.origin === 'https://cdn.jsdelivr.net') {
         event.respondWith(staleWhileRevalidate(event.request, CACHE_APP_SHELL));
         return;
     }
@@ -260,7 +271,8 @@ async function staleWhileRevalidate(request, cacheName) {
     const cachedResponsePromise = cache.match(request);
     
     // ネットワークからのレスポンスを取得し、キャッシュを更新するPromise (GETのみ)
-    const networkUpdatePromise = fetch(request).then(async (networkResponse) => {
+    const networkRequest = new Request(request, { cache: 'no-cache' });
+    const networkUpdatePromise = fetch(networkRequest).then(async (networkResponse) => {
         // GETリクエストの結果のみキャッシュする
         if (networkResponse && networkResponse.ok) {
            await cache.put(request, networkResponse.clone());
