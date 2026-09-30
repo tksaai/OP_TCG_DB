@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-29T15:59:59.535Z",
-  "totalCards": 2823,
-  "totalImages": 4961,
+  "generatedAt": "2026-09-30T08:04:44.111Z",
+  "totalCards": 2824,
+  "totalImages": 4963,
   "cards": {
     "EB01-001": [
       {
@@ -51769,6 +51769,34 @@
         "getInfo": "ブースターパック 世界最強の戦士【OP-17】                                    \n                    カードリスト\n                                        商品情報",
         "label": "別イラスト 2",
         "path": "CardsWebP/OP17/official/OP17-119_p1.webp",
+        "fallbackPath": "",
+        "variantIndex": 1
+      }
+    ],
+    "P": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/onepiececg/bccard/jp/news/2026/05/01/AMCljtXBvpnv86tf/P_luffy_sample.jpg",
+        "cardName": "モンキー・D・ルフィ",
+        "rarity": "L",
+        "cardType": "LEADER",
+        "block": "",
+        "getInfo": "8パックバトル 2026年9月 参加記念品",
+        "label": "通常",
+        "path": "CardsWebP/P/official/P.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/onepiececg/bccard/jp/news/2026/08/20/AZ5rFqVpQwiWwaz2/OPCG_card_L2.webp",
+        "cardName": "モンキー・D・ルフィ",
+        "rarity": "L",
+        "cardType": "LEADER",
+        "block": "",
+        "getInfo": "8パックバトル 2026年10月 参加記念品",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/P/official/P_p1.webp",
         "fallbackPath": "",
         "variantIndex": 1
       }

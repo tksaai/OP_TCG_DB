@@ -42,7 +42,7 @@ async function readOfficialMetadata() {
 
 function parseCardImage(filePath) {
     const fileName = path.basename(filePath, path.extname(filePath));
-    const match = fileName.match(/^([A-Z0-9]+-\d+)(?:(?: \((\d+)\))|(?:_p(\d+))|(?:_r(\d+)))?$/i);
+    const match = fileName.match(/^((?:[A-Z0-9]+-\d+)|P)(?:(?: \((\d+)\))|(?:_p(\d+))|(?:_r(\d+)))?$/i);
     if (!match) return null;
 
     const [, cardNumber, localVariantSuffix, officialParallelSuffix, officialRaritySuffix] = match;
@@ -132,7 +132,7 @@ for (const file of files) {
     const fromWebpDir = toWebPath(file).startsWith(`${WEBP_DIR}/`);
     const originalPath = fromWebpDir ? '' : parsed.originalPath;
     let webpPath = fromWebpDir ? parsed.originalPath : await existingWebpPath(file);
-    if (!webpPath && shouldGenerateWebp && path.extname(file).toLowerCase() !== '.webp') {
+    if (!webpPath && shouldGenerateWebp) {
         webpPath = await createWebpVariant(file);
     }
     if (!webpPath) {
@@ -173,11 +173,17 @@ for (const [cardNumber, variants] of Object.entries(cards)) {
     cards[cardNumber] = [...byVariant.values()].sort((a, b) => a.variantIndex - b.variantIndex);
 }
 
+const sortedCards = Object.fromEntries(
+    Object.entries(cards).sort(([left], [right]) => (
+        left.localeCompare(right, 'en', { numeric: true })
+    ))
+);
+
 const manifest = {
     generatedAt: new Date().toISOString(),
-    totalCards: Object.keys(cards).length,
-    totalImages: Object.values(cards).reduce((sum, variants) => sum + variants.length, 0),
-    cards
+    totalCards: Object.keys(sortedCards).length,
+    totalImages: Object.values(sortedCards).reduce((sum, variants) => sum + variants.length, 0),
+    cards: sortedCards
 };
 
 await writeFile(OUTPUT_FILE, `${JSON.stringify(manifest, null, 2)}\n`, 'utf8');

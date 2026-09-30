@@ -44937,5 +44937,25 @@
     "block": "5",
     "getInfo": "フラッグシップバトル2026 10月優勝記念品                                    \n                    カードリスト",
     "label": "公式差分 2"
+  },
+  "Cards/P/official/P.jpg": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/onepiececg/bccard/jp/news/2026/05/01/AMCljtXBvpnv86tf/P_luffy_sample.jpg",
+    "cardName": "モンキー・D・ルフィ",
+    "rarity": "L",
+    "cardType": "LEADER",
+    "block": "",
+    "getInfo": "8パックバトル 2026年9月 参加記念品",
+    "label": "8パックバトル 2026年9月 参加記念品"
+  },
+  "Cards/P/official/P_p1.webp": {
+    "source": "official",
+    "sourceUrl": "https://www.onepiece-cardgame.com/onepiececg/bccard/jp/news/2026/08/20/AZ5rFqVpQwiWwaz2/OPCG_card_L2.webp",
+    "cardName": "モンキー・D・ルフィ",
+    "rarity": "L",
+    "cardType": "LEADER",
+    "block": "",
+    "getInfo": "8パックバトル 2026年10月 参加記念品",
+    "label": "8パックバトル 2026年10月 参加記念品"
   }
 }

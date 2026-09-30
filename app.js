@@ -48,7 +48,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.11.4'; // バージョン更新
+    const APP_VERSION = '1.11.5'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -1743,7 +1743,7 @@
             if (f.series) {
                  if (!card.cardNumber) return false;
                  if (f.series === 'P') {
-                    if (!card.cardNumber.startsWith('P-')) return false;
+                    if (card.cardNumber !== 'P' && !card.cardNumber.startsWith('P-')) return false;
                  } else {
                     if (!getCardSeriesIds(card).has(f.series)) return false;
                  }
@@ -2373,7 +2373,9 @@
 
     function normalizeSharedCardNumber(value) {
         const cardNumber = String(value || '').trim().toUpperCase();
-        return /^[A-Z0-9]{1,12}-[A-Z0-9]{1,12}$/.test(cardNumber) ? cardNumber : '';
+        return cardNumber === 'P' || /^[A-Z0-9]{1,12}-[A-Z0-9]{1,12}$/.test(cardNumber)
+            ? cardNumber
+            : '';
     }
 
     function normalizeDeckTransferEntries(entries, leader) {

@@ -8,18 +8,50 @@ const readJson = async (name) => JSON.parse(await readFile(new URL(`../${name}`,
 
 const cards = await readJson('cards.json');
 const manifest = await readJson('image-manifest.json');
+const cardFeatures = await readJson('card-features.json');
 const provisional = await readJson('provisional-cards.json');
 const indexHtml = await readFile(new URL('../index.html', import.meta.url), 'utf8');
 const appJs = await readFile(new URL('../app.js', import.meta.url), 'utf8');
 const provisionalWorkflow = await readFile(new URL('../.github/workflows/sync-provisional-cards.yml', import.meta.url), 'utf8');
+const newReleaseSync = await readFile(new URL('./sync-new-release.mjs', import.meta.url), 'utf8');
 
 // --- カードデータ ---------------------------------------------------------
 assert.ok(Array.isArray(cards) && cards.length > 1000, 'cards.json のカード数が少なすぎます');
 assert.ok(cards.every(card => card && card.cardNumber), 'cardNumber の無いカードがあります');
+const eightPackLeader = cards.find(card => card?.cardNumber === 'P');
+assert.ok(eightPackLeader, '8パックバトル専用リーダー P がありません');
+assert.equal(eightPackLeader.cardType, 'LEADER', '8パックバトル専用カード P がリーダーではありません');
+assert.equal(eightPackLeader.costLifeValue, 5, '8パックバトル専用リーダー P のライフは5です');
+assert.deepEqual(
+  eightPackLeader.color,
+  ['赤', '緑', '青', '紫', '黒', '黄'],
+  '8パックバトル専用リーダー P は6色すべてを持つ必要があります'
+);
 
 // --- 画像マニフェスト -----------------------------------------------------
 const variants = Object.values(manifest.cards || {}).flat();
 assert.ok(variants.length > 1000, 'image-manifest.json の画像が少なすぎます');
+assert.ok(
+  Array.isArray(manifest.cards?.P) && manifest.cards.P.length >= 2,
+  '8パックバトル専用リーダー P の公式画像が2種以上必要です'
+);
+await Promise.all(manifest.cards.P.map(async variant => {
+  try {
+    await access(new URL(`../${variant.path}`, import.meta.url));
+  } catch {
+    assert.fail(`8パックバトル専用リーダー画像が存在しません: ${variant.path}`);
+  }
+}));
+const eightPackFeaturePaths = new Set(
+  (cardFeatures.features || [])
+    .filter(feature => feature?.n === 'P')
+    .map(feature => feature.p)
+);
+assert.deepEqual(
+  eightPackFeaturePaths,
+  new Set(manifest.cards.P.map(variant => variant.path)),
+  '8パックバトル専用リーダーの画像特徴量が不足しています'
+);
 assert.equal(
   manifest.totalImages,
   variants.length,
@@ -88,5 +120,7 @@ assert.doesNotMatch(indexHtml, /id="github-token-input"/u, 'index.html に GitHu
 
 // 一覧は分割描画 (件数が多いため一度に DOM を作らない)
 assert.match(appJs, /INITIAL_RENDER_COUNT/u, '一覧の分割描画が入っていません');
+assert.match(appJs, /cardNumber === 'P'/u, 'カード番号 P を共有デッキで扱えません');
+assert.match(newReleaseSync, /sync-eight-pack-leader\.mjs/u, '日次同期に8パックバトル専用リーダー同期がありません');
 
 console.log(`Data integrity tests passed. (cards: ${cards.length}, images: ${variants.length})`);

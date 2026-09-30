@@ -166,6 +166,11 @@ if (!dryRun && blockRulesAfter && blockRulesAfter !== blockRulesBefore) {
 }
 run(process.execPath, cardSyncArgs);
 run(process.execPath, officialSyncArgs);
+run(process.execPath, [
+    path.join('scripts', 'sync-eight-pack-leader.mjs'),
+    ...(dryRun ? ['--dry-run'] : []),
+    ...(hasArg('force') ? ['--force'] : [])
+]);
 run(process.execPath, [path.join('scripts', 'apply-block-icon-overrides.mjs'), ...(dryRun ? ['--dry-run'] : [])]);
 
 if (dryRun) {

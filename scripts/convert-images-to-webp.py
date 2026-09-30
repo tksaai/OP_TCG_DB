@@ -8,7 +8,7 @@ from PIL import Image
 
 def iter_images(root: Path):
     for path in root.rglob("*"):
-        if path.suffix.lower() in {".jpg", ".jpeg", ".png"}:
+        if path.suffix.lower() in {".jpg", ".jpeg", ".png", ".webp"}:
             yield path
 
 
