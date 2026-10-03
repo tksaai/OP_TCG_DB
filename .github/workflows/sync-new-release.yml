@@ -49,6 +49,11 @@ jobs:
       - name: Install Python dependencies
         run: python -m pip install --upgrade pillow
 
+      # 外部スクレイパーは公式一覧にない8パックバトル用リーダーを出力しないため、
+      # 整合性検査より先に例外カードを必ず復元する。
+      - name: Restore 8 pack battle leader
+        run: node scripts/ensure-eight-pack-leader.mjs
+
       # 同期の前に、いま入っているデータと画面の前提が壊れていないかを確認する
       - name: Test data integrity
         run: node scripts/test-data-integrity.mjs
@@ -80,6 +85,6 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add block-icon-overrides.json cards.json image-manifest.json card-features.json official-image-sources.json CardsWebP
+          git add block-icon-overrides.json cards.json image-manifest.json card-features.json official-image-sources.json CardsWebP eight-pack-leader.js
           git commit -m "Sync $SERIES cards and images"
           git push

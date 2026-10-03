@@ -21,7 +21,7 @@ test('cache refresh UI preserves user data stores', async () => {
 
 test('service worker cache version is advanced for the current data release', async () => {
     const source = await readFile(new URL('service-worker.js', root), 'utf8');
-    assert.match(source, /CACHE_APP_SHELL = 'app-shell-v44'/);
+    assert.match(source, /CACHE_APP_SHELL = 'app-shell-v46'/);
     assert.match(source, /CACHE_CARD_DATA = 'card-data-v17'/);
     assert.match(source, /BLOCK_ICON_RULES_PATH/);
     assert.match(source, /OWNED_CACHE_PREFIXES/);
@@ -80,7 +80,9 @@ test('app shell loads a revisioned script and bypasses stale HTTP cache', async 
     const version = appSource.match(/const APP_VERSION = '([^']+)'/)?.[1];
 
     assert.ok(version);
+    assert.match(html, new RegExp(`eight-pack-leader\\.js\\?v=${version}`));
     assert.match(html, new RegExp(`app\\.js\\?v=${version}`));
+    assert.match(workerSource, new RegExp(`eight-pack-leader\\.js\\?v=${version}`));
     assert.match(workerSource, new RegExp(`app\\.js\\?v=${version}`));
     assert.match(workerSource, /cache: 'reload'/);
     assert.match(workerSource, /new Request\(request, \{ cache: 'no-cache' \}\)/);

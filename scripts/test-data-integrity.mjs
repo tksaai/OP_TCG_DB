@@ -13,6 +13,7 @@ const provisional = await readJson('provisional-cards.json');
 const indexHtml = await readFile(new URL('../index.html', import.meta.url), 'utf8');
 const appJs = await readFile(new URL('../app.js', import.meta.url), 'utf8');
 const provisionalWorkflow = await readFile(new URL('../.github/workflows/sync-provisional-cards.yml', import.meta.url), 'utf8');
+const newReleaseWorkflow = await readFile(new URL('../.github/workflows/sync-new-release.yml', import.meta.url), 'utf8');
 const newReleaseSync = await readFile(new URL('./sync-new-release.mjs', import.meta.url), 'utf8');
 
 // --- カードデータ ---------------------------------------------------------
@@ -121,7 +122,14 @@ assert.doesNotMatch(indexHtml, /id="github-token-input"/u, 'index.html に GitHu
 // 一覧は分割描画 (件数が多いため一度に DOM を作らない)
 assert.match(appJs, /INITIAL_RENDER_COUNT/u, '一覧の分割描画が入っていません');
 assert.match(appJs, /cardNumber === 'P'/u, 'カード番号 P を共有デッキで扱えません');
+assert.match(appJs, /ensureEightPackLeader\(cardsData\)/u, '外部スクレイパー更新後にカード P を画面へ復元できません');
+assert.match(indexHtml, /eight-pack-leader\.js\?v=/u, '8パックバトル用リーダーの例外定義が読み込まれていません');
 assert.match(newReleaseSync, /sync-eight-pack-leader\.mjs/u, '日次同期に8パックバトル専用リーダー同期がありません');
+assert.ok(
+  newReleaseWorkflow.indexOf('node scripts/ensure-eight-pack-leader.mjs')
+    < newReleaseWorkflow.indexOf('node scripts/test-data-integrity.mjs'),
+  '日次同期では整合性検査より先に8パックバトル専用リーダーを復元してください'
+);
 const searchableTextStart = appJs.indexOf('let searchableText = [');
 const searchableTextEnd = appJs.indexOf("].join(' ');", searchableTextStart);
 const searchableTextSource = appJs.slice(searchableTextStart, searchableTextEnd);

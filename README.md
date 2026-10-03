@@ -14,6 +14,8 @@ ONE PIECE カードゲームのカード検索・デッキ構築・コレクシ�
 - カード検索（名前・効果テキスト・カード番号）と、色/コスト/パワー/属性/種別/
   レアリティ/ブロック/シリーズなどでの絞り込み
 - デッキ構築（リーダー選択 → タップで枚数指定 → 50 枚）、共有 URL・画像・JSON での書き出し
+- デッキ別・大会別の対戦記録（相手デッキ、ジャンケン、先攻・後攻、試合結果）
+- 作成中または保存済みデッキの5列リスト表示と枚数調整
 - デッキ表の画像からのデッキ取り込み（解析は端末内で完結）
 - 欲しいカードリスト、所持カード管理、パックの開封記録
 - デッキに対する不足カードの一覧と共有
@@ -24,6 +26,7 @@ ONE PIECE カードゲームのカード検索・デッキ構築・コレクシ�
 | パス | 内容 |
 | --- | --- |
 | `index.html` / `app.js` / `style.css` | アプリ本体 |
+| `eight-pack-leader.js` | 公式一覧に含まれない8パックバトル用ルフィの例外定義 |
 | `admin.html` | データ整備用（GitHub token の登録）。通常利用では開きません |
 | `image-import.js` / `image-import-worker.js` | デッキ画像の解析（Worker で実行） |
 | `service-worker.js` | オフライン対応。カードデータ=network-first、シェル=SWR、画像=cache-first |
@@ -75,6 +78,7 @@ node scripts/test-data-integrity.mjs
 | --- | --- |
 | `sync-new-release.mjs` | 新弾の同期一式（カード → 画像 → WebP → マニフェスト → 特徴量） |
 | `sync-official-cards.mjs` / `sync-official-images.mjs` | 公式サイトからのカード・画像取得 |
+| `ensure-eight-pack-leader.mjs` | 外部スクレイパー更新後に8パックバトル用ルフィを復元 |
 | `sync-akihabara-cards.mjs` / `sync-provisional-images.mjs` | 仮DBの取得 |
 | `convert-images-to-webp.py` | WebP 変換（`--prune` で元画像が消えた WebP を掃除） |
 | `build-image-manifest.mjs` | `image-manifest.json` の生成 |

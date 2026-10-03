@@ -48,7 +48,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.11.7'; // バージョン更新
+    const APP_VERSION = '1.12.1'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -99,7 +99,6 @@
     let editingDeckId = null;
     let editingDeckData = {};   // { cardNumber: count }
     let editingDeckMeta = {};   // { name, leader, colors: string[], createdAt }
-    let deckShowOnlyDeckCards = false;
     let cardElementMap = {};    // { cardNumber: HTMLElement } DOM高速アクセス用
     let activeCardView = 'cards'; // 'cards' | 'new'
     let openDeckActionMenu = null;
@@ -128,6 +127,11 @@
     let collectionShowOnlyOwned = true;
     let collectionWriteQueue = Promise.resolve();
     let openingWriteQueue = Promise.resolve();
+    let deckCompositionDeck = null;
+    let deckCompositionEditable = false;
+    let tournamentRecordsDeck = null;
+    let editingTournamentId = null;
+    let editingTournamentMatch = null;
 
     // === 2. DOM要素のキャッシュ ===
     const $ = (selector) => document.querySelector(selector);
@@ -314,7 +318,11 @@
             deckStatusBar: $('#deck-status-bar'),
             deckStatusInfo: $('#deck-status-info'),
             deckSaveBtn: $('#deck-save-btn'),
-            deckShowToggleBtn: $('#deck-show-toggle-btn'),
+            deckListPreviewBtn: $('#deck-list-preview-btn'),
+            deckBuilderPanel: $('#deck-builder-panel'),
+            deckBuilderMainCount: $('#deck-builder-main-count'),
+            deckBuilderMainGrid: $('#deck-builder-main-grid'),
+            deckBuilderLeaderGrid: $('#deck-builder-leader-grid'),
             wantedStatusBar: $('#wanted-status-bar'),
             wantedStatusInfo: $('#wanted-status-info'),
             wantedShowToggleBtn: $('#wanted-show-toggle-btn'),
@@ -382,6 +390,28 @@
             missingCardsCopyBtn: $('#missing-cards-copy-btn'),
             missingCardsImageBtn: $('#missing-cards-image-btn'),
             missingCardsShareBtn: $('#missing-cards-share-btn'),
+
+            deckCompositionModal: $('#deck-composition-modal'),
+            deckCompositionCloseBtn: $('#deck-composition-close-btn'),
+            deckCompositionDoneBtn: $('#deck-composition-done-btn'),
+            deckCompositionName: $('#deck-composition-name'),
+            deckCompositionSummary: $('#deck-composition-summary'),
+            deckCompositionMainCount: $('#deck-composition-main-count'),
+            deckCompositionMainGrid: $('#deck-composition-main-grid'),
+            deckCompositionLeaderGrid: $('#deck-composition-leader-grid'),
+
+            tournamentRecordsModal: $('#tournament-records-modal'),
+            tournamentRecordsCloseBtn: $('#tournament-records-close-btn'),
+            tournamentRecordsDoneBtn: $('#tournament-records-done-btn'),
+            tournamentRecordsDeckName: $('#tournament-records-deck-name'),
+            tournamentRecordsSummary: $('#tournament-records-summary'),
+            tournamentForm: $('#tournament-form'),
+            tournamentFormTitle: $('#tournament-form-title'),
+            tournamentFormCancelBtn: $('#tournament-form-cancel-btn'),
+            tournamentFormSubmitBtn: $('#tournament-form-submit-btn'),
+            tournamentNameInput: $('#tournament-name-input'),
+            tournamentDateInput: $('#tournament-date-input'),
+            tournamentRecordsList: $('#tournament-records-list'),
     
             dbUpdateNotification: $('#db-update-notification'),
             dbUpdateText: $('#db-update-text'),
@@ -1155,6 +1185,11 @@
             .sort((a, b) => String(a.cardNumber).localeCompare(String(b.cardNumber), 'en', { numeric: true }));
     }
 
+    function ensureEightPackLeader(cardsData) {
+        if (!window.OPTCGEightPackLeader?.ensureCard || !Array.isArray(cardsData)) return cardsData;
+        return window.OPTCGEightPackLeader.ensureCard(cardsData);
+    }
+
     async function hashText(value) {
         if (!window.crypto?.subtle) {
             let hash = 0;
@@ -1592,8 +1627,6 @@
             } else if (currentMode === 'deck_edit') {
                 // デッキ編集モード: リーダー自体は除外
                 if (card.cardType === 'LEADER') return false;
-                // デッキ内カードのみ表示トグル
-                if (deckShowOnlyDeckCards && !editingDeckData[card.cardNumber]) return false;
                 // 色制限: リーダーの色を1色でも含むカードのみ
                 if (Array.isArray(editingDeckMeta.colors) && editingDeckMeta.colors.length > 0) {
                     const cardColors = Array.isArray(card.color) ? card.color : [];
@@ -2155,6 +2188,7 @@
             const serverLastModified = response.headers.get('Last-Modified');
             const cardsText = await response.text();
             const cardsData = JSON.parse(cardsText);
+            ensureEightPackLeader(cardsData);
             applyBlockIconRulesToCards(cardsData);
             const serverHash = await hashCardsData(cardsData);
             const localHashMeta = await db.get(STORE_METADATA, 'cardsContentHash');
@@ -2167,6 +2201,7 @@
             if (!localHash) {
                 const localCards = await db.getAll(STORE_CARDS);
                 if (localCards.length > 0) {
+                    ensureEightPackLeader(localCards);
                     localHash = await hashCardsData(localCards);
                     await db.put(STORE_METADATA, { key: 'cardsContentHash', value: localHash });
                 }
@@ -2180,6 +2215,7 @@
                 } else {
                     // カード単位の実差分を確認し、書式・並び順だけの変化なら通知しない
                     const localCards = await db.getAll(STORE_CARDS);
+                    ensureEightPackLeader(localCards);
                     const diff = diffCardsData(normalizeCardsData(cardsData), localCards);
                     if (diff.added.length === 0 && diff.changed.length === 0 && diff.removed.length === 0) {
                         await db.put(STORE_METADATA, { key: 'cardsContentHash', value: serverHash });
@@ -2242,6 +2278,7 @@
                 cardsData = await response.json();
             }
 
+            ensureEightPackLeader(cardsData);
             applyBlockIconRulesToCards(cardsData);
             const cardsArray = normalizeCardsData(cardsData);
             if (!contentHash) contentHash = await hashCardsData(cardsData);
@@ -2316,6 +2353,7 @@
         if (!db) return;
         try {
             allCards = await db.getAll(STORE_CARDS);
+            ensureEightPackLeader(allCards);
             applyBlockIconRulesToCards(allCards);
             cardSeriesIdCache.clear();
             try {
@@ -2935,6 +2973,7 @@
             cards: normalizeDeckTransferEntries(Object.entries(imported.cards || {}), imported.leader),
             ownedCards: {},
             ownedCardsLinked: true,
+            tournaments: [],
             createdAt: now,
             updatedAt: now
         };
@@ -3293,6 +3332,7 @@
                     name: payload.n,
                     leader: payload.l,
                     cards: Object.fromEntries(payload.c),
+                    tournaments: getDeckTournamentRecords(deck),
                     createdAt: deck.createdAt || null,
                     updatedAt: deck.updatedAt || null
                 }
@@ -3330,6 +3370,651 @@
                 count: Number(count)
             }))
             .sort((a, b) => compareDeckCards(a.card, b.card));
+    }
+
+    function getDeckRecordsApi() {
+        if (!window.OPTCGDeckRecords) {
+            throw new Error('大会記録機能を読み込めませんでした。アプリを更新してください。');
+        }
+        return window.OPTCGDeckRecords;
+    }
+
+    function getDeckTournamentRecords(deck) {
+        try {
+            return getDeckRecordsApi().normalizeTournamentRecords(deck?.tournaments);
+        } catch (error) {
+            console.error('Failed to normalize tournament records:', error);
+            return [];
+        }
+    }
+
+    function getDeckTournamentSummary(deck) {
+        try {
+            return getDeckRecordsApi().summarizeTournamentRecords(deck?.tournaments);
+        } catch (error) {
+            return {
+                tournamentCount: 0,
+                matchCount: 0,
+                wins: 0,
+                losses: 0,
+                draws: 0,
+                rpsWins: 0,
+                rpsLosses: 0
+            };
+        }
+    }
+
+    function getEditingDeckSnapshot() {
+        if (!editingDeckId || currentMode !== 'deck_edit') return null;
+        return {
+            id: editingDeckId,
+            name: editingDeckMeta.name,
+            leader: editingDeckMeta.leader,
+            cards: { ...editingDeckData },
+            tournaments: getDeckTournamentRecords(editingDeckMeta)
+        };
+    }
+
+    function getDeckCompositionSource() {
+        if (deckCompositionEditable) return getEditingDeckSnapshot();
+        return deckCompositionDeck;
+    }
+
+    function createDeckCompositionCard(entry, options = {}) {
+        const { isLeader = false, editable = false } = options;
+        const card = entry.card;
+        const cardNumber = card.cardNumber || '';
+        const item = document.createElement('article');
+        item.className = `deck-composition-card${isLeader ? ' is-leader' : ''}`;
+
+        const imageShell = document.createElement('div');
+        imageShell.className = 'deck-composition-image-shell';
+        const fallback = document.createElement('div');
+        fallback.className = 'deck-composition-fallback';
+        fallback.textContent = cardNumber || '画像なし';
+        fallback.hidden = true;
+        const imagePath = getCardImagePath(card, 0);
+        if (imagePath) {
+            const image = document.createElement('img');
+            image.className = 'deck-composition-image';
+            image.src = imagePath;
+            image.alt = card.cardName || cardNumber;
+            image.loading = 'lazy';
+            image.decoding = 'async';
+            image.onerror = () => {
+                image.remove();
+                fallback.hidden = false;
+            };
+            imageShell.appendChild(image);
+        } else {
+            fallback.hidden = false;
+        }
+        imageShell.appendChild(fallback);
+
+        const count = document.createElement('span');
+        count.className = 'deck-composition-count';
+        count.textContent = String(entry.count || 1);
+        count.setAttribute('aria-label', `${entry.count || 1}枚`);
+        imageShell.appendChild(count);
+        item.appendChild(imageShell);
+
+        const number = document.createElement('div');
+        number.className = 'deck-composition-number';
+        number.textContent = cardNumber || '未登録';
+        number.title = card.cardName || cardNumber;
+        item.appendChild(number);
+
+        if (editable && !isLeader) {
+            const stepper = document.createElement('div');
+            stepper.className = 'deck-composition-stepper';
+            stepper.setAttribute('role', 'group');
+            stepper.setAttribute('aria-label', `${cardNumber}の枚数`);
+
+            const minus = document.createElement('button');
+            minus.type = 'button';
+            minus.textContent = '−';
+            minus.title = '1枚減らす';
+            minus.setAttribute('aria-label', `${cardNumber}を1枚減らす`);
+            minus.addEventListener('click', () => {
+                setEditingDeckCardCount(cardNumber, Number(entry.count) - 1);
+                renderDeckComposition();
+            });
+
+            const plus = document.createElement('button');
+            plus.type = 'button';
+            plus.textContent = '+';
+            plus.title = '1枚増やす';
+            plus.setAttribute('aria-label', `${cardNumber}を1枚増やす`);
+            plus.disabled = Number(entry.count) >= DECK_MAX_COPIES;
+            plus.addEventListener('click', () => {
+                setEditingDeckCardCount(cardNumber, Number(entry.count) + 1);
+                renderDeckComposition();
+            });
+
+            stepper.append(minus, plus);
+            item.appendChild(stepper);
+        }
+        return item;
+    }
+
+    function renderDeckComposition() {
+        const deck = getDeckCompositionSource();
+        if (!deck || !dom.deckCompositionMainGrid || !dom.deckCompositionLeaderGrid) return;
+        const entries = getDeckImageEntries(deck);
+        const total = entries.reduce((sum, entry) => sum + entry.count, 0);
+        dom.deckCompositionName.textContent = deck.name || '(名称未設定)';
+        dom.deckCompositionSummary.textContent = `${entries.length}種類`;
+        dom.deckCompositionMainCount.textContent = String(total);
+        dom.deckCompositionMainGrid.innerHTML = '';
+        dom.deckCompositionLeaderGrid.innerHTML = '';
+
+        if (entries.length === 0) {
+            const empty = document.createElement('p');
+            empty.className = 'deck-composition-empty';
+            empty.textContent = 'カードがありません';
+            dom.deckCompositionMainGrid.appendChild(empty);
+        } else {
+            const fragment = document.createDocumentFragment();
+            entries.forEach(entry => {
+                fragment.appendChild(createDeckCompositionCard(entry, {
+                    editable: deckCompositionEditable
+                }));
+            });
+            dom.deckCompositionMainGrid.appendChild(fragment);
+        }
+
+        const leaderCard = findCardByNumber(deck.leader) || {
+            cardNumber: deck.leader,
+            cardName: '未登録リーダー',
+            cardType: 'LEADER',
+            color: []
+        };
+        dom.deckCompositionLeaderGrid.appendChild(createDeckCompositionCard({
+            card: leaderCard,
+            count: 1
+        }, { isLeader: true }));
+    }
+
+    function openDeckComposition(deck, options = {}) {
+        if (!deck || !dom.deckCompositionModal) return;
+        deckCompositionDeck = {
+            ...deck,
+            cards: { ...(deck.cards || {}) }
+        };
+        deckCompositionEditable = options.editable === true && currentMode === 'deck_edit';
+        renderDeckComposition();
+        dom.deckCompositionModal.style.display = 'flex';
+        dom.deckCompositionModal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('deck-composition-open');
+        setTimeout(() => dom.deckCompositionCloseBtn?.focus(), 30);
+    }
+
+    function openCurrentDeckComposition() {
+        if (currentMode === 'deck_edit') {
+            const deck = getEditingDeckSnapshot();
+            if (deck) openDeckComposition(deck, { editable: true });
+        } else if (currentMode === 'deck_view' && viewingDeck) {
+            openDeckComposition(viewingDeck);
+        }
+    }
+
+    function closeDeckComposition() {
+        if (!dom.deckCompositionModal) return;
+        dom.deckCompositionModal.style.display = 'none';
+        dom.deckCompositionModal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('deck-composition-open');
+        deckCompositionDeck = null;
+        deckCompositionEditable = false;
+    }
+
+    function formatTournamentDate(dateValue) {
+        if (!dateValue) return '日付未設定';
+        const date = new Date(`${dateValue}T00:00:00`);
+        return Number.isNaN(date.getTime()) ? dateValue : date.toLocaleDateString('ja-JP');
+    }
+
+    function formatMatchRecord(summary) {
+        const drawText = summary.draws > 0 ? `${summary.draws}分` : '';
+        return `${summary.wins}勝${summary.losses}敗${drawText}`;
+    }
+
+    function getSingleTournamentSummary(tournament) {
+        return getDeckRecordsApi().summarizeTournamentRecords([tournament]);
+    }
+
+    function createTournamentIconButton(action, label, iconName, tournamentId, matchId = '', destructive = false) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = `tournament-icon-btn${destructive ? ' destructive' : ''}`;
+        button.dataset.action = action;
+        button.dataset.tournamentId = tournamentId;
+        if (matchId) button.dataset.matchId = matchId;
+        button.title = label;
+        button.setAttribute('aria-label', label);
+        button.appendChild(createDeckActionIcon(iconName));
+        return button;
+    }
+
+    function createTournamentSelectField(labelText, name, options, selectedValue) {
+        const label = document.createElement('label');
+        label.className = 'tournament-match-field';
+        const caption = document.createElement('span');
+        caption.textContent = labelText;
+        const select = document.createElement('select');
+        select.name = name;
+        options.forEach(option => {
+            const element = document.createElement('option');
+            element.value = option.value;
+            element.textContent = option.label;
+            element.selected = option.value === selectedValue;
+            select.appendChild(element);
+        });
+        label.append(caption, select);
+        return label;
+    }
+
+    function createTournamentMatchForm(tournament) {
+        const isEditing = editingTournamentMatch?.tournamentId === tournament.id;
+        const editingMatch = isEditing
+            ? tournament.matches.find(match => match.id === editingTournamentMatch.matchId)
+            : null;
+        const form = document.createElement('form');
+        form.className = 'tournament-match-form';
+        form.dataset.tournamentId = tournament.id;
+
+        const opponentLabel = document.createElement('label');
+        opponentLabel.className = 'tournament-match-field opponent';
+        const opponentCaption = document.createElement('span');
+        opponentCaption.textContent = '相手のデッキ';
+        const opponentInput = document.createElement('input');
+        opponentInput.type = 'text';
+        opponentInput.name = 'opponentDeck';
+        opponentInput.maxLength = 80;
+        opponentInput.autocomplete = 'off';
+        opponentInput.placeholder = '例: 赤ゾロ';
+        opponentInput.required = true;
+        opponentInput.value = editingMatch?.opponentDeck || '';
+        opponentLabel.append(opponentCaption, opponentInput);
+
+        form.appendChild(opponentLabel);
+        form.appendChild(createTournamentSelectField('ジャンケン', 'rpsResult', [
+            { value: 'win', label: '勝ち' },
+            { value: 'loss', label: '負け' }
+        ], editingMatch?.rpsResult || 'win'));
+        form.appendChild(createTournamentSelectField('先攻・後攻', 'playOrder', [
+            { value: 'first', label: '先攻' },
+            { value: 'second', label: '後攻' }
+        ], editingMatch?.playOrder || 'first'));
+        form.appendChild(createTournamentSelectField('試合結果', 'result', [
+            { value: 'win', label: '勝ち' },
+            { value: 'loss', label: '負け' },
+            { value: 'draw', label: '引き分け' }
+        ], editingMatch?.result || 'win'));
+
+        const actions = document.createElement('div');
+        actions.className = 'tournament-match-form-actions';
+        if (editingMatch) {
+            const cancel = document.createElement('button');
+            cancel.type = 'button';
+            cancel.className = 'tournament-match-cancel';
+            cancel.dataset.action = 'cancel-match-edit';
+            cancel.dataset.tournamentId = tournament.id;
+            cancel.textContent = '取消';
+            actions.appendChild(cancel);
+        }
+        const submit = document.createElement('button');
+        submit.type = 'submit';
+        submit.className = 'tournament-match-submit';
+        submit.textContent = editingMatch ? '更新' : '対戦追加';
+        actions.appendChild(submit);
+        form.appendChild(actions);
+        return form;
+    }
+
+    function createTournamentMatchRow(tournament, match, index) {
+        const row = document.createElement('li');
+        row.className = 'tournament-match-row';
+        const round = document.createElement('span');
+        round.className = 'tournament-match-round';
+        round.textContent = `R${index + 1}`;
+        const opponent = document.createElement('strong');
+        opponent.className = 'tournament-match-opponent';
+        opponent.textContent = match.opponentDeck;
+        opponent.title = match.opponentDeck;
+
+        const tags = document.createElement('div');
+        tags.className = 'tournament-match-tags';
+        const tagValues = [
+            { text: `ジャンケン ${match.rpsResult === 'win' ? '勝ち' : '負け'}`, className: '' },
+            { text: match.playOrder === 'first' ? '先攻' : '後攻', className: '' },
+            {
+                text: match.result === 'win' ? '勝ち' : match.result === 'loss' ? '負け' : '引き分け',
+                className: ` result-${match.result}`
+            }
+        ];
+        tagValues.forEach(value => {
+            const tag = document.createElement('span');
+            tag.className = `tournament-match-tag${value.className}`;
+            tag.textContent = value.text;
+            tags.appendChild(tag);
+        });
+
+        const actions = document.createElement('div');
+        actions.className = 'tournament-match-actions';
+        actions.appendChild(createTournamentIconButton(
+            'edit-match',
+            `${index + 1}回戦を編集`,
+            'edit',
+            tournament.id,
+            match.id
+        ));
+        actions.appendChild(createTournamentIconButton(
+            'delete-match',
+            `${index + 1}回戦を削除`,
+            'delete',
+            tournament.id,
+            match.id,
+            true
+        ));
+        row.append(round, opponent, tags, actions);
+        return row;
+    }
+
+    function createTournamentCard(tournament) {
+        const summary = getSingleTournamentSummary(tournament);
+        const card = document.createElement('article');
+        card.className = 'tournament-card';
+        card.dataset.tournamentId = tournament.id;
+
+        const header = document.createElement('header');
+        header.className = 'tournament-card-header';
+        const titleRow = document.createElement('div');
+        titleRow.className = 'tournament-card-title-row';
+        const titleCopy = document.createElement('div');
+        titleCopy.className = 'tournament-card-title-copy';
+        const title = document.createElement('h3');
+        title.textContent = tournament.name;
+        title.title = tournament.name;
+        const meta = document.createElement('div');
+        meta.className = 'tournament-card-meta';
+        meta.textContent = `${formatTournamentDate(tournament.date)} · ${formatMatchRecord(summary)} · ${summary.matchCount}試合`;
+        titleCopy.append(title, meta);
+        titleRow.appendChild(titleCopy);
+
+        const actions = document.createElement('div');
+        actions.className = 'tournament-card-actions';
+        actions.appendChild(createTournamentIconButton('edit-tournament', '大会情報を編集', 'edit', tournament.id));
+        actions.appendChild(createTournamentIconButton('delete-tournament', '大会を削除', 'delete', tournament.id, '', true));
+        header.append(titleRow, actions);
+        card.appendChild(header);
+        card.appendChild(createTournamentMatchForm(tournament));
+
+        if (tournament.matches.length === 0) {
+            const empty = document.createElement('p');
+            empty.className = 'tournament-match-empty';
+            empty.textContent = '対戦記録はありません';
+            card.appendChild(empty);
+        } else {
+            const list = document.createElement('ol');
+            list.className = 'tournament-match-list';
+            tournament.matches.forEach((match, index) => {
+                list.appendChild(createTournamentMatchRow(tournament, match, index));
+            });
+            card.appendChild(list);
+        }
+        return card;
+    }
+
+    function renderTournamentRecords() {
+        if (!tournamentRecordsDeck || !dom.tournamentRecordsList) return;
+        const tournaments = getDeckTournamentRecords(tournamentRecordsDeck)
+            .sort((a, b) => String(b.date).localeCompare(String(a.date)) || String(b.createdAt).localeCompare(String(a.createdAt)));
+        const summary = getDeckRecordsApi().summarizeTournamentRecords(tournaments);
+        dom.tournamentRecordsDeckName.textContent = tournamentRecordsDeck.name || '(名称未設定)';
+        dom.tournamentRecordsSummary.textContent = summary.matchCount > 0
+            ? `大会 ${summary.tournamentCount}件 · ${formatMatchRecord(summary)} · ${summary.matchCount}試合`
+            : `大会 ${summary.tournamentCount}件 · 対戦 0件`;
+        dom.tournamentRecordsList.innerHTML = '';
+        if (tournaments.length === 0) {
+            const empty = document.createElement('p');
+            empty.className = 'tournament-empty';
+            empty.textContent = '大会記録はありません';
+            dom.tournamentRecordsList.appendChild(empty);
+            return;
+        }
+        const fragment = document.createDocumentFragment();
+        tournaments.forEach(tournament => fragment.appendChild(createTournamentCard(tournament)));
+        dom.tournamentRecordsList.appendChild(fragment);
+    }
+
+    function resetTournamentForm() {
+        editingTournamentId = null;
+        if (!dom.tournamentForm) return;
+        dom.tournamentForm.reset();
+        dom.tournamentDateInput.value = getDeckRecordsApi().toLocalDateValue();
+        dom.tournamentFormTitle.textContent = '大会を追加';
+        dom.tournamentFormSubmitBtn.textContent = '大会を追加';
+        dom.tournamentFormCancelBtn.hidden = true;
+    }
+
+    function beginTournamentEdit(tournamentId) {
+        const tournament = getDeckTournamentRecords(tournamentRecordsDeck)
+            .find(item => item.id === tournamentId);
+        if (!tournament) return;
+        editingTournamentId = tournament.id;
+        dom.tournamentNameInput.value = tournament.name;
+        dom.tournamentDateInput.value = tournament.date;
+        dom.tournamentFormTitle.textContent = '大会情報を編集';
+        dom.tournamentFormSubmitBtn.textContent = '大会情報を更新';
+        dom.tournamentFormCancelBtn.hidden = false;
+        dom.tournamentForm.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        dom.tournamentNameInput.focus();
+    }
+
+    async function persistTournamentRecords(records, successMessage) {
+        if (!tournamentRecordsDeck) return false;
+        const nextDeck = {
+            ...tournamentRecordsDeck,
+            tournaments: getDeckRecordsApi().normalizeTournamentRecords(records),
+            updatedAt: new Date().toISOString()
+        };
+        try {
+            await saveDeck(nextDeck);
+            tournamentRecordsDeck = nextDeck;
+            if (viewingDeck?.id === nextDeck.id) viewingDeck = nextDeck;
+            if (editingDeckId === nextDeck.id) {
+                editingDeckMeta.tournaments = getDeckTournamentRecords(nextDeck);
+            }
+            if (deckCompositionDeck?.id === nextDeck.id) {
+                deckCompositionDeck.tournaments = getDeckTournamentRecords(nextDeck);
+            }
+            await loadDeckList();
+            renderTournamentRecords();
+            if (successMessage) showMessageToast(successMessage, 'success');
+            return true;
+        } catch (error) {
+            console.error('Failed to save tournament records:', error);
+            showMessageToast('大会記録を保存できませんでした。', 'error');
+            return false;
+        }
+    }
+
+    async function submitTournamentForm(event) {
+        event.preventDefault();
+        if (!tournamentRecordsDeck) return;
+        let draft;
+        try {
+            draft = getDeckRecordsApi().createTournament({
+                name: dom.tournamentNameInput.value,
+                date: dom.tournamentDateInput.value
+            });
+        } catch (error) {
+            showMessageToast(error.message, 'error');
+            dom.tournamentNameInput.focus();
+            return;
+        }
+
+        const records = getDeckTournamentRecords(tournamentRecordsDeck);
+        let nextRecords;
+        let message;
+        if (editingTournamentId) {
+            nextRecords = records.map(tournament => tournament.id === editingTournamentId ? {
+                ...tournament,
+                name: draft.name,
+                date: draft.date,
+                updatedAt: new Date().toISOString()
+            } : tournament);
+            message = '大会情報を更新しました。';
+        } else {
+            if (records.length >= getDeckRecordsApi().MAX_TOURNAMENTS) {
+                showMessageToast('保存できる大会数の上限に達しています。', 'error');
+                return;
+            }
+            nextRecords = [draft, ...records];
+            message = '大会を追加しました。';
+        }
+        if (await persistTournamentRecords(nextRecords, message)) resetTournamentForm();
+    }
+
+    async function submitTournamentMatchForm(event) {
+        event.preventDefault();
+        const form = event.target.closest('.tournament-match-form');
+        const tournamentId = form?.dataset.tournamentId;
+        if (!form || !tournamentId || !tournamentRecordsDeck) return;
+        let draft;
+        try {
+            draft = getDeckRecordsApi().createMatch({
+                opponentDeck: form.elements.opponentDeck.value,
+                rpsResult: form.elements.rpsResult.value,
+                playOrder: form.elements.playOrder.value,
+                result: form.elements.result.value
+            });
+        } catch (error) {
+            showMessageToast(error.message, 'error');
+            form.elements.opponentDeck.focus();
+            return;
+        }
+
+        const records = getDeckTournamentRecords(tournamentRecordsDeck);
+        const tournament = records.find(item => item.id === tournamentId);
+        if (!tournament) return;
+        let message = '対戦記録を追加しました。';
+        const matches = [...tournament.matches];
+        const editingMatchId = editingTournamentMatch?.tournamentId === tournamentId
+            ? editingTournamentMatch.matchId
+            : '';
+        if (editingMatchId) {
+            const matchIndex = matches.findIndex(match => match.id === editingMatchId);
+            if (matchIndex >= 0) {
+                matches[matchIndex] = {
+                    ...draft,
+                    id: matches[matchIndex].id,
+                    createdAt: matches[matchIndex].createdAt,
+                    updatedAt: new Date().toISOString()
+                };
+                message = '対戦記録を更新しました。';
+            }
+        } else if (matches.length >= getDeckRecordsApi().MAX_MATCHES_PER_TOURNAMENT) {
+            showMessageToast('1大会に保存できる対戦数の上限に達しています。', 'error');
+            return;
+        } else {
+            matches.push(draft);
+        }
+
+        const nextRecords = records.map(item => item.id === tournamentId ? {
+            ...item,
+            matches,
+            updatedAt: new Date().toISOString()
+        } : item);
+        const previousEditing = editingTournamentMatch;
+        editingTournamentMatch = null;
+        if (!await persistTournamentRecords(nextRecords, message)) {
+            editingTournamentMatch = previousEditing;
+            renderTournamentRecords();
+        }
+    }
+
+    async function handleTournamentRecordsAction(event) {
+        const button = event.target.closest('[data-action]');
+        if (!button || !tournamentRecordsDeck) return;
+        const { action, tournamentId, matchId } = button.dataset;
+        const records = getDeckTournamentRecords(tournamentRecordsDeck);
+        const tournament = records.find(item => item.id === tournamentId);
+        if (!tournament) return;
+
+        if (action === 'edit-tournament') {
+            beginTournamentEdit(tournamentId);
+        } else if (action === 'delete-tournament') {
+            if (!await confirmDialog(`大会「${tournament.name}」と対戦記録を削除します。`, {
+                title: '大会記録を削除',
+                confirmLabel: '削除',
+                danger: true
+            })) return;
+            if (editingTournamentId === tournamentId) resetTournamentForm();
+            if (editingTournamentMatch?.tournamentId === tournamentId) editingTournamentMatch = null;
+            await persistTournamentRecords(
+                records.filter(item => item.id !== tournamentId),
+                '大会記録を削除しました。'
+            );
+        } else if (action === 'edit-match') {
+            editingTournamentMatch = { tournamentId, matchId };
+            renderTournamentRecords();
+            requestAnimationFrame(() => {
+                const form = dom.tournamentRecordsList.querySelector(`.tournament-match-form[data-tournament-id="${tournamentId}"]`);
+                form?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                form?.elements?.opponentDeck?.focus();
+            });
+        } else if (action === 'cancel-match-edit') {
+            editingTournamentMatch = null;
+            renderTournamentRecords();
+        } else if (action === 'delete-match') {
+            const matchIndex = tournament.matches.findIndex(match => match.id === matchId);
+            if (matchIndex < 0) return;
+            if (!await confirmDialog(`${matchIndex + 1}回戦「${tournament.matches[matchIndex].opponentDeck}」を削除します。`, {
+                title: '対戦記録を削除',
+                confirmLabel: '削除',
+                danger: true
+            })) return;
+            if (editingTournamentMatch?.matchId === matchId) editingTournamentMatch = null;
+            const nextRecords = records.map(item => item.id === tournamentId ? {
+                ...item,
+                matches: item.matches.filter(match => match.id !== matchId),
+                updatedAt: new Date().toISOString()
+            } : item);
+            await persistTournamentRecords(nextRecords, '対戦記録を削除しました。');
+        }
+    }
+
+    function openTournamentRecords(deck) {
+        if (!deck || !dom.tournamentRecordsModal) return;
+        try {
+            getDeckRecordsApi();
+        } catch (error) {
+            showMessageToast(error.message, 'error');
+            return;
+        }
+        tournamentRecordsDeck = {
+            ...deck,
+            cards: { ...(deck.cards || {}) },
+            tournaments: getDeckTournamentRecords(deck)
+        };
+        editingTournamentMatch = null;
+        resetTournamentForm();
+        renderTournamentRecords();
+        dom.tournamentRecordsModal.style.display = 'flex';
+        dom.tournamentRecordsModal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('tournament-records-open');
+        setTimeout(() => dom.tournamentNameInput?.focus(), 30);
+    }
+
+    function closeTournamentRecords() {
+        if (!dom.tournamentRecordsModal) return;
+        dom.tournamentRecordsModal.style.display = 'none';
+        dom.tournamentRecordsModal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('tournament-records-open');
+        tournamentRecordsDeck = null;
+        editingTournamentId = null;
+        editingTournamentMatch = null;
     }
 
     function getDeckRequirementEntries(deck) {
@@ -5229,10 +5914,12 @@
     function showCardListView() {
         dom.deckListView.style.display = 'none';
         dom.cardListContainer.style.display = '';
+        setDeckBuilderPanelVisible(currentMode === 'deck_edit');
     }
 
     function showDeckListView() {
         dom.cardListContainer.style.display = 'none';
+        setDeckBuilderPanelVisible(false);
         dom.deckListView.style.display = 'block';
     }
 
@@ -5244,6 +5931,111 @@
 
     function getDeckTotalCount() {
         return Object.values(editingDeckData).reduce((sum, n) => sum + n, 0);
+    }
+
+    function setDeckBuilderPanelVisible(visible) {
+        if (!dom.deckBuilderPanel) return;
+        const wasHidden = dom.deckBuilderPanel.hidden;
+        dom.deckBuilderPanel.hidden = !visible;
+        document.body.classList.toggle('deck-builder-active', visible);
+        if (dom.mainContent) dom.mainContent.style.display = visible ? 'flex' : 'block';
+        if (visible) {
+            renderDeckBuilderPanel();
+            if (wasHidden) {
+                dom.deckBuilderPanel.scrollTop = 0;
+                requestAnimationFrame(() => {
+                    if (!dom.deckBuilderPanel.hidden) dom.deckBuilderPanel.scrollTop = 0;
+                });
+            }
+        }
+    }
+
+    function createDeckBuilderCard(entry, options = {}) {
+        const { isLeader = false } = options;
+        const card = entry.card;
+        const cardNumber = String(card?.cardNumber || '');
+        const item = document.createElement(isLeader ? 'article' : 'button');
+        item.className = `deck-builder-card${isLeader ? ' is-leader' : ''}`;
+        if (!isLeader) {
+            item.type = 'button';
+            item.title = `${cardNumber}を1枚減らす`;
+            item.setAttribute('aria-label', `${cardNumber}を1枚減らす`);
+            item.addEventListener('click', () => {
+                setEditingDeckCardCount(cardNumber, Number(entry.count) - 1);
+            });
+        }
+
+        const imageShell = document.createElement('span');
+        imageShell.className = 'deck-builder-card-image-shell';
+        const imagePath = getCardImagePath(card, 0);
+        const fallback = document.createElement('span');
+        fallback.className = 'deck-builder-card-fallback';
+        fallback.textContent = cardNumber || '画像なし';
+        fallback.hidden = Boolean(imagePath);
+
+        if (imagePath) {
+            const image = document.createElement('img');
+            image.className = 'deck-builder-card-image';
+            image.src = imagePath;
+            image.alt = card?.cardName || cardNumber;
+            image.loading = 'lazy';
+            image.decoding = 'async';
+            image.onerror = () => {
+                image.remove();
+                fallback.hidden = false;
+            };
+            imageShell.appendChild(image);
+        }
+        imageShell.appendChild(fallback);
+
+        const count = document.createElement('span');
+        count.className = 'deck-builder-card-count';
+        count.textContent = String(entry.count || 1);
+        imageShell.appendChild(count);
+        item.appendChild(imageShell);
+
+        const number = document.createElement('span');
+        number.className = 'deck-builder-card-number';
+        number.textContent = cardNumber || '未登録';
+        item.appendChild(number);
+        return item;
+    }
+
+    function renderDeckBuilderPanel() {
+        if (currentMode !== 'deck_edit' || !dom.deckBuilderPanel) return;
+        const total = getDeckTotalCount();
+        if (dom.deckBuilderMainCount) {
+            dom.deckBuilderMainCount.textContent = `${total} / ${DECK_MAX_CARDS}`;
+            dom.deckBuilderMainCount.classList.toggle('is-complete', total === DECK_MAX_CARDS);
+            dom.deckBuilderMainCount.classList.toggle('is-over', total > DECK_MAX_CARDS);
+        }
+
+        if (dom.deckBuilderMainGrid) {
+            const entries = getDeckImageEntries({ cards: editingDeckData });
+            dom.deckBuilderMainGrid.innerHTML = '';
+            if (entries.length === 0) {
+                const empty = document.createElement('p');
+                empty.className = 'deck-builder-empty';
+                empty.textContent = 'カードはまだありません';
+                dom.deckBuilderMainGrid.appendChild(empty);
+            } else {
+                const fragment = document.createDocumentFragment();
+                entries.forEach(entry => fragment.appendChild(createDeckBuilderCard(entry)));
+                dom.deckBuilderMainGrid.appendChild(fragment);
+            }
+        }
+
+        if (dom.deckBuilderLeaderGrid) {
+            const leader = findCardByNumber(editingDeckMeta.leader) || {
+                cardNumber: editingDeckMeta.leader,
+                cardName: '未登録リーダー',
+                cardType: 'LEADER'
+            };
+            dom.deckBuilderLeaderGrid.replaceChildren(createDeckBuilderCard({
+                card: leader,
+                count: 1
+            }, { isLeader: true }));
+        }
     }
 
     function updateDeckStatusBar() {
@@ -5260,17 +6052,8 @@
         }
     }
 
-    function syncDeckShowToggleBtn() {
-        if (!dom.deckShowToggleBtn) return;
-        dom.deckShowToggleBtn.textContent = deckShowOnlyDeckCards ? '全カード' : 'デッキ表示';
-        dom.deckShowToggleBtn.classList.toggle('active', deckShowOnlyDeckCards);
-    }
-
     // ステータスバーのボタンをモードに合わせて切り替え
     function syncDeckStatusButtons() {
-        if (dom.deckShowToggleBtn) {
-            dom.deckShowToggleBtn.style.display = currentMode === 'deck_view' ? 'none' : '';
-        }
         if (dom.deckSaveBtn) {
             dom.deckSaveBtn.textContent = currentMode === 'deck_view' ? '編集' : '完了';
         }
@@ -5332,6 +6115,7 @@
             cards: {},
             ownedCards: {},
             ownedCardsLinked: true,
+            tournaments: [],
             createdAt: now,
             updatedAt: now
         };
@@ -5339,11 +6123,8 @@
         startDeckEdit(newDeck);
     }
 
-    function toggleDeckCardCount(cardNumber) {
-        let count = editingDeckData[cardNumber] || 0;
-        count++;
-        if (count > DECK_MAX_COPIES) count = 0;
-
+    function setEditingDeckCardCount(cardNumber, requestedCount) {
+        const count = Math.min(Math.max(Math.trunc(Number(requestedCount) || 0), 0), DECK_MAX_COPIES);
         if (count === 0) {
             delete editingDeckData[cardNumber];
         } else {
@@ -5366,6 +6147,13 @@
             }
         }
         updateDeckStatusBar();
+        renderDeckBuilderPanel();
+    }
+
+    function toggleDeckCardCount(cardNumber) {
+        let count = (editingDeckData[cardNumber] || 0) + 1;
+        if (count > DECK_MAX_COPIES) count = 0;
+        setEditingDeckCardCount(cardNumber, count);
     }
 
     function createDeckActionIcon(name) {
@@ -5375,6 +6163,8 @@
             export: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/>',
             share: '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>',
             image: '<rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/><path d="M12 3v6"/><path d="m9 6 3 3 3-3"/>',
+            list: '<rect x="3" y="3" width="7" height="8" rx="1"/><rect x="14" y="3" width="7" height="8" rx="1"/><rect x="3" y="15" width="7" height="6" rx="1"/><rect x="14" y="15" width="7" height="6" rx="1"/>',
+            record: '<path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10v4a5 5 0 0 1-10 0Z"/><path d="M7 6H4v1a4 4 0 0 0 4 4"/><path d="M17 6h3v1a4 4 0 0 1-4 4"/>',
             delete: '<path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v5"/><path d="M14 11v5"/>'
         };
         const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -5462,6 +6252,7 @@
         const leaderCard = findCardByNumber(deck.leader);
         const total = Object.values(deck.cards || {}).reduce((sum, n) => sum + n, 0);
         const colors = leaderCard && Array.isArray(leaderCard.color) ? leaderCard.color.join('/') : '';
+        const tournamentSummary = getDeckTournamentSummary(deck);
 
         const el = document.createElement('div');
         el.className = 'deck-item';
@@ -5499,6 +6290,9 @@
         metaEl.textContent = [
             colors,
             `${total}/${DECK_MAX_CARDS}枚`,
+            tournamentSummary.matchCount > 0
+                ? `大会${tournamentSummary.tournamentCount}件 ${formatMatchRecord(tournamentSummary)}`
+                : '',
             `更新: ${new Date(deck.updatedAt).toLocaleDateString('ja-JP')}`
         ].filter(Boolean).join(' | ');
         info.appendChild(nameEl);
@@ -5539,6 +6333,8 @@
         menu.setAttribute('role', 'menu');
         menu.hidden = true;
         moreBtn.setAttribute('aria-controls', menu.id);
+        menu.appendChild(createDeckMenuItem('大会記録', 'record', () => openTournamentRecords(deck)));
+        menu.appendChild(createDeckMenuItem('リスト表示', 'list', () => openDeckComposition(deck)));
         menu.appendChild(createDeckMenuItem('JSON出力', 'export', () => exportDeckJson(deck)));
         menu.appendChild(createDeckMenuItem('URLをコピー', 'share', () => copyDeckShareUrl(deck)));
         menu.appendChild(createDeckMenuItem('画像出力', 'image', () => exportDeckImage(deck)));
@@ -5593,11 +6389,9 @@
             colors: colors,
             ownedCards: { ...(deck.ownedCards || {}) },
             ownedCardsLinked: deck.ownedCardsLinked === true,
+            tournaments: getDeckTournamentRecords(deck),
             createdAt: deck.createdAt || new Date().toISOString()
         };
-        deckShowOnlyDeckCards = false;
-        syncDeckShowToggleBtn();
-
         showCardListView();
         populateFilters(deckCardPool);
         setDeckStatusBarVisible(true);
@@ -5620,7 +6414,7 @@
         editingDeckId = null;
         editingDeckData = {};
         editingDeckMeta = {};
-        deckShowOnlyDeckCards = false;
+        setDeckBuilderPanelVisible(false);
         setDeckStatusBarVisible(false);
         setModeMessage(null);
     }
@@ -5653,6 +6447,7 @@
                 getCollectionOwnedCardsForDeck(deckRequirements)
             ),
             ownedCardsLinked: true,
+            tournaments: getDeckTournamentRecords(editingDeckMeta),
             createdAt: editingDeckMeta.createdAt,
             updatedAt: new Date().toISOString()
         };
@@ -6216,7 +7011,13 @@
         document.addEventListener('click', () => closeDeckActionMenu());
         document.addEventListener('keydown', event => {
             if (event.key === 'Escape') {
-                if (dom.deckImagePreviewModal?.style.display !== 'none') {
+                if (dom.tournamentRecordsModal?.style.display !== 'none') {
+                    event.preventDefault();
+                    closeTournamentRecords();
+                } else if (dom.deckCompositionModal?.style.display !== 'none') {
+                    event.preventDefault();
+                    closeDeckComposition();
+                } else if (dom.deckImagePreviewModal?.style.display !== 'none') {
                     event.preventDefault();
                     closeDeckImagePreview();
                 } else if (dom.openingFormModal?.style.display !== 'none') {
@@ -6436,6 +7237,38 @@
         }
         if (dom.missingCardsShareBtn) {
             dom.missingCardsShareBtn.addEventListener('click', shareMissingCardsList);
+        }
+        if (dom.deckCompositionCloseBtn) {
+            dom.deckCompositionCloseBtn.addEventListener('click', closeDeckComposition);
+        }
+        if (dom.deckCompositionDoneBtn) {
+            dom.deckCompositionDoneBtn.addEventListener('click', closeDeckComposition);
+        }
+        if (dom.deckCompositionModal) {
+            dom.deckCompositionModal.addEventListener('click', event => {
+                if (event.target === dom.deckCompositionModal) closeDeckComposition();
+            });
+        }
+        if (dom.tournamentRecordsCloseBtn) {
+            dom.tournamentRecordsCloseBtn.addEventListener('click', closeTournamentRecords);
+        }
+        if (dom.tournamentRecordsDoneBtn) {
+            dom.tournamentRecordsDoneBtn.addEventListener('click', closeTournamentRecords);
+        }
+        if (dom.tournamentRecordsModal) {
+            dom.tournamentRecordsModal.addEventListener('click', event => {
+                if (event.target === dom.tournamentRecordsModal) closeTournamentRecords();
+            });
+        }
+        if (dom.tournamentForm) {
+            dom.tournamentForm.addEventListener('submit', submitTournamentForm);
+        }
+        if (dom.tournamentFormCancelBtn) {
+            dom.tournamentFormCancelBtn.addEventListener('click', resetTournamentForm);
+        }
+        if (dom.tournamentRecordsList) {
+            dom.tournamentRecordsList.addEventListener('click', handleTournamentRecordsAction);
+            dom.tournamentRecordsList.addEventListener('submit', submitTournamentMatchForm);
         }
         if (dom.collectionCloseBtn) {
             dom.collectionCloseBtn.addEventListener('click', closeCollectionManager);
@@ -6720,12 +7553,8 @@
                 }
             });
         }
-        if (dom.deckShowToggleBtn) {
-            dom.deckShowToggleBtn.addEventListener('click', () => {
-                deckShowOnlyDeckCards = !deckShowOnlyDeckCards;
-                syncDeckShowToggleBtn();
-                applyFiltersAndDisplay();
-            });
+        if (dom.deckListPreviewBtn) {
+            dom.deckListPreviewBtn.addEventListener('click', openCurrentDeckComposition);
         }
         if (dom.wantedShowToggleBtn) {
             dom.wantedShowToggleBtn.addEventListener('click', () => {

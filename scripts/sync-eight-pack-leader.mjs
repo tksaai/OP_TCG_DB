@@ -1,5 +1,6 @@
 import { mkdir, readFile, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+import eightPackLeader from '../eight-pack-leader.js';
 
 const OFFICIAL_BASE_URL = 'https://www.onepiece-cardgame.com';
 const OFFICIAL_EVENTS_URL = `${OFFICIAL_BASE_URL}/events/`;
@@ -162,43 +163,6 @@ function allocateLocalPath(metadata, sourceUrl) {
     return path.posix.join(OUTPUT_ROOT, 'P', 'official', fileName);
 }
 
-function specialLeaderCard() {
-    return {
-        uniqueId: 'P_8pack-battle-leader',
-        cardNumber: CARD_NUMBER,
-        cardName: 'モンキー・D・ルフィ',
-        furigana: 'モンキー・ディー・ルフィ',
-        rarity: 'L',
-        cardType: 'LEADER',
-        color: ['赤', '緑', '青', '紫', '黒', '黄'],
-        costLifeType: 'ライフ',
-        costLifeValue: 5,
-        power: 5000,
-        counter: '-',
-        attribute: '打',
-        features: ['麦わらの一味'],
-        block: '-',
-        effectText: 'ルール上、このリーダーは指定されたイベントでのみ使用できる。 ルール上、このリーダーはすべてのカード名と特徴と属性を持つカードとして扱う。',
-        trigger: '',
-        getInfo: '8パックバトル 参加記念品',
-        seriesTitle: '8パックバトル 参加記念品',
-        seriesCode: 'P',
-        sourceModalId: 'P'
-    };
-}
-
-function upsertLeaderCard(cards) {
-    const nextCard = specialLeaderCard();
-    const index = cards.findIndex(card => String(card?.cardNumber || '').toUpperCase() === CARD_NUMBER);
-    if (index >= 0) cards[index] = { ...cards[index], ...nextCard };
-    else cards.push(nextCard);
-    cards.sort((a, b) => String(a.cardNumber || '').localeCompare(
-        String(b.cardNumber || ''),
-        'en',
-        { numeric: true }
-    ));
-}
-
 const cards = await readJson(CARDS_JSON, []);
 const metadata = await readJson(OFFICIAL_IMAGE_SOURCES_JSON, {});
 const eventIndexHtml = await fetchText(OFFICIAL_EVENTS_URL);
@@ -257,7 +221,7 @@ for (const image of uniqueImages) {
 }
 
 if (!dryRun) {
-    upsertLeaderCard(cards);
+    eightPackLeader.ensureCard(cards);
     await writeFile(CARDS_JSON, `${JSON.stringify(cards, null, 2)}\n`, 'utf8');
     await writeFile(OFFICIAL_IMAGE_SOURCES_JSON, `${JSON.stringify(metadata, null, 2)}\n`, 'utf8');
 }
