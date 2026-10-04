@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-30T15:59:32.477Z",
-  "totalCards": 2824,
-  "totalImages": 4963,
+  "generatedAt": "2026-10-04T14:41:12.030Z",
+  "totalCards": 2825,
+  "totalImages": 4973,
   "cards": {
     "EB01-001": [
       {
@@ -38086,6 +38086,19 @@
         "path": "CardsWebP/OP11/official/OP11-107.webp",
         "fallbackPath": "",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP11-107_p1.png?260929",
+        "cardName": "チョンマゲ",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "3",
+        "getInfo": "プロモーションパックEX vol.5                                    \n                    カードリスト",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP11/official/OP11-107_p1.webp",
+        "fallbackPath": "",
+        "variantIndex": 1
       }
     ],
     "OP11-108": [
@@ -43142,6 +43155,19 @@
         "path": "CardsWebP/OP14/official/OP14-004.webp",
         "fallbackPath": "",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP14-004_p1.png?260929",
+        "cardName": "キャベンディッシュ",
+        "rarity": "UC",
+        "cardType": "CHARACTER",
+        "block": "4",
+        "getInfo": "プロモーションパックEX vol.5                                    \n                    カードリスト",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP14/official/OP14-004_p1.webp",
+        "fallbackPath": "",
+        "variantIndex": 1
       }
     ],
     "OP14-005": [
@@ -45191,6 +45217,19 @@
         "path": "CardsWebP/OP14/official/OP14-118_p1.webp",
         "fallbackPath": "",
         "variantIndex": 1
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP14-118_p2.png?260929",
+        "cardName": "わらわ　こわい…♡",
+        "rarity": "R",
+        "cardType": "EVENT",
+        "block": "4",
+        "getInfo": "プロモーションパックEX vol.5                                    \n                    カードリスト",
+        "label": "別イラスト 3",
+        "path": "CardsWebP/OP14/official/OP14-118_p2.webp",
+        "fallbackPath": "",
+        "variantIndex": 2
       }
     ],
     "OP14-119": [
@@ -46526,6 +46565,19 @@
         "path": "CardsWebP/OP15/official/OP15-074.webp",
         "fallbackPath": "",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP15-074_p1.png?260929",
+        "cardName": "放電",
+        "rarity": "UC",
+        "cardType": "EVENT",
+        "block": "4",
+        "getInfo": "プロモーションパックEX vol.5                                    \n                    カードリスト",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP15/official/OP15-074_p1.webp",
+        "fallbackPath": "",
+        "variantIndex": 1
       }
     ],
     "OP15-075": [
@@ -49085,6 +49137,19 @@
         "path": "CardsWebP/OP16/official/OP16-097.webp",
         "fallbackPath": "",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP16-097_p1.png?260929",
+        "cardName": "ヤマト",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "プロモーションパックEX vol.5                                    \n                    カードリスト",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP16/official/OP16-097_p1.webp",
+        "fallbackPath": "",
+        "variantIndex": 1
       }
     ],
     "OP16-098": [
@@ -50295,6 +50360,19 @@
         "path": "CardsWebP/OP17/official/OP17-044.webp",
         "fallbackPath": "",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP17-044_p1.png?260929",
+        "cardName": "キャプテン・ジョン",
+        "rarity": "UC",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "プロモーションパックEX vol.5                                    \n                    カードリスト",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/OP17/official/OP17-044_p1.webp",
+        "fallbackPath": "",
+        "variantIndex": 1
       }
     ],
     "OP17-045": [
@@ -54318,6 +54396,19 @@
         "path": "CardsWebP/P/official/P-093.webp",
         "fallbackPath": "",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/P-093_p1.png?260929",
+        "cardName": "トラファルガー・ロー",
+        "rarity": "P",
+        "cardType": "CHARACTER",
+        "block": "3",
+        "getInfo": "プロモーションパックEX vol.5                                    \n                    カードリスト",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/P/official/P-093_p1.webp",
+        "fallbackPath": "",
+        "variantIndex": 1
       }
     ],
     "P-094": [
@@ -54378,6 +54469,19 @@
         "path": "CardsWebP/P/official/P-097.webp",
         "fallbackPath": "",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/P-097_p1.png?260929",
+        "cardName": "シャンクス",
+        "rarity": "P",
+        "cardType": "CHARACTER",
+        "block": "3",
+        "getInfo": "プロモーションパックEX vol.5                                    \n                    カードリスト",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/P/official/P-097_p1.webp",
+        "fallbackPath": "",
+        "variantIndex": 1
       }
     ],
     "P-098": [
@@ -55184,6 +55288,21 @@
         "path": "CardsWebP/P/official/P-159_p1.webp",
         "fallbackPath": "",
         "variantIndex": 1
+      }
+    ],
+    "P-160": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/P-160.png?260929",
+        "cardName": "ネフェルタリ・ビビ",
+        "rarity": "P",
+        "cardType": "キャラクタークター",
+        "block": "5",
+        "getInfo": "交流会 2026年11月開催記念品                                    \n                    カードリスト",
+        "label": "通常",
+        "path": "CardsWebP/P/official/P-160.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
       }
     ],
     "PRB01-001": [
@@ -65325,6 +65444,19 @@
         "path": "CardsWebP/ST32/official/ST32-001.webp",
         "fallbackPath": "",
         "variantIndex": 0
+      },
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/ST32-001_p1.png?260929",
+        "cardName": "錦えもん",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "プロモーションパックEX vol.5                                    \n                    カードリスト",
+        "label": "別イラスト 2",
+        "path": "CardsWebP/ST32/official/ST32-001_p1.webp",
+        "fallbackPath": "",
+        "variantIndex": 1
       }
     ],
     "ST32-002": [
