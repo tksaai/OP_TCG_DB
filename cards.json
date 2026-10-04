@@ -58326,37 +58326,6 @@
     "seriesCode": "OP-17"
   },
   {
-    "uniqueId": "P_8pack-battle-leader",
-    "cardNumber": "P",
-    "cardName": "モンキー・D・ルフィ",
-    "furigana": "モンキー・ディー・ルフィ",
-    "rarity": "L",
-    "cardType": "LEADER",
-    "color": [
-      "赤",
-      "緑",
-      "青",
-      "紫",
-      "黒",
-      "黄"
-    ],
-    "costLifeType": "ライフ",
-    "costLifeValue": 5,
-    "power": 5000,
-    "counter": "-",
-    "attribute": "打",
-    "features": [
-      "麦わらの一味"
-    ],
-    "block": "-",
-    "effectText": "ルール上、このリーダーは指定されたイベントでのみ使用できる。 ルール上、このリーダーはすべてのカード名と特徴と属性を持つカードとして扱う。",
-    "trigger": "",
-    "getInfo": "8パックバトル 参加記念品",
-    "seriesTitle": "8パックバトル 参加記念品",
-    "seriesCode": "P",
-    "sourceModalId": "P"
-  },
-  {
     "uniqueId": "P-001_dummy.gif",
     "cardNumber": "P-001",
     "cardName": "モンキー・D・ルフィ",
