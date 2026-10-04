@@ -6,8 +6,8 @@
     const IMAGE_IMPORT_DEBUG = false;
     const MAX_IMAGE_SIDE = 1600;
     const DETECTION_MAX_SIDE = 1000;
-    const FEATURE_WIDTH = 8;
-    const FEATURE_HEIGHT = 11;
+    const FEATURE_WIDTH = 12;
+    const FEATURE_HEIGHT = 17;
     const CONFIDENCE_AUTO = 0.9;
     const CONFIDENCE_REVIEW = 0.7;
     const DEFAULT_DECK_NAME = '画像から作成したデッキ';
@@ -745,7 +745,7 @@
 
     function detectFiveColumnDeckListLayout(imageData, width, height) {
         const aspectRatio = height / width;
-        if (aspectRatio < 1.12 || aspectRatio > 1.32) return null;
+        if (aspectRatio < 1.12 || aspectRatio > 1.6) return null;
 
         const bands = findDarkBands(imageData, width, height, 0.016);
         const mainBand = bands.find(band => band.start < height * 0.035 && band.end < height * 0.09);
@@ -762,27 +762,29 @@
         const xStride = width * (212 / 1065);
         const yStart = mainBand.end + width * (15 / 1065);
         const rowStride = width * (299 / 1065);
-        const mainRegions = [];
+        const candidateRegions = [];
 
         for (let row = 0; row < 8; row += 1) {
             const y = yStart + row * rowStride;
             if (y + cardHeight > leaderBand.start - width * 0.012) break;
             for (let column = 0; column < 5; column += 1) {
-                mainRegions.push({
+                const region = {
                     x: xStart + column * xStride,
                     y,
                     width: cardWidth,
                     height: cardHeight,
                     hintRole: 'deck',
                     countMode: 'corner'
+                };
+                candidateRegions.push({
+                    ...region,
+                    signal: regionSignal(imageData, width, height, region)
                 });
             }
         }
-        if (mainRegions.length < 10) return null;
-        const activeCards = mainRegions.reduce((total, rect) => (
-            total + (regionSignal(imageData, width, height, rect) >= 13 ? 1 : 0)
-        ), 0);
-        if (activeCards < mainRegions.length * 0.8) return null;
+        if (candidateRegions.length < 10) return null;
+        const mainRegions = candidateRegions.filter(region => region.signal >= 13);
+        if (mainRegions.length < candidateRegions.length * 0.8) return null;
 
         const leaderRect = {
             x: xStart,
@@ -1215,10 +1217,21 @@
         const normalized = normalizeDigitMask(selected, mask.width, mask.height);
         if (!normalized) return null;
         const bounds = getMaskBounds(selected, mask.width, mask.height);
-        if (bounds && bounds.width / Math.max(1, bounds.height) < 0.48) {
+        if (bounds && (
+            bounds.width <= 9
+            || bounds.width / Math.max(1, bounds.height) < 0.48
+        )) {
             return { digit: 1, score: 1 };
         }
         if (mode === 'corner') {
+            let middleLeftStroke = 0;
+            for (let y = 8; y < 16; y += 1) {
+                for (let x = 0; x < 8; x += 1) middleLeftStroke += normalized[y * 16 + x];
+            }
+            if (middleLeftStroke >= 6 && middleLeftStroke <= 14) {
+                return { digit: 1, score: 0.95 };
+            }
+
             let bottomStroke = 0;
             for (let y = 19; y < 24; y += 1) {
                 for (let x = 0; x < 16; x += 1) bottomStroke += normalized[y * 16 + x];
@@ -1235,7 +1248,13 @@
             for (let y = 15; y < 21; y += 1) {
                 for (let x = 0; x < 8; x += 1) lowerLeftStroke += normalized[y * 16 + x];
             }
-            if (lowerLeftStroke >= 5) return { digit: 2, score: 0.95 };
+            let bottomLeftStroke = 0;
+            for (let y = 16; y < 24; y += 1) {
+                for (let x = 0; x < 8; x += 1) bottomLeftStroke += normalized[y * 16 + x];
+            }
+            if (lowerLeftStroke >= 10 || bottomLeftStroke >= 18) {
+                return { digit: 2, score: 0.95 };
+            }
         } else {
             if (countEnclosedMaskPixels(normalized, 16, 24) >= 3) {
                 return { digit: 4, score: 1 };
@@ -1357,7 +1376,7 @@
         canvas.height = FEATURE_HEIGHT;
         const context = canvas.getContext('2d', { willReadFrequently: true });
         context.imageSmoothingEnabled = true;
-        context.imageSmoothingQuality = 'high';
+        context.imageSmoothingQuality = 'low';
         context.drawImage(
             sourceCanvas,
             rect.x,
@@ -2091,6 +2110,7 @@
         api.__test = {
             detectCardRegions,
             detectDenseIndividualGridLayout,
+            detectFiveColumnDeckListLayout,
             createImageFeature,
             matchFeatures,
             chooseLeaderResult,

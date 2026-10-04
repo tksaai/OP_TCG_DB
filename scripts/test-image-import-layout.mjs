@@ -13,18 +13,17 @@ const context = vm.createContext({
 });
 vm.runInContext(source, context);
 
-const { detectDenseIndividualGridLayout } = window.OPTCGImageImport.__test;
+const {
+    detectDenseIndividualGridLayout,
+    detectFiveColumnDeckListLayout,
+    featureWidth,
+    featureHeight
+} = window.OPTCGImageImport.__test;
 
-function createDeckSheet({
-    width,
-    height,
-    panelRight,
-    gridX,
-    gridY,
-    cardWidth,
-    columnStride,
-    rowStride
-}) {
+assert.equal(featureWidth, 12);
+assert.equal(featureHeight, 17);
+
+function createPixelPainter(width, height) {
     const pixels = new Uint8ClampedArray(width * height * 4);
     const paint = (x, y, red, green, blue) => {
         if (x < 0 || x >= width || y < 0 || y >= height) return;
@@ -48,6 +47,20 @@ function createDeckSheet({
         fillRect(x, y, 3, rectHeight, color);
         fillRect(x + rectWidth - 3, y, 3, rectHeight, color);
     };
+    return { pixels, fillRect, outlineRect };
+}
+
+function createDeckSheet({
+    width,
+    height,
+    panelRight,
+    gridX,
+    gridY,
+    cardWidth,
+    columnStride,
+    rowStride
+}) {
+    const { pixels, fillRect, outlineRect } = createPixelPainter(width, height);
 
     fillRect(0, 0, width, height, [248, 246, 240]);
     fillRect(0, 0, panelRight, height, [174, 102, 34]);
@@ -70,6 +83,43 @@ function createDeckSheet({
             outlineRect(x, y, cardWidth, cardHeight);
         }
     }
+    return pixels;
+}
+
+function createFiveColumnDeckList({ width = 863, height = 1280, cardTypes = 19 } = {}) {
+    const { pixels, fillRect, outlineRect } = createPixelPainter(width, height);
+    fillRect(0, 0, width, height, [248, 247, 242]);
+
+    const mainBandHeight = Math.round(width * 0.023);
+    const leaderBandY = Math.round(height * 0.784);
+    const leaderBandHeight = Math.round(width * 0.023);
+    fillRect(0, 0, width, mainBandHeight, [18, 17, 21]);
+    fillRect(0, leaderBandY, width, leaderBandHeight, [18, 17, 21]);
+
+    const cardWidth = width * (202 / 1065);
+    const cardHeight = cardWidth * 1.397;
+    const xStart = width * (7 / 1065);
+    const xStride = width * (212 / 1065);
+    const yStart = mainBandHeight + width * (15 / 1065);
+    const yStride = width * (299 / 1065);
+
+    for (let index = 0; index < cardTypes; index += 1) {
+        const row = Math.floor(index / 5);
+        const column = index % 5;
+        const x = xStart + column * xStride;
+        const y = yStart + row * yStride;
+        const color = [
+            72 + (index * 29) % 130,
+            58 + (index * 17) % 135,
+            68 + (index * 23) % 125
+        ];
+        fillRect(x, y, cardWidth, cardHeight, color, true);
+        outlineRect(x, y, cardWidth, cardHeight);
+    }
+
+    const leaderY = leaderBandY + leaderBandHeight + width * (17 / 1065);
+    fillRect(xStart, leaderY, cardWidth, cardHeight, [118, 48, 52], true);
+    outlineRect(xStart, leaderY, cardWidth, cardHeight);
     return pixels;
 }
 
@@ -132,3 +182,23 @@ for (const layout of layouts) {
         assert.ok(Math.abs(deck[0].y - layout.gridY) <= layout.cardWidth * 0.12);
     });
 }
+
+test('five-column portrait list ignores the empty final slot', () => {
+    const width = 863;
+    const height = 1280;
+    const result = detectFiveColumnDeckListLayout(
+        createFiveColumnDeckList({ width, height, cardTypes: 19 }),
+        width,
+        height
+    );
+
+    assert.ok(result);
+    assert.equal(result.layout, 'カード番号付き5列');
+    const leader = result.regions.filter(region => region.hintRole === 'leader');
+    const deck = result.regions.filter(region => region.hintRole === 'deck');
+    assert.equal(leader.length, 1);
+    assert.equal(deck.length, 19);
+    assert.ok(deck.every(region => region.countMode === 'corner' && region.signal >= 13));
+    const finalRowY = Math.max(...deck.map(region => region.y));
+    assert.equal(deck.filter(region => Math.abs(region.y - finalRowY) < 1).length, 4);
+});

@@ -2464,11 +2464,6 @@ body.deck-builder-active .deck-builder-panel {
     text-align: center;
 }
 
-button.deck-builder-card {
-    cursor: pointer;
-    touch-action: manipulation;
-}
-
 .deck-builder-card-image-shell {
     position: relative;
     width: 100%;
@@ -2541,8 +2536,38 @@ button.deck-builder-card {
     white-space: nowrap;
 }
 
-.deck-builder-card:active .deck-builder-card-image-shell {
-    opacity: 0.72;
+.deck-builder-card-stepper {
+    margin-top: 4px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3px;
+}
+
+.deck-builder-card-stepper-btn {
+    min-width: 0;
+    height: 28px;
+    padding: 0;
+    border: 1px solid #4d535c;
+    border-radius: 4px;
+    background-color: #252a31;
+    color: #fff;
+    display: grid;
+    place-items: center;
+    font-size: 18px;
+    font-weight: 850;
+    line-height: 1;
+    touch-action: manipulation;
+}
+
+.deck-builder-card-stepper-btn:active:not(:disabled) {
+    background-color: var(--color-secondary);
+    color: #001b18;
+}
+
+.deck-builder-card-stepper-btn:disabled {
+    border-color: #30343a;
+    color: #5e646d;
+    opacity: 1;
 }
 
 .deck-builder-empty {

@@ -31,6 +31,9 @@
     const COLLECTION_EXPORT_FORMAT = 'op-tcg-db-collection';
     const COLLECTION_EXPORT_VERSION = 1;
     const CARD_LIST_IMAGE_MAX_TYPES = 120;
+    const EXPORT_IMAGE_MAX_SCALE = 3;
+    const EXPORT_IMAGE_MAX_PIXELS = 14_000_000;
+    const EXPORT_IMAGE_MAX_DIMENSION = 8192;
     const CACHE_APP_SHELL = 'app-shell-v1';
     const CACHE_IMAGES = 'card-images-v2';
     const CARDS_JSON_PATH = './cards.json';
@@ -48,7 +51,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.12.1'; // バージョン更新
+    const APP_VERSION = '1.12.4'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -3269,6 +3272,9 @@
         dom.deckImagePreviewFilename.textContent = filename;
         dom.deckImagePreviewDetails.textContent = [
             `PNG画像 · ${formatFileSize(blob.size)}`,
+            Number(options.width) > 0 && Number(options.height) > 0
+                ? `${Math.round(options.width)} × ${Math.round(options.height)} px`
+                : '',
             missingImages > 0 ? `${missingImages}枚は番号表示` : ''
         ].filter(Boolean).join(' · ');
         dom.deckImagePreviewModal.style.display = 'flex';
@@ -5445,6 +5451,37 @@
         });
     }
 
+    function getExportCanvasScale(logicalWidth, logicalHeight) {
+        const width = Math.max(1, Number(logicalWidth) || 1);
+        const height = Math.max(1, Number(logicalHeight) || 1);
+        return Math.max(1, Math.min(
+            EXPORT_IMAGE_MAX_SCALE,
+            Math.sqrt(EXPORT_IMAGE_MAX_PIXELS / (width * height)),
+            EXPORT_IMAGE_MAX_DIMENSION / width,
+            EXPORT_IMAGE_MAX_DIMENSION / height
+        ));
+    }
+
+    function createExportCanvas(logicalWidth, logicalHeight) {
+        const scale = getExportCanvasScale(logicalWidth, logicalHeight);
+        const canvas = document.createElement('canvas');
+        canvas.width = Math.max(1, Math.floor(logicalWidth * scale));
+        canvas.height = Math.max(1, Math.floor(logicalHeight * scale));
+        const ctx = canvas.getContext('2d');
+        if (!ctx) throw new Error('画像描画を開始できませんでした。');
+        ctx.setTransform(
+            canvas.width / logicalWidth,
+            0,
+            0,
+            canvas.height / logicalHeight,
+            0,
+            0
+        );
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = 'high';
+        return { canvas, ctx };
+    }
+
     async function loadCardCanvasImage(card, variantIndex = 0) {
         if (!card?.cardNumber) return null;
         const sources = [...new Set([
@@ -5568,11 +5605,7 @@
             const rowCount = Math.ceil(imageEntries.length / columns);
             const gridHeight = rowCount * rowHeight + Math.max(0, rowCount - 1) * rowGap;
             const canvasHeight = headerHeight + outerPadding + gridHeight + outerPadding + footerHeight;
-            const canvas = document.createElement('canvas');
-            canvas.width = canvasWidth;
-            canvas.height = canvasHeight;
-            const ctx = canvas.getContext('2d');
-            if (!ctx) throw new Error('画像描画を開始できませんでした。');
+            const { canvas, ctx } = createExportCanvas(canvasWidth, canvasHeight);
 
             ctx.fillStyle = '#101214';
             ctx.fillRect(0, 0, canvasWidth, canvasHeight);
@@ -5643,7 +5676,9 @@
             const missingImages = cardImages.filter(image => !image).length;
             showDeckImagePreview(blob, filename, missingImages, {
                 title: previewTitle || imageKind,
-                kind: imageKind
+                kind: imageKind,
+                width: canvas.width,
+                height: canvas.height
             });
         } catch (error) {
             console.error('Failed to export card collection image:', error);
@@ -5803,11 +5838,7 @@
             const gridHeight = rowCount * gridRowHeight + (rowCount - 1) * cardGap;
             const contentHeight = Math.max(430, gridHeight);
             const canvasHeight = headerHeight + outerPadding + contentHeight + outerPadding + footerHeight;
-            const canvas = document.createElement('canvas');
-            canvas.width = canvasWidth;
-            canvas.height = canvasHeight;
-            const ctx = canvas.getContext('2d');
-            if (!ctx) throw new Error('画像描画を開始できませんでした。');
+            const { canvas, ctx } = createExportCanvas(canvasWidth, canvasHeight);
 
             ctx.fillStyle = '#101214';
             ctx.fillRect(0, 0, canvasWidth, canvasHeight);
@@ -5886,7 +5917,10 @@
             const blob = await canvasToPngBlob(canvas);
             const filename = `${sanitizeDownloadName(deck.name)}.png`;
             const missingImages = [leaderImage, ...cardImages].filter(image => !image).length;
-            showDeckImagePreview(blob, filename, missingImages);
+            showDeckImagePreview(blob, filename, missingImages, {
+                width: canvas.width,
+                height: canvas.height
+            });
         } catch (error) {
             console.error('Failed to export deck image:', error);
             showMessageToast('デッキ画像の出力に失敗しました。', 'error');
@@ -5954,16 +5988,8 @@
         const { isLeader = false } = options;
         const card = entry.card;
         const cardNumber = String(card?.cardNumber || '');
-        const item = document.createElement(isLeader ? 'article' : 'button');
+        const item = document.createElement('article');
         item.className = `deck-builder-card${isLeader ? ' is-leader' : ''}`;
-        if (!isLeader) {
-            item.type = 'button';
-            item.title = `${cardNumber}を1枚減らす`;
-            item.setAttribute('aria-label', `${cardNumber}を1枚減らす`);
-            item.addEventListener('click', () => {
-                setEditingDeckCardCount(cardNumber, Number(entry.count) - 1);
-            });
-        }
 
         const imageShell = document.createElement('span');
         imageShell.className = 'deck-builder-card-image-shell';
@@ -5998,6 +6024,37 @@
         number.className = 'deck-builder-card-number';
         number.textContent = cardNumber || '未登録';
         item.appendChild(number);
+
+        if (!isLeader) {
+            const stepper = document.createElement('div');
+            stepper.className = 'deck-builder-card-stepper';
+            stepper.setAttribute('role', 'group');
+            stepper.setAttribute('aria-label', `${cardNumber}の枚数`);
+
+            const minus = document.createElement('button');
+            minus.type = 'button';
+            minus.className = 'deck-builder-card-stepper-btn';
+            minus.textContent = '−';
+            minus.title = '1枚減らす';
+            minus.setAttribute('aria-label', `${cardNumber}を1枚減らす`);
+            minus.addEventListener('click', () => {
+                setEditingDeckCardCount(cardNumber, Number(entry.count) - 1);
+            });
+
+            const plus = document.createElement('button');
+            plus.type = 'button';
+            plus.className = 'deck-builder-card-stepper-btn';
+            plus.textContent = '+';
+            plus.title = '1枚増やす';
+            plus.setAttribute('aria-label', `${cardNumber}を1枚増やす`);
+            plus.disabled = Number(entry.count) >= DECK_MAX_COPIES;
+            plus.addEventListener('click', () => {
+                setEditingDeckCardCount(cardNumber, Number(entry.count) + 1);
+            });
+
+            stepper.append(minus, plus);
+            item.appendChild(stepper);
+        }
         return item;
     }
 
