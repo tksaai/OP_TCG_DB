@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#111317">
+    <title>OP-TCG DB 使い方ガイド</title>
+    <link rel="stylesheet" href="guide.css">
+</head>
+<body>
+    <header class="guide-header">
+        <div class="guide-header-inner">
+            <a class="back-link" href="../index.html" aria-label="OP-TCG DBへ戻る">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg>
+                <span>アプリへ戻る</span>
+            </a>
+            <div class="guide-actions">
+                <a class="icon-action" href="OP_TCG_DB_User_Manual.pdf" download title="PDFを保存">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path></svg>
+                    <span>PDF</span>
+                </a>
+                <button class="icon-action print-action" type="button" onclick="window.print()" title="印刷">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9V3h12v6"></path><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="7"></rect></svg>
+                    <span>印刷</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="intro page-section" id="start">
+            <p class="product-label">ONE PIECE CARD GAME DATABASE</p>
+            <h1>OP-TCG DB<br>使い方ガイド</h1>
+            <p class="intro-copy">カード検索、デッキ作成、所持カードと開封記録をスマートフォンで管理するための操作ガイドです。</p>
+            <div class="quick-facts" aria-label="このガイドの要点">
+                <div><strong>Cards</strong><span>検索・欲しいカード</span></div>
+                <div><strong>Decks</strong><span>作成・共有・戦績</span></div>
+                <div><strong>NEW</strong><span>発売前の仮DB</span></div>
+                <div><strong>Settings</strong><span>更新・オフライン</span></div>
+            </div>
+        </section>
+
+        <nav class="section-nav" aria-label="目次">
+            <a href="#cards">カードを探す</a>
+            <a href="#decks">デッキを作る</a>
+            <a href="#manage">デッキを管理</a>
+            <a href="#import">画像から作成</a>
+            <a href="#collection">所持・開封</a>
+            <a href="#pwa">PWA・更新</a>
+        </nav>
+
+        <section class="page-section" id="cards">
+            <div class="section-heading">
+                <span class="step-number">01</span>
+                <div><p class="eyebrow">CARDS</p><h2>カードを探す</h2></div>
+            </div>
+            <div class="two-column">
+                <div class="copy-block">
+                    <h3>検索と表示</h3>
+                    <ol>
+                        <li>上部の検索欄へ、カード名・効果・カード番号を入力します。</li>
+                        <li>右上のフィルタから、色・種類・コスト・レアリティ・シリーズなどを選びます。</li>
+                        <li>カードをタップすると詳細を表示します。長押しでも詳細を開けます。</li>
+                        <li>下部の数字ボタンで1〜5列を切り替えられます。</li>
+                    </ol>
+                    <div class="note"><strong>別イラスト</strong><span>フィルタ内の「表示」で、通常のみ・通常＋別イラスト・別イラストのみを選択できます。</span></div>
+                </div>
+                <figure>
+                    <img src="assets/cards.png" alt="カード一覧画面">
+                    <figcaption>カード一覧。検索欄と右上のフィルタを組み合わせます。</figcaption>
+                </figure>
+            </div>
+            <figure class="wide-shot">
+                <img src="assets/filter.png" alt="カードのフィルタ画面">
+                <figcaption>フィルタを適用すると、条件に合うカードだけを一覧表示します。</figcaption>
+            </figure>
+        </section>
+
+        <section class="page-section" id="decks">
+            <div class="section-heading">
+                <span class="step-number">02</span>
+                <div><p class="eyebrow">DECK BUILDER</p><h2>デッキを作る</h2></div>
+            </div>
+            <div class="two-column reverse">
+                <div class="copy-block">
+                    <h3>新規デッキ</h3>
+                    <ol>
+                        <li><strong>Decks</strong>を開き、「新規デッキ」を押します。</li>
+                        <li>リーダーを選びます。同じ番号の通常・別イラストは個別に表示されます。</li>
+                        <li>上側のカード一覧をタップして追加します。再タップで枚数が増え、4枚の次は0枚へ戻ります。</li>
+                        <li>下側の「選択中のデッキ」で枚数を確認し、「完了」で保存します。</li>
+                    </ol>
+                    <div class="note"><strong>リーダー変更</strong><span>編集中のLEADER欄にある「変更」からカード番号を変更できます。画像だけを変える場合はリーダー画像メニューを使います。</span></div>
+                </div>
+                <figure>
+                    <img src="assets/leader-select.png" alt="通常と別イラストが並ぶリーダー選択画面">
+                    <figcaption>新規作成・変更のどちらでも、使用するリーダー画像を選べます。</figcaption>
+                </figure>
+            </div>
+            <figure class="wide-shot">
+                <img src="assets/deck-editor.png" alt="上下にカード一覧と選択中デッキを表示した編集画面">
+                <figcaption>「パラレル」をオンにすると、メインデッキもイラスト別に追加できます。保存上のカード番号は通常カードと同じです。</figcaption>
+            </figure>
+        </section>
+
+        <section class="page-section" id="manage">
+            <div class="section-heading">
+                <span class="step-number">03</span>
+                <div><p class="eyebrow">DECK TOOLS</p><h2>デッキを管理・共有する</h2></div>
+            </div>
+            <div class="two-column">
+                <div class="copy-block">
+                    <h3>デッキ操作メニュー</h3>
+                    <dl class="feature-list">
+                        <div><dt>大会記録</dt><dd>大会ごとに相手デッキ、ジャンケン、先攻・後攻、勝敗を記録します。</dd></div>
+                        <div><dt>複製</dt><dd>構成と選択画像をコピーします。大会記録はコピーしません。</dd></div>
+                        <div><dt>URLをコピー</dt><dd>相手は内容をプレビューしてから端末へ追加できます。</dd></div>
+                        <div><dt>画像出力</dt><dd>デッキリストを高画質PNGでプレビュー・保存します。</dd></div>
+                        <div><dt>プロキシ印刷</dt><dd>用紙とカードサイズを指定し、左上から詰めて印刷します。</dd></div>
+                        <div><dt>不足カードを共有</dt><dd>所持カードと照合し、不足枚数をテキストまたは画像で共有します。</dd></div>
+                    </dl>
+                </div>
+                <figure>
+                    <img src="assets/deck-menu.png" alt="デッキ操作メニュー">
+                    <figcaption>各デッキ右端のメニューから、出力・共有・複製を行います。</figcaption>
+                </figure>
+            </div>
+            <div class="callout-row">
+                <div><strong>URL受け取り</strong><p>Decksの「URLから追加」へ共有URLまたは共有テキストを貼り付けます。内容確認後に追加されます。</p></div>
+                <div><strong>JSON</strong><p>バックアップや他ツールとの連携用です。カード番号と枚数を保持します。</p></div>
+                <div><strong>画像保存</strong><p>iPhoneではプレビューを長押しして「写真に保存」も利用できます。</p></div>
+            </div>
+        </section>
+
+        <section class="page-section" id="import">
+            <div class="section-heading">
+                <span class="step-number">04</span>
+                <div><p class="eyebrow">IMAGE IMPORT</p><h2>画像からデッキを作る</h2></div>
+            </div>
+            <div class="two-column reverse">
+                <div class="copy-block">
+                    <h3>端末内の簡易解析</h3>
+                    <ol>
+                        <li>Decksの「画像から作成」を押し、デッキ画像を選びます。</li>
+                        <li>レイアウトを選択し、解析を開始します。画像は外部へ送信されません。</li>
+                        <li>切り出し画像・一致画像・通常画像と信頼度を確認します。</li>
+                        <li>誤認識をカード検索から修正し、50枚とリーダーを確認して編集画面へ進みます。</li>
+                    </ol>
+                    <div class="warning"><strong>向いている画像</strong><span>カードが正面から規則的に並び、番号または枚数表示が読める公式系のリスト画像です。実物写真や重なりのある画像は詳細画像解析を利用してください。</span></div>
+                </div>
+                <figure>
+                    <img src="assets/image-import.png" alt="画像からデッキを作成する画面">
+                    <figcaption>簡易解析はブラウザ内で完結します。認識結果は保存前に修正できます。</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="page-section" id="collection">
+            <div class="section-heading">
+                <span class="step-number">05</span>
+                <div><p class="eyebrow">COLLECTION</p><h2>欲しいカード・所持・開封を記録する</h2></div>
+            </div>
+            <div class="three-column">
+                <div><h3>欲しいカード</h3><p>ヘッダーのハートを押し、一覧から必要枚数を選びます。選択内容は画像として保存できます。</p></div>
+                <div><h3>所持カード</h3><p>ヘッダーのカード帳から所持数を編集します。通常・別イラストは別々に保存され、画像一覧も作成できます。</p></div>
+                <div><h3>開封記録</h3><p>BOX数とバラパック数を記録し、開封したカードを弾に関係なく追加できます。所持数にも反映されます。</p></div>
+            </div>
+            <figure class="wide-shot">
+                <img src="assets/collection.png" alt="所持カードと開封記録の管理画面">
+                <figcaption>所持カードはデッキの不足カード計算と連動します。</figcaption>
+            </figure>
+        </section>
+
+        <section class="page-section" id="pwa">
+            <div class="section-heading">
+                <span class="step-number">06</span>
+                <div><p class="eyebrow">PWA & DATA</p><h2>ホーム画面・更新・データ</h2></div>
+            </div>
+            <div class="two-column">
+                <div class="copy-block">
+                    <h3>iPhoneへ追加</h3>
+                    <ol>
+                        <li>SafariでOP-TCG DBを開きます。</li>
+                        <li>共有ボタンを押し、「ホーム画面に追加」を選びます。</li>
+                        <li>追加したアイコンから起動すると、PWAとして全画面で利用できます。</li>
+                    </ol>
+                    <h3>更新できないとき</h3>
+                    <p>Settingsの「キャッシュを更新」を実行します。保存デッキ・所持カード・設定は残り、アプリ本体と解析キャッシュだけを更新します。</p>
+                    <div class="warning"><strong>端末内保存</strong><span>デッキ、所持カード、開封記録は現在のブラウザ内に保存されます。ブラウザデータの削除や「全データ削除」で失われるため、重要なデッキはURLまたはJSONも保管してください。</span></div>
+                </div>
+                <figure>
+                    <img src="assets/settings.png" alt="設定画面">
+                    <figcaption>最新版の取得やオフライン用画像キャッシュを管理できます。</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="page-section faq" id="troubleshooting">
+            <div class="section-heading">
+                <span class="step-number">07</span>
+                <div><p class="eyebrow">TROUBLESHOOTING</p><h2>困ったとき</h2></div>
+            </div>
+            <details open><summary>画像や新しいカードが表示されない</summary><p>通信状態を確認し、Settingsの「キャッシュを更新」を実行してから再起動します。仮DBのカードは下部のNEWに表示されます。</p></details>
+            <details open><summary>共有URLを開いてもPWAへ移動しない</summary><p>iOSはWebリンクからホーム画面版へ自動転送できません。URLの共有テキストをコピーし、PWAのDecks「URLから追加」へ貼り付けてください。</p></details>
+            <details open><summary>画像解析の結果が違う</summary><p>結果画面の「変更」から候補を検索して修正します。元画像をトリミングせず、カード番号と枚数が読める解像度で試してください。</p></details>
+            <details open><summary>保存データを別端末へ移したい</summary><p>デッキは共有URLまたはJSONで移せます。ログインやクラウド同期は行わないため、所持・開封データは端末ごとに管理されます。</p></details>
+        </section>
+    </main>
+
+    <footer class="guide-footer">
+        <p>OP-TCG DB User Guide</p>
+        <p>非公式の個人開発ツールです。カード画像・名称等の権利は各権利者に帰属します。</p>
+    </footer>
+</body>
+</html>

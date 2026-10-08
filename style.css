@@ -1132,6 +1132,27 @@ body.shared-deck-url-open {
     align-self: flex-start;
 }
 
+.settings-guide-link {
+    min-height: 42px;
+    align-self: flex-start;
+    padding: 8px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    background-color: var(--color-surface-variant);
+    color: var(--color-secondary);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.settings-guide-link:focus-visible {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 2px;
+}
+
 .settings-input {
     width: min(100%, 520px);
     min-height: 40px;
@@ -2234,11 +2255,13 @@ body.deck-image-import-open {
 }
 
 .deck-action-menu {
-    position: absolute;
-    z-index: 20;
-    top: calc(100% + 6px);
-    right: 0;
+    position: fixed;
+    z-index: 40;
     min-width: 174px;
+    max-width: calc(100vw - 16px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
     padding: 6px;
     border-radius: 8px;
     border: 1px solid #444;
@@ -2252,8 +2275,7 @@ body.deck-image-import-open {
     display: none;
 }
 .deck-action-menu.open-up {
-    top: auto;
-    bottom: calc(100% + 6px);
+    transform-origin: bottom right;
 }
 .deck-menu-item {
     width: 100%;
@@ -2677,16 +2699,43 @@ body.deck-builder-active .deck-builder-panel {
     border-top: 6px solid #08090c;
 }
 
-.deck-builder-leader-section h3 {
+.deck-builder-leader-heading {
     min-height: 32px;
-    margin: 0;
     padding: 8px 12px;
     padding-left: calc(var(--safe-area-left) + 12px);
     border-bottom: 1px solid #30343a;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.deck-builder-leader-heading h3 {
+    margin: 0;
     color: #bdc1c8;
     font-size: 12px;
     font-weight: 800;
     letter-spacing: 0;
+}
+
+.deck-change-leader-btn {
+    min-height: 32px;
+    padding: 5px 10px;
+    border: 1px solid #565d67;
+    border-radius: 5px;
+    background-color: #20242a;
+    color: #f5f6f7;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-size: 11px;
+    font-weight: 750;
+}
+
+.deck-change-leader-btn:active {
+    border-color: var(--color-secondary);
+    color: var(--color-secondary);
 }
 
 .deck-builder-leader-grid {

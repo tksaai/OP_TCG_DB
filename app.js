@@ -51,7 +51,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.13.0'; // バージョン更新
+    const APP_VERSION = '1.13.1'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -104,6 +104,7 @@
     let editingDeckVariantData = {}; // { "cardNumber::variantId": count }
     let editingDeckLeaderVariantId = '';
     let deckParallelSelectionEnabled = false;
+    let leaderSelectionPurpose = 'create'; // create | replace
     let editingDeckMeta = {};   // { name, leader, colors: string[], createdAt }
     let cardElementMap = {};    // { cardNumber: HTMLElement } DOM高速アクセス用
     let activeCardView = 'cards'; // 'cards' | 'new'
@@ -330,6 +331,7 @@
             deckBuilderMainCount: $('#deck-builder-main-count'),
             deckBuilderMainGrid: $('#deck-builder-main-grid'),
             deckBuilderLeaderGrid: $('#deck-builder-leader-grid'),
+            deckChangeLeaderBtn: $('#deck-change-leader-btn'),
             wantedStatusBar: $('#wanted-status-bar'),
             wantedStatusInfo: $('#wanted-status-info'),
             wantedShowToggleBtn: $('#wanted-show-toggle-btn'),
@@ -1022,6 +1024,7 @@
 
     function getEffectiveVariantDisplayMode() {
         if (currentMode === 'collection_edit' || currentMode === 'opening_edit') return 'all';
+        if (currentMode === 'leader_select') return 'all';
         if (currentMode === 'deck_edit') return deckParallelSelectionEnabled ? 'all' : 'representative';
         if (currentMode !== 'view' || wantedSelectionMode) return 'representative';
         return variantDisplayMode;
@@ -6173,7 +6176,7 @@
 
             stepper.append(minus, plus);
             item.appendChild(stepper);
-        } else if (deckParallelSelectionEnabled) {
+        } else {
             const variants = getCardImageVariants(card);
             if (variants.length > 1) {
                 const select = document.createElement('select');
@@ -6259,7 +6262,11 @@
     // ステータスバーのボタンをモードに合わせて切り替え
     function syncDeckStatusButtons() {
         if (dom.deckSaveBtn) {
-            dom.deckSaveBtn.textContent = currentMode === 'deck_view' ? '編集' : '完了';
+            dom.deckSaveBtn.textContent = currentMode === 'deck_view'
+                ? '編集'
+                : currentMode === 'leader_select' && leaderSelectionPurpose === 'replace'
+                    ? '戻る'
+                    : '完了';
         }
     }
 
@@ -6312,15 +6319,38 @@
 
     async function confirmLeaderSelection(card) {
         const colors = Array.isArray(card.color) ? card.color.join('/') : '';
-        if (!await confirmDialog(`「${card.cardName}」(${colors}) をリーダーにします。`, { title: 'リーダーを選択', confirmLabel: 'このリーダーで作成' })) return;
+        const selectedVariantId = card._displayVariantId || card.cardNumber;
+        const selectedVariantLabel = card._displayVariantLabel && card._displayVariantType !== 'normal'
+            ? `\nイラスト: ${card._displayVariantLabel}`
+            : '';
+
+        if (leaderSelectionPurpose === 'replace' && editingDeckId) {
+            const isSameLeader = editingDeckMeta.leader === card.cardNumber;
+            const message = isSameLeader
+                ? `「${card.cardName}」のリーダー画像を変更します。${selectedVariantLabel}`
+                : `リーダーを「${card.cardName}」(${colors}) に変更します。${selectedVariantLabel}\n現在のメインデッキは残ります。色条件に合わないカードは手動で調整してください。`;
+            if (!await confirmDialog(message, {
+                title: isSameLeader ? 'リーダー画像を変更' : 'リーダーを変更',
+                confirmLabel: '変更する'
+            })) return;
+
+            editingDeckMeta.leader = card.cardNumber;
+            editingDeckMeta.colors = Array.isArray(card.color) ? [...card.color] : [];
+            editingDeckLeaderVariantId = selectedVariantId;
+            returnToDeckEditAfterLeaderSelection();
+            showMessageToast('リーダーを変更しました。完了を押すと保存されます。', 'success');
+            return;
+        }
+
+        if (!await confirmDialog(`「${card.cardName}」(${colors}) をリーダーにします。${selectedVariantLabel}`, { title: 'リーダーを選択', confirmLabel: 'このリーダーで作成' })) return;
 
         const now = new Date().toISOString();
         const newDeck = {
             id: createDeckId(),
             name: `${card.cardName}デッキ`,
             leader: card.cardNumber,
-            ...(card._displayVariantId && card._displayVariantId !== card.cardNumber
-                ? { leaderVariantId: card._displayVariantId }
+            ...(selectedVariantId && selectedVariantId !== card.cardNumber
+                ? { leaderVariantId: selectedVariantId }
                 : {}),
             cards: {},
             ownedCards: {},
@@ -6417,6 +6447,7 @@
             print: '<path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/>',
             list: '<rect x="3" y="3" width="7" height="8" rx="1"/><rect x="14" y="3" width="7" height="8" rx="1"/><rect x="3" y="15" width="7" height="6" rx="1"/><rect x="14" y="15" width="7" height="6" rx="1"/>',
             record: '<path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10v4a5 5 0 0 1-10 0Z"/><path d="M7 6H4v1a4 4 0 0 0 4 4"/><path d="M17 6h3v1a4 4 0 0 1-4 4"/>',
+            copy: '<rect width="14" height="14" x="8" y="8" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/>',
             delete: '<path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v5"/><path d="M14 11v5"/>'
         };
         const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -6438,9 +6469,54 @@
         const { menu, button } = openDeckActionMenu;
         menu.hidden = true;
         menu.classList.remove('open-up');
+        menu.removeAttribute('style');
         button.setAttribute('aria-expanded', 'false');
         openDeckActionMenu = null;
         if (restoreFocus) button.focus();
+    }
+
+    function positionDeckActionMenu(menu, button) {
+        const viewport = window.visualViewport;
+        const viewportLeft = viewport?.offsetLeft || 0;
+        const viewportTop = viewport?.offsetTop || 0;
+        const viewportRight = viewportLeft + (viewport?.width || window.innerWidth);
+        const viewportBottom = viewportTop + (viewport?.height || window.innerHeight);
+        const headerBottom = document.querySelector('.app-header')?.getBoundingClientRect().bottom || viewportTop;
+        const footerTop = document.querySelector('.app-footer')?.getBoundingClientRect().top || viewportBottom;
+        const margin = 8;
+        const gap = 6;
+        const minTop = Math.max(viewportTop + margin, headerBottom + margin);
+        const maxBottom = Math.min(viewportBottom - margin, footerTop - margin);
+        const availableHeight = Math.max(120, maxBottom - minTop);
+
+        menu.style.position = 'fixed';
+        menu.style.left = '0px';
+        menu.style.top = `${minTop}px`;
+        menu.style.right = 'auto';
+        menu.style.bottom = 'auto';
+        menu.style.maxHeight = `${availableHeight}px`;
+        menu.style.visibility = 'hidden';
+
+        const buttonRect = button.getBoundingClientRect();
+        const menuRect = menu.getBoundingClientRect();
+        const menuWidth = Math.min(menuRect.width, Math.max(0, viewportRight - viewportLeft - margin * 2));
+        const menuHeight = Math.min(menuRect.height, availableHeight);
+        const spaceBelow = maxBottom - buttonRect.bottom - gap;
+        const spaceAbove = buttonRect.top - minTop - gap;
+        const openUp = spaceBelow < menuHeight && spaceAbove > spaceBelow;
+        const unclampedTop = openUp
+            ? buttonRect.top - gap - menuHeight
+            : buttonRect.bottom + gap;
+        const top = Math.min(Math.max(unclampedTop, minTop), maxBottom - menuHeight);
+        const left = Math.min(
+            Math.max(buttonRect.right - menuWidth, viewportLeft + margin),
+            viewportRight - margin - menuWidth
+        );
+
+        menu.classList.toggle('open-up', openUp);
+        menu.style.left = `${Math.round(left)}px`;
+        menu.style.top = `${Math.round(top)}px`;
+        menu.style.visibility = '';
     }
 
     function toggleDeckActionMenu(menu, button) {
@@ -6452,10 +6528,7 @@
         menu.hidden = false;
         button.setAttribute('aria-expanded', 'true');
         openDeckActionMenu = { menu, button };
-        const footerClearance = 82;
-        if (menu.getBoundingClientRect().bottom > window.innerHeight - footerClearance) {
-            menu.classList.add('open-up');
-        }
+        positionDeckActionMenu(menu, button);
     }
 
     function createDeckMenuItem(label, iconName, action, destructive = false) {
@@ -6588,6 +6661,7 @@
         moreBtn.setAttribute('aria-controls', menu.id);
         menu.appendChild(createDeckMenuItem('大会記録', 'record', () => openTournamentRecords(deck)));
         menu.appendChild(createDeckMenuItem('リスト表示', 'list', () => openDeckComposition(deck)));
+        menu.appendChild(createDeckMenuItem('複製', 'copy', () => duplicateDeck(deck)));
         menu.appendChild(createDeckMenuItem('JSON出力', 'export', () => exportDeckJson(deck)));
         menu.appendChild(createDeckMenuItem('URLをコピー', 'share', () => copyDeckShareUrl(deck)));
         menu.appendChild(createDeckMenuItem('画像出力', 'image', () => exportDeckImage(deck)));
@@ -6609,22 +6683,55 @@
     }
 
     // === デッキ作成・編集フロー ===
-    function startLeaderSelection() {
+    function startLeaderSelection(options = {}) {
         const deckCardPool = getDeckCardPool();
         if (deckCardPool.length === 0) {
             showMessageToast('カードデータが読み込まれていません。', 'error');
             return;
         }
+        const purpose = options.purpose === 'replace' ? 'replace' : 'create';
+        if (purpose === 'replace' && (!editingDeckId || !editingDeckMeta.leader)) return;
+        leaderSelectionPurpose = purpose;
         currentMode = 'leader_select';
         activeCardView = 'cards';
-        deckParallelSelectionEnabled = false;
+        if (purpose === 'create') {
+            deckParallelSelectionEnabled = false;
+            setDeckStatusBarVisible(false);
+        }
         showCardListView();
         populateFilters(deckCardPool);
-        setModeMessage('リーダーカードを選択してください');
+        setModeMessage(purpose === 'replace'
+            ? '変更するリーダーとイラストを選択してください'
+            : 'リーダーカードとイラストを選択してください');
+        syncDeckStatusButtons();
 
         dom.searchBar.value = '';
         dom.clearSearchBtn.style.display = 'none';
         resetFilters();
+        applyFiltersAndDisplay();
+        dom.mainContent.scrollTop = 0;
+    }
+
+    function startLeaderChangeSelection() {
+        startLeaderSelection({ purpose: 'replace' });
+    }
+
+    function returnToDeckEditAfterLeaderSelection() {
+        const deckCardPool = getDeckCardPool();
+        const leaderCard = findCardByNumber(editingDeckMeta.leader);
+        const colors = Array.isArray(editingDeckMeta.colors) ? editingDeckMeta.colors : [];
+        leaderSelectionPurpose = 'create';
+        currentMode = 'deck_edit';
+        showCardListView();
+        populateFilters(deckCardPool);
+        setDeckStatusBarVisible(true);
+        syncDeckStatusButtons();
+        const leaderLabel = leaderCard ? `${leaderCard.cardName} (${colors.join('/')})` : editingDeckMeta.leader;
+        setModeMessage(`デッキ編集中: ${leaderLabel}`);
+        dom.searchBar.value = '';
+        dom.clearSearchBtn.style.display = 'none';
+        resetFilters();
+        updateDeckStatusBar();
         applyFiltersAndDisplay();
         dom.mainContent.scrollTop = 0;
     }
@@ -6641,6 +6748,7 @@
         editingDeckVariantData = getDeckVariantCounts(deck);
         editingDeckLeaderVariantId = deck.leaderVariantId || deck.leader || '';
         deckParallelSelectionEnabled = false;
+        leaderSelectionPurpose = 'create';
         editingDeckMeta = {
             name: deck.name,
             leader: deck.leader,
@@ -6674,6 +6782,7 @@
         editingDeckVariantData = {};
         editingDeckLeaderVariantId = '';
         deckParallelSelectionEnabled = false;
+        leaderSelectionPurpose = 'create';
         editingDeckMeta = {};
         setDeckBuilderPanelVisible(false);
         setDeckStatusBarVisible(false);
@@ -6751,6 +6860,46 @@
             showMessageToast('デッキの削除に失敗しました。', 'error');
         }
         loadDeckList();
+    }
+
+    async function getUniqueDuplicatedDeckName(baseName) {
+        const normalizedBase = normalizeDeckName(baseName, 'デッキ');
+        const decks = await db.getAll(STORE_DECKS);
+        const existingNames = new Set(decks.map(item => item.name));
+        const copyBase = `${normalizedBase} (複製)`;
+        if (!existingNames.has(copyBase)) return copyBase;
+        let suffix = 2;
+        while (existingNames.has(`${copyBase} ${suffix}`)) suffix += 1;
+        return `${copyBase} ${suffix}`;
+    }
+
+    async function duplicateDeck(deck) {
+        if (!db || !deck) return;
+        const now = new Date().toISOString();
+        const cardVariants = getCompactDeckVariantCounts(deck);
+        const duplicated = {
+            id: createDeckId(),
+            name: await getUniqueDuplicatedDeckName(deck.name),
+            leader: deck.leader,
+            cards: { ...(deck.cards || {}) },
+            ...(Object.keys(cardVariants).length > 0 ? { cardVariants } : {}),
+            ...(deck.leaderVariantId && deck.leaderVariantId !== deck.leader
+                ? { leaderVariantId: deck.leaderVariantId }
+                : {}),
+            ownedCards: { ...(deck.ownedCards || {}) },
+            ownedCardsLinked: deck.ownedCardsLinked === true,
+            tournaments: [],
+            createdAt: now,
+            updatedAt: now
+        };
+        try {
+            await saveDeck(duplicated);
+            await loadDeckList();
+            showMessageToast(`「${duplicated.name}」を複製しました。`, 'success');
+        } catch (error) {
+            console.error('Failed to duplicate deck:', error);
+            showMessageToast('デッキの複製に失敗しました。', 'error');
+        }
     }
 
     async function renameDeck(deck) {
@@ -7278,6 +7427,18 @@
         if (!dom.searchBar) return;
 
         document.addEventListener('click', () => closeDeckActionMenu());
+        window.addEventListener('resize', () => {
+            if (openDeckActionMenu) {
+                positionDeckActionMenu(openDeckActionMenu.menu, openDeckActionMenu.button);
+            }
+        });
+        if (window.visualViewport) {
+            window.visualViewport.addEventListener('resize', () => {
+                if (openDeckActionMenu) {
+                    positionDeckActionMenu(openDeckActionMenu.menu, openDeckActionMenu.button);
+                }
+            });
+        }
         document.addEventListener('keydown', event => {
             if (event.key === 'Escape') {
                 if (dom.tournamentRecordsModal?.style.display !== 'none') {
@@ -7817,6 +7978,8 @@
             dom.deckSaveBtn.addEventListener('click', () => {
                 if (currentMode === 'deck_view' && viewingDeck) {
                     startDeckEdit(viewingDeck); // 表示 → 編集へ移行
+                } else if (currentMode === 'leader_select' && leaderSelectionPurpose === 'replace') {
+                    returnToDeckEditAfterLeaderSelection();
                 } else {
                     saveCurrentDeck();
                 }
@@ -7832,6 +7995,9 @@
                 applyFiltersAndDisplay();
                 renderDeckBuilderPanel();
             });
+        }
+        if (dom.deckChangeLeaderBtn) {
+            dom.deckChangeLeaderBtn.addEventListener('click', startLeaderChangeSelection);
         }
         if (dom.wantedShowToggleBtn) {
             dom.wantedShowToggleBtn.addEventListener('click', () => {

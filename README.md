@@ -5,7 +5,7 @@ ONE PIECE カードゲームのカード検索・デッキ構築・コレクシ�
 カードデータは端末内に保存されるのでオフラインでも動きます。
 
 **アプリ:** https://tksaai.github.io/OP_TCG_DB/
-**使い方:** アプリ内の各画面に沿って操作できます（Cards / Decks / NEW / Settings）
+**使い方:** https://tksaai.github.io/OP_TCG_DB/guide/ （アプリのSettingsからも開けます）
 
 > 非公式の個人開発ツールです。株式会社バンダイとは関係ありません。
 

@@ -5,7 +5,7 @@
  */
 
 // === 1. 定数 ===
-const CACHE_APP_SHELL = 'app-shell-v51';
+const CACHE_APP_SHELL = 'app-shell-v53';
 const CACHE_CARD_DATA = 'card-data-v18';
 // v2: 配信を WebP に一本化したタイミングで、古い JPEG/PNG のキャッシュを捨てる
 const CACHE_IMAGES = 'card-images-v2';
@@ -36,13 +36,16 @@ const APP_SHELL_FILES = [
     './', // ルート (index.html を想定)
     './index.html',
     './style.css',
-    './image-import.js?v=1.13.0',
+    './image-import.js?v=1.13.1',
     './image-import-worker.js',
-    './eight-pack-leader.js?v=1.13.0',
-    './deck-records.js?v=1.13.0',
-    './deck-variants.js?v=1.13.0',
-    './proxy-print.js?v=1.13.0',
-    './app.js?v=1.13.0',
+    './eight-pack-leader.js?v=1.13.1',
+    './deck-records.js?v=1.13.1',
+    './deck-variants.js?v=1.13.1',
+    './proxy-print.js?v=1.13.1',
+    './app.js?v=1.13.1',
+    './guide/',
+    './guide/index.html',
+    './guide/guide.css',
     './manifest.json',
     './icons/iconx192.png',
     './icons/iconx512.png',
@@ -157,6 +160,12 @@ self.addEventListener('fetch', (event) => {
         new URL(file, self.registration.scope).pathname === requestPath
     ));
     if (isAppShellPath || url.origin === 'https://cdn.jsdelivr.net') {
+        event.respondWith(staleWhileRevalidate(event.request, CACHE_APP_SHELL));
+        return;
+    }
+
+    // 使い方ガイドとスクリーンショットは、初回表示後もオフラインで読めるようにする
+    if (relativePath.startsWith('./guide/')) {
         event.respondWith(staleWhileRevalidate(event.request, CACHE_APP_SHELL));
         return;
     }
