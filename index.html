@@ -589,7 +589,129 @@
         </div>
     </div>
 
-    <!-- 18. モーダル: 不足カード共有 -->
+    <!-- 18. モーダル: プロキシ印刷 -->
+    <div id="proxy-print-modal" class="modal-overlay proxy-print-overlay" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="proxy-print-title" aria-hidden="true" data-mobile-view="settings">
+        <div class="proxy-print-shell">
+            <header class="proxy-print-header">
+                <h2 id="proxy-print-title">プロキシ印刷</h2>
+                <button id="proxy-print-close-btn" class="modal-close-btn" type="button" aria-label="プロキシ印刷を閉じる">&times;</button>
+            </header>
+
+            <div class="proxy-print-mobile-tabs" role="tablist" aria-label="プロキシ印刷画面">
+                <button class="proxy-print-mobile-tab is-active" type="button" role="tab" aria-selected="true" data-proxy-view="settings">設定</button>
+                <button class="proxy-print-mobile-tab" type="button" role="tab" aria-selected="false" data-proxy-view="preview">プレビュー</button>
+            </div>
+
+            <div class="proxy-print-workspace">
+                <aside class="proxy-print-config-pane">
+                    <section class="proxy-print-control-section proxy-print-source-section" aria-label="印刷対象">
+                        <div class="proxy-print-segmented" role="group" aria-label="印刷対象">
+                            <button class="is-active" type="button" aria-pressed="true" data-proxy-scope="all">デッキ全体</button>
+                            <button type="button" aria-pressed="false" data-proxy-scope="missing">不足分</button>
+                        </div>
+                        <label class="proxy-print-check-row">
+                            <input id="proxy-print-include-leader" type="checkbox" checked>
+                            <span>リーダーを含める</span>
+                        </label>
+                    </section>
+
+                    <section class="proxy-print-control-section" aria-labelledby="proxy-print-paper-heading">
+                        <h3 id="proxy-print-paper-heading">用紙</h3>
+                        <div class="proxy-print-field-grid">
+                            <label class="proxy-print-field">
+                                <span>サイズ</span>
+                                <select id="proxy-print-paper-size">
+                                    <option value="A4">A4</option>
+                                    <option value="B5">B5 (JIS)</option>
+                                    <option value="B4">B4 (JIS)</option>
+                                    <option value="A3">A3</option>
+                                    <option value="LETTER">レター</option>
+                                    <option value="custom">カスタム</option>
+                                </select>
+                            </label>
+                            <label class="proxy-print-field">
+                                <span>向き</span>
+                                <select id="proxy-print-orientation">
+                                    <option value="auto">自動</option>
+                                    <option value="portrait">縦</option>
+                                    <option value="landscape">横</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div id="proxy-print-custom-paper-fields" class="proxy-print-dimension-fields" hidden>
+                            <label class="proxy-print-field">
+                                <span>幅 (mm)</span>
+                                <input id="proxy-print-paper-width" type="number" min="80" max="1000" step="0.1" inputmode="decimal">
+                            </label>
+                            <label class="proxy-print-field">
+                                <span>高さ (mm)</span>
+                                <input id="proxy-print-paper-height" type="number" min="80" max="1000" step="0.1" inputmode="decimal">
+                            </label>
+                        </div>
+                        <label class="proxy-print-field proxy-print-inset-field">
+                            <span>端余白 (mm)</span>
+                            <input id="proxy-print-edge-inset" type="number" min="0" max="30" step="0.1" inputmode="decimal">
+                        </label>
+                    </section>
+
+                    <section class="proxy-print-control-section" aria-labelledby="proxy-print-card-heading">
+                        <h3 id="proxy-print-card-heading">カード</h3>
+                        <label class="proxy-print-field">
+                            <span>サイズ</span>
+                            <select id="proxy-print-card-size">
+                                <option value="standard">スタンダード 63 × 88mm</option>
+                                <option value="small">スモール 59 × 86mm</option>
+                                <option value="custom">カスタム</option>
+                            </select>
+                        </label>
+                        <div id="proxy-print-custom-card-fields" class="proxy-print-dimension-fields" hidden>
+                            <label class="proxy-print-field">
+                                <span>幅 (mm)</span>
+                                <input id="proxy-print-card-width" type="number" min="20" max="200" step="0.1" inputmode="decimal">
+                            </label>
+                            <label class="proxy-print-field">
+                                <span>高さ (mm)</span>
+                                <input id="proxy-print-card-height" type="number" min="20" max="300" step="0.1" inputmode="decimal">
+                            </label>
+                        </div>
+                    </section>
+
+                    <section class="proxy-print-control-section proxy-print-items-section" aria-labelledby="proxy-print-items-heading">
+                        <h3 id="proxy-print-items-heading">印刷枚数</h3>
+                        <div id="proxy-print-item-list" class="proxy-print-item-list"></div>
+                    </section>
+                </aside>
+
+                <section class="proxy-print-preview-pane" aria-labelledby="proxy-print-preview-heading">
+                    <div class="proxy-print-preview-heading">
+                        <h3 id="proxy-print-preview-heading">プレビュー</h3>
+                        <span id="proxy-print-summary" aria-live="polite"></span>
+                    </div>
+                    <div id="proxy-print-pages" class="proxy-print-pages"></div>
+                </section>
+            </div>
+
+            <footer class="proxy-print-footer">
+                <span id="proxy-print-status" class="proxy-print-status" role="status" aria-live="polite"></span>
+                <div class="proxy-print-actions">
+                    <button id="proxy-print-download-btn" class="modal-btn modal-btn-secondary" type="button">
+                        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path></svg>
+                        <span>PDF保存</span>
+                    </button>
+                    <button id="proxy-print-share-btn" class="modal-btn modal-btn-secondary" type="button">
+                        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V3"></path><path d="m7 8 5-5 5 5"></path><path d="M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"></path></svg>
+                        <span>共有</span>
+                    </button>
+                    <button id="proxy-print-print-btn" class="modal-btn modal-btn-primary" type="button">
+                        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V2h12v7"></path><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect width="12" height="8" x="6" y="14"></rect></svg>
+                        <span>印刷</span>
+                    </button>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- 19. モーダル: 不足カード共有 -->
     <div id="missing-cards-modal" class="modal-overlay" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="missing-cards-title" aria-hidden="true">
         <div class="modal-content-wrapper missing-cards-wrapper">
             <div class="modal-content missing-cards-content">
@@ -761,11 +883,12 @@
     </div>
 
     <!-- 22. メインスクリプト (defer を追加) -->
-    <script src="image-import.js?v=1.12.5" defer></script>
-    <script src="eight-pack-leader.js?v=1.12.5" defer></script>
-    <script src="deck-records.js?v=1.12.5" defer></script>
-    <script src="deck-variants.js?v=1.12.5" defer></script>
-    <script src="app.js?v=1.12.5" defer></script>
+    <script src="image-import.js?v=1.13.0" defer></script>
+    <script src="eight-pack-leader.js?v=1.13.0" defer></script>
+    <script src="deck-records.js?v=1.13.0" defer></script>
+    <script src="deck-variants.js?v=1.13.0" defer></script>
+    <script src="proxy-print.js?v=1.13.0" defer></script>
+    <script src="app.js?v=1.13.0" defer></script>
 
 </body>
 </html>

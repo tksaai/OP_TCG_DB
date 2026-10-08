@@ -51,7 +51,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.12.5'; // バージョン更新
+    const APP_VERSION = '1.13.0'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -3424,6 +3424,59 @@
             .sort((a, b) => compareDeckCards(a.card, b.card) || a.variantIndex - b.variantIndex);
     }
 
+    function getProxyPrintItems(deck) {
+        const entries = [];
+        if (deck?.leader) {
+            const leaderEntry = getDeckLeaderVariantEntry(deck);
+            entries.push({ ...leaderEntry, count: 1, isLeader: true });
+        }
+        getDeckImageEntries(deck).forEach(entry => {
+            entries.push({ ...entry, isLeader: false });
+        });
+
+        const remainingOwned = { ...getCollectionOwnedCardsForDeck(deck) };
+        return entries.map((entry, index) => {
+            const cardNumber = String(entry.cardNumber || entry.card?.cardNumber || '');
+            const count = Math.max(0, Number(entry.count) || 0);
+            const available = Math.max(0, Number(remainingOwned[cardNumber]) || 0);
+            const coveredCount = Math.min(count, available);
+            remainingOwned[cardNumber] = available - coveredCount;
+            return {
+                key: `${entry.isLeader ? 'leader' : 'main'}:${entry.key || cardNumber}:${index}`,
+                cardNumber,
+                cardName: entry.card?.cardName || cardNumber,
+                variantId: entry.variantId || cardNumber,
+                variantLabel: entry.variantLabel || '',
+                sources: [...new Set([
+                    getCardImagePath(entry.card, entry.variantIndex || 0),
+                    getCardImageFallbackPath(entry.card, entry.variantIndex || 0)
+                ].filter(Boolean))],
+                count,
+                missingCount: Math.max(0, count - coveredCount),
+                isLeader: entry.isLeader
+            };
+        });
+    }
+
+    function openProxyPrintForDeck(deck) {
+        try {
+            if (!window.OPTCGProxyPrint?.open) {
+                throw new Error('プロキシ印刷機能を読み込めませんでした。アプリを更新してください。');
+            }
+            const items = getProxyPrintItems(deck);
+            if (!items.some(item => item.count > 0)) {
+                throw new Error('印刷できるカードがありません。');
+            }
+            window.OPTCGProxyPrint.open({
+                name: normalizeDeckName(deck?.name, 'デッキ'),
+                items,
+                defaultScope: deck?.ownedCardsLinked === true ? 'missing' : 'all'
+            });
+        } catch (error) {
+            showMessageToast(error?.message || 'プロキシ印刷を開始できませんでした。', 'error');
+        }
+    }
+
     function getDeckRecordsApi() {
         if (!window.OPTCGDeckRecords) {
             throw new Error('大会記録機能を読み込めませんでした。アプリを更新してください。');
@@ -6361,6 +6414,7 @@
             export: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/>',
             share: '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>',
             image: '<rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/><path d="M12 3v6"/><path d="m9 6 3 3 3-3"/>',
+            print: '<path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/>',
             list: '<rect x="3" y="3" width="7" height="8" rx="1"/><rect x="14" y="3" width="7" height="8" rx="1"/><rect x="3" y="15" width="7" height="6" rx="1"/><rect x="14" y="15" width="7" height="6" rx="1"/>',
             record: '<path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10v4a5 5 0 0 1-10 0Z"/><path d="M7 6H4v1a4 4 0 0 0 4 4"/><path d="M17 6h3v1a4 4 0 0 1-4 4"/>',
             delete: '<path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v5"/><path d="M14 11v5"/>'
@@ -6537,6 +6591,7 @@
         menu.appendChild(createDeckMenuItem('JSON出力', 'export', () => exportDeckJson(deck)));
         menu.appendChild(createDeckMenuItem('URLをコピー', 'share', () => copyDeckShareUrl(deck)));
         menu.appendChild(createDeckMenuItem('画像出力', 'image', () => exportDeckImage(deck)));
+        menu.appendChild(createDeckMenuItem('プロキシ印刷', 'print', () => openProxyPrintForDeck(deck)));
         menu.appendChild(createDeckMenuItem('不足カードを共有', 'share', () => openMissingCardsModal(deck)));
         menu.appendChild(createDeckMenuItem('削除', 'delete', () => deleteDeck(deck), true));
         menu.addEventListener('click', event => event.stopPropagation());

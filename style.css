@@ -3426,6 +3426,558 @@ body.tournament-records-open {
     overflow: hidden;
 }
 
+body.proxy-print-open {
+    overflow: hidden;
+}
+
+.proxy-print-overlay {
+    z-index: 1120;
+    padding: 14px;
+    background-color: rgba(6, 8, 10, 0.88);
+}
+
+.proxy-print-shell {
+    width: min(1240px, 100%);
+    height: min(900px, calc(100dvh - 28px));
+    margin: auto;
+    overflow: hidden;
+    border: 1px solid #3a3f46;
+    border-radius: 6px;
+    background-color: #17191d;
+    color: #f2f4f6;
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    box-shadow: 0 18px 52px rgba(0, 0, 0, 0.45);
+}
+
+.proxy-print-header {
+    min-height: 58px;
+    padding: 10px 14px 10px 18px;
+    border-bottom: 1px solid #373c43;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.proxy-print-header h2 {
+    min-width: 0;
+    margin: 0;
+    overflow: hidden;
+    font-size: 18px;
+    letter-spacing: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.proxy-print-mobile-tabs {
+    display: none;
+}
+
+.proxy-print-workspace {
+    min-height: 0;
+    display: grid;
+    grid-template-columns: minmax(300px, 370px) minmax(0, 1fr);
+}
+
+.proxy-print-config-pane,
+.proxy-print-preview-pane {
+    min-width: 0;
+    min-height: 0;
+    overflow: auto;
+}
+
+.proxy-print-config-pane {
+    border-right: 1px solid #373c43;
+    background-color: #1d2024;
+}
+
+.proxy-print-control-section {
+    padding: 13px 15px;
+    border-bottom: 1px solid #343941;
+}
+
+.proxy-print-control-section h3,
+.proxy-print-preview-heading h3 {
+    margin: 0 0 10px;
+    color: #dfe3e7;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0;
+}
+
+.proxy-print-source-section {
+    display: grid;
+    gap: 11px;
+}
+
+.proxy-print-segmented {
+    padding: 3px;
+    border: 1px solid #4a5059;
+    border-radius: 6px;
+    background-color: #131518;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3px;
+}
+
+.proxy-print-segmented button,
+.proxy-print-mobile-tab {
+    min-height: 34px;
+    padding: 6px 10px;
+    border: 0;
+    border-radius: 4px;
+    background-color: transparent;
+    color: #b8bec5;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 750;
+    cursor: pointer;
+}
+
+.proxy-print-segmented button.is-active,
+.proxy-print-mobile-tab.is-active {
+    background-color: #eceef1;
+    color: #17191d;
+}
+
+.proxy-print-check-row {
+    min-height: 30px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #d9dde1;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.proxy-print-check-row input {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    accent-color: var(--color-secondary);
+}
+
+.proxy-print-field-grid,
+.proxy-print-dimension-fields {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+}
+
+.proxy-print-dimension-fields {
+    margin-top: 9px;
+}
+
+.proxy-print-dimension-fields[hidden] {
+    display: none;
+}
+
+.proxy-print-field {
+    min-width: 0;
+    display: grid;
+    gap: 5px;
+    color: #b9c0c7;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.proxy-print-field select,
+.proxy-print-field input {
+    width: 100%;
+    min-width: 0;
+    min-height: 38px;
+    box-sizing: border-box;
+    padding: 7px 9px;
+    border: 1px solid #505761;
+    border-radius: 4px;
+    background-color: #121417;
+    color: #f3f4f5;
+    font: inherit;
+    font-size: 13px;
+}
+
+.proxy-print-field select:focus-visible,
+.proxy-print-field input:focus-visible,
+.proxy-print-stepper button:focus-visible,
+.proxy-print-stepper input:focus-visible,
+.proxy-print-segmented button:focus-visible,
+.proxy-print-mobile-tab:focus-visible {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 2px;
+}
+
+.proxy-print-inset-field {
+    width: calc(50% - 5px);
+    margin-top: 9px;
+}
+
+.proxy-print-items-section {
+    padding-bottom: 24px;
+}
+
+.proxy-print-item-list {
+    display: grid;
+    gap: 6px;
+}
+
+.proxy-print-item {
+    min-width: 0;
+    min-height: 68px;
+    padding: 6px;
+    border: 1px solid #3e444c;
+    border-radius: 5px;
+    background-color: #24282d;
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr) 104px;
+    align-items: center;
+    gap: 8px;
+}
+
+.proxy-print-item.is-zero {
+    opacity: 0.58;
+}
+
+.proxy-print-item.is-leader {
+    border-color: #84704c;
+}
+
+.proxy-print-item-visual {
+    width: 40px;
+    aspect-ratio: 63 / 88;
+    overflow: hidden;
+    border-radius: 2px;
+    background-color: #111315;
+}
+
+.proxy-print-item-image,
+.proxy-print-preview-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: fill;
+}
+
+.proxy-print-item-image.is-missing,
+.proxy-print-preview-image.is-missing {
+    opacity: 0;
+}
+
+.proxy-print-item-details {
+    min-width: 0;
+    display: grid;
+    gap: 2px;
+}
+
+.proxy-print-item-details strong,
+.proxy-print-item-details span,
+.proxy-print-item-details small {
+    min-width: 0;
+    overflow: hidden;
+    letter-spacing: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.proxy-print-item-details strong {
+    color: #f4f5f6;
+    font-size: 12px;
+}
+
+.proxy-print-item-details span {
+    color: #bcc2c8;
+    font-size: 10px;
+}
+
+.proxy-print-item-details small {
+    color: #bc8ce4;
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.proxy-print-item-details .proxy-print-item-role {
+    color: #dec07d;
+}
+
+.proxy-print-stepper {
+    width: 104px;
+    height: 34px;
+    display: grid;
+    grid-template-columns: 32px 40px 32px;
+}
+
+.proxy-print-stepper button,
+.proxy-print-stepper input {
+    min-width: 0;
+    height: 34px;
+    box-sizing: border-box;
+    border: 1px solid #515862;
+    background-color: #14171a;
+    color: #f2f3f4;
+    font: inherit;
+    font-weight: 800;
+    text-align: center;
+}
+
+.proxy-print-stepper button {
+    padding: 0;
+    cursor: pointer;
+}
+
+.proxy-print-stepper button:first-child {
+    border-radius: 4px 0 0 4px;
+}
+
+.proxy-print-stepper button:last-child {
+    border-radius: 0 4px 4px 0;
+}
+
+.proxy-print-stepper input {
+    padding: 0 2px;
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
+    appearance: textfield;
+}
+
+.proxy-print-stepper input::-webkit-inner-spin-button,
+.proxy-print-stepper input::-webkit-outer-spin-button {
+    margin: 0;
+    appearance: none;
+}
+
+.proxy-print-preview-pane {
+    padding: 14px;
+    background-color: #30353b;
+}
+
+.proxy-print-preview-heading {
+    min-height: 34px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.proxy-print-preview-heading h3 {
+    margin: 0;
+}
+
+.proxy-print-preview-heading span {
+    color: #d9dde1;
+    font-size: 11px;
+    font-weight: 750;
+    text-align: right;
+}
+
+.proxy-print-pages {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    align-items: start;
+    gap: 18px;
+}
+
+.proxy-print-page-frame {
+    min-width: 0;
+    margin: 0;
+}
+
+.proxy-print-page {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 7px 18px rgba(0, 0, 0, 0.35);
+}
+
+.proxy-print-preview-card {
+    position: absolute;
+    overflow: hidden;
+    background-color: #eceff1;
+}
+
+.proxy-print-page-frame figcaption {
+    margin-top: 6px;
+    color: #d0d4d8;
+    font-size: 10px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.proxy-print-preview-empty {
+    margin: 0;
+    padding: 42px 18px;
+    color: #d4d8dc;
+    font-size: 13px;
+    text-align: center;
+}
+
+.proxy-print-footer {
+    min-height: 62px;
+    padding: 9px 12px;
+    border-top: 1px solid #373c43;
+    background-color: #17191d;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.proxy-print-status {
+    min-width: 0;
+    overflow: hidden;
+    color: #b9c0c6;
+    font-size: 11px;
+    font-weight: 650;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.proxy-print-status[data-type="error"] {
+    color: #ff8f98;
+}
+
+.proxy-print-status[data-type="success"] {
+    color: #78dfb1;
+}
+
+.proxy-print-status[data-type="progress"] {
+    color: #7edfd8;
+}
+
+.proxy-print-actions {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.proxy-print-actions .modal-btn {
+    min-width: 104px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+}
+
+.proxy-print-frame {
+    position: fixed;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    border: 0;
+}
+
+@media (max-width: 760px) {
+    .proxy-print-overlay {
+        padding: 0;
+    }
+
+    .proxy-print-shell {
+        width: 100%;
+        height: 100dvh;
+        border: 0;
+        border-radius: 0;
+        grid-template-rows: auto auto minmax(0, 1fr) auto;
+    }
+
+    .proxy-print-header {
+        min-height: 52px;
+        padding-top: max(8px, env(safe-area-inset-top));
+    }
+
+    .proxy-print-header h2 {
+        font-size: 15px;
+    }
+
+    .proxy-print-mobile-tabs {
+        padding: 5px;
+        border-bottom: 1px solid #373c43;
+        background-color: #131518;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 4px;
+    }
+
+    .proxy-print-workspace {
+        display: block;
+        overflow: hidden;
+    }
+
+    .proxy-print-config-pane,
+    .proxy-print-preview-pane {
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+
+    .proxy-print-overlay[data-mobile-view="settings"] .proxy-print-preview-pane,
+    .proxy-print-overlay[data-mobile-view="preview"] .proxy-print-config-pane {
+        display: none;
+    }
+
+    .proxy-print-preview-pane {
+        padding: 12px;
+    }
+
+    .proxy-print-pages {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .proxy-print-page-frame {
+        width: min(100%, 520px);
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .proxy-print-footer {
+        min-height: 68px;
+        padding-bottom: max(9px, env(safe-area-inset-bottom));
+    }
+
+    .proxy-print-status {
+        display: none;
+    }
+
+    .proxy-print-actions {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 6px;
+    }
+
+    .proxy-print-actions .modal-btn {
+        min-width: 0;
+        min-height: 44px;
+        padding: 7px 5px;
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 390px) {
+    .proxy-print-control-section {
+        padding-right: 11px;
+        padding-left: 11px;
+    }
+
+    .proxy-print-item {
+        grid-template-columns: 36px minmax(0, 1fr) 98px;
+        gap: 6px;
+    }
+
+    .proxy-print-item-visual {
+        width: 36px;
+    }
+
+    .proxy-print-stepper {
+        width: 98px;
+        grid-template-columns: 30px 38px 30px;
+    }
+}
+
 .deck-composition-wrapper {
     width: min(860px, calc(100vw - 20px));
     max-width: 860px;

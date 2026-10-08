@@ -5,7 +5,7 @@
  */
 
 // === 1. 定数 ===
-const CACHE_APP_SHELL = 'app-shell-v50';
+const CACHE_APP_SHELL = 'app-shell-v51';
 const CACHE_CARD_DATA = 'card-data-v18';
 // v2: 配信を WebP に一本化したタイミングで、古い JPEG/PNG のキャッシュを捨てる
 const CACHE_IMAGES = 'card-images-v2';
@@ -36,12 +36,13 @@ const APP_SHELL_FILES = [
     './', // ルート (index.html を想定)
     './index.html',
     './style.css',
-    './image-import.js?v=1.12.5',
+    './image-import.js?v=1.13.0',
     './image-import-worker.js',
-    './eight-pack-leader.js?v=1.12.5',
-    './deck-records.js?v=1.12.5',
-    './deck-variants.js?v=1.12.5',
-    './app.js?v=1.12.5',
+    './eight-pack-leader.js?v=1.13.0',
+    './deck-records.js?v=1.13.0',
+    './deck-variants.js?v=1.13.0',
+    './proxy-print.js?v=1.13.0',
+    './app.js?v=1.13.0',
     './manifest.json',
     './icons/iconx192.png',
     './icons/iconx512.png',
