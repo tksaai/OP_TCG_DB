@@ -2370,11 +2370,79 @@ body.deck-builder-active .deck-builder-panel {
 }
 
 .deck-builder-divider h2 {
+    min-width: 0;
+    flex: 1 1 auto;
     margin: 0;
     color: var(--color-on-surface);
     font-size: 14px;
     font-weight: 800;
     letter-spacing: 0;
+}
+
+.deck-builder-toolbar {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.deck-builder-variant-toggle {
+    min-height: 34px;
+    color: var(--color-on-surface);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 750;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.deck-builder-variant-toggle input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.deck-builder-variant-toggle-ui {
+    position: relative;
+    width: 34px;
+    height: 20px;
+    flex: 0 0 34px;
+    border: 1px solid #59606a;
+    border-radius: 10px;
+    background-color: #2c3138;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.deck-builder-variant-toggle-ui::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #d7dbe0;
+    transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.deck-builder-variant-toggle input:checked + .deck-builder-variant-toggle-ui {
+    border-color: var(--color-secondary);
+    background-color: var(--color-secondary);
+}
+
+.deck-builder-variant-toggle input:checked + .deck-builder-variant-toggle-ui::after {
+    background-color: #071a18;
+    transform: translateX(14px);
+}
+
+.deck-builder-variant-toggle input:focus-visible + .deck-builder-variant-toggle-ui {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
 }
 
 .deck-builder-preview-btn {
@@ -2534,6 +2602,31 @@ body.deck-builder-active .deck-builder-panel {
     font-weight: 700;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+.deck-builder-card-variant,
+.deck-composition-variant {
+    margin-top: 2px;
+    overflow: hidden;
+    color: #b987df;
+    display: block;
+    font-size: 9px;
+    font-weight: 750;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.deck-builder-leader-variant-select {
+    width: 100%;
+    min-height: 30px;
+    margin-top: 5px;
+    padding: 3px 5px;
+    border: 1px solid #565d67;
+    border-radius: 4px;
+    background-color: #20242a;
+    color: #f5f6f7;
+    font-size: 10px;
 }
 
 .deck-builder-card-stepper {
@@ -3479,6 +3572,10 @@ body.tournament-records-open {
     text-align: center;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+.deck-composition-variant {
+    color: #7a369f;
 }
 
 .deck-composition-stepper {

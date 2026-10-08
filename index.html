@@ -79,15 +79,22 @@
             <section id="deck-builder-panel" class="deck-builder-panel" aria-label="選択中のデッキ" hidden>
                 <div class="deck-builder-divider">
                     <h2>選択中のデッキ</h2>
-                    <button id="deck-list-preview-btn" class="deck-builder-preview-btn" type="button" aria-label="デッキリストを拡大表示" title="デッキリストを拡大表示">
-                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <rect x="3" y="3" width="7" height="8" rx="1"></rect>
-                            <rect x="14" y="3" width="7" height="8" rx="1"></rect>
-                            <rect x="3" y="15" width="7" height="6" rx="1"></rect>
-                            <rect x="14" y="15" width="7" height="6" rx="1"></rect>
-                        </svg>
-                        <span>拡大</span>
-                    </button>
+                    <div class="deck-builder-toolbar">
+                        <label class="deck-builder-variant-toggle">
+                            <input id="deck-parallel-toggle" type="checkbox" aria-label="パラレルも表示">
+                            <span class="deck-builder-variant-toggle-ui" aria-hidden="true"></span>
+                            <span>パラレル</span>
+                        </label>
+                        <button id="deck-list-preview-btn" class="deck-builder-preview-btn" type="button" aria-label="デッキリストを拡大表示" title="デッキリストを拡大表示">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <rect x="3" y="3" width="7" height="8" rx="1"></rect>
+                                <rect x="14" y="3" width="7" height="8" rx="1"></rect>
+                                <rect x="3" y="15" width="7" height="6" rx="1"></rect>
+                                <rect x="14" y="15" width="7" height="6" rx="1"></rect>
+                            </svg>
+                            <span>拡大</span>
+                        </button>
+                    </div>
                 </div>
                 <div class="deck-builder-selected">
                     <div class="deck-builder-summary">
@@ -754,10 +761,11 @@
     </div>
 
     <!-- 22. メインスクリプト (defer を追加) -->
-    <script src="image-import.js?v=1.12.4" defer></script>
-    <script src="eight-pack-leader.js?v=1.12.4" defer></script>
-    <script src="deck-records.js?v=1.12.4" defer></script>
-    <script src="app.js?v=1.12.4" defer></script>
+    <script src="image-import.js?v=1.12.5" defer></script>
+    <script src="eight-pack-leader.js?v=1.12.5" defer></script>
+    <script src="deck-records.js?v=1.12.5" defer></script>
+    <script src="deck-variants.js?v=1.12.5" defer></script>
+    <script src="app.js?v=1.12.5" defer></script>
 
 </body>
 </html>

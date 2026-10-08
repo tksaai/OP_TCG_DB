@@ -51,7 +51,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.12.4'; // バージョン更新
+    const APP_VERSION = '1.12.5'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -101,6 +101,9 @@
     let viewingDeck = null;    // deck_view で表示中のデッキ
     let editingDeckId = null;
     let editingDeckData = {};   // { cardNumber: count }
+    let editingDeckVariantData = {}; // { "cardNumber::variantId": count }
+    let editingDeckLeaderVariantId = '';
+    let deckParallelSelectionEnabled = false;
     let editingDeckMeta = {};   // { name, leader, colors: string[], createdAt }
     let cardElementMap = {};    // { cardNumber: HTMLElement } DOM高速アクセス用
     let activeCardView = 'cards'; // 'cards' | 'new'
@@ -322,6 +325,7 @@
             deckStatusInfo: $('#deck-status-info'),
             deckSaveBtn: $('#deck-save-btn'),
             deckListPreviewBtn: $('#deck-list-preview-btn'),
+            deckParallelToggle: $('#deck-parallel-toggle'),
             deckBuilderPanel: $('#deck-builder-panel'),
             deckBuilderMainCount: $('#deck-builder-main-count'),
             deckBuilderMainGrid: $('#deck-builder-main-grid'),
@@ -1018,6 +1022,7 @@
 
     function getEffectiveVariantDisplayMode() {
         if (currentMode === 'collection_edit' || currentMode === 'opening_edit') return 'all';
+        if (currentMode === 'deck_edit') return deckParallelSelectionEnabled ? 'all' : 'representative';
         if (currentMode !== 'view' || wantedSelectionMode) return 'representative';
         return variantDisplayMode;
     }
@@ -1333,8 +1338,11 @@
         }
 
         // デッキ編集・表示モード時: 採用枚数バッジ
-        if ((currentMode === 'deck_edit' || currentMode === 'deck_view') && editingDeckData[card.cardNumber]) {
-            const count = editingDeckData[card.cardNumber];
+        const deckDisplayCount = currentMode === 'deck_edit' && deckParallelSelectionEnabled
+            ? editingDeckVariantData[displayKey]
+            : editingDeckData[card.cardNumber];
+        if ((currentMode === 'deck_edit' || currentMode === 'deck_view') && deckDisplayCount) {
+            const count = deckDisplayCount;
             const badge = document.createElement('div');
             badge.className = 'card-deck-badge';
             badge.textContent = count;
@@ -2172,7 +2180,7 @@
         const effectiveVariantMode = getEffectiveVariantDisplayMode();
         const variantModeRadio = $(`input[name="variantDisplayMode"][value="${effectiveVariantMode}"]`);
         if (variantModeRadio) variantModeRadio.checked = true;
-        const variantModeLocked = effectiveVariantMode !== variantDisplayMode;
+        const variantModeLocked = currentMode !== 'view' || wantedSelectionMode;
         $$('input[name="variantDisplayMode"]').forEach(input => {
             input.disabled = variantModeLocked;
         });
@@ -3329,6 +3337,7 @@
     function exportDeckJson(deck) {
         try {
             const payload = createDeckSharePayload(deck);
+            const cardVariants = getCompactDeckVariantCounts(deck);
             const exported = {
                 format: DECK_EXPORT_FORMAT,
                 version: DECK_SHARE_VERSION,
@@ -3338,6 +3347,10 @@
                     name: payload.n,
                     leader: payload.l,
                     cards: Object.fromEntries(payload.c),
+                    ...(Object.keys(cardVariants).length > 0 ? { cardVariants } : {}),
+                    ...(deck.leaderVariantId && deck.leaderVariantId !== deck.leader
+                        ? { leaderVariantId: deck.leaderVariantId }
+                        : {}),
                     tournaments: getDeckTournamentRecords(deck),
                     createdAt: deck.createdAt || null,
                     updatedAt: deck.updatedAt || null
@@ -3363,19 +3376,52 @@
         return String(a?.cardNumber || '').localeCompare(String(b?.cardNumber || ''), 'en', { numeric: true });
     }
 
+    function getDeckVariantsApi() {
+        if (!window.OPTCGDeckVariants) {
+            throw new Error('デッキのパラレル選択機能を読み込めませんでした。アプリを更新してください。');
+        }
+        return window.OPTCGDeckVariants;
+    }
+
+    function getDeckVariantCounts(deck) {
+        try {
+            return getDeckVariantsApi().normalizeVariantCounts(
+                deck?.cards || {},
+                deck?.cardVariants || {},
+                DECK_MAX_COPIES
+            );
+        } catch (error) {
+            console.error('Failed to normalize deck variants:', error);
+            return Object.fromEntries(Object.entries(deck?.cards || {})
+                .filter(([, count]) => Number(count) > 0)
+                .map(([cardNumber, count]) => [getVariantKey(cardNumber, cardNumber), Number(count)]));
+        }
+    }
+
+    function getCompactDeckVariantCounts(deck) {
+        try {
+            return getDeckVariantsApi().compactVariantCounts(
+                deck?.cards || {},
+                deck?.cardVariants || {},
+                DECK_MAX_COPIES
+            );
+        } catch (error) {
+            console.error('Failed to compact deck variants:', error);
+            return {};
+        }
+    }
+
+    function getDeckLeaderVariantEntry(deck) {
+        const cardNumber = String(deck?.leader || '');
+        const variantId = String(deck?.leaderVariantId || cardNumber);
+        return resolveVariantEntry(getVariantKey(cardNumber, variantId));
+    }
+
     function getDeckImageEntries(deck) {
-        return Object.entries(deck.cards || {})
-            .filter(([, count]) => Number.isInteger(Number(count)) && Number(count) > 0)
-            .map(([cardNumber, count]) => ({
-                card: findCardByNumber(cardNumber) || {
-                    cardNumber,
-                    cardName: '未登録カード',
-                    cardType: '',
-                    color: []
-                },
-                count: Number(count)
-            }))
-            .sort((a, b) => compareDeckCards(a.card, b.card));
+        return Object.entries(getDeckVariantCounts(deck))
+            .map(([key, count]) => ({ ...resolveVariantEntry(key), count: Number(count) }))
+            .filter(entry => Number.isInteger(entry.count) && entry.count > 0)
+            .sort((a, b) => compareDeckCards(a.card, b.card) || a.variantIndex - b.variantIndex);
     }
 
     function getDeckRecordsApi() {
@@ -3412,11 +3458,19 @@
 
     function getEditingDeckSnapshot() {
         if (!editingDeckId || currentMode !== 'deck_edit') return null;
+        const cardVariants = getCompactDeckVariantCounts({
+            cards: editingDeckData,
+            cardVariants: editingDeckVariantData
+        });
         return {
             id: editingDeckId,
             name: editingDeckMeta.name,
             leader: editingDeckMeta.leader,
             cards: { ...editingDeckData },
+            ...(Object.keys(cardVariants).length > 0 ? { cardVariants } : {}),
+            ...(editingDeckLeaderVariantId && editingDeckLeaderVariantId !== editingDeckMeta.leader
+                ? { leaderVariantId: editingDeckLeaderVariantId }
+                : {}),
             tournaments: getDeckTournamentRecords(editingDeckMeta)
         };
     }
@@ -3439,7 +3493,7 @@
         fallback.className = 'deck-composition-fallback';
         fallback.textContent = cardNumber || '画像なし';
         fallback.hidden = true;
-        const imagePath = getCardImagePath(card, 0);
+        const imagePath = getCardImagePath(card, entry.variantIndex || 0);
         if (imagePath) {
             const image = document.createElement('img');
             image.className = 'deck-composition-image';
@@ -3467,8 +3521,15 @@
         const number = document.createElement('div');
         number.className = 'deck-composition-number';
         number.textContent = cardNumber || '未登録';
-        number.title = card.cardName || cardNumber;
+        number.title = [card.cardName || cardNumber, entry.variantLabel].filter(Boolean).join(' · ');
         item.appendChild(number);
+
+        if (entry.variantType && entry.variantType !== 'normal') {
+            const variantLabel = document.createElement('span');
+            variantLabel.className = 'deck-composition-variant';
+            variantLabel.textContent = entry.variantLabel || getVariantTypeLabel(entry.variantType);
+            item.appendChild(variantLabel);
+        }
 
         if (editable && !isLeader) {
             const stepper = document.createElement('div');
@@ -3482,7 +3543,7 @@
             minus.title = '1枚減らす';
             minus.setAttribute('aria-label', `${cardNumber}を1枚減らす`);
             minus.addEventListener('click', () => {
-                setEditingDeckCardCount(cardNumber, Number(entry.count) - 1);
+                setEditingDeckVariantCount(entry.key, Number(entry.count) - 1);
                 renderDeckComposition();
             });
 
@@ -3491,9 +3552,9 @@
             plus.textContent = '+';
             plus.title = '1枚増やす';
             plus.setAttribute('aria-label', `${cardNumber}を1枚増やす`);
-            plus.disabled = Number(entry.count) >= DECK_MAX_COPIES;
+            plus.disabled = Number(editingDeckData[cardNumber] || 0) >= DECK_MAX_COPIES;
             plus.addEventListener('click', () => {
-                setEditingDeckCardCount(cardNumber, Number(entry.count) + 1);
+                setEditingDeckVariantCount(entry.key, Number(entry.count) + 1);
                 renderDeckComposition();
             });
 
@@ -3529,15 +3590,14 @@
             dom.deckCompositionMainGrid.appendChild(fragment);
         }
 
-        const leaderCard = findCardByNumber(deck.leader) || {
-            cardNumber: deck.leader,
-            cardName: '未登録リーダー',
-            cardType: 'LEADER',
-            color: []
-        };
+        const leaderEntry = getDeckLeaderVariantEntry(deck);
+        const leaderCard = leaderEntry.card;
         dom.deckCompositionLeaderGrid.appendChild(createDeckCompositionCard({
             card: leaderCard,
-            count: 1
+            count: 1,
+            variantIndex: leaderEntry.variantIndex,
+            variantType: leaderEntry.variantType,
+            variantLabel: leaderEntry.variantLabel
         }, { isLeader: true }));
     }
 
@@ -3545,7 +3605,8 @@
         if (!deck || !dom.deckCompositionModal) return;
         deckCompositionDeck = {
             ...deck,
-            cards: { ...(deck.cards || {}) }
+            cards: { ...(deck.cards || {}) },
+            cardVariants: { ...(deck.cardVariants || {}) }
         };
         deckCompositionEditable = options.editable === true && currentMode === 'deck_edit';
         renderDeckComposition();
@@ -5812,14 +5873,11 @@
 
         showMessageToast('デッキ画像を作成しています...', 'info');
         try {
-            const leaderCard = findCardByNumber(deck.leader) || {
-                cardNumber: deck.leader,
-                cardName: '未登録リーダー',
-                color: []
-            };
+            const leaderEntry = getDeckLeaderVariantEntry(deck);
+            const leaderCard = leaderEntry.card;
             const [leaderImage, ...cardImages] = await Promise.all([
-                loadCardCanvasImage(leaderCard),
-                ...entries.map(entry => loadCardCanvasImage(entry.card))
+                loadCardCanvasImage(leaderCard, leaderEntry.variantIndex),
+                ...entries.map(entry => loadCardCanvasImage(entry.card, entry.variantIndex || 0))
             ]);
 
             const canvasWidth = 1600;
@@ -5993,7 +6051,7 @@
 
         const imageShell = document.createElement('span');
         imageShell.className = 'deck-builder-card-image-shell';
-        const imagePath = getCardImagePath(card, 0);
+        const imagePath = getCardImagePath(card, entry.variantIndex || 0);
         const fallback = document.createElement('span');
         fallback.className = 'deck-builder-card-fallback';
         fallback.textContent = cardNumber || '画像なし';
@@ -6023,7 +6081,15 @@
         const number = document.createElement('span');
         number.className = 'deck-builder-card-number';
         number.textContent = cardNumber || '未登録';
+        number.title = [card?.cardName || cardNumber, entry.variantLabel].filter(Boolean).join(' · ');
         item.appendChild(number);
+
+        if (entry.variantType && entry.variantType !== 'normal') {
+            const variantLabel = document.createElement('span');
+            variantLabel.className = 'deck-builder-card-variant';
+            variantLabel.textContent = entry.variantLabel || getVariantTypeLabel(entry.variantType);
+            item.appendChild(variantLabel);
+        }
 
         if (!isLeader) {
             const stepper = document.createElement('div');
@@ -6038,7 +6104,7 @@
             minus.title = '1枚減らす';
             minus.setAttribute('aria-label', `${cardNumber}を1枚減らす`);
             minus.addEventListener('click', () => {
-                setEditingDeckCardCount(cardNumber, Number(entry.count) - 1);
+                setEditingDeckVariantCount(entry.key, Number(entry.count) - 1);
             });
 
             const plus = document.createElement('button');
@@ -6047,13 +6113,32 @@
             plus.textContent = '+';
             plus.title = '1枚増やす';
             plus.setAttribute('aria-label', `${cardNumber}を1枚増やす`);
-            plus.disabled = Number(entry.count) >= DECK_MAX_COPIES;
+            plus.disabled = Number(editingDeckData[cardNumber] || 0) >= DECK_MAX_COPIES;
             plus.addEventListener('click', () => {
-                setEditingDeckCardCount(cardNumber, Number(entry.count) + 1);
+                setEditingDeckVariantCount(entry.key, Number(entry.count) + 1);
             });
 
             stepper.append(minus, plus);
             item.appendChild(stepper);
+        } else if (deckParallelSelectionEnabled) {
+            const variants = getCardImageVariants(card);
+            if (variants.length > 1) {
+                const select = document.createElement('select');
+                select.className = 'deck-builder-leader-variant-select';
+                select.setAttribute('aria-label', 'リーダー画像を選択');
+                variants.forEach((variant, variantIndex) => {
+                    const option = document.createElement('option');
+                    option.value = getCardVariantId(card, variant, variantIndex);
+                    option.textContent = variant.label || getVariantTypeLabel(getCardVariantType(variant, variantIndex));
+                    select.appendChild(option);
+                });
+                select.value = editingDeckLeaderVariantId || cardNumber;
+                select.addEventListener('change', () => {
+                    editingDeckLeaderVariantId = select.value || cardNumber;
+                    renderDeckBuilderPanel();
+                });
+                item.appendChild(select);
+            }
         }
         return item;
     }
@@ -6068,7 +6153,10 @@
         }
 
         if (dom.deckBuilderMainGrid) {
-            const entries = getDeckImageEntries({ cards: editingDeckData });
+            const entries = getDeckImageEntries({
+                cards: editingDeckData,
+                cardVariants: editingDeckVariantData
+            });
             dom.deckBuilderMainGrid.innerHTML = '';
             if (entries.length === 0) {
                 const empty = document.createElement('p');
@@ -6083,15 +6171,21 @@
         }
 
         if (dom.deckBuilderLeaderGrid) {
-            const leader = findCardByNumber(editingDeckMeta.leader) || {
-                cardNumber: editingDeckMeta.leader,
-                cardName: '未登録リーダー',
-                cardType: 'LEADER'
-            };
+            const leaderEntry = getDeckLeaderVariantEntry({
+                leader: editingDeckMeta.leader,
+                leaderVariantId: editingDeckLeaderVariantId
+            });
             dom.deckBuilderLeaderGrid.replaceChildren(createDeckBuilderCard({
-                card: leader,
-                count: 1
+                card: leaderEntry.card,
+                count: 1,
+                variantIndex: leaderEntry.variantIndex,
+                variantType: leaderEntry.variantType,
+                variantLabel: leaderEntry.variantLabel
             }, { isLeader: true }));
+        }
+
+        if (dom.deckParallelToggle) {
+            dom.deckParallelToggle.checked = deckParallelSelectionEnabled;
         }
     }
 
@@ -6124,6 +6218,9 @@
         activeCardView = 'cards';
         viewingDeck = deck;
         editingDeckData = { ...(deck.cards || {}) }; // バッジ表示用 (読み取り専用)
+        editingDeckVariantData = getDeckVariantCounts(deck);
+        editingDeckLeaderVariantId = deck.leaderVariantId || deck.leader || '';
+        deckParallelSelectionEnabled = false;
 
         showCardListView();
         populateFilters(deckCardPool);
@@ -6153,7 +6250,7 @@
         } else if (currentMode === 'leader_select') {
             confirmLeaderSelection(card);
         } else if (currentMode === 'deck_edit') {
-            toggleDeckCardCount(card.cardNumber);
+            toggleDeckCardCount(card);
         } else {
             // 'view' / 'deck_view' は拡大表示
             showLightbox(index);
@@ -6169,6 +6266,9 @@
             id: createDeckId(),
             name: `${card.cardName}デッキ`,
             leader: card.cardNumber,
+            ...(card._displayVariantId && card._displayVariantId !== card.cardNumber
+                ? { leaderVariantId: card._displayVariantId }
+                : {}),
             cards: {},
             ownedCards: {},
             ownedCardsLinked: true,
@@ -6180,16 +6280,12 @@
         startDeckEdit(newDeck);
     }
 
-    function setEditingDeckCardCount(cardNumber, requestedCount) {
-        const count = Math.min(Math.max(Math.trunc(Number(requestedCount) || 0), 0), DECK_MAX_COPIES);
-        if (count === 0) {
-            delete editingDeckData[cardNumber];
-        } else {
-            editingDeckData[cardNumber] = count;
-        }
-
-        const cardItem = cardElementMap[cardNumber];
-        if (cardItem) {
+    function syncDeckCardBadges(cardNumber) {
+        Object.entries(cardElementMap).forEach(([displayKey, cardItem]) => {
+            if (displayKey !== cardNumber && !displayKey.startsWith(`${cardNumber}::`)) return;
+            const count = displayKey.includes('::')
+                ? Number(editingDeckVariantData[displayKey] || 0)
+                : Number(editingDeckData[cardNumber] || 0);
             let badge = cardItem.querySelector('.card-deck-badge');
             if (count > 0) {
                 if (!badge) {
@@ -6197,17 +6293,62 @@
                     badge.className = 'card-deck-badge';
                     cardItem.appendChild(badge);
                 }
-                badge.textContent = count;
-                badge.dataset.count = count;
+                badge.textContent = String(count);
+                badge.dataset.count = String(count);
             } else if (badge) {
                 badge.remove();
             }
-        }
+        });
+    }
+
+    function applyEditingDeckVariantState(state, cardNumber) {
+        editingDeckData = { ...(state?.cards || {}) };
+        editingDeckVariantData = { ...(state?.cardVariants || {}) };
+        syncDeckCardBadges(cardNumber);
         updateDeckStatusBar();
         renderDeckBuilderPanel();
     }
 
-    function toggleDeckCardCount(cardNumber) {
+    function setEditingDeckCardCount(cardNumber, requestedCount) {
+        const state = getDeckVariantsApi().setCardCount(
+            editingDeckData,
+            editingDeckVariantData,
+            cardNumber,
+            requestedCount,
+            DECK_MAX_COPIES
+        );
+        applyEditingDeckVariantState(state, cardNumber);
+    }
+
+    function setEditingDeckVariantCount(key, requestedCount) {
+        const parsed = getDeckVariantsApi().parseVariantKey(key);
+        if (!parsed) return;
+        const state = getDeckVariantsApi().setVariantCount(
+            editingDeckData,
+            editingDeckVariantData,
+            key,
+            requestedCount,
+            DECK_MAX_COPIES
+        );
+        applyEditingDeckVariantState(state, parsed.cardNumber);
+    }
+
+    function toggleDeckCardCount(card) {
+        const cardNumber = card?.cardNumber;
+        if (!cardNumber) return;
+        if (deckParallelSelectionEnabled) {
+            const key = getCardDisplayVariantKey(card);
+            const current = Number(editingDeckVariantData[key] || 0);
+            const total = Number(editingDeckData[cardNumber] || 0);
+            const maxForVariant = DECK_MAX_COPIES - (total - current);
+            if (current === 0 && maxForVariant === 0) {
+                showMessageToast(`${cardNumber}は合計${DECK_MAX_COPIES}枚までです。`, 'info');
+                return;
+            }
+            const next = current + 1 > maxForVariant ? 0 : current + 1;
+            setEditingDeckVariantCount(key, next);
+            return;
+        }
         let count = (editingDeckData[cardNumber] || 0) + 1;
         if (count > DECK_MAX_COPIES) count = 0;
         setEditingDeckCardCount(cardNumber, count);
@@ -6306,7 +6447,8 @@
     }
 
     function createDeckListItem(deck) {
-        const leaderCard = findCardByNumber(deck.leader);
+        const leaderEntry = getDeckLeaderVariantEntry(deck);
+        const leaderCard = leaderEntry.card;
         const total = Object.values(deck.cards || {}).reduce((sum, n) => sum + n, 0);
         const colors = leaderCard && Array.isArray(leaderCard.color) ? leaderCard.color.join('/') : '';
         const tournamentSummary = getDeckTournamentSummary(deck);
@@ -6318,7 +6460,7 @@
         // リーダーサムネイル
         const thumb = document.createElement('div');
         thumb.className = 'deck-leader-thumb';
-        const leaderImagePath = leaderCard ? getCardImagePath(leaderCard, 0) : '';
+        const leaderImagePath = leaderCard ? getCardImagePath(leaderCard, leaderEntry.variantIndex) : '';
         if (leaderImagePath) {
             const img = document.createElement('img');
             img.src = leaderImagePath;
@@ -6420,6 +6562,7 @@
         }
         currentMode = 'leader_select';
         activeCardView = 'cards';
+        deckParallelSelectionEnabled = false;
         showCardListView();
         populateFilters(deckCardPool);
         setModeMessage('リーダーカードを選択してください');
@@ -6440,6 +6583,9 @@
         activeCardView = 'cards';
         editingDeckId = deck.id;
         editingDeckData = { ...(deck.cards || {}) };
+        editingDeckVariantData = getDeckVariantCounts(deck);
+        editingDeckLeaderVariantId = deck.leaderVariantId || deck.leader || '';
+        deckParallelSelectionEnabled = false;
         editingDeckMeta = {
             name: deck.name,
             leader: deck.leader,
@@ -6470,6 +6616,9 @@
         viewingDeck = null;
         editingDeckId = null;
         editingDeckData = {};
+        editingDeckVariantData = {};
+        editingDeckLeaderVariantId = '';
+        deckParallelSelectionEnabled = false;
         editingDeckMeta = {};
         setDeckBuilderPanelVisible(false);
         setDeckStatusBarVisible(false);
@@ -6485,6 +6634,10 @@
 
     async function saveCurrentDeck() {
         if (!editingDeckId) return;
+        const cardVariants = getCompactDeckVariantCounts({
+            cards: editingDeckData,
+            cardVariants: editingDeckVariantData
+        });
         const deckRequirements = {
             leader: editingDeckMeta.leader,
             cards: editingDeckData
@@ -6499,6 +6652,10 @@
             name: editingDeckMeta.name,
             leader: editingDeckMeta.leader,
             cards: editingDeckData,
+            ...(Object.keys(cardVariants).length > 0 ? { cardVariants } : {}),
+            ...(editingDeckLeaderVariantId && editingDeckLeaderVariantId !== editingDeckMeta.leader
+                ? { leaderVariantId: editingDeckLeaderVariantId }
+                : {}),
             ownedCards: normalizeOwnedCardsForDeck(
                 deckRequirements,
                 getCollectionOwnedCardsForDeck(deckRequirements)
@@ -7612,6 +7769,14 @@
         }
         if (dom.deckListPreviewBtn) {
             dom.deckListPreviewBtn.addEventListener('click', openCurrentDeckComposition);
+        }
+        if (dom.deckParallelToggle) {
+            dom.deckParallelToggle.addEventListener('change', () => {
+                if (currentMode !== 'deck_edit') return;
+                deckParallelSelectionEnabled = dom.deckParallelToggle.checked;
+                applyFiltersAndDisplay();
+                renderDeckBuilderPanel();
+            });
         }
         if (dom.wantedShowToggleBtn) {
             dom.wantedShowToggleBtn.addEventListener('click', () => {
