@@ -79,9 +79,43 @@
         return Boolean(leftSignature) && leftSignature === createCompositionSignature(right);
     }
 
+    function shouldRecordAdjustment(snapshot, options = {}) {
+        if (options.enabled !== true) return false;
+        const currentSignature = createCompositionSignature(snapshot);
+        if (!currentSignature) return false;
+        if (options.wasEnabled !== true) return true;
+        return currentSignature !== String(options.initialCompositionSignature || '');
+    }
+
     function findAdjustment(records, adjustmentId) {
         const id = normalizeText(adjustmentId, 120);
         return normalizeAdjustmentHistory(records).find(record => record.id === id) || null;
+    }
+
+    function renameAdjustment(records, adjustmentId, labelValue) {
+        const id = normalizeText(adjustmentId, 120);
+        const label = normalizeText(labelValue, MAX_LABEL_LENGTH);
+        if (!label) throw new Error('調整名を入力してください。');
+        let found = false;
+        const adjustments = normalizeAdjustmentHistory(records).map(record => {
+            if (record.id !== id) return record;
+            found = true;
+            return { ...record, label };
+        });
+        if (!found) throw new Error('変更する調整履歴が見つかりません。');
+        return adjustments;
+    }
+
+    function deleteAdjustment(records, adjustmentId) {
+        const id = normalizeText(adjustmentId, 120);
+        let found = false;
+        const adjustments = normalizeAdjustmentHistory(records).filter(record => {
+            if (record.id !== id) return true;
+            found = true;
+            return false;
+        });
+        if (!found) throw new Error('削除する調整履歴が見つかりません。');
+        return adjustments;
     }
 
     function resolveActiveAdjustmentId(records, snapshot, adjustmentId = '') {
@@ -164,7 +198,10 @@
         normalizeAdjustmentHistory,
         createCompositionSignature,
         isSameComposition,
+        shouldRecordAdjustment,
         findAdjustment,
+        renameAdjustment,
+        deleteAdjustment,
         resolveActiveAdjustmentId,
         recordAdjustment,
         summarizeAdjustmentChange

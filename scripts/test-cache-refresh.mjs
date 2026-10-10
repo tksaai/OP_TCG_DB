@@ -21,7 +21,7 @@ test('cache refresh UI preserves user data stores', async () => {
 
 test('service worker cache version is advanced for the current data release', async () => {
     const source = await readFile(new URL('service-worker.js', root), 'utf8');
-    assert.match(source, /CACHE_APP_SHELL = 'app-shell-v54'/);
+    assert.match(source, /CACHE_APP_SHELL = 'app-shell-v55'/);
     assert.match(source, /CACHE_CARD_DATA = 'card-data-v18'/);
     assert.match(source, /BLOCK_ICON_RULES_PATH/);
     assert.match(source, /OWNED_CACHE_PREFIXES/);

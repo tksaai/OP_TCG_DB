@@ -108,6 +108,17 @@
         };
     }
 
+    function unlinkAdjustment(records, adjustmentId) {
+        const targetId = normalizeText(adjustmentId, 120);
+        if (!targetId) return normalizeTournamentRecords(records);
+        return normalizeTournamentRecords(records).map(tournament => {
+            if (tournament.adjustmentId !== targetId) return tournament;
+            const unlinked = { ...tournament, updatedAt: new Date().toISOString() };
+            delete unlinked.adjustmentId;
+            return unlinked;
+        });
+    }
+
     function createMatch(input = {}) {
         const match = normalizeMatch({
             ...input,
@@ -152,6 +163,7 @@
         toLocalDateValue,
         normalizeTournamentRecords,
         createTournament,
+        unlinkAdjustment,
         createMatch,
         summarizeTournamentRecords
     });

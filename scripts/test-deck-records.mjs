@@ -80,6 +80,26 @@ test('invalid or incomplete match entries are not restored', () => {
     assert.equal(normalized[0].matches[0].id, 'match-valid');
 });
 
+test('deleting an adjustment unlinks tournaments without deleting their matches', () => {
+    const tournament = records.createTournament({
+        name: 'スタンダードバトル',
+        date: '2026-10-10',
+        adjustmentId: 'adjustment-delete'
+    });
+    tournament.matches.push(records.createMatch({
+        opponentDeck: '紫ルフィ',
+        rpsResult: 'win',
+        playOrder: 'second',
+        result: 'win'
+    }));
+
+    const unlinked = records.unlinkAdjustment([tournament], 'adjustment-delete');
+    assert.equal(unlinked.length, 1);
+    assert.equal(unlinked[0].adjustmentId, undefined);
+    assert.equal(unlinked[0].name, 'スタンダードバトル');
+    assert.equal(unlinked[0].matches.length, 1);
+});
+
 test('deck UI wires tournament records and the five-column composition list', async () => {
     const [html, app, css, worker] = await Promise.all([
         readFile(new URL('index.html', root), 'utf8'),
@@ -93,7 +113,7 @@ test('deck UI wires tournament records and the five-column composition list', as
     assert.match(html, /id="deck-list-preview-btn"/);
     assert.match(html, /id="deck-builder-panel"/);
     assert.doesNotMatch(html, /id="deck-show-toggle-btn"/);
-    assert.match(html, /deck-records\.js\?v=1\.14\.0/);
+    assert.match(html, /deck-records\.js\?v=1\.14\.1/);
     assert.match(app, /tournaments: getDeckTournamentRecords\(editingDeckMeta\)/);
     assert.match(app, /function renderDeckBuilderPanel\(/);
     assert.match(app, /deck-builder-card-stepper/u);
@@ -101,5 +121,5 @@ test('deck UI wires tournament records and the five-column composition list', as
     assert.match(app, /createDeckMenuItem\('大会記録'/);
     assert.match(app, /createDeckMenuItem\('リスト表示'/);
     assert.match(css, /grid-template-columns: repeat\(5, minmax\(0, 1fr\)\)/);
-    assert.match(worker, /deck-records\.js\?v=1\.14\.0/);
+    assert.match(worker, /deck-records\.js\?v=1\.14\.1/);
 });

@@ -17,6 +17,8 @@ test('user guide is linked from the app and covers primary workflows', async () 
         assert.match(guideHtml, new RegExp(`id="${section}"`));
     }
     assert.match(guideHtml, /OP_TCG_DB_User_Manual\.pdf/);
+    assert.match(guideHtml, /調整履歴を使う/u);
+    assert.match(guideHtml, /使用した調整/u);
     assert.match(guideCss, /@media print/);
     assert.match(worker, /relativePath\.startsWith\('\.\/guide\/'\)/);
 });
@@ -28,6 +30,7 @@ test('every guide screenshot exists', async () => {
         'leader-select.png',
         'deck-editor.png',
         'deck-menu.png',
+        'adjustment-history.png',
         'image-import.png',
         'collection.png',
         'settings.png'

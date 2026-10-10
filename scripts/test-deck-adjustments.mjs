@@ -82,6 +82,41 @@ test('adjustment history stays bounded without blocking later deck saves', () =>
     assert.equal(state.adjustments.some(item => item.leader === 'OP00-001'), false);
 });
 
+test('adjustments can be renamed and deleted without changing their snapshots', () => {
+    const first = adjustments.recordAdjustment([], createSnapshot(), { note: '元のメモ' });
+    const adjustmentId = first.activeAdjustmentId;
+    const renamed = adjustments.renameAdjustment(first.adjustments, adjustmentId, '大会後の調整');
+
+    assert.equal(renamed[0].id, adjustmentId);
+    assert.equal(renamed[0].label, '大会後の調整');
+    assert.equal(renamed[0].note, '元のメモ');
+    assert.deepEqual(JSON.parse(JSON.stringify(renamed[0].cards)), createSnapshot().cards);
+    assert.deepEqual(JSON.parse(JSON.stringify(adjustments.deleteAdjustment(renamed, adjustmentId))), []);
+    assert.throws(() => adjustments.renameAdjustment(renamed, adjustmentId, '   '), /調整名/u);
+    assert.throws(() => adjustments.deleteAdjustment([], adjustmentId), /見つかりません/u);
+});
+
+test('deleting the current entry does not recreate it until the composition changes', () => {
+    const snapshot = createSnapshot();
+    const initialCompositionSignature = adjustments.createCompositionSignature(snapshot);
+
+    assert.equal(adjustments.shouldRecordAdjustment(snapshot, {
+        enabled: true,
+        wasEnabled: true,
+        initialCompositionSignature
+    }), false);
+    assert.equal(adjustments.shouldRecordAdjustment(createSnapshot({ leader: 'OP02-001' }), {
+        enabled: true,
+        wasEnabled: true,
+        initialCompositionSignature
+    }), true);
+    assert.equal(adjustments.shouldRecordAdjustment(snapshot, {
+        enabled: true,
+        wasEnabled: false,
+        initialCompositionSignature
+    }), true);
+});
+
 test('adjustment normalization keeps artwork choices and reports changes', () => {
     const normalized = adjustments.normalizeAdjustmentHistory([{
         id: 'adjustment-1',
@@ -121,10 +156,15 @@ test('deck UI wires optional adjustment history and tournament association', asy
     assert.match(html, /id="deck-adjustment-modal"/);
     assert.match(html, /id="deck-adjustment-enabled-toggle"/);
     assert.match(html, /id="tournament-adjustment-select"/);
-    assert.match(html, /deck-adjustments\.js\?v=1\.14\.0/);
+    assert.match(html, /deck-adjustments\.js\?v=1\.14\.1/);
     assert.match(app, /recordAdjustment\(adjustments, currentSnapshot/);
     assert.match(app, /createDeckMenuItem\('調整履歴'/u);
     assert.match(app, /adjustmentId: dom\.tournamentAdjustmentField/);
+    assert.match(app, /rename-adjustment/);
+    assert.match(app, /delete-adjustment/);
+    assert.match(app, /shouldRecordAdjustment\(currentSnapshot/);
+    assert.match(app, /unlinkAdjustment\(/);
     assert.match(css, /\.deck-adjustment-row\.is-active/);
-    assert.match(worker, /deck-adjustments\.js\?v=1\.14\.0/);
+    assert.match(css, /\.deck-adjustment-icon-btn\.destructive/);
+    assert.match(worker, /deck-adjustments\.js\?v=1\.14\.1/);
 });

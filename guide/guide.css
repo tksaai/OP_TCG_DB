@@ -216,6 +216,8 @@ figcaption {
 
 .wide-shot img { max-height: 720px; object-fit: contain; }
 
+.guide-followup { margin-top: 58px; }
+
 .note,
 .warning {
     margin-top: 28px;
@@ -317,6 +319,7 @@ figcaption {
     figure img { max-height: 148mm; object-fit: contain; }
     .wide-shot { width: 112mm; margin-top: 7mm; }
     .wide-shot img { max-height: 136mm; }
+    .guide-followup { margin-top: 0; break-before: page; }
     figcaption { font-size: 8pt; }
     .callout-row,
     .three-column { margin-top: 8mm; gap: 6mm; }

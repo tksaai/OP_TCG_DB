@@ -31,10 +31,10 @@
         <section class="intro page-section" id="start">
             <p class="product-label">ONE PIECE CARD GAME DATABASE</p>
             <h1>OP-TCG DB<br>使い方ガイド</h1>
-            <p class="intro-copy">カード検索、デッキ作成、所持カードと開封記録をスマートフォンで管理するための操作ガイドです。</p>
+            <p class="intro-copy">カード検索、デッキ作成、調整履歴と大会戦績、所持カードと開封記録をスマートフォンで管理するための操作ガイドです。</p>
             <div class="quick-facts" aria-label="このガイドの要点">
                 <div><strong>Cards</strong><span>検索・欲しいカード</span></div>
-                <div><strong>Decks</strong><span>作成・共有・戦績</span></div>
+                <div><strong>Decks</strong><span>作成・共有・調整・戦績</span></div>
                 <div><strong>NEW</strong><span>発売前の仮DB</span></div>
                 <div><strong>Settings</strong><span>更新・オフライン</span></div>
             </div>
@@ -91,6 +91,7 @@
                         <li>下側の「選択中のデッキ」で枚数を確認し、「完了」で保存します。</li>
                     </ol>
                     <div class="note"><strong>リーダー変更</strong><span>編集中のLEADER欄にある「変更」からカード番号を変更できます。画像だけを変える場合はリーダー画像メニューを使います。</span></div>
+                    <div class="note"><strong>調整履歴（任意）</strong><span>「選択中のデッキ」にある「履歴」から記録を有効にできます。同じ構成を保存しただけでは履歴は増えません。</span></div>
                 </div>
                 <figure>
                     <img src="assets/leader-select.png" alt="通常と別イラストが並ぶリーダー選択画面">
@@ -112,7 +113,8 @@
                 <div class="copy-block">
                     <h3>デッキ操作メニュー</h3>
                     <dl class="feature-list">
-                        <div><dt>大会記録</dt><dd>大会ごとに相手デッキ、ジャンケン、先攻・後攻、勝敗を記録します。</dd></div>
+                        <div><dt>大会記録</dt><dd>相手デッキ、ジャンケン、先攻・後攻、勝敗に加え、使用した調整を記録します。</dd></div>
+                        <div><dt>調整履歴</dt><dd>構成変更時のカード、選択画像、メモと、その調整で参加した大会成績を確認します。</dd></div>
                         <div><dt>複製</dt><dd>構成と選択画像をコピーします。大会記録はコピーしません。</dd></div>
                         <div><dt>URLをコピー</dt><dd>相手は内容をプレビューしてから端末へ追加できます。</dd></div>
                         <div><dt>画像出力</dt><dd>デッキリストを高画質PNGでプレビュー・保存します。</dd></div>
@@ -122,13 +124,30 @@
                 </div>
                 <figure>
                     <img src="assets/deck-menu.png" alt="デッキ操作メニュー">
-                    <figcaption>各デッキ右端のメニューから、出力・共有・複製を行います。</figcaption>
+                    <figcaption>各デッキ右端のメニューから、大会・調整履歴、出力、共有、複製を操作します。</figcaption>
                 </figure>
             </div>
             <div class="callout-row">
                 <div><strong>URL受け取り</strong><p>Decksの「URLから追加」へ共有URLまたは共有テキストを貼り付けます。内容確認後に追加されます。</p></div>
                 <div><strong>JSON</strong><p>バックアップや他ツールとの連携用です。カード番号と枚数を保持します。</p></div>
                 <div><strong>画像保存</strong><p>iPhoneではプレビューを長押しして「写真に保存」も利用できます。</p></div>
+            </div>
+            <div class="two-column reverse guide-followup">
+                <div class="copy-block">
+                    <h3>調整履歴を使う</h3>
+                    <ol>
+                        <li>デッキ編集中の「履歴」、またはデッキメニューの「調整履歴」を開きます。</li>
+                        <li>「調整履歴を記録」をオンにします。必要なら次回保存時のメモを入力します。</li>
+                        <li>カード構成やリーダー、選択画像を変更し、「完了」で保存すると新しい履歴が追加されます。</li>
+                        <li>鉛筆で調整名を変更、ごみ箱で履歴を削除できます。「この構成から調整」で過去の構成を編集画面へ戻せます。</li>
+                        <li>大会記録の「使用した調整」を選ぶと、履歴ごとに大会件数と勝敗が集計されます。</li>
+                    </ol>
+                    <div class="warning"><strong>履歴を削除したとき</strong><span>紐づいた大会・対戦内容は削除されません。大会側の関連だけが「紐づけなし」に変更されます。現在の構成を削除しても、構成を変えるまで同じ履歴は自動で復活しません。</span></div>
+                </div>
+                <figure>
+                    <img src="assets/adjustment-history.png" alt="デッキの調整履歴画面">
+                    <figcaption>現在の構成、変更内容、大会成績を一覧化。鉛筆は名前変更、ごみ箱は履歴削除です。</figcaption>
+                </figure>
             </div>
         </section>
 

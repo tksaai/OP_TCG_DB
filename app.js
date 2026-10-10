@@ -51,7 +51,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.14.0'; // バージョン更新
+    const APP_VERSION = '1.14.1'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -3819,6 +3819,18 @@
         return button;
     }
 
+    function createAdjustmentHistoryIconButton(action, label, iconName, adjustmentId, destructive = false) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = `deck-adjustment-icon-btn${destructive ? ' destructive' : ''}`;
+        button.dataset.action = action;
+        button.dataset.adjustmentId = adjustmentId;
+        button.title = label;
+        button.setAttribute('aria-label', label);
+        button.appendChild(createDeckActionIcon(iconName));
+        return button;
+    }
+
     function createDeckAdjustmentRow(deck, history, adjustment, index, activeAdjustmentId) {
         const row = document.createElement('article');
         row.className = `deck-adjustment-row${adjustment.id === activeAdjustmentId ? ' is-active' : ''}`;
@@ -3872,6 +3884,8 @@
         if (adjustment.id !== activeAdjustmentId || !deckAdjustmentHistoryEditing) {
             actions.appendChild(createAdjustmentHistoryButton('restore-adjustment', 'この構成から調整', adjustment.id, true));
         }
+        actions.appendChild(createAdjustmentHistoryIconButton('rename-adjustment', '調整名を変更', 'edit', adjustment.id));
+        actions.appendChild(createAdjustmentHistoryIconButton('delete-adjustment', '調整履歴を削除', 'delete', adjustment.id, true));
         row.append(copy, actions);
         return row;
     }
@@ -3887,7 +3901,14 @@
         const enabled = deckAdjustmentHistoryEditing
             ? editingDeckMeta.adjustmentHistoryEnabled === true
             : deck.adjustmentHistoryEnabled === true;
-        const hasUnsavedComposition = enabled && !activeAdjustmentId;
+        const hasUnsavedComposition = enabled
+            && deckAdjustmentHistoryEditing
+            && !activeAdjustmentId
+            && getDeckAdjustmentsApi().shouldRecordAdjustment(snapshot, {
+                enabled,
+                wasEnabled: editingDeckMeta.adjustmentHistoryWasEnabled === true,
+                initialCompositionSignature: editingDeckMeta.initialAdjustmentSignature
+            });
 
         dom.deckAdjustmentDeckName.textContent = deck.name || '(名称未設定)';
         dom.deckAdjustmentSummary.textContent = hasUnsavedComposition
@@ -3906,7 +3927,9 @@
             const empty = document.createElement('p');
             empty.className = 'deck-adjustment-empty';
             empty.textContent = enabled
-                ? 'まだ履歴はありません。デッキを保存すると現在の構成が最初の履歴になります。'
+                ? hasUnsavedComposition
+                    ? 'まだ履歴はありません。デッキを保存すると現在の構成が最初の履歴になります。'
+                    : 'まだ履歴はありません。構成を変更して保存すると新しい履歴が追加されます。'
                 : '調整履歴はオフです。有効にすると、構成を変更して保存した時点を記録できます。';
             dom.deckAdjustmentList.appendChild(empty);
             return;
@@ -4001,6 +4024,90 @@
         }
     }
 
+    async function applyDeckAdjustmentChanges(deck, adjustments, tournaments, message) {
+        const snapshot = getDeckAdjustmentSnapshot(deck);
+        const activeAdjustmentId = snapshot
+            ? getDeckAdjustmentsApi().resolveActiveAdjustmentId(
+                adjustments,
+                snapshot,
+                deck.activeAdjustmentId
+            )
+            : '';
+        if (deckAdjustmentHistoryEditing) {
+            editingDeckMeta.adjustments = adjustments;
+            editingDeckMeta.activeAdjustmentId = activeAdjustmentId;
+            editingDeckMeta.tournaments = tournaments;
+            renderDeckAdjustmentHistory();
+            const editingMessage = message.endsWith('。') ? message : `${message}。`;
+            showMessageToast(`${editingMessage}「完了」でデッキへ保存されます。`, 'info');
+            return;
+        }
+
+        const nextDeck = {
+            ...deck,
+            adjustments,
+            activeAdjustmentId,
+            tournaments,
+            updatedAt: new Date().toISOString()
+        };
+        await saveDeck(nextDeck);
+        deckAdjustmentHistoryDeck = nextDeck;
+        if (viewingDeck?.id === nextDeck.id) viewingDeck = nextDeck;
+        await loadDeckList();
+        renderDeckAdjustmentHistory();
+        showMessageToast(message, 'success');
+    }
+
+    async function renameDeckAdjustment(deck, adjustment) {
+        const nextLabel = await promptDialog('調整名を入力してください。', adjustment.label, {
+            title: '調整名の変更',
+            confirmLabel: '変更'
+        });
+        if (nextLabel === null) return;
+        try {
+            const adjustments = getDeckAdjustmentsApi().renameAdjustment(
+                getDeckAdjustmentHistory(deck),
+                adjustment.id,
+                nextLabel
+            );
+            await applyDeckAdjustmentChanges(
+                deck,
+                adjustments,
+                getDeckTournamentRecords(deck),
+                '調整名を変更しました。'
+            );
+        } catch (error) {
+            showMessageToast(error.message || '調整名を変更できませんでした。', 'error');
+        }
+    }
+
+    async function deleteDeckAdjustment(deck, adjustment) {
+        const linkedCount = getDeckTournamentRecords(deck)
+            .filter(tournament => tournament.adjustmentId === adjustment.id).length;
+        const linkedMessage = linkedCount > 0
+            ? `紐づいた大会${linkedCount}件は削除せず、「紐づけなし」に変更します。`
+            : 'デッキ構成と大会記録は削除されません。';
+        if (!await confirmDialog(`「${adjustment.label}」を調整履歴から削除します。${linkedMessage}`, {
+            title: '調整履歴を削除',
+            confirmLabel: '削除',
+            danger: true
+        })) return;
+
+        try {
+            const adjustments = getDeckAdjustmentsApi().deleteAdjustment(
+                getDeckAdjustmentHistory(deck),
+                adjustment.id
+            );
+            const tournaments = getDeckRecordsApi().unlinkAdjustment(
+                getDeckTournamentRecords(deck),
+                adjustment.id
+            );
+            await applyDeckAdjustmentChanges(deck, adjustments, tournaments, '調整履歴を削除しました。');
+        } catch (error) {
+            showMessageToast(error.message || '調整履歴を削除できませんでした。', 'error');
+        }
+    }
+
     async function handleDeckAdjustmentAction(event) {
         const button = event.target.closest('[data-action][data-adjustment-id]');
         if (!button) return;
@@ -4009,6 +4116,15 @@
         const adjustment = getDeckAdjustmentHistory(deck)
             .find(item => item.id === button.dataset.adjustmentId);
         if (!adjustment) return;
+
+        if (button.dataset.action === 'rename-adjustment') {
+            await renameDeckAdjustment(deck, adjustment);
+            return;
+        }
+        if (button.dataset.action === 'delete-adjustment') {
+            await deleteDeckAdjustment(deck, adjustment);
+            return;
+        }
 
         if (button.dataset.action === 'view-adjustment') {
             const adjustmentDeck = buildDeckFromAdjustment(deck, adjustment);
@@ -7149,6 +7265,10 @@
             adjustmentHistoryEnabled: deck.adjustmentHistoryEnabled === true,
             adjustments,
             activeAdjustmentId,
+            adjustmentHistoryWasEnabled: deck.adjustmentHistoryEnabled === true,
+            initialAdjustmentSignature: adjustmentSnapshot
+                ? getDeckAdjustmentsApi().createCompositionSignature(adjustmentSnapshot)
+                : '',
             nextAdjustmentNote: '',
             createdAt: deck.createdAt || new Date().toISOString()
         };
@@ -7208,7 +7328,12 @@
         let activeAdjustmentId = editingDeckMeta.activeAdjustmentId || '';
         let createdAdjustment = null;
         try {
-            if (editingDeckMeta.adjustmentHistoryEnabled === true) {
+            const shouldRecordAdjustment = getDeckAdjustmentsApi().shouldRecordAdjustment(currentSnapshot, {
+                enabled: editingDeckMeta.adjustmentHistoryEnabled === true,
+                wasEnabled: editingDeckMeta.adjustmentHistoryWasEnabled === true,
+                initialCompositionSignature: editingDeckMeta.initialAdjustmentSignature
+            });
+            if (shouldRecordAdjustment) {
                 const state = getDeckAdjustmentsApi().recordAdjustment(adjustments, currentSnapshot, {
                     activeAdjustmentId,
                     note: editingDeckMeta.nextAdjustmentNote
