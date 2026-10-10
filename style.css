@@ -2488,6 +2488,10 @@ body.deck-builder-active .deck-builder-panel {
     background-color: var(--color-border);
 }
 
+.deck-builder-history-btn {
+    min-width: 66px;
+}
+
 .deck-builder-selected {
     padding-bottom: 18px;
 }
@@ -3471,6 +3475,7 @@ body.collection-bar-visible #notification-area {
 
 /* === 14. デッキ構成リスト === */
 body.deck-composition-open,
+body.deck-adjustment-open,
 body.tournament-records-open {
     overflow: hidden;
 }
@@ -4042,6 +4047,7 @@ body.proxy-print-open {
 }
 
 .deck-composition-overview,
+.deck-adjustment-overview,
 .tournament-records-overview {
     min-height: 44px;
     display: flex;
@@ -4051,6 +4057,7 @@ body.proxy-print-open {
 }
 
 .deck-composition-overview strong,
+.deck-adjustment-overview strong,
 .tournament-records-overview strong {
     min-width: 0;
     overflow: hidden;
@@ -4061,6 +4068,7 @@ body.proxy-print-open {
 }
 
 .deck-composition-overview span,
+.deck-adjustment-overview span,
 .tournament-records-overview span {
     flex: 0 0 auto;
     color: var(--color-on-surface-variant);
@@ -4216,7 +4224,230 @@ body.proxy-print-open {
     min-width: 112px;
 }
 
-/* === 15. 大会・対戦記録 === */
+/* === 15. デッキ調整履歴 === */
+.deck-adjustment-wrapper {
+    width: min(760px, calc(100vw - 20px));
+    max-width: 760px;
+}
+
+.deck-adjustment-content {
+    max-height: calc(100dvh - max(20px, var(--safe-area-top)) - max(20px, var(--safe-area-bottom)));
+    overflow: hidden;
+}
+
+.deck-adjustment-body {
+    display: grid;
+    gap: 12px;
+}
+
+.deck-adjustment-toggle {
+    min-height: 68px;
+    padding: 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 7px;
+    background-color: #17191c;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.deck-adjustment-toggle input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.deck-adjustment-toggle-ui {
+    position: relative;
+    width: 42px;
+    height: 24px;
+    flex: 0 0 42px;
+    border: 1px solid #59606a;
+    border-radius: 12px;
+    background-color: #2c3138;
+}
+
+.deck-adjustment-toggle-ui::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: #d7dbe0;
+    transition: transform 0.15s ease;
+}
+
+.deck-adjustment-toggle input:checked + .deck-adjustment-toggle-ui {
+    border-color: var(--color-secondary);
+    background-color: var(--color-secondary);
+}
+
+.deck-adjustment-toggle input:checked + .deck-adjustment-toggle-ui::after {
+    background-color: #071a18;
+    transform: translateX(18px);
+}
+
+.deck-adjustment-toggle input:focus-visible + .deck-adjustment-toggle-ui {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}
+
+.deck-adjustment-toggle-copy {
+    min-width: 0;
+    display: grid;
+    gap: 3px;
+}
+
+.deck-adjustment-toggle-copy strong {
+    color: var(--color-on-surface);
+    font-size: 14px;
+}
+
+.deck-adjustment-toggle-copy small {
+    color: var(--color-on-surface-variant);
+    font-size: 11px;
+    line-height: 1.45;
+}
+
+.deck-adjustment-note-field {
+    display: grid;
+    gap: 6px;
+}
+
+.deck-adjustment-note-field[hidden] {
+    display: none;
+}
+
+.deck-adjustment-note-field > span {
+    color: var(--color-on-surface-variant);
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.deck-adjustment-note-field input {
+    width: 100%;
+    min-height: 42px;
+    padding: 8px 10px;
+    border: 1px solid #444a50;
+    border-radius: 5px;
+    outline: none;
+    background-color: #0f1113;
+    color: var(--color-on-surface);
+    font: inherit;
+}
+
+.deck-adjustment-note-field input:focus {
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 0 2px rgba(39, 199, 184, 0.18);
+}
+
+.deck-adjustment-list {
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    border-radius: 7px;
+}
+
+.deck-adjustment-row {
+    padding: 12px;
+    border-bottom: 1px solid var(--color-border);
+    background-color: #202327;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px;
+}
+
+.deck-adjustment-row:last-child {
+    border-bottom: 0;
+}
+
+.deck-adjustment-row.is-active {
+    box-shadow: inset 3px 0 0 var(--color-secondary);
+}
+
+.deck-adjustment-row-copy {
+    min-width: 0;
+}
+
+.deck-adjustment-row-title {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.deck-adjustment-row-title strong {
+    color: var(--color-on-surface);
+    font-size: 14px;
+}
+
+.deck-adjustment-current-badge,
+.tournament-adjustment-badge {
+    min-height: 22px;
+    padding: 2px 6px;
+    border: 1px solid #3e8f86;
+    border-radius: 4px;
+    color: #78ddd2;
+    display: inline-flex;
+    align-items: center;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.deck-adjustment-row-meta,
+.deck-adjustment-row-result,
+.deck-adjustment-row-note {
+    margin-top: 5px;
+    color: var(--color-on-surface-variant);
+    font-size: 11px;
+    line-height: 1.45;
+}
+
+.deck-adjustment-row-note {
+    color: #d5d8dc;
+}
+
+.deck-adjustment-row-actions {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.deck-adjustment-action-btn {
+    min-height: 34px;
+    padding: 5px 8px;
+    border: 1px solid var(--color-border);
+    border-radius: 5px;
+    color: var(--color-on-surface);
+    font-size: 11px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.deck-adjustment-action-btn.primary {
+    border-color: #3e8f86;
+    color: #78ddd2;
+}
+
+.deck-adjustment-empty {
+    margin: 0;
+    padding: 28px 14px;
+    background-color: #17191c;
+    color: var(--color-on-surface-variant);
+    font-size: 12px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.deck-adjustment-actions .modal-btn {
+    min-width: 112px;
+}
+
+/* === 16. 大会・対戦記録 === */
 .tournament-records-wrapper {
     width: min(820px, calc(100vw - 20px));
     max-width: 820px;
@@ -4265,7 +4496,7 @@ body.proxy-print-open {
 .tournament-form-fields {
     margin-top: 10px;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 170px auto;
+    grid-template-columns: minmax(0, 1fr) 150px minmax(180px, 0.8fr) auto;
     align-items: end;
     gap: 9px;
 }
@@ -4284,6 +4515,7 @@ body.proxy-print-open {
 }
 
 .tournament-field input,
+.tournament-field select,
 .tournament-match-field input,
 .tournament-match-field select {
     width: 100%;
@@ -4299,6 +4531,7 @@ body.proxy-print-open {
 }
 
 .tournament-field input:focus,
+.tournament-field select:focus,
 .tournament-match-field input:focus,
 .tournament-match-field select:focus {
     border-color: var(--color-secondary);
@@ -4358,6 +4591,10 @@ body.proxy-print-open {
     color: var(--color-on-surface-variant);
     font-size: 11px;
     font-weight: 700;
+}
+
+.tournament-card-adjustment {
+    margin-top: 6px;
 }
 
 .tournament-card-actions,
@@ -4521,6 +4758,7 @@ body.proxy-print-open {
 
 @media (max-width: 700px) {
     .deck-composition-wrapper,
+    .deck-adjustment-wrapper,
     .tournament-records-wrapper {
         width: calc(100vw - 10px);
         margin-right: calc(5px + var(--safe-area-right));
@@ -4528,6 +4766,7 @@ body.proxy-print-open {
     }
 
     .deck-composition-body,
+    .deck-adjustment-body,
     .tournament-records-body {
         padding: 9px;
     }
@@ -4563,6 +4802,10 @@ body.proxy-print-open {
         grid-template-columns: minmax(0, 1fr) 145px;
     }
 
+    .tournament-field-adjustment {
+        grid-column: 1 / -1;
+    }
+
     .tournament-form-submit {
         grid-column: 1 / -1;
     }
@@ -4594,10 +4837,35 @@ body.proxy-print-open {
         grid-column: 3;
         grid-row: 1;
     }
+
+    .deck-adjustment-row {
+        grid-template-columns: 1fr;
+    }
+
+    .deck-adjustment-row-actions {
+        justify-content: flex-end;
+    }
+}
+
+@media (max-width: 430px) {
+    .deck-builder-divider {
+        gap: 7px;
+    }
+
+    .deck-builder-toolbar {
+        gap: 5px;
+    }
+
+    .deck-builder-preview-btn {
+        min-width: 62px;
+        padding-right: 8px;
+        padding-left: 8px;
+    }
 }
 
 @media (max-width: 390px) {
     .deck-composition-overview,
+    .deck-adjustment-overview,
     .tournament-records-overview {
         align-items: flex-start;
         flex-direction: column;
@@ -4618,7 +4886,7 @@ body.proxy-print-open {
     }
 }
 
-/* === 16. デッキ画像プレビュー === */
+/* === 17. デッキ画像プレビュー === */
 body.deck-image-preview-open {
     overflow: hidden;
 }

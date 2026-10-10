@@ -51,7 +51,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.13.1'; // バージョン更新
+    const APP_VERSION = '1.14.0'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -136,6 +136,8 @@
     let openingWriteQueue = Promise.resolve();
     let deckCompositionDeck = null;
     let deckCompositionEditable = false;
+    let deckAdjustmentHistoryDeck = null;
+    let deckAdjustmentHistoryEditing = false;
     let tournamentRecordsDeck = null;
     let editingTournamentId = null;
     let editingTournamentMatch = null;
@@ -326,6 +328,7 @@
             deckStatusInfo: $('#deck-status-info'),
             deckSaveBtn: $('#deck-save-btn'),
             deckListPreviewBtn: $('#deck-list-preview-btn'),
+            deckAdjustmentHistoryBtn: $('#deck-adjustment-history-btn'),
             deckParallelToggle: $('#deck-parallel-toggle'),
             deckBuilderPanel: $('#deck-builder-panel'),
             deckBuilderMainCount: $('#deck-builder-main-count'),
@@ -409,6 +412,16 @@
             deckCompositionMainGrid: $('#deck-composition-main-grid'),
             deckCompositionLeaderGrid: $('#deck-composition-leader-grid'),
 
+            deckAdjustmentModal: $('#deck-adjustment-modal'),
+            deckAdjustmentCloseBtn: $('#deck-adjustment-close-btn'),
+            deckAdjustmentDoneBtn: $('#deck-adjustment-done-btn'),
+            deckAdjustmentDeckName: $('#deck-adjustment-deck-name'),
+            deckAdjustmentSummary: $('#deck-adjustment-summary'),
+            deckAdjustmentEnabledToggle: $('#deck-adjustment-enabled-toggle'),
+            deckAdjustmentNoteField: $('#deck-adjustment-note-field'),
+            deckAdjustmentNoteInput: $('#deck-adjustment-note-input'),
+            deckAdjustmentList: $('#deck-adjustment-list'),
+
             tournamentRecordsModal: $('#tournament-records-modal'),
             tournamentRecordsCloseBtn: $('#tournament-records-close-btn'),
             tournamentRecordsDoneBtn: $('#tournament-records-done-btn'),
@@ -420,6 +433,8 @@
             tournamentFormSubmitBtn: $('#tournament-form-submit-btn'),
             tournamentNameInput: $('#tournament-name-input'),
             tournamentDateInput: $('#tournament-date-input'),
+            tournamentAdjustmentField: $('#tournament-adjustment-field'),
+            tournamentAdjustmentSelect: $('#tournament-adjustment-select'),
             tournamentRecordsList: $('#tournament-records-list'),
     
             dbUpdateNotification: $('#db-update-notification'),
@@ -3355,6 +3370,9 @@
                         ? { leaderVariantId: deck.leaderVariantId }
                         : {}),
                     tournaments: getDeckTournamentRecords(deck),
+                    adjustmentHistoryEnabled: deck.adjustmentHistoryEnabled === true,
+                    adjustments: getDeckAdjustmentHistory(deck),
+                    activeAdjustmentId: getDeckActiveAdjustment(deck)?.id || '',
                     createdAt: deck.createdAt || null,
                     updatedAt: deck.updatedAt || null
                 }
@@ -3480,6 +3498,57 @@
         }
     }
 
+    function getDeckAdjustmentsApi() {
+        if (!window.OPTCGDeckAdjustments) {
+            throw new Error('調整履歴機能を読み込めませんでした。アプリを更新してください。');
+        }
+        return window.OPTCGDeckAdjustments;
+    }
+
+    function getDeckAdjustmentSnapshot(deck) {
+        try {
+            const cardVariants = getCompactDeckVariantCounts(deck || {});
+            return getDeckAdjustmentsApi().normalizeSnapshot({
+                leader: deck?.leader,
+                cards: { ...(deck?.cards || {}) },
+                ...(Object.keys(cardVariants).length > 0 ? { cardVariants } : {}),
+                ...(deck?.leaderVariantId && deck.leaderVariantId !== deck.leader
+                    ? { leaderVariantId: deck.leaderVariantId }
+                    : {})
+            });
+        } catch (error) {
+            console.error('Failed to normalize deck adjustment snapshot:', error);
+            return null;
+        }
+    }
+
+    function getDeckAdjustmentHistory(deck) {
+        try {
+            return getDeckAdjustmentsApi().normalizeAdjustmentHistory(deck?.adjustments);
+        } catch (error) {
+            console.error('Failed to normalize deck adjustment history:', error);
+            return [];
+        }
+    }
+
+    function getDeckActiveAdjustment(deck) {
+        const history = getDeckAdjustmentHistory(deck);
+        const snapshot = getDeckAdjustmentSnapshot(deck);
+        if (!snapshot) return null;
+        const activeId = getDeckAdjustmentsApi().resolveActiveAdjustmentId(
+            history,
+            snapshot,
+            deck?.activeAdjustmentId
+        );
+        return history.find(adjustment => adjustment.id === activeId) || null;
+    }
+
+    function getDeckAdjustmentLabel(deck, adjustmentId) {
+        if (!adjustmentId) return '';
+        return getDeckAdjustmentHistory(deck)
+            .find(adjustment => adjustment.id === adjustmentId)?.label || '過去の調整';
+    }
+
     function getDeckRecordsApi() {
         if (!window.OPTCGDeckRecords) {
             throw new Error('大会記録機能を読み込めませんでした。アプリを更新してください。');
@@ -3527,7 +3596,10 @@
             ...(editingDeckLeaderVariantId && editingDeckLeaderVariantId !== editingDeckMeta.leader
                 ? { leaderVariantId: editingDeckLeaderVariantId }
                 : {}),
-            tournaments: getDeckTournamentRecords(editingDeckMeta)
+            tournaments: getDeckTournamentRecords(editingDeckMeta),
+            adjustmentHistoryEnabled: editingDeckMeta.adjustmentHistoryEnabled === true,
+            adjustments: getDeckAdjustmentHistory(editingDeckMeta),
+            activeAdjustmentId: editingDeckMeta.activeAdjustmentId || ''
         };
     }
 
@@ -3690,6 +3762,274 @@
         deckCompositionEditable = false;
     }
 
+    function getDeckAdjustmentModalSource() {
+        if (deckAdjustmentHistoryEditing) {
+            return getEditingDeckSnapshot() || deckAdjustmentHistoryDeck;
+        }
+        return deckAdjustmentHistoryDeck;
+    }
+
+    function formatAdjustmentTimestamp(value) {
+        const date = new Date(value);
+        if (Number.isNaN(date.getTime())) return '日時不明';
+        return date.toLocaleString('ja-JP', {
+            year: 'numeric',
+            month: 'numeric',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+    }
+
+    function buildDeckFromAdjustment(deck, adjustment) {
+        return {
+            ...deck,
+            leader: adjustment.leader,
+            cards: { ...(adjustment.cards || {}) },
+            ...(adjustment.cardVariants ? { cardVariants: { ...adjustment.cardVariants } } : { cardVariants: {} }),
+            ...(adjustment.leaderVariantId
+                ? { leaderVariantId: adjustment.leaderVariantId }
+                : { leaderVariantId: adjustment.leader }),
+            adjustmentHistoryEnabled: deck.adjustmentHistoryEnabled === true,
+            adjustments: getDeckAdjustmentHistory(deck),
+            activeAdjustmentId: ''
+        };
+    }
+
+    function getAdjustmentChangeText(history, index) {
+        const adjustment = history[index];
+        const previous = index > 0 ? history[index - 1] : null;
+        const change = getDeckAdjustmentsApi().summarizeAdjustmentChange(previous, adjustment);
+        if (!previous) return `${Object.values(adjustment.cards || {}).reduce((sum, count) => sum + count, 0)}枚を記録`;
+        const parts = [];
+        if (change.leaderChanged) parts.push('リーダー変更');
+        if (change.added > 0) parts.push(`+${change.added}枚`);
+        if (change.removed > 0) parts.push(`-${change.removed}枚`);
+        if (change.changedTypes > 0) parts.push(`${change.changedTypes}種変更`);
+        return parts.join(' · ') || '画像設定のみ変更';
+    }
+
+    function createAdjustmentHistoryButton(action, label, adjustmentId, primary = false) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = `deck-adjustment-action-btn${primary ? ' primary' : ''}`;
+        button.dataset.action = action;
+        button.dataset.adjustmentId = adjustmentId;
+        button.textContent = label;
+        return button;
+    }
+
+    function createDeckAdjustmentRow(deck, history, adjustment, index, activeAdjustmentId) {
+        const row = document.createElement('article');
+        row.className = `deck-adjustment-row${adjustment.id === activeAdjustmentId ? ' is-active' : ''}`;
+        row.dataset.adjustmentId = adjustment.id;
+
+        const copy = document.createElement('div');
+        copy.className = 'deck-adjustment-row-copy';
+        const title = document.createElement('div');
+        title.className = 'deck-adjustment-row-title';
+        const label = document.createElement('strong');
+        label.textContent = adjustment.label;
+        title.appendChild(label);
+        if (adjustment.id === activeAdjustmentId) {
+            const current = document.createElement('span');
+            current.className = 'deck-adjustment-current-badge';
+            current.textContent = '現在';
+            title.appendChild(current);
+        }
+
+        const cardCount = Object.values(adjustment.cards || {}).reduce((sum, count) => sum + count, 0);
+        const meta = document.createElement('div');
+        meta.className = 'deck-adjustment-row-meta';
+        meta.textContent = [
+            formatAdjustmentTimestamp(adjustment.createdAt),
+            `リーダー ${adjustment.leader}`,
+            `${cardCount}枚`,
+            getAdjustmentChangeText(history, index)
+        ].join(' · ');
+        copy.append(title, meta);
+
+        if (adjustment.note && adjustment.note !== adjustment.label) {
+            const note = document.createElement('div');
+            note.className = 'deck-adjustment-row-note';
+            note.textContent = adjustment.note;
+            copy.appendChild(note);
+        }
+
+        const linkedTournaments = getDeckTournamentRecords(deck)
+            .filter(tournament => tournament.adjustmentId === adjustment.id);
+        if (linkedTournaments.length > 0) {
+            const result = getDeckRecordsApi().summarizeTournamentRecords(linkedTournaments);
+            const resultText = document.createElement('div');
+            resultText.className = 'deck-adjustment-row-result';
+            resultText.textContent = `大会 ${result.tournamentCount}件 · ${formatMatchRecord(result)} · ${result.matchCount}試合`;
+            copy.appendChild(resultText);
+        }
+
+        const actions = document.createElement('div');
+        actions.className = 'deck-adjustment-row-actions';
+        actions.appendChild(createAdjustmentHistoryButton('view-adjustment', 'リスト', adjustment.id));
+        if (adjustment.id !== activeAdjustmentId || !deckAdjustmentHistoryEditing) {
+            actions.appendChild(createAdjustmentHistoryButton('restore-adjustment', 'この構成から調整', adjustment.id, true));
+        }
+        row.append(copy, actions);
+        return row;
+    }
+
+    function renderDeckAdjustmentHistory() {
+        const deck = getDeckAdjustmentModalSource();
+        if (!deck || !dom.deckAdjustmentList) return;
+        const history = getDeckAdjustmentHistory(deck);
+        const snapshot = getDeckAdjustmentSnapshot(deck);
+        const activeAdjustmentId = snapshot
+            ? getDeckAdjustmentsApi().resolveActiveAdjustmentId(history, snapshot, deck.activeAdjustmentId)
+            : '';
+        const enabled = deckAdjustmentHistoryEditing
+            ? editingDeckMeta.adjustmentHistoryEnabled === true
+            : deck.adjustmentHistoryEnabled === true;
+        const hasUnsavedComposition = enabled && !activeAdjustmentId;
+
+        dom.deckAdjustmentDeckName.textContent = deck.name || '(名称未設定)';
+        dom.deckAdjustmentSummary.textContent = hasUnsavedComposition
+            ? `履歴 ${history.length}件 · 次回保存で追加`
+            : activeAdjustmentId
+                ? `履歴 ${history.length}件 · ${getDeckAdjustmentLabel(deck, activeAdjustmentId)}`
+                : `履歴 ${history.length}件`;
+        dom.deckAdjustmentEnabledToggle.checked = enabled;
+        dom.deckAdjustmentNoteField.hidden = !deckAdjustmentHistoryEditing || !enabled;
+        if (deckAdjustmentHistoryEditing && dom.deckAdjustmentNoteInput.value !== (editingDeckMeta.nextAdjustmentNote || '')) {
+            dom.deckAdjustmentNoteInput.value = editingDeckMeta.nextAdjustmentNote || '';
+        }
+
+        dom.deckAdjustmentList.innerHTML = '';
+        if (history.length === 0) {
+            const empty = document.createElement('p');
+            empty.className = 'deck-adjustment-empty';
+            empty.textContent = enabled
+                ? 'まだ履歴はありません。デッキを保存すると現在の構成が最初の履歴になります。'
+                : '調整履歴はオフです。有効にすると、構成を変更して保存した時点を記録できます。';
+            dom.deckAdjustmentList.appendChild(empty);
+            return;
+        }
+        const fragment = document.createDocumentFragment();
+        [...history].reverse().forEach((adjustment, reverseIndex) => {
+            const index = history.length - 1 - reverseIndex;
+            fragment.appendChild(createDeckAdjustmentRow(deck, history, adjustment, index, activeAdjustmentId));
+        });
+        dom.deckAdjustmentList.appendChild(fragment);
+    }
+
+    function openDeckAdjustmentHistory(deck, options = {}) {
+        if (!deck || !dom.deckAdjustmentModal) return;
+        try {
+            getDeckAdjustmentsApi();
+        } catch (error) {
+            showMessageToast(error.message, 'error');
+            return;
+        }
+        deckAdjustmentHistoryEditing = options.editing === true && currentMode === 'deck_edit';
+        deckAdjustmentHistoryDeck = {
+            ...deck,
+            cards: { ...(deck.cards || {}) },
+            cardVariants: { ...(deck.cardVariants || {}) },
+            adjustments: getDeckAdjustmentHistory(deck),
+            tournaments: getDeckTournamentRecords(deck)
+        };
+        renderDeckAdjustmentHistory();
+        dom.deckAdjustmentModal.style.display = 'flex';
+        dom.deckAdjustmentModal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('deck-adjustment-open');
+        setTimeout(() => dom.deckAdjustmentCloseBtn?.focus(), 30);
+    }
+
+    function openCurrentDeckAdjustmentHistory() {
+        const deck = getEditingDeckSnapshot();
+        if (deck) {
+            openDeckAdjustmentHistory(deck, { editing: true });
+        } else if (currentMode === 'deck_view' && viewingDeck) {
+            openDeckAdjustmentHistory(viewingDeck);
+        }
+    }
+
+    function closeDeckAdjustmentHistory() {
+        if (!dom.deckAdjustmentModal) return;
+        dom.deckAdjustmentModal.style.display = 'none';
+        dom.deckAdjustmentModal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('deck-adjustment-open');
+        deckAdjustmentHistoryDeck = null;
+        deckAdjustmentHistoryEditing = false;
+    }
+
+    async function updateDeckAdjustmentHistoryEnabled(enabled) {
+        if (deckAdjustmentHistoryEditing) {
+            editingDeckMeta.adjustmentHistoryEnabled = enabled;
+            if (!enabled) editingDeckMeta.nextAdjustmentNote = '';
+            renderDeckAdjustmentHistory();
+            return;
+        }
+        const deck = deckAdjustmentHistoryDeck;
+        if (!deck) return;
+        let adjustments = getDeckAdjustmentHistory(deck);
+        let activeAdjustmentId = deck.activeAdjustmentId || '';
+        try {
+            if (enabled) {
+                const state = getDeckAdjustmentsApi().recordAdjustment(
+                    adjustments,
+                    getDeckAdjustmentSnapshot(deck),
+                    { activeAdjustmentId }
+                );
+                adjustments = state.adjustments;
+                activeAdjustmentId = state.activeAdjustmentId;
+            }
+            const nextDeck = {
+                ...deck,
+                adjustmentHistoryEnabled: enabled,
+                adjustments,
+                activeAdjustmentId,
+                updatedAt: new Date().toISOString()
+            };
+            await saveDeck(nextDeck);
+            deckAdjustmentHistoryDeck = nextDeck;
+            if (viewingDeck?.id === nextDeck.id) viewingDeck = nextDeck;
+            await loadDeckList();
+            renderDeckAdjustmentHistory();
+            showMessageToast(enabled ? '調整履歴を有効にしました。' : '調整履歴の記録を停止しました。', 'success');
+        } catch (error) {
+            console.error('Failed to update deck adjustment history:', error);
+            renderDeckAdjustmentHistory();
+            showMessageToast(error.message || '調整履歴の設定を保存できませんでした。', 'error');
+        }
+    }
+
+    async function handleDeckAdjustmentAction(event) {
+        const button = event.target.closest('[data-action][data-adjustment-id]');
+        if (!button) return;
+        const deck = getDeckAdjustmentModalSource();
+        if (!deck) return;
+        const adjustment = getDeckAdjustmentHistory(deck)
+            .find(item => item.id === button.dataset.adjustmentId);
+        if (!adjustment) return;
+
+        if (button.dataset.action === 'view-adjustment') {
+            const adjustmentDeck = buildDeckFromAdjustment(deck, adjustment);
+            closeDeckAdjustmentHistory();
+            openDeckComposition(adjustmentDeck);
+            return;
+        }
+        if (button.dataset.action !== 'restore-adjustment') return;
+        if (!await confirmDialog(`「${adjustment.label}」の構成から調整を始めます。現在の未保存変更は置き換わります。`, {
+            title: '過去の構成から調整',
+            confirmLabel: 'この構成を使う'
+        })) return;
+
+        const restoredDeck = buildDeckFromAdjustment(deck, adjustment);
+        closeDeckAdjustmentHistory();
+        setActiveNav('decks');
+        startDeckEdit(restoredDeck);
+        editingDeckMeta.nextAdjustmentNote = `${adjustment.label}から再調整`;
+        showMessageToast('過去の構成を編集画面へ読み込みました。完了を押すまで保存されません。', 'info');
+    }
+
     function formatTournamentDate(dateValue) {
         if (!dateValue) return '日付未設定';
         const date = new Date(`${dateValue}T00:00:00`);
@@ -3703,6 +4043,31 @@
 
     function getSingleTournamentSummary(tournament) {
         return getDeckRecordsApi().summarizeTournamentRecords([tournament]);
+    }
+
+    function populateTournamentAdjustmentOptions(selectedAdjustmentId) {
+        if (!dom.tournamentAdjustmentField || !dom.tournamentAdjustmentSelect) return;
+        const history = getDeckAdjustmentHistory(tournamentRecordsDeck);
+        dom.tournamentAdjustmentSelect.innerHTML = '';
+        dom.tournamentAdjustmentField.hidden = history.length === 0;
+        if (history.length === 0) return;
+
+        const none = document.createElement('option');
+        none.value = '';
+        none.textContent = '紐づけなし';
+        dom.tournamentAdjustmentSelect.appendChild(none);
+        [...history].reverse().forEach(adjustment => {
+            const option = document.createElement('option');
+            option.value = adjustment.id;
+            option.textContent = `${adjustment.label} (${formatAdjustmentTimestamp(adjustment.createdAt)})`;
+            dom.tournamentAdjustmentSelect.appendChild(option);
+        });
+
+        const active = getDeckActiveAdjustment(tournamentRecordsDeck);
+        const value = selectedAdjustmentId === undefined
+            ? active?.id || ''
+            : selectedAdjustmentId || '';
+        dom.tournamentAdjustmentSelect.value = history.some(item => item.id === value) ? value : '';
     }
 
     function createTournamentIconButton(action, label, iconName, tournamentId, matchId = '', destructive = false) {
@@ -3862,6 +4227,15 @@
         meta.className = 'tournament-card-meta';
         meta.textContent = `${formatTournamentDate(tournament.date)} · ${formatMatchRecord(summary)} · ${summary.matchCount}試合`;
         titleCopy.append(title, meta);
+        if (tournament.adjustmentId) {
+            const adjustment = document.createElement('div');
+            adjustment.className = 'tournament-card-adjustment';
+            const badge = document.createElement('span');
+            badge.className = 'tournament-adjustment-badge';
+            badge.textContent = getDeckAdjustmentLabel(tournamentRecordsDeck, tournament.adjustmentId);
+            adjustment.appendChild(badge);
+            titleCopy.appendChild(adjustment);
+        }
         titleRow.appendChild(titleCopy);
 
         const actions = document.createElement('div');
@@ -3915,6 +4289,7 @@
         if (!dom.tournamentForm) return;
         dom.tournamentForm.reset();
         dom.tournamentDateInput.value = getDeckRecordsApi().toLocalDateValue();
+        populateTournamentAdjustmentOptions();
         dom.tournamentFormTitle.textContent = '大会を追加';
         dom.tournamentFormSubmitBtn.textContent = '大会を追加';
         dom.tournamentFormCancelBtn.hidden = true;
@@ -3927,6 +4302,7 @@
         editingTournamentId = tournament.id;
         dom.tournamentNameInput.value = tournament.name;
         dom.tournamentDateInput.value = tournament.date;
+        populateTournamentAdjustmentOptions(tournament.adjustmentId || '');
         dom.tournamentFormTitle.textContent = '大会情報を編集';
         dom.tournamentFormSubmitBtn.textContent = '大会情報を更新';
         dom.tournamentFormCancelBtn.hidden = false;
@@ -3969,7 +4345,10 @@
         try {
             draft = getDeckRecordsApi().createTournament({
                 name: dom.tournamentNameInput.value,
-                date: dom.tournamentDateInput.value
+                date: dom.tournamentDateInput.value,
+                adjustmentId: dom.tournamentAdjustmentField?.hidden
+                    ? ''
+                    : dom.tournamentAdjustmentSelect?.value
             });
         } catch (error) {
             showMessageToast(error.message, 'error');
@@ -3985,6 +4364,7 @@
                 ...tournament,
                 name: draft.name,
                 date: draft.date,
+                adjustmentId: draft.adjustmentId || '',
                 updatedAt: new Date().toISOString()
             } : tournament);
             message = '大会情報を更新しました。';
@@ -4119,6 +4499,7 @@
         tournamentRecordsDeck = {
             ...deck,
             cards: { ...(deck.cards || {}) },
+            adjustments: getDeckAdjustmentHistory(deck),
             tournaments: getDeckTournamentRecords(deck)
         };
         editingTournamentMatch = null;
@@ -6447,6 +6828,7 @@
             print: '<path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/>',
             list: '<rect x="3" y="3" width="7" height="8" rx="1"/><rect x="14" y="3" width="7" height="8" rx="1"/><rect x="3" y="15" width="7" height="6" rx="1"/><rect x="14" y="15" width="7" height="6" rx="1"/>',
             record: '<path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10v4a5 5 0 0 1-10 0Z"/><path d="M7 6H4v1a4 4 0 0 0 4 4"/><path d="M17 6h3v1a4 4 0 0 1-4 4"/>',
+            history: '<path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/>',
             copy: '<rect width="14" height="14" x="8" y="8" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/>',
             delete: '<path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v5"/><path d="M14 11v5"/>'
         };
@@ -6579,6 +6961,7 @@
         const total = Object.values(deck.cards || {}).reduce((sum, n) => sum + n, 0);
         const colors = leaderCard && Array.isArray(leaderCard.color) ? leaderCard.color.join('/') : '';
         const tournamentSummary = getDeckTournamentSummary(deck);
+        const adjustmentCount = getDeckAdjustmentHistory(deck).length;
 
         const el = document.createElement('div');
         el.className = 'deck-item';
@@ -6619,6 +7002,7 @@
             tournamentSummary.matchCount > 0
                 ? `大会${tournamentSummary.tournamentCount}件 ${formatMatchRecord(tournamentSummary)}`
                 : '',
+            adjustmentCount > 0 ? `調整${adjustmentCount}件` : '',
             `更新: ${new Date(deck.updatedAt).toLocaleDateString('ja-JP')}`
         ].filter(Boolean).join(' | ');
         info.appendChild(nameEl);
@@ -6660,6 +7044,7 @@
         menu.hidden = true;
         moreBtn.setAttribute('aria-controls', menu.id);
         menu.appendChild(createDeckMenuItem('大会記録', 'record', () => openTournamentRecords(deck)));
+        menu.appendChild(createDeckMenuItem('調整履歴', 'history', () => openDeckAdjustmentHistory(deck)));
         menu.appendChild(createDeckMenuItem('リスト表示', 'list', () => openDeckComposition(deck)));
         menu.appendChild(createDeckMenuItem('複製', 'copy', () => duplicateDeck(deck)));
         menu.appendChild(createDeckMenuItem('JSON出力', 'export', () => exportDeckJson(deck)));
@@ -6740,6 +7125,11 @@
         const deckCardPool = getDeckCardPool();
         const leaderCard = findCardByNumber(deck.leader);
         const colors = leaderCard && Array.isArray(leaderCard.color) ? leaderCard.color : [];
+        const adjustments = getDeckAdjustmentHistory(deck);
+        const adjustmentSnapshot = getDeckAdjustmentSnapshot(deck);
+        const activeAdjustmentId = adjustmentSnapshot
+            ? getDeckAdjustmentsApi().resolveActiveAdjustmentId(adjustments, adjustmentSnapshot, deck.activeAdjustmentId)
+            : '';
 
         currentMode = 'deck_edit';
         activeCardView = 'cards';
@@ -6756,6 +7146,10 @@
             ownedCards: { ...(deck.ownedCards || {}) },
             ownedCardsLinked: deck.ownedCardsLinked === true,
             tournaments: getDeckTournamentRecords(deck),
+            adjustmentHistoryEnabled: deck.adjustmentHistoryEnabled === true,
+            adjustments,
+            activeAdjustmentId,
+            nextAdjustmentNote: '',
             createdAt: deck.createdAt || new Date().toISOString()
         };
         showCardListView();
@@ -6802,6 +7196,37 @@
             cards: editingDeckData,
             cardVariants: editingDeckVariantData
         });
+        const currentSnapshot = getDeckAdjustmentsApi().normalizeSnapshot({
+            leader: editingDeckMeta.leader,
+            cards: editingDeckData,
+            ...(Object.keys(cardVariants).length > 0 ? { cardVariants } : {}),
+            ...(editingDeckLeaderVariantId && editingDeckLeaderVariantId !== editingDeckMeta.leader
+                ? { leaderVariantId: editingDeckLeaderVariantId }
+                : {})
+        });
+        let adjustments = getDeckAdjustmentHistory(editingDeckMeta);
+        let activeAdjustmentId = editingDeckMeta.activeAdjustmentId || '';
+        let createdAdjustment = null;
+        try {
+            if (editingDeckMeta.adjustmentHistoryEnabled === true) {
+                const state = getDeckAdjustmentsApi().recordAdjustment(adjustments, currentSnapshot, {
+                    activeAdjustmentId,
+                    note: editingDeckMeta.nextAdjustmentNote
+                });
+                adjustments = state.adjustments;
+                activeAdjustmentId = state.activeAdjustmentId;
+                createdAdjustment = state.created;
+            } else {
+                activeAdjustmentId = getDeckAdjustmentsApi().resolveActiveAdjustmentId(
+                    adjustments,
+                    currentSnapshot,
+                    activeAdjustmentId
+                );
+            }
+        } catch (error) {
+            showMessageToast(error.message || '調整履歴を保存できませんでした。', 'error');
+            return;
+        }
         const deckRequirements = {
             leader: editingDeckMeta.leader,
             cards: editingDeckData
@@ -6826,6 +7251,9 @@
             ),
             ownedCardsLinked: true,
             tournaments: getDeckTournamentRecords(editingDeckMeta),
+            adjustmentHistoryEnabled: editingDeckMeta.adjustmentHistoryEnabled === true,
+            adjustments,
+            activeAdjustmentId,
             createdAt: editingDeckMeta.createdAt,
             updatedAt: new Date().toISOString()
         };
@@ -6833,7 +7261,9 @@
             await saveDeck(deck);
             const total = getDeckTotalCount();
             if (total !== DECK_MAX_CARDS) {
-                showMessageToast(`デッキを保存しました (${total}/${DECK_MAX_CARDS}枚)`, 'info');
+                showMessageToast(`${createdAdjustment ? '調整履歴と' : ''}デッキを保存しました (${total}/${DECK_MAX_CARDS}枚)`, 'info');
+            } else if (createdAdjustment) {
+                showMessageToast(`デッキを保存し、「${createdAdjustment.label}」を記録しました。`, 'success');
             } else {
                 showMessageToast('デッキを保存しました', 'success');
             }
@@ -6889,10 +7319,18 @@
             ownedCards: { ...(deck.ownedCards || {}) },
             ownedCardsLinked: deck.ownedCardsLinked === true,
             tournaments: [],
+            adjustmentHistoryEnabled: deck.adjustmentHistoryEnabled === true,
+            adjustments: [],
+            activeAdjustmentId: '',
             createdAt: now,
             updatedAt: now
         };
         try {
+            if (duplicated.adjustmentHistoryEnabled) {
+                const state = getDeckAdjustmentsApi().recordAdjustment([], duplicated, { note: '複製時の構成' });
+                duplicated.adjustments = state.adjustments;
+                duplicated.activeAdjustmentId = state.activeAdjustmentId;
+            }
             await saveDeck(duplicated);
             await loadDeckList();
             showMessageToast(`「${duplicated.name}」を複製しました。`, 'success');
@@ -7444,6 +7882,9 @@
                 if (dom.tournamentRecordsModal?.style.display !== 'none') {
                     event.preventDefault();
                     closeTournamentRecords();
+                } else if (dom.deckAdjustmentModal?.style.display !== 'none') {
+                    event.preventDefault();
+                    closeDeckAdjustmentHistory();
                 } else if (dom.deckCompositionModal?.style.display !== 'none') {
                     event.preventDefault();
                     closeDeckComposition();
@@ -7678,6 +8119,32 @@
             dom.deckCompositionModal.addEventListener('click', event => {
                 if (event.target === dom.deckCompositionModal) closeDeckComposition();
             });
+        }
+        if (dom.deckAdjustmentCloseBtn) {
+            dom.deckAdjustmentCloseBtn.addEventListener('click', closeDeckAdjustmentHistory);
+        }
+        if (dom.deckAdjustmentDoneBtn) {
+            dom.deckAdjustmentDoneBtn.addEventListener('click', closeDeckAdjustmentHistory);
+        }
+        if (dom.deckAdjustmentModal) {
+            dom.deckAdjustmentModal.addEventListener('click', event => {
+                if (event.target === dom.deckAdjustmentModal) closeDeckAdjustmentHistory();
+            });
+        }
+        if (dom.deckAdjustmentEnabledToggle) {
+            dom.deckAdjustmentEnabledToggle.addEventListener('change', () => {
+                updateDeckAdjustmentHistoryEnabled(dom.deckAdjustmentEnabledToggle.checked);
+            });
+        }
+        if (dom.deckAdjustmentNoteInput) {
+            dom.deckAdjustmentNoteInput.addEventListener('input', () => {
+                if (deckAdjustmentHistoryEditing) {
+                    editingDeckMeta.nextAdjustmentNote = dom.deckAdjustmentNoteInput.value;
+                }
+            });
+        }
+        if (dom.deckAdjustmentList) {
+            dom.deckAdjustmentList.addEventListener('click', handleDeckAdjustmentAction);
         }
         if (dom.tournamentRecordsCloseBtn) {
             dom.tournamentRecordsCloseBtn.addEventListener('click', closeTournamentRecords);
@@ -7987,6 +8454,9 @@
         }
         if (dom.deckListPreviewBtn) {
             dom.deckListPreviewBtn.addEventListener('click', openCurrentDeckComposition);
+        }
+        if (dom.deckAdjustmentHistoryBtn) {
+            dom.deckAdjustmentHistoryBtn.addEventListener('click', openCurrentDeckAdjustmentHistory);
         }
         if (dom.deckParallelToggle) {
             dom.deckParallelToggle.addEventListener('change', () => {

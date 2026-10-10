@@ -72,10 +72,12 @@
                 .map(normalizeMatch)
                 .filter(Boolean)
             : [];
+        const adjustmentId = normalizeText(rawTournament.adjustmentId, 120);
         return {
             id: normalizeText(rawTournament.id, 120) || createRecordId('tournament'),
             name,
             date,
+            ...(adjustmentId ? { adjustmentId } : {}),
             matches,
             createdAt: normalizeTimestamp(rawTournament.createdAt, now),
             updatedAt: normalizeTimestamp(rawTournament.updatedAt, now)
@@ -94,10 +96,12 @@
         const name = normalizeText(input.name);
         if (!name) throw new Error('大会名を入力してください。');
         const now = new Date().toISOString();
+        const adjustmentId = normalizeText(input.adjustmentId, 120);
         return {
             id: createRecordId('tournament'),
             name,
             date: normalizeDate(input.date, toLocalDateValue()),
+            ...(adjustmentId ? { adjustmentId } : {}),
             matches: [],
             createdAt: now,
             updatedAt: now

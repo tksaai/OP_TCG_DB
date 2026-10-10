@@ -12,7 +12,8 @@ const records = window.OPTCGDeckRecords;
 test('tournament records normalize and summarize deck match history', () => {
     const tournament = records.createTournament({
         name: ' フラッグシップバトル ',
-        date: '2026-10-03'
+        date: '2026-10-03',
+        adjustmentId: 'adjustment-1'
     });
     tournament.matches.push(
         records.createMatch({
@@ -38,6 +39,7 @@ test('tournament records normalize and summarize deck match history', () => {
     const normalized = records.normalizeTournamentRecords([tournament]);
     const summary = records.summarizeTournamentRecords(normalized);
     assert.equal(normalized[0].name, 'フラッグシップバトル');
+    assert.equal(normalized[0].adjustmentId, 'adjustment-1');
     assert.equal(normalized[0].matches.length, 3);
     assert.deepEqual(JSON.parse(JSON.stringify(summary)), {
         tournamentCount: 1,
@@ -91,7 +93,7 @@ test('deck UI wires tournament records and the five-column composition list', as
     assert.match(html, /id="deck-list-preview-btn"/);
     assert.match(html, /id="deck-builder-panel"/);
     assert.doesNotMatch(html, /id="deck-show-toggle-btn"/);
-    assert.match(html, /deck-records\.js\?v=1\.13\.1/);
+    assert.match(html, /deck-records\.js\?v=1\.14\.0/);
     assert.match(app, /tournaments: getDeckTournamentRecords\(editingDeckMeta\)/);
     assert.match(app, /function renderDeckBuilderPanel\(/);
     assert.match(app, /deck-builder-card-stepper/u);
@@ -99,5 +101,5 @@ test('deck UI wires tournament records and the five-column composition list', as
     assert.match(app, /createDeckMenuItem\('大会記録'/);
     assert.match(app, /createDeckMenuItem\('リスト表示'/);
     assert.match(css, /grid-template-columns: repeat\(5, minmax\(0, 1fr\)\)/);
-    assert.match(worker, /deck-records\.js\?v=1\.13\.1/);
+    assert.match(worker, /deck-records\.js\?v=1\.14\.0/);
 });
