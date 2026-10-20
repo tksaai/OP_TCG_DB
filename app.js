@@ -25,6 +25,7 @@
     const ANALYSIS_FETCH_TIMEOUT_MS = 15000;
     const ANALYSIS_RESPONSE_MAX_BYTES = 64 * 1024;
     const DETAILED_ANALYSIS_IMPORT_SOURCE = 'detailed-analysis';
+    const OPTCGSIM_IMPORT_SOURCE = 'optcgsim';
     const DECK_EXPORT_FORMAT = 'op-tcg-db-deck';
     const WANTED_CARDS_METADATA_KEY = 'wantedCards';
     const VARIANT_DISPLAY_MODE_STORAGE_KEY = 'variantDisplayMode';
@@ -51,7 +52,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.14.1'; // バージョン更新
+    const APP_VERSION = '1.14.2'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -293,6 +294,7 @@
             cardDataVersionInfo: $('#card-data-version-info'),
 
             sharedDeckConfirmModal: $('#shared-deck-confirm-modal'),
+            sharedDeckConfirmTitle: $('#shared-deck-confirm-title'),
             sharedDeckConfirmCloseBtn: $('#shared-deck-confirm-close-btn'),
             sharedDeckConfirmBody: $('#shared-deck-confirm-body'),
             sharedDeckConfirmName: $('#shared-deck-confirm-name'),
@@ -323,6 +325,8 @@
             deckListContainer: $('#deck-list-container'),
             createNewDeckBtn: $('#create-new-deck-btn'),
             importSharedDeckBtn: $('#import-shared-deck-btn'),
+            importOptcgSimDeckBtn: $('#import-optcgsim-deck-btn'),
+            importOptcgSimDeckInput: $('#import-optcgsim-deck-input'),
             detailedAnalyzerLink: $('#detailed-analyzer-link'),
             deckStatusBar: $('#deck-status-bar'),
             deckStatusInfo: $('#deck-status-info'),
@@ -2859,10 +2863,14 @@
     }
 
     function getSharedDeckConfirmationWarning(imported) {
-        if (imported?.importSource !== DETAILED_ANALYSIS_IMPORT_SOURCE) return '';
-        const messages = [
-            '詳細画像解析から取り込んだ結果です。内容を確認してから追加してください。'
-        ];
+        const messages = [];
+        if (imported?.importSource === DETAILED_ANALYSIS_IMPORT_SOURCE) {
+            messages.push('詳細画像解析から取り込んだ結果です。内容を確認してから追加してください。');
+        } else if (imported?.importSource === OPTCGSIM_IMPORT_SOURCE) {
+            messages.push('OPTCGSimの.deckファイルから読み込んだ結果です。内容を確認してから追加してください。');
+        } else {
+            return '';
+        }
         if (Array.isArray(imported.unknownCardNumbers) && imported.unknownCardNumbers.length > 0) {
             messages.push(
                 `現在のカードDBに未登録のカードが含まれています: ${imported.unknownCardNumbers.join('、')}`
@@ -2890,6 +2898,11 @@
 
         if (sharedDeckConfirmationResolve) {
             resolveSharedDeckImportConfirmation(false);
+        }
+        if (dom.sharedDeckConfirmTitle) {
+            dom.sharedDeckConfirmTitle.textContent = imported?.importSource === OPTCGSIM_IMPORT_SOURCE
+                ? 'OPTCGSimデッキを確認'
+                : '共有デッキを確認';
         }
         dom.sharedDeckConfirmName.textContent = imported.name;
         dom.sharedDeckConfirmLeader.textContent = imported.leader;
@@ -2989,7 +3002,8 @@
         const deck = await createImportedDeck(imported);
         setActiveNav('decks');
         startDeckView(deck);
-        showMessageToast(`共有デッキ「${deck.name}」を追加しました。`, 'success');
+        const sourceLabel = imported?.importSource === OPTCGSIM_IMPORT_SOURCE ? 'OPTCGSimデッキ' : '共有デッキ';
+        showMessageToast(`${sourceLabel}「${deck.name}」を追加しました。`, 'success');
         return true;
     }
 
@@ -3008,6 +3022,47 @@
         };
         await saveDeck(deck);
         return deck;
+    }
+
+    function getOptcgSimDeckApi() {
+        if (!window.OPTCGSimDeck) {
+            throw new Error('OPTCGSim連携機能を読み込めませんでした。アプリを更新してください。');
+        }
+        return window.OPTCGSimDeck;
+    }
+
+    function parseOptcgSimDeckFile(text, fileName) {
+        return {
+            ...getOptcgSimDeckApi().parseDeck(text, {
+                fileName,
+                resolveCard: findCardByNumber
+            }),
+            importSource: OPTCGSIM_IMPORT_SOURCE
+        };
+    }
+
+    async function importOptcgSimDeckFile(file) {
+        if (!file || !db || isImportingSharedDeck) return false;
+
+        isImportingSharedDeck = true;
+        try {
+            if (file.size > 64 * 1024) {
+                throw new Error('OPTCGSimのデッキファイルが大きすぎます。');
+            }
+            const source = await file.text();
+            const imported = parseOptcgSimDeckFile(source, file.name);
+            return await confirmAndSaveSharedDeck(
+                imported,
+                () => parseOptcgSimDeckFile(source, file.name)
+            );
+        } catch (error) {
+            console.error('Failed to import OPTCGSim deck:', error);
+            showMessageToast(error.message || 'OPTCGSimデッキを追加できませんでした。', 'error');
+            return false;
+        } finally {
+            isImportingSharedDeck = false;
+            if (dom.importOptcgSimDeckInput) dom.importOptcgSimDeckInput.value = '';
+        }
     }
 
     function normalizeImageImportSearchText(value) {
@@ -3383,6 +3438,22 @@
         } catch (error) {
             console.error('Failed to export deck JSON:', error);
             showMessageToast(error.message || 'デッキJSONの出力に失敗しました。', 'error');
+        }
+    }
+
+    function exportDeckForOptcgSim(deck) {
+        try {
+            const payload = createDeckSharePayload(deck);
+            const source = getOptcgSimDeckApi().serializeDeck({
+                leader: payload.l,
+                cards: payload.c
+            });
+            const blob = new Blob([source], { type: 'text/plain;charset=utf-8' });
+            downloadBlob(blob, `${sanitizeDownloadName(deck.name)}.deck`);
+            showMessageToast('OPTCGSim用デッキを出力しました。', 'success');
+        } catch (error) {
+            console.error('Failed to export OPTCGSim deck:', error);
+            showMessageToast(error.message || 'OPTCGSim用デッキを出力できませんでした。', 'error');
         }
     }
 
@@ -7164,6 +7235,7 @@
         menu.appendChild(createDeckMenuItem('リスト表示', 'list', () => openDeckComposition(deck)));
         menu.appendChild(createDeckMenuItem('複製', 'copy', () => duplicateDeck(deck)));
         menu.appendChild(createDeckMenuItem('JSON出力', 'export', () => exportDeckJson(deck)));
+        menu.appendChild(createDeckMenuItem('OPTCGSim出力', 'export', () => exportDeckForOptcgSim(deck)));
         menu.appendChild(createDeckMenuItem('URLをコピー', 'share', () => copyDeckShareUrl(deck)));
         menu.appendChild(createDeckMenuItem('画像出力', 'image', () => exportDeckImage(deck)));
         menu.appendChild(createDeckMenuItem('プロキシ印刷', 'print', () => openProxyPrintForDeck(deck)));
@@ -8565,6 +8637,18 @@
         }
         if (dom.importSharedDeckBtn) {
             dom.importSharedDeckBtn.addEventListener('click', openSharedDeckUrlImport);
+        }
+        if (dom.importOptcgSimDeckBtn) {
+            dom.importOptcgSimDeckBtn.addEventListener('click', () => {
+                if (isImportingSharedDeck || !dom.importOptcgSimDeckInput) return;
+                dom.importOptcgSimDeckInput.value = '';
+                dom.importOptcgSimDeckInput.click();
+            });
+        }
+        if (dom.importOptcgSimDeckInput) {
+            dom.importOptcgSimDeckInput.addEventListener('change', event => {
+                importOptcgSimDeckFile(event.target.files?.[0]);
+            });
         }
         if (dom.deckSaveBtn) {
             dom.deckSaveBtn.addEventListener('click', () => {
