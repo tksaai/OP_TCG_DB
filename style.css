@@ -1160,6 +1160,19 @@ body.optcgsim-text-open {
     outline-offset: 2px;
 }
 
+.settings-privacy-note a,
+.settings-legal-links a {
+    color: var(--color-secondary);
+    font-weight: 700;
+}
+
+.settings-legal-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    font-size: 13px;
+}
+
 .settings-input {
     width: min(100%, 520px);
     min-height: 40px;

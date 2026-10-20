@@ -113,7 +113,7 @@ test('deck UI wires tournament records and the five-column composition list', as
     assert.match(html, /id="deck-list-preview-btn"/);
     assert.match(html, /id="deck-builder-panel"/);
     assert.doesNotMatch(html, /id="deck-show-toggle-btn"/);
-    assert.match(html, /deck-records\.js\?v=1\.15\.1/);
+    assert.match(html, /deck-records\.js\?v=1\.15\.2/);
     assert.match(app, /tournaments: getDeckTournamentRecords\(editingDeckMeta\)/);
     assert.match(app, /function renderDeckBuilderPanel\(/);
     assert.match(app, /deck-builder-card-stepper/u);
@@ -121,5 +121,5 @@ test('deck UI wires tournament records and the five-column composition list', as
     assert.match(app, /createDeckMenuItem\('大会記録'/);
     assert.match(app, /createDeckMenuItem\('リスト表示'/);
     assert.match(css, /grid-template-columns: repeat\(5, minmax\(0, 1fr\)\)/);
-    assert.match(worker, /deck-records\.js\?v=1\.15\.1/);
+    assert.match(worker, /deck-records\.js\?v=1\.15\.2/);
 });

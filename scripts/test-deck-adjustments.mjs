@@ -156,7 +156,7 @@ test('deck UI wires optional adjustment history and tournament association', asy
     assert.match(html, /id="deck-adjustment-modal"/);
     assert.match(html, /id="deck-adjustment-enabled-toggle"/);
     assert.match(html, /id="tournament-adjustment-select"/);
-    assert.match(html, /deck-adjustments\.js\?v=1\.15\.1/);
+    assert.match(html, /deck-adjustments\.js\?v=1\.15\.2/);
     assert.match(app, /recordAdjustment\(adjustments, currentSnapshot/);
     assert.match(app, /createDeckMenuItem\('調整履歴'/u);
     assert.match(app, /adjustmentId: dom\.tournamentAdjustmentField/);
@@ -166,5 +166,5 @@ test('deck UI wires optional adjustment history and tournament association', asy
     assert.match(app, /unlinkAdjustment\(/);
     assert.match(css, /\.deck-adjustment-row\.is-active/);
     assert.match(css, /\.deck-adjustment-icon-btn\.destructive/);
-    assert.match(worker, /deck-adjustments\.js\?v=1\.15\.1/);
+    assert.match(worker, /deck-adjustments\.js\?v=1\.15\.2/);
 });

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#111317">
+    <title>プライバシーポリシー - OP-TCG DB</title>
+    <link rel="stylesheet" href="../legal/legal.css">
+</head>
+<body>
+    <header class="legal-header">
+        <div class="legal-header-inner">
+            <a class="back-link" href="../index.html" aria-label="OP-TCG DBへ戻る">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg>
+                <span>アプリへ戻る</span>
+            </a>
+            <a class="header-link" href="../terms/">利用規約</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="legal-intro">
+            <p class="eyebrow">OP-TCG DB</p>
+            <h1>プライバシーポリシー</h1>
+            <p class="lead">OP-TCG DBにおける端末内データと、任意のGoogle Drive同期で扱うデータについて説明します。</p>
+            <p class="effective-date">制定日・最終更新日: 2026年10月21日</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>1. 適用範囲</h2>
+            <p>本ポリシーは、OP-TCG DB（以下「本アプリ」）が提供するカード検索、デッキ管理、所持カード管理、開封記録、画像解析およびGoogle Drive同期に適用されます。本アプリは非公式の個人開発ツールです。</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>2. 端末内に保存するデータ</h2>
+            <p>本アプリは、利用者の操作に応じて次の情報をブラウザのIndexedDB、Cache StorageまたはLocal Storageへ保存します。</p>
+            <ul>
+                <li>作成したデッキ、調整履歴、大会・対戦記録</li>
+                <li>所持カード、欲しいカード、開封記録</li>
+                <li>表示設定、PWAキャッシュ、カード画像キャッシュ</li>
+                <li>利用者が明示的に登録したデータ整備用GitHub token</li>
+            </ul>
+            <p>これらは通常、利用者の端末内で処理されます。本アプリ独自の利用者アカウントや管理サーバーはありません。</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>3. Google Drive同期</h2>
+            <p>Google Drive同期は任意です。利用者が「Google Driveに接続」し、保存または復元ボタンを押した場合だけ実行されます。Googleアカウントのメールアドレス、プロフィール情報、通常のDriveファイルを取得する権限は要求しません。</p>
+            <p>同期対象は、デッキ、調整履歴、大会・対戦記録、所持カード、欲しいカード、開封記録および一部の表示設定です。同期データは利用者自身のGoogle Driveにある非表示のアプリ専用領域へJSON形式で保存されます。</p>
+            <div class="scope-code">https://www.googleapis.com/auth/drive.appdata</div>
+            <p>OAuthアクセストークンは接続中のメモリ内だけに保持し、Local Storage、IndexedDB、Cookieまたは開発者のサーバーへ保存しません。</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>4. Google APIデータの利用</h2>
+            <p>Google APIから取得した情報は、利用者が指示した同期データの保存および復元のためだけに使用します。広告、利用者追跡、販売、第三者への提供には使用しません。</p>
+            <p>本アプリによるGoogle APIから受け取った情報の利用および他のアプリへの転送は、限定使用要件を含むGoogle API Services User Data Policyに準拠します。</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>5. 画像の取り扱い</h2>
+            <p>デッキ画像の簡易解析は利用者のブラウザ内で行われます。選択した画像や切り出し画像を本アプリの管理サーバーへ送信・保存しません。</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>6. 外部サービスと通信</h2>
+            <p>本アプリは配信、認証および同期のため、GitHub Pages、jsDelivr、Google Identity ServicesおよびGoogle Drive APIと通信します。各サービスでは、通信に必要なIPアドレスやブラウザ情報等が各事業者のポリシーに従って処理される場合があります。本アプリ独自の広告・アクセス解析サービスは導入していません。</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>7. データの削除と接続解除</h2>
+            <ul>
+                <li>端末内データは、Settingsの「全データ削除」から削除できます。</li>
+                <li>Googleへのアクセス許可は、本アプリの「接続を解除」またはGoogleアカウントの「サードパーティ製アプリとサービス」から取り消せます。</li>
+                <li>Drive上の同期データは、Google Driveの設定にある「アプリを管理」からOP-TCG DBの非表示アプリデータを削除できます。</li>
+            </ul>
+            <p>開発者は利用者のGoogle Driveへ直接アクセスできないため、開発者への連絡だけでDrive上のデータを削除することはできません。</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>8. セキュリティ</h2>
+            <p>本アプリは必要最小限のOAuthスコープを使用し、アクセストークンを永続化しません。ただし、利用者の端末、ブラウザ、Googleアカウント自体の安全性を保証するものではありません。共用端末では同期接続やGitHub tokenの保存を避けてください。</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>9. ポリシーの変更</h2>
+            <p>機能追加や法令・外部サービスの変更に応じて、本ポリシーを更新する場合があります。重要な変更は本ページまたはリポジトリ上で案内し、更新日を改定します。</p>
+        </section>
+
+        <section class="legal-section">
+            <h2>10. お問い合わせ</h2>
+            <p>本ポリシーやデータの取り扱いに関する連絡は、<a href="https://github.com/tksaai/OP_TCG_DB/issues">GitHub Issues</a>からお願いします。公開投稿に個人情報やアクセストークンを記載しないでください。</p>
+        </section>
+    </main>
+
+    <footer class="legal-footer">
+        <span>OP-TCG DB</span>
+        <a href="../guide/">使い方ガイド</a>
+        <a href="../terms/">利用規約</a>
+    </footer>
+</body>
+</html>

@@ -255,6 +255,10 @@ figcaption {
 .callout-row p,
 .three-column p { margin-top: 6px; color: var(--muted); font-size: 14px; }
 
+.sync-steps { margin-top: 0; }
+.copy-block a,
+.guide-footer a { color: var(--teal); }
+
 .faq details { border-top: 1px solid var(--line); }
 .faq details:last-child { border-bottom: 1px solid var(--line); }
 .faq summary { padding: 18px 4px; font-weight: 800; cursor: pointer; }
@@ -320,6 +324,7 @@ figcaption {
     .wide-shot { width: 112mm; margin-top: 7mm; }
     .wide-shot img { max-height: 136mm; }
     .guide-followup { margin-top: 0; break-before: page; }
+    #sync .guide-followup { margin-top: 10mm; break-before: auto; }
     figcaption { font-size: 8pt; }
     .callout-row,
     .three-column { margin-top: 8mm; gap: 6mm; }

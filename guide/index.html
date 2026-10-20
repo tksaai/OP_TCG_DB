@@ -47,6 +47,7 @@
             <a href="#import">画像から作成</a>
             <a href="#collection">所持・開封</a>
             <a href="#pwa">PWA・更新</a>
+            <a href="#sync">複数端末同期</a>
         </nav>
 
         <section class="page-section" id="cards">
@@ -193,7 +194,7 @@
         <section class="page-section" id="pwa">
             <div class="section-heading">
                 <span class="step-number">06</span>
-                <div><p class="eyebrow">PWA & DATA</p><h2>ホーム画面・更新・データ</h2></div>
+                <div><p class="eyebrow">PWA & DATA</p><h2>ホーム画面・更新</h2></div>
             </div>
             <div class="two-column">
                 <div class="copy-block">
@@ -205,13 +206,6 @@
                     </ol>
                     <h3>更新できないとき</h3>
                     <p>Settingsの「キャッシュを更新」を実行します。保存デッキ・所持カード・設定は残り、アプリ本体と解析キャッシュだけを更新します。</p>
-                    <h3>複数端末で使う</h3>
-                    <ol>
-                        <li>Settingsの「Google Driveに接続」を押します。同期を使わない場合はログイン不要です。</li>
-                        <li>元の端末で「この端末から保存」を押します。</li>
-                        <li>別の端末で同じGoogleアカウントに接続し、「Driveから復元」を押します。</li>
-                    </ol>
-                    <div class="warning"><strong>上書きに注意</strong><span>自動同期ではありません。別端末で変更した後は、先にDriveから復元してから編集してください。無料利用上限に達した場合は同期だけが停止し、端末内データは残ります。</span></div>
                 </div>
                 <figure>
                     <img src="assets/settings.png" alt="設定画面">
@@ -220,20 +214,53 @@
             </div>
         </section>
 
-        <section class="page-section faq" id="troubleshooting">
+        <section class="page-section" id="sync">
             <div class="section-heading">
                 <span class="step-number">07</span>
+                <div><p class="eyebrow">GOOGLE DRIVE</p><h2>複数端末でデータを共有する</h2></div>
+            </div>
+            <div class="three-column sync-steps">
+                <div><h3>1. 接続</h3><p>Settingsの「Google Driveに接続」を押し、同期に使用するGoogleアカウントを選びます。同期を使わない場合はログイン不要です。</p></div>
+                <div><h3>2. 保存</h3><p>最新データがある端末で「この端末から保存」を押します。デッキ、調整・大会記録、所持、開封、欲しいカードがまとめて保存されます。</p></div>
+                <div><h3>3. 復元</h3><p>別端末で同じアカウントへ接続し、「Driveから復元」を押します。内容を確認してから端末内データを置き換えます。</p></div>
+            </div>
+            <div class="two-column guide-followup">
+                <div class="copy-block">
+                    <h3>保存される場所</h3>
+                    <p>同期ファイルは通常のマイドライブではなく、OP-TCG DBだけが読み書きできる非表示のアプリ専用領域へ保存されます。通常のDriveファイルやGoogleプロフィールは読み取りません。</p>
+                    <h3>接続・保存できないとき</h3>
+                    <ol>
+                        <li>通信状態とSafariのポップアップ制限を確認します。</li>
+                        <li>「接続を解除」してから、もう一度接続します。</li>
+                        <li>Settingsの「キャッシュを更新」を実行し、PWAを再起動します。</li>
+                        <li>無料利用上限の表示が出た場合は、時間をおいて再実行します。</li>
+                    </ol>
+                </div>
+                <div class="copy-block">
+                    <h3>削除とプライバシー</h3>
+                    <p>端末内データはSettingsの「全データ削除」から削除できます。Googleへの許可は「接続を解除」またはGoogleアカウントの接続管理から取り消せます。</p>
+                    <div class="note"><strong>詳しい取り扱い</strong><span><a href="../privacy/">プライバシーポリシー</a>に、同期対象、Google APIの権限、保存先、削除方法を記載しています。</span></div>
+                    <div class="warning"><strong>上書きに注意</strong><span>自動同期ではありません。別端末で変更した後は、先にDriveから復元してから編集してください。復元すると現在の端末データが置き換わります。</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-section faq" id="troubleshooting">
+            <div class="section-heading">
+                <span class="step-number">08</span>
                 <div><p class="eyebrow">TROUBLESHOOTING</p><h2>困ったとき</h2></div>
             </div>
             <details open><summary>画像や新しいカードが表示されない</summary><p>通信状態を確認し、Settingsの「キャッシュを更新」を実行してから再起動します。仮DBのカードは下部のNEWに表示されます。</p></details>
             <details open><summary>共有URLを開いてもPWAへ移動しない</summary><p>iOSはWebリンクからホーム画面版へ自動転送できません。URLの共有テキストをコピーし、PWAのDecks「URLから追加」へ貼り付けてください。</p></details>
             <details open><summary>画像解析の結果が違う</summary><p>結果画面の「変更」から候補を検索して修正します。元画像をトリミングせず、カード番号と枚数が読める解像度で試してください。</p></details>
             <details open><summary>保存データを別端末へ移したい</summary><p>SettingsのGoogle Drive同期を任意で利用できます。デッキ、調整履歴、大会結果、所持カード、開封記録、欲しいカードをまとめて保存・復元します。同期を使わない場合は、デッキ共有URLや所持カードJSONも利用できます。</p></details>
+            <details open><summary>Google Driveへ接続・保存できない</summary><p>「接続を解除」して再接続し、通信状態、ポップアップ制限、PWAのキャッシュを確認します。「審査プロセスを完了していません」と表示される場合は、アプリ管理者側のGoogle OAuth公開設定が完了していません。</p></details>
         </section>
     </main>
 
     <footer class="guide-footer">
         <p>OP-TCG DB User Guide</p>
+        <p><a href="../privacy/">プライバシーポリシー</a> ・ <a href="../terms/">利用規約</a></p>
         <p>非公式の個人開発ツールです。カード画像・名称等の権利は各権利者に帰属します。</p>
     </footer>
 </body>

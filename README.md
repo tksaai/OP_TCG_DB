@@ -70,9 +70,21 @@ API上限に達しても端末内データは残り、カード検索やデッ�
 
 1. Google Cloudでプロジェクトを作成し、Google Drive APIを有効にします。
 2. 請求先アカウントは紐付けず、有料クォータの増加も申請しません。
-3. OAuth同意画面を設定し、Webアプリケーション用OAuthクライアントIDを作成します。
-4. 承認済みJavaScript生成元に `https://tksaai.github.io` と開発用のlocalhostを登録します。
-5. `index.html` の `google-drive-client-id` メタタグへ公開クライアントIDを設定します。
+3. Google Auth Platformの対象を「外部」にし、公開ステータスを「本番環境」にします。
+4. データアクセスには `https://www.googleapis.com/auth/drive.appdata` だけを登録します。
+5. Webアプリケーション用OAuthクライアントの承認済みJavaScript生成元に `https://tksaai.github.io` と開発用のlocalhostを登録します。
+6. OAuthのアプリ情報には次の公開URLを設定します。
+
+| 項目 | URL |
+| --- | --- |
+| アプリのホームページ | `https://tksaai.github.io/OP_TCG_DB/guide/` |
+| プライバシーポリシー | `https://tksaai.github.io/OP_TCG_DB/privacy/` |
+| 利用規約 | `https://tksaai.github.io/OP_TCG_DB/terms/` |
+
+公開ページはログインせず閲覧でき、アプリ内のSettingsからも参照できます。公開ステータスが
+「テスト」のままだと、登録済みテストユーザー以外は接続できず、許可も7日で期限切れになります。
+
+7. `index.html` の `google-drive-client-id` メタタグへ公開クライアントIDを設定します。
 
 ```html
 <meta name="google-drive-client-id" content="000000000000-example.apps.googleusercontent.com">
