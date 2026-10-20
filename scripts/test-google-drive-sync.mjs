@@ -118,5 +118,7 @@ test('app exposes optional manual upload and restore without syncing sensitive s
     const snapshotEnd = app.indexOf('function normalizeSyncRecordList', snapshotStart);
     const snapshotSource = app.slice(snapshotStart, snapshotEnd);
     assert.doesNotMatch(snapshotSource, /GITHUB_TOKEN_STORAGE_KEY|githubToken/u);
+    assert.match(app, /listBadgesVisible:\s*areListBadgesVisible\(\)/u);
+    assert.doesNotMatch(app, /isListBadgesVisible/u);
     assert.match(worker, /google-drive-sync\.js\?v=/u);
 });
