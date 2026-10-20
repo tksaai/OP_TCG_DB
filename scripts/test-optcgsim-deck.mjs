@@ -99,7 +99,7 @@ test('unknown cards remain visible for confirmation while first unknown card can
     assert.deepEqual([...parsed.unknownCardNumbers], ['ZZ99-001', 'ZZ99-017']);
 });
 
-test('deck UI wires OPTCGSim file import, confirmation and export', async () => {
+test('deck UI wires OPTCGSim text import, confirmation and clipboard copy', async () => {
     const [html, app, worker] = await Promise.all([
         readFile(new URL('index.html', root), 'utf8'),
         readFile(new URL('app.js', root), 'utf8'),
@@ -107,13 +107,24 @@ test('deck UI wires OPTCGSim file import, confirmation and export', async () => 
     ]);
 
     assert.match(html, /id="import-optcgsim-deck-btn"/);
-    assert.match(html, /id="import-optcgsim-deck-input"[^>]*accept="\.deck,text\/plain"/);
+    assert.match(html, /id="optcgsim-text-modal"/);
+    assert.match(html, /id="optcgsim-text-input"[^>]*placeholder="1xST01-001/u);
+    assert.match(html, /id="optcgsim-text-paste-btn"/);
+    assert.doesNotMatch(html, /id="import-optcgsim-deck-input"/);
     assert.match(html, /optcgsim-deck\.js\?v=/);
     assert.match(app, /confirmAndSaveSharedDeck\(\s*imported,/s);
+    assert.match(app, /importOptcgSimDeckBtn\.addEventListener\('click', openOptcgSimTextImport\)/u);
+    assert.match(app, /navigator\.clipboard\.readText\(\)/u);
+    assert.doesNotMatch(app, /importOptcgSimDeckFile/u);
     assert.match(
         app,
-        /createDeckMenuItem\('OPTCGSim出力', 'export', \(\) => exportDeckForOptcgSim\(deck\)\)/u
+        /createDeckMenuItem\('OPTCGSim用にコピー', 'copy', \(\) => copyDeckForOptcgSim\(deck\)\)/u
     );
-    assert.match(app, /OPTCGSimの\.deckファイルから読み込んだ結果です/u);
+    const copyFunctionStart = app.indexOf('async function copyDeckForOptcgSim(deck)');
+    const copyFunctionEnd = app.indexOf('function compareDeckCards', copyFunctionStart);
+    const copyFunction = app.slice(copyFunctionStart, copyFunctionEnd);
+    assert.match(copyFunction, /await copyTextToClipboard\(source\)/u);
+    assert.doesNotMatch(copyFunction, /downloadBlob|\.deck/u);
+    assert.match(app, /OPTCGSimのデッキデータから読み込んだ結果です/u);
     assert.match(worker, /optcgsim-deck\.js\?v=/);
 });

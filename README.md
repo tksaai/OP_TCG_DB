@@ -18,6 +18,7 @@ ONE PIECE カードゲームのカード検索・デッキ構築・コレクシ�
 - 作成中または保存済みデッキの5列リスト表示と枚数調整
 - デッキ表の画像からのデッキ取り込み（解析は端末内で完結）
 - 欲しいカードリスト、所持カード管理、パックの開封記録
+- 任意のGoogle Drive同期（ログインなしでも従来どおり利用可能）
 - デッキに対する不足カードの一覧と共有
 - NEW タブ：公式データ収録前の新カード（仮DB）
 
@@ -61,6 +62,26 @@ Service Worker を使うため `file://` では動きません。簡易サーバ
 python -m http.server 8000
 # → http://localhost:8000/
 ```
+
+## Google Drive同期の設定
+
+同期はGoogle Drive APIの標準無料枠だけを使用し、利用者が設定画面のボタンを押したときだけ実行します。
+API上限に達しても端末内データは残り、カード検索やデッキ編集は継続できます。
+
+1. Google Cloudでプロジェクトを作成し、Google Drive APIを有効にします。
+2. 請求先アカウントは紐付けず、有料クォータの増加も申請しません。
+3. OAuth同意画面を設定し、Webアプリケーション用OAuthクライアントIDを作成します。
+4. 承認済みJavaScript生成元に `https://tksaai.github.io` と開発用のlocalhostを登録します。
+5. `index.html` の `google-drive-client-id` メタタグへ公開クライアントIDを設定します。
+
+```html
+<meta name="google-drive-client-id" content="000000000000-example.apps.googleusercontent.com">
+```
+
+クライアントシークレットは使用せず、リポジトリにも保存しません。権限は
+`https://www.googleapis.com/auth/drive.appdata` のみで、同期JSONは利用者のDriveにある
+非表示のアプリ専用領域へ保存します。アクセストークンはメモリ内だけに保持し、
+Local Storage、IndexedDB、Cookieへ保存しません。
 
 ## テスト
 

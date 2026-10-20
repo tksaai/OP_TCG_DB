@@ -36,7 +36,7 @@
                 <div><strong>Cards</strong><span>検索・欲しいカード</span></div>
                 <div><strong>Decks</strong><span>作成・共有・調整・戦績</span></div>
                 <div><strong>NEW</strong><span>発売前の仮DB</span></div>
-                <div><strong>Settings</strong><span>更新・オフライン</span></div>
+                <div><strong>Settings</strong><span>更新・任意同期</span></div>
             </div>
         </section>
 
@@ -205,7 +205,13 @@
                     </ol>
                     <h3>更新できないとき</h3>
                     <p>Settingsの「キャッシュを更新」を実行します。保存デッキ・所持カード・設定は残り、アプリ本体と解析キャッシュだけを更新します。</p>
-                    <div class="warning"><strong>端末内保存</strong><span>デッキ、所持カード、開封記録は現在のブラウザ内に保存されます。ブラウザデータの削除や「全データ削除」で失われるため、重要なデッキはURLまたはJSONも保管してください。</span></div>
+                    <h3>複数端末で使う</h3>
+                    <ol>
+                        <li>Settingsの「Google Driveに接続」を押します。同期を使わない場合はログイン不要です。</li>
+                        <li>元の端末で「この端末から保存」を押します。</li>
+                        <li>別の端末で同じGoogleアカウントに接続し、「Driveから復元」を押します。</li>
+                    </ol>
+                    <div class="warning"><strong>上書きに注意</strong><span>自動同期ではありません。別端末で変更した後は、先にDriveから復元してから編集してください。無料利用上限に達した場合は同期だけが停止し、端末内データは残ります。</span></div>
                 </div>
                 <figure>
                     <img src="assets/settings.png" alt="設定画面">
@@ -222,7 +228,7 @@
             <details open><summary>画像や新しいカードが表示されない</summary><p>通信状態を確認し、Settingsの「キャッシュを更新」を実行してから再起動します。仮DBのカードは下部のNEWに表示されます。</p></details>
             <details open><summary>共有URLを開いてもPWAへ移動しない</summary><p>iOSはWebリンクからホーム画面版へ自動転送できません。URLの共有テキストをコピーし、PWAのDecks「URLから追加」へ貼り付けてください。</p></details>
             <details open><summary>画像解析の結果が違う</summary><p>結果画面の「変更」から候補を検索して修正します。元画像をトリミングせず、カード番号と枚数が読める解像度で試してください。</p></details>
-            <details open><summary>保存データを別端末へ移したい</summary><p>デッキは共有URLまたはJSONで移せます。ログインやクラウド同期は行わないため、所持・開封データは端末ごとに管理されます。</p></details>
+            <details open><summary>保存データを別端末へ移したい</summary><p>SettingsのGoogle Drive同期を任意で利用できます。デッキ、調整履歴、大会結果、所持カード、開封記録、欲しいカードをまとめて保存・復元します。同期を使わない場合は、デッキ共有URLや所持カードJSONも利用できます。</p></details>
         </section>
     </main>
 

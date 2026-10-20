@@ -31,6 +31,12 @@
     const VARIANT_DISPLAY_MODE_STORAGE_KEY = 'variantDisplayMode';
     const COLLECTION_EXPORT_FORMAT = 'op-tcg-db-collection';
     const COLLECTION_EXPORT_VERSION = 1;
+    const USER_SYNC_FORMAT = 'op-tcg-db-user-sync';
+    const USER_SYNC_VERSION = 1;
+    const GOOGLE_DRIVE_LAST_SYNC_STORAGE_KEY = 'googleDriveLastSyncAt';
+    const GOOGLE_DRIVE_CLIENT_ID = String(
+        document.querySelector('meta[name="google-drive-client-id"]')?.content || ''
+    ).trim();
     const CARD_LIST_IMAGE_MAX_TYPES = 120;
     const EXPORT_IMAGE_MAX_SCALE = 3;
     const EXPORT_IMAGE_MAX_PIXELS = 14_000_000;
@@ -52,7 +58,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.14.2'; // バージョン更新
+    const APP_VERSION = '1.15.0'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -135,6 +141,8 @@
     let collectionShowOnlyOwned = true;
     let collectionWriteQueue = Promise.resolve();
     let openingWriteQueue = Promise.resolve();
+    let googleDriveSyncClient = null;
+    let googleDriveSyncBusy = false;
     let deckCompositionDeck = null;
     let deckCompositionEditable = false;
     let deckAdjustmentHistoryDeck = null;
@@ -278,6 +286,11 @@
             cacheAllImagesBtn: $('#cache-all-images-btn'),
             refreshAppCacheBtn: $('#refresh-app-cache-btn'),
             clearAllDataBtn: $('#clear-all-data-btn'),
+            googleDriveConnectBtn: $('#google-drive-connect-btn'),
+            googleDriveUploadBtn: $('#google-drive-upload-btn'),
+            googleDriveDownloadBtn: $('#google-drive-download-btn'),
+            googleDriveDisconnectBtn: $('#google-drive-disconnect-btn'),
+            googleDriveSyncStatus: $('#google-drive-sync-status'),
             appDialogModal: $('#app-dialog-modal'),
             appDialogTitle: $('#app-dialog-title'),
             appDialogMessage: $('#app-dialog-message'),
@@ -326,7 +339,13 @@
             createNewDeckBtn: $('#create-new-deck-btn'),
             importSharedDeckBtn: $('#import-shared-deck-btn'),
             importOptcgSimDeckBtn: $('#import-optcgsim-deck-btn'),
-            importOptcgSimDeckInput: $('#import-optcgsim-deck-input'),
+            optcgSimTextModal: $('#optcgsim-text-modal'),
+            optcgSimTextCloseBtn: $('#optcgsim-text-close-btn'),
+            optcgSimTextInput: $('#optcgsim-text-input'),
+            optcgSimTextPasteBtn: $('#optcgsim-text-paste-btn'),
+            optcgSimTextStatus: $('#optcgsim-text-status'),
+            optcgSimTextCancelBtn: $('#optcgsim-text-cancel-btn'),
+            optcgSimTextSubmitBtn: $('#optcgsim-text-submit-btn'),
             detailedAnalyzerLink: $('#detailed-analyzer-link'),
             deckStatusBar: $('#deck-status-bar'),
             deckStatusInfo: $('#deck-status-info'),
@@ -460,6 +479,7 @@
     async function initializeApp() {
         console.log('PWA Initializing...');
         cacheDomElements();
+        initializeGoogleDriveSync();
 
         if (dom.detailedAnalyzerLink) {
             dom.detailedAnalyzerLink.href = DETAILED_ANALYZER_APP_URL;
@@ -2867,7 +2887,7 @@
         if (imported?.importSource === DETAILED_ANALYSIS_IMPORT_SOURCE) {
             messages.push('詳細画像解析から取り込んだ結果です。内容を確認してから追加してください。');
         } else if (imported?.importSource === OPTCGSIM_IMPORT_SOURCE) {
-            messages.push('OPTCGSimの.deckファイルから読み込んだ結果です。内容を確認してから追加してください。');
+            messages.push('OPTCGSimのデッキデータから読み込んだ結果です。内容を確認してから追加してください。');
         } else {
             return '';
         }
@@ -3031,37 +3051,77 @@
         return window.OPTCGSimDeck;
     }
 
-    function parseOptcgSimDeckFile(text, fileName) {
+    function setOptcgSimTextStatus(message = '') {
+        if (dom.optcgSimTextStatus) dom.optcgSimTextStatus.textContent = message;
+    }
+
+    function openOptcgSimTextImport() {
+        if (!dom.optcgSimTextModal || isImportingSharedDeck) return;
+        dom.optcgSimTextInput.value = '';
+        setOptcgSimTextStatus();
+        dom.optcgSimTextModal.style.display = 'flex';
+        dom.optcgSimTextModal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('optcgsim-text-open');
+        requestAnimationFrame(() => dom.optcgSimTextInput?.focus());
+    }
+
+    function closeOptcgSimTextImport() {
+        if (!dom.optcgSimTextModal) return;
+        dom.optcgSimTextModal.style.display = 'none';
+        dom.optcgSimTextModal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('optcgsim-text-open');
+        setOptcgSimTextStatus();
+    }
+
+    async function pasteOptcgSimDeckText() {
+        if (!dom.optcgSimTextInput) return;
+        try {
+            if (!navigator.clipboard || typeof navigator.clipboard.readText !== 'function') {
+                throw new Error('クリップボードを読み取れません。入力欄を長押しして貼り付けてください。');
+            }
+            const clipboardText = await navigator.clipboard.readText();
+            if (!clipboardText.trim()) throw new Error('クリップボードにテキストがありません。');
+            dom.optcgSimTextInput.value = clipboardText.trim();
+            setOptcgSimTextStatus();
+            dom.optcgSimTextInput.focus();
+        } catch (error) {
+            setOptcgSimTextStatus(error.message || 'デッキデータを貼り付けられませんでした。');
+            dom.optcgSimTextInput.focus();
+        }
+    }
+
+    function parseOptcgSimDeckText(text) {
         return {
             ...getOptcgSimDeckApi().parseDeck(text, {
-                fileName,
                 resolveCard: findCardByNumber
             }),
             importSource: OPTCGSIM_IMPORT_SOURCE
         };
     }
 
-    async function importOptcgSimDeckFile(file) {
-        if (!file || !db || isImportingSharedDeck) return false;
+    async function importOptcgSimDeckText() {
+        if (!dom.optcgSimTextInput || !db || isImportingSharedDeck) return false;
 
         isImportingSharedDeck = true;
         try {
-            if (file.size > 64 * 1024) {
-                throw new Error('OPTCGSimのデッキファイルが大きすぎます。');
-            }
-            const source = await file.text();
-            const imported = parseOptcgSimDeckFile(source, file.name);
+            const source = dom.optcgSimTextInput.value;
+            const imported = parseOptcgSimDeckText(source);
+            closeOptcgSimTextImport();
             return await confirmAndSaveSharedDeck(
                 imported,
-                () => parseOptcgSimDeckFile(source, file.name)
+                () => parseOptcgSimDeckText(source)
             );
         } catch (error) {
-            console.error('Failed to import OPTCGSim deck:', error);
-            showMessageToast(error.message || 'OPTCGSimデッキを追加できませんでした。', 'error');
+            console.error('Failed to import OPTCGSim deck text:', error);
+            if (dom.optcgSimTextModal?.style.display !== 'none') {
+                setOptcgSimTextStatus(error.message || 'OPTCGSimデッキを追加できませんでした。');
+                dom.optcgSimTextInput.focus();
+            } else {
+                showMessageToast(error.message || 'OPTCGSimデッキを追加できませんでした。', 'error');
+            }
             return false;
         } finally {
             isImportingSharedDeck = false;
-            if (dom.importOptcgSimDeckInput) dom.importOptcgSimDeckInput.value = '';
         }
     }
 
@@ -3441,19 +3501,18 @@
         }
     }
 
-    function exportDeckForOptcgSim(deck) {
+    async function copyDeckForOptcgSim(deck) {
         try {
             const payload = createDeckSharePayload(deck);
             const source = getOptcgSimDeckApi().serializeDeck({
                 leader: payload.l,
                 cards: payload.c
             });
-            const blob = new Blob([source], { type: 'text/plain;charset=utf-8' });
-            downloadBlob(blob, `${sanitizeDownloadName(deck.name)}.deck`);
-            showMessageToast('OPTCGSim用デッキを出力しました。', 'success');
+            await copyTextToClipboard(source);
+            showMessageToast('OPTCGSim用デッキをコピーしました。', 'success');
         } catch (error) {
-            console.error('Failed to export OPTCGSim deck:', error);
-            showMessageToast(error.message || 'OPTCGSim用デッキを出力できませんでした。', 'error');
+            console.error('Failed to copy OPTCGSim deck:', error);
+            showMessageToast(error.message || 'OPTCGSim用デッキをコピーできませんでした。', 'error');
         }
     }
 
@@ -7235,7 +7294,7 @@
         menu.appendChild(createDeckMenuItem('リスト表示', 'list', () => openDeckComposition(deck)));
         menu.appendChild(createDeckMenuItem('複製', 'copy', () => duplicateDeck(deck)));
         menu.appendChild(createDeckMenuItem('JSON出力', 'export', () => exportDeckJson(deck)));
-        menu.appendChild(createDeckMenuItem('OPTCGSim出力', 'export', () => exportDeckForOptcgSim(deck)));
+        menu.appendChild(createDeckMenuItem('OPTCGSim用にコピー', 'copy', () => copyDeckForOptcgSim(deck)));
         menu.appendChild(createDeckMenuItem('URLをコピー', 'share', () => copyDeckShareUrl(deck)));
         menu.appendChild(createDeckMenuItem('画像出力', 'image', () => exportDeckImage(deck)));
         menu.appendChild(createDeckMenuItem('プロキシ印刷', 'print', () => openProxyPrintForDeck(deck)));
@@ -7557,6 +7616,267 @@
             showMessageToast('デッキ名の変更に失敗しました。', 'error');
         }
         loadDeckList();
+    }
+
+    function initializeGoogleDriveSync() {
+        googleDriveSyncClient = window.OPTCGGoogleDrive?.createClient({
+            clientId: GOOGLE_DRIVE_CLIENT_ID
+        }) || null;
+        syncGoogleDriveSettings();
+    }
+
+    function getGoogleDriveLastSyncLabel() {
+        const value = localStorage.getItem(GOOGLE_DRIVE_LAST_SYNC_STORAGE_KEY);
+        const timestamp = value ? new Date(value) : null;
+        return timestamp && Number.isFinite(timestamp.getTime())
+            ? ` 最終操作: ${timestamp.toLocaleString('ja-JP')}`
+            : '';
+    }
+
+    function syncGoogleDriveSettings(message = '') {
+        if (!dom.googleDriveSyncStatus) return;
+        const configured = googleDriveSyncClient?.isConfigured() === true;
+        const connected = googleDriveSyncClient?.isConnected() === true;
+        const busy = googleDriveSyncBusy;
+
+        dom.googleDriveConnectBtn.disabled = busy || !configured || connected;
+        dom.googleDriveUploadBtn.disabled = busy || !connected;
+        dom.googleDriveDownloadBtn.disabled = busy || !connected;
+        dom.googleDriveDisconnectBtn.disabled = busy || !connected;
+
+        if (message) {
+            dom.googleDriveSyncStatus.textContent = message;
+        } else if (!googleDriveSyncClient) {
+            dom.googleDriveSyncStatus.textContent = 'このバージョンではGoogle Drive同期を利用できません。';
+        } else if (!configured) {
+            dom.googleDriveSyncStatus.textContent = 'Google OAuthクライアントIDの設定後に利用できます。現在は端末内だけに保存されています。';
+        } else if (connected) {
+            dom.googleDriveSyncStatus.textContent = `接続済みです。同期はボタンを押したときだけ実行されます。${getGoogleDriveLastSyncLabel()}`;
+        } else {
+            dom.googleDriveSyncStatus.textContent = `未接続です。端末内のデータは通常どおり利用できます。${getGoogleDriveLastSyncLabel()}`;
+        }
+    }
+
+    async function runGoogleDriveSyncAction(action, busyMessage) {
+        if (googleDriveSyncBusy || !googleDriveSyncClient) return null;
+        googleDriveSyncBusy = true;
+        syncGoogleDriveSettings(busyMessage);
+        try {
+            return await action();
+        } catch (error) {
+            console.error('Google Drive sync failed.', error?.code || 'unknown');
+            const messages = {
+                not_configured: 'Google Drive同期はまだ設定されていません。',
+                access_denied: 'Google Driveへの接続がキャンセルされました。',
+                auth_failed: 'Google Driveへ接続できませんでした。',
+                auth_expired: '接続期限が切れました。もう一度Google Driveに接続してください。',
+                quota_exceeded: '無料利用上限に達したため同期を停止しました。端末内のデータは残っています。',
+                timeout: 'Google Driveとの通信がタイムアウトしました。',
+                network_unavailable: 'Google Driveへ接続できませんでした。端末内のデータは残っています。',
+                too_large: '同期データが大きすぎるため処理を中止しました。',
+                invalid_json: 'Google Driveの同期データが壊れています。'
+            };
+            const message = messages[error?.code] || error?.message || 'Google Drive同期に失敗しました。';
+            syncGoogleDriveSettings(message);
+            showMessageToast(message, 'error');
+            return null;
+        } finally {
+            googleDriveSyncBusy = false;
+            const current = dom.googleDriveSyncStatus?.textContent || '';
+            syncGoogleDriveSettings(current.endsWith('しています。') ? '' : current);
+        }
+    }
+
+    function getSyncedDisplaySettings() {
+        return {
+            gridColumns: Math.min(5, Math.max(3, Number.parseInt(localStorage.getItem('gridColumns') || '3', 10) || 3)),
+            variantDisplayMode: getStoredVariantDisplayMode(),
+            furiganaEditorVisible: isFuriganaEditorVisible(),
+            listBadgesVisible: isListBadgesVisible()
+        };
+    }
+
+    async function buildGoogleDriveSyncSnapshot() {
+        if (!db) throw new Error('端末内データを読み込めませんでした。');
+        if (wantedCardsSaveTimer) {
+            clearTimeout(wantedCardsSaveTimer);
+            wantedCardsSaveTimer = null;
+            await persistWantedCards();
+        }
+        await Promise.all([collectionWriteQueue, openingWriteQueue]);
+        const [decks, collection, sessions] = await Promise.all([
+            db.getAll(STORE_DECKS),
+            db.getAll(STORE_COLLECTION),
+            db.getAll(STORE_OPENING_SESSIONS)
+        ]);
+        return {
+            format: USER_SYNC_FORMAT,
+            version: USER_SYNC_VERSION,
+            appVersion: APP_VERSION,
+            exportedAt: new Date().toISOString(),
+            data: {
+                decks,
+                collection,
+                openingSessions: sessions,
+                wantedCards: normalizeWantedCards(wantedCards),
+                settings: getSyncedDisplaySettings()
+            }
+        };
+    }
+
+    function normalizeSyncRecordList(value, label, maximum) {
+        if (!Array.isArray(value) || value.length > maximum) {
+            throw new Error(`${label}の同期データ形式が正しくありません。`);
+        }
+        const seen = new Set();
+        return value.map(record => {
+            if (!record || typeof record !== 'object' || Array.isArray(record)) {
+                throw new Error(`${label}の同期データ形式が正しくありません。`);
+            }
+            const id = String(record.id || '').trim();
+            if (!id || id.length > 160 || seen.has(id)) {
+                throw new Error(`${label}のIDが正しくありません。`);
+            }
+            seen.add(id);
+            return JSON.parse(JSON.stringify({ ...record, id }));
+        });
+    }
+
+    function normalizeGoogleDriveSyncSnapshot(payload) {
+        if (!payload || payload.format !== USER_SYNC_FORMAT || payload.version !== USER_SYNC_VERSION) {
+            throw new Error('OP-TCG DBの同期データ形式ではありません。');
+        }
+        const source = payload.data;
+        if (!source || typeof source !== 'object' || Array.isArray(source)) {
+            throw new Error('同期データの内容が正しくありません。');
+        }
+
+        const decks = normalizeSyncRecordList(source.decks, 'デッキ', 1000).map(deck => {
+            const leader = normalizeSharedCardNumber(deck.leader);
+            if (!leader) throw new Error('デッキのリーダーカード番号が正しくありません。');
+            const cards = normalizeDeckTransferEntries(Object.entries(deck.cards || {}), leader);
+            return {
+                ...deck,
+                name: normalizeDeckName(deck.name),
+                leader,
+                cards
+            };
+        });
+        const collection = normalizeSyncRecordList(source.collection, '所持カード', 20000)
+            .map(record => ({ ...record, count: clampCollectionCount(record.count) }))
+            .filter(record => record.count > 0);
+        const openingSessions = normalizeSyncRecordList(source.openingSessions, '開封記録', 2000)
+            .map(session => ({
+                ...session,
+                items: normalizeVariantCounts(session.items),
+                draftItems: session.draftItems === null || session.draftItems === undefined
+                    ? null
+                    : normalizeVariantCounts(session.draftItems)
+            }));
+        const settings = source.settings && typeof source.settings === 'object' && !Array.isArray(source.settings)
+            ? source.settings
+            : {};
+        return {
+            exportedAt: String(payload.exportedAt || ''),
+            decks,
+            collection,
+            openingSessions,
+            wantedCards: normalizeWantedCards(source.wantedCards),
+            settings: {
+                gridColumns: Math.min(5, Math.max(3, Number.parseInt(settings.gridColumns, 10) || 3)),
+                variantDisplayMode: ['normal', 'all', 'parallel'].includes(settings.variantDisplayMode)
+                    ? settings.variantDisplayMode
+                    : 'normal',
+                furiganaEditorVisible: settings.furiganaEditorVisible === true,
+                listBadgesVisible: settings.listBadgesVisible !== false
+            }
+        };
+    }
+
+    async function replaceLocalDataFromGoogleDrive(payload) {
+        const normalized = normalizeGoogleDriveSyncSnapshot(payload);
+        const exportedDate = new Date(normalized.exportedAt);
+        const exportedLabel = Number.isFinite(exportedDate.getTime())
+            ? exportedDate.toLocaleString('ja-JP')
+            : '日時不明';
+        const confirmed = await confirmDialog(
+            `Driveのデータ（${exportedLabel}）で、この端末のデッキ・所持カード・開封記録・欲しいカードを置き換えます。\nデッキ ${normalized.decks.length}件 / 所持カード ${normalized.collection.length}種類`,
+            { title: 'Driveから復元', confirmLabel: '置き換える', danger: true }
+        );
+        if (!confirmed) return false;
+
+        await Promise.all([collectionWriteQueue, openingWriteQueue]);
+        const tx = db.transaction(
+            [STORE_DECKS, STORE_COLLECTION, STORE_OPENING_SESSIONS, STORE_METADATA],
+            'readwrite'
+        );
+        const deckStore = tx.objectStore(STORE_DECKS);
+        const collectionStore = tx.objectStore(STORE_COLLECTION);
+        const sessionStore = tx.objectStore(STORE_OPENING_SESSIONS);
+        const metadataStore = tx.objectStore(STORE_METADATA);
+        await deckStore.clear();
+        await collectionStore.clear();
+        await sessionStore.clear();
+        for (const deck of normalized.decks) await deckStore.put(deck);
+        for (const record of normalized.collection) await collectionStore.put(record);
+        for (const session of normalized.openingSessions) await sessionStore.put(session);
+        await metadataStore.put({
+            key: WANTED_CARDS_METADATA_KEY,
+            value: normalized.wantedCards,
+            updatedAt: new Date().toISOString()
+        });
+        await tx.done;
+
+        localStorage.setItem('gridColumns', String(normalized.settings.gridColumns));
+        localStorage.setItem(VARIANT_DISPLAY_MODE_STORAGE_KEY, normalized.settings.variantDisplayMode);
+        localStorage.setItem(FURIGANA_EDITOR_VISIBLE_STORAGE_KEY, normalized.settings.furiganaEditorVisible ? 'true' : 'false');
+        localStorage.setItem(LIST_BADGES_VISIBLE_STORAGE_KEY, normalized.settings.listBadgesVisible ? 'true' : 'false');
+        localStorage.setItem(GOOGLE_DRIVE_LAST_SYNC_STORAGE_KEY, new Date().toISOString());
+        showMessageToast('Google Driveから復元しました。アプリを再読み込みします。', 'success');
+        setTimeout(() => window.location.reload(), 900);
+        return true;
+    }
+
+    async function connectGoogleDriveSync() {
+        await runGoogleDriveSyncAction(async () => {
+            await googleDriveSyncClient.connect();
+            syncGoogleDriveSettings('Google Driveに接続しました。同期は手動で実行してください。');
+            showMessageToast('Google Driveに接続しました。', 'success');
+            return true;
+        }, 'Google Driveに接続しています。');
+    }
+
+    async function uploadGoogleDriveSync() {
+        await runGoogleDriveSyncAction(async () => {
+            if (!await confirmDialog(
+                'この端末のデータでGoogle Drive上の同期データを更新します。別端末で先に変更している場合は、先に「Driveから復元」を実行してください。',
+                { title: 'この端末から保存', confirmLabel: 'Driveへ保存' }
+            )) return false;
+            const snapshot = await buildGoogleDriveSyncSnapshot();
+            await googleDriveSyncClient.saveSnapshot(snapshot);
+            localStorage.setItem(GOOGLE_DRIVE_LAST_SYNC_STORAGE_KEY, new Date().toISOString());
+            syncGoogleDriveSettings('この端末のデータをGoogle Driveへ保存しました。');
+            showMessageToast('Google Driveへ保存しました。', 'success');
+            return true;
+        }, 'Google Driveへ保存しています。');
+    }
+
+    async function downloadGoogleDriveSync() {
+        await runGoogleDriveSyncAction(async () => {
+            const remote = await googleDriveSyncClient.loadSnapshot();
+            if (!remote) {
+                syncGoogleDriveSettings('Google Driveに同期データはまだありません。');
+                showMessageToast('Google Driveに同期データはまだありません。', 'info');
+                return false;
+            }
+            return replaceLocalDataFromGoogleDrive(remote.data);
+        }, 'Google Driveから読み込んでいます。');
+    }
+
+    function disconnectGoogleDriveSync() {
+        googleDriveSyncClient?.disconnect();
+        syncGoogleDriveSettings('Google Driveとの接続を解除しました。端末内のデータは残っています。');
+        showMessageToast('Google Driveとの接続を解除しました。', 'success');
     }
 
     // === 7. キャッシュ管理 (UI) ===
@@ -8103,6 +8423,9 @@
                 } else if (dom.sharedDeckUrlModal?.style.display !== 'none') {
                     event.preventDefault();
                     closeSharedDeckUrlImport();
+                } else if (dom.optcgSimTextModal?.style.display !== 'none') {
+                    event.preventDefault();
+                    closeOptcgSimTextImport();
                 } else if (openDeckActionMenu) {
                     event.preventDefault();
                     closeDeckActionMenu(true);
@@ -8151,6 +8474,7 @@
             syncGitHubTokenSettings();
             syncFuriganaEditorVisibility();
             syncListBadgesVisibility();
+            syncGoogleDriveSettings();
             dom.settingsModal.style.display = 'flex';
         });
         
@@ -8243,6 +8567,10 @@
         dom.cacheAllImagesBtn.addEventListener('click', cacheAllImages);
         dom.refreshAppCacheBtn?.addEventListener('click', refreshAppCache);
         dom.clearAllDataBtn.addEventListener('click', clearAllData);
+        dom.googleDriveConnectBtn?.addEventListener('click', connectGoogleDriveSync);
+        dom.googleDriveUploadBtn?.addEventListener('click', uploadGoogleDriveSync);
+        dom.googleDriveDownloadBtn?.addEventListener('click', downloadGoogleDriveSync);
+        dom.googleDriveDisconnectBtn?.addEventListener('click', disconnectGoogleDriveSync);
         if (dom.githubTokenSaveBtn) {
             dom.githubTokenSaveBtn.addEventListener('click', () => {
                 setStoredGitHubToken(dom.githubTokenInput?.value || '');
@@ -8486,6 +8814,32 @@
                 }
             });
         }
+        if (dom.optcgSimTextCloseBtn) {
+            dom.optcgSimTextCloseBtn.addEventListener('click', closeOptcgSimTextImport);
+        }
+        if (dom.optcgSimTextCancelBtn) {
+            dom.optcgSimTextCancelBtn.addEventListener('click', closeOptcgSimTextImport);
+        }
+        if (dom.optcgSimTextModal) {
+            dom.optcgSimTextModal.addEventListener('click', event => {
+                if (event.target === dom.optcgSimTextModal) closeOptcgSimTextImport();
+            });
+        }
+        if (dom.optcgSimTextPasteBtn) {
+            dom.optcgSimTextPasteBtn.addEventListener('click', pasteOptcgSimDeckText);
+        }
+        if (dom.optcgSimTextSubmitBtn) {
+            dom.optcgSimTextSubmitBtn.addEventListener('click', importOptcgSimDeckText);
+        }
+        if (dom.optcgSimTextInput) {
+            dom.optcgSimTextInput.addEventListener('input', () => setOptcgSimTextStatus());
+            dom.optcgSimTextInput.addEventListener('keydown', event => {
+                if (event.key === 'Enter' && (event.ctrlKey || event.metaKey)) {
+                    event.preventDefault();
+                    importOptcgSimDeckText();
+                }
+            });
+        }
         if (dom.lightboxFuriganaSaveBtn) {
             dom.lightboxFuriganaSaveBtn.addEventListener('click', async (event) => {
                 event.stopPropagation();
@@ -8639,16 +8993,7 @@
             dom.importSharedDeckBtn.addEventListener('click', openSharedDeckUrlImport);
         }
         if (dom.importOptcgSimDeckBtn) {
-            dom.importOptcgSimDeckBtn.addEventListener('click', () => {
-                if (isImportingSharedDeck || !dom.importOptcgSimDeckInput) return;
-                dom.importOptcgSimDeckInput.value = '';
-                dom.importOptcgSimDeckInput.click();
-            });
-        }
-        if (dom.importOptcgSimDeckInput) {
-            dom.importOptcgSimDeckInput.addEventListener('change', event => {
-                importOptcgSimDeckFile(event.target.files?.[0]);
-            });
+            dom.importOptcgSimDeckBtn.addEventListener('click', openOptcgSimTextImport);
         }
         if (dom.deckSaveBtn) {
             dom.deckSaveBtn.addEventListener('click', () => {

@@ -1,7 +1,7 @@
 (function(global) {
     'use strict';
 
-    const MAX_FILE_BYTES = 64 * 1024;
+    const MAX_SOURCE_BYTES = 64 * 1024;
     const MAX_LINES = 100;
     const MAX_COPIES = 4;
     const MAX_MAIN_DECK_SIZE = 50;
@@ -43,8 +43,8 @@
     function parseDeck(text, options = {}) {
         const source = String(text || '').replace(/^\uFEFF/, '');
         if (!source.trim()) throw new Error('OPTCGSimのデッキデータが空です。');
-        if (new TextEncoder().encode(source).byteLength > MAX_FILE_BYTES) {
-            throw new Error('OPTCGSimのデッキファイルが大きすぎます。');
+        if (new TextEncoder().encode(source).byteLength > MAX_SOURCE_BYTES) {
+            throw new Error('OPTCGSimのデッキデータが大きすぎます。');
         }
 
         const lines = source.split(/\r?\n/)

@@ -811,7 +811,8 @@ body.shared-deck-confirm-open {
     }
 }
 
-body.shared-deck-url-open {
+body.shared-deck-url-open,
+body.optcgsim-text-open {
     overflow: hidden;
 }
 
@@ -854,6 +855,12 @@ body.shared-deck-url-open {
     border-color: var(--color-secondary);
     outline: 2px solid transparent;
     box-shadow: 0 0 0 2px rgba(3, 218, 198, 0.3);
+}
+
+.optcgsim-text-input {
+    min-height: 240px;
+    resize: vertical;
+    font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
 }
 
 .shared-deck-url-tools {
@@ -1188,6 +1195,39 @@ body.shared-deck-url-open {
     min-height: 18px;
     font-size: 12px;
     opacity: 0.78;
+}
+
+.google-drive-sync-settings {
+    padding: 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    background: var(--color-surface-variant);
+}
+
+.google-drive-sync-settings .settings-actions .modal-btn {
+    min-height: 42px;
+}
+
+.google-drive-sync-settings .settings-actions .modal-btn:disabled {
+    opacity: 0.58;
+    color: var(--color-on-surface);
+}
+
+.google-drive-sync-settings .settings-status {
+    margin: 2px 0 0;
+    color: var(--color-secondary);
+    opacity: 1;
+}
+
+@media (max-width: 520px) {
+    .google-drive-sync-settings .settings-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .google-drive-sync-settings .settings-actions .modal-btn {
+        width: 100%;
+    }
 }
 
 .app-version {
