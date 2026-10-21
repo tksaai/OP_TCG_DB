@@ -5,8 +5,8 @@
  */
 
 // === 1. 定数 ===
-const CACHE_APP_SHELL = 'app-shell-v60';
-const CACHE_CARD_DATA = 'card-data-v18';
+const CACHE_APP_SHELL = 'app-shell-v61';
+const CACHE_CARD_DATA = 'card-data-v19';
 // v2: 配信を WebP に一本化したタイミングで、古い JPEG/PNG のキャッシュを捨てる
 const CACHE_IMAGES = 'card-images-v2';
 const OWNED_CACHE_PREFIXES = ['app-shell-', 'card-data-', 'card-images-'];
@@ -20,6 +20,7 @@ const PROVISIONAL_CARDS_JSON_PATH = './provisional-cards.json';
 const IMAGE_MANIFEST_PATH = './image-manifest.json';
 const BLOCK_ICON_RULES_PATH = './block-icon-overrides.json';
 const CARD_FEATURES_PATH = './card-features.json';
+const FURIGANA_MASTER_PATH = './furigana-master.json';
 const FURIGANA_OVERRIDES_PATH = './furigana-overrides.json';
 const CARD_DATA_FILES = [
     CARDS_JSON_PATH,
@@ -27,6 +28,7 @@ const CARD_DATA_FILES = [
     IMAGE_MANIFEST_PATH,
     BLOCK_ICON_RULES_PATH,
     CARD_FEATURES_PATH,
+    FURIGANA_MASTER_PATH,
     FURIGANA_OVERRIDES_PATH
 ];
 
@@ -36,16 +38,22 @@ const APP_SHELL_FILES = [
     './', // ルート (index.html を想定)
     './index.html',
     './style.css',
-    './image-import.js?v=1.15.2',
+    './image-import.js?v=1.16.0',
     './image-import-worker.js',
-    './eight-pack-leader.js?v=1.15.2',
-    './deck-adjustments.js?v=1.15.2',
-    './deck-records.js?v=1.15.2',
-    './deck-variants.js?v=1.15.2',
-    './proxy-print.js?v=1.15.2',
-    './optcgsim-deck.js?v=1.15.2',
-    './google-drive-sync.js?v=1.15.2',
-    './app.js?v=1.15.2',
+    './eight-pack-leader.js?v=1.16.0',
+    './deck-adjustments.js?v=1.16.0',
+    './deck-records.js?v=1.16.0',
+    './deck-variants.js?v=1.16.0',
+    './proxy-print.js?v=1.16.0',
+    './optcgsim-deck.js?v=1.16.0',
+    './google-drive-sync.js?v=1.16.0',
+    './app.js?v=1.16.0',
+    './admin.html',
+    './furigana-review.html',
+    './furigana-review.css?v=1.0.0',
+    './furigana-review.js?v=1.0.0',
+    './furigana-ocr-frame.html?v=1.0.0',
+    './furigana-ocr-frame.js?v=1.0.0',
     './guide/',
     './guide/index.html',
     './guide/guide.css',

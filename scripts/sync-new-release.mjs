@@ -172,6 +172,10 @@ run(process.execPath, [
     ...(hasArg('force') ? ['--force'] : [])
 ]);
 run(process.execPath, [path.join('scripts', 'apply-block-icon-overrides.mjs'), ...(dryRun ? ['--dry-run'] : [])]);
+run(process.execPath, [
+    path.join('scripts', 'sync-furigana-master.mjs'),
+    ...(dryRun ? [] : ['--write'])
+]);
 
 if (dryRun) {
     console.log('\nDry run complete. WebP conversion and manifest rebuild were skipped.');

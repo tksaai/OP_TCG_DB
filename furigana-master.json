@@ -1,0 +1,6130 @@
+{
+  "version": 1,
+  "entries": {
+    "…おれは白ひげを王にする": {
+      "reading": "オレハシロヒゲオオウニスル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "…なにも!!!な゛かった…!!!!": {
+      "reading": "ナニモナカッタ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "“お前の影響で出る音は全て消えるの術”だ": {
+      "reading": "オマエノエイキョウデデルオトハスベテキエルノジュツダ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "\"ハウリング\"ガブ": {
+      "reading": "ハウリングガブ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "\"ひとつなぎの大秘宝\"を獲りに行くぞ!!!": {
+      "reading": "ワンピースヲトリニイクゾ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "“メラメラの実”はおれが食っていいか？": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "“火炎”が許さねェってよ!!": {
+      "reading": "カエンガユルサネェッテヨ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "”奇跡”ナメんじゃないよォ!!!!": {
+      "reading": "キセキナメンジャナイヨォ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "“疑わない事”それが“強さ”だ!!!": {
+      "reading": "ウタガワナイコトソレガツヨサダ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "“古代兵器”「ポセイドン」": {
+      "reading": "コダイヘイキポセイドン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "“五老星”ここに!!!": {
+      "reading": "ゴロウセイココニ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "“新世界”で会おうぜ": {
+      "reading": "シンセカイデアオウゼ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "“力”に屈したら男に生まれた意味がねェだろう": {
+      "reading": "チカラニクッシタラオトコニウマレタイミガネェダロウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "「リリス」を頼む！！！": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "「火炎」竜王": {
+      "reading": "カエンリュウオウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "「三大将」!!!": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "「四皇」を一人…!!!引きずり降ろす“策”がある": {
+      "reading": "ヨンコウヲヒトリヒキズリオロスサクガアル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "「紙絵」“残身”": {
+      "reading": "カミエザンシン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "10つ子達": {
+      "reading": "ジュッコタチ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "2億V雷神": {
+      "reading": "ニオクボルトアマル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "2年後に‼!シャボンディ諸島で!!!": {
+      "reading": "ニネンゴニシャボンディショトウデ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "3000万V雷鳥": {
+      "reading": "サンゼンマンボルトヒノ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "3兄弟の絆": {
+      "reading": "サンキョウダイノキズナ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "5億で買うえ～～!!!": {
+      "reading": "ゴオクデカウエ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "Ａ・Ｏ": {
+      "reading": "アー・オー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "BB": {
+      "reading": "ビービー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "BRAND NEW WORLD": {
+      "reading": "ブランニューワールド",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "DEATH WINK": {
+      "reading": "デスウインク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "Dr.インディゴ": {
+      "reading": "ドクターインディゴ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "Dr.くれは": {
+      "reading": "ドクタークレハ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "Dr.ヒルルク": {
+      "reading": "ドクターヒルルク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "GERMA 66": {
+      "reading": "ジェルマダブルシックス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "Hope": {
+      "reading": "ホープ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "KEEP OUT": {
+      "reading": "キープアウト",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "Mr.0（クロコダイル）": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "Mr.0&ミス・オールサンデー": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "Mr.1(ダズ・ボーネス)": {
+      "reading": "ミスターワンダズ・ボーネス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "Mr.1&ミス・ダブルフィンガー": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "Mr.13&ミス・フライデー": {
+      "reading": "ミスターサーティーンアンドミス・フライデー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "Mr.2・ボン・クレー(ベンサム)": {
+      "reading": "ミスターツー・ボン・クレーベンサム",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "Mｒ.2・ボン・クレー(ベンサム)": {
+      "reading": "ミスターツー・ボン・クレーベンサム",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "Mr.2ボン・クレー(ベンサム)": {
+      "reading": "ミスターツーボン・クレーベンサム",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "Mr.3(ギャルディーノ)": {
+      "reading": "ミスタースリーギャルディーノ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "Mr.３(ギャルディーノ)": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "Mr.4(ベーブ)": {
+      "reading": "ミスターフォーベーブ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "Mr.5(ジェム)": {
+      "reading": "ミスターファイブジェム",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "Mr.５(ジェム)": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "Mr.5&ミス・バレンタイン": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "Mr.9": {
+      "reading": "ミスターナイン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "Mr.9&ミス・ウェンズデー": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "Mr.ビーンズ&ミス・キャサリーナ": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "ROOM": {
+      "reading": "ルーム",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "S-シャーク": {
+      "reading": "エスシャーク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "S-スネーク": {
+      "reading": "エススネーク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "S-ベア": {
+      "reading": "エスベア",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "S-ホーク": {
+      "reading": "エスホーク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "SPHINX": {
+      "reading": "スフィンクス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "Tot Musica": {
+      "reading": "トットムジカ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "Tボーン": {
+      "reading": "ティーボーン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "X・ドレーク": {
+      "reading": "ディエス・ドレーク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "Ｘ・ドレーク": {
+      "reading": "ディエス・ドレーク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "X・バレルズ": {
+      "reading": "ディエス・バレルズ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "X狩場": {
+      "reading": "エクスカリバー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "あーーっす！": {
+      "reading": "アーーッス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "アーロン": {
+      "reading": "アーロン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "アイサ": {
+      "reading": "アイサ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "アイスタイム": {
+      "reading": "アイスタイム",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "アイスバーグ": {
+      "reading": "アイスバーグ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "アイス塊「両棘矛」": {
+      "reading": "アイスブロックパルチザン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "アイス塊暴雉嘴": {
+      "reading": "アイスブロックフェザントベック",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "アイン": {
+      "reading": "アイン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "アウトルック3世": {
+      "reading": "アウトルックサンセイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "アシュラ童子": {
+      "reading": "アシュラドウジ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "アッパーヤード": {
+      "reading": "アッパーヤード",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "アディオ": {
+      "reading": "アディオ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "アトモス": {
+      "reading": "アトモス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "アトラス": {
+      "reading": "アトラス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "アバロ・ピサロ": {
+      "reading": "アバロ・ピサロ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "アピス": {
+      "reading": "アピス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "あひる": {
+      "reading": "アヒル",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "アフェランドラ": {
+      "reading": "アフェランドラ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "アブサロム": {
+      "reading": "アブサロム",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "アマゾン": {
+      "reading": "アマゾン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "アラディン": {
+      "reading": "アラディン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "アラマキ": {
+      "reading": "アラマキ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "アルビダ": {
+      "reading": "アルビダ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "アルファ": {
+      "reading": "アルファ",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "アルベル": {
+      "reading": "アルベル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "アン": {
+      "reading": "アン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "イーザンバロン・V・ナス寿郎聖": {
+      "reading": "イーザンバロン・ブイ・ナスジュロウセイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "イガラム": {
+      "reading": "イガラム",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "イカロス・ムッヒ": {
+      "reading": "イカロス・ムッヒ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "いきなり“キング”は取れねェだろうよい": {
+      "reading": "イキナリキングハトレネェダロウヨイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "イシリー": {
+      "reading": "イシリー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "イスカ": {
+      "reading": "イスカ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "イゾウ": {
+      "reading": "イゾウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "いつかまた会えたら!!!もう一度 仲間と呼んでくれますか!!!?": {
+      "reading": "イツカマタアエタラモウイチドナカマトヨンデクレマスカ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "イッシー20": {
+      "reading": "イッシウトゥエンティ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "イッショウ": {
+      "reading": "イッショウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "いっちょやるか生きててこその“殺し合い”!!!": {
+      "reading": "イッチョヤルカイキテテコソノコロシアイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "いっぽんマツ": {
+      "reading": "イッポンマツ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "イデオ": {
+      "reading": "イデオ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "イトミミズ": {
+      "reading": "イトミミズ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "イナズマ": {
+      "reading": "イナズマ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "イヌアラシ": {
+      "reading": "イヌアラシ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "イヌアラシ＆ネコマムシ": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "イム": {
+      "reading": "イム",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "インペルダウン": {
+      "reading": "インペルダウン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "インペルダウンオールスター": {
+      "reading": "インペルダウンオールスター",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "インペルダウンの囚人": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "ヴァイオレット": {
+      "reading": "ヴァイオレット",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ヴァン・オーガー": {
+      "reading": "ヴァン・オーガー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ウィーアー！": {
+      "reading": "ウィーアー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ヴィオラ": {
+      "reading": "ヴィオラ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ヴィト": {
+      "reading": "ヴィト",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ヴィンスモーク・イチジ": {
+      "reading": "ヴィンスモーク・イチジ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ヴィンスモーク・サンジ": {
+      "reading": "ヴィンスモーク・サンジ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ヴィンスモーク・ジャッジ": {
+      "reading": "ヴィンスモーク・ジャッジ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ヴィンスモーク・ソラ": {
+      "reading": "ヴィンスモーク・ソラ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ヴィンスモーク・ニジ": {
+      "reading": "ヴィンスモーク・ニジ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ヴィンスモーク・ヨンジ": {
+      "reading": "ヴィンスモーク・ヨンジ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ヴィンスモーク・レイジュ": {
+      "reading": "ヴィンスモーク・レイジュ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ウーシー": {
+      "reading": "ウーシー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ウープ・スラップ": {
+      "reading": "ウープ・スラップ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ヴェルゴ": {
+      "reading": "ヴェルゴ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ウォロロロロ…!!すっかり酔いが醒めたぜ": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "ウサッコフ": {
+      "reading": "ウサッコフ",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "ウソーーップ輪ごーむっ!!!": {
+      "reading": "ウソーーップワゴームッ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ウソップ": {
+      "reading": "ウソップ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ウソップ海賊団": {
+      "reading": "ウソップカイゾクダン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ウソ八": {
+      "reading": "ウソハチ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ウタ": {
+      "reading": "ウタ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ウタカタララバイ": {
+      "reading": "ウタカタララバイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ウルージ": {
+      "reading": "ウルージ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "うるせェ!!!いこう!!!!": {
+      "reading": "ウルセェイコウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "うるティ": {
+      "reading": "ウルティ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "うるティ＆ページワン": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "ウル頭銃": {
+      "reading": "ウルズガン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ウロコ": {
+      "reading": "ウロコ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "エース＆サボ＆ルフィ": {
+      "reading": "エースサボルフィ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "エース＆ニューゲート": {
+      "reading": "エースニューゲート",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "エジソン": {
+      "reading": "エジソン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "エッグヘッド": {
+      "reading": "エッグヘッド",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "エドワード・ウィーブル": {
+      "reading": "エドワード・ウィーブル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "エドワード・ニューゲート": {
+      "reading": "エドワード・ニューゲート",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "エニエス・ロビー": {
+      "reading": "エニエス・ロビー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "エネル": {
+      "reading": "エネル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "エメト": {
+      "reading": "エメト",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "エリザベローⅡ世": {
+      "reading": "エリザベローニセイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "エリック": {
+      "reading": "エリック",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "エルドラゴ": {
+      "reading": "エルドラゴ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "エルミー": {
+      "reading": "エルミー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "エレクトリカルルナ": {
+      "reading": "エレクトリカルルナ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "エレファント・ホンマグロ": {
+      "reading": "エレファント・ホンマグロ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "エレ爪": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "エンポリオ・イワンコフ": {
+      "reading": "エンポリオ・イワンコフ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "エンポリオ・テンションホルモン": {
+      "reading": "エンポリオ・テンションホルモン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "オイモ&カーシー": {
+      "reading": "オイモカーシー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "オーズ": {
+      "reading": "オーズ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "オーム": {
+      "reading": "オーム",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "オールハント・グラント": {
+      "reading": "オールハント・グラント",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "オーロ・ジャクソン号": {
+      "reading": "オーロ・ジャクソンゴウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "オオロンブス": {
+      "reading": "オオロンブス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "オカマ道": {
+      "reading": "オカマウェイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "オクトパ子": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "おそばマスク": {
+      "reading": "オソバマスク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "おトコ": {
+      "reading": "オトコ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "オトヒメ": {
+      "reading": "オトヒメ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "おナミ": {
+      "reading": "オナミ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "オニグモ": {
+      "reading": "オニグモ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "オフィサーエージェント": {
+      "reading": "オフィサーエージェント",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "おまえ…タチ…わ…おれ…が…み…ち…び…く…!!!": {
+      "reading": "オマエタチワオレガミチビク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "オマツリ男爵": {
+      "reading": "オマツリダンシャク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "おリン": {
+      "reading": "オリン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "オリ婆": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "オルガ・ミスキナ": {
+      "reading": "オルガ・ミスキナ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "おれァ‘‘白ひげ‘‘だァア!!!!": {
+      "reading": "オレァシロヒゲダァア",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "おれと共に来る者は命を捨ててついて来い!!!": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "おれの”侍”になれ‼!": {
+      "reading": "オレノサムライニナレ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "おれの時代だァ!!!!": {
+      "reading": "オレノジダイダァ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "おれはルフィ!!海賊王になる男だ!!": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "おれは決して お前を撃たねェ!!!!": {
+      "reading": "オレハケッシテオマエヲウタネェ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "おれは女の涙を疑わねェっ!!!!": {
+      "reading": "オレハオンナノナミダヲウタガワネェッ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "おれは友達を傷つける奴は許さない!!!!": {
+      "reading": "オレハトモダチヲキズツケルヤツハユルサナイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "おれ達の救世主!!!キャプテン・バギー!!!!": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "おれ達の力を見せてやれ!!!": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "おロビ": {
+      "reading": "オロビ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "お菊": {
+      "reading": "オキク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "お玉": {
+      "reading": "オタマ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "お染": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "お前がいねェと…!!おれは海賊王になれねェ!!!!": {
+      "reading": "オマエガイネェトオレハカイゾクオウニナレネェ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "お前がおれに!!!勝てるわけねェだろうが!!!!": {
+      "reading": "オマエガオレニカテルワケネェダロウガ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "お前が消えろ": {
+      "reading": "オマエガキエロ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "お前じゃ退屈凌ぎにもなりゃしねェ!!!": {
+      "reading": "オマエジャタイクツシノギニモナリャシネェ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "お鶴": {
+      "reading": "オツル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "カーリー・ダダン": {
+      "reading": "カーリー・ダダン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "カイドウ": {
+      "reading": "カイドウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "カイドウ＆リンリン": {
+      "reading": "カイドウリンリン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ガイモン": {
+      "reading": "ガイモン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "カク": {
+      "reading": "カク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ガスティーノ": {
+      "reading": "ガスティーノ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ガスパーデ": {
+      "reading": "ガスパーデ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "カタリーナ・デボン": {
+      "reading": "カタリーナ・デボン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "カバジ": {
+      "reading": "カバジ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "カブ": {
+      "reading": "カブ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "カポーティ": {
+      "reading": "カポーティ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "カポネ・ベッジ": {
+      "reading": "カポネ・ベッジ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "カマキリ": {
+      "reading": "カマキリ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "カマクラ十草紙": {
+      "reading": "カマクラトゾウシ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "カヤ": {
+      "reading": "カヤ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "カラーズトラップ": {
+      "reading": "カラーズトラップ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "カライ・バリ島": {
+      "reading": "カライ・バリトウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "カラス": {
+      "reading": "カラス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "カリーナ": {
+      "reading": "カリーナ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "カリファ": {
+      "reading": "カリファ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "カリブー": {
+      "reading": "カリブー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "カルー": {
+      "reading": "カルー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "カルガラ": {
+      "reading": "カルガラ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ガルチュー": {
+      "reading": "ガルチュー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "カルネ": {
+      "reading": "カルネ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "カルメル": {
+      "reading": "カルメル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "カルメン": {
+      "reading": "カルメン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ガレーラカンパニー": {
+      "reading": "ガレーラカンパニー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ガン・フォール": {
+      "reading": "ガン・フォール",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ガンズイ": {
+      "reading": "ガンズイ",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "ガンマナイフ": {
+      "reading": "ガンマナイフ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "カン十郎": {
+      "reading": "カンジュウロウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ギア2": {
+      "reading": "ギアセカンド",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "キウイ&モズ": {
+      "reading": "キウイモズ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "キウイ＆モズ": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "ギオン": {
+      "reading": "ギオン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "キッド&キラー": {
+      "reading": "キッドキラー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "キッド＆キラー": {
+      "reading": "キッドキラー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ギャッツ": {
+      "reading": "ギャッツ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "キャプテン・シーマーズ": {
+      "reading": "キャプテン・シーマーズ",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "キャプテン・ジョン": {
+      "reading": "キャプテン・ジョン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "キャベンディッシュ": {
+      "reading": "キャベンディッシュ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "キャロット": {
+      "reading": "キャロット",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "キャンディメイデン": {
+      "reading": "キャンディメイデン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "キュイーン": {
+      "reading": "キュイーン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "キュロス": {
+      "reading": "キュロス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ギョギョ": {
+      "reading": "ギョギョ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ギョロ目": {
+      "reading": "ギョロメ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "キラー": {
+      "reading": "キラー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ギルド・テゾーロ": {
+      "reading": "ギルド・テゾーロ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ギン": {
+      "reading": "ギン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "キング": {
+      "reading": "キング",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "キングデュー": {
+      "reading": "キングデュー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "キングバーム": {
+      "reading": "キングバーム",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "クイーン": {
+      "reading": "クイーン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "クイーン・ママ・シャンテ号": {
+      "reading": "クイーン・ママ・シャンテゴウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "くいな": {
+      "reading": "クイナ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "クザン": {
+      "reading": "クザン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "クマシー": {
+      "reading": "クマシー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "クマドリ": {
+      "reading": "クマドリ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "クラゲ海賊団": {
+      "reading": "クラゲカイゾクダン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "グラディウス": {
+      "reading": "グラディウス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "クラバウターマン": {
+      "reading": "クラバウターマン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "グララララララ!!!": {
+      "reading": "グララララララ",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "クリーク": {
+      "reading": "クリーク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "クリエル": {
+      "reading": "クリエル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "クロ": {
+      "reading": "クロ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "クローバー博士": {
+      "reading": "クローバーハカセ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "クロオビ": {
+      "reading": "クロオビ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "クロコダイル": {
+      "reading": "クロコダイル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "クロコダイル＆ミホーク": {
+      "reading": "クロコダイルミホーク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "クロスギルド": {
+      "reading": "クロスギルド",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "クロッカス": {
+      "reading": "クロッカス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "グロッキーモンスターズ": {
+      "reading": "グロッキーモンスターズ",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "クロマーリモ": {
+      "reading": "クロマーリモ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "グロリオーサ": {
+      "reading": "グロリオーサ",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "グロリオーサ(ニョン婆)": {
+      "reading": "グロリオーサニョンバア",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "クンフージュゴン": {
+      "reading": "クンフージュゴン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ケイミー": {
+      "reading": "ケイミー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゲダツ": {
+      "reading": "ゲダツ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゲッコー・モリア": {
+      "reading": "ゲッコー・モリア",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ケリー・ファンク": {
+      "reading": "ケリー・ファンク",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "ゲルズ": {
+      "reading": "ゲルズ",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "ゲルニカ": {
+      "reading": "ゲルニカ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ケルベロス": {
+      "reading": "ケルベロス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゲンゾウ": {
+      "reading": "ゲンゾウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゲンボウ": {
+      "reading": "ゲンボウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "コアラ": {
+      "reading": "コアラ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "コウシロウ": {
+      "reading": "コウシロウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴーイング・メリー号": {
+      "reading": "ゴーイング・メリーゴウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "コーギー": {
+      "reading": "コーギー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "コーザ": {
+      "reading": "コーザ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴードン": {
+      "reading": "ゴードン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "コーミル": {
+      "reading": "コーミル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "コーメイ": {
+      "reading": "コーメイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴール・D・ロジャー": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "ゴール・Ｄ・ロジャー": {
+      "reading": "ゴール・ディー・ロジャー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴールドバーグ": {
+      "reading": "ゴールドバーグ",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "ココロ": {
+      "reading": "ココロ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ココロのちず": {
+      "reading": "ココロノチズ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "コゼット": {
+      "reading": "コゼット",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ごち♡": {
+      "reading": "ゴチ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴッティ": {
+      "reading": "ゴッティ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "コトリ": {
+      "reading": "コトリ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "コニー": {
+      "reading": "コニー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "コニス": {
+      "reading": "コニス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "このおれを越えてみよロロノア!!!": {
+      "reading": "コノオレヲコエテミヨロロノア",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "この海で一番自由な奴が海賊王だ!!!": {
+      "reading": "コノウミデイチバンジユウナヤツガカイゾクオウダ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "この時代の名が!!!\"白ひげ\"だァ!!!": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "この怒りを食らっておれは!!!“世界”を滅ぼしてやる!!!": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "コビー": {
+      "reading": "コビー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴムゴムの「四本樹」JET十字架ショックバズーカ": {
+      "reading": "ゴムゴムノクロトワマーノジェットクロスショックバズーカ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴムゴムのJET銃": {
+      "reading": "ゴムゴムノジェットピストル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴムゴムのJET銃乱打": {
+      "reading": "ゴムゴムノジェットガトリング",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴムゴムのJET槍": {
+      "reading": "ゴムゴムノジェットスピア",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴムゴムのJET大蛇砲": {
+      "reading": "ゴムゴムノジェットカルヴァリン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴムゴムのUFO": {
+      "reading": "ゴムゴムノユーフォー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴムゴムのチャンピオン回転弾": {
+      "reading": "ゴムゴムノチャンピオンライフル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴムゴムのツインJET銃": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "ゴムゴムのトンカチ回転銃": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "ゴムゴムのモグラ銃": {
+      "reading": "ゴムゴムノモグラピストル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴムゴムの悪魔風三刀流羊肉JET六百煩悩攻城砲": {
+      "reading": "ゴムゴムノディアブルサントウリュウムートンジェットロッピャクポンドキャノン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴムゴムの雨": {
+      "reading": "ゴムゴムノアメ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴムゴムの猿王銃": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "ゴムゴムの猿王銃乱打": {
+      "reading": "ゴムゴムノコングガトリング",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴムゴムの王蛇": {
+      "reading": "ゴムゴムノキングコブラ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴムゴムの黄金回転弾": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "ゴムゴムの火拳銃": {
+      "reading": "ゴムゴムノレッドホーク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴムゴムの巨人": {
+      "reading": "ゴムゴムノギガント",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴムゴムの巨人つっぱり": {
+      "reading": "ゴムゴムノギガントツッパリ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴムゴムの巨人の回転弾": {
+      "reading": "ゴムゴムノギガントライフル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴムゴムの巨人の銃": {
+      "reading": "ゴムゴムノギガントピストル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴムゴムの業火拳銃": {
+      "reading": "ゴムゴムノレッドロック",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴムゴムの犀榴弾砲": {
+      "reading": "ゴムゴムノリノシュナイダー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴムゴムの蛇銃": {
+      "reading": "ゴムゴムノスネークショット",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴムゴムの銃": {
+      "reading": "ゴムゴムノピストル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴムゴムの銃乱打": {
+      "reading": "ゴムゴムノガトリング",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴムゴムの象銃": {
+      "reading": "ゴムゴムノエレファントガン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴムゴムの象銃乱打": {
+      "reading": "ゴムゴムノエレファントガトリング",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴムゴムの鐘": {
+      "reading": "ゴムゴムノカネ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴムゴムの大猿王銃": {
+      "reading": "ゴムゴムノキングコングガン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴムゴムの大猿王銃乱打": {
+      "reading": "ゴムゴムノキングコングガトリング",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴムゴムの大槌": {
+      "reading": "ゴムゴムノオオヅチ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴムゴムの鷹銃乱打": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "ゴムゴムの縄跳び": {
+      "reading": "ゴムゴムノナワトビ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴムゴムの白いスタンプ": {
+      "reading": "ゴムゴムノドーンスタンプ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴムゴムの白い鞭": {
+      "reading": "ゴムゴムノドーンウィップ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴムゴムの暴風雨": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "ゴムゴムの雷": {
+      "reading": "ゴムゴムノカミナリ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴムゴムの龍火炎銃巻き星": {
+      "reading": "ゴムゴムノリュウカエンピストルマキボシ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "コリーダコロシアム": {
+      "reading": "コリーダコロシアム",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "コリブー": {
+      "reading": "コリブー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴルゴン三姉妹": {
+      "reading": "ゴルゴンサンシマイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴロー": {
+      "reading": "ゴロー",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "コンスロット": {
+      "reading": "コンスロット",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゴンべ": {
+      "reading": "ゴンベ",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "サーキース": {
+      "reading": "サーキース",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "サーファンクル": {
+      "reading": "サーファンクル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "サイ": {
+      "reading": "サイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "サウザンド・サニー号": {
+      "reading": "サウザンド・サニーゴウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "サウスバード": {
+      "reading": "サウスバード",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "サガ": {
+      "reading": "サガ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "サカズキ": {
+      "reading": "サカズキ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ササキ": {
+      "reading": "ササキ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "サッチ": {
+      "reading": "サッチ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "サディちゃん": {
+      "reading": "サディチャン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "サトリ": {
+      "reading": "サトリ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "サニーくん": {
+      "reading": "サニークン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "サボ": {
+      "reading": "サボ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "さらへび先生": {
+      "reading": "サラヘビセンセイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "サルデス": {
+      "reading": "サルデス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "サロメ": {
+      "reading": "サロメ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "サンジ": {
+      "reading": "サンジ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "サンジ&プリン": {
+      "reading": "サンジプリン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "サンジのピラフ": {
+      "reading": "サンジノピラフ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ザンバイ": {
+      "reading": "ザンバイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "サンファン・ウルフ": {
+      "reading": "サンファン・ウルフ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "サン五郎": {
+      "reading": "サンゴロウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シーザー・クラウン": {
+      "reading": "シーザー・クラウン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シーザー兵": {
+      "reading": "シーザーヘイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ジーザス・バージェス": {
+      "reading": "ジーザス・バージェス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ジーナ": {
+      "reading": "ジーナ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シープスヘッド": {
+      "reading": "シープスヘッド",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シープスホーン": {
+      "reading": "シープスホーン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ジェイガルシア・サターン聖": {
+      "reading": "ジェイガルシア・サターンセイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シェパード・十・ピーター聖": {
+      "reading": "シェパード・ジュウ・ピーターセイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ジェリー": {
+      "reading": "ジェリー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ジェルマ王国": {
+      "reading": "ジェルマオウコク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シキ": {
+      "reading": "シキ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シシリアン": {
+      "reading": "シシリアン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ジスモンダ": {
+      "reading": "ジスモンダ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ジニー": {
+      "reading": "ジニー",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "しぬほど…おいしい♡": {
+      "reading": "シヌホドオイシイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "しのぶ": {
+      "reading": "シノブ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シャークサブマージ3号": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "シャーリー": {
+      "reading": "シャーリー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シャーロット・アナナ": {
+      "reading": "シャーロット・アナナ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シャーロット・アマンド": {
+      "reading": "シャーロット・アマンド",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シャーロット・エンゼル": {
+      "reading": "シャーロット・エンゼル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シャーロット・オーブン": {
+      "reading": "シャーロット・オーブン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シャーロット・オペラ": {
+      "reading": "シャーロット・オペラ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シャーロット・カスタード": {
+      "reading": "シャーロット・カスタード",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シャーロット・カタクリ": {
+      "reading": "シャーロット・カタクリ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シャーロット・ガレット": {
+      "reading": "シャーロット・ガレット",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シャーロット・クラッカー": {
+      "reading": "シャーロット・クラッカー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シャーロット・コンポート": {
+      "reading": "シャーロット・コンポート",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シャーロット・シフォン": {
+      "reading": "シャーロット・シフォン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シャーロット・スナック": {
+      "reading": "シャーロット・スナック",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シャーロット・スムージー": {
+      "reading": "シャーロット・スムージー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シャーロット・ダイフク": {
+      "reading": "シャーロット・ダイフク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シャーロット・ババロア": {
+      "reading": "シャーロット・ババロア",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シャーロット・プラリネ": {
+      "reading": "シャーロット・プラリネ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シャーロット・フランぺ": {
+      "reading": "シャーロット・フランペ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シャーロット・フランペ": {
+      "reading": "シャーロット・フランペ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シャーロット・ブリュレ": {
+      "reading": "シャーロット・ブリュレ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シャーロット・プリン": {
+      "reading": "シャーロット・プリン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シャーロット・ペロスペロー": {
+      "reading": "シャーロット・ペロスペロー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シャーロット・ポワール": {
+      "reading": "シャーロット・ポワール",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シャーロット・モスカート": {
+      "reading": "シャーロット・モスカート",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シャーロット・モンドール": {
+      "reading": "シャーロット・モンドール",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シャーロット・リンリン": {
+      "reading": "シャーロット・リンリン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シャーロット・ローラ": {
+      "reading": "シャーロット・ローラ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シャーロットプリン様だ‼": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "ジャイロ": {
+      "reading": "ジャイロ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シャカ": {
+      "reading": "シャカ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シャクヤク": {
+      "reading": "シャクヤク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シャクレ": {
+      "reading": "シャクレ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シャチ": {
+      "reading": "シャチ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シャチ＆ペンギン": {
+      "reading": "シャチペンギン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ジャック": {
+      "reading": "ジャック",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ジャブラ": {
+      "reading": "ジャブラ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シャム": {
+      "reading": "シャム",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ジャルマック聖": {
+      "reading": "ジャルマックセイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シャルリア宮": {
+      "reading": "シャルリアグウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シャンクス": {
+      "reading": "シャンクス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ジャンゴ": {
+      "reading": "ジャンゴ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ジャンバール": {
+      "reading": "ジャンバール",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シャンブルズ": {
+      "reading": "シャンブルズ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シュウ": {
+      "reading": "シュウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ジュエリー・ボニー": {
+      "reading": "ジュエリー・ボニー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シュガー": {
+      "reading": "シュガー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シュトロイゼン": {
+      "reading": "シュトロイゼン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シュナイダー": {
+      "reading": "シュナイダー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シュラ": {
+      "reading": "シュラ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シュライヤ": {
+      "reading": "シュライヤ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ジュラキュール・ミホーク": {
+      "reading": "ジュラキュール・ミホーク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ジョーラ": {
+      "reading": "ジョーラ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ジョズ": {
+      "reading": "ジョズ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ジョナサン": {
+      "reading": "ジョナサン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ジョニー": {
+      "reading": "ジョニー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ジョバンニ": {
+      "reading": "ジョバンニ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ジョン・ジャイアント": {
+      "reading": "ジョン・ジャイアント",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "しらほし": {
+      "reading": "シラホシ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "しらほしと申します!!": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "シリュウ": {
+      "reading": "シリュウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シルバーズ・レイリー": {
+      "reading": "シルバーズ・レイリー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シルバーズ･レイリー": {
+      "reading": "シルバーズ・レイリー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "シロモクバ1号": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "ジンベエ": {
+      "reading": "ジンベエ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ジンラミー": {
+      "reading": "ジンラミー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "スイート３将星": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "スイトピー": {
+      "reading": "スイトピー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "スカーレット": {
+      "reading": "スカーレット",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "スクアード": {
+      "reading": "スクアード",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "スクラッチメン・アプー": {
+      "reading": "スクラッチメン・アプー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "スコッチ": {
+      "reading": "スコッチ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "スコッパー・ギャバン": {
+      "reading": "スコッパー・ギャバン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "すっかり衰えた……!!!": {
+      "reading": "スッカリオトロエタ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "スティンガーヘッジホッグ": {
+      "reading": "スティンガーヘッジホッグ",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "ステューシー": {
+      "reading": "ステューシー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ステリー": {
+      "reading": "ステリー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ステルス・ブラック": {
+      "reading": "ステルス・ブラック",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "ステンレス": {
+      "reading": "ステンレス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ストライカー": {
+      "reading": "ストライカー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ストロベリー": {
+      "reading": "ストロベリー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ストロンガー": {
+      "reading": "ストロンガー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "スパイダーマウス": {
+      "reading": "スパイダーマウス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "スパンダイン": {
+      "reading": "スパンダイン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "スパンダム": {
+      "reading": "スパンダム",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "スピード": {
+      "reading": "スピード",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "スピード・ジル": {
+      "reading": "スピード・ジル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "スペーシー中尉": {
+      "reading": "スペーシーチュウイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "スポイル": {
+      "reading": "スポイル",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "スマイリー": {
+      "reading": "スマイリー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "スモーカー": {
+      "reading": "スモーカー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "スモーカー＆たしぎ": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "スリラーバーク": {
+      "reading": "スリラーバーク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "スルメ": {
+      "reading": "スルメ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "スレイマン": {
+      "reading": "スレイマン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゼウス": {
+      "reading": "ゼウス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゼオ": {
+      "reading": "ゼオ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゼット": {
+      "reading": "ゼット",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "セト": {
+      "reading": "セト",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "セニョール・ピンク": {
+      "reading": "セニョール・ピンク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゼハハハハハハ!!!": {
+      "reading": "ゼハハハハハハ",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "ゼフ": {
+      "reading": "ゼフ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゼファー": {
+      "reading": "ゼファー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "センゴク": {
+      "reading": "センゴク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゾウ": {
+      "reading": "ゾウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ソウル・ポーカス": {
+      "reading": "ソウル・ポーカス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "そげキング": {
+      "reading": "ソゲキング",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ソドム＆ゴモラ": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "その“縁”を切りに来た!!!": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "ソリティア": {
+      "reading": "ソリティア",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ゾロ十郎": {
+      "reading": "ゾロジュウロウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "そんなに恐いか？「新時代」が!!!": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "ダイス": {
+      "reading": "ダイス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ダイフゴー": {
+      "reading": "ダイフゴー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "タイプじゃないんですっ…………!!": {
+      "reading": "タイプジャナインデス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "タイルストン": {
+      "reading": "タイルストン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ダグラス・バレット": {
+      "reading": "ダグラス・バレット",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "タコバルーン": {
+      "reading": "タコバルーン",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "たしぎ": {
+      "reading": "タシギ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ダディ・マスターソン": {
+      "reading": "ダディ・マスターソン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "タナカさん": {
+      "reading": "タナカサン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "タマゴ男爵": {
+      "reading": "タマゴダンシャク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "タマゴ男爵＆ペコムズ": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "タララン": {
+      "reading": "タララン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ダルマ": {
+      "reading": "ダルマ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ダルメシアン": {
+      "reading": "ダルメシアン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "チェス": {
+      "reading": "チェス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "チェスマーリモ": {
+      "reading": "チェスマーリモ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "チムニー": {
+      "reading": "チムニー",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "チムニー＆ゴンベ": {
+      "reading": "チムニーゴンベ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "チャカ": {
+      "reading": "チャカ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "チャカ＆ペル": {
+      "reading": "チャカペル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "チャドロス・ヒゲリゲス(茶ひげ)": {
+      "reading": "チャドロス・ヒゲリゲスチャヒゲ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "チャルロス聖": {
+      "reading": "チャルロスセイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "チュウ": {
+      "reading": "チュウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "チョッパーマン": {
+      "reading": "チョッパーマン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "チョパえもん": {
+      "reading": "チョパエモン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "チョンマゲ": {
+      "reading": "チョンマゲ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "チンジャオ": {
+      "reading": "チンジャオ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "つっぱり圧力砲": {
+      "reading": "ツッパリパッドホウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ツノッコフ": {
+      "reading": "ツノッコフ",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "つる": {
+      "reading": "ツル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ディアマンテ": {
+      "reading": "ディアマンテ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ディカルバン兄弟": {
+      "reading": "ディカルバンキョウダイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "デュバル": {
+      "reading": "デュバル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "テラコッタ": {
+      "reading": "テラコッタ",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "テリー・ギルテオ": {
+      "reading": "テリー・ギルテオ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "デリンジャー": {
+      "reading": "デリンジャー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "デレシ!!": {
+      "reading": "デレシ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ドーベルマン": {
+      "reading": "ドーベルマン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ドーマ": {
+      "reading": "ドーマ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ドール": {
+      "reading": "ドール",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "トキカケ": {
+      "reading": "トキカケ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ドクQ": {
+      "reading": "ドクキュー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ドクトル・ホグバック": {
+      "reading": "ドクトル・ホグバック",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ドグラ": {
+      "reading": "ドグラ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ドグラ＆マグラ": {
+      "reading": "ドグラマグラ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ドスン": {
+      "reading": "ドスン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "トットムジカ": {
+      "reading": "トットムジカ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "トップマン・ウォーキュリー聖": {
+      "reading": "トップマン・ウォーキュリーセイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "トト": {
+      "reading": "トト",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "トニートニー・チョッパー": {
+      "reading": "トニートニー・チョッパー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "トの康": {
+      "reading": "トノヤス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ドボン": {
+      "reading": "ドボン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ドミノ": {
+      "reading": "ドミノ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "トム": {
+      "reading": "トム",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ドラゴン十三號": {
+      "reading": "ドラゴンジュウサンゴウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "トラファルガー・ラミ": {
+      "reading": "トラファルガー・ラミ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "トラファルガー・ロー": {
+      "reading": "トラファルガー・ロー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ドラム王国": {
+      "reading": "ドラムオウコク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "トリ": {
+      "reading": "トリ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ドリー": {
+      "reading": "ドリー",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "トリスタン": {
+      "reading": "トリスタン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ドルトン": {
+      "reading": "ドルトン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "トレーボル": {
+      "reading": "トレーボル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ドレスローザ王国": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "ドン・アッチーノ": {
+      "reading": "ドン・アッチーノ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ドンキホーテ・ドフラミンゴ": {
+      "reading": "ドンキホーテ・ドフラミンゴ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ドンキホーテ・ロシナンテ": {
+      "reading": "ドンキホーテ・ロシナンテ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ドンキホーテファミリー": {
+      "reading": "ドンキホーテファミリー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "トンジット": {
+      "reading": "トンジット",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ド派手大作戦に変更じゃァ～～～!!!": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "ナゾムズ": {
+      "reading": "ナゾムズ",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "ナポレオン": {
+      "reading": "ナポレオン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ナミ": {
+      "reading": "ナミ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ナミュール": {
+      "reading": "ナミュール",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ニコ・オルビア": {
+      "reading": "ニコ・オルビア",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ニコ・ロビン": {
+      "reading": "ニコ・ロビン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ニセ麦わらの一味": {
+      "reading": "ニセムギワラノイチミ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ニトロ": {
+      "reading": "ニトロ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ニャーバン兄弟": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "ニューカマーランド": {
+      "reading": "ニューカマーランド",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ニワトリ伯爵": {
+      "reading": "ニワトリハクサク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ネガティブホロウ": {
+      "reading": "ネガティブホロウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ネギ熊まりあ": {
+      "reading": "ネギグママリア",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ネコマムシ": {
+      "reading": "ネコマムシ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ネズミ": {
+      "reading": "ネズミ",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "ネフェルタリ・コブラ": {
+      "reading": "ネフェルタリ・コブラ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ネフェルタリ・ビビ": {
+      "reading": "ネフェルタリ・ビビ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ネプチューン": {
+      "reading": "ネプチューン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ネロ": {
+      "reading": "ネロ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ノジコ": {
+      "reading": "ノジコ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ノラ": {
+      "reading": "ノラ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ノロノロビ～～～～ム": {
+      "reading": "ノロノロビム",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ノロノロビームソード": {
+      "reading": "ノロノロビームソード",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "バ～～～～リアッ!!": {
+      "reading": "バリアッ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "バーソロミュー・くま": {
+      "reading": "バーソロミュー・クマ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "バーベル": {
+      "reading": "バーベル",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "パール": {
+      "reading": "パール",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "バーンディ・ワールド": {
+      "reading": "バーンディ・ワールド",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ハイキングベア": {
+      "reading": "ハイキングベア",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ハイルディン": {
+      "reading": "ハイルディン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "パイレーツドッキング6": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "パウリー": {
+      "reading": "パウリー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "パウンド": {
+      "reading": "パウンド",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "バオファン": {
+      "reading": "バオファン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "バカな息子をそれでも愛そう…": {
+      "reading": "バカナムスコヲソレデモアイソウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "パガヤ": {
+      "reading": "パガヤ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "バカラ": {
+      "reading": "バカラ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "バギー": {
+      "reading": "バギー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ハクバ": {
+      "reading": "ハクバ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "バクバク食": {
+      "reading": "バクバクショク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ハグワール・D・サウロ": {
+      "reading": "ハグワール・ディー・サウロ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ハグワール・Ｄ・サウロ": {
+      "reading": "ハグワール・ディー・サウロ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ハサミ": {
+      "reading": "ハサミ",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "パシア": {
+      "reading": "パシア",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "パシフィスタ": {
+      "reading": "パシフィスタ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "バジル・ホーキンス": {
+      "reading": "バジル・ホーキンス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "バスカビル": {
+      "reading": "バスカビル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "バスコ・ショット": {
+      "reading": "バスコ・ショット",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "バスティーユ": {
+      "reading": "バスティーユ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ハチノス": {
+      "reading": "ハチノス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "バッキン": {
+      "reading": "バッキン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ハック": {
+      "reading": "ハック",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "はっちゃん": {
+      "reading": "ハッチャン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ハットリ": {
+      "reading": "ハットリ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "パッパグ": {
+      "reading": "パッパグ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "バッファロー": {
+      "reading": "バッファロー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "パティ": {
+      "reading": "パティ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "パティ＆カルネ": {
+      "reading": "パティカルネ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "バトラー伯爵": {
+      "reading": "バトラーハクサク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ハナッたれとは話したくねェよアホンダラ": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "バナナワニ": {
+      "reading": "バナナワニ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "バニー・ジョー": {
+      "reading": "バニー・ジョー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ババヌキ": {
+      "reading": "ババヌキ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ハムレット": {
+      "reading": "ハムレット",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ハモンド": {
+      "reading": "ハモンド",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "バラティエ": {
+      "reading": "バラティエ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "バリア突進牛": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "バリバリの銃": {
+      "reading": "バリバリノピストル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ハルタ": {
+      "reading": "ハルタ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "バルトロメオ": {
+      "reading": "バルトロメオ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ハレダス": {
+      "reading": "ハレダス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "バロックワークス": {
+      "reading": "バロックワークス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ハンガーさん": {
+      "reading": "ハンガーサン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "パンクハザード": {
+      "reading": "パンクハザード",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "バンダー・デッケン九世": {
+      "reading": "バンダー・デッケンキュウセイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ハンニャバル": {
+      "reading": "ハンニャバル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ハンバーグ": {
+      "reading": "ハンバーグ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ビアン": {
+      "reading": "ビアン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ピーカ": {
+      "reading": "ピーカ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ヒート": {
+      "reading": "ヒート",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ヒート＆ワイヤー": {
+      "reading": "ヒートワイヤー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ピープリー・ルル": {
+      "reading": "ピープリー・ルル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ピエール": {
+      "reading": "ピエール",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ビクトリア・シンドリー": {
+      "reading": "ビクトリア・シンドリー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ヒグマ": {
+      "reading": "ヒグマ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ピクルス": {
+      "reading": "ピクルス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ピザお～か～わ～り～!!!": {
+      "reading": "ピザオカワリ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ビスケット兵": {
+      "reading": "ビスケットヘイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ビスタ": {
+      "reading": "ビスタ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ピタゴラス": {
+      "reading": "ピタゴラス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ビッグパン": {
+      "reading": "ビッグパン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ヒナ": {
+      "reading": "ヒナ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ひばり": {
+      "reading": "ヒバリ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ヒマつぶし": {
+      "reading": "ヒマツブシ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ヒューマンドリル": {
+      "reading": "ヒューマンドリル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ヒョウゾウ": {
+      "reading": "ヒョウゾウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ヒョウ五郎": {
+      "reading": "ヒョウゴロウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ヒヨコ子爵": {
+      "reading": "ヒヨコシシャク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ビルディング・スネイク": {
+      "reading": "ビルディング・スネイク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ヒルドン": {
+      "reading": "ヒルドン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ビンズ": {
+      "reading": "ビンズ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "びん豪": {
+      "reading": "ビンゴウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ファンクフリード": {
+      "reading": "ファンクフリード",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "フィッシャー・タイガー": {
+      "reading": "フィッシャー・タイガー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "フーシャ村": {
+      "reading": "フーシャムラ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "フーズ・フー": {
+      "reading": "フーズ・フー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ブードル": {
+      "reading": "ブードル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ブエナ・フェスタ": {
+      "reading": "ブエナ・フェスタ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "フォートリックス": {
+      "reading": "フォートリックス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "フォクシー": {
+      "reading": "フォクシー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "フォッサ": {
+      "reading": "フォッサ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "フガー": {
+      "reading": "フガー",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "フカボシ": {
+      "reading": "フカボシ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "フクロウ": {
+      "reading": "フクロウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "フザ": {
+      "reading": "フザ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ブチ": {
+      "reading": "ブチ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ブヒチャック": {
+      "reading": "ブヒチャック",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ブラックマリア": {
+      "reading": "ブラックマリア",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "フラの介": {
+      "reading": "フラノスケ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ブラハム": {
+      "reading": "ブラハム",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ブラメンコ": {
+      "reading": "ブラメンコ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "フランキー": {
+      "reading": "フランキー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "フランキー将軍": {
+      "reading": "フランキーショウグン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ブランニュー": {
+      "reading": "ブランニュー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ブリスコラ": {
+      "reading": "ブリスコラ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ブリリアント・パンク": {
+      "reading": "ブリリアント・パンク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "プリンス・グルス": {
+      "reading": "プリンス・グルス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "プリンス・ベレット": {
+      "reading": "プリンス・ベレット",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "プリンプリン": {
+      "reading": "プリンプリン",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "ブルーギリー": {
+      "reading": "ブルーギリー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ブルーグラス": {
+      "reading": "ブルーグラス",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "ブルージャム": {
+      "reading": "ブルージャム",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ブルーノ": {
+      "reading": "ブルーノ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ブルゴリ": {
+      "reading": "ブルゴリ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ブルック": {
+      "reading": "ブルック",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "フルボディ": {
+      "reading": "フルボディ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ブレンハイム": {
+      "reading": "ブレンハイム",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ブロギー": {
+      "reading": "ブロギー",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "プロメテウス": {
+      "reading": "プロメテウス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ベアキング": {
+      "reading": "ベアキング",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ページワン": {
+      "reading": "ページワン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ベガパンク": {
+      "reading": "ベガパンク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ベガフォースワン": {
+      "reading": "ベガフォースワン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ペコムズ": {
+      "reading": "ペコムズ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ぺコムズ": {
+      "reading": "ペコムズ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "へそ!!": {
+      "reading": "ヘソ",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "ベタベットン流星": {
+      "reading": "ベタベットンメテオ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ペドロ": {
+      "reading": "ペドロ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ベビー５": {
+      "reading": "ベビーファイブ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ベビー5": {
+      "reading": "ベビーファイブ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "べべんっ‼": {
+      "reading": "ベベンッ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ベポ": {
+      "reading": "ベポ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ヘラ": {
+      "reading": "ヘラ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ヘラクレス": {
+      "reading": "ヘラクレス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ベラミー": {
+      "reading": "ベラミー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ベリーグッド": {
+      "reading": "ベリーグッド",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ヘリケラトプス": {
+      "reading": "ヘリケラトプス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ペル": {
+      "reading": "ペル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ベルメール": {
+      "reading": "ベルメール",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ヘルメッポ": {
+      "reading": "ヘルメッポ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ベロ・ベティ": {
+      "reading": "ベロ・ベティ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ベロ・べティ": {
+      "reading": "ベロ・ベティ",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "ペローナ": {
+      "reading": "ペローナ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ベン・ベックマン": {
+      "reading": "ベン・ベックマン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ペンギン": {
+      "reading": "ペンギン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ボア・サンダーソニア": {
+      "reading": "ボア・サンダーソニア",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ボア・ハンコック": {
+      "reading": "ボア・ハンコック",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ボア・マリーゴールド": {
+      "reading": "ボア・マリーゴールド",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ポーカー": {
+      "reading": "ポーカー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ホーディ・ジョーンズ": {
+      "reading": "ホーディ・ジョーンズ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ホーディ＆ヒョウゾウ": {
+      "reading": "ホーディヒョウゾウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ポートガス・D・エース": {
+      "reading": "ポートガス・ディー・エース",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ポートガス・Ｄ・エース": {
+      "reading": "ポートガス・ディー・エース",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ポートガス・Ｄ・ルージュ": {
+      "reading": "ポートガス・ディー・ルージュ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ホーミング聖": {
+      "reading": "ホーミングセイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ホーリー": {
+      "reading": "ホーリー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ホールデム": {
+      "reading": "ホールデム",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ボガード": {
+      "reading": "ボガード",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ぼくは!!!海軍将校になる男です!!!!": {
+      "reading": "ボクハカイグンショウコウニナルオトコデス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ホトリ": {
+      "reading": "ホトリ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ホネ吉": {
+      "reading": "ホネキチ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ボビー・ファンク": {
+      "reading": "ボビー・ファンク",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "ボルサリーノ": {
+      "reading": "ボルサリーノ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ポルシェーミ": {
+      "reading": "ポルシェーミ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ポルチェ": {
+      "reading": "ポルチェ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ホワイティベイ": {
+      "reading": "ホワイティベイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ホワイト・アウト": {
+      "reading": "ホワイト・アウト",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ホワイトスネーク": {
+      "reading": "ホワイトスネーク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ボンク・パンチ": {
+      "reading": "ボンク・パンチ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ボンク・パンチ＆モンスター": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "ホンゴウ": {
+      "reading": "ホンゴウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "マーカス・マーズ聖": {
+      "reading": "マーカス・マーズセイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "マーガレット": {
+      "reading": "マーガレット",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "マーシャル・D・ティーチ": {
+      "reading": "マーシャル・ディー・ティーチ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "マーシャル・Ｄ・ティーチ": {
+      "reading": "マーシャル・ディー・ティーチ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "マーメイドカフェダンサーズ": {
+      "reading": "マーメイドカフェダンサーズ",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "マキノ": {
+      "reading": "マキノ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "マクガイ": {
+      "reading": "マクガイ",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "マグラ": {
+      "reading": "マグラ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "マクロ一味": {
+      "reading": "マクロイチミ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "マスクド・デュース": {
+      "reading": "マスクド・デュース",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "マゼラン": {
+      "reading": "マゼラン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "マダラ": {
+      "reading": "マダラ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "マッキンリー隊長": {
+      "reading": "マッキンリータイチョウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "マツゲ": {
+      "reading": "マツゲ",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "マッド・トレジャー": {
+      "reading": "マッド・トレジャー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "マッハバイス": {
+      "reading": "マッハバイス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "マハ": {
+      "reading": "マハ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "マリンフォード": {
+      "reading": "マリンフォード",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "マルガリータ": {
+      "reading": "マルガリータ",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "マルコ": {
+      "reading": "マルコ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "マンシェリー": {
+      "reading": "マンシェリー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "マンボシ": {
+      "reading": "マンボシ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ミス・ウェンズデー": {
+      "reading": "ミス・ウェンズデー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ミス・オールサンデー": {
+      "reading": "ミス・オールサンデー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ミス・オリーブ": {
+      "reading": "ミス・オリーブ",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "ミス・ゴールデンウィーク(マリアンヌ)": {
+      "reading": "ミス・ゴールデンウィークマリアンヌ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ミス・ダブルフィンガー(ザラ)": {
+      "reading": "ミス・ダブルフィンガーザラ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ミス・バッキンガム・ステューシー": {
+      "reading": "ミス・バッキンガム・ステューシー",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "ミス・バレンタイン(ミキータ)": {
+      "reading": "ミス・バレンタインミキータ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ミス・ファーザーズデー": {
+      "reading": "ミス・ファーザーズデー",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "ミス・マンデー": {
+      "reading": "ミス・マンデー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ミス・メリークリスマス(ドロフィー)": {
+      "reading": "ミス・メリークリスマスドロフィー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ミゼルカ": {
+      "reading": "ミゼルカ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ミニメリー2号": {
+      "reading": "ミニメリーニゴウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ミニメリー号": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "ミノコアラ": {
+      "reading": "ミノコアラ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ミノゼブラ": {
+      "reading": "ミノゼブラ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ミノタウロス": {
+      "reading": "ミノタウロス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ミノチワワ": {
+      "reading": "ミノチワワ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ミノリノケロス": {
+      "reading": "ミノリノケロス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ミヤギ": {
+      "reading": "ミヤギ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ミョスガルド聖": {
+      "reading": "ミョスガルドセイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ミルキー": {
+      "reading": "ミルキー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "みんな元気でね♡": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "ムッシュール": {
+      "reading": "ムッシュール",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "メイナード": {
+      "reading": "メイナード",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "メガトン九尾ラッシュ": {
+      "reading": "メガトンキュウビラッシュ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "メガロ": {
+      "reading": "メガロ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "メス": {
+      "reading": "メス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "メリー": {
+      "reading": "メリー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "メロメロ甘風": {
+      "reading": "メロメロウメロウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "モーガン": {
+      "reading": "モーガン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "モージ": {
+      "reading": "モージ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "モージ＆カバジ": {
+      "reading": "モージカバジ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "モーダ": {
+      "reading": "モーダ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "モーム": {
+      "reading": "モーム",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "モーリー": {
+      "reading": "モーリー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "モザンビア": {
+      "reading": "モザンビア",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "モチャ": {
+      "reading": "モチャ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "モネ": {
+      "reading": "モネ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "モビー・ディック号": {
+      "reading": "モビー・ディックゴウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "モモンガ": {
+      "reading": "モモンガ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "モルガンズ": {
+      "reading": "モルガンズ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "モンキー・D・ガープ": {
+      "reading": "モンキー・ディー・ガープ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "モンキー・Ｄ・ガープ": {
+      "reading": "モンキー・ディー・ガープ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "モンキー・D・ドラゴン": {
+      "reading": "モンキー・ディー・ドラゴン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "モンキー・Ｄ・ドラゴン": {
+      "reading": "モンキー・ディー・ドラゴン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "モンキー・D・ルフィ": {
+      "reading": "モンキー・ディー・ルフィ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "モンキー・Ｄ・ルフィ": {
+      "reading": "モンキー・ディー・ルフィ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "モンスター": {
+      "reading": "モンスター",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "モンダ": {
+      "reading": "モンダ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "モンブラン・クリケット": {
+      "reading": "モンブラン・クリケット",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "モンブラン・ノーランド": {
+      "reading": "モンブラン・ノーランド",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ヤソップ": {
+      "reading": "ヤソップ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "やっぱりお前らかこの大騒ぎ": {
+      "reading": "ヤッパリオマエラカコノオオサワギ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "やべェ未来が見えた様だ…": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "ヤマ": {
+      "reading": "ヤマ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ヤマカジ": {
+      "reading": "ヤマカジ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ヤマト": {
+      "reading": "ヤマト",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ユウ": {
+      "reading": "ユウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ユースタス・キッド": {
+      "reading": "ユースタス・キッド",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ヨーキ": {
+      "reading": "ヨーキ",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "ヨーク": {
+      "reading": "ヨーク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ヨコヅナ": {
+      "reading": "ヨコヅナ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ヨサク": {
+      "reading": "ヨサク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ヨサク&ジョニー": {
+      "reading": "ヨサクジョニー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ヨサク＆ジョニー": {
+      "reading": "ヨサクジョニー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ヨセフ": {
+      "reading": "ヨセフ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ライムジュース": {
+      "reading": "ライムジュース",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ラオG": {
+      "reading": "ラオジー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ラキ": {
+      "reading": "ラキ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ラクヨウ": {
+      "reading": "ラクヨウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ラジオナイフ": {
+      "reading": "ラジオナイフ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ラチェット": {
+      "reading": "ラチェット",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ラッキー・ルウ": {
+      "reading": "ラッキー・ルウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ラディカルビ～～～ム‼‼": {
+      "reading": "ラディカルビーム",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ラパーン": {
+      "reading": "ラパーン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ラビヤン": {
+      "reading": "ラビヤン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ラフィット": {
+      "reading": "ラフィット",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ラブーン": {
+      "reading": "ラブーン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ラン": {
+      "reading": "ラン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ランドルフ": {
+      "reading": "ランドルフ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ランバ": {
+      "reading": "ランバ",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "リカ": {
+      "reading": "リカ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "リク・ドルド3世": {
+      "reading": "リク・ドルドサンセイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "リスキー兄弟": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "リッチー": {
+      "reading": "リッチー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "リッパー": {
+      "reading": "リッパー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "リトルオーズJr.": {
+      "reading": "リトルオーズジュニア",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "リプリー": {
+      "reading": "リプリー",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "リム": {
+      "reading": "リム",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "リュウボシ": {
+      "reading": "リュウボシ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "リューマ": {
+      "reading": "リューマ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "リュウ爺": {
+      "reading": "リュウジイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "リリーカーネーション": {
+      "reading": "リリーカーネーション",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "リリス": {
+      "reading": "リリス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "リンドウ": {
+      "reading": "リンドウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "リンドバーグ": {
+      "reading": "リンドバーグ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ルーシー": {
+      "reading": "ルーシー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ルシアン": {
+      "reading": "ルシアン",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "ルフィ…今の内じゃ": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "ルフィ＆エース": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "ルフィは“海賊王”になる男だ!!!": {
+      "reading": "ルフィハカイゾクオウニナルオトコダ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ルフィは海賊王になる男だ!!!": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "ルフィ太郎": {
+      "reading": "ルフィタロウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ルルシア王国": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "レイズ・マックス": {
+      "reading": "レイズ・マックス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "レオ": {
+      "reading": "レオ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "レッド・フォース号": {
+      "reading": "レッド・フォースゴウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "レベッカ": {
+      "reading": "レベッカ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ロー＆ベポ": {
+      "reading": "ローベポ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ローグタウン": {
+      "reading": "ローグタウン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ロード": {
+      "reading": "ロード",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "ローラ": {
+      "reading": "ローラ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ロキ": {
+      "reading": "ロキ",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
+    "ロシナンテ＆ロー": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "ロズワード聖": {
+      "reading": "ロズワードセイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ロック": {
+      "reading": "ロック",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ロックス・Ｄ・ジーベック": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "ロックスター": {
+      "reading": "ロックスター",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ロックス海賊団": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "ロディ": {
+      "reading": "ロディ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ロブ・ルッチ": {
+      "reading": "ロブ・ルッチ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ロブソン": {
+      "reading": "ロブソン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ロロノア・ゾロ": {
+      "reading": "ロロノア・ゾロ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ロロノア・ゾロ＆サンジ": {
+      "reading": "ロロノア・ゾロサンジ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ワイパー": {
+      "reading": "ワイパー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ワイヤー": {
+      "reading": "ワイヤー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "わしも連れて行ってくれ!!!必ず役に立つ!!!": {
+      "reading": "ワシモツレテイッテクレカナラズヤクニタツ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ワダツミ": {
+      "reading": "ワダツミ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ワノ国": {
+      "reading": "ワノクニ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ワポル": {
+      "reading": "ワポル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "わらわ こわい…♡": {
+      "reading": "ワラワコワイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "わりいおれ死んだ": {
+      "reading": "ワリイオレシンダ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ワン・ツー・ジャンゴ": {
+      "reading": "ワン・ツー・ジャンゴ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ワンゼ": {
+      "reading": "ワンゼ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "ワンダ": {
+      "reading": "ワンダ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "愛してくれて………ありがとう!!!": {
+      "reading": "アイシテクレテアリガトウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "愛してるぜ!!": {
+      "reading": "アイシテルゼ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "悪魔風脚": {
+      "reading": "ディアブルジャンブ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "悪魔風脚 ほほ肉シュート": {
+      "reading": "ディアブルジャンブジュー・ド・バンシュート",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "悪魔風脚 野獣肉シュート": {
+      "reading": "ディアブルジャンブヴネゾンシュート",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "袷羽檻": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "安心せい!!わしがおる!!!": {
+      "reading": "アンシンセイワシガオル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "闇穴道": {
+      "reading": "ブラックホール",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "闇水": {
+      "reading": "クロウズ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "威国": {
+      "reading": "イコク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "一大・三千・大千・世界": {
+      "reading": "イチダイ・サンゼン・ダイセン・セカイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "因果晒し": {
+      "reading": "インガザラシ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "羽撃糸": {
+      "reading": "フラップスレッド",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "雨月天ぷら": {
+      "reading": "ウヅキテンプラ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "浦島": {
+      "reading": "ウラシマ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "影の集合地": {
+      "reading": "シャドーズアスガルド",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "永遠に続く権力などこの世にゃねェんだ!!!": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "疫災弾": {
+      "reading": "エキサイトダン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "円卓": {
+      "reading": "エンタク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "炎の蛇神": {
+      "reading": "カシノカミ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "炎皇": {
+      "reading": "エンテイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "炎帝": {
+      "reading": "エンテイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "焔裂き": {
+      "reading": "ホムラサキ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "王下七武海はもう要らねェ…!!!": {
+      "reading": "オウカシチブカイハモウイラネェ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "王直": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "黄猿‼おれ達は2年前の100倍強ェぞ": {
+      "reading": "キザルオレタチハニネンマエノヒャクバイツエェゾ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "温度レアァストライク!!!": {
+      "reading": "オンドレアァストライク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "家族を笑う者はおれが許さん…!!!": {
+      "reading": "カゾクヲワラウモノハオレガユルサン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "河松": {
+      "reading": "カワマツ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "火拳": {
+      "reading": "ヒケン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "火達磨": {
+      "reading": "ヒダルマ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "火龍大炬": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "我が神なり": {
+      "reading": "ワガカミナリ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "解放": {
+      "reading": "カイホウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "海ネコ": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "海は海賊が相手だ!!!": {
+      "reading": "ウミハカイゾクガアイテダ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "海軍本部": {
+      "reading": "カイグンホンブ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "海原白波": {
+      "reading": "エバーホワイト",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "海震": {
+      "reading": "カイシン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "海賊王に!!!おれはなるっ!!!!": {
+      "reading": "カイゾクオウニオレハナルッ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "海底落下": {
+      "reading": "カイテイラッカ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "海兵兄": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "海兵弟": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "海流一本背負い": {
+      "reading": "カイリュウイッポンゼオイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "開国するんだ‼一緒に戦わせて欲しい!!!": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "鎧合体": {
+      "reading": "ヨロイガッタイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "革命軍総本部": {
+      "reading": "カクメイグンソウホンブ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "棺船": {
+      "reading": "ヒツギブネ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "鬼ヶ島": {
+      "reading": "オニガシマ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "鬼気 九刀流 阿修羅 抜剣 亡者戯": {
+      "reading": "キキキュウトウリュウアシュラバッケンモウジャノタワムレ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "鬼気 九刀流 阿修羅 魔九閃": {
+      "reading": "キキキュウトウリュウアシュラマキュウセン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "菊之丞": {
+      "reading": "キクノジョウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "逆光": {
+      "reading": "ギャッコウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "牛鬼丸": {
+      "reading": "ギュウキムル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "牛肉バースト": {
+      "reading": "ビーフバースト",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "虚の玉座": {
+      "reading": "カラノギョクザ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "魚人島": {
+      "reading": "ギョジントウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "凶": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "強ェとわかってんだから… 始めから全開だ!!!": {
+      "reading": "ツエェトワカッテンダカラハジメカラゼンカイダ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "強ェ弱ェは結果が決めるのさ": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "狂死郎": {
+      "reading": "キョウシロウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "錦えもん": {
+      "reading": "キンエモン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "近海の主": {
+      "reading": "キンカイノヌシ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "銀河・WINK": {
+      "reading": "ギャラクシー・ウインク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "空気開扉": {
+      "reading": "エアドドア",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "串焼き": {
+      "reading": "クシヤキ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "熊の衝撃": {
+      "reading": "ウルススショック",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "軍子宮": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "軍隊ウルフ": {
+      "reading": "グンタイウルフ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "軍隊長集結": {
+      "reading": "グンタイチョウシュウケツ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "軍荼利龍盛軍": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "欠片蝙蝠": {
+      "reading": "ブリックバット",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "拳・骨・隕石": {
+      "reading": "ゲン・コツ・メテオ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "犬っぺ": {
+      "reading": "イヌッペ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "犬噛紅蓮": {
+      "reading": "イヌガミグレン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "見てろよ!エース!!!": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "見聞色の覇気": {
+      "reading": "ケンブンショクノハキ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "元々…ないではないか…": {
+      "reading": "モトモトナイデハナイカ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "五色糸": {
+      "reading": "ゴシキイト",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "五老星": {
+      "reading": "ゴロウセイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "光月おでん": {
+      "reading": "コウヅキオデン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "光月スキヤキ": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "光月トキ": {
+      "reading": "コウヅキトキ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "光月モモの助": {
+      "reading": "コウヅキモモノスケ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "光月日和": {
+      "reading": "コウヅキヒヨリ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "孔雀": {
+      "reading": "クジャク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "幸せパンチ": {
+      "reading": "シアワセパンチ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "皇帝剣破々刃": {
+      "reading": "ケーザー・グラン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "行くぞ～～～!!!海軍本部～～～!!!": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "降三世 引奈落": {
+      "reading": "コウザンゼラグナラク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "降魔の相": {
+      "reading": "ゴウマノソウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "高級仕立パッチ★ワーク": {
+      "reading": "オートクチュールパッチワーク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "刻蹄・桜吹雪": {
+      "reading": "コクテイ・ロゼオミチエーリ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "刻蹄『桜』": {
+      "reading": "コクテイロゼオ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "黒炭オロチ": {
+      "reading": "クロズミオロチ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "黒炭カン十郎": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "黒炭せみ丸": {
+      "reading": "クロズミセミマル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "黒炭ひぐらし": {
+      "reading": "クロズミヒグラシ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "黒縄・大龍巻": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "狛ちよ": {
+      "reading": "コマチヨ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "混色バグ": {
+      "reading": "カラーズトラップ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "魂のフランキー風速計BOXING喪剣": {
+      "reading": "タマシイノフランキースイングアームボクシングソリッド",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "砂漠の宝刀": {
+      "reading": "デザートスパーダ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "砂嵐": {
+      "reading": "サーブルス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "最高到達点": {
+      "reading": "サイコウトウタツテン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "鮫瓦正拳": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "三・千・世・界": {
+      "reading": "サン・ゼン・セ・カイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "三刀流 鬼斬り": {
+      "reading": "サントウリュウオニギリ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "三日月形砂丘": {
+      "reading": "バルハン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "山さん": {
+      "reading": "ヤマサン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "斬・切・餅": {
+      "reading": "ザン・ギリ・モチ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "使ってけれ‼ルフィ先輩ィ!!!": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "四千枚瓦正拳": {
+      "reading": "ヨンセンマイガワラセイケン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "始めよう”暴力の世界”!!!": {
+      "reading": "ハジメヨウボウリョクノセカイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "始末屋ボビン": {
+      "reading": "シマツヤボビン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "指銃": {
+      "reading": "シガン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "指銃 黄蓮": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "死・獅子歌歌": {
+      "reading": "シ・シシソンソン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "獅子威し御所地巻き": {
+      "reading": "シシオドシゴショチマキ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "獅子歌歌": {
+      "reading": "シシソンソン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "私と一緒に死んで!!!": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "私のこと必要なんでしょ‼?": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "私のしもべになる？": {
+      "reading": "ワタシノシモベニナル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "私は最強": {
+      "reading": "ワタシハサイキョウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "歯ガム": {
+      "reading": "ハガム",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "磁気弦": {
+      "reading": "パンクギブソン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "磁気魔人": {
+      "reading": "パンクロットン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "磁気万力": {
+      "reading": "パンクヴァイス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "式をブッ壊そう!!!": {
+      "reading": "シキヲブッコワソウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "失せろ": {
+      "reading": "ウセロ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "実直拳骨": {
+      "reading": "オネスティインパクト",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "蛇ダンス": {
+      "reading": "ジャダンス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "杓死": {
+      "reading": "シャクシ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "弱ェってのは…罪なもんだ…": {
+      "reading": "ヨワェッテノハツミナモンダ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "弱ェ奴は死に方も選べねェ": {
+      "reading": "ヨワェヤツハシニカタモエラベネェ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "弱ェ奴は死に方も選べねェ!!!": {
+      "reading": "ヨワェヤツハシニカタモエラベネェ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "取り消せよ……!!!今の言葉……!!!": {
+      "reading": "トリケセヨイマノコトバ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "酒龍八卦": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "首領・マーロン": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "囚人達が暴れ出したァ～～～!!!": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "十字火": {
+      "reading": "ジュウジカ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "重力刀 猛虎": {
+      "reading": "グラビトウモウコ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "銃・擬鬼": {
+      "reading": "ガン・モドキ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "出た!負け惜しみ～": {
+      "reading": "デタマケオシミ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "盾白糸": {
+      "reading": "オフホワイト",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "助けてクエーサ～!!!": {
+      "reading": "タスケテクエーサー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "女ヶ島": {
+      "reading": "ニョガシマ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "女の…涙の落ちる音がした": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "勝者だけが正義だ!!!!": {
+      "reading": "ショウシャダケガセイギダ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "小熊玩具": {
+      "reading": "リトルベアトイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "小紫": {
+      "reading": "コムラサキ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "少女": {
+      "reading": "ショウジョ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "衝撃貝": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "衝撃波": {
+      "reading": "ショウゲキハ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "象の鼻息": {
+      "reading": "ゾウノハナイキ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "鐘を鳴らして君を待つ!!!!": {
+      "reading": "カネヲナラシテキミヲマツ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "食い逃げ常習犯": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "新時代": {
+      "reading": "シンジダイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "浸食輪廻": {
+      "reading": "グランド・デス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "神の裁き": {
+      "reading": "エル・トール",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "神避": {
+      "reading": "カムサリ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "神兵": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "神誅殺": {
+      "reading": "カミチュウサツ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "震御雷": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "人として恥ずかしいわ": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "人の夢は!!!終わらねェ!!!!": {
+      "reading": "ヒトノユメハオワラネェ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "人魚柔術 ウルトラマリン": {
+      "reading": "マーマンコンバットウルトラマリン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "人斬り鎌ぞう": {
+      "reading": "ヒトキリカマゾウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "人造悪魔の実SMILE": {
+      "reading": "ジンゾウアクマノミスマイル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "仁義ってモンがあんだろうが アホンダラァ!!!": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "世界のつづき": {
+      "reading": "セカイノツヅキ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "世界の均衡など…永遠には保てぬのだ": {
+      "reading": "セカイノキンコウナドエイエンニハタモテヌノダ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "世界を滅ぼす力": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "世界最大の頭脳を持つ男": {
+      "reading": "セカイサイダイノズノウヲモツオトコ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "整形ショット": {
+      "reading": "パラージュショット",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "生ぎたいっ!!!!": {
+      "reading": "イギタイッ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "聖地マリージョア": {
+      "reading": "セイチマリージョア",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "青龍印 流水": {
+      "reading": "セイリュウインリュウスイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "石鹼羊": {
+      "reading": "シャボンシープ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "戦えるかルフィ!!!勿論だ!!!": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "戦桃丸": {
+      "reading": "セントウマル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "船底解体斬り": {
+      "reading": "センテイカイタイギリ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "全員 この場はおれの顔を立てて貰おう": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "粗砕": {
+      "reading": "コンカッセ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "早くおれを海賊王にならせろ!!!": {
+      "reading": "ハヤクオレヲカイゾクオウニナラセロ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "霜月コウ三郎": {
+      "reading": "シモツキコウザブロウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "霜月牛マル": {
+      "reading": "シモツキウシマル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "大看板": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "大看板”災害”": {
+      "reading": "オオカンバンサイガイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "大地は敗けない!!!": {
+      "reading": "ダイチハマケナイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "大噴火": {
+      "reading": "ダイフンカ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "誰にも渡さねェよ!“あいつ”の形見だ": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "弾糸": {
+      "reading": "タマイト",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "男の勝負に…!!!薄っぺらい援護などするな!!!!": {
+      "reading": "オトコノショウブニウスッペライエンゴナドスルナ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "地獄の審判": {
+      "reading": "ジゴクノシンパン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "智将“仏のセンゴク”": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "蜘蛛の巣がき": {
+      "reading": "クモノスガキ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "仲間がいる゛よ!!!!": {
+      "reading": "ナカマガイルヨ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "仲間の夢を笑われた時だ!!!!": {
+      "reading": "ナカマノユメヲワラワレタトキダ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "虫ケラの顔など いちいち覚えちゃいない!!!": {
+      "reading": "ムシケラノカオナドイチイチオボエチャイナイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "調教してあげる♡": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "超カルガモ部隊": {
+      "reading": "チョウカルガモブタイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "超過鞭糸": {
+      "reading": "オーバーヒート",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "頂点まで行って来い!!!": {
+      "reading": "チョウテンマデイッテコイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "鳥カゴ": {
+      "reading": "トリカゴ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "剃": {
+      "reading": "ソル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "弟子の船出だ よしなに頼むよ…": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "敵に“仲間”は売らんぜよ!!!": {
+      "reading": "テキニナカマハウランゼヨ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "鉄塊": {
+      "reading": "テッカイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "鉄塊 牙閃": {
+      "reading": "テッカイガセン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "天狗山飛徹": {
+      "reading": "テングヤマヒテツ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "天月トキ": {
+      "reading": "アマツキトキ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "天上の火": {
+      "reading": "ヘブンリーフォイア",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "天叢雲剣": {
+      "reading": "アマノムラクモノツルギ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "電磁砲": {
+      "reading": "ダムドパンク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "唐草瓦正拳": {
+      "reading": "カラクサガワラセイケン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "桃ひげ": {
+      "reading": "モモヒゲ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "桃源十拳": {
+      "reading": "トウゲントツカ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "桃源白滝": {
+      "reading": "トウゲンシラタキ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "桃色毒矢": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "湯けむり殺人事件": {
+      "reading": "ユケムリサツジンジケン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "闘魚": {
+      "reading": "トウギョ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "特ホロ": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "特製マギー玉": {
+      "reading": "トクセイマギーダマ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "毒の道": {
+      "reading": "ベノムロード",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "毒竜": {
+      "reading": "ヒドラ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "独楽結び": {
+      "reading": "コマムスビ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "二刀流 居合 羅生門": {
+      "reading": "ニトウリュウイアイラショウモン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "熱海温泉": {
+      "reading": "アタミオンセン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "熱息": {
+      "reading": "ボロブレス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "燃焼剣": {
+      "reading": "バーニングソード",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "燃焼砲": {
+      "reading": "バーニングキャノン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "粘土の巣": {
+      "reading": "クレイウェッブ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "覇王色の覇気": {
+      "reading": "ハオウショクノハキ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "覇海": {
+      "reading": "ハカイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "波頭の仁王": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "破壊弦": {
+      "reading": "スラムギブソン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "馬幻刃": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "排撃": {
+      "reading": "リジェクト",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "白ひげ海賊団": {
+      "reading": "シロヒゲカイゾクダン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "八尺瓊勾玉": {
+      "reading": "ヤサカニノマガタマ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "八茶": {
+      "reading": "ハッチャ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "反撃に出るぞ": {
+      "reading": "ハンゲキニデルゾ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "反行儀キックコース": {
+      "reading": "アンチマナーキックコース",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "反発": {
+      "reading": "リペル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "飛燕ボンナバン": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "鼻唄三丁矢筈斬り": {
+      "reading": "ハナウタサンチョウヤハズギリ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "鼻空想砲": {
+      "reading": "ノーズファンシーキャノン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "必殺!!遠距離“蓑虫星”": {
+      "reading": "ヒッサツエンキョリバグワーム",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "必殺緑星ラフレシア": {
+      "reading": "ヒッサツミドリボシラフレシア",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "氷河時代": {
+      "reading": "アイスエイジ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "氷鬼": {
+      "reading": "コオリオニ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "氷諸斬り": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "不届き者‼控えよ‼": {
+      "reading": "フトドキモノヒカエヨ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "不服か？": {
+      "reading": "フフクカ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "武装色の覇気": {
+      "reading": "ブソウショクノハキ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "武頼貫": {
+      "reading": "ブライカン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "舞踏石": {
+      "reading": "チャールストン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "風のジゴロウ": {
+      "reading": "カゼノジゴロウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "風のゆくえ": {
+      "reading": "カゼノユクエ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "風月おむすび": {
+      "reading": "フウゲツオムスビ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "福ロクジュ": {
+      "reading": "フクロクジュ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "複製兵": {
+      "reading": "クローンヘイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "片足の兵隊": {
+      "reading": "カタアシノヘイタイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "放電": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "方舟ノア": {
+      "reading": "ハコブネノア",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "方舟マクシム": {
+      "reading": "ハコブネマクシム",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "芳香脚": {
+      "reading": "パフューム・フェムル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "鳳梨礫": {
+      "reading": "パインツブテ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "鳳凰印": {
+      "reading": "ホウオウイン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "冒険のにおいがするっ!!!": {
+      "reading": "ボウケンノニオイガスルッ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "万雷": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "魅惑のメマーイダンス": {
+      "reading": "ミワクノメマーイダンス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "夢打撃処裏拳": {
+      "reading": "ムダゲショリケン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "無茶ばっかりしやがって!!!": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "無頼男爆弾": {
+      "reading": "パンクボム",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "命がも゛ったいだいっ!!!!": {
+      "reading": "イノチガモッタイダイッ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "命令してるんだ 誰もおれに逆らうな!!!": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "鳴光剣": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "鳴鏑": {
+      "reading": "ナリカブラ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "毛皮強化": {
+      "reading": "ガードポイント",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "猛毒ガス弾『M・H・５』": {
+      "reading": "モウドクガスダンエムエイチファイブ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "矢武鮫": {
+      "reading": "ヤブサメ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "来い…!!!おれ達が相手をしてやる!!!": {
+      "reading": "コイオレタチガアイテヲシテヤル",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "雷ぞう": {
+      "reading": "ライゾウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "雷の破壊剣": {
+      "reading": "トニトルス",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "雷迎": {
+      "reading": "ライゴウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "雷光槍フリップ煩悩鳳ショット": {
+      "reading": "サンダーランスフリップポンドホウショット",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "雷獣": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "雷鳴八卦": {
+      "reading": "ライメイハッケ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "雷龍": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "雷霆": {
+      "reading": "ライテイ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "嵐脚": {
+      "reading": "ランキャク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "嵐脚 周断": {
+      "reading": "ランキャクアマネダチ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "流星火山": {
+      "reading": "リュウセイカザン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "竜の息吹": {
+      "reading": "リュウノイブキ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "竜の鉤爪": {
+      "reading": "リュウノカギヅメ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "龍巻壊風": {
+      "reading": "タツマキカイフウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "虜の矢": {
+      "reading": "スレイブアロー",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "力餅": {
+      "reading": "チカラモチ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "恋のメテオストライク": {
+      "reading": "コイノメテオストライク",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "六王銃": {
+      "reading": "ロクオウガン",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "六鬼": {
+      "reading": "ロッキ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "歪んだ未来": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "藁備手刀": {
+      "reading": "ワラビデトウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
+    "傳ジロー": {
+      "reading": "デンジロウ",
+      "status": "verified",
+      "source": "existing-card-data"
+    }
+  }
+}

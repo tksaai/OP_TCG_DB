@@ -29,10 +29,12 @@ ONE PIECE カードゲームのカード検索・デッキ構築・コレクシ�
 | `index.html` / `app.js` / `style.css` | アプリ本体 |
 | `eight-pack-leader.js` | 公式一覧に含まれない8パックバトル用ルフィの例外定義 |
 | `admin.html` | データ整備用（GitHub token の登録）。通常利用では開きません |
+| `furigana-review.html` | カード名の読みを画像とOCR候補でまとめて確認する整備画面 |
 | `image-import.js` / `image-import-worker.js` | デッキ画像の解析（Worker で実行） |
 | `service-worker.js` | オフライン対応。カードデータ=network-first、シェル=SWR、画像=cache-first |
 | `cards.json` | カードデータ（公式サイト由来） |
 | `provisional-cards.json` | 仮DB（公式データ収録前の新カード） |
+| `furigana-master.json` | カード名単位の読みと確認状態 |
 | `image-manifest.json` | カード番号 → 画像パスの対応表 |
 | `card-features.json` | デッキ画像解析に使う画像特徴量 |
 | `CardsWebP/` | カード画像（WebP） |
@@ -48,8 +50,8 @@ ONE PIECE カードゲームのカード検索・デッキ構築・コレクシ�
 
 | ワークフロー | 実行時刻 | 内容 |
 | --- | --- | --- |
-| `sync-new-release.yml` | 毎日 18:00 JST | 公式サイトから新弾のカードと画像を取得し、WebP 変換・マニフェスト・特徴量を再生成 |
-| `sync-provisional-cards.yml` | 毎日 18:20 JST | 秋葉原カードショップから仮DBのカードを取得 |
+| `sync-new-release.yml` | 毎日 18:00 JST | 公式サイトから新弾のカードと画像を取得し、フリガナ辞書・WebP・マニフェスト・特徴量を更新 |
+| `sync-provisional-cards.yml` | 毎日 18:20 JST | 秋葉原カードショップから仮DBを取得し、フリガナ辞書へ新しい名前を追加 |
 
 どちらも手動実行（workflow_dispatch）に対応しています。`dry_run` を指定すると
 ファイルを書き換えずに確認だけできます。
@@ -120,12 +122,18 @@ node scripts/test-data-integrity.mjs
 
 ## データ整備（フリガナ）
 
-カード名のフリガナは `furigana-overrides.json` で補正できます。編集をリポジトリへ
-保存するには GitHub の fine-grained token が必要です。
+カード名の読みは `furigana-master.json` で一元管理します。同じ名前のカードへ同じ読みを適用し、
+`verified`（確認済み）の項目だけを通常のカード検索へ反映します。日次同期で初めて見つかった名前は
+`pending` または `suggested` として追加され、自動確定されません。
 
 1. `admin.html` を開き、token を登録します（必要な権限は Contents の Read and write のみ）
-2. アプリの設定で「カード詳細にフリガナ編集欄を表示」をオンにします
-3. カードを拡大表示して修正し、Save を押します
+2. `furigana-review.html` で未確認の名前を絞り込みます
+3. イベントカードは「画像から候補」で印刷されたルビをOCRし、必要なら手直しします
+4. 内容を確認して「この読みで確認済み」を押し、JSON保存またはGitHubへまとめて保存します
+
+OCRは候補作成だけに使用し、誤認識をそのまま検索へ公開しません。カード番号ごとに例外的な読みを
+設定する場合は、従来どおり `furigana-overrides.json` を使います。アプリの設定で編集欄を表示し、
+カード詳細から保存できます。
 
 token はブラウザの localStorage に保存されます。同一オリジンの JavaScript から
 読める状態になるため、共用端末では使わず、有効期限を短くしてください。

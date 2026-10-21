@@ -286,7 +286,12 @@ for (const fetchedCard of fetchedCards.values()) {
     const card = stripOfficialSyncMetadata(fetchedCard);
     if (byCardNumber.has(card.cardNumber)) {
         if (force) {
-            byCardNumber.set(card.cardNumber, { ...byCardNumber.get(card.cardNumber), ...card });
+            const existingCard = byCardNumber.get(card.cardNumber);
+            byCardNumber.set(card.cardNumber, {
+                ...existingCard,
+                ...card,
+                furigana: card.furigana || existingCard.furigana || ''
+            });
             updated++;
         } else {
             const { card: patchedCard, changed } = mergeMissingOfficialFields(byCardNumber.get(card.cardNumber), card);

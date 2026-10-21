@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="robots" content="noindex, nofollow">
+    <title>フリガナ整備 | OP TCG DB</title>
+    <link rel="stylesheet" href="furigana-review.css?v=1.0.0">
+</head>
+<body>
+    <header class="review-header">
+        <div>
+            <p class="review-kicker">OP TCG DB / DATA MAINTENANCE</p>
+            <h1>フリガナ整備</h1>
+        </div>
+        <nav aria-label="関連ページ">
+            <a href="index.html">アプリ</a>
+            <a href="admin.html">GitHub token</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="review-summary" aria-labelledby="summary-title">
+            <div>
+                <h2 id="summary-title">確認状況</h2>
+                <p>同じカード名は1件にまとめ、確認済みの読みだけをアプリへ反映します。</p>
+            </div>
+            <div class="summary-counts" aria-live="polite">
+                <span><strong id="verified-count">-</strong>確認済み</span>
+                <span><strong id="suggested-count">-</strong>候補</span>
+                <span><strong id="pending-count">-</strong>未設定</span>
+            </div>
+        </section>
+
+        <section class="review-toolbar" aria-label="絞り込み">
+            <label>
+                状態
+                <select id="status-filter">
+                    <option value="review">候補・未設定</option>
+                    <option value="pending">未設定</option>
+                    <option value="suggested">候補</option>
+                    <option value="verified">確認済み</option>
+                    <option value="all">すべて</option>
+                </select>
+            </label>
+            <label>
+                種類
+                <select id="type-filter">
+                    <option value="EVENT">イベント</option>
+                    <option value="all">すべて</option>
+                    <option value="CHARACTER">キャラクター</option>
+                    <option value="LEADER">リーダー</option>
+                    <option value="STAGE">ステージ</option>
+                </select>
+            </label>
+            <label>
+                シリーズ
+                <select id="series-filter">
+                    <option value="all">すべて</option>
+                </select>
+            </label>
+            <label class="search-field">
+                名前・カード番号
+                <input id="search-input" type="search" autocomplete="off" placeholder="例: OP15-019 / バリア">
+            </label>
+        </section>
+
+        <div class="review-result-line">
+            <span id="result-count">読み込み中...</span>
+            <span id="ocr-global-status" role="status"></span>
+        </div>
+
+        <section id="review-list" class="review-list" aria-live="polite"></section>
+        <button id="load-more-btn" class="load-more-btn" type="button" hidden>さらに表示</button>
+    </main>
+
+    <footer class="review-actions">
+        <span id="change-count">変更なし</span>
+        <div>
+            <button id="copy-json-btn" type="button">JSONをコピー</button>
+            <button id="download-json-btn" type="button">JSONを保存</button>
+            <button id="github-save-btn" class="primary" type="button">GitHubへまとめて保存</button>
+        </div>
+    </footer>
+
+    <template id="review-item-template">
+        <article class="review-item">
+            <div class="card-visual">
+                <img class="card-thumbnail" alt="" loading="lazy">
+                <canvas class="title-crop" width="1080" height="180" aria-label="カード名部分"></canvas>
+            </div>
+            <div class="review-content">
+                <div class="review-meta">
+                    <span class="card-number"></span>
+                    <span class="card-type"></span>
+                    <span class="series-code"></span>
+                </div>
+                <h2 class="card-name"></h2>
+                <label>
+                    フリガナ
+                    <input class="reading-input" type="text" autocomplete="off" spellcheck="false">
+                </label>
+                <div class="entry-status-row">
+                    <label>
+                        状態
+                        <select class="entry-status">
+                            <option value="pending">未設定</option>
+                            <option value="suggested">候補</option>
+                            <option value="verified">確認済み</option>
+                        </select>
+                    </label>
+                    <span class="entry-source"></span>
+                </div>
+                <div class="ocr-result" hidden>
+                    <span class="ocr-raw"></span>
+                    <span class="ocr-confidence"></span>
+                </div>
+                <div class="item-actions">
+                    <button class="ocr-btn" type="button">画像から候補</button>
+                    <button class="verify-btn" type="button">この読みで確認済み</button>
+                </div>
+            </div>
+        </article>
+    </template>
+
+    <iframe id="furigana-ocr-frame"
+            src="furigana-ocr-frame.html?v=1.0.0"
+            sandbox="allow-scripts"
+            title="フリガナOCR"
+            hidden></iframe>
+
+    <script src="furigana-review.js?v=1.0.0" defer></script>
+</body>
+</html>

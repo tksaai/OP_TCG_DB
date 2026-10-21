@@ -4,7 +4,7 @@
     "cardNumber": "EB05-001",
     "rawNumber": "EB05-001",
     "cardName": "ジュエリー・ボニー",
-    "furigana": "",
+    "furigana": "ジュエリー・ボニー",
     "rarity": "SR",
     "cardType": "CHARACTER",
     "color": [
@@ -38,7 +38,7 @@
     "cardNumber": "EB05-002",
     "rawNumber": "EB05-002",
     "cardName": "ドール",
-    "furigana": "",
+    "furigana": "ドール",
     "rarity": "R",
     "cardType": "CHARACTER",
     "color": [
@@ -104,7 +104,7 @@
     "cardNumber": "EB05-004",
     "rawNumber": "EB05-004",
     "cardName": "ベビー5",
-    "furigana": "",
+    "furigana": "ベビーファイブ",
     "rarity": "R",
     "cardType": "CHARACTER",
     "color": [
@@ -204,7 +204,7 @@
     "cardNumber": "EB05-007",
     "rawNumber": "EB05-007",
     "cardName": "モネ",
-    "furigana": "",
+    "furigana": "モネ",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -306,7 +306,7 @@
     "cardNumber": "EB05-010",
     "rawNumber": "EB05-010",
     "cardName": "ニコ・ロビン",
-    "furigana": "",
+    "furigana": "ニコ・ロビン",
     "rarity": "L",
     "cardType": "LEADER",
     "color": [
@@ -340,7 +340,7 @@
     "cardNumber": "EB05-011",
     "rawNumber": "EB05-011",
     "cardName": "オトヒメ",
-    "furigana": "",
+    "furigana": "オトヒメ",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -374,7 +374,7 @@
     "cardNumber": "EB05-012",
     "rawNumber": "EB05-012",
     "cardName": "ケイミー",
-    "furigana": "",
+    "furigana": "ケイミー",
     "rarity": "R",
     "cardType": "CHARACTER",
     "color": [
@@ -408,7 +408,7 @@
     "cardNumber": "EB05-013",
     "rawNumber": "EB05-013",
     "cardName": "シャーリー",
-    "furigana": "",
+    "furigana": "シャーリー",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -442,7 +442,7 @@
     "cardNumber": "EB05-014",
     "rawNumber": "EB05-014",
     "cardName": "しらほし",
-    "furigana": "",
+    "furigana": "シラホシ",
     "rarity": "SR",
     "cardType": "CHARACTER",
     "color": [
@@ -476,7 +476,7 @@
     "cardNumber": "EB05-015",
     "rawNumber": "EB05-015",
     "cardName": "たしぎ",
-    "furigana": "",
+    "furigana": "タシギ",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -510,7 +510,7 @@
     "cardNumber": "EB05-016",
     "rawNumber": "EB05-016",
     "cardName": "ニコ・ロビン",
-    "furigana": "",
+    "furigana": "ニコ・ロビン",
     "rarity": "SR",
     "cardType": "CHARACTER",
     "color": [
@@ -577,7 +577,7 @@
     "cardNumber": "EB05-018",
     "rawNumber": "EB05-018",
     "cardName": "レベッカ",
-    "furigana": "",
+    "furigana": "レベッカ",
     "rarity": "R",
     "cardType": "CHARACTER",
     "color": [
@@ -677,7 +677,7 @@
     "cardNumber": "EB05-021",
     "rawNumber": "EB05-021",
     "cardName": "アルビダ",
-    "furigana": "",
+    "furigana": "アルビダ",
     "rarity": "SR",
     "cardType": "CHARACTER",
     "color": [
@@ -777,7 +777,7 @@
     "cardNumber": "EB05-024",
     "rawNumber": "EB05-024",
     "cardName": "サディちゃん",
-    "furigana": "",
+    "furigana": "サディチャン",
     "rarity": "R",
     "cardType": "CHARACTER",
     "color": [
@@ -810,7 +810,7 @@
     "cardNumber": "EB05-025",
     "rawNumber": "EB05-025",
     "cardName": "ドミノ",
-    "furigana": "",
+    "furigana": "ドミノ",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -843,7 +843,7 @@
     "cardNumber": "EB05-026",
     "rawNumber": "EB05-026",
     "cardName": "ヒナ",
-    "furigana": "",
+    "furigana": "ヒナ",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -876,7 +876,7 @@
     "cardNumber": "EB05-027",
     "rawNumber": "EB05-027",
     "cardName": "ひばり",
-    "furigana": "",
+    "furigana": "ヒバリ",
     "rarity": "R",
     "cardType": "CHARACTER",
     "color": [
@@ -910,7 +910,7 @@
     "cardNumber": "EB05-028",
     "rawNumber": "EB05-028",
     "cardName": "ボア・ハンコック",
-    "furigana": "",
+    "furigana": "ボア・ハンコック",
     "rarity": "R",
     "cardType": "CHARACTER",
     "color": [
@@ -1012,7 +1012,7 @@
     "cardNumber": "EB05-031",
     "rawNumber": "EB05-031",
     "cardName": "ヴィンスモーク・レイジュ",
-    "furigana": "",
+    "furigana": "ヴィンスモーク・レイジュ",
     "rarity": "R",
     "cardType": "CHARACTER",
     "color": [
@@ -1046,7 +1046,7 @@
     "cardNumber": "EB05-032",
     "rawNumber": "EB05-032",
     "cardName": "うるティ",
-    "furigana": "",
+    "furigana": "ウルティ",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -1079,7 +1079,7 @@
     "cardNumber": "EB05-035",
     "rawNumber": "EB05-035",
     "cardName": "スピード",
-    "furigana": "",
+    "furigana": "スピード",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -1113,7 +1113,7 @@
     "cardNumber": "EB05-036",
     "rawNumber": "EB05-036",
     "cardName": "つる",
-    "furigana": "",
+    "furigana": "ツル",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -1146,7 +1146,7 @@
     "cardNumber": "EB05-037",
     "rawNumber": "EB05-037",
     "cardName": "ブラックマリア",
-    "furigana": "",
+    "furigana": "ブラックマリア",
     "rarity": "R",
     "cardType": "CHARACTER",
     "color": [
@@ -1279,7 +1279,7 @@
     "cardNumber": "EB05-041",
     "rawNumber": "EB05-041",
     "cardName": "コアラ",
-    "furigana": "",
+    "furigana": "コアラ",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -1313,7 +1313,7 @@
     "cardNumber": "EB05-042",
     "rawNumber": "EB05-042",
     "cardName": "しのぶ",
-    "furigana": "",
+    "furigana": "シノブ",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -1346,7 +1346,7 @@
     "cardNumber": "EB05-043",
     "rawNumber": "EB05-043",
     "cardName": "ペローナ",
-    "furigana": "",
+    "furigana": "ペローナ",
     "rarity": "R",
     "cardType": "CHARACTER",
     "color": [
@@ -1412,7 +1412,7 @@
     "cardNumber": "EB05-045",
     "rawNumber": "EB05-045",
     "cardName": "ミス・マンデー",
-    "furigana": "",
+    "furigana": "ミス・マンデー",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -1445,7 +1445,7 @@
     "cardNumber": "EB05-046",
     "rawNumber": "EB05-046",
     "cardName": "ヤマト",
-    "furigana": "",
+    "furigana": "ヤマト",
     "rarity": "SR",
     "cardType": "CHARACTER",
     "color": [
@@ -1578,7 +1578,7 @@
     "cardNumber": "EB05-050",
     "rawNumber": "EB05-050",
     "cardName": "アトラス",
-    "furigana": "",
+    "furigana": "アトラス",
     "rarity": "R",
     "cardType": "CHARACTER",
     "color": [
@@ -1679,7 +1679,7 @@
     "cardNumber": "EB05-053",
     "rawNumber": "EB05-053",
     "cardName": "シャーロット・プラリネ",
-    "furigana": "",
+    "furigana": "シャーロット・プラリネ",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -1714,7 +1714,7 @@
     "cardNumber": "EB05-054",
     "rawNumber": "EB05-054",
     "cardName": "シャーロット・ブリュレ",
-    "furigana": "",
+    "furigana": "シャーロット・ブリュレ",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -1747,7 +1747,7 @@
     "cardNumber": "EB05-055",
     "rawNumber": "EB05-055",
     "cardName": "ナミ",
-    "furigana": "",
+    "furigana": "ナミ",
     "rarity": "SR",
     "cardType": "CHARACTER",
     "color": [
@@ -1781,7 +1781,7 @@
     "cardNumber": "EB05-056",
     "rawNumber": "EB05-056",
     "cardName": "ニコ・オルビア",
-    "furigana": "",
+    "furigana": "ニコ・オルビア",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -1814,7 +1814,7 @@
     "cardNumber": "EB05-057",
     "rawNumber": "EB05-057",
     "cardName": "ベルメール",
-    "furigana": "",
+    "furigana": "ベルメール",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -1915,7 +1915,7 @@
     "cardNumber": "EB05-061",
     "rawNumber": "EB05-061",
     "cardName": "ナミ",
-    "furigana": "",
+    "furigana": "ナミ",
     "rarity": "SEC",
     "cardType": "CHARACTER",
     "color": [
@@ -1948,7 +1948,7 @@
     "cardNumber": "OP18-001",
     "rawNumber": "OP18-001",
     "cardName": "カルー",
-    "furigana": "",
+    "furigana": "カルー",
     "rarity": "L",
     "cardType": "LEADER",
     "color": [
@@ -2017,7 +2017,7 @@
     "cardNumber": "OP18-010",
     "rawNumber": "OP18-010",
     "cardName": "トニートニー・チョッパー",
-    "furigana": "",
+    "furigana": "トニートニー・チョッパー",
     "rarity": "UC",
     "cardType": "CHARACTER",
     "color": [
@@ -2052,7 +2052,7 @@
     "cardNumber": "OP18-011",
     "rawNumber": "OP18-011",
     "cardName": "ネフェルタリ・ビビ",
-    "furigana": "",
+    "furigana": "ネフェルタリ・ビビ",
     "rarity": "SR",
     "cardType": "CHARACTER",
     "color": [
@@ -2119,7 +2119,7 @@
     "cardNumber": "OP18-016",
     "rawNumber": "OP18-016",
     "cardName": "モンキー・D・ルフィ",
-    "furigana": "",
+    "furigana": "モンキー・ディー・ルフィ",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -2152,7 +2152,7 @@
     "cardNumber": "OP18-017",
     "rawNumber": "OP18-017",
     "cardName": "ロロノア・ゾロ",
-    "furigana": "",
+    "furigana": "ロロノア・ゾロ",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -2186,7 +2186,7 @@
     "cardNumber": "OP18-021",
     "rawNumber": "OP18-021",
     "cardName": "フランキー",
-    "furigana": "",
+    "furigana": "フランキー",
     "rarity": "L",
     "cardType": "LEADER",
     "color": [
@@ -2222,7 +2222,7 @@
     "cardNumber": "OP18-022",
     "rawNumber": "OP18-022",
     "cardName": "モンキー・D・ルフィ",
-    "furigana": "",
+    "furigana": "モンキー・ディー・ルフィ",
     "rarity": "L",
     "cardType": "LEADER",
     "color": [
@@ -2256,7 +2256,7 @@
     "cardNumber": "OP18-024",
     "rawNumber": "OP18-024",
     "cardName": "ココロ",
-    "furigana": "",
+    "furigana": "ココロ",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -2357,7 +2357,7 @@
     "cardNumber": "OP18-032",
     "rawNumber": "OP18-032",
     "cardName": "バギー",
-    "furigana": "",
+    "furigana": "バギー",
     "rarity": "UC",
     "cardType": "CHARACTER",
     "color": [
@@ -2391,7 +2391,7 @@
     "cardNumber": "OP18-034",
     "rawNumber": "OP18-034",
     "cardName": "フランキー",
-    "furigana": "",
+    "furigana": "フランキー",
     "rarity": "SR",
     "cardType": "CHARACTER",
     "color": [
@@ -2426,7 +2426,7 @@
     "cardNumber": "OP18-036",
     "rawNumber": "OP18-036",
     "cardName": "モンキー・D・ルフィ",
-    "furigana": "",
+    "furigana": "モンキー・ディー・ルフィ",
     "rarity": "UC",
     "cardType": "CHARACTER",
     "color": [
@@ -2460,7 +2460,7 @@
     "cardNumber": "OP18-041",
     "rawNumber": "OP18-041",
     "cardName": "ミス・オールサンデー",
-    "furigana": "",
+    "furigana": "ミス・オールサンデー",
     "rarity": "L",
     "cardType": "LEADER",
     "color": [
@@ -2560,7 +2560,7 @@
     "cardNumber": "OP18-047",
     "rawNumber": "OP18-047",
     "cardName": "Mr.1(ダズ・ボーネス)",
-    "furigana": "",
+    "furigana": "ミスターワンダズ・ボーネス",
     "rarity": "UC",
     "cardType": "CHARACTER",
     "color": [
@@ -2693,7 +2693,7 @@
     "cardNumber": "OP18-056",
     "rawNumber": "OP18-056",
     "cardName": "Mr.13&ミス・フライデー",
-    "furigana": "",
+    "furigana": "ミスターサーティーンアンドミス・フライデー",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -2762,7 +2762,7 @@
     "cardNumber": "OP18-061",
     "rawNumber": "OP18-061",
     "cardName": "アイスバーグ",
-    "furigana": "",
+    "furigana": "アイスバーグ",
     "rarity": "SR",
     "cardType": "CHARACTER",
     "color": [
@@ -2830,7 +2830,7 @@
     "cardNumber": "OP18-066",
     "rawNumber": "OP18-066",
     "cardName": "ザンバイ",
-    "furigana": "",
+    "furigana": "ザンバイ",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -2998,7 +2998,7 @@
     "cardNumber": "OP18-080",
     "rawNumber": "OP18-080",
     "cardName": "スパンダム",
-    "furigana": "",
+    "furigana": "スパンダム",
     "rarity": "L",
     "cardType": "LEADER",
     "color": [
@@ -3066,7 +3066,7 @@
     "cardNumber": "OP18-085",
     "rawNumber": "OP18-085",
     "cardName": "ケルベロス",
-    "furigana": "",
+    "furigana": "ケルベロス",
     "rarity": "UC",
     "cardType": "CHARACTER",
     "color": [
@@ -3204,7 +3204,7 @@
     "cardNumber": "OP18-100",
     "rawNumber": "OP18-100",
     "cardName": "カリファ",
-    "furigana": "",
+    "furigana": "カリファ",
     "rarity": "SR",
     "cardType": "CHARACTER",
     "color": [
@@ -3237,7 +3237,7 @@
     "cardNumber": "OP18-101",
     "rawNumber": "OP18-101",
     "cardName": "クマドリ",
-    "furigana": "",
+    "furigana": "クマドリ",
     "rarity": "UC",
     "cardType": "CHARACTER",
     "color": [
@@ -3270,7 +3270,7 @@
     "cardNumber": "OP18-106",
     "rawNumber": "OP18-106",
     "cardName": "ドーベルマン",
-    "furigana": "",
+    "furigana": "ドーベルマン",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -3304,7 +3304,7 @@
     "cardNumber": "OP18-111",
     "rawNumber": "OP18-111",
     "cardName": "モモンガ",
-    "furigana": "",
+    "furigana": "モモンガ",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -3338,7 +3338,7 @@
     "cardNumber": "OP18-112",
     "rawNumber": "OP18-112",
     "cardName": "ヤマカジ",
-    "furigana": "",
+    "furigana": "ヤマカジ",
     "rarity": "C",
     "cardType": "CHARACTER",
     "color": [
@@ -3372,7 +3372,7 @@
     "cardNumber": "OP18-113",
     "rawNumber": "OP18-113",
     "cardName": "ロブ・ルッチ",
-    "furigana": "",
+    "furigana": "ロブ・ルッチ",
     "rarity": "SR",
     "cardType": "CHARACTER",
     "color": [
@@ -3405,7 +3405,7 @@
     "cardNumber": "P-122",
     "rawNumber": "P-122",
     "cardName": "エース＆サボ＆ルフィ",
-    "furigana": "",
+    "furigana": "エースサボルフィ",
     "rarity": "その他",
     "cardType": "LEADER",
     "color": [
@@ -3438,7 +3438,7 @@
     "cardNumber": "P-123",
     "rawNumber": "P-123",
     "cardName": "エドワード・ニューゲート",
-    "furigana": "",
+    "furigana": "エドワード・ニューゲート",
     "rarity": "その他",
     "cardType": "CHARACTER",
     "color": [
@@ -3472,7 +3472,7 @@
     "cardNumber": "P-124",
     "rawNumber": "P-124",
     "cardName": "カーリー・ダダン",
-    "furigana": "",
+    "furigana": "カーリー・ダダン",
     "rarity": "その他",
     "cardType": "CHARACTER",
     "color": [
@@ -3505,7 +3505,7 @@
     "cardNumber": "P-125",
     "rawNumber": "P-125",
     "cardName": "コビー",
-    "furigana": "",
+    "furigana": "コビー",
     "rarity": "その他",
     "cardType": "CHARACTER",
     "color": [
@@ -3539,7 +3539,7 @@
     "cardNumber": "P-126",
     "rawNumber": "P-126",
     "cardName": "サボ",
-    "furigana": "",
+    "furigana": "サボ",
     "rarity": "その他",
     "cardType": "CHARACTER",
     "color": [
@@ -3572,7 +3572,7 @@
     "cardNumber": "P-127",
     "rawNumber": "P-127",
     "cardName": "シャンクス",
-    "furigana": "",
+    "furigana": "シャンクス",
     "rarity": "その他",
     "cardType": "CHARACTER",
     "color": [
@@ -3606,7 +3606,7 @@
     "cardNumber": "P-128",
     "rawNumber": "P-128",
     "cardName": "ポートガス・D・エース",
-    "furigana": "",
+    "furigana": "ポートガス・ディー・エース",
     "rarity": "その他",
     "cardType": "CHARACTER",
     "color": [
@@ -3639,7 +3639,7 @@
     "cardNumber": "P-129",
     "rawNumber": "P-129",
     "cardName": "マキノ",
-    "furigana": "",
+    "furigana": "マキノ",
     "rarity": "その他",
     "cardType": "CHARACTER",
     "color": [
@@ -3672,7 +3672,7 @@
     "cardNumber": "P-130",
     "rawNumber": "P-130",
     "cardName": "モンキー・D・ガープ",
-    "furigana": "",
+    "furigana": "モンキー・ディー・ガープ",
     "rarity": "その他",
     "cardType": "CHARACTER",
     "color": [
@@ -3705,7 +3705,7 @@
     "cardNumber": "P-131",
     "rawNumber": "P-131",
     "cardName": "モンキー・D・ドラゴン",
-    "furigana": "",
+    "furigana": "モンキー・ディー・ドラゴン",
     "rarity": "その他",
     "cardType": "CHARACTER",
     "color": [
@@ -3738,7 +3738,7 @@
     "cardNumber": "P-132",
     "rawNumber": "P-132",
     "cardName": "モンキー・D・ルフィ",
-    "furigana": "",
+    "furigana": "モンキー・ディー・ルフィ",
     "rarity": "その他",
     "cardType": "CHARACTER",
     "color": [
@@ -3771,7 +3771,7 @@
     "cardNumber": "P-133",
     "rawNumber": "P-133",
     "cardName": "ヤマト",
-    "furigana": "",
+    "furigana": "ヤマト",
     "rarity": "その他",
     "cardType": "CHARACTER",
     "color": [
@@ -3837,7 +3837,7 @@
     "cardNumber": "ST37-001",
     "rawNumber": "ST37-001",
     "cardName": "モンキー・D・ルフィ",
-    "furigana": "",
+    "furigana": "モンキー・ディー・ルフィ",
     "rarity": "L",
     "cardType": "LEADER",
     "color": [

@@ -71,6 +71,16 @@ jobs:
           if [ "$DRY_RUN" = "true" ]; then IMAGE_ARGS+=("--dry-run"); fi
           node scripts/sync-provisional-images.mjs "${IMAGE_ARGS[@]}"
 
+      - name: Sync furigana master
+        env:
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          if [ "$DRY_RUN" = "true" ]; then
+            node scripts/sync-furigana-master.mjs
+          else
+            node scripts/sync-furigana-master.mjs --write
+          fi
+
       # 配信するのは WebP だけなので、ここで変換まで済ませる
       - name: Convert images to WebP
         if: ${{ inputs.dry_run != true }}
@@ -99,12 +109,12 @@ jobs:
       - name: Commit and push
         if: ${{ inputs.dry_run != true }}
         run: |
-          if [ -z "$(git status --short -- provisional-cards.json card-features.json image-manifest.json CardsWebP/Provisional)" ]; then
+          if [ -z "$(git status --short -- provisional-cards.json furigana-master.json card-features.json image-manifest.json CardsWebP/Provisional)" ]; then
             echo "No provisional card or image changes to commit."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add provisional-cards.json card-features.json image-manifest.json CardsWebP/Provisional
+          git add provisional-cards.json furigana-master.json card-features.json image-manifest.json CardsWebP/Provisional
           git commit -m "Sync provisional cards"
           git push

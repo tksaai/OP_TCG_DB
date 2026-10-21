@@ -47,6 +47,7 @@
     const PROVISIONAL_CARDS_JSON_PATH = './provisional-cards.json';
     const IMAGE_MANIFEST_PATH = './image-manifest.json';
     const BLOCK_ICON_RULES_PATH = './block-icon-overrides.json';
+    const FURIGANA_MASTER_PATH = './furigana-master.json';
     const FURIGANA_OVERRIDES_PATH = './furigana-overrides.json';
     const GITHUB_OWNER = 'tksaai';
     const GITHUB_REPO = 'OP_TCG_DB';
@@ -58,7 +59,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.15.2'; // バージョン更新
+    const APP_VERSION = '1.16.0'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -88,6 +89,7 @@
     let lastAddedCardSet = new Set(); // 前回のデータ更新で追加されたカード番号
     let provisionalCards = [];
     let provisionalVariantsByNumber = new Map();
+    let furiganaMaster = { version: 1, entries: {} };
     let furiganaOverrides = {};
     let touchStartX = 0;
     let touchEndX = 0;
@@ -499,6 +501,7 @@
             await loadWantedCards();
             await loadImageManifest();
             await loadBlockIconRules();
+            await loadFuriganaMaster();
             await loadFuriganaOverrides();
             await loadProvisionalCards();
             await loadCollectionItems();
@@ -604,23 +607,52 @@
         return '';
     }
 
+    function getMasterFurigana(cardName) {
+        const entry = furiganaMaster?.entries?.[cardName];
+        if (!entry || entry.status !== 'verified') return '';
+        return typeof entry.reading === 'string' ? entry.reading.trim() : '';
+    }
+
     function normalizeFuriganaValue(value) {
         return toHalfWidth(toKatakana(value || ''))
             .trim()
             .replace(/\s+/g, '')
-            .replace(/[^ァ-ヶーA-Za-z0-9]/g, '');
+            .replace(/[^ァ-ヺーA-Za-z0-9・]/g, '');
     }
 
     function applyFuriganaOverridesToCards(cards = allCards) {
         if (!Array.isArray(cards) || !furiganaOverrides) return;
         cards.forEach(card => {
             if (!card?.cardNumber) return;
+            const master = getMasterFurigana(card.cardName);
             const override = getOverrideFurigana(card.cardNumber);
+            if (master) {
+                card.furigana = master;
+                card.furiganaSource = 'master';
+            }
             if (override) {
                 card.furigana = override;
-                card.furiganaSource = 'override';
+                card.furiganaSource = 'card-override';
             }
         });
+    }
+
+    async function loadFuriganaMaster() {
+        try {
+            const response = await fetch(FURIGANA_MASTER_PATH, { cache: 'no-store' });
+            if (response.status === 404) {
+                furiganaMaster = { version: 1, entries: {} };
+                return;
+            }
+            if (!response.ok) throw new Error(`Failed to fetch furigana master: ${response.status}`);
+            const data = await response.json();
+            furiganaMaster = data && typeof data === 'object' && !Array.isArray(data)
+                ? data
+                : { version: 1, entries: {} };
+        } catch (error) {
+            console.warn('Failed to load furigana master.', error);
+            furiganaMaster = { version: 1, entries: {} };
+        }
     }
 
     async function loadFuriganaOverrides() {
@@ -781,7 +813,7 @@
 
         furiganaOverrides = nextData;
         card.furigana = normalized;
-        card.furiganaSource = 'override';
+        card.furiganaSource = 'card-override';
         return normalized;
     }
 
@@ -1568,7 +1600,9 @@
             dom.lightboxFuriganaInput.value = card.furigana || '';
         }
         if (dom.lightboxFuriganaStatus) {
-            dom.lightboxFuriganaStatus.textContent = card.furiganaSource === 'override' ? 'Override applied.' : '';
+            dom.lightboxFuriganaStatus.textContent = card.furiganaSource === 'card-override'
+                ? 'Card-specific override applied.'
+                : card.furiganaSource === 'master' ? 'Verified master reading applied.' : '';
         }
         syncFuriganaEditorVisibility();
 
