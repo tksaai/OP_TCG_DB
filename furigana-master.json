@@ -27,9 +27,9 @@
       "source": "existing-card-data"
     },
     "“メラメラの実”はおれが食っていいか？": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "メラメラノミハオレガクッテイイカ",
+      "status": "verified",
+      "source": "manual"
     },
     "“火炎”が許さねェってよ!!": {
       "reading": "カエンガユルサネェッテヨ",
@@ -67,9 +67,9 @@
       "source": "existing-card-data"
     },
     "「リリス」を頼む！！！": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "リリスヲタノム",
+      "status": "verified",
+      "source": "manual"
     },
     "「火炎」竜王": {
       "reading": "カエンリュウオウ",
@@ -772,9 +772,9 @@
       "source": "existing-card-data"
     },
     "エレ爪": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "エレクロ",
+      "status": "verified",
+      "source": "manual"
     },
     "エンポリオ・イワンコフ": {
       "reading": "エンポリオ・イワンコフ",
@@ -1692,9 +1692,9 @@
       "source": "existing-card-data"
     },
     "ゴムゴムの鷹銃乱打": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "ゴムゴムノホークガトリング",
+      "status": "verified",
+      "source": "manual"
     },
     "ゴムゴムの縄跳び": {
       "reading": "ゴムゴムノナワトビ",
@@ -2087,9 +2087,9 @@
       "source": "existing-card-data"
     },
     "シャーロットプリン様だ‼": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "シャーロットプリンサマダ",
+      "status": "verified",
+      "source": "manual"
     },
     "ジャイロ": {
       "reading": "ジャイロ",
@@ -2242,9 +2242,9 @@
       "source": "existing-card-data"
     },
     "しらほしと申します!!": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "シラホシトモウシマス",
+      "status": "verified",
+      "source": "manual"
     },
     "シリュウ": {
       "reading": "シリュウ",
@@ -3187,9 +3187,9 @@
       "source": "existing-card-data"
     },
     "バリア突進牛": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "バリアブルズ",
+      "status": "verified",
+      "source": "manual"
     },
     "バリバリの銃": {
       "reading": "バリバリノピストル",
@@ -4027,9 +4027,9 @@
       "source": "existing-card-data"
     },
     "みんな元気でね♡": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "ミンナゲンキデネ",
+      "status": "verified",
+      "source": "manual"
     },
     "ムッシュール": {
       "reading": "ムッシュール",
@@ -4412,9 +4412,9 @@
       "source": "kana-rule"
     },
     "ルフィ…今の内じゃ": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "ルフィイマノウチジャ",
+      "status": "verified",
+      "source": "manual"
     },
     "ルフィ＆エース": {
       "reading": "",
@@ -4427,9 +4427,9 @@
       "source": "existing-card-data"
     },
     "ルフィは海賊王になる男だ!!!": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "ルフィハカイゾクオウニナルオトコダ",
+      "status": "verified",
+      "source": "manual"
     },
     "ルフィ太郎": {
       "reading": "ルフィタロウ",
@@ -4622,9 +4622,9 @@
       "source": "existing-card-data"
     },
     "袷羽檻": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "アワセバオリ",
+      "status": "verified",
+      "source": "manual"
     },
     "安心せい!!わしがおる!!!": {
       "reading": "アンシンセイワシガオル",
@@ -4752,9 +4752,9 @@
       "source": "existing-card-data"
     },
     "火龍大炬": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "カエンダイコ",
+      "status": "verified",
+      "source": "manual"
     },
     "我が神なり": {
       "reading": "ワガカミナリ",
@@ -4817,9 +4817,9 @@
       "source": "existing-card-data"
     },
     "開国するんだ‼一緒に戦わせて欲しい!!!": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "カイコクスルンダイッショニタタカワセテホシイ",
+      "status": "verified",
+      "source": "manual"
     },
     "鎧合体": {
       "reading": "ヨロイガッタイ",
@@ -4892,9 +4892,9 @@
       "source": "existing-card-data"
     },
     "強ェ弱ェは結果が決めるのさ": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "ツエェヨエェハケッカガキメルノサ",
+      "status": "verified",
+      "source": "manual"
     },
     "狂死郎": {
       "reading": "キョウシロウ",
@@ -4972,9 +4972,9 @@
       "source": "existing-card-data"
     },
     "見てろよ!エース!!!": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "ミテロヨエース",
+      "status": "verified",
+      "source": "manual"
     },
     "見聞色の覇気": {
       "reading": "ケンブンショクノハキ",
@@ -5087,9 +5087,9 @@
       "source": "existing-card-data"
     },
     "黒縄・大龍巻": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "コクジョウオオタツマキ",
+      "status": "verified",
+      "source": "manual"
     },
     "狛ちよ": {
       "reading": "コマチヨ",
@@ -5122,9 +5122,9 @@
       "source": "existing-card-data"
     },
     "鮫瓦正拳": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "サメガワラセイケン",
+      "status": "verified",
+      "source": "manual"
     },
     "三・千・世・界": {
       "reading": "サン・ゼン・セ・カイ",
@@ -5152,9 +5152,9 @@
       "source": "existing-card-data"
     },
     "使ってけれ‼ルフィ先輩ィ!!!": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "ツカッテケレルフィセンパイィ",
+      "status": "verified",
+      "source": "manual"
     },
     "四千枚瓦正拳": {
       "reading": "ヨンセンマイガワラセイケン",
@@ -5177,9 +5177,9 @@
       "source": "existing-card-data"
     },
     "指銃 黄蓮": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "シガンオウレン",
+      "status": "verified",
+      "source": "manual"
     },
     "死・獅子歌歌": {
       "reading": "シ・シシソンソン",
@@ -5197,14 +5197,14 @@
       "source": "existing-card-data"
     },
     "私と一緒に死んで!!!": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "ワタシトイッショニシンデ",
+      "status": "verified",
+      "source": "manual"
     },
     "私のこと必要なんでしょ‼?": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "ワタシノコトヒツヨウナンデショ",
+      "status": "verified",
+      "source": "manual"
     },
     "私のしもべになる？": {
       "reading": "ワタシノシモベニナル",
@@ -5332,9 +5332,9 @@
       "source": "existing-card-data"
     },
     "女の…涙の落ちる音がした": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "オンナノナミダノオチルオトガシタ",
+      "status": "verified",
+      "source": "manual"
     },
     "勝者だけが正義だ!!!!": {
       "reading": "ショウシャダケガセイギダ",
@@ -5552,9 +5552,9 @@
       "source": "existing-card-data"
     },
     "誰にも渡さねェよ!“あいつ”の形見だ": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "ダレニモワタサネェヨアイツノカタミダ",
+      "status": "verified",
+      "source": "manual"
     },
     "弾糸": {
       "reading": "タマイト",
@@ -5597,9 +5597,9 @@
       "source": "existing-card-data"
     },
     "調教してあげる♡": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "チョウキョウシテアゲル",
+      "status": "verified",
+      "source": "manual"
     },
     "超カルガモ部隊": {
       "reading": "チョウカルガモブタイ",
@@ -5627,9 +5627,9 @@
       "source": "existing-card-data"
     },
     "弟子の船出だ よしなに頼むよ…": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "デシノフナデダヨシナニタノムヨ",
+      "status": "verified",
+      "source": "manual"
     },
     "敵に“仲間”は売らんぜよ!!!": {
       "reading": "テキニナカマハウランゼヨ",
@@ -5692,9 +5692,9 @@
       "source": "existing-card-data"
     },
     "桃色毒矢": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "ピンクホーネット",
+      "status": "verified",
+      "source": "manual"
     },
     "湯けむり殺人事件": {
       "reading": "ユケムリサツジンジケン",
@@ -5707,9 +5707,9 @@
       "source": "existing-card-data"
     },
     "特ホロ": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "トクホロ",
+      "status": "verified",
+      "source": "manual"
     },
     "特製マギー玉": {
       "reading": "トクセイマギーダマ",
@@ -5917,9 +5917,9 @@
       "source": "existing-card-data"
     },
     "放電": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "ヴァーリー",
+      "status": "verified",
+      "source": "manual"
     },
     "方舟ノア": {
       "reading": "ハコブネノア",
@@ -5982,9 +5982,9 @@
       "source": "existing-card-data"
     },
     "命令してるんだ 誰もおれに逆らうな!!!": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "メイレイシテルンダダレモオレニサカラウナ",
+      "status": "verified",
+      "source": "manual"
     },
     "鳴光剣": {
       "reading": "",
@@ -6112,9 +6112,9 @@
       "source": "existing-card-data"
     },
     "歪んだ未来": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "ディストーションフューチャー",
+      "status": "verified",
+      "source": "manual"
     },
     "藁備手刀": {
       "reading": "ワラビデトウ",
