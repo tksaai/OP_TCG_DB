@@ -65,11 +65,27 @@
                         <li>下部の数字ボタンで1〜5列を切り替えられます。</li>
                     </ol>
                     <div class="note"><strong>別イラスト</strong><span>フィルタ内の「表示」で、通常のみ・通常＋別イラスト・別イラストのみを選択できます。</span></div>
-                    <div class="note"><strong>効果を読む</strong><span>カード画像を拡大し、「効果・情報」を押すと、効果・トリガー・特徴などをテキストで確認できます。</span></div>
+                    <div class="note"><strong>効果を読む</strong><span>カード画像を拡大し、「効果・情報」を押すと、効果・トリガー・特徴などをテキストで確認できます。長い効果は表示欄をスクロールできます。</span></div>
                 </div>
                 <figure>
                     <img src="assets/cards.png" alt="カード一覧画面">
                     <figcaption>カード一覧。検索欄と右上のフィルタを組み合わせます。</figcaption>
+                </figure>
+            </div>
+            <div class="two-column reverse guide-followup">
+                <div class="copy-block">
+                    <h3>カード効果をテキストで確認する</h3>
+                    <ol>
+                        <li>カード一覧またはデッキ編集画面でカードをタップし、画像を拡大します。</li>
+                        <li>カード番号・名称の下にある「効果・情報」を押します。</li>
+                        <li>効果、トリガー、特徴、属性、コストまたはライフ、パワー、カウンターを確認します。</li>
+                        <li>画像へ戻るときは「画像に戻る」を押します。パソコンではEscキーでも先に画像表示へ戻ります。</li>
+                    </ol>
+                    <div class="note"><strong>別イラストでも共通</strong><span>選択中のイラストを保ったまま表示を切り替えます。効果・情報は同じカード番号のカードデータを表示します。</span></div>
+                </div>
+                <figure>
+                    <img src="assets/card-text-view.png" alt="カード画像の拡大画面で効果と情報をテキスト表示した状態">
+                    <figcaption>画像が小さく読みにくい場合でも、登録済みの効果とカード情報をテキストで確認できます。</figcaption>
                 </figure>
             </div>
             <figure class="wide-shot">
@@ -252,6 +268,7 @@
                 <div><p class="eyebrow">TROUBLESHOOTING</p><h2>困ったとき</h2></div>
             </div>
             <details open><summary>画像や新しいカードが表示されない</summary><p>通信状態を確認し、Settingsの「キャッシュを更新」を実行してから再起動します。仮DBのカードは下部のNEWに表示されます。</p></details>
+            <details open><summary>カード画像の文字が小さくて読めない</summary><p>カードをタップして拡大し、カード番号・名称の下にある「効果・情報」を押してください。効果、トリガー、特徴などをテキストで確認でき、「画像に戻る」で元の画像表示へ戻れます。</p></details>
             <details open><summary>共有URLを開いてもPWAへ移動しない</summary><p>iOSはWebリンクからホーム画面版へ自動転送できません。URLの共有テキストをコピーし、PWAのDecks「URLから追加」へ貼り付けてください。</p></details>
             <details open><summary>画像解析の結果が違う</summary><p>結果画面の「変更」から候補を検索して修正します。元画像をトリミングせず、カード番号と枚数が読める解像度で試してください。</p></details>
             <details open><summary>保存データを別端末へ移したい</summary><p>SettingsのGoogle Drive同期を任意で利用できます。デッキ、調整履歴、大会結果、所持カード、開封記録、欲しいカードをまとめて保存・復元します。同期を使わない場合は、デッキ共有URLや所持カードJSONも利用できます。</p></details>

@@ -24,6 +24,9 @@ test('user guide and legal pages are linked from the app and cover primary workf
     assert.match(guideHtml, /OP_TCG_DB_User_Manual\.pdf/);
     assert.match(guideHtml, /調整履歴を使う/u);
     assert.match(guideHtml, /使用した調整/u);
+    assert.match(guideHtml, /カード効果をテキストで確認する/u);
+    assert.match(guideHtml, /「効果・情報」を押します/u);
+    assert.match(guideHtml, /「画像に戻る」を押します/u);
     assert.match(guideHtml, /この端末から保存/u);
     assert.match(guideHtml, /\.\.\/privacy\//u);
     assert.match(guideHtml, /\.\.\/terms\//u);
@@ -41,6 +44,7 @@ test('user guide and legal pages are linked from the app and cover primary workf
 test('every guide screenshot exists', async () => {
     for (const name of [
         'cards.png',
+        'card-text-view.png',
         'filter.png',
         'leader-select.png',
         'deck-editor.png',
