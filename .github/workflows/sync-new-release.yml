@@ -71,6 +71,14 @@ jobs:
           if [ "$FORCE" = "true" ]; then ARGS+=("--force"); fi
           node scripts/sync-new-release.mjs "${ARGS[@]}" --python=python
 
+      # カード同期が cards.json を再生成した後にも、公式一覧にない例外カードを復元する。
+      - name: Restore 8 pack battle leader after sync
+        if: ${{ inputs.dry_run != true }}
+        run: node scripts/ensure-eight-pack-leader.mjs
+
+      - name: Test final data integrity
+        run: node scripts/test-data-integrity.mjs
+
       - name: Show changes
         run: git status --short
 

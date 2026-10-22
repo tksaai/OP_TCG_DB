@@ -130,6 +130,17 @@ assert.ok(
     < newReleaseWorkflow.indexOf('node scripts/test-data-integrity.mjs'),
   '日次同期では整合性検査より先に8パックバトル専用リーダーを復元してください'
 );
+const officialSyncStep = newReleaseWorkflow.indexOf('node scripts/sync-new-release.mjs');
+const finalEightPackRestoreStep = newReleaseWorkflow.lastIndexOf('node scripts/ensure-eight-pack-leader.mjs');
+const finalNewReleaseIntegrityStep = newReleaseWorkflow.lastIndexOf('node scripts/test-data-integrity.mjs');
+assert.ok(
+  officialSyncStep >= 0 && finalEightPackRestoreStep > officialSyncStep,
+  'カード同期後に8パックバトル専用リーダーを再度復元してください'
+);
+assert.ok(
+  finalNewReleaseIntegrityStep > finalEightPackRestoreStep,
+  '8パックバトル専用リーダー復元後に最終整合性検査を実行してください'
+);
 const searchableTextStart = appJs.indexOf('let searchableText = [');
 const searchableTextEnd = appJs.indexOf("].join(' ');", searchableTextStart);
 const searchableTextSource = appJs.slice(searchableTextStart, searchableTextEnd);
