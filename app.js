@@ -59,7 +59,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.16.0'; // バージョン更新
+    const APP_VERSION = '1.17.0'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -96,6 +96,7 @@
     let touchStartY = 0;
     let touchEndY = 0;
     let isDebugInfoVisible = false;
+    let isLightboxTextVisible = false;
     
     // --- カードリスト タップ判定用 ---
     let cardListTapElement = null;
@@ -397,6 +398,16 @@
             lightboxModal: $('#lightbox-modal'),
             lightboxImage: $('#lightbox-image'),
             lightboxFallback: $('#lightbox-fallback'),
+            lightboxCardText: $('#lightbox-card-text'),
+            lightboxEffectText: $('#lightbox-effect-text'),
+            lightboxTriggerText: $('#lightbox-trigger-text'),
+            lightboxFeaturesText: $('#lightbox-features-text'),
+            lightboxAttributeText: $('#lightbox-attribute-text'),
+            lightboxCostLifeLabel: $('#lightbox-cost-life-label'),
+            lightboxCostLifeText: $('#lightbox-cost-life-text'),
+            lightboxPowerText: $('#lightbox-power-text'),
+            lightboxCounterText: $('#lightbox-counter-text'),
+            lightboxTextToggleBtn: $('#lightbox-text-toggle-btn'),
             lightboxCloseBtn: $('#lightbox-close-btn'),
             lightboxInfo: $('#lightbox-info'),
             lightboxTitle: $('#lightbox-title'),
@@ -1519,6 +1530,7 @@
     function showLightbox(index) {
         if (index < 0 || index >= currentFilteredCards.length) return;
         isDebugInfoVisible = false;
+        setLightboxTextMode(false);
         currentLightboxIndex = -1;
         currentLightboxVariantIndex = 0;
         dom.lightboxModal.style.display = 'grid';
@@ -1531,6 +1543,7 @@
         if (newIndex === currentLightboxIndex && variantIndex === currentLightboxVariantIndex && !isDebugInfoVisible) return;
         
         isDebugInfoVisible = false;
+        setLightboxTextMode(false);
         currentLightboxIndex = newIndex;
         currentLightboxVariantIndex = Math.max(0, variantIndex);
         const card = currentFilteredCards[currentLightboxIndex];
@@ -1605,6 +1618,7 @@
                 : card.furiganaSource === 'master' ? 'Verified master reading applied.' : '';
         }
         syncFuriganaEditorVisibility();
+        updateLightboxCardText(card);
 
         dom.lightboxVariants.innerHTML = '';
         if (variants.length > 1) {
@@ -1625,6 +1639,47 @@
         }
 
         dom.lightboxInfo.style.display = 'flex';
+    }
+
+    function getLightboxTextValue(value, fallback = 'なし') {
+        const text = String(value ?? '').trim();
+        return text && text !== '-' ? text : fallback;
+    }
+
+    function updateLightboxCardText(card) {
+        if (!dom.lightboxCardText) return;
+        dom.lightboxEffectText.textContent = getLightboxTextValue(card.effectText, '効果なし');
+        dom.lightboxTriggerText.textContent = getLightboxTextValue(card.trigger);
+        dom.lightboxFeaturesText.textContent = Array.isArray(card.features) && card.features.length > 0
+            ? card.features.join(' / ')
+            : 'なし';
+        dom.lightboxAttributeText.textContent = getLightboxTextValue(card.attribute);
+        dom.lightboxCostLifeLabel.textContent = getLightboxTextValue(card.costLifeType, 'コスト');
+        dom.lightboxCostLifeText.textContent = getLightboxTextValue(card.costLifeValue);
+        dom.lightboxPowerText.textContent = getLightboxTextValue(card.power);
+        dom.lightboxCounterText.textContent = getLightboxTextValue(card.counter);
+    }
+
+    function setLightboxTextMode(visible) {
+        isLightboxTextVisible = Boolean(visible);
+        dom.lightboxModal?.classList.toggle('show-card-text', isLightboxTextVisible);
+        if (dom.lightboxCardText) dom.lightboxCardText.hidden = !isLightboxTextVisible;
+        if (dom.lightboxTextToggleBtn) {
+            dom.lightboxTextToggleBtn.textContent = isLightboxTextVisible ? '画像に戻る' : '効果・情報';
+            dom.lightboxTextToggleBtn.setAttribute('aria-pressed', String(isLightboxTextVisible));
+        }
+    }
+
+    function closeLightbox() {
+        dom.lightboxModal.style.display = 'none';
+        dom.lightboxImage.src = '';
+        dom.lightboxImage.onerror = null;
+        currentLightboxIndex = -1;
+        currentLightboxVariantIndex = 0;
+        isDebugInfoVisible = false;
+        setLightboxTextMode(false);
+        if (dom.lightboxInfo) dom.lightboxInfo.style.display = 'none';
+        resetFallbackStyles();
     }
     
     function resetFallbackStyles() {
@@ -8430,7 +8485,11 @@
         }
         document.addEventListener('keydown', event => {
             if (event.key === 'Escape') {
-                if (dom.tournamentRecordsModal?.style.display !== 'none') {
+                if (dom.lightboxModal?.style.display !== 'none') {
+                    event.preventDefault();
+                    if (isLightboxTextVisible) setLightboxTextMode(false);
+                    else closeLightbox();
+                } else if (dom.tournamentRecordsModal?.style.display !== 'none') {
                     event.preventDefault();
                     closeTournamentRecords();
                 } else if (dom.deckAdjustmentModal?.style.display !== 'none') {
@@ -9072,15 +9131,10 @@
         }
 
         // ライトボックス
-        dom.lightboxCloseBtn.addEventListener('click', () => {
-            dom.lightboxModal.style.display = 'none';
-            dom.lightboxImage.src = '';
-            dom.lightboxImage.onerror = null;
-            currentLightboxIndex = -1;
-            currentLightboxVariantIndex = 0;
-            isDebugInfoVisible = false;
-            if (dom.lightboxInfo) dom.lightboxInfo.style.display = 'none';
-            resetFallbackStyles();
+        dom.lightboxCloseBtn.addEventListener('click', closeLightbox);
+        dom.lightboxTextToggleBtn?.addEventListener('click', event => {
+            event.stopPropagation();
+            setLightboxTextMode(!isLightboxTextVisible);
         });
         dom.lightboxModal.addEventListener('click', (e) => {
             if (e.target === dom.lightboxModal) {
@@ -9092,13 +9146,7 @@
                  }
                  
                  if (touchStartX === 0 && touchEndX === 0) { 
-                    dom.lightboxModal.style.display = 'none';
-                    dom.lightboxImage.src = '';
-                    dom.lightboxImage.onerror = null;
-                    currentLightboxIndex = -1;
-                    currentLightboxVariantIndex = 0;
-                    if (dom.lightboxInfo) dom.lightboxInfo.style.display = 'none';
-                    resetFallbackStyles();
+                    closeLightbox();
                   }
             }
         });

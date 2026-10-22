@@ -98,15 +98,17 @@ test('proxy print is wired into the deck menu and app shell', async () => {
         readFile(new URL('style.css', root), 'utf8'),
         readFile(new URL('service-worker.js', root), 'utf8')
     ]);
+    const version = app.match(/const APP_VERSION = '([^']+)'/)?.[1];
 
+    assert.ok(version);
     assert.match(html, /id="proxy-print-modal"/);
     assert.match(html, /id="proxy-print-paper-size"/);
     assert.match(html, /id="proxy-print-card-size"/);
-    assert.match(html, /proxy-print\.js\?v=1\.16\.0/);
+    assert.match(html, new RegExp(`proxy-print\\.js\\?v=${version}`));
     assert.match(app, /createDeckMenuItem\('プロキシ印刷', 'print'/);
     assert.match(app, /getCollectionOwnedCardsForDeck\(deck\)/);
     assert.match(css, /\.proxy-print-shell\s*\{[^}]*grid-template-rows:\s*auto minmax\(0, 1fr\) auto/s);
     assert.match(css, /\.proxy-print-dimension-fields\[hidden\]\s*\{[^}]*display:\s*none/s);
     assert.match(css, /\.proxy-print-preview-card\s*\{[^}]*position:\s*absolute/s);
-    assert.match(worker, /proxy-print\.js\?v=1\.16\.0/);
+    assert.match(worker, new RegExp(`proxy-print\\.js\\?v=${version}`));
 });

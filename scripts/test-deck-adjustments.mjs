@@ -152,11 +152,13 @@ test('deck UI wires optional adjustment history and tournament association', asy
         readFile(new URL('style.css', root), 'utf8'),
         readFile(new URL('service-worker.js', root), 'utf8')
     ]);
+    const version = app.match(/const APP_VERSION = '([^']+)'/)?.[1];
 
+    assert.ok(version);
     assert.match(html, /id="deck-adjustment-modal"/);
     assert.match(html, /id="deck-adjustment-enabled-toggle"/);
     assert.match(html, /id="tournament-adjustment-select"/);
-    assert.match(html, /deck-adjustments\.js\?v=1\.16\.0/);
+    assert.match(html, new RegExp(`deck-adjustments\\.js\\?v=${version}`));
     assert.match(app, /recordAdjustment\(adjustments, currentSnapshot/);
     assert.match(app, /createDeckMenuItem\('調整履歴'/u);
     assert.match(app, /adjustmentId: dom\.tournamentAdjustmentField/);
@@ -166,5 +168,5 @@ test('deck UI wires optional adjustment history and tournament association', asy
     assert.match(app, /unlinkAdjustment\(/);
     assert.match(css, /\.deck-adjustment-row\.is-active/);
     assert.match(css, /\.deck-adjustment-icon-btn\.destructive/);
-    assert.match(worker, /deck-adjustments\.js\?v=1\.16\.0/);
+    assert.match(worker, new RegExp(`deck-adjustments\\.js\\?v=${version}`));
 });

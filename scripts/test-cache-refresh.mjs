@@ -21,7 +21,7 @@ test('cache refresh UI preserves user data stores', async () => {
 
 test('service worker cache version is advanced for the current data release', async () => {
     const source = await readFile(new URL('service-worker.js', root), 'utf8');
-    assert.match(source, /CACHE_APP_SHELL = 'app-shell-v61'/);
+    assert.match(source, /CACHE_APP_SHELL = 'app-shell-v62'/);
     assert.match(source, /CACHE_CARD_DATA = 'card-data-v19'/);
     assert.match(source, /BLOCK_ICON_RULES_PATH/);
     assert.match(source, /FURIGANA_MASTER_PATH/);
@@ -81,6 +81,7 @@ test('app shell loads a revisioned script and bypasses stale HTTP cache', async 
     const version = appSource.match(/const APP_VERSION = '([^']+)'/)?.[1];
 
     assert.ok(version);
+    assert.match(html, new RegExp(`style\\.css\\?v=${version}`));
     assert.match(html, new RegExp(`image-import\\.js\\?v=${version}`));
     assert.match(html, new RegExp(`eight-pack-leader\\.js\\?v=${version}`));
     assert.match(html, new RegExp(`deck-variants\\.js\\?v=${version}`));
@@ -95,6 +96,7 @@ test('app shell loads a revisioned script and bypasses stale HTTP cache', async 
     assert.match(workerSource, new RegExp(`optcgsim-deck\\.js\\?v=${version}`));
     assert.match(workerSource, new RegExp(`google-drive-sync\\.js\\?v=${version}`));
     assert.match(workerSource, new RegExp(`app\\.js\\?v=${version}`));
+    assert.match(workerSource, new RegExp(`style\\.css\\?v=${version}`));
     assert.match(workerSource, /cache: 'reload'/);
     assert.match(workerSource, /new Request\(request, \{ cache: 'no-cache' \}\)/);
 });

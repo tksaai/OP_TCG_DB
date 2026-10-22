@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>OP-TCG DB PWA</title>
     <!-- CSSファイル -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=1.17.0">
     
     <!-- 2. Web App Manifest -->
     <link rel="manifest" href="manifest.json">
@@ -557,6 +557,38 @@
         <span id="lightbox-close-btn" class="lightbox-close-btn" aria-label="閉じる">&times;</span>
         <img id="lightbox-image" class="lightbox-image" src="" alt="拡大画像">
         <div id="lightbox-fallback" class="lightbox-fallback"></div>
+        <section id="lightbox-card-text" class="lightbox-card-text" aria-label="カードの効果と情報" hidden>
+            <dl class="lightbox-card-text-list">
+                <div class="lightbox-card-text-row lightbox-card-text-row-wide">
+                    <dt>効果</dt>
+                    <dd id="lightbox-effect-text"></dd>
+                </div>
+                <div class="lightbox-card-text-row lightbox-card-text-row-wide">
+                    <dt>トリガー</dt>
+                    <dd id="lightbox-trigger-text"></dd>
+                </div>
+                <div class="lightbox-card-text-row">
+                    <dt>特徴</dt>
+                    <dd id="lightbox-features-text"></dd>
+                </div>
+                <div class="lightbox-card-text-row">
+                    <dt>属性</dt>
+                    <dd id="lightbox-attribute-text"></dd>
+                </div>
+                <div class="lightbox-card-text-row">
+                    <dt id="lightbox-cost-life-label">コスト</dt>
+                    <dd id="lightbox-cost-life-text"></dd>
+                </div>
+                <div class="lightbox-card-text-row">
+                    <dt>パワー</dt>
+                    <dd id="lightbox-power-text"></dd>
+                </div>
+                <div class="lightbox-card-text-row">
+                    <dt>カウンター</dt>
+                    <dd id="lightbox-counter-text"></dd>
+                </div>
+            </dl>
+        </section>
         <div id="lightbox-info" class="lightbox-info" style="display: none;">
             <div>
                 <div id="lightbox-title" class="lightbox-title"></div>
@@ -568,7 +600,10 @@
                     <span id="lightbox-furigana-status" class="lightbox-furigana-status"></span>
                 </div>
             </div>
-            <div id="lightbox-variants" class="lightbox-variants"></div>
+            <div class="lightbox-controls">
+                <button id="lightbox-text-toggle-btn" class="variant-btn lightbox-text-toggle-btn" type="button" aria-controls="lightbox-card-text" aria-pressed="false">効果・情報</button>
+                <div id="lightbox-variants" class="lightbox-variants"></div>
+            </div>
         </div>
     </div>
 
@@ -1013,15 +1048,15 @@
     </div>
 
     <!-- 22. メインスクリプト (defer を追加) -->
-    <script src="image-import.js?v=1.16.0" defer></script>
-    <script src="eight-pack-leader.js?v=1.16.0" defer></script>
-    <script src="deck-adjustments.js?v=1.16.0" defer></script>
-    <script src="deck-records.js?v=1.16.0" defer></script>
-    <script src="deck-variants.js?v=1.16.0" defer></script>
-    <script src="proxy-print.js?v=1.16.0" defer></script>
-    <script src="optcgsim-deck.js?v=1.16.0" defer></script>
-    <script src="google-drive-sync.js?v=1.16.0" defer></script>
-    <script src="app.js?v=1.16.0" defer></script>
+    <script src="image-import.js?v=1.17.0" defer></script>
+    <script src="eight-pack-leader.js?v=1.17.0" defer></script>
+    <script src="deck-adjustments.js?v=1.17.0" defer></script>
+    <script src="deck-records.js?v=1.17.0" defer></script>
+    <script src="deck-variants.js?v=1.17.0" defer></script>
+    <script src="proxy-print.js?v=1.17.0" defer></script>
+    <script src="optcgsim-deck.js?v=1.17.0" defer></script>
+    <script src="google-drive-sync.js?v=1.17.0" defer></script>
+    <script src="app.js?v=1.17.0" defer></script>
 
 </body>
 </html>
