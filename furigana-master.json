@@ -77,9 +77,9 @@
       "source": "existing-card-data"
     },
     "「三大将」!!!": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "サンタイショウ",
+      "status": "verified",
+      "source": "image-ocr-confirmed"
     },
     "「四皇」を一人…!!!引きずり降ろす“策”がある": {
       "reading": "ヨンコウヲヒトリヒキズリオロスサクガアル",
@@ -333,8 +333,8 @@
     },
     "アイスタイム": {
       "reading": "アイスタイム",
-      "status": "suggested",
-      "source": "kana-rule"
+      "status": "verified",
+      "source": "manual"
     },
     "アイスバーグ": {
       "reading": "アイスバーグ",
@@ -627,9 +627,9 @@
       "source": "existing-card-data"
     },
     "ウォロロロロ…!!すっかり酔いが醒めたぜ": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "ウォロロロロスッカリヨイガサメタゼ",
+      "status": "verified",
+      "source": "manual"
     },
     "ウサッコフ": {
       "reading": "ウサッコフ",
@@ -887,9 +887,9 @@
       "source": "existing-card-data"
     },
     "おれと共に来る者は命を捨ててついて来い!!!": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "オレトトモニクルモノハイノチヲステテツイテコイ",
+      "status": "verified",
+      "source": "manual"
     },
     "おれの”侍”になれ‼!": {
       "reading": "オレノサムライニナレ",
@@ -902,9 +902,9 @@
       "source": "existing-card-data"
     },
     "おれはルフィ!!海賊王になる男だ!!": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "オレハルフィカイゾクオウニナルオトコダ",
+      "status": "verified",
+      "source": "manual"
     },
     "おれは決して お前を撃たねェ!!!!": {
       "reading": "オレハケッシテオマエヲウタネェ",
@@ -922,14 +922,14 @@
       "source": "existing-card-data"
     },
     "おれ達の救世主!!!キャプテン・バギー!!!!": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "オレタチノキュウセイシュキャプテンバギー",
+      "status": "verified",
+      "source": "manual"
     },
     "おれ達の力を見せてやれ!!!": {
-      "reading": "",
+      "reading": "オレタチノチカラヲミセテヤレ",
       "status": "pending",
-      "source": "new-card"
+      "source": "manual"
     },
     "おロビ": {
       "reading": "オロビ",
@@ -1293,8 +1293,8 @@
     },
     "グララララララ!!!": {
       "reading": "グララララララ",
-      "status": "suggested",
-      "source": "kana-rule"
+      "status": "verified",
+      "source": "manual"
     },
     "クリーク": {
       "reading": "クリーク",
@@ -1517,14 +1517,14 @@
       "source": "existing-card-data"
     },
     "この時代の名が!!!\"白ひげ\"だァ!!!": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "コノジダイノナガシロヒゲダァ",
+      "status": "verified",
+      "source": "manual"
     },
     "この怒りを食らっておれは!!!“世界”を滅ぼしてやる!!!": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "コノイカリヲクラッテオレハセカイヲホロボシテヤル",
+      "status": "verified",
+      "source": "manual"
     },
     "コビー": {
       "reading": "コビー",
@@ -1567,14 +1567,14 @@
       "source": "existing-card-data"
     },
     "ゴムゴムのツインJET銃": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "ゴムゴムノツインジェットピストル",
+      "status": "verified",
+      "source": "manual"
     },
     "ゴムゴムのトンカチ回転銃": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "ゴムゴムノトンカチライフル",
+      "status": "verified",
+      "source": "manual"
     },
     "ゴムゴムのモグラ銃": {
       "reading": "ゴムゴムノモグラピストル",
@@ -1592,9 +1592,9 @@
       "source": "existing-card-data"
     },
     "ゴムゴムの猿王銃": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "ゴムゴムノコングガン",
+      "status": "verified",
+      "source": "manual"
     },
     "ゴムゴムの猿王銃乱打": {
       "reading": "ゴムゴムノコングガトリング",
@@ -1607,9 +1607,9 @@
       "source": "existing-card-data"
     },
     "ゴムゴムの黄金回転弾": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "ゴムゴムノオウゴンライフル",
+      "status": "verified",
+      "source": "manual"
     },
     "ゴムゴムの火拳銃": {
       "reading": "ゴムゴムノレッドホーク",
@@ -1712,9 +1712,9 @@
       "source": "existing-card-data"
     },
     "ゴムゴムの暴風雨": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "ゴムゴムノストーム",
+      "status": "verified",
+      "source": "manual"
     },
     "ゴムゴムの雷": {
       "reading": "ゴムゴムノカミナリ",
@@ -2318,8 +2318,8 @@
     },
     "スティンガーヘッジホッグ": {
       "reading": "スティンガーヘッジホッグ",
-      "status": "suggested",
-      "source": "kana-rule"
+      "status": "verified",
+      "source": "manual"
     },
     "ステューシー": {
       "reading": "ステューシー",
@@ -2332,9 +2332,9 @@
       "source": "existing-card-data"
     },
     "ステルス・ブラック": {
-      "reading": "ステルス・ブラック",
-      "status": "suggested",
-      "source": "kana-rule"
+      "reading": "ステルスブラック",
+      "status": "verified",
+      "source": "manual"
     },
     "ステンレス": {
       "reading": "ステンレス",
@@ -2448,8 +2448,8 @@
     },
     "ゼハハハハハハ!!!": {
       "reading": "ゼハハハハハハ",
-      "status": "suggested",
-      "source": "kana-rule"
+      "status": "verified",
+      "source": "manual"
     },
     "ゼフ": {
       "reading": "ゼフ",
@@ -2487,9 +2487,9 @@
       "source": "new-card"
     },
     "その“縁”を切りに来た!!!": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "ソノクサリヲキリニキタ",
+      "status": "verified",
+      "source": "manual"
     },
     "ソリティア": {
       "reading": "ソリティア",
@@ -2502,9 +2502,9 @@
       "source": "existing-card-data"
     },
     "そんなに恐いか？「新時代」が!!!": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "ソンナニコワイカシンジダイガ",
+      "status": "verified",
+      "source": "manual"
     },
     "ダイス": {
       "reading": "ダイス",
@@ -2852,9 +2852,9 @@
       "source": "existing-card-data"
     },
     "ド派手大作戦に変更じゃァ～～～!!!": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "ドハデダイサクセンニヘンコウジャァ",
+      "status": "verified",
+      "source": "manual"
     },
     "ナゾムズ": {
       "reading": "ナゾムズ",
@@ -3152,9 +3152,9 @@
       "source": "existing-card-data"
     },
     "ハナッたれとは話したくねェよアホンダラ": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "ハナッタレトハハナシタクネェヨアホンダラ",
+      "status": "verified",
+      "source": "manual"
     },
     "バナナワニ": {
       "reading": "バナナワニ",
@@ -3583,8 +3583,8 @@
     },
     "へそ!!": {
       "reading": "ヘソ",
-      "status": "suggested",
-      "source": "kana-rule"
+      "status": "verified",
+      "source": "manual"
     },
     "ベタベットン流星": {
       "reading": "ベタベットンメテオ",
@@ -4187,9 +4187,9 @@
       "source": "existing-card-data"
     },
     "やべェ未来が見えた様だ…": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "ヤベェミライガミエタヨウダ",
+      "status": "verified",
+      "source": "manual"
     },
     "ヤマ": {
       "reading": "ヤマ",
@@ -4512,9 +4512,9 @@
       "source": "existing-card-data"
     },
     "ロックス海賊団": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "ロックスカイゾクダン",
+      "status": "verified",
+      "source": "image-ocr-confirmed"
     },
     "ロディ": {
       "reading": "ロディ",
@@ -4677,9 +4677,9 @@
       "source": "existing-card-data"
     },
     "永遠に続く権力などこの世にゃねェんだ!!!": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "エイエンニツヅクケンリョクナドコノヨニャネェンダ",
+      "status": "verified",
+      "source": "manual"
     },
     "疫災弾": {
       "reading": "エキサイトダン",
@@ -4947,9 +4947,9 @@
       "source": "existing-card-data"
     },
     "軍荼利龍盛軍": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "グンダリリュウセイグン",
+      "status": "verified",
+      "source": "manual"
     },
     "欠片蝙蝠": {
       "reading": "ブリックバット",
@@ -5037,9 +5037,9 @@
       "source": "existing-card-data"
     },
     "行くぞ～～～!!!海軍本部～～～!!!": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "イクゾーーーカイグンホンブーーー",
+      "status": "verified",
+      "source": "manual"
     },
     "降三世 引奈落": {
       "reading": "コウザンゼラグナラク",
@@ -5282,9 +5282,9 @@
       "source": "existing-card-data"
     },
     "酒龍八卦": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "シュロンハッケ",
+      "status": "suggested",
+      "source": "manual"
     },
     "首領・マーロン": {
       "reading": "",
@@ -5292,9 +5292,9 @@
       "source": "new-card"
     },
     "囚人達が暴れ出したァ～～～!!!": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "シュウジンタチガアバレダシタァ",
+      "status": "verified",
+      "source": "image-ocr-confirmed"
     },
     "十字火": {
       "reading": "ジュウジカ",
@@ -5357,9 +5357,9 @@
       "source": "existing-card-data"
     },
     "衝撃貝": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "インパクモ",
+      "status": "verified",
+      "source": "manual"
     },
     "衝撃波": {
       "reading": "ショウゲキハ",
@@ -5377,9 +5377,9 @@
       "source": "existing-card-data"
     },
     "食い逃げ常習犯": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "クイニゲジョウシュウハン",
+      "status": "verified",
+      "source": "manual"
     },
     "新時代": {
       "reading": "シンジダイ",
@@ -5412,14 +5412,14 @@
       "source": "existing-card-data"
     },
     "震御雷": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "フルゴラ",
+      "status": "verified",
+      "source": "manual"
     },
     "人として恥ずかしいわ": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "ヒトトシテハズカシイワ",
+      "status": "verified",
+      "source": "manual"
     },
     "人の夢は!!!終わらねェ!!!!": {
       "reading": "ヒトノユメハオワラネェ",
@@ -5442,9 +5442,9 @@
       "source": "existing-card-data"
     },
     "仁義ってモンがあんだろうが アホンダラァ!!!": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "ジンギッテモンガアンダロウゴアホンダラァ",
+      "status": "verified",
+      "source": "manual"
     },
     "世界のつづき": {
       "reading": "セカイノツヅキ",
@@ -5457,9 +5457,9 @@
       "source": "existing-card-data"
     },
     "世界を滅ぼす力": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "セガイヲホロボスチカラ",
+      "status": "verified",
+      "source": "manual"
     },
     "世界最大の頭脳を持つ男": {
       "reading": "セカイサイダイノズノウヲモツオトコ",
@@ -5492,9 +5492,9 @@
       "source": "existing-card-data"
     },
     "戦えるかルフィ!!!勿論だ!!!": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "タタカエルカルフィモチロンダ",
+      "status": "verified",
+      "source": "manual"
     },
     "戦桃丸": {
       "reading": "セントウマル",
@@ -5507,9 +5507,9 @@
       "source": "existing-card-data"
     },
     "全員 この場はおれの顔を立てて貰おう": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "ゼンインコノバハオレノカオヲタテテモロオウ",
+      "status": "verified",
+      "source": "manual"
     },
     "粗砕": {
       "reading": "コンカッセ",
@@ -5572,9 +5572,9 @@
       "source": "existing-card-data"
     },
     "智将“仏のセンゴク”": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "チショウホトケノセンゴク",
+      "status": "verified",
+      "source": "manual"
     },
     "蜘蛛の巣がき": {
       "reading": "クモノスガキ",
@@ -5782,9 +5782,9 @@
       "source": "existing-card-data"
     },
     "馬幻刃": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "マホロバ",
+      "status": "verified",
+      "source": "manual"
     },
     "排撃": {
       "reading": "リジェクト",
@@ -5822,9 +5822,9 @@
       "source": "existing-card-data"
     },
     "飛燕ボンナバン": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "スワローボンナバン",
+      "status": "verified",
+      "source": "manual"
     },
     "鼻唄三丁矢筈斬り": {
       "reading": "ハナウタサンチョウヤハズギリ",
@@ -5857,9 +5857,9 @@
       "source": "existing-card-data"
     },
     "氷諸斬り": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "ヒモロギリ",
+      "status": "verified",
+      "source": "manual"
     },
     "不届き者‼控えよ‼": {
       "reading": "フトドキモノヒカエヨ",
@@ -5952,9 +5952,9 @@
       "source": "existing-card-data"
     },
     "万雷": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "ママラガン",
+      "status": "verified",
+      "source": "manual"
     },
     "魅惑のメマーイダンス": {
       "reading": "ミワクノメマーイダンス",
@@ -5967,9 +5967,9 @@
       "source": "existing-card-data"
     },
     "無茶ばっかりしやがって!!!": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "ムチャバカリシヤガッテ",
+      "status": "verified",
+      "source": "manual"
     },
     "無頼男爆弾": {
       "reading": "パンクボム",
@@ -5987,9 +5987,9 @@
       "source": "manual"
     },
     "鳴光剣": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "メーザーサーベル",
+      "status": "verified",
+      "source": "manual"
     },
     "鳴鏑": {
       "reading": "ナリカブラ",
@@ -6037,9 +6037,9 @@
       "source": "existing-card-data"
     },
     "雷獣": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "キテン",
+      "status": "verified",
+      "source": "manual"
     },
     "雷鳴八卦": {
       "reading": "ライメイハッケ",
@@ -6047,9 +6047,9 @@
       "source": "existing-card-data"
     },
     "雷龍": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "ジャムブウル",
+      "status": "verified",
+      "source": "manual"
     },
     "雷霆": {
       "reading": "ライテイ",

@@ -5378,7 +5378,7 @@
     "uniqueId": "EB04-028_dummy.gif",
     "cardNumber": "EB04-028",
     "cardName": "アイスタイム",
-    "furigana": "",
+    "furigana": "アイスタイム",
     "rarity": "R",
     "cardType": "EVENT",
     "color": [
@@ -5713,7 +5713,7 @@
     "uniqueId": "EB04-041_dummy.gif",
     "cardNumber": "EB04-041",
     "cardName": "ステルス・ブラック",
-    "furigana": "",
+    "furigana": "ステルスブラック",
     "rarity": "C",
     "cardType": "EVENT",
     "color": [
@@ -51102,7 +51102,7 @@
     "uniqueId": "OP15-076_dummy.gif",
     "cardNumber": "OP15-076",
     "cardName": "雷獣",
-    "furigana": "",
+    "furigana": "キテン",
     "rarity": "UC",
     "cardType": "EVENT",
     "color": [
@@ -51127,7 +51127,7 @@
     "uniqueId": "OP15-077_dummy.gif",
     "cardNumber": "OP15-077",
     "cardName": "雷龍",
-    "furigana": "",
+    "furigana": "ジャムブウル",
     "rarity": "R",
     "cardType": "EVENT",
     "color": [
@@ -51152,7 +51152,7 @@
     "uniqueId": "OP15-078_dummy.gif",
     "cardNumber": "OP15-078",
     "cardName": "万雷",
-    "furigana": "",
+    "furigana": "ママラガン",
     "rarity": "SR",
     "cardType": "EVENT",
     "color": [
@@ -51579,7 +51579,7 @@
     "uniqueId": "OP15-095_dummy.gif",
     "cardNumber": "OP15-095",
     "cardName": "ゴムゴムの暴風雨",
-    "furigana": "",
+    "furigana": "ゴムゴムノストーム",
     "rarity": "UC",
     "cardType": "EVENT",
     "color": [
@@ -51604,7 +51604,7 @@
     "uniqueId": "OP15-096_dummy.gif",
     "cardNumber": "OP15-096",
     "cardName": "飛燕ボンナバン",
-    "furigana": "",
+    "furigana": "スワローボンナバン",
     "rarity": "R",
     "cardType": "EVENT",
     "color": [
@@ -51629,7 +51629,7 @@
     "uniqueId": "OP15-097_dummy.gif",
     "cardNumber": "OP15-097",
     "cardName": "人として恥ずかしいわ",
-    "furigana": "",
+    "furigana": "ヒトトシテハズカシイワ",
     "rarity": "C",
     "cardType": "EVENT",
     "color": [
@@ -52097,7 +52097,7 @@
     "uniqueId": "OP15-115_dummy.gif",
     "cardNumber": "OP15-115",
     "cardName": "衝撃貝",
-    "furigana": "",
+    "furigana": "インパクモ",
     "rarity": "C",
     "cardType": "EVENT",
     "color": [
@@ -52123,7 +52123,7 @@
     "uniqueId": "OP15-116_dummy.gif",
     "cardNumber": "OP15-116",
     "cardName": "ゴムゴムの黄金回転弾",
-    "furigana": "",
+    "furigana": "ゴムゴムノオウゴンライフル",
     "rarity": "R",
     "cardType": "EVENT",
     "color": [
@@ -52149,7 +52149,7 @@
     "uniqueId": "OP15-117_dummy.gif",
     "cardNumber": "OP15-117",
     "cardName": "へそ!!",
-    "furigana": "",
+    "furigana": "ヘソ",
     "rarity": "UC",
     "cardType": "EVENT",
     "color": [
@@ -52706,7 +52706,7 @@
     "uniqueId": "OP16-020_dummy.gif",
     "cardNumber": "OP16-020",
     "cardName": "おれと共に来る者は命を捨ててついて来い!!!",
-    "furigana": "",
+    "furigana": "オレトトモニクルモノハイノチヲステテツイテコイ",
     "rarity": "UC",
     "cardType": "EVENT",
     "color": [
@@ -53173,7 +53173,7 @@
     "uniqueId": "OP16-038_dummy.gif",
     "cardNumber": "OP16-038",
     "cardName": "行くぞ～～～!!!海軍本部～～～!!!",
-    "furigana": "",
+    "furigana": "イクゾーーーカイグンホンブーーー",
     "rarity": "R",
     "cardType": "EVENT",
     "color": [
@@ -53199,7 +53199,7 @@
     "uniqueId": "OP16-039_dummy.gif",
     "cardNumber": "OP16-039",
     "cardName": "ゴムゴムのツインJET銃",
-    "furigana": "",
+    "furigana": "ゴムゴムノツインジェットピストル",
     "rarity": "C",
     "cardType": "EVENT",
     "color": [
@@ -53225,7 +53225,7 @@
     "uniqueId": "OP16-040_dummy.gif",
     "cardNumber": "OP16-040",
     "cardName": "ゴムゴムのトンカチ回転銃",
-    "furigana": "",
+    "furigana": "ゴムゴムノトンカチライフル",
     "rarity": "UC",
     "cardType": "EVENT",
     "color": [
@@ -53666,7 +53666,7 @@
     "uniqueId": "OP16-057_dummy.gif",
     "cardNumber": "OP16-057",
     "cardName": "おれ達の救世主!!!キャプテン・バギー!!!!",
-    "furigana": "",
+    "furigana": "オレタチノキュウセイシュキャプテンバギー",
     "rarity": "C",
     "cardType": "EVENT",
     "color": [
@@ -53691,7 +53691,7 @@
     "uniqueId": "OP16-058_dummy.gif",
     "cardNumber": "OP16-058",
     "cardName": "囚人達が暴れ出したァ～～～!!!",
-    "furigana": "",
+    "furigana": "シュウジンタチガアバレダシタァ",
     "rarity": "R",
     "cardType": "EVENT",
     "color": [
@@ -53716,7 +53716,7 @@
     "uniqueId": "OP16-059_dummy.gif",
     "cardNumber": "OP16-059",
     "cardName": "ド派手大作戦に変更じゃァ～～～!!!",
-    "furigana": "",
+    "furigana": "ドハデダイサクセンニヘンコウジャァ",
     "rarity": "UC",
     "cardType": "EVENT",
     "color": [
@@ -54146,7 +54146,7 @@
     "uniqueId": "OP16-076_dummy.gif",
     "cardNumber": "OP16-076",
     "cardName": "「三大将」!!!",
-    "furigana": "",
+    "furigana": "サンタイショウ",
     "rarity": "UC",
     "cardType": "EVENT",
     "color": [
@@ -54172,7 +54172,7 @@
     "uniqueId": "OP16-077_dummy.gif",
     "cardNumber": "OP16-077",
     "cardName": "智将“仏のセンゴク”",
-    "furigana": "",
+    "furigana": "チショウホトケノセンゴク",
     "rarity": "R",
     "cardType": "EVENT",
     "color": [
@@ -54736,7 +54736,7 @@
     "uniqueId": "OP16-099_dummy.gif",
     "cardNumber": "OP16-099",
     "cardName": "その“縁”を切りに来た!!!",
-    "furigana": "",
+    "furigana": "ソノクサリヲキリニキタ",
     "rarity": "UC",
     "cardType": "EVENT",
     "color": [
@@ -54761,7 +54761,7 @@
     "uniqueId": "OP16-100_dummy.gif",
     "cardNumber": "OP16-100",
     "cardName": "氷諸斬り",
-    "furigana": "",
+    "furigana": "ヒモロギリ",
     "rarity": "C",
     "cardType": "EVENT",
     "color": [
@@ -54786,7 +54786,7 @@
     "uniqueId": "OP16-101_dummy.gif",
     "cardNumber": "OP16-101",
     "cardName": "馬幻刃",
-    "furigana": "",
+    "furigana": "マホロバ",
     "rarity": "C",
     "cardType": "EVENT",
     "color": [
@@ -55169,7 +55169,7 @@
     "uniqueId": "OP16-116_dummy.gif",
     "cardNumber": "OP16-116",
     "cardName": "ゼハハハハハハ!!!",
-    "furigana": "",
+    "furigana": "ゼハハハハハハ",
     "rarity": "R",
     "cardType": "EVENT",
     "color": [
@@ -55679,7 +55679,7 @@
     "uniqueId": "OP17-017_dummy.gif",
     "cardNumber": "OP17-017",
     "cardName": "グララララララ!!!",
-    "furigana": "",
+    "furigana": "グララララララ",
     "rarity": "C",
     "cardType": "EVENT",
     "color": [
@@ -55705,7 +55705,7 @@
     "uniqueId": "OP17-018_dummy.gif",
     "cardNumber": "OP17-018",
     "cardName": "世界を滅ぼす力",
-    "furigana": "",
+    "furigana": "セガイヲホロボスチカラ",
     "rarity": "UC",
     "cardType": "EVENT",
     "color": [
@@ -55731,7 +55731,7 @@
     "uniqueId": "OP17-019_dummy.gif",
     "cardNumber": "OP17-019",
     "cardName": "ハナッたれとは話したくねェよアホンダラ",
-    "furigana": "",
+    "furigana": "ハナッタレトハハナシタクネェヨアホンダラ",
     "rarity": "R",
     "cardType": "EVENT",
     "color": [
@@ -56163,7 +56163,7 @@
     "uniqueId": "OP17-036_dummy.gif",
     "cardNumber": "OP17-036",
     "cardName": "全員 この場はおれの顔を立てて貰おう",
-    "furigana": "",
+    "furigana": "ゼンインコノバハオレノカオヲタテテモロオウ",
     "rarity": "UC",
     "cardType": "EVENT",
     "color": [
@@ -56189,7 +56189,7 @@
     "uniqueId": "OP17-037_dummy.gif",
     "cardNumber": "OP17-037",
     "cardName": "そんなに恐いか？「新時代」が!!!",
-    "furigana": "",
+    "furigana": "ソンナニコワイカシンジダイガ",
     "rarity": "R",
     "cardType": "EVENT",
     "color": [
@@ -56215,7 +56215,7 @@
     "uniqueId": "OP17-038_dummy.gif",
     "cardNumber": "OP17-038",
     "cardName": "やべェ未来が見えた様だ…",
-    "furigana": "",
+    "furigana": "ヤベェミライガミエタヨウダ",
     "rarity": "C",
     "cardType": "EVENT",
     "color": [
@@ -56646,7 +56646,7 @@
     "uniqueId": "OP17-055_dummy.gif",
     "cardNumber": "OP17-055",
     "cardName": "永遠に続く権力などこの世にゃねェんだ!!!",
-    "furigana": "",
+    "furigana": "エイエンニツヅクケンリョクナドコノヨニャネェンダ",
     "rarity": "R",
     "cardType": "EVENT",
     "color": [
@@ -56671,7 +56671,7 @@
     "uniqueId": "OP17-056_dummy.gif",
     "cardNumber": "OP17-056",
     "cardName": "ロックス海賊団",
-    "furigana": "",
+    "furigana": "ロックスカイゾクダン",
     "rarity": "UC",
     "cardType": "EVENT",
     "color": [
@@ -57185,7 +57185,7 @@
     "uniqueId": "OP17-076_dummy.gif",
     "cardNumber": "OP17-076",
     "cardName": "ウォロロロロ…!!すっかり酔いが醒めたぜ",
-    "furigana": "",
+    "furigana": "ウォロロロロスッカリヨイガサメタゼ",
     "rarity": "R",
     "cardType": "EVENT",
     "color": [
@@ -57211,7 +57211,7 @@
     "uniqueId": "OP17-077_dummy.gif",
     "cardNumber": "OP17-077",
     "cardName": "軍荼利龍盛軍",
-    "furigana": "",
+    "furigana": "グンダリリュウセイグン",
     "rarity": "UC",
     "cardType": "EVENT",
     "color": [
@@ -57715,7 +57715,7 @@
     "uniqueId": "OP17-096_dummy.gif",
     "cardNumber": "OP17-096",
     "cardName": "おれはルフィ!!海賊王になる男だ!!",
-    "furigana": "",
+    "furigana": "オレハルフィカイゾクオウニナルオトコダ",
     "rarity": "R",
     "cardType": "EVENT",
     "color": [
@@ -57742,7 +57742,7 @@
     "uniqueId": "OP17-097_dummy.gif",
     "cardNumber": "OP17-097",
     "cardName": "この怒りを食らっておれは!!!“世界”を滅ぼしてやる!!!",
-    "furigana": "",
+    "furigana": "コノイカリヲクラッテオレハセカイヲホロボシテヤル",
     "rarity": "C",
     "cardType": "EVENT",
     "color": [
@@ -57768,7 +57768,7 @@
     "uniqueId": "OP17-098_dummy.gif",
     "cardNumber": "OP17-098",
     "cardName": "ゴムゴムの猿王銃",
-    "furigana": "",
+    "furigana": "ゴムゴムノコングガン",
     "rarity": "C",
     "cardType": "EVENT",
     "color": [
@@ -58200,7 +58200,7 @@
     "uniqueId": "OP17-115_dummy.gif",
     "cardNumber": "OP17-115",
     "cardName": "仁義ってモンがあんだろうが アホンダラァ!!!",
-    "furigana": "",
+    "furigana": "ジンギッテモンガアンダロウゴアホンダラァ",
     "rarity": "R",
     "cardType": "EVENT",
     "color": [
@@ -58226,7 +58226,7 @@
     "uniqueId": "OP17-116_dummy.gif",
     "cardNumber": "OP17-116",
     "cardName": "震御雷",
-    "furigana": "",
+    "furigana": "フルゴラ",
     "rarity": "UC",
     "cardType": "EVENT",
     "color": [
@@ -58252,7 +58252,7 @@
     "uniqueId": "OP17-117_dummy.gif",
     "cardNumber": "OP17-117",
     "cardName": "鳴光剣",
-    "furigana": "",
+    "furigana": "メーザーサーベル",
     "rarity": "C",
     "cardType": "EVENT",
     "color": [
@@ -71472,7 +71472,7 @@
     "uniqueId": "ST30-015_dummy.gif",
     "cardNumber": "ST30-015",
     "cardName": "この時代の名が!!!\"白ひげ\"だァ!!!",
-    "furigana": "",
+    "furigana": "コノジダイノナガシロヒゲダァ",
     "rarity": "C",
     "cardType": "EVENT",
     "color": [
@@ -71497,7 +71497,7 @@
     "uniqueId": "ST30-016_dummy.gif",
     "cardNumber": "ST30-016",
     "cardName": "戦えるかルフィ!!!勿論だ!!!",
-    "furigana": "",
+    "furigana": "タタカエルカルフィモチロンダ",
     "rarity": "C",
     "cardType": "EVENT",
     "color": [
@@ -71523,7 +71523,7 @@
     "uniqueId": "ST30-017_dummy.gif",
     "cardNumber": "ST30-017",
     "cardName": "無茶ばっかりしやがって!!!",
-    "furigana": "",
+    "furigana": "ムチャバカリシヤガッテ",
     "rarity": "C",
     "cardType": "EVENT",
     "color": [
