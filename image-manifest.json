@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-23T09:32:06.615Z",
-  "totalCards": 2825,
-  "totalImages": 4973,
+  "generatedAt": "2026-10-23T09:43:37.099Z",
+  "totalCards": 2886,
+  "totalImages": 5034,
   "cards": {
     "EB01-001": [
       {
@@ -5219,6 +5219,921 @@
         "path": "CardsWebP/EB04/official/EB04-061_p2.webp",
         "fallbackPath": "",
         "variantIndex": 2
+      }
+    ],
+    "EB05-001": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-001.png?261016",
+        "cardName": "ジュエリー・ボニー",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-001.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-002": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-002.png?261016",
+        "cardName": "ドール",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-002.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-003": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-003.png?261016",
+        "cardName": "パシア",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-003.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-004": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-004.png?261016",
+        "cardName": "ベビー５",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-004.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-005": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-005.png?261016",
+        "cardName": "ベロ・ベティ",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-005.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-006": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-006.png?261016",
+        "cardName": "ミス・バッキンガム・ステューシー",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-006.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-007": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-007.png?261016",
+        "cardName": "モネ",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-007.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-008": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-008.png?261016",
+        "cardName": "ルフィ…今の内じゃ",
+        "rarity": "C",
+        "cardType": "EVENT",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-008.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-009": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-009.png?261016",
+        "cardName": "私と一緒に死んで!!!",
+        "rarity": "R",
+        "cardType": "EVENT",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-009.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-010": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-010.png?261016",
+        "cardName": "ニコ・ロビン",
+        "rarity": "L",
+        "cardType": "LEADER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-010.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-011": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-011.png?261016",
+        "cardName": "オトヒメ",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-011.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-012": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-012.png?261016",
+        "cardName": "ケイミー",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-012.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-013": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-013.png?261016",
+        "cardName": "シャーリー",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-013.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-014": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-014.png?261016",
+        "cardName": "しらほし",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "block": "X",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-014.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-015": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-015.png?261016",
+        "cardName": "たしぎ",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-015.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-016": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-016.png?261016",
+        "cardName": "ニコ・ロビン",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-016.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-017": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-017.png?261016",
+        "cardName": "マーメイドカフェダンサーズ",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-017.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-018": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-018.png?261016",
+        "cardName": "レベッカ",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-018.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-019": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-019.png?261016",
+        "cardName": "開国するんだ!!一緒に戦わせて欲しい!!!",
+        "rarity": "C",
+        "cardType": "EVENT",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-019.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-020": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-020.png?261016",
+        "cardName": "しらほしと申します!!",
+        "rarity": "R",
+        "cardType": "EVENT",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-020.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-021": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-021.png?261016",
+        "cardName": "アルビダ",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-021.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-022": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-022.png?261016",
+        "cardName": "オクトパ子",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-022.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-023": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-023.png?261016",
+        "cardName": "お染",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-023.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-024": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-024.png?261016",
+        "cardName": "サディちゃん",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-024.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-025": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-025.png?261016",
+        "cardName": "ドミノ",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-025.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-026": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-026.png?261016",
+        "cardName": "ヒナ",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-026.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-027": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-027.png?261016",
+        "cardName": "ひばり",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-027.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-028": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-028.png?261016",
+        "cardName": "ボア・ハンコック",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-028.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-029": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-029.png?261016",
+        "cardName": "袷羽檻",
+        "rarity": "C",
+        "cardType": "EVENT",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-029.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-030": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-030.png?261016",
+        "cardName": "みんな元気でね♡",
+        "rarity": "R",
+        "cardType": "EVENT",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-030.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-031": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-031.png?261016",
+        "cardName": "ヴィンスモーク・レイジュ",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-031.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-032": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-032.png?261016",
+        "cardName": "うるティ",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-032.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-033": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-033.png?261016",
+        "cardName": "ニコ・ロビン",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-033.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-034": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-034.png?261016",
+        "cardName": "シュガー",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-034.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-035": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-035.png?261016",
+        "cardName": "スピード",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-035.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-036": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-036.png?261016",
+        "cardName": "つる",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-036.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-037": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-037.png?261016",
+        "cardName": "ブラックマリア",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-037.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-038": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-038.png?261016",
+        "cardName": "ルシアン",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-038.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-039": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-039.png?261016",
+        "cardName": "桃色毒矢",
+        "rarity": "C",
+        "cardType": "EVENT",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-039.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-040": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-040.png?261016",
+        "cardName": "私のこと必要なんでしょ!!?♡",
+        "rarity": "R",
+        "cardType": "EVENT",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-040.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-041": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-041.png?261016",
+        "cardName": "コアラ",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-041.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-042": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-042.png?261016",
+        "cardName": "しのぶ",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-042.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-043": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-043.png?261016",
+        "cardName": "ペローナ",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-043.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-044": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-044.png?261016",
+        "cardName": "ミス・ファーザーズデー",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-044.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-045": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-045.png?261016",
+        "cardName": "ミス・マンデー",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-045.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-046": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-046.png?261016",
+        "cardName": "ヤマト",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-046.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-047": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-047.png?261016",
+        "cardName": "リプリー",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-047.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-048": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-048.png?261016",
+        "cardName": "スティンガーヘッジホッグ",
+        "rarity": "R",
+        "cardType": "EVENT",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-048.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-049": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-049.png?261016",
+        "cardName": "特ホロ",
+        "rarity": "C",
+        "cardType": "EVENT",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-049.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-050": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-050.png?261016",
+        "cardName": "アトラス",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-050.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-051": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-051.png?261016",
+        "cardName": "あひる",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-051.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-052": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-052.png?261016",
+        "cardName": "グロリオーサ",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-052.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-053": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-053.png?261016",
+        "cardName": "シャーロット・プラリネ",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-053.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-054": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-054.png?261016",
+        "cardName": "シャーロット・ブリュレ",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-054.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-055": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-055.png?261016",
+        "cardName": "ナミ",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-055.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-056": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-056.png?261016",
+        "cardName": "ニコ・オルビア",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-056.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-057": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-057.png?261016",
+        "cardName": "ノジコ",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-057.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-058": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-058.png?261016",
+        "cardName": "ベルメール",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-058.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-059": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-059.png?261016",
+        "cardName": "“シャーロット”“プリン”様だ!!",
+        "rarity": "R",
+        "cardType": "EVENT",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-059.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-060": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-060.png?261016",
+        "cardName": "「リリス」を頼む!!!",
+        "rarity": "C",
+        "cardType": "EVENT",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-060.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "EB05-061": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/EB05-061.png?261016",
+        "cardName": "ナミ",
+        "rarity": "SEC",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "エクストラブースター ONE PIECE Heroines Edition vol.2【EB-05】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/EB05/official/EB05-061.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
       }
     ],
     "OP01-001": [

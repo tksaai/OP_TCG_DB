@@ -2,6 +2,8 @@ import { spawnSync } from 'node:child_process';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 
+import { parseOfficialSeries, selectAutomaticSeries } from './official-series-discovery.mjs';
+
 const OFFICIAL_CARDLIST_URL = 'https://www.onepiece-cardgame.com/cardlist/';
 const PROMO_SERIES = 'PROMO';
 const args = process.argv.slice(2);
@@ -35,41 +37,7 @@ async function readOptionalText(filePath) {
     }
 }
 
-function decodeHtml(value = '') {
-    return value
-        .replace(/&amp;/g, '&')
-        .replace(/&lt;/g, '<')
-        .replace(/&gt;/g, '>')
-        .replace(/&quot;/g, '"')
-        .replace(/&#039;/g, "'")
-        .replace(/&nbsp;/g, ' ')
-        .replace(/<br\s*\/?>/gi, ' ')
-        .replace(/<[^>]+>/g, '')
-        .replace(/\s+/g, ' ')
-        .trim();
-}
-
-function normalizeSeriesCode(value) {
-    return String(value || '').replace('-', '').toUpperCase();
-}
-
-function parseOfficialSeries(html) {
-    const series = [];
-    const optionRegex = /<option\b[^>]*>([\s\S]*?)<\/option>/gi;
-    let match;
-    while ((match = optionRegex.exec(html))) {
-        const label = decodeHtml(match[1]);
-        const code = label.match(/【(OP-\d+)】/i)?.[1];
-        if (!code) continue;
-        series.push({
-            code: normalizeSeriesCode(code),
-            label
-        });
-    }
-    return series;
-}
-
-async function discoverLatestOfficialSeries() {
+async function discoverAutomaticOfficialSeries() {
     const response = await fetch(OFFICIAL_CARDLIST_URL, {
         headers: {
             'User-Agent': 'OP_TCG_DB new release sync (+https://github.com/tksaai/OP_TCG_DB)'
@@ -77,10 +45,10 @@ async function discoverLatestOfficialSeries() {
     });
     if (!response.ok) throw new Error(`Failed to fetch official cardlist: ${response.status} ${response.statusText}`);
     const series = parseOfficialSeries(await response.text());
-    if (series.length === 0) throw new Error('No OP series options found in official cardlist HTML.');
+    if (series.length === 0) throw new Error('No product series options found in official cardlist HTML.');
 
-    series.sort((a, b) => Number(b.code.replace(/^OP/, '')) - Number(a.code.replace(/^OP/, '')));
-    return series[0];
+    const cards = JSON.parse(await readFile('cards.json', 'utf8'));
+    return selectAutomaticSeries(series, cards.map(card => card.cardNumber));
 }
 
 async function findSeriesWithoutOfficialImages() {
@@ -114,15 +82,23 @@ const pythonCommand = argValue('python', 'python');
 let requestedSeries = argValue('series', 'latest').trim();
 
 if (!requestedSeries || /^latest|auto$/i.test(requestedSeries)) {
-    const latest = await discoverLatestOfficialSeries();
-    console.log(`Detected latest official OP series: ${latest.code} (${latest.label})`);
+    const automatic = await discoverAutomaticOfficialSeries();
+    console.log(`Detected latest official series by family: ${automatic.latest.map(series => series.code).join(', ')}`);
+    if (automatic.missing.length > 0) {
+        console.log(`Detected official series missing from cards.json: ${automatic.missing.map(series => series.code).join(', ')}`);
+    }
 
     const uncoveredSeries = await findSeriesWithoutOfficialImages();
     if (uncoveredSeries.length > 0) {
         console.log(`Detected series without any official images: ${uncoveredSeries.join(', ')}`);
     }
 
-    requestedSeries = [...new Set([latest.code, PROMO_SERIES, ...uncoveredSeries])].join(',');
+    requestedSeries = [...new Set([
+        ...automatic.selected.map(series => series.code),
+        PROMO_SERIES,
+        ...uncoveredSeries
+    ])].join(',');
+    console.log(`Automatic sync targets: ${requestedSeries}`);
 }
 
 const officialSyncArgs = [

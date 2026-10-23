@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       series:
-        description: "Series code to sync, for example OP17. Use latest to detect from official HTML."
+        description: "Series code to sync, for example OP17 or EB05. Use latest to detect every official product family."
         required: false
         default: "latest"
         type: string
@@ -56,7 +56,9 @@ jobs:
 
       # 同期の前に、いま入っているデータと画面の前提が壊れていないかを確認する
       - name: Test data integrity
-        run: node scripts/test-data-integrity.mjs
+        run: |
+          node scripts/test-official-series-discovery.mjs
+          node scripts/test-data-integrity.mjs
 
       # 入力値は env 経由で渡す。${{ }} を run の中へ直接展開すると、
       # 入力がそのままシェル片として実行される (script injection)

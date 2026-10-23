@@ -50,7 +50,7 @@ ONE PIECE カードゲームのカード検索・デッキ構築・コレクシ�
 
 | ワークフロー | 実行時刻 | 内容 |
 | --- | --- | --- |
-| `sync-new-release.yml` | 毎日 18:00 JST | 公式サイトから新弾のカードと画像を取得し、フリガナ辞書・WebP・マニフェスト・特徴量を更新 |
+| `sync-new-release.yml` | 毎日 18:00 JST | 公式サイトからOP・EB・ST・PRB等の各系列の最新弾と未収録弾を自動検出し、カード・画像・フリガナ辞書・WebP・マニフェスト・特徴量を更新 |
 | `sync-provisional-cards.yml` | 毎日 18:20 JST | 秋葉原カードショップから仮DBを取得し、フリガナ辞書へ新しい名前を追加 |
 
 どちらも手動実行（workflow_dispatch）に対応しています。`dry_run` を指定すると
@@ -111,7 +111,7 @@ node scripts/test-data-integrity.mjs
 
 | スクリプト | 内容 |
 | --- | --- |
-| `sync-new-release.mjs` | 新弾の同期一式（カード → 画像 → WebP → マニフェスト → 特徴量） |
+| `sync-new-release.mjs` | 公式収録弾を系列名に依存せず検出する新弾同期一式（カード → 画像 → WebP → マニフェスト → 特徴量） |
 | `sync-official-cards.mjs` / `sync-official-images.mjs` | 公式サイトからのカード・画像取得 |
 | `ensure-eight-pack-leader.mjs` | 外部スクレイパー更新後に8パックバトル用ルフィを復元 |
 | `sync-akihabara-cards.mjs` / `sync-provisional-images.mjs` | 仮DBの取得 |

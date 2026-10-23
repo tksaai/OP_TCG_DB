@@ -16,6 +16,11 @@
       "status": "verified",
       "source": "existing-card-data"
     },
+    "“シャーロット”“プリン”様だ!!": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
     "\"ハウリング\"ガブ": {
       "reading": "ハウリングガブ",
       "status": "verified",
@@ -65,6 +70,11 @@
       "reading": "チカラニクッシタラオトコニウマレタイミガネェダロウ",
       "status": "verified",
       "source": "existing-card-data"
+    },
+    "「リリス」を頼む!!!": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
     },
     "「リリス」を頼む！！！": {
       "reading": "リリスヲタノム",
@@ -4816,6 +4826,11 @@
       "status": "verified",
       "source": "existing-card-data"
     },
+    "開国するんだ!!一緒に戦わせて欲しい!!!": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
     "開国するんだ‼一緒に戦わせて欲しい!!!": {
       "reading": "カイコクスルンダイッショニタタカワセテホシイ",
       "status": "verified",
@@ -5205,6 +5220,11 @@
       "reading": "ワタシノコトヒツヨウナンデショ",
       "status": "verified",
       "source": "manual"
+    },
+    "私のこと必要なんでしょ!!?♡": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
     },
     "私のしもべになる？": {
       "reading": "ワタシノシモベニナル",
