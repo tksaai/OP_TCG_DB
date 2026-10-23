@@ -76,8 +76,7 @@
     "trigger": "",
     "getInfo": "メモリアルコレクション【EB-01】",
     "seriesTitle": "メモリアルコレクション",
-    "seriesCode": "EB-01",
-    "sourceModalId": "EB01-003_p2"
+    "seriesCode": "EB-01"
   },
   {
     "uniqueId": "EB01-004_dummy.gif",
@@ -154,7 +153,6 @@
     "getInfo": "メモリアルコレクション【EB-01】",
     "seriesTitle": "メモリアルコレクション",
     "seriesCode": "EB-01",
-    "sourceModalId": "EB01-006_p4",
     "blockIconOverride": "X"
   },
   {
@@ -309,8 +307,7 @@
     "trigger": "",
     "getInfo": "メモリアルコレクション【EB-01】",
     "seriesTitle": "メモリアルコレクション",
-    "seriesCode": "EB-01",
-    "sourceModalId": "EB01-012_p2"
+    "seriesCode": "EB-01"
   },
   {
     "uniqueId": "EB01-013_dummy.gif",
@@ -362,8 +359,7 @@
     "trigger": "",
     "getInfo": "メモリアルコレクション【EB-01】",
     "seriesTitle": "メモリアルコレクション",
-    "seriesCode": "EB-01",
-    "sourceModalId": "EB01-014_p1"
+    "seriesCode": "EB-01"
   },
   {
     "uniqueId": "EB01-015_dummy.gif",
@@ -389,8 +385,7 @@
     "trigger": "",
     "getInfo": "メモリアルコレクション【EB-01】",
     "seriesTitle": "メモリアルコレクション",
-    "seriesCode": "EB-01",
-    "sourceModalId": "EB01-015_p1"
+    "seriesCode": "EB-01"
   },
   {
     "uniqueId": "EB01-016_dummy.gif",
@@ -1180,8 +1175,7 @@
     "trigger": "",
     "getInfo": "メモリアルコレクション【EB-01】",
     "seriesTitle": "メモリアルコレクション",
-    "seriesCode": "EB-01",
-    "sourceModalId": "EB01-046_p2"
+    "seriesCode": "EB-01"
   },
   {
     "uniqueId": "EB01-047_dummy.gif",
@@ -1711,8 +1705,7 @@
     "trigger": "",
     "getInfo": "エクストラブースター Anime 25th collection【EB-02】",
     "seriesTitle": "エクストラブースター Anime 25th collection",
-    "seriesCode": "EB-02",
-    "sourceModalId": "EB02-006_p2"
+    "seriesCode": "EB-02"
   },
   {
     "uniqueId": "EB02-007_dummy.gif",
@@ -1995,8 +1988,7 @@
     "trigger": "",
     "getInfo": "エクストラブースター Anime 25th collection【EB-02】",
     "seriesTitle": "エクストラブースター Anime 25th collection",
-    "seriesCode": "EB-02",
-    "sourceModalId": "EB02-017_p2"
+    "seriesCode": "EB-02"
   },
   {
     "uniqueId": "EB02-018_dummy.gif",
@@ -2048,8 +2040,7 @@
     "trigger": "",
     "getInfo": "エクストラブースター Anime 25th collection【EB-02】",
     "seriesTitle": "エクストラブースター Anime 25th collection",
-    "seriesCode": "EB-02",
-    "sourceModalId": "EB02-019_p1"
+    "seriesCode": "EB-02"
   },
   {
     "uniqueId": "EB02-020_dummy.gif",
@@ -2228,8 +2219,7 @@
     "trigger": "",
     "getInfo": "エクストラブースター Anime 25th collection【EB-02】",
     "seriesTitle": "エクストラブースター Anime 25th collection",
-    "seriesCode": "EB-02",
-    "sourceModalId": "EB02-026_p2"
+    "seriesCode": "EB-02"
   },
   {
     "uniqueId": "EB02-027_dummy.gif",
@@ -2460,8 +2450,7 @@
     "trigger": "",
     "getInfo": "エクストラブースター Anime 25th collection【EB-02】",
     "seriesTitle": "エクストラブースター Anime 25th collection",
-    "seriesCode": "EB-02",
-    "sourceModalId": "EB02-035_p2"
+    "seriesCode": "EB-02"
   },
   {
     "uniqueId": "EB02-036_dummy.gif",
@@ -2941,8 +2930,7 @@
     "trigger": "",
     "getInfo": "エクストラブースター Anime 25th collection【EB-02】",
     "seriesTitle": "エクストラブースター Anime 25th collection",
-    "seriesCode": "EB-02",
-    "sourceModalId": "EB02-054_p2"
+    "seriesCode": "EB-02"
   },
   {
     "uniqueId": "EB02-055_dummy.gif",
@@ -2968,8 +2956,7 @@
     "trigger": "【】自分のリーダーが特徴《魚人族》か《人魚族》を持ち、自分のライフが2枚以下の場合、このカードを登場させる。",
     "getInfo": "エクストラブースター Anime 25th collection【EB-02】",
     "seriesTitle": "エクストラブースター Anime 25th collection",
-    "seriesCode": "EB-02",
-    "sourceModalId": "EB02-055_p1"
+    "seriesCode": "EB-02"
   },
   {
     "uniqueId": "EB02-056_dummy.gif",
@@ -3276,8 +3263,7 @@
     "trigger": "",
     "getInfo": "エクストラブースター ONE PIECE Heroines Edition【EB-03】",
     "seriesTitle": "エクストラブースター ONE PIECE Heroines Edition",
-    "seriesCode": "EB-03",
-    "sourceModalId": "EB03-006_p1"
+    "seriesCode": "EB-03"
   },
   {
     "uniqueId": "EB03-007_dummy.gif",
@@ -3810,8 +3796,7 @@
     "trigger": "",
     "getInfo": "エクストラブースター ONE PIECE Heroines Edition【EB-03】",
     "seriesTitle": "エクストラブースター ONE PIECE Heroines Edition",
-    "seriesCode": "EB-03",
-    "sourceModalId": "EB03-027_p1"
+    "seriesCode": "EB-03"
   },
   {
     "uniqueId": "EB03-028_dummy.gif",
@@ -5288,8 +5273,7 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04",
-    "sourceModalId": "EB04-023_p1"
+    "seriesCode": "EB-04"
   },
   {
     "uniqueId": "EB04-024_dummy.gif",
@@ -6191,8 +6175,7 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04",
-    "sourceModalId": "EB04-058_p2"
+    "seriesCode": "EB-04"
   },
   {
     "uniqueId": "EB04-059_dummy.gif",
@@ -6273,8 +6256,7 @@
     "trigger": "",
     "getInfo": "エクストラブースター EGGHEAD CRISIS【EB-04】",
     "seriesTitle": "エクストラブースター EGGHEAD CRISIS",
-    "seriesCode": "EB-04",
-    "sourceModalId": "EB04-061_p2"
+    "seriesCode": "EB-04"
   },
   {
     "uniqueId": "OP01-001_dummy.gif",
@@ -6379,8 +6361,7 @@
     "trigger": "",
     "getInfo": "ROMANCE DAWN【OP-01】",
     "seriesTitle": "ROMANCE DAWN",
-    "seriesCode": "OP-01",
-    "sourceModalId": "OP01-004_p2"
+    "seriesCode": "OP-01"
   },
   {
     "uniqueId": "OP01-005_dummy.gif",
@@ -6405,8 +6386,7 @@
     "trigger": "",
     "getInfo": "ROMANCE DAWN【OP-01】",
     "seriesTitle": "ROMANCE DAWN",
-    "seriesCode": "OP-01",
-    "sourceModalId": "OP01-005_p1"
+    "seriesCode": "OP-01"
   },
   {
     "uniqueId": "OP01-006_dummy.gif",
@@ -6609,8 +6589,7 @@
     "trigger": "",
     "getInfo": "ROMANCE DAWN【OP-01】",
     "seriesTitle": "ROMANCE DAWN",
-    "seriesCode": "OP-01",
-    "sourceModalId": "OP01-013_p3"
+    "seriesCode": "OP-01"
   },
   {
     "uniqueId": "OP01-014_dummy.gif",
@@ -6636,8 +6615,7 @@
     "trigger": "",
     "getInfo": "ROMANCE DAWN【OP-01】",
     "seriesTitle": "ROMANCE DAWN",
-    "seriesCode": "OP-01",
-    "sourceModalId": "OP01-014_p1"
+    "seriesCode": "OP-01"
   },
   {
     "uniqueId": "OP01-015_dummy.gif",
@@ -6663,8 +6641,7 @@
     "trigger": "",
     "getInfo": "ROMANCE DAWN【OP-01】",
     "seriesTitle": "ROMANCE DAWN",
-    "seriesCode": "OP-01",
-    "sourceModalId": "OP01-015_p1"
+    "seriesCode": "OP-01"
   },
   {
     "uniqueId": "OP01-016_dummy.gif",
@@ -6690,7 +6667,6 @@
     "getInfo": "“三船長”集結【ST-10】",
     "seriesTitle": "“三船長”集結",
     "seriesCode": "ST-10",
-    "sourceModalId": "OP01-016_p5",
     "blockIconOverride": "X"
   },
   {
@@ -6716,8 +6692,7 @@
     "trigger": "",
     "getInfo": "ROMANCE DAWN【OP-01】",
     "seriesTitle": "ROMANCE DAWN",
-    "seriesCode": "OP-01",
-    "sourceModalId": "OP01-017_p1"
+    "seriesCode": "OP-01"
   },
   {
     "uniqueId": "OP01-018_dummy.gif",
@@ -6819,8 +6794,7 @@
     "trigger": "",
     "getInfo": "ROMANCE DAWN【OP-01】",
     "seriesTitle": "ROMANCE DAWN",
-    "seriesCode": "OP-01",
-    "sourceModalId": "OP01-021_p1"
+    "seriesCode": "OP-01"
   },
   {
     "uniqueId": "OP01-022_dummy.gif",
@@ -6922,8 +6896,7 @@
     "trigger": "",
     "getInfo": "“三船長”集結【ST-10】",
     "seriesTitle": "“三船長”集結",
-    "seriesCode": "ST-10",
-    "sourceModalId": "OP01-025_p4"
+    "seriesCode": "ST-10"
   },
   {
     "uniqueId": "OP01-026_dummy.gif",
@@ -7128,8 +7101,7 @@
     "trigger": "",
     "getInfo": "ROMANCE DAWN【OP-01】",
     "seriesTitle": "ROMANCE DAWN",
-    "seriesCode": "OP-01",
-    "sourceModalId": "OP01-033_p1"
+    "seriesCode": "OP-01"
   },
   {
     "uniqueId": "OP01-034_dummy.gif",
@@ -7182,8 +7154,7 @@
     "trigger": "",
     "getInfo": "ROMANCE DAWN【OP-01】",
     "seriesTitle": "ROMANCE DAWN",
-    "seriesCode": "OP-01",
-    "sourceModalId": "OP01-035_p1"
+    "seriesCode": "OP-01"
   },
   {
     "uniqueId": "OP01-036_dummy.gif",
@@ -7288,7 +7259,6 @@
     "getInfo": "ROMANCE DAWN【OP-01】",
     "seriesTitle": "ROMANCE DAWN",
     "seriesCode": "OP-01",
-    "sourceModalId": "OP01-039_p1",
     "blockIconOverride": "4"
   },
   {
@@ -7341,8 +7311,7 @@
     "trigger": "",
     "getInfo": "ROMANCE DAWN【OP-01】",
     "seriesTitle": "ROMANCE DAWN",
-    "seriesCode": "OP-01",
-    "sourceModalId": "OP01-041_p1"
+    "seriesCode": "OP-01"
   },
   {
     "uniqueId": "OP01-042_dummy.gif",
@@ -7698,13 +7667,12 @@
       "ワノ国",
       "光月家"
     ],
-    "block": 4,
+    "block": 1,
     "effectText": "【メイン】自分のキャラ2枚をレストにできる：カード2枚を引く。",
     "trigger": "",
     "getInfo": "ROMANCE DAWN【OP-01】",
     "seriesTitle": "ROMANCE DAWN",
     "seriesCode": "OP-01",
-    "sourceModalId": "OP01-055_p2",
     "blockIconOverride": "4"
   },
   {
@@ -8094,8 +8062,7 @@
     "trigger": "",
     "getInfo": "ROMANCE DAWN【OP-01】",
     "seriesTitle": "ROMANCE DAWN",
-    "seriesCode": "OP-01",
-    "sourceModalId": "OP01-070_p2"
+    "seriesCode": "OP-01"
   },
   {
     "uniqueId": "OP01-071_dummy.gif",
@@ -8275,8 +8242,7 @@
     "trigger": "",
     "getInfo": "ROMANCE DAWN【OP-01】",
     "seriesTitle": "ROMANCE DAWN",
-    "seriesCode": "OP-01",
-    "sourceModalId": "OP01-077_p3"
+    "seriesCode": "OP-01"
   },
   {
     "uniqueId": "OP01-078_dummy.gif",
@@ -8707,8 +8673,7 @@
     "trigger": "",
     "getInfo": "ROMANCE DAWN【OP-01】",
     "seriesTitle": "ROMANCE DAWN",
-    "seriesCode": "OP-01",
-    "sourceModalId": "OP01-094_p3"
+    "seriesCode": "OP-01"
   },
   {
     "uniqueId": "OP01-095_dummy.gif",
@@ -9068,8 +9033,7 @@
     "trigger": "",
     "getInfo": "ROMANCE DAWN【OP-01】",
     "seriesTitle": "ROMANCE DAWN",
-    "seriesCode": "OP-01",
-    "sourceModalId": "OP01-108_p1"
+    "seriesCode": "OP-01"
   },
   {
     "uniqueId": "OP01-109_dummy.gif",
@@ -9223,8 +9187,7 @@
     "trigger": "",
     "getInfo": "ROMANCE DAWN【OP-01】",
     "seriesTitle": "ROMANCE DAWN",
-    "seriesCode": "OP-01",
-    "sourceModalId": "OP01-114_p1"
+    "seriesCode": "OP-01"
   },
   {
     "uniqueId": "OP01-115_dummy.gif",
@@ -9380,7 +9343,6 @@
     "getInfo": "ROMANCE DAWN【OP-01】",
     "seriesTitle": "ROMANCE DAWN",
     "seriesCode": "OP-01",
-    "sourceModalId": "OP01-120_p4",
     "blockIconOverride": "X"
   },
   {
@@ -9509,8 +9471,7 @@
     "trigger": "",
     "getInfo": "頂上決戦【OP-02】",
     "seriesTitle": "頂上決戦",
-    "seriesCode": "OP-02",
-    "sourceModalId": "OP02-004_p3"
+    "seriesCode": "OP-02"
   },
   {
     "uniqueId": "OP02-005_dummy.gif",
@@ -9530,13 +9491,12 @@
     "features": [
       "山賊"
     ],
-    "block": 4,
+    "block": 1,
     "effectText": "【登場時】自分のデッキの上から5枚までを見て、コスト1の赤のキャラ1枚までを公開し、手札に加える。その後、残りを好きな順番でデッキの下に置く。",
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
     "seriesCode": "PRB-02",
-    "sourceModalId": "OP02-005_p4",
     "blockIconOverride": "4"
   },
   {
@@ -9612,8 +9572,7 @@
     "trigger": "",
     "getInfo": "頂上決戦【OP-02】",
     "seriesTitle": "頂上決戦",
-    "seriesCode": "OP-02",
-    "sourceModalId": "OP02-008_p1"
+    "seriesCode": "OP-02"
   },
   {
     "uniqueId": "OP02-009_dummy.gif",
@@ -10147,8 +10106,7 @@
     "trigger": "",
     "getInfo": "頂上決戦【OP-02】",
     "seriesTitle": "頂上決戦",
-    "seriesCode": "OP-02",
-    "sourceModalId": "OP02-029_p2"
+    "seriesCode": "OP-02"
   },
   {
     "uniqueId": "OP02-030_dummy.gif",
@@ -10279,8 +10237,7 @@
     "trigger": "",
     "getInfo": "頂上決戦【OP-02】",
     "seriesTitle": "頂上決戦",
-    "seriesCode": "OP-02",
-    "sourceModalId": "OP02-034_p3"
+    "seriesCode": "OP-02"
   },
   {
     "uniqueId": "OP02-035_dummy.gif",
@@ -10307,8 +10264,7 @@
     "trigger": "",
     "getInfo": "頂上決戦【OP-02】",
     "seriesTitle": "頂上決戦",
-    "seriesCode": "OP-02",
-    "sourceModalId": "OP02-035_p1"
+    "seriesCode": "OP-02"
   },
   {
     "uniqueId": "OP02-036_dummy.gif",
@@ -10932,8 +10888,7 @@
     "trigger": "",
     "getInfo": "頂上決戦【OP-02】",
     "seriesTitle": "頂上決戦",
-    "seriesCode": "OP-02",
-    "sourceModalId": "OP02-059_p2"
+    "seriesCode": "OP-02"
   },
   {
     "uniqueId": "OP02-060_dummy.gif",
@@ -11036,8 +10991,7 @@
     "trigger": "",
     "getInfo": "頂上決戦【OP-02】",
     "seriesTitle": "頂上決戦",
-    "seriesCode": "OP-02",
-    "sourceModalId": "OP02-063_p1"
+    "seriesCode": "OP-02"
   },
   {
     "uniqueId": "OP02-064_dummy.gif",
@@ -11161,13 +11115,12 @@
       "インペルダウン",
       "麦わらの一味"
     ],
-    "block": 4,
+    "block": 1,
     "effectText": "【カウンター】自分の手札1枚を捨てることができる：自分のリーダーかキャラ1枚までを、このバトル中、パワー+3000。",
     "trigger": "【】コスト2以下のキャラ1枚までを、持ち主の手札に戻す。",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
     "seriesCode": "PRB-02",
-    "sourceModalId": "OP02-068_p2",
     "blockIconOverride": "4"
   },
   {
@@ -11880,8 +11833,7 @@
     "trigger": "",
     "getInfo": "頂上決戦【OP-02】",
     "seriesTitle": "頂上決戦",
-    "seriesCode": "OP-02",
-    "sourceModalId": "OP02-096_p3"
+    "seriesCode": "OP-02"
   },
   {
     "uniqueId": "OP02-097_dummy.gif",
@@ -11931,8 +11883,7 @@
     "trigger": "",
     "getInfo": "頂上決戦【OP-02】",
     "seriesTitle": "頂上決戦",
-    "seriesCode": "OP-02",
-    "sourceModalId": "OP02-098_p1"
+    "seriesCode": "OP-02"
   },
   {
     "uniqueId": "OP02-099_dummy.gif",
@@ -11957,8 +11908,7 @@
     "trigger": "",
     "getInfo": "頂上決戦【OP-02】",
     "seriesTitle": "頂上決戦",
-    "seriesCode": "OP-02",
-    "sourceModalId": "OP02-099_p4"
+    "seriesCode": "OP-02"
   },
   {
     "uniqueId": "OP02-100_dummy.gif",
@@ -12108,8 +12058,7 @@
     "trigger": "",
     "getInfo": "頂上決戦【OP-02】",
     "seriesTitle": "頂上決戦",
-    "seriesCode": "OP-02",
-    "sourceModalId": "OP02-105_p3"
+    "seriesCode": "OP-02"
   },
   {
     "uniqueId": "OP02-106_dummy.gif",
@@ -12185,8 +12134,7 @@
     "trigger": "",
     "getInfo": "頂上決戦【OP-02】",
     "seriesTitle": "頂上決戦",
-    "seriesCode": "OP-02",
-    "sourceModalId": "OP02-108_p2"
+    "seriesCode": "OP-02"
   },
   {
     "uniqueId": "OP02-109_dummy.gif",
@@ -12337,8 +12285,7 @@
     "trigger": "",
     "getInfo": "頂上決戦【OP-02】",
     "seriesTitle": "頂上決戦",
-    "seriesCode": "OP-02",
-    "sourceModalId": "OP02-114_p3"
+    "seriesCode": "OP-02"
   },
   {
     "uniqueId": "OP02-115_dummy.gif",
@@ -12710,13 +12657,12 @@
     "features": [
       "バギー海賊団"
     ],
-    "block": 4,
+    "block": 1,
     "effectText": "このキャラは属性 (斬)を持つカードとのバトルでKOされない。【登場時】自分のデッキの上から5枚を見て、赤のイベント1枚までを公開し、手札に加える。その後、残りを好きな順番でデッキの下に置く。",
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
     "seriesCode": "PRB-02",
-    "sourceModalId": "OP03-008_p3",
     "blockIconOverride": "4"
   },
   {
@@ -12842,8 +12788,7 @@
     "trigger": "",
     "getInfo": "強大な敵【OP-03】",
     "seriesTitle": "強大な敵",
-    "seriesCode": "OP-03",
-    "sourceModalId": "OP03-013_p2"
+    "seriesCode": "OP-03"
   },
   {
     "uniqueId": "OP03-014_dummy.gif",
@@ -13361,8 +13306,7 @@
     "trigger": "【】自分のリーダーが特徴《東の海》を持つ場合、このカードを登場させる。",
     "getInfo": "強大な敵【OP-03】",
     "seriesTitle": "強大な敵",
-    "seriesCode": "OP-03",
-    "sourceModalId": "OP03-033_p1"
+    "seriesCode": "OP-03"
   },
   {
     "uniqueId": "OP03-034_dummy.gif",
@@ -13645,7 +13589,6 @@
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
     "seriesCode": "PRB-02",
-    "sourceModalId": "OP03-044_p1",
     "blockIconOverride": "4"
   },
   {
@@ -13741,13 +13684,12 @@
     "features": [
       "東の海"
     ],
-    "block": 4,
+    "block": 1,
     "effectText": "【登場時】自分のリーダーが「ナミ」の場合、相手のコスト5以下のキャラ1枚までを、持ち主の手札に戻す。",
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
     "seriesCode": "PRB-02",
-    "sourceModalId": "OP03-048_p2",
     "blockIconOverride": "4"
   },
   {
@@ -14362,13 +14304,12 @@
       "W7",
       "麦わらの一味"
     ],
-    "block": 4,
+    "block": 1,
     "effectText": "【カウンター】自分の手札1枚を捨てることができる：自分のリーダーかキャラ1枚までを、このバトル中、パワー+3000。",
     "trigger": "【】ドン‼デッキからドン‼1枚までを、アクティブで追加する。",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
     "seriesCode": "PRB-02",
-    "sourceModalId": "OP03-072_p2",
     "blockIconOverride": "4"
   },
   {
@@ -14775,8 +14716,7 @@
     "trigger": "",
     "getInfo": "強大な敵【OP-03】",
     "seriesTitle": "強大な敵",
-    "seriesCode": "OP-03",
-    "sourceModalId": "OP03-088_p1"
+    "seriesCode": "OP-03"
   },
   {
     "uniqueId": "OP03-089_dummy.gif",
@@ -14801,8 +14741,7 @@
     "trigger": "",
     "getInfo": "強大な敵【OP-03】",
     "seriesTitle": "強大な敵",
-    "seriesCode": "OP-03",
-    "sourceModalId": "OP03-089_p1"
+    "seriesCode": "OP-03"
   },
   {
     "uniqueId": "OP03-090_dummy.gif",
@@ -14997,13 +14936,12 @@
     "features": [
       "CP9"
     ],
-    "block": 4,
+    "block": 1,
     "effectText": "【カウンター】自分の手札1枚を捨てることができる：自分のリーダーかキャラ1枚までを、このバトル中、パワー+3000。",
     "trigger": "【】カード1枚を引く。その後、相手のコスト1以下のキャラ1枚までを、KOする。",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
     "seriesCode": "PRB-02",
-    "sourceModalId": "OP03-097_p1",
     "blockIconOverride": "4"
   },
   {
@@ -15130,8 +15068,7 @@
     "trigger": "",
     "getInfo": "強大な敵【OP-03】",
     "seriesTitle": "強大な敵",
-    "seriesCode": "OP-03",
-    "sourceModalId": "OP03-102_p1"
+    "seriesCode": "OP-03"
   },
   {
     "uniqueId": "OP03-103_dummy.gif",
@@ -15382,8 +15319,7 @@
     "trigger": "",
     "getInfo": "スタートデッキ 黄 シャーロット・カタクリ【ST-20】",
     "seriesTitle": "スタートデッキ 黄 シャーロット・カタクリ",
-    "seriesCode": "ST-20",
-    "sourceModalId": "OP03-112_p2"
+    "seriesCode": "ST-20"
   },
   {
     "uniqueId": "OP03-113_dummy.gif",
@@ -15484,8 +15420,7 @@
     "trigger": "【】このカードを登場させる。",
     "getInfo": "強大な敵【OP-03】",
     "seriesTitle": "強大な敵",
-    "seriesCode": "OP-03",
-    "sourceModalId": "OP03-116_p1"
+    "seriesCode": "OP-03"
   },
   {
     "uniqueId": "OP03-117_dummy.gif",
@@ -15664,8 +15599,7 @@
     "trigger": "",
     "getInfo": "強大な敵【OP-03】",
     "seriesTitle": "強大な敵",
-    "seriesCode": "OP-03",
-    "sourceModalId": "OP03-123_p2"
+    "seriesCode": "OP-03"
   },
   {
     "uniqueId": "OP04-001_dummy.gif",
@@ -15923,8 +15857,7 @@
     "trigger": "",
     "getInfo": "謀略の王国【OP-04】",
     "seriesTitle": "謀略の王国",
-    "seriesCode": "OP-04",
-    "sourceModalId": "OP04-010_p1"
+    "seriesCode": "OP-04"
   },
   {
     "uniqueId": "OP04-011_dummy.gif",
@@ -16073,13 +16006,12 @@
       "アラバスタ王国",
       "麦わらの一味"
     ],
-    "block": 4,
+    "block": 1,
     "effectText": "【カウンター】自分の手札1枚を捨てることができる：自分のリーダーかキャラ1枚までを、このバトル中、パワー+3000。",
     "trigger": "【】相手のリーダーかキャラ1枚までを、このターン中、パワー-3000。",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
     "seriesCode": "PRB-02",
-    "sourceModalId": "OP04-016_p2",
     "blockIconOverride": "4"
   },
   {
@@ -17625,13 +17557,12 @@
     "features": [
       "ドレスローザ"
     ],
-    "block": 4,
+    "block": 1,
     "effectText": "【ブロッカー】(相手のアタックの後、このカードをレストにし、アタックの対象をこのカードにできる)",
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
     "seriesCode": "PRB-02",
-    "sourceModalId": "OP04-077_p2",
     "blockIconOverride": "4"
   },
   {
@@ -17787,7 +17718,6 @@
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
     "seriesCode": "PRB-02",
-    "sourceModalId": "OP04-083_p3",
     "blockIconOverride": "X"
   },
   {
@@ -18020,8 +17950,7 @@
     "trigger": "",
     "getInfo": "謀略の王国【OP-04】",
     "seriesTitle": "謀略の王国",
-    "seriesCode": "OP-04",
-    "sourceModalId": "OP04-092_p1"
+    "seriesCode": "OP-04"
   },
   {
     "uniqueId": "OP04-093_dummy.gif",
@@ -18118,13 +18047,12 @@
     "features": [
       "ドレスローザ"
     ],
-    "block": 4,
+    "block": 1,
     "effectText": "自分のリーダーが特徴《ドレスローザ》を持つ場合、自分の特徴《ドレスローザ》を持つキャラは、登場したターンにキャラへアタックできる。",
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
     "seriesCode": "PRB-02",
-    "sourceModalId": "OP04-096_p2",
     "blockIconOverride": "4"
   },
   {
@@ -18227,8 +18155,7 @@
     "trigger": "【】相手のリーダーかキャラ1枚までは、このターン中、アタックできない。",
     "getInfo": "謀略の王国【OP-04】",
     "seriesTitle": "謀略の王国",
-    "seriesCode": "OP-04",
-    "sourceModalId": "OP04-100_p2"
+    "seriesCode": "OP-04"
   },
   {
     "uniqueId": "OP04-101_dummy.gif",
@@ -18530,8 +18457,7 @@
     "trigger": "",
     "getInfo": "謀略の王国【OP-04】",
     "seriesTitle": "謀略の王国",
-    "seriesCode": "OP-04",
-    "sourceModalId": "OP04-112_p2"
+    "seriesCode": "OP-04"
   },
   {
     "uniqueId": "OP04-113_dummy.gif",
@@ -18861,10 +18787,9 @@
     "block": 2,
     "effectText": "【登場時】自分のリーダーが特徴《革命軍》を持つ場合、相手のキャラ1枚までを、このターン中、パワー-3000。",
     "trigger": "",
-    "getInfo": "8パックバトル 2025年10月 カードリスト",
-    "seriesTitle": "8パックバトル 2025年10月 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "OP05-006_p3"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "OP05-007_dummy.gif",
@@ -19623,8 +19548,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "OP05-036_p1"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "OP05-037_dummy.gif",
@@ -19649,8 +19573,7 @@
     "trigger": "【】相手のコスト4以下のキャラ1枚までを、レストにする。",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "OP05-037_p1"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "OP05-038_dummy.gif",
@@ -20231,8 +20154,7 @@
     "trigger": "",
     "getInfo": "スタートデッキ 紫 モンキー・D・ルフィ【ST-18】",
     "seriesTitle": "スタートデッキ 紫 モンキー・D・ルフィ",
-    "seriesCode": "ST-18",
-    "sourceModalId": "OP05-060_p2"
+    "seriesCode": "ST-18"
   },
   {
     "uniqueId": "OP05-061_dummy.gif",
@@ -20408,8 +20330,7 @@
     "trigger": "",
     "getInfo": "スタートデッキ 紫 モンキー・D・ルフィ【ST-18】",
     "seriesTitle": "スタートデッキ 紫 モンキー・D・ルフィ",
-    "seriesCode": "ST-18",
-    "sourceModalId": "OP05-067_p2"
+    "seriesCode": "ST-18"
   },
   {
     "uniqueId": "OP05-068_dummy.gif",
@@ -20887,10 +20808,9 @@
     "block": 2,
     "effectText": "自分のトラッシュが10枚以上ある場合、このキャラは【ブロッカー】を得る。",
     "trigger": "",
-    "getInfo": "チャンピオンシップ2024 WAVE2 3on3 Autumn ベスト8記念品 カードリスト",
-    "seriesTitle": "チャンピオンシップ2024 WAVE2 3on3 Autumn ベスト8記念品 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "OP05-086_p1"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "OP05-087_dummy.gif",
@@ -21017,8 +20937,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "OP05-091_p3"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "OP05-092_dummy.gif",
@@ -21195,8 +21114,7 @@
     "trigger": "",
     "getInfo": "エクストラブースター Anime 25th collection【EB-02】",
     "seriesTitle": "エクストラブースター Anime 25th collection",
-    "seriesCode": "EB-02",
-    "sourceModalId": "OP05-098_p2"
+    "seriesCode": "EB-02"
   },
   {
     "uniqueId": "OP05-099_dummy.gif",
@@ -21298,8 +21216,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "OP05-102_p2"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "OP05-103_dummy.gif",
@@ -21399,10 +21316,9 @@
     "block": 2,
     "effectText": "【登場時】自分のデッキの上から5枚を見て、「シュラ」以外の特徴《空島》を持つカード1枚までを公開し、手札に加える。その後、残りを好きな順番でデッキの下に置く。",
     "trigger": "【】このカードを登場させる。",
-    "getInfo": "スタンダードバトルパックVol.7 カードリスト",
-    "seriesTitle": "スタンダードバトルパックVol.7 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "OP05-106_p1"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "OP05-107_dummy.gif",
@@ -22379,10 +22295,9 @@
     "block": 2,
     "effectText": "【登場時】自分のデッキの上から4枚を見て、「ケイミ―」以外の特徴《魚人族》か《人魚族》を持つカード1枚までを公開し、手札に加える。その後、残りを好きな順番でデッキの下に置く。",
     "trigger": "",
-    "getInfo": "プロモーションパックEX Vol.2 カードリスト",
-    "seriesTitle": "プロモーションパックEX Vol.2 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "OP06-025_p2"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "OP06-026_dummy.gif",
@@ -22945,8 +22860,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "OP06-047_p1"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "OP06-048_dummy.gif",
@@ -23044,10 +22958,9 @@
     "block": 2,
     "effectText": "【登場時】自分の手札2枚を捨てることができる：相手は自身のキャラ1枚を持ち主の手札に戻す。",
     "trigger": "",
-    "getInfo": "スタンダードバトルパックVol.12 カードリスト",
-    "seriesTitle": "スタンダードバトルパックVol.12 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "OP06-051_p2"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "OP06-052_dummy.gif",
@@ -23352,8 +23265,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "OP06-063_p1"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "OP06-064_dummy.gif",
@@ -23507,10 +23419,9 @@
     "block": 2,
     "effectText": "【登場時】自分の場のドン‼が相手の場のドン‼の枚数以下でかつ、自分の手札が5枚以下の場合、カード2枚を引く。",
     "trigger": "",
-    "getInfo": "フラッグシップバトル2024 4月優勝記念品 カードリスト",
-    "seriesTitle": "フラッグシップバトル2024 4月優勝記念品 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "OP06-069_p2"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "OP06-070_dummy.gif",
@@ -23692,8 +23603,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "OP06-076_p1"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "OP06-077_dummy.gif",
@@ -24097,10 +24007,9 @@
     "block": 2,
     "effectText": "【登場時】以下から1つを選ぶ。相手のコスト4以下のキャラ1枚までを、トラッシュに置く。相手は自身のトラッシュのカード3枚を好きな順番でデッキの下に置く。",
     "trigger": "",
-    "getInfo": "プロモーションパックEX Vol.2 カードリスト",
-    "seriesTitle": "プロモーションパックEX Vol.2 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "OP06-092_p1"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "OP06-093_dummy.gif",
@@ -24123,10 +24032,9 @@
     "block": 2,
     "effectText": "【登場時】相手の手札が5枚以上ある場合、以下から1つを選ぶ。・相手は自身の手札1枚を捨てる。・相手のキャラ1枚までを、このターン中、コスト-3。",
     "trigger": "",
-    "getInfo": "フラッグシップバトル2024 1月ベスト8記念品 カードリスト",
-    "seriesTitle": "フラッグシップバトル2024 1月ベスト8記念品 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "OP06-093_p2"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "OP06-094_dummy.gif",
@@ -24327,10 +24235,9 @@
     "block": 2,
     "effectText": "【登場時】自分のリーダーかキャラ1枚までは、このターン中、【バニッシュ】を得る。(このカードがダメージを与えた場合、トリガーは発動せずそのカードはトラッシュに置かれる)【トリガー】相手のコスト5以下のキャラ1枚までを、KOする。",
     "trigger": "",
-    "getInfo": "「ONE PIECE CARD GAME 2nd ANNIVERSARY COMPLETE GUIDE」限定特典カード カードリスト",
-    "seriesTitle": "「ONE PIECE CARD GAME 2nd ANNIVERSARY COMPLETE GUIDE」限定特典カード カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "OP06-101_p3"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "OP06-102_dummy.gif",
@@ -24566,8 +24473,7 @@
     "trigger": "【】相手のライフが3枚以下の場合、このカードを登場させる。",
     "getInfo": "スタートデッキ 緑黄 ヤマト【ST-28】",
     "seriesTitle": "スタートデッキ 緑黄 ヤマト",
-    "seriesCode": "ST-28",
-    "sourceModalId": "OP06-110_p3"
+    "seriesCode": "ST-28"
   },
   {
     "uniqueId": "OP06-111_dummy.gif",
@@ -25181,8 +25087,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "OP07-015_p3"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "OP07-016_dummy.gif",
@@ -25336,8 +25241,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "OP07-021_p2"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "OP07-022_dummy.gif",
@@ -25644,10 +25548,9 @@
     "block": 2,
     "effectText": "自分のキャラが3枚以上いる場合、自分の、「モンキー・D・ルフィ」以外のコスト3以下のキャラは相手の効果でKOされない。",
     "trigger": "",
-    "getInfo": "3周年！ワンピースカードトレジャーキャンペーンパック カードリスト",
-    "seriesTitle": "3周年！ワンピースカードトレジャーキャンペーンパック カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "OP07-033_p2"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "OP07-034_dummy.gif",
@@ -26006,10 +25909,9 @@
     "block": 2,
     "effectText": "【起動メイン】このキャラを持ち主の手札に戻すことができる：相手の手札が6枚以上ある場合、相手は自身の手札1枚をデッキの下に置く。",
     "trigger": "",
-    "getInfo": "Vジャンプ10月特大号応募者全員サービス（2024年8月21日売） カードリスト",
-    "seriesTitle": "Vジャンプ10月特大号応募者全員サービス（2024年8月21日売） カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "OP07-047_p2"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "OP07-048_dummy.gif",
@@ -26160,10 +26062,9 @@
     "block": 2,
     "effectText": "【ブロッカー】(相手のアタックの後、このカードをレストにし、アタックの対象をこのカードにできる)【登場時】カード2枚を引き、自分の手札2枚を好きな順番で並び替え、デッキの上か下に置く。",
     "trigger": "",
-    "getInfo": "スタンダードバトルパックVol.8 カードリスト",
-    "seriesTitle": "スタンダードバトルパックVol.8 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "OP07-053_p1"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "OP07-054_dummy.gif",
@@ -26443,8 +26344,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "OP07-064_p3"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "OP07-065_dummy.gif",
@@ -26493,10 +26393,9 @@
     "block": 2,
     "effectText": "【ブロッカー】(相手のアタックの後、このカードをレストにし、アタックの対象をこのカードにできる)【登場時】自分の場のドン!!が相手の場のドン!!の枚数以下の場合、ドン!!デッキからドン!!1枚までを、レストで追加する。",
     "trigger": "",
-    "getInfo": "最強ジャンプ5月号応募者全員サービス（2025年4月4日売） カードリスト",
-    "seriesTitle": "最強ジャンプ5月号応募者全員サービス（2025年4月4日売） カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "OP07-066_p1"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "OP07-067_dummy.gif",
@@ -26671,10 +26570,9 @@
     "block": 2,
     "effectText": "【起動メイン】【ターン1回】ドン‼-3(自分の場のドン‼を指定の数ドン‼デッキに戻すことができる)：相手のキャラが3枚以上いる場合、このキャラをアクティブにする。",
     "trigger": "",
-    "getInfo": "BANDAI CARD GAMES Fest 25-26 in Tokyo 来場記念品 カードリスト",
-    "seriesTitle": "BANDAI CARD GAMES Fest 25-26 in Tokyo 来場記念品 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "OP07-073_p1"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "OP07-074_dummy.gif",
@@ -26849,10 +26747,9 @@
     "block": 2,
     "effectText": "【登場時】自分のトラッシュの『CP』を含む特徴を持つカード2枚を好きな順番でデッキの下に置くことができる：相手のキャラ1枚までを、このターン中、コスト-3。",
     "trigger": "",
-    "getInfo": "スタンダードバトルパックVol.9 カードリスト",
-    "seriesTitle": "スタンダードバトルパックVol.9 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "OP07-080_p1"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "OP07-081_dummy.gif",
@@ -27128,10 +27025,9 @@
     "block": 2,
     "effectText": "【アタック時】相手のコスト2以下のキャラ1枚までをトラッシュに置く。その後、自分のトラッシュからコスト4以上のキャラカードを任意の枚数好きな順番でデッキの下に置く。置いた枚数3枚につき、このキャラは、このターン中、パワー+1000。",
     "trigger": "",
-    "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.6 カードリスト",
-    "seriesTitle": "ONE PIECEカードゲーム プロモーションパックVol.6 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "OP07-091_p1"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "OP07-092_dummy.gif",
@@ -27358,10 +27254,9 @@
     "block": 2,
     "effectText": "【登場時】自分のライフが2枚以下の場合、カード2枚を引き、自分の手札2枚を捨てる。",
     "trigger": "【】自分のリーダーが「ベガパンク」の場合、このカードを登場させる。",
-    "getInfo": "スタンダードバトルパックVol.8 カードリスト",
-    "seriesTitle": "スタンダードバトルパックVol.8 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "OP07-100_p1"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "OP07-101_dummy.gif",
@@ -27545,8 +27440,7 @@
     "trigger": "【】カード1枚を引く。その後、自分のライフが1枚以下の場合、このカードを登場させる。",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "OP07-107_p2"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "OP07-108_dummy.gif",
@@ -27598,8 +27492,7 @@
     "trigger": "【】相手のコスト4以下のキャラ1枚までを、KOする。",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "OP07-109_p3"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "OP07-110_dummy.gif",
@@ -27701,10 +27594,9 @@
     "block": 2,
     "effectText": "-",
     "trigger": "【】自分のリーダーが特徴《エッグヘッド》を持つ場合、相手のリーダーかキャラ1枚までを、レストにする。",
-    "getInfo": "Vジャンプ10月特大号 応募者全員サービス カードリスト",
-    "seriesTitle": "Vジャンプ10月特大号 応募者全員サービス カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "OP07-113_p1"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "OP07-114_dummy.gif",
@@ -27857,8 +27749,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "OP07-119_p2"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "OP08-001_dummy.gif",
@@ -28370,8 +28261,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 二つの伝説【OP-08】",
     "seriesTitle": "ブースターパック 二つの伝説",
-    "seriesCode": "OP-08",
-    "sourceModalId": "OP08-020_p1"
+    "seriesCode": "OP-08"
   },
   {
     "uniqueId": "OP08-021_dummy.gif",
@@ -29051,8 +28941,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 二つの伝説【OP-08】",
     "seriesTitle": "ブースターパック 二つの伝説",
-    "seriesCode": "OP-08",
-    "sourceModalId": "OP08-047_p1"
+    "seriesCode": "OP-08"
   },
   {
     "uniqueId": "OP08-048_dummy.gif",
@@ -29431,8 +29320,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 二つの伝説【OP-08】",
     "seriesTitle": "ブースターパック 二つの伝説",
-    "seriesCode": "OP-08",
-    "sourceModalId": "OP08-062_p1"
+    "seriesCode": "OP-08"
   },
   {
     "uniqueId": "OP08-063_dummy.gif",
@@ -29557,8 +29445,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "OP08-067_p2"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "OP08-068_dummy.gif",
@@ -29734,8 +29621,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "OP08-074_p2"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "OP08-075_dummy.gif",
@@ -29990,8 +29876,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 二つの伝説【OP-08】",
     "seriesTitle": "ブースターパック 二つの伝説",
-    "seriesCode": "OP-08",
-    "sourceModalId": "OP08-084_p2"
+    "seriesCode": "OP-08"
   },
   {
     "uniqueId": "OP08-085_dummy.gif",
@@ -30558,8 +30443,7 @@
     "trigger": "【】このカードの【登場時】効果を発動する。",
     "getInfo": "ブースターパック 二つの伝説【OP-08】",
     "seriesTitle": "ブースターパック 二つの伝説",
-    "seriesCode": "OP-08",
-    "sourceModalId": "OP08-106_p3"
+    "seriesCode": "OP-08"
   },
   {
     "uniqueId": "OP08-107_dummy.gif",
@@ -30663,8 +30547,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 二つの伝説【OP-08】",
     "seriesTitle": "ブースターパック 二つの伝説",
-    "seriesCode": "OP-08",
-    "sourceModalId": "OP08-110_p2"
+    "seriesCode": "OP-08"
   },
   {
     "uniqueId": "OP08-111_dummy.gif",
@@ -30950,8 +30833,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "OP09-002_p2"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "OP09-003_dummy.gif",
@@ -31003,7 +30885,6 @@
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
     "seriesCode": "PRB-02",
-    "sourceModalId": "OP09-004_p4",
     "blockIconOverride": "X"
   },
   {
@@ -31179,8 +31060,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 新たなる皇帝【OP-09】",
     "seriesTitle": "ブースターパック 新たなる皇帝",
-    "seriesCode": "OP-09",
-    "sourceModalId": "OP09-011_p1"
+    "seriesCode": "OP-09"
   },
   {
     "uniqueId": "OP09-012_dummy.gif",
@@ -31588,8 +31468,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "OP09-027_p1"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "OP09-028_dummy.gif",
@@ -31775,8 +31654,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 新たなる皇帝【OP-09】",
     "seriesTitle": "ブースターパック 新たなる皇帝",
-    "seriesCode": "OP-09",
-    "sourceModalId": "OP09-034_p2"
+    "seriesCode": "OP-09"
   },
   {
     "uniqueId": "OP09-035_dummy.gif",
@@ -32011,8 +31889,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 新たなる皇帝【OP-09】",
     "seriesTitle": "ブースターパック 新たなる皇帝",
-    "seriesCode": "OP-09",
-    "sourceModalId": "OP09-043_p1"
+    "seriesCode": "OP-09"
   },
   {
     "uniqueId": "OP09-044_dummy.gif",
@@ -32190,8 +32067,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 新たなる皇帝【OP-09】",
     "seriesTitle": "ブースターパック 新たなる皇帝",
-    "seriesCode": "OP-09",
-    "sourceModalId": "OP09-050_p2"
+    "seriesCode": "OP-09"
   },
   {
     "uniqueId": "OP09-051_dummy.gif",
@@ -32574,8 +32450,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "OP09-065_p2"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "OP09-066_dummy.gif",
@@ -32677,8 +32552,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "OP09-069_p2"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "OP09-070_dummy.gif",
@@ -32854,8 +32728,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "OP09-076_p2"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "OP09-077_dummy.gif",
@@ -33185,8 +33058,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 新たなる皇帝【OP-09】",
     "seriesTitle": "ブースターパック 新たなる皇帝",
-    "seriesCode": "OP-09",
-    "sourceModalId": "OP09-089_p1"
+    "seriesCode": "OP-09"
   },
   {
     "uniqueId": "OP09-090_dummy.gif",
@@ -33615,8 +33487,7 @@
     "trigger": "【】自分のリーダーが「ニコ・ロビン」の場合、カード3枚を引き、自分の手札2枚を捨てる。",
     "getInfo": "ブースターパック 新たなる皇帝【OP-09】",
     "seriesTitle": "ブースターパック 新たなる皇帝",
-    "seriesCode": "OP-09",
-    "sourceModalId": "OP09-106_p1"
+    "seriesCode": "OP-09"
   },
   {
     "uniqueId": "OP09-107_dummy.gif",
@@ -33667,8 +33538,7 @@
     "trigger": "【】自分のリーダーが特徴《革命軍》を持ち、お互いのライフの合計枚数が5枚以下の場合、このカードを登場させる。",
     "getInfo": "ブースターパック 新たなる皇帝【OP-09】",
     "seriesTitle": "ブースターパック 新たなる皇帝",
-    "seriesCode": "OP-09",
-    "sourceModalId": "OP09-108_p2"
+    "seriesCode": "OP-09"
   },
   {
     "uniqueId": "OP09-109_dummy.gif",
@@ -34085,8 +33955,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 王族の血統【OP-10】",
     "seriesTitle": "ブースターパック 王族の血統",
-    "seriesCode": "OP-10",
-    "sourceModalId": "OP10-005_p2"
+    "seriesCode": "OP-10"
   },
   {
     "uniqueId": "OP10-006_dummy.gif",
@@ -34526,8 +34395,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 王族の血統【OP-10】",
     "seriesTitle": "ブースターパック 王族の血統",
-    "seriesCode": "OP-10",
-    "sourceModalId": "OP10-022_p2"
+    "seriesCode": "OP-10"
   },
   {
     "uniqueId": "OP10-023_dummy.gif",
@@ -34791,8 +34659,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "OP10-032_p2"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "OP10-033_dummy.gif",
@@ -34818,8 +34685,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 王族の血統【OP-10】",
     "seriesTitle": "ブースターパック 王族の血統",
-    "seriesCode": "OP-10",
-    "sourceModalId": "OP10-033_p1"
+    "seriesCode": "OP-10"
   },
   {
     "uniqueId": "OP10-034_dummy.gif",
@@ -35058,8 +34924,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 王族の血統【OP-10】",
     "seriesTitle": "ブースターパック 王族の血統",
-    "seriesCode": "OP-10",
-    "sourceModalId": "OP10-042_p4"
+    "seriesCode": "OP-10"
   },
   {
     "uniqueId": "OP10-043_dummy.gif",
@@ -35240,8 +35105,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 王族の血統【OP-10】",
     "seriesTitle": "ブースターパック 王族の血統",
-    "seriesCode": "OP-10",
-    "sourceModalId": "OP10-049_p2"
+    "seriesCode": "OP-10"
   },
   {
     "uniqueId": "OP10-050_dummy.gif",
@@ -36733,8 +36597,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 王族の血統【OP-10】",
     "seriesTitle": "ブースターパック 王族の血統",
-    "seriesCode": "OP-10",
-    "sourceModalId": "OP10-107_p1"
+    "seriesCode": "OP-10"
   },
   {
     "uniqueId": "OP10-108_dummy.gif",
@@ -37305,8 +37168,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 神速の拳【OP-11】",
     "seriesTitle": "ブースターパック 神速の拳",
-    "seriesCode": "OP-11",
-    "sourceModalId": "OP11-010_p2"
+    "seriesCode": "OP-11"
   },
   {
     "uniqueId": "OP11-011_dummy.gif",
@@ -37357,8 +37219,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 神速の拳【OP-11】",
     "seriesTitle": "ブースターパック 神速の拳",
-    "seriesCode": "OP-11",
-    "sourceModalId": "OP11-012_p1"
+    "seriesCode": "OP-11"
   },
   {
     "uniqueId": "OP11-013_dummy.gif",
@@ -38551,8 +38412,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 神速の拳【OP-11】",
     "seriesTitle": "ブースターパック 神速の拳",
-    "seriesCode": "OP-11",
-    "sourceModalId": "OP11-058_p1"
+    "seriesCode": "OP-11"
   },
   {
     "uniqueId": "OP11-059_dummy.gif",
@@ -38727,8 +38587,7 @@
     "trigger": "",
     "getInfo": "スタートデッキ 紫 シャーロット・カタクリ【ST-34】",
     "seriesTitle": "スタートデッキ 紫 シャーロット・カタクリ",
-    "seriesCode": "ST-34",
-    "sourceModalId": "OP11-065_p1"
+    "seriesCode": "ST-34"
   },
   {
     "uniqueId": "OP11-066_dummy.gif",
@@ -38878,8 +38737,7 @@
     "trigger": "",
     "getInfo": "スタートデッキ 紫 シャーロット・カタクリ【ST-34】",
     "seriesTitle": "スタートデッキ 紫 シャーロット・カタクリ",
-    "seriesCode": "ST-34",
-    "sourceModalId": "OP11-071_p1"
+    "seriesCode": "ST-34"
   },
   {
     "uniqueId": "OP11-072_dummy.gif",
@@ -39514,8 +39372,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 神速の拳【OP-11】",
     "seriesTitle": "ブースターパック 神速の拳",
-    "seriesCode": "OP-11",
-    "sourceModalId": "OP11-096_p1"
+    "seriesCode": "OP-11"
   },
   {
     "uniqueId": "OP11-097_dummy.gif",
@@ -39797,8 +39654,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 神速の拳【OP-11】",
     "seriesTitle": "ブースターパック 神速の拳",
-    "seriesCode": "OP-11",
-    "sourceModalId": "OP11-107_p1"
+    "seriesCode": "OP-11"
   },
   {
     "uniqueId": "OP11-108_dummy.gif",
@@ -40108,8 +39964,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 神速の拳【OP-11】",
     "seriesTitle": "ブースターパック 神速の拳",
-    "seriesCode": "OP-11",
-    "sourceModalId": "OP11-119_p2"
+    "seriesCode": "OP-11"
   },
   {
     "uniqueId": "OP12-001_dummy.gif",
@@ -40618,10 +40473,9 @@
     "block": 3,
     "effectText": "【ドン‼×3】【起動メイン】【ターン1回】このターン中、このリーダーが相手のキャラとバトルしている場合、このリーダーをアクティブにする。その後、このリーダーは、このターン中、相手の元々のコスト7以下のキャラへアタックできない。",
     "trigger": "",
-    "getInfo": "フラッグシップバトル2026 1月 優勝記念品 カードリスト",
-    "seriesTitle": "フラッグシップバトル2026 1月 優勝記念品 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "OP12-020_p3"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "OP12-021_dummy.gif",
@@ -40828,10 +40682,9 @@
     "block": 3,
     "effectText": "【起動メイン】自分のドン‼1枚とこのキャラをレストにできる：自分のリーダーが「ロロノア・ゾロ」の場合、自分のデッキの上から5枚を見て、属性(斬)を持つカードか緑のイベント1枚までを公開し、手札に加える。その後、残りを好きな順番でデッキの下に置く。",
     "trigger": "",
-    "getInfo": "スタンダードバトルパック Vol.13 カードリスト",
-    "seriesTitle": "スタンダードバトルパック Vol.13 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "OP12-028_p1"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "OP12-029_dummy.gif",
@@ -40908,10 +40761,9 @@
     "block": 3,
     "effectText": "【登場時】相手の元々のコスト6以下のキャラ1枚までを、レストにする。その後、自分のリーダーの「ロロノア・ゾロ」にレストのドン‼3枚までを、付与する。",
     "trigger": "",
-    "getInfo": "フラッグシップバトル2025 10月ベスト8記念品 カードリスト",
-    "seriesTitle": "フラッグシップバトル2025 10月ベスト8記念品 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "OP12-031_p2"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "OP12-032_dummy.gif",
@@ -41040,10 +40892,9 @@
     "block": 3,
     "effectText": "手札のこのカードは、効果で登場できない。自分のリーダーが属性(斬)を持つ場合、このキャラは属性(斬)を持つカードとのバトルでKOされず、パワー+1000。",
     "trigger": "",
-    "getInfo": "プロモーションパックVol.8 カードリスト",
-    "seriesTitle": "プロモーションパックVol.8 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "OP12-036_p1"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "OP12-037_dummy.gif",
@@ -41702,10 +41553,9 @@
     "block": 3,
     "effectText": "【登場時】自分のリーダーが「サンジ」で、自分の場のドン‼が相手の場のドン‼の枚数以下の場合、ドン‼デッキからドン‼1枚までを、レストで追加する。その後、カード1枚を引く。",
     "trigger": "",
-    "getInfo": "スタンダードバトルパック Vol.13 カードリスト",
-    "seriesTitle": "スタンダードバトルパック Vol.13 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "OP12-062_p1"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "OP12-063_dummy.gif",
@@ -41935,10 +41785,9 @@
     "block": 3,
     "effectText": "【登場時】自分のデッキの上から4枚を見て、「サンジ」かイベント1枚までを公開し、手札に加える。その後、残りを好きな順番でデッキの下に置く。",
     "trigger": "",
-    "getInfo": "プロモーションパックEX Vol.3 カードリスト",
-    "seriesTitle": "プロモーションパックEX Vol.3 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "OP12-071_p1"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "OP12-072_dummy.gif",
@@ -42396,10 +42245,9 @@
     "block": 3,
     "effectText": "自分のリーダーが特徴《革命軍》を持つ場合、このキャラは【ブロッカー】を得て、コスト+4。【KO時】自分のリーダーが特徴《革命軍》を持つ場合、相手の元々のコスト4以下のキャラ1枚までを、KOする。",
     "trigger": "",
-    "getInfo": "プロモーションパックEX Vol.3 カードリスト",
-    "seriesTitle": "プロモーションパックEX Vol.3 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "OP12-089_p1"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "OP12-090_dummy.gif",
@@ -42500,10 +42348,9 @@
     "block": 3,
     "effectText": "自分のリーダーが特徴《革命軍》を持つ場合、このキャラのコスト+4。",
     "trigger": "",
-    "getInfo": "スタンダードバトルパック Vol.13 カードリスト",
-    "seriesTitle": "スタンダードバトルパック Vol.13 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "OP12-093_p1"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "OP12-094_dummy.gif",
@@ -42839,10 +42686,9 @@
     "block": 3,
     "effectText": "【ブロッカー】(相手のアタックの後、このカードをレストにし、アタックの対象をこのカードにできる)",
     "trigger": "",
-    "getInfo": "『ONE PIECE学園 10巻』付録 カードリスト",
-    "seriesTitle": "『ONE PIECE学園 10巻』付録 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "OP12-106_p2"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "OP12-107_dummy.gif",
@@ -42994,10 +42840,9 @@
     "block": 3,
     "effectText": "-",
     "trigger": "【】自分のリーダーが多色の場合、カード2枚を引く。",
-    "getInfo": "スタンダードバトルパック Vol.13 カードリスト",
-    "seriesTitle": "スタンダードバトルパック Vol.13 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "OP12-112_p1"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "OP12-113_dummy.gif",
@@ -43208,8 +43053,7 @@
     "trigger": "",
     "getInfo": "受け継がれる意志【OP-13】",
     "seriesTitle": "受け継がれる意志",
-    "seriesCode": "OP-13",
-    "sourceModalId": "OP13-001_p1"
+    "seriesCode": "OP-13"
   },
   {
     "uniqueId": "OP13-002_dummy.gif",
@@ -43289,8 +43133,7 @@
     "trigger": "",
     "getInfo": "受け継がれる意志【OP-13】",
     "seriesTitle": "受け継がれる意志",
-    "seriesCode": "OP-13",
-    "sourceModalId": "OP13-004_p3"
+    "seriesCode": "OP-13"
   },
   {
     "uniqueId": "OP13-005_dummy.gif",
@@ -43667,8 +43510,7 @@
     "trigger": "",
     "getInfo": "受け継がれる意志【OP-13】",
     "seriesTitle": "受け継がれる意志",
-    "seriesCode": "OP-13",
-    "sourceModalId": "OP13-019_p1"
+    "seriesCode": "OP-13"
   },
   {
     "uniqueId": "OP13-020_dummy.gif",
@@ -44216,8 +44058,7 @@
     "trigger": "",
     "getInfo": "受け継がれる意志【OP-13】",
     "seriesTitle": "受け継がれる意志",
-    "seriesCode": "OP-13",
-    "sourceModalId": "OP13-040_p1"
+    "seriesCode": "OP-13"
   },
   {
     "uniqueId": "OP13-041_dummy.gif",
@@ -44369,8 +44210,7 @@
     "trigger": "",
     "getInfo": "受け継がれる意志【OP-13】",
     "seriesTitle": "受け継がれる意志",
-    "seriesCode": "OP-13",
-    "sourceModalId": "OP13-046_p1"
+    "seriesCode": "OP-13"
   },
   {
     "uniqueId": "OP13-047_dummy.gif",
@@ -44647,8 +44487,7 @@
     "trigger": "",
     "getInfo": "受け継がれる意志【OP-13】",
     "seriesTitle": "受け継がれる意志",
-    "seriesCode": "OP-13",
-    "sourceModalId": "OP13-057_p1"
+    "seriesCode": "OP-13"
   },
   {
     "uniqueId": "OP13-058_dummy.gif",
@@ -44903,8 +44742,7 @@
     "trigger": "",
     "getInfo": "受け継がれる意志【OP-13】",
     "seriesTitle": "受け継がれる意志",
-    "seriesCode": "OP-13",
-    "sourceModalId": "OP13-067_p1"
+    "seriesCode": "OP-13"
   },
   {
     "uniqueId": "OP13-068_dummy.gif",
@@ -45008,8 +44846,7 @@
     "trigger": "",
     "getInfo": "受け継がれる意志【OP-13】",
     "seriesTitle": "受け継がれる意志",
-    "seriesCode": "OP-13",
-    "sourceModalId": "OP13-071_p1"
+    "seriesCode": "OP-13"
   },
   {
     "uniqueId": "OP13-072_dummy.gif",
@@ -45418,8 +45255,7 @@
     "trigger": "",
     "getInfo": "受け継がれる意志【OP-13】",
     "seriesTitle": "受け継がれる意志",
-    "seriesCode": "OP-13",
-    "sourceModalId": "OP13-087_p1"
+    "seriesCode": "OP-13"
   },
   {
     "uniqueId": "OP13-088_dummy.gif",
@@ -45959,8 +45795,7 @@
     "trigger": "【】自分のライフが1枚以下の場合、相手のコスト7以下のキャラ1枚までを、レストにする。",
     "getInfo": "受け継がれる意志【OP-13】",
     "seriesTitle": "受け継がれる意志",
-    "seriesCode": "OP-13",
-    "sourceModalId": "OP13-108_p2"
+    "seriesCode": "OP-13"
   },
   {
     "uniqueId": "OP13-109_dummy.gif",
@@ -46223,7 +46058,6 @@
     "getInfo": "受け継がれる意志【OP-13】",
     "seriesTitle": "受け継がれる意志",
     "seriesCode": "OP-13",
-    "sourceModalId": "OP13-118_p5",
     "blockIconOverride": "X"
   },
   {
@@ -46250,7 +46084,6 @@
     "getInfo": "受け継がれる意志【OP-13】",
     "seriesTitle": "受け継がれる意志",
     "seriesCode": "OP-13",
-    "sourceModalId": "OP13-119_p5",
     "blockIconOverride": "X"
   },
   {
@@ -46278,7 +46111,6 @@
     "getInfo": "受け継がれる意志【OP-13】",
     "seriesTitle": "受け継がれる意志",
     "seriesCode": "OP-13",
-    "sourceModalId": "OP13-120_p5",
     "blockIconOverride": "X"
   },
   {
@@ -46385,8 +46217,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 蒼海の七傑【OP-14】",
     "seriesTitle": "ブースターパック 蒼海の七傑",
-    "seriesCode": "OP-14",
-    "sourceModalId": "OP14-004_p1"
+    "seriesCode": "OP-14"
   },
   {
     "uniqueId": "OP14-005_dummy.gif",
@@ -46884,8 +46715,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 蒼海の七傑【OP-14】",
     "seriesTitle": "ブースターパック 蒼海の七傑",
-    "seriesCode": "OP-14",
-    "sourceModalId": "OP14-023_p1"
+    "seriesCode": "OP-14"
   },
   {
     "uniqueId": "OP14-024_dummy.gif",
@@ -46963,8 +46793,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 蒼海の七傑【OP-14】",
     "seriesTitle": "ブースターパック 蒼海の七傑",
-    "seriesCode": "OP-14",
-    "sourceModalId": "OP14-026_p1"
+    "seriesCode": "OP-14"
   },
   {
     "uniqueId": "OP14-027_dummy.gif",
@@ -47144,8 +46973,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 蒼海の七傑【OP-14】",
     "seriesTitle": "ブースターパック 蒼海の七傑",
-    "seriesCode": "OP-14",
-    "sourceModalId": "OP14-033_p2"
+    "seriesCode": "OP-14"
   },
   {
     "uniqueId": "OP14-034_dummy.gif",
@@ -47848,8 +47676,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 蒼海の七傑【OP-14】",
     "seriesTitle": "ブースターパック 蒼海の七傑",
-    "seriesCode": "OP-14",
-    "sourceModalId": "OP14-060_p2"
+    "seriesCode": "OP-14"
   },
   {
     "uniqueId": "OP14-061_dummy.gif",
@@ -48434,8 +48261,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 蒼海の七傑【OP-14】",
     "seriesTitle": "ブースターパック 蒼海の七傑",
-    "seriesCode": "OP-14",
-    "sourceModalId": "OP14-083_p1"
+    "seriesCode": "OP-14"
   },
   {
     "uniqueId": "OP14-084_dummy.gif",
@@ -48535,8 +48361,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 蒼海の七傑【OP-14】",
     "seriesTitle": "ブースターパック 蒼海の七傑",
-    "seriesCode": "OP-14",
-    "sourceModalId": "OP14-087_p1"
+    "seriesCode": "OP-14"
   },
   {
     "uniqueId": "OP14-088_dummy.gif",
@@ -48994,8 +48819,7 @@
     "trigger": "【】自分のリーダーが特徴《九蛇海賊団》を持つ場合、このカードを登場させる。",
     "getInfo": "ブースターパック 蒼海の七傑【OP-14】",
     "seriesTitle": "ブースターパック 蒼海の七傑",
-    "seriesCode": "OP-14",
-    "sourceModalId": "OP14-105_p1"
+    "seriesCode": "OP-14"
   },
   {
     "uniqueId": "OP14-106_dummy.gif",
@@ -49046,8 +48870,7 @@
     "trigger": "【】自分のリーダーが特徴《九蛇海賊団》を持つ場合、このカードを登場させる。",
     "getInfo": "ブースターパック 蒼海の七傑【OP-14】",
     "seriesTitle": "ブースターパック 蒼海の七傑",
-    "seriesCode": "OP-14",
-    "sourceModalId": "OP14-107_p1"
+    "seriesCode": "OP-14"
   },
   {
     "uniqueId": "OP14-108_dummy.gif",
@@ -49324,8 +49147,7 @@
     "trigger": "【】自分の手札からパワー6000以下の【】を持つキャラカード1枚までを、登場させる。",
     "getInfo": "ブースターパック 蒼海の七傑【OP-14】",
     "seriesTitle": "ブースターパック 蒼海の七傑",
-    "seriesCode": "OP-14",
-    "sourceModalId": "OP14-118_p2"
+    "seriesCode": "OP-14"
   },
   {
     "uniqueId": "OP14-119_dummy.gif",
@@ -49431,8 +49253,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 神の島の冒険【OP-15】",
     "seriesTitle": "ブースターパック 神の島の冒険",
-    "seriesCode": "OP-15",
-    "sourceModalId": "OP15-002_p2"
+    "seriesCode": "OP-15"
   },
   {
     "uniqueId": "OP15-003_dummy.gif",
@@ -50390,8 +50211,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 神の島の冒険【OP-15】",
     "seriesTitle": "ブースターパック 神の島の冒険",
-    "seriesCode": "OP-15",
-    "sourceModalId": "OP15-039_p2"
+    "seriesCode": "OP-15"
   },
   {
     "uniqueId": "OP15-040_dummy.gif",
@@ -50932,8 +50752,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 神の島の冒険【OP-15】",
     "seriesTitle": "ブースターパック 神の島の冒険",
-    "seriesCode": "OP-15",
-    "sourceModalId": "OP15-060_p2"
+    "seriesCode": "OP-15"
   },
   {
     "uniqueId": "OP15-061_dummy.gif",
@@ -51139,8 +50958,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 神の島の冒険【OP-15】",
     "seriesTitle": "ブースターパック 神の島の冒険",
-    "seriesCode": "OP-15",
-    "sourceModalId": "OP15-068_p1"
+    "seriesCode": "OP-15"
   },
   {
     "uniqueId": "OP15-069_dummy.gif",
@@ -51293,8 +51111,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 神の島の冒険【OP-15】",
     "seriesTitle": "ブースターパック 神の島の冒険",
-    "seriesCode": "OP-15",
-    "sourceModalId": "OP15-074_p1"
+    "seriesCode": "OP-15"
   },
   {
     "uniqueId": "OP15-075_dummy.gif",
@@ -52288,8 +52105,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 神の島の冒険【OP-15】",
     "seriesTitle": "ブースターパック 神の島の冒険",
-    "seriesCode": "OP-15",
-    "sourceModalId": "OP15-113_p2"
+    "seriesCode": "OP-15"
   },
   {
     "uniqueId": "OP15-114_dummy.gif",
@@ -52698,8 +52514,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-010_p1"
+    "seriesCode": "OP-16"
   },
   {
     "uniqueId": "OP16-011_dummy.gif",
@@ -53057,8 +52872,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-024_p1"
+    "seriesCode": "OP-16"
   },
   {
     "uniqueId": "OP16-025_dummy.gif",
@@ -53265,8 +53079,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-032_p2"
+    "seriesCode": "OP-16"
   },
   {
     "uniqueId": "OP16-033_dummy.gif",
@@ -53318,8 +53131,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-034_p2"
+    "seriesCode": "OP-16"
   },
   {
     "uniqueId": "OP16-035_dummy.gif",
@@ -54809,8 +54621,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-092_p1"
+    "seriesCode": "OP-16"
   },
   {
     "uniqueId": "OP16-093_dummy.gif",
@@ -54938,8 +54749,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 決戦の刻【OP-16】",
     "seriesTitle": "ブースターパック 決戦の刻",
-    "seriesCode": "OP-16",
-    "sourceModalId": "OP16-097_p1"
+    "seriesCode": "OP-16"
   },
   {
     "uniqueId": "OP16-098_dummy.gif",
@@ -55526,8 +55336,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-001"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-002_dummy.gif",
@@ -55552,8 +55361,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-002"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-003_dummy.gif",
@@ -55579,8 +55387,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-003"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-004_dummy.gif",
@@ -55607,8 +55414,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-004"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-005_dummy.gif",
@@ -55635,7 +55441,6 @@
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
     "seriesCode": "OP-17",
-    "sourceModalId": "OP17-005",
     "blockIconOverride": "X"
   },
   {
@@ -55661,8 +55466,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-006"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-007_dummy.gif",
@@ -55689,8 +55493,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-007"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-008_dummy.gif",
@@ -55715,8 +55518,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-008"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-009_dummy.gif",
@@ -55741,8 +55543,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-009"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-010_dummy.gif",
@@ -55767,8 +55568,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-010"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-011_dummy.gif",
@@ -55793,8 +55593,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-011"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-012_dummy.gif",
@@ -55819,8 +55618,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-012"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-013_dummy.gif",
@@ -55845,8 +55643,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-013"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-014_dummy.gif",
@@ -55871,8 +55668,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-014"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-015_dummy.gif",
@@ -55897,8 +55693,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-015"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-016_dummy.gif",
@@ -55923,8 +55718,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-016"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-017_dummy.gif",
@@ -55950,8 +55744,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-017"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-018_dummy.gif",
@@ -55977,8 +55770,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-018"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-019_dummy.gif",
@@ -56004,8 +55796,7 @@
     "trigger": "【】自分のリーダーを、このターン中、パワー+1000。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-019"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-020_dummy.gif",
@@ -56031,8 +55822,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-020"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-021_dummy.gif",
@@ -56057,8 +55847,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-021"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-022_dummy.gif",
@@ -56085,7 +55874,6 @@
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
     "seriesCode": "OP-17",
-    "sourceModalId": "OP17-022",
     "blockIconOverride": "X"
   },
   {
@@ -56112,8 +55900,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-023"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-024_dummy.gif",
@@ -56138,8 +55925,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-024"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-025_dummy.gif",
@@ -56164,8 +55950,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-025"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-026_dummy.gif",
@@ -56190,8 +55975,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-026"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-027_dummy.gif",
@@ -56216,8 +56000,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-027"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-028_dummy.gif",
@@ -56243,8 +56026,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-028"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-029_dummy.gif",
@@ -56269,8 +56051,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-029"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-030_dummy.gif",
@@ -56296,8 +56077,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-030"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-031_dummy.gif",
@@ -56322,8 +56102,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-031"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-032_dummy.gif",
@@ -56348,8 +56127,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-032"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-033_dummy.gif",
@@ -56374,8 +56152,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-033"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-034_dummy.gif",
@@ -56400,8 +56177,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-034"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-035_dummy.gif",
@@ -56427,8 +56203,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-035"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-036_dummy.gif",
@@ -56454,8 +56229,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-036"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-037_dummy.gif",
@@ -56481,8 +56255,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-037"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-038_dummy.gif",
@@ -56507,8 +56280,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-038"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-039_dummy.gif",
@@ -56533,8 +56305,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-039"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-040_dummy.gif",
@@ -56559,8 +56330,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-040"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-041_dummy.gif",
@@ -56585,8 +56355,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-041"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-042_dummy.gif",
@@ -56611,8 +56380,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-042"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-043_dummy.gif",
@@ -56637,8 +56405,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-043"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-044_dummy.gif",
@@ -56663,8 +56430,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-044"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-045_dummy.gif",
@@ -56689,8 +56455,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-045"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-046_dummy.gif",
@@ -56716,8 +56481,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-046"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-047_dummy.gif",
@@ -56744,8 +56508,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-047"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-048_dummy.gif",
@@ -56770,8 +56533,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-048"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-049_dummy.gif",
@@ -56796,8 +56558,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-049"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-050_dummy.gif",
@@ -56822,8 +56583,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-050"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-051_dummy.gif",
@@ -56850,8 +56610,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-051"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-052_dummy.gif",
@@ -56876,8 +56635,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-052"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-053_dummy.gif",
@@ -56903,8 +56661,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-053"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-054_dummy.gif",
@@ -56929,8 +56686,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-054"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-055_dummy.gif",
@@ -56955,8 +56711,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-055"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-056_dummy.gif",
@@ -56981,8 +56736,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-056"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-057_dummy.gif",
@@ -57007,8 +56761,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-057"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-058_dummy.gif",
@@ -57034,8 +56787,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-058"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-059_dummy.gif",
@@ -57061,8 +56813,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-059"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-060_dummy.gif",
@@ -57087,8 +56838,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-060"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-061_dummy.gif",
@@ -57114,8 +56864,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-061"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-062_dummy.gif",
@@ -57142,7 +56891,6 @@
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
     "seriesCode": "OP-17",
-    "sourceModalId": "OP17-062",
     "blockIconOverride": "X"
   },
   {
@@ -57169,8 +56917,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-063"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-064_dummy.gif",
@@ -57196,8 +56943,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-064"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-065_dummy.gif",
@@ -57222,8 +56968,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-065"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-066_dummy.gif",
@@ -57249,8 +56994,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-066"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-067_dummy.gif",
@@ -57276,8 +57020,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-067"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-068_dummy.gif",
@@ -57302,8 +57045,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-068"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-069_dummy.gif",
@@ -57329,8 +57071,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-069"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-070_dummy.gif",
@@ -57356,8 +57097,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-070"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-071_dummy.gif",
@@ -57383,8 +57123,7 @@
     "trigger": "【】このカードを登場させる。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-071"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-072_dummy.gif",
@@ -57409,8 +57148,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-072"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-073_dummy.gif",
@@ -57436,8 +57174,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-073"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-074_dummy.gif",
@@ -57462,8 +57199,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-074"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-075_dummy.gif",
@@ -57490,8 +57226,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-075"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-076_dummy.gif",
@@ -57517,8 +57252,7 @@
     "trigger": "【】ドン!!-1：カード2枚を引く。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-076"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-077_dummy.gif",
@@ -57544,8 +57278,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-077"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-078_dummy.gif",
@@ -57571,8 +57304,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-078"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-079_dummy.gif",
@@ -57599,8 +57331,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-079"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-080_dummy.gif",
@@ -57626,8 +57357,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-080"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-081_dummy.gif",
@@ -57654,8 +57384,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-081"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-082_dummy.gif",
@@ -57681,8 +57410,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-082"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-083_dummy.gif",
@@ -57709,8 +57437,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-083"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-084_dummy.gif",
@@ -57737,8 +57464,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-084"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-085_dummy.gif",
@@ -57765,8 +57491,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-085"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-086_dummy.gif",
@@ -57792,8 +57517,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-086"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-087_dummy.gif",
@@ -57819,8 +57543,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-087"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-088_dummy.gif",
@@ -57847,8 +57570,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-088"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-089_dummy.gif",
@@ -57875,8 +57597,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-089"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-090_dummy.gif",
@@ -57902,8 +57623,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-090"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-091_dummy.gif",
@@ -57929,8 +57649,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-091"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-092_dummy.gif",
@@ -57957,8 +57676,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-092"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-093_dummy.gif",
@@ -57985,8 +57703,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-093"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-094_dummy.gif",
@@ -58013,8 +57730,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-094"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-095_dummy.gif",
@@ -58040,8 +57756,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-095"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-096_dummy.gif",
@@ -58068,8 +57783,7 @@
     "trigger": "【】自分のトラッシュから特徴《エルバフ》を持つカード1枚までを、手札に加える。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-096"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-097_dummy.gif",
@@ -58095,8 +57809,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-097"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-098_dummy.gif",
@@ -58123,8 +57836,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-098"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-099_dummy.gif",
@@ -58150,8 +57862,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-099"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-100_dummy.gif",
@@ -58177,8 +57888,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-100"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-101_dummy.gif",
@@ -58204,8 +57914,7 @@
     "trigger": "【】自分の手札1枚を捨てることができる：相手のコスト5以下のキャラ1枚までを、KOする。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-101"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-102_dummy.gif",
@@ -58230,8 +57939,7 @@
     "trigger": "【】このカードを登場させる。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-102"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-103_dummy.gif",
@@ -58256,8 +57964,7 @@
     "trigger": "【】このカードを登場させる。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-103"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-104_dummy.gif",
@@ -58282,8 +57989,7 @@
     "trigger": "【】このカードを登場させる。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-104"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-105_dummy.gif",
@@ -58309,8 +58015,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-105"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-106_dummy.gif",
@@ -58335,8 +58040,7 @@
     "trigger": "【】このカードを登場させる。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-106"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-107_dummy.gif",
@@ -58361,8 +58065,7 @@
     "trigger": "【】このカードを登場させる。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-107"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-108_dummy.gif",
@@ -58387,8 +58090,7 @@
     "trigger": "【】相手のコスト6以下のキャラ1枚までを、レストにする。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-108"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-109_dummy.gif",
@@ -58413,8 +58115,7 @@
     "trigger": "【】自分のデッキの上から5枚を見て、特徴《ビッグ・マム海賊団》を持つカード1枚までを公開し、手札に加える。その後、残りを好きな順番でデッキの下に置く。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-109"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-110_dummy.gif",
@@ -58439,8 +58140,7 @@
     "trigger": "【】このカードを登場させる。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-110"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-111_dummy.gif",
@@ -58465,8 +58165,7 @@
     "trigger": "【】このカードを登場させる。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-111"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-112_dummy.gif",
@@ -58493,7 +58192,6 @@
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
     "seriesCode": "OP-17",
-    "sourceModalId": "OP17-112",
     "blockIconOverride": "X"
   },
   {
@@ -58519,8 +58217,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-113"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-114_dummy.gif",
@@ -58545,8 +58242,7 @@
     "trigger": "【】このカードを登場させる。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-114"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-115_dummy.gif",
@@ -58572,8 +58268,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-115"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-116_dummy.gif",
@@ -58599,8 +58294,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-116"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-117_dummy.gif",
@@ -58626,8 +58320,7 @@
     "trigger": "【】相手は自身の手札3枚を捨ててもよい。そうしなかった場合、相手のコスト6以下のキャラ1枚までを、KOする。",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-117"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "OP17-118_dummy.gif",
@@ -58653,7 +58346,6 @@
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
     "seriesCode": "OP-17",
-    "sourceModalId": "OP17-118",
     "blockIconOverride": "X"
   },
   {
@@ -58680,8 +58372,7 @@
     "trigger": "",
     "getInfo": "ブースターパック 世界最強の戦士【OP-17】",
     "seriesTitle": "ブースターパック 世界最強の戦士",
-    "seriesCode": "OP-17",
-    "sourceModalId": "OP17-119"
+    "seriesCode": "OP-17"
   },
   {
     "uniqueId": "P_8pack-battle-leader",
@@ -58736,10 +58427,9 @@
     "block": 1,
     "effectText": "【ドン!!×2】このキャラは【速攻】を得る。(このカードは登場したターンにアタックできる)",
     "trigger": "",
-    "getInfo": "ONE PIECEカードゲーム プロモーションパック2022 カードリスト",
-    "seriesTitle": "ONE PIECEカードゲーム プロモーションパック2022 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-001"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-002_dummy.gif",
@@ -58762,10 +58452,9 @@
     "block": 1,
     "effectText": "【メイン】自分の手札すべてをデッキに戻し、デッキをシャッフルする。その後、デッキに戻した枚数分カードを引く。",
     "trigger": "【】このカードの【メイン】効果を発動する。",
-    "getInfo": "ONE PIECEカードゲーム プロモーションパック2022 カードリスト",
-    "seriesTitle": "ONE PIECEカードゲーム プロモーションパック2022 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-002"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-003_dummy.gif",
@@ -58789,10 +58478,9 @@
     "block": 1,
     "effectText": "【ドン!!×2】このキャラは【ダブルアタック】を得る。(このカードが与えるダメージは2になる)",
     "trigger": "",
-    "getInfo": "ONE PIECEカードゲーム プロモーションパック2022 カードリスト",
-    "seriesTitle": "ONE PIECEカードゲーム プロモーションパック2022 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-003"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-004_dummy.gif",
@@ -58816,10 +58504,9 @@
     "block": 1,
     "effectText": "【ドン!!×1】このキャラは【ブロッカー】を得る。(相手のアタックの後、このカードをレストにし、アタックの対象をこのカードにできる)",
     "trigger": "",
-    "getInfo": "ONE PIECEカードゲーム プロモーションパック2022 カードリスト",
-    "seriesTitle": "ONE PIECEカードゲーム プロモーションパック2022 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-004"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-005_dummy.gif",
@@ -58843,10 +58530,9 @@
     "block": 1,
     "effectText": "【起動メイン】ドン!!-2(自分の場のドン!!を指定の数ドン!!デッキに戻すことができる)：このキャラは、このターン中、【バニッシュ】を得る。(このカードがダメージを与えた場合、トリガーは発動せずそのカードはトラッシュに置かれる)",
     "trigger": "",
-    "getInfo": "ONE PIECEカードゲーム プロモーションパック2022 カードリスト",
-    "seriesTitle": "ONE PIECEカードゲーム プロモーションパック2022 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-005"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-006_dummy.gif",
@@ -58870,10 +58556,9 @@
     "block": 1,
     "effectText": "【ドン‼×2】【自分のターン中】このキャラはパワー+2000。",
     "trigger": "",
-    "getInfo": "Vジャンプ9月特大号付録（2022年7月21日売） カードリスト",
-    "seriesTitle": "Vジャンプ9月特大号付録（2022年7月21日売） カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-006"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-007_dummy.gif",
@@ -58897,10 +58582,9 @@
     "block": 1,
     "effectText": "【ドン‼×1】このキャラは属性(打)を持つリーダーとキャラとのバトルでKOされない。",
     "trigger": "",
-    "getInfo": "最強ジャンプ9月号付録（2022年8月4日売） カードリスト",
-    "seriesTitle": "最強ジャンプ9月号付録（2022年8月4日売） カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-007"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-008_dummy.gif",
@@ -58923,10 +58607,9 @@
     "block": 1,
     "effectText": "【起動メイン】このキャラをレストにできる：相手のコスト2以下のキャラ1枚までを、レストにする。",
     "trigger": "",
-    "getInfo": "最強ジャンプ9月号付録（2022年8月4日売） カードリスト",
-    "seriesTitle": "最強ジャンプ9月号付録（2022年8月4日売） カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-008"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-009_dummy.gif",
@@ -58950,10 +58633,9 @@
     "block": 1,
     "effectText": "【登場時】相手の手札が6枚以上ある場合、相手は自身のライフ1枚を手札に加える。",
     "trigger": "",
-    "getInfo": "最強ジャンプ9月号付録（2022年8月4日売） カードリスト",
-    "seriesTitle": "最強ジャンプ9月号付録（2022年8月4日売） カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-009"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-010_dummy.gif",
@@ -58977,10 +58659,9 @@
     "block": 1,
     "effectText": "【自分のターン終了時】ドン‼デッキからドン‼1枚までをアクティブで追加する。",
     "trigger": "",
-    "getInfo": "最強ジャンプ9月号付録（2022年8月4日売） カードリスト",
-    "seriesTitle": "最強ジャンプ9月号付録（2022年8月4日売） カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-010"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-011_dummy.gif",
@@ -59003,10 +58684,9 @@
     "block": 1,
     "effectText": "【起動メイン】【ターン1回】①(コストエリアのドン‼を指定の数レストにできる)：自分の元々の効果がないキャラ1枚までを、このターン中、パワー+2000。",
     "trigger": "",
-    "getInfo": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ カードリスト",
-    "seriesTitle": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-011"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-012_dummy.gif",
@@ -59030,10 +58710,9 @@
     "block": 1,
     "effectText": "-",
     "trigger": "",
-    "getInfo": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ カードリスト",
-    "seriesTitle": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-012"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-013_dummy.gif",
@@ -59056,10 +58735,9 @@
     "block": 1,
     "effectText": "【起動メイン】このキャラを持ち主のデッキの下に置くことができる：相手のキャラ1枚までを、このターン中、パワー-3000。",
     "trigger": "",
-    "getInfo": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ カードリスト",
-    "seriesTitle": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-013"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-014_dummy.gif",
@@ -59083,10 +58761,9 @@
     "block": 1,
     "effectText": "【ブロッカー】(相手のアタックの後、このカードをレストにし、アタックの対象をこのカードにできる)",
     "trigger": "【】このカードを登場させる。",
-    "getInfo": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ カードリスト",
-    "seriesTitle": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-014"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-015_dummy.gif",
@@ -59110,10 +58787,9 @@
     "block": 1,
     "effectText": "-",
     "trigger": "",
-    "getInfo": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ カードリスト",
-    "seriesTitle": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-015"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-016_dummy.gif",
@@ -59138,10 +58814,9 @@
     "block": 1,
     "effectText": "-",
     "trigger": "",
-    "getInfo": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ カードリスト",
-    "seriesTitle": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-016"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-017_dummy.gif",
@@ -59166,10 +58841,9 @@
     "block": 1,
     "effectText": "【登場時】相手のキャラ1枚までを、このターン中、パワー-2000。",
     "trigger": "",
-    "getInfo": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ カードリスト",
-    "seriesTitle": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-017"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-018_dummy.gif",
@@ -59194,10 +58868,9 @@
     "block": 1,
     "effectText": "【ブロッカー】(相手のアタックの後、このカードをレストにし、アタックの対象をこのカードにできる)",
     "trigger": "",
-    "getInfo": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ カードリスト",
-    "seriesTitle": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-018"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-019_dummy.gif",
@@ -59222,10 +58895,9 @@
     "block": 1,
     "effectText": "【ドン‼×1】【アタック時】相手のパワー3000以下のキャラ1枚までを、KOする。",
     "trigger": "",
-    "getInfo": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ カードリスト",
-    "seriesTitle": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-019"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-020_dummy.gif",
@@ -59249,10 +58921,9 @@
     "block": 1,
     "effectText": "【登場時】自分のリーダーかキャラ1枚までを、このターン中、パワー+1000。",
     "trigger": "",
-    "getInfo": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ カードリスト",
-    "seriesTitle": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-020"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-021_dummy.gif",
@@ -59276,10 +58947,9 @@
     "block": 1,
     "effectText": "-",
     "trigger": "",
-    "getInfo": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ カードリスト",
-    "seriesTitle": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-021"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-022_dummy.gif",
@@ -59304,10 +58974,9 @@
     "block": 1,
     "effectText": "-",
     "trigger": "",
-    "getInfo": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ カードリスト",
-    "seriesTitle": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-022"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-023_dummy.gif",
@@ -59331,10 +59000,9 @@
     "block": 1,
     "effectText": "-",
     "trigger": "",
-    "getInfo": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ カードリスト",
-    "seriesTitle": "『ONE PIECE FILM RED』第2弾入場者プレゼント チュートリアルデッキ カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-023"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-024_dummy.gif",
@@ -59358,10 +59026,9 @@
     "block": 1,
     "effectText": "【メイン】自分のリーダーは、このターン中、自分のキャラ1枚につきパワー+1000。",
     "trigger": "【】自分のリーダーかキャラ1枚までを、このターン中、パワー+1000。",
-    "getInfo": "交流会 9月開催記念品 カードリスト",
-    "seriesTitle": "交流会 9月開催記念品 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-024"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-025_dummy.gif",
@@ -59384,10 +59051,9 @@
     "block": 1,
     "effectText": "【ドン‼×1】このキャラは属性(特)を持たないキャラとのバトルでKOされない。",
     "trigger": "",
-    "getInfo": "Vジャンプ12月特大号付録（2022年10月21日売） カードリスト",
-    "seriesTitle": "Vジャンプ12月特大号付録（2022年10月21日売） カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-025"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-026_dummy.gif",
@@ -59410,10 +59076,9 @@
     "block": 1,
     "effectText": "【アタック時】相手のキャラ1枚までを、このターン中、コスト-3。",
     "trigger": "",
-    "getInfo": "交流会12月開催記念品 カードリスト",
-    "seriesTitle": "交流会12月開催記念品 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-026"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-027_dummy.gif",
@@ -59436,10 +59101,9 @@
     "block": 1,
     "effectText": "ルール上、このカードはカード名を「フランキー」としても扱う。【相手のターン中】自分の元々のパワー3000以下のキャラすべてを、パワー+1000。",
     "trigger": "",
-    "getInfo": "最強ジャンプ12月号付録（2022年11月2日売） カードリスト",
-    "seriesTitle": "最強ジャンプ12月号付録（2022年11月2日売） カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-027"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-028_dummy.gif",
@@ -59462,10 +59126,9 @@
     "block": 1,
     "effectText": "【ダブルアタック】(このカードが与えるダメージは2になる)",
     "trigger": "",
-    "getInfo": "ONE PIECEカードゲーム プロモーションパック2022 Vol.2 カードリスト",
-    "seriesTitle": "ONE PIECEカードゲーム プロモーションパック2022 Vol.2 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-028"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-029_dummy.gif",
@@ -59492,8 +59155,7 @@
     "trigger": "",
     "getInfo": "スタートデッキ 緑 ウタ【ST-16】",
     "seriesTitle": "スタートデッキ 緑 ウタ",
-    "seriesCode": "ST-16",
-    "sourceModalId": "P-029"
+    "seriesCode": "ST-16"
   },
   {
     "uniqueId": "P-030_dummy.gif",
@@ -59520,8 +59182,7 @@
     "trigger": "",
     "getInfo": "スタートデッキ 青 ドンキホーテ・ドフラミンゴ【ST-17】",
     "seriesTitle": "スタートデッキ 青 ドンキホーテ・ドフラミンゴ",
-    "seriesCode": "ST-17",
-    "sourceModalId": "P-030"
+    "seriesCode": "ST-17"
   },
   {
     "uniqueId": "P-031_dummy.gif",
@@ -59544,10 +59205,9 @@
     "block": 1,
     "effectText": "【登場時】ドン‼デッキからドン‼1枚までを、レストで追加する。",
     "trigger": "",
-    "getInfo": "ONE PIECEカードゲーム プロモーションパック2022 Vol.2 カードリスト",
-    "seriesTitle": "ONE PIECEカードゲーム プロモーションパック2022 Vol.2 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-031"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-032_dummy.gif",
@@ -59570,10 +59230,9 @@
     "block": 1,
     "effectText": "【ドン‼×1】【自分のターン中】相手のキャラすべてを、コスト-2。",
     "trigger": "",
-    "getInfo": "ONE PIECEカードゲーム プロモーションパック2022 Vol.2 カードリスト",
-    "seriesTitle": "ONE PIECEカードゲーム プロモーションパック2022 Vol.2 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-032"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-033_dummy.gif",
@@ -59596,10 +59255,9 @@
     "block": 1,
     "effectText": "【起動メイン】このキャラを持ち主のデッキの下に置くことができる：カード1枚を引く。",
     "trigger": "",
-    "getInfo": "週刊少年ジャンプ付録（2023年1月7日売） カードリスト",
-    "seriesTitle": "週刊少年ジャンプ付録（2023年1月7日売） カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-033"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-034_dummy.gif",
@@ -59622,10 +59280,9 @@
     "block": 1,
     "effectText": "【ドン!!×1】【自分のターン中】自分のライフが2枚以下の場合、このキャラはパワー+2000。",
     "trigger": "",
-    "getInfo": "Vジャンプ3月特大号付録（2023年1月20日売） カードリスト",
-    "seriesTitle": "Vジャンプ3月特大号付録（2023年1月20日売） カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-034"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-035_dummy.gif",
@@ -59648,10 +59305,9 @@
     "block": 1,
     "effectText": "【ドン!!×1】【アタック時】自分の手札1枚を捨てることができる：相手のコスト0のキャラ1枚までを、KOする。",
     "trigger": "",
-    "getInfo": "交流会3月開催記念品 カードリスト",
-    "seriesTitle": "交流会3月開催記念品 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-035"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-036_dummy.gif",
@@ -59675,10 +59331,9 @@
     "block": 1,
     "effectText": "【アタック時】自分のライフの上か下から1枚を手札に加えることができる：このキャラと自分のリーダー1枚までを、このターン中、パワー+1000。",
     "trigger": "",
-    "getInfo": "最強ジャンプ3月号付録（2023年2月3日売） カードリスト",
-    "seriesTitle": "最強ジャンプ3月号付録（2023年2月3日売） カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-036"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-037_dummy.gif",
@@ -59701,10 +59356,9 @@
     "block": 1,
     "effectText": "【アタック時】自分のレストのキャラが2枚以上いる場合、このキャラは、このターン中、パワー+1000。",
     "trigger": "",
-    "getInfo": "最強ジャンプ6月号付録（2023年5月2日売） カードリスト",
-    "seriesTitle": "最強ジャンプ6月号付録（2023年5月2日売） カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-037"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-038_dummy.gif",
@@ -59728,10 +59382,9 @@
     "block": 1,
     "effectText": "【登場時】自分のリーダー1枚をレストにできる：相手のコスト1以下のキャラ1枚までを、KOする。",
     "trigger": "",
-    "getInfo": "Vジャンプ7月特大号付録（2023年5月19日売） カードリスト",
-    "seriesTitle": "Vジャンプ7月特大号付録（2023年5月19日売） カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-038"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-039_dummy.gif",
@@ -59754,10 +59407,9 @@
     "block": 1,
     "effectText": "【バニッシュ】(このカードがダメージを与えた場合、トリガーは発動せずそのカードはトラッシュに置かれる)【ドン!!×2】自分のライフが0枚の場合、このキャラはパワー+2000。",
     "trigger": "",
-    "getInfo": "交流会6月開催記念品 カードリスト",
-    "seriesTitle": "交流会6月開催記念品 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-039"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-040_dummy.gif",
@@ -59781,10 +59433,9 @@
     "block": 2,
     "effectText": "相手の場にドン!!が10枚ある場合、このキャラはKOされない。",
     "trigger": "",
-    "getInfo": "「ONE PIECE CARD GAME 1st ANNIVERSARY COMPLETE GUIDE」限定特典カード カードリスト",
-    "seriesTitle": "「ONE PIECE CARD GAME 1st ANNIVERSARY COMPLETE GUIDE」限定特典カード カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-040"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-041_dummy.gif",
@@ -59810,8 +59461,7 @@
     "trigger": "",
     "getInfo": "スタートデッキ 紫 モンキー・D・ルフィ【ST-18】",
     "seriesTitle": "スタートデッキ 紫 モンキー・D・ルフィ",
-    "seriesCode": "ST-18",
-    "sourceModalId": "P-041"
+    "seriesCode": "ST-18"
   },
   {
     "uniqueId": "P-042_dummy.gif",
@@ -59834,10 +59484,9 @@
     "block": 2,
     "effectText": "-",
     "trigger": "【】相手のコスト4以下のキャラ1枚までを、KOする。",
-    "getInfo": "最強ジャンプ9月号付録（2023年8月4日売） カードリスト",
-    "seriesTitle": "最強ジャンプ9月号付録（2023年8月4日売） カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-042"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-043_dummy.gif",
@@ -59860,10 +59509,9 @@
     "block": 2,
     "effectText": "【登場時】コスト3以下のキャラ1枚までを、持ち主の手札に戻す。",
     "trigger": "",
-    "getInfo": "週刊少年ジャンプ付録（2023年8月7日売） カードリスト",
-    "seriesTitle": "週刊少年ジャンプ付録（2023年8月7日売） カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-043"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-044_dummy.gif",
@@ -59888,8 +59536,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "P-044"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "P-045_dummy.gif",
@@ -59912,10 +59559,9 @@
     "block": 2,
     "effectText": "【バニッシュ】(このカードがダメージを与えた場合、トリガーは発動せずそのカードはトラッシュに置かれる)",
     "trigger": "",
-    "getInfo": "交流会 2023年9月開催記念品 カードリスト",
-    "seriesTitle": "交流会 2023年9月開催記念品 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-045"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-046_dummy.gif",
@@ -59938,10 +59584,9 @@
     "block": 2,
     "effectText": "【登場時】自分の手札すべてを好きな順番でデッキの下に置いてもよい。そうした場合、置いた枚数分カードを引く。",
     "trigger": "",
-    "getInfo": "ONE PIECE magazine Vol.17付録（2023年9月4日売） カードリスト",
-    "seriesTitle": "ONE PIECE magazine Vol.17付録（2023年9月4日売） カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-046"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-047_dummy.gif",
@@ -59964,10 +59609,9 @@
     "block": 2,
     "effectText": "【ドン!!×1】【アタック時】自分の手札が3枚以下の場合、カード1枚を引く。",
     "trigger": "",
-    "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.4 カードリスト",
-    "seriesTitle": "ONE PIECEカードゲーム プロモーションパックVol.4 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-047"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-048_dummy.gif",
@@ -59991,10 +59635,9 @@
     "block": 2,
     "effectText": "【ドン!!×1】【アタック時】自分のライフが4枚以上の場合、相手は自身の手札1枚をデッキの下に置く。",
     "trigger": "",
-    "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.4 カードリスト",
-    "seriesTitle": "ONE PIECEカードゲーム プロモーションパックVol.4 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-048"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-049_dummy.gif",
@@ -60017,10 +59660,9 @@
     "block": 2,
     "effectText": "【登場時】自分のデッキの上から5枚を見て、好きな順番に並び替え、デッキの上か下に置く。",
     "trigger": "",
-    "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.4 カードリスト",
-    "seriesTitle": "ONE PIECEカードゲーム プロモーションパックVol.4 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-049"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-050_dummy.gif",
@@ -60043,10 +59685,9 @@
     "block": 2,
     "effectText": "【ブロッカー】(相手のアタックの後、このカードをレストにし、アタックの対象をこのカードにできる)【ドン!!×1】【自分のターン中】自分の手札が3枚以下の場合、このキャラはパワー+4000。",
     "trigger": "",
-    "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.4 カードリスト",
-    "seriesTitle": "ONE PIECEカードゲーム プロモーションパックVol.4 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-050"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-051_dummy.gif",
@@ -60069,10 +59710,9 @@
     "block": 2,
     "effectText": "【アタック時】自分の手札を任意の枚数捨ててもよい。捨てたカード1枚につき、このキャラは、このバトル中、パワー+1000。",
     "trigger": "",
-    "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.4 カードリスト",
-    "seriesTitle": "ONE PIECEカードゲーム プロモーションパックVol.4 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-051"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-052_dummy.gif",
@@ -60095,10 +59735,9 @@
     "block": 2,
     "effectText": "【ドン!!×1】このキャラは属性(斬)を持つカードとのバトルでKOされない。",
     "trigger": "",
-    "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.4 カードリスト",
-    "seriesTitle": "ONE PIECEカードゲーム プロモーションパックVol.4 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-052"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-053_dummy.gif",
@@ -60121,10 +59760,9 @@
     "block": 2,
     "effectText": "【登場時】自分の手札が3枚以下の場合、相手のコスト3以下のキャラ1枚までを、持ち主の手札に戻す。",
     "trigger": "",
-    "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.4 カードリスト",
-    "seriesTitle": "ONE PIECEカードゲーム プロモーションパックVol.4 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-053"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-054_dummy.gif",
@@ -60147,10 +59785,9 @@
     "block": 2,
     "effectText": "【ドン!!×1】このキャラは属性(打)を持つカードとのバトルでKOされない。",
     "trigger": "",
-    "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.4 カードリスト",
-    "seriesTitle": "ONE PIECEカードゲーム プロモーションパックVol.4 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-054"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-055_dummy.gif",
@@ -60173,10 +59810,9 @@
     "block": 2,
     "effectText": "【登場時】自分の手札2枚を捨てることができる：相手は自身のキャラ1枚を、持ち主のデッキの下に置く。",
     "trigger": "",
-    "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.4 カードリスト",
-    "seriesTitle": "ONE PIECEカードゲーム プロモーションパックVol.4 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-055"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-056_dummy.gif",
@@ -60199,10 +59835,9 @@
     "block": 2,
     "effectText": "【登場時】➁(コストエリアのドン!!を指定の数レストにできる)：コスト5以下のキャラ1枚までを、持ち主の手札に戻す。",
     "trigger": "",
-    "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.4 カードリスト",
-    "seriesTitle": "ONE PIECEカードゲーム プロモーションパックVol.4 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-056"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-057_dummy.gif",
@@ -60228,8 +59863,7 @@
     "trigger": "【】このカードの【メイン】効果を発動する。",
     "getInfo": "スタートデッキ 緑 ウタ【ST-16】",
     "seriesTitle": "スタートデッキ 緑 ウタ",
-    "seriesCode": "ST-16",
-    "sourceModalId": "P-057"
+    "seriesCode": "ST-16"
   },
   {
     "uniqueId": "P-058_dummy.gif",
@@ -60255,8 +59889,7 @@
     "trigger": "【】自分の特徴《FILM》を持つキャラすべてを、アクティブにする。",
     "getInfo": "スタートデッキ 緑 ウタ【ST-16】",
     "seriesTitle": "スタートデッキ 緑 ウタ",
-    "seriesCode": "ST-16",
-    "sourceModalId": "P-058"
+    "seriesCode": "ST-16"
   },
   {
     "uniqueId": "P-059_dummy.gif",
@@ -60282,8 +59915,7 @@
     "trigger": "",
     "getInfo": "スタートデッキ 緑 ウタ【ST-16】",
     "seriesTitle": "スタートデッキ 緑 ウタ",
-    "seriesCode": "ST-16",
-    "sourceModalId": "P-059"
+    "seriesCode": "ST-16"
   },
   {
     "uniqueId": "P-060_dummy.gif",
@@ -60309,8 +59941,7 @@
     "trigger": "",
     "getInfo": "スタートデッキ 緑 ウタ【ST-16】",
     "seriesTitle": "スタートデッキ 緑 ウタ",
-    "seriesCode": "ST-16",
-    "sourceModalId": "P-060"
+    "seriesCode": "ST-16"
   },
   {
     "uniqueId": "P-061_dummy.gif",
@@ -60336,8 +59967,7 @@
     "trigger": "",
     "getInfo": "スタートデッキ 緑 ウタ【ST-16】",
     "seriesTitle": "スタートデッキ 緑 ウタ",
-    "seriesCode": "ST-16",
-    "sourceModalId": "P-061"
+    "seriesCode": "ST-16"
   },
   {
     "uniqueId": "P-062_dummy.gif",
@@ -60362,10 +59992,9 @@
     "block": 2,
     "effectText": "【起動メイン】【ターン1回】相手のコスト4以下のキャラ1枚までを、レストにし、このキャラは、このターン中、パワー＋1000。その後、自分のライフの上から1枚を手札に加える。",
     "trigger": "",
-    "getInfo": "交流会 2023年12月開催記念品 カードリスト",
-    "seriesTitle": "交流会 2023年12月開催記念品 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-062"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-063_dummy.gif",
@@ -60390,8 +60019,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "P-063"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "P-064_dummy.gif",
@@ -60415,10 +60043,9 @@
     "block": 2,
     "effectText": "-",
     "trigger": "",
-    "getInfo": "最強ジャンプ1月号付録（2023年12月4日売） カードリスト",
-    "seriesTitle": "最強ジャンプ1月号付録（2023年12月4日売） カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-064"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-065_dummy.gif",
@@ -60442,10 +60069,9 @@
     "block": 2,
     "effectText": "【アタック時】相手のコスト0のキャラがいる場合、このキャラは、次の自分のターン開始時まで、パワー+2000。",
     "trigger": "",
-    "getInfo": "勉タメジャンプ2024 WINTER付録（2023年12月8日売） カードリスト",
-    "seriesTitle": "勉タメジャンプ2024 WINTER付録（2023年12月8日売） カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-065"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-066_dummy.gif",
@@ -60469,10 +60095,9 @@
     "block": 2,
     "effectText": "【自分のターン中】自分の手札が5枚以下の場合、自分の特徴《九蛇海賊団》を持つキャラすべては、パワー+1000。",
     "trigger": "",
-    "getInfo": "最強ジャンプ4月号付録（2024年3月4日売） カードリスト",
-    "seriesTitle": "最強ジャンプ4月号付録（2024年3月4日売） カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-066"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-067_dummy.gif",
@@ -60496,10 +60121,9 @@
     "block": 2,
     "effectText": "このキャラがレストの場合、相手はキャラの「ユースタス・キッド」以外にアタックできない。",
     "trigger": "",
-    "getInfo": "Vジャンプ4月特大号付録（2024年2月21日売） カードリスト",
-    "seriesTitle": "Vジャンプ4月特大号付録（2024年2月21日売） カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-067"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-068_dummy.gif",
@@ -60525,8 +60149,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "P-068"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "P-069_dummy.gif",
@@ -60551,8 +60174,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "P-069"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "P-070_dummy.gif",
@@ -60577,8 +60199,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "P-070"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "P-071_dummy.gif",
@@ -60601,10 +60222,9 @@
     "block": 3,
     "effectText": "【KO時】このキャラカードを手札に加えることができる。",
     "trigger": "",
-    "getInfo": "最強ジャンプ8月号付録（2024年7月4日売） カードリスト",
-    "seriesTitle": "最強ジャンプ8月号付録（2024年7月4日売） カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-071"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-072_dummy.gif",
@@ -60627,10 +60247,9 @@
     "block": 3,
     "effectText": "【登場時】/【KO時】相手のコスト4以下のキャラ1枚までを、レストにする。",
     "trigger": "",
-    "getInfo": "『MONSTERS 一百三情飛龍侍極』セットBOX特典 カードリスト",
-    "seriesTitle": "『MONSTERS 一百三情飛龍侍極』セットBOX特典 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-072"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-073_dummy.gif",
@@ -60656,8 +60275,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "P-073"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "P-074_dummy.gif",
@@ -60682,8 +60300,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "P-074"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "P-075_dummy.gif",
@@ -60709,8 +60326,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "P-075"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "P-076_dummy.gif",
@@ -60734,10 +60350,9 @@
     "block": 2,
     "effectText": "【起動メイン】【ターン1回】自分の手札から特徴《海軍》を持つカード1枚を捨てることができる：相手のキャラ1枚までを、このターン中、コスト-1。",
     "trigger": "",
-    "getInfo": "交流会 2024年5月開催記念品 カードリスト",
-    "seriesTitle": "交流会 2024年5月開催記念品 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-076"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-077_dummy.gif",
@@ -60760,10 +60375,9 @@
     "block": 3,
     "effectText": "【ターン1回】自分の場のドン‼が2枚以上ドン‼デッキに戻された時、ドン‼デッキからドン‼1枚までを、レストで追加する。その後、自分の紫のステージ1枚までをアクティブにする。",
     "trigger": "",
-    "getInfo": "交流会 2024年7月開催記念品 カードリスト",
-    "seriesTitle": "交流会 2024年7月開催記念品 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-077"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-078_dummy.gif",
@@ -60788,8 +60402,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "P-078"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "P-079_dummy.gif",
@@ -60814,8 +60427,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "P-079"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "P-080_dummy.gif",
@@ -60840,10 +60452,9 @@
     "block": 3,
     "effectText": "-",
     "trigger": "",
-    "getInfo": "BANDAI CARD GAMES Fest 24-25 World Tour 来場記念品 カードリスト",
-    "seriesTitle": "BANDAI CARD GAMES Fest 24-25 World Tour 来場記念品 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-080"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-081_dummy.gif",
@@ -60868,8 +60479,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "P-081_p1"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "P-082_dummy.gif",
@@ -60895,8 +60505,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "P-082_p1"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "P-083_dummy.gif",
@@ -60922,8 +60531,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "P-083"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "P-084_dummy.gif",
@@ -60949,8 +60557,7 @@
     "trigger": "",
     "getInfo": "スタートデッキ 青 バギー【ST-25】",
     "seriesTitle": "スタートデッキ 青 バギー",
-    "seriesCode": "ST-25",
-    "sourceModalId": "P-084"
+    "seriesCode": "ST-25"
   },
   {
     "uniqueId": "P-085_dummy.gif",
@@ -60976,8 +60583,7 @@
     "trigger": "",
     "getInfo": "スタートデッキ 黄 ユースタス・キッド【ST-36】",
     "seriesTitle": "スタートデッキ 黄 ユースタス・キッド",
-    "seriesCode": "ST-36",
-    "sourceModalId": "P-085"
+    "seriesCode": "ST-36"
   },
   {
     "uniqueId": "P-086_dummy.gif",
@@ -61001,10 +60607,9 @@
     "block": 3,
     "effectText": "【起動メイン】【ターン1回】ドン!!-3,自分のパワー3000以上のキャラ1枚を、デッキの下に置くことができる：自分の手札からコスト4以下の特徴《ハートの海賊団》を持つキャラカード1枚までを、登場させる。",
     "trigger": "",
-    "getInfo": "交流会 2024年9月開催記念品 カードリスト",
-    "seriesTitle": "交流会 2024年9月開催記念品 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-086"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-087_dummy.gif",
@@ -61027,10 +60632,9 @@
     "block": 3,
     "effectText": "-",
     "trigger": "",
-    "getInfo": "交流会 2025年1月開催記念品 カードリスト",
-    "seriesTitle": "交流会 2025年1月開催記念品 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-087"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-088_dummy.gif",
@@ -61056,8 +60660,7 @@
     "trigger": "【】自分のリーダーが特徴《超新星》を持ち、お互いのライフの合計枚数が5枚以下の場合、このカードを登場させる。",
     "getInfo": "スタートデッキ 黄 ユースタス・キッド【ST-36】",
     "seriesTitle": "スタートデッキ 黄 ユースタス・キッド",
-    "seriesCode": "ST-36",
-    "sourceModalId": "P-088"
+    "seriesCode": "ST-36"
   },
   {
     "uniqueId": "P-089_dummy.gif",
@@ -61081,10 +60684,9 @@
     "block": 3,
     "effectText": "-",
     "trigger": "",
-    "getInfo": "最強ジャンプ2月特大号付録（2025年1月4日売） カードリスト",
-    "seriesTitle": "最強ジャンプ2月特大号付録（2025年1月4日売） カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-089"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-090_dummy.gif",
@@ -61109,8 +60711,7 @@
     "trigger": "",
     "getInfo": "スタートデッキ 紫 シャーロット・カタクリ【ST-34】",
     "seriesTitle": "スタートデッキ 紫 シャーロット・カタクリ",
-    "seriesCode": "ST-34",
-    "sourceModalId": "P-090"
+    "seriesCode": "ST-34"
   },
   {
     "uniqueId": "P-091_dummy.gif",
@@ -61134,10 +60735,9 @@
     "block": 3,
     "effectText": "【登場時】自分の手札からコスト5以下の特徴《海王類》か《魚人島》を持つキャラカード1枚までを、登場させる。【起動メイン】このキャラをレストにできる：自分の特徴《海王類》を持つキャラ1枚までは、登場したターンにキャラへアタックできる。",
     "trigger": "",
-    "getInfo": "Vジャンプ4月特大号付録（2025年2月20日売） カードリスト",
-    "seriesTitle": "Vジャンプ4月特大号付録（2025年2月20日売） カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-091"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-092_dummy.gif",
@@ -61161,10 +60761,9 @@
     "block": 3,
     "effectText": "【相手のターン中】このキャラのパワー-3000。【アタック時】自分のリーダーが特徴《海軍》を持つ場合、自分のリーダーを、次の相手のターン終了時まで、元々のパワー7000にする。",
     "trigger": "",
-    "getInfo": "最強ジャンプ4月特大号付録（2025年3月4日売） カードリスト",
-    "seriesTitle": "最強ジャンプ4月特大号付録（2025年3月4日売） カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-092"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-093_dummy.gif",
@@ -61187,10 +60786,9 @@
     "block": 3,
     "effectText": "【ブロッカー】【登場時】自分の場のドン‼が相手の場のドン‼の枚数以下の場合、ドン‼デッキからドン‼1枚までを、レストで追加する。",
     "trigger": "",
-    "getInfo": "交流会 2025年5月開催記念品 カードリスト",
-    "seriesTitle": "交流会 2025年5月開催記念品 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-093"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-094_dummy.gif",
@@ -61213,10 +60811,9 @@
     "block": 3,
     "effectText": "【登場時】相手のレストのコスト2以下のキャラ1枚までを、KOする。",
     "trigger": "",
-    "getInfo": "Vジャンプ7月特大号付録（2025年5月21日売） カードリスト",
-    "seriesTitle": "Vジャンプ7月特大号付録（2025年5月21日売） カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-094"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-095_dummy.gif",
@@ -61239,10 +60836,9 @@
     "block": 3,
     "effectText": "【相手のアタック時】【ターン1回】自分の手札からイベント1枚を捨てることができる：自分のリーダーかキャラ1枚までを、このバトル中、パワー+2000。",
     "trigger": "",
-    "getInfo": "最強ジャンプ7月号付録（2025年6月4日売） カードリスト",
-    "seriesTitle": "最強ジャンプ7月号付録（2025年6月4日売） カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-095"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-096_dummy.gif",
@@ -61265,10 +60861,9 @@
     "block": 3,
     "effectText": "【登場時】カード1枚を引き、自分の手札1枚を捨てる。【起動メイン】【ターン1回】自分の「ナミ」1枚にレストのドン‼1枚までを、付与する。",
     "trigger": "",
-    "getInfo": "ONE PIECE magazine別冊 Focus on〝ONE PIECE FAN LETTER〟付録 カードリスト",
-    "seriesTitle": "ONE PIECE magazine別冊 Focus on〝ONE PIECE FAN LETTER〟付録 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-096"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-097_dummy.gif",
@@ -61292,10 +60887,9 @@
     "block": 3,
     "effectText": "【登場時】/【アタック時】相手は、このターン中、【ブロッカー】を発動できない。",
     "trigger": "",
-    "getInfo": "交流会 2025年7月開催記念品 カードリスト",
-    "seriesTitle": "交流会 2025年7月開催記念品 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-097"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-098_dummy.gif",
@@ -61319,10 +60913,9 @@
     "block": 3,
     "effectText": "【ブロッカー】(相手のアタックの後、このカードをレストにし、アタックの対象をこのカードにできる)【登場時】自分のコスト5以上のキャラが5枚いない場合、このキャラを持ち主のデッキの下に置く。",
     "trigger": "",
-    "getInfo": "交流会 2025年7月開催記念品 カードリスト",
-    "seriesTitle": "交流会 2025年7月開催記念品 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-098"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-099_dummy.gif",
@@ -61346,10 +60939,9 @@
     "block": 3,
     "effectText": "【アタック時】ドン‼-10(自分の場のドン‼を指定の数ドン‼デッキに戻すことができる)：このキャラをアクティブにする。",
     "trigger": "",
-    "getInfo": "交流会 2025年7月開催記念品 カードリスト",
-    "seriesTitle": "交流会 2025年7月開催記念品 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-099"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-100_dummy.gif",
@@ -61373,10 +60965,9 @@
     "block": 3,
     "effectText": "【アタック時】相手のリーダーとキャラすべてを、このターン中、効果を無効にする。",
     "trigger": "",
-    "getInfo": "交流会 2025年7月開催記念品 カードリスト",
-    "seriesTitle": "交流会 2025年7月開催記念品 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-100"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-101_dummy.gif",
@@ -61402,8 +60993,7 @@
     "trigger": "",
     "getInfo": "スタートデッキ 赤 モンキー・D・ルフィ【ST-31】",
     "seriesTitle": "スタートデッキ 赤 モンキー・D・ルフィ",
-    "seriesCode": "ST-31",
-    "sourceModalId": "P-101"
+    "seriesCode": "ST-31"
   },
   {
     "uniqueId": "P-102_dummy.gif",
@@ -61427,10 +61017,9 @@
     "block": 4,
     "effectText": "【登場時】自分のリーダーが特徴《麦わらの一味》を持つ場合、自分のドン‼2枚までを、アクティブにする。",
     "trigger": "",
-    "getInfo": "「プロモーションカードセット2025」ゲットキャンペーン カードリスト",
-    "seriesTitle": "「プロモーションカードセット2025」ゲットキャンペーン カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-102"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-103_dummy.gif",
@@ -61453,10 +61042,9 @@
     "block": 4,
     "effectText": "【登場時】カード2枚を引き、自分の手札2枚を好きな順番に並び替え、デッキの上か下に置く。その後、自分のリーダーにレストのドン‼1枚までを、付与する。",
     "trigger": "",
-    "getInfo": "「プロモーションカードセット2025」ゲットキャンペーン カードリスト",
-    "seriesTitle": "「プロモーションカードセット2025」ゲットキャンペーン カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-103"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-104_dummy.gif",
@@ -61481,10 +61069,9 @@
     "block": 4,
     "effectText": "自分か相手の場のドン‼が10枚ある場合、このキャラは相手の効果で場を離れない。",
     "trigger": "",
-    "getInfo": "「プロモーションカードセット2025」ゲットキャンペーン カードリスト",
-    "seriesTitle": "「プロモーションカードセット2025」ゲットキャンペーン カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-104"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-105_dummy.gif",
@@ -61507,10 +61094,9 @@
     "block": 4,
     "effectText": "自分のリーダーが特徴《革命軍》を持つ場合、このキャラは【ブロッカー】を得て、コスト+4。【登場時】自分のライフの上か下から1枚を手札に加えることができる：自分のリーダーかキャラ1枚にレストのドン‼1枚までを、付与する。",
     "trigger": "",
-    "getInfo": "「プロモーションカードセット2025」ゲットキャンペーン カードリスト",
-    "seriesTitle": "「プロモーションカードセット2025」ゲットキャンペーン カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-105"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-106_dummy.gif",
@@ -61535,10 +61121,9 @@
     "block": 4,
     "effectText": "【自分のターン終了時】自分のライフの上から1枚を表向きにできる：自分の特徴《エッグヘッド》を持つキャラ1枚までを、アクティブにする。",
     "trigger": "【】カード1枚を引き、相手のコスト2以下のキャラ1枚までを、KOする。",
-    "getInfo": "「プロモーションカードセット2025」ゲットキャンペーン カードリスト",
-    "seriesTitle": "「プロモーションカードセット2025」ゲットキャンペーン カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-106"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-107_dummy.gif",
@@ -61562,10 +61147,9 @@
     "block": 4,
     "effectText": "【登場時】自分か相手の場のドン‼が10枚ある場合、自分のリーダーを、次の相手のエンドフェイズ終了時まで、パワー+2000。",
     "trigger": "",
-    "getInfo": "交流会 2025年9月開催記念品 カードリスト",
-    "seriesTitle": "交流会 2025年9月開催記念品 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-107"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-108_dummy.gif",
@@ -61589,10 +61173,9 @@
     "block": 4,
     "effectText": "【ブロッカー】(相手のアタックの後、このカードをレストにし、アタックの対象をこのカードにできる)【KO時】自分のドン‼2枚までを、アクティブにする。",
     "trigger": "",
-    "getInfo": "Vジャンプ10月特大号付録（2025年8月21日売） カードリスト",
-    "seriesTitle": "Vジャンプ10月特大号付録（2025年8月21日売） カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-108"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-109_dummy.gif",
@@ -61615,10 +61198,9 @@
     "block": 4,
     "effectText": "【ブロッカー】【登場時】自分のデッキの上から3枚を見て、好きな順番に並び替え、デッキの上か下に置く。その後、自分のリーダーかキャラ1枚にレストのドン‼1枚までを、付与する。",
     "trigger": "",
-    "getInfo": "最強ジャンプ10月号付録（2025年9月4日売） カードリスト",
-    "seriesTitle": "最強ジャンプ10月号付録（2025年9月4日売） カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-109"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-110_dummy.gif",
@@ -61668,10 +61250,9 @@
     "block": 4,
     "effectText": "【ターン1回】自分の特徴《麦わらの一味》を持つキャラが相手の効果で場を離れる場合、代わりに自分のドン‼1枚をレストにできる。",
     "trigger": "",
-    "getInfo": "交流会 2025年11月開催記念品 カードリスト",
-    "seriesTitle": "交流会 2025年11月開催記念品 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-111"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-112_dummy.gif",
@@ -61694,10 +61275,9 @@
     "block": 4,
     "effectText": "【登場時】自分のリーダーが「ナミ」の場合、自分のリーダーにレストのドン‼1枚までを、付与する。その後、自分の手札からコスト2以下のキャラカード1枚までを、登場させる。",
     "trigger": "",
-    "getInfo": "交流会 2025年11月開催記念品 カードリスト",
-    "seriesTitle": "交流会 2025年11月開催記念品 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-112"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-113_dummy.gif",
@@ -61720,10 +61300,9 @@
     "block": 4,
     "effectText": "【ドン‼×2】【相手のターン中】このキャラは【ブロッカー】を得て、パワー+2000。",
     "trigger": "【】相手のコスト3以下のキャラ1枚までを、KOする。",
-    "getInfo": "交流会 2025年11月開催記念品 カードリスト",
-    "seriesTitle": "交流会 2025年11月開催記念品 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-113"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-114_dummy.gif",
@@ -61747,10 +61326,9 @@
     "block": 4,
     "effectText": "【ブロッカー】(相手のアタックの後、このカードをレストにし、アタックの対象をこのカードにできる）【自分のターン終了時】自分のアクティブのドン‼がある場合、このキャラをアクティブにする。",
     "trigger": "",
-    "getInfo": "交流会 2025年11月開催記念品 カードリスト",
-    "seriesTitle": "交流会 2025年11月開催記念品 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-114"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-115_dummy.gif",
@@ -61774,10 +61352,9 @@
     "block": 4,
     "effectText": "【登場時】自分のリーダーかキャラ1枚にレストのドン‼1枚までを、付与する。",
     "trigger": "【】自分の手札からパワー5000以下の黄の【】を持つキャラカード1枚までを、登場させる。",
-    "getInfo": "Vジャンプ2026年1月特大号（2025年11月20日売） カードリスト",
-    "seriesTitle": "Vジャンプ2026年1月特大号（2025年11月20日売） カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-115"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-116_dummy.gif",
@@ -61801,10 +61378,9 @@
     "block": 4,
     "effectText": "【ブロッカー】(相手のアタックの後、このカードをレストにし、アタックの対象をこのカードにできる）【KO時】自分のトラッシュが7枚以上ある場合、カード1枚を引き、自分の手札1枚を捨てる。",
     "trigger": "",
-    "getInfo": "最強ジャンプ1月号付録（2025年12月4日売） カードリスト",
-    "seriesTitle": "最強ジャンプ1月号付録（2025年12月4日売） カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-116"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-117_dummy.gif",
@@ -61827,10 +61403,9 @@
     "block": 4,
     "effectText": "ルール上、自分は特徴《東の海》を持つカードしかデッキに入れることができず、自分のデッキが0枚になった場合、自分は敗北する代わりに勝利する。【ドン‼×1】このリーダーのアタックによって、相手のライフにダメージを与えた時、自分のデッキの上から1枚をトラッシュに置いてもよい。",
     "trigger": "",
-    "getInfo": "交流会(小学生以下限定含む) カードリスト",
-    "seriesTitle": "交流会(小学生以下限定含む) カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-117"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-118_dummy.gif",
@@ -61854,10 +61429,9 @@
     "block": 4,
     "effectText": "【登場時】自分のリーダーが特徴《エッグヘッド》を持つ場合、自分の手札からコスト5以下の、特徴《エッグヘッド》か【トリガー】を持つキャラカード1枚までを、登場させる。",
     "trigger": "",
-    "getInfo": "交流会 2026年1月開催記念品 カードリスト",
-    "seriesTitle": "交流会 2026年1月開催記念品 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-118"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-119_dummy.gif",
@@ -61880,10 +61454,9 @@
     "block": 4,
     "effectText": "-",
     "trigger": "",
-    "getInfo": "交流会 2026年3月開催記念品 カードリスト",
-    "seriesTitle": "交流会 2026年3月開催記念品 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-119"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-120_dummy.gif",
@@ -61907,10 +61480,9 @@
     "block": 4,
     "effectText": "手札のこのカードは、相手のライフが離れているターン中、コスト－2。",
     "trigger": "",
-    "getInfo": "Vジャンプ4月特大号付録（2026年2月20日売） カードリスト",
-    "seriesTitle": "Vジャンプ4月特大号付録（2026年2月20日売） カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-120"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-121_dummy.gif",
@@ -61933,10 +61505,9 @@
     "block": 4,
     "effectText": "【登場時】自分のデッキの上から3枚をトラッシュに置く。【KO時】相手は自身の手札2枚を捨てる。",
     "trigger": "",
-    "getInfo": "最強ジャンプ4月号付録（2026年3月4日売） カードリスト",
-    "seriesTitle": "最強ジャンプ4月号付録（2026年3月4日売） カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-121"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-135_dummy.gif",
@@ -61959,10 +61530,9 @@
     "block": 5,
     "effectText": "【ブロッカー】(相手のアタックの後、このカードをレストにし、アタックの対象をこのカードにできる）【登場時】相手のコスト5以下のキャラ1枚までを、レストにする。",
     "trigger": "",
-    "getInfo": "交流会 2026年5月開催記念品 カードリスト",
-    "seriesTitle": "交流会 2026年5月開催記念品 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-135"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-136_dummy.gif",
@@ -62338,10 +61908,9 @@
     "block": 5,
     "effectText": "【自分のターン中】【登場時】自分のトラッシュからコスト1の【トリガー】を持つキャラカード1枚までを、登場させる。",
     "trigger": "【】カード1枚を引き、相手のコスト6以下のキャラ1枚までは、このターン中、アタックできない。",
-    "getInfo": "Vジャンプ7月特大号付録（2026年5月21日売） カードリスト",
-    "seriesTitle": "Vジャンプ7月特大号付録（2026年5月21日売） カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-150"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-151_dummy.gif",
@@ -62364,10 +61933,9 @@
     "block": 5,
     "effectText": "【登場時】自分の手札1枚を捨てることができる：自分のリーダーが特徴《海軍》を持つ場合、ドン!!デッキからドン!!1枚までを、レストで追加する。その後、自分のデッキの上から5枚を見て、特徴《海軍》を持つカード1枚までを公開し、手札に加え、残りを好きな順番でデッキの下に置く。",
     "trigger": "",
-    "getInfo": "最強ジャンプ7月号付録（2026年6月4日売） カードリスト",
-    "seriesTitle": "最強ジャンプ7月号付録（2026年6月4日売） カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-151"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-152_dummy.gif",
@@ -62391,10 +61959,9 @@
     "block": 5,
     "effectText": "【登場時】自分のリーダーとキャラすべてを、このターン中、パワー+2000。その後、相手のパワー3000以下のキャラ1枚までを、KOする。",
     "trigger": "",
-    "getInfo": "最強ジャンプ5月号​ 応募者全員大サービス（2026年4月3日売） カードリスト",
-    "seriesTitle": "最強ジャンプ5月号​ 応募者全員大サービス（2026年4月3日売） カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-152"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-153_dummy.gif",
@@ -62417,10 +61984,9 @@
     "block": 5,
     "effectText": "【登場時】相手のキャラ2枚までを、このターン中、パワー-3000。",
     "trigger": "",
-    "getInfo": "最強ジャンプ5月号​ 応募者全員大サービス（2026年4月3日売） カードリスト",
-    "seriesTitle": "最強ジャンプ5月号​ 応募者全員大サービス（2026年4月3日売） カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-153"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-154_dummy.gif",
@@ -62443,10 +62009,9 @@
     "block": 5,
     "effectText": "【登場時】自分のドン!!3枚をレストにできる：自分のリーダーが「ポートガス・D・エース」の場合、自分の手札からパワー8000以下の「ポートガス・D・エース」1枚までを、登場させる。",
     "trigger": "",
-    "getInfo": "最強ジャンプ5月号​ 応募者全員大サービス（2026年4月3日売） カードリスト",
-    "seriesTitle": "最強ジャンプ5月号​ 応募者全員大サービス（2026年4月3日売） カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-154"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-155_dummy.gif",
@@ -62470,10 +62035,9 @@
     "block": 5,
     "effectText": "【アタック時】自分の手札から【トリガー】を持つカード1枚を捨てることができる：相手のキャラ1枚までを、このターン中、パワー-2000。",
     "trigger": "【】相手のライフが3枚以下の場合、このカードを登場させる。",
-    "getInfo": "交流会 2026年7月開催記念品 カードリスト",
-    "seriesTitle": "交流会 2026年7月開催記念品 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-155"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-157_dummy.gif",
@@ -62498,10 +62062,9 @@
     "block": 5,
     "effectText": "【登場時】自分の手札1枚を捨てることができる：自分のトラッシュからコスト4以下の特徴《エルバフ》を持つキャラカード1枚までを、登場させる。",
     "trigger": "",
-    "getInfo": "交流会 2026年9月開催記念品 カードリスト",
-    "seriesTitle": "交流会 2026年9月開催記念品 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-157"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-159_dummy.gif",
@@ -62526,10 +62089,9 @@
     "block": 5,
     "effectText": "【KO時】自分のリーダーに付与されているドン!!がある場合、自分の手札からパワー6000以下の特徴《麦わらの一味》を持つキャラカード1枚までを、登場させる。",
     "trigger": "",
-    "getInfo": "週刊少年ジャンプ33号付録（2026年7月13日売） カードリスト",
-    "seriesTitle": "週刊少年ジャンプ33号付録（2026年7月13日売） カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-159"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "P-160_dummy.gif",
@@ -62552,10 +62114,9 @@
     "block": 5,
     "effectText": "【登場時】自分のデッキの上から5枚を見て、属性(知)を持つカード1枚までを公開し、手札に加え、残りを好きな順番でデッキの下に置く。その後、自分の手札1枚を捨てる。",
     "trigger": "【 】自分のライフが2枚以下の場合、このカードを登場させる。",
-    "getInfo": "交流会 2026年11月開催記念品 カードリスト",
-    "seriesTitle": "交流会 2026年11月開催記念品 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "P-160"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "PRB01-001_dummy.gif",
@@ -62710,8 +62271,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "PRB02-005_p2"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "PRB02-006_dummy.gif",
@@ -63072,8 +62632,7 @@
     "trigger": "",
     "getInfo": "麦わらの一味【ST-01】",
     "seriesTitle": "麦わらの一味",
-    "seriesCode": "ST-01",
-    "sourceModalId": "ST01-001_p3"
+    "seriesCode": "ST-01"
   },
   {
     "uniqueId": "ST01-002_dummy.gif",
@@ -63098,8 +62657,7 @@
     "trigger": "【】このカードを登場させる。",
     "getInfo": "麦わらの一味【ST-01】",
     "seriesTitle": "麦わらの一味",
-    "seriesCode": "ST-01",
-    "sourceModalId": "ST01-002_p2"
+    "seriesCode": "ST-01"
   },
   {
     "uniqueId": "ST01-003_dummy.gif",
@@ -63150,8 +62708,7 @@
     "trigger": "",
     "getInfo": "麦わらの一味【ST-01】",
     "seriesTitle": "麦わらの一味",
-    "seriesCode": "ST-01",
-    "sourceModalId": "ST01-004_p1"
+    "seriesCode": "ST-01"
   },
   {
     "uniqueId": "ST01-005_dummy.gif",
@@ -63177,8 +62734,7 @@
     "trigger": "",
     "getInfo": "麦わらの一味【ST-01】",
     "seriesTitle": "麦わらの一味",
-    "seriesCode": "ST-01",
-    "sourceModalId": "ST01-005_p3"
+    "seriesCode": "ST-01"
   },
   {
     "uniqueId": "ST01-006_dummy.gif",
@@ -63204,8 +62760,7 @@
     "trigger": "",
     "getInfo": "麦わらの一味【ST-01】",
     "seriesTitle": "麦わらの一味",
-    "seriesCode": "ST-01",
-    "sourceModalId": "ST01-006_p2"
+    "seriesCode": "ST-01"
   },
   {
     "uniqueId": "ST01-007_dummy.gif",
@@ -63230,8 +62785,7 @@
     "trigger": "",
     "getInfo": "麦わらの一味【ST-01】",
     "seriesTitle": "麦わらの一味",
-    "seriesCode": "ST-01",
-    "sourceModalId": "ST01-007_p1"
+    "seriesCode": "ST-01"
   },
   {
     "uniqueId": "ST01-008_dummy.gif",
@@ -63256,8 +62810,7 @@
     "trigger": "",
     "getInfo": "麦わらの一味【ST-01】",
     "seriesTitle": "麦わらの一味",
-    "seriesCode": "ST-01",
-    "sourceModalId": "ST01-008_p3"
+    "seriesCode": "ST-01"
   },
   {
     "uniqueId": "ST01-009_dummy.gif",
@@ -63282,8 +62835,7 @@
     "trigger": "",
     "getInfo": "麦わらの一味【ST-01】",
     "seriesTitle": "麦わらの一味",
-    "seriesCode": "ST-01",
-    "sourceModalId": "ST01-009_p1"
+    "seriesCode": "ST-01"
   },
   {
     "uniqueId": "ST01-010_dummy.gif",
@@ -63334,7 +62886,6 @@
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
     "seriesCode": "PRB-02",
-    "sourceModalId": "ST01-011_p1",
     "blockIconOverride": "4"
   },
   {
@@ -63361,8 +62912,7 @@
     "trigger": "",
     "getInfo": "麦わらの一味【ST-01】",
     "seriesTitle": "麦わらの一味",
-    "seriesCode": "ST-01",
-    "sourceModalId": "ST01-012_p5"
+    "seriesCode": "ST-01"
   },
   {
     "uniqueId": "ST01-013_dummy.gif",
@@ -63388,8 +62938,7 @@
     "trigger": "",
     "getInfo": "麦わらの一味【ST-01】",
     "seriesTitle": "麦わらの一味",
-    "seriesCode": "ST-01",
-    "sourceModalId": "ST01-013_p1"
+    "seriesCode": "ST-01"
   },
   {
     "uniqueId": "ST01-014_dummy.gif",
@@ -63441,8 +62990,7 @@
     "trigger": "【】このカードの【メイン】効果を発動する。",
     "getInfo": "麦わらの一味【ST-01】",
     "seriesTitle": "麦わらの一味",
-    "seriesCode": "ST-01",
-    "sourceModalId": "ST01-015_p2"
+    "seriesCode": "ST-01"
   },
   {
     "uniqueId": "ST01-016_dummy.gif",
@@ -63673,7 +63221,6 @@
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
     "seriesCode": "PRB-02",
-    "sourceModalId": "ST02-007_p1",
     "blockIconOverride": "4"
   },
   {
@@ -63700,8 +63247,7 @@
     "trigger": "",
     "getInfo": "最悪の世代【ST-02】",
     "seriesTitle": "最悪の世代",
-    "seriesCode": "ST-02",
-    "sourceModalId": "ST02-008_p2"
+    "seriesCode": "ST-02"
   },
   {
     "uniqueId": "ST02-009_dummy.gif",
@@ -63753,8 +63299,7 @@
     "trigger": "",
     "getInfo": "最悪の世代【ST-02】",
     "seriesTitle": "最悪の世代",
-    "seriesCode": "ST-02",
-    "sourceModalId": "ST02-010_p2"
+    "seriesCode": "ST-02"
   },
   {
     "uniqueId": "ST02-011_dummy.gif",
@@ -63831,8 +63376,7 @@
     "trigger": "",
     "getInfo": "最悪の世代【ST-02】",
     "seriesTitle": "最悪の世代",
-    "seriesCode": "ST-02",
-    "sourceModalId": "ST02-013_p3"
+    "seriesCode": "ST-02"
   },
   {
     "uniqueId": "ST02-014_dummy.gif",
@@ -64012,10 +63556,9 @@
     "block": 1,
     "effectText": "【ブロッカー】(相手のアタックの後、このカードをレストにし、アタックの対象をこのカードにできる)【ドン!!×1】【ブロック時】コスト2以下のキャラ1枚までを、持ち主のデッキの下に置く。",
     "trigger": "",
-    "getInfo": "スタンダードバトルパックVol.5 カードリスト",
-    "seriesTitle": "スタンダードバトルパックVol.5 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "ST03-003_p2"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "ST03-004_dummy.gif",
@@ -64041,8 +63584,7 @@
     "trigger": "",
     "getInfo": "スタートデッキ 青 ドンキホーテ・ドフラミンゴ【ST-17】",
     "seriesTitle": "スタートデッキ 青 ドンキホーテ・ドフラミンゴ",
-    "seriesCode": "ST-17",
-    "sourceModalId": "ST03-004_p1"
+    "seriesCode": "ST-17"
   },
   {
     "uniqueId": "ST03-005_dummy.gif",
@@ -64067,8 +63609,7 @@
     "trigger": "",
     "getInfo": "スタートデッキ 青 ドンキホーテ・ドフラミンゴ【ST-17】",
     "seriesTitle": "スタートデッキ 青 ドンキホーテ・ドフラミンゴ",
-    "seriesCode": "ST-17",
-    "sourceModalId": "ST03-005_p1"
+    "seriesCode": "ST-17"
   },
   {
     "uniqueId": "ST03-006_dummy.gif",
@@ -64118,10 +63659,9 @@
     "block": 1,
     "effectText": "【ドン!!×1】【起動メイン】【ターン1回】②(コストエリアのドン!!を指定の数レストにできる)：自分のデッキからコスト4以下の「パシフィスタ」1枚までを、登場させ、デッキをシャッフルする。",
     "trigger": "",
-    "getInfo": "スタンダードバトルパック2022 Vol.2 カードリスト",
-    "seriesTitle": "スタンダードバトルパック2022 Vol.2 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "ST03-007_p1"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "ST03-008_dummy.gif",
@@ -64147,8 +63687,7 @@
     "trigger": "",
     "getInfo": "スタートデッキ 青 ドンキホーテ・ドフラミンゴ【ST-17】",
     "seriesTitle": "スタートデッキ 青 ドンキホーテ・ドフラミンゴ",
-    "seriesCode": "ST-17",
-    "sourceModalId": "ST03-008_p1"
+    "seriesCode": "ST-17"
   },
   {
     "uniqueId": "ST03-009_dummy.gif",
@@ -64302,10 +63841,9 @@
     "block": 1,
     "effectText": "【登場時】コスト3以下のキャラ1枚までを、持ち主の手札に戻す。",
     "trigger": "",
-    "getInfo": "ONE PIECEカードゲーム プロモーションパックVol.3 カードリスト",
-    "seriesTitle": "ONE PIECEカードゲーム プロモーションパックVol.3 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "ST03-014_p1"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "ST03-015_dummy.gif",
@@ -64460,8 +63998,7 @@
     "trigger": "",
     "getInfo": "百獣海賊団【ST-04】",
     "seriesTitle": "百獣海賊団",
-    "seriesCode": "ST-04",
-    "sourceModalId": "ST04-003_p3"
+    "seriesCode": "ST-04"
   },
   {
     "uniqueId": "ST04-004_dummy.gif",
@@ -64511,8 +64048,7 @@
     "trigger": "",
     "getInfo": "百獣海賊団【ST-04】",
     "seriesTitle": "百獣海賊団",
-    "seriesCode": "ST-04",
-    "sourceModalId": "ST04-005_p2"
+    "seriesCode": "ST-04"
   },
   {
     "uniqueId": "ST04-006_dummy.gif",
@@ -64588,8 +64124,7 @@
     "trigger": "",
     "getInfo": "百獣海賊団【ST-04】",
     "seriesTitle": "百獣海賊団",
-    "seriesCode": "ST-04",
-    "sourceModalId": "ST04-008_p1"
+    "seriesCode": "ST-04"
   },
   {
     "uniqueId": "ST04-009_dummy.gif",
@@ -64640,8 +64175,7 @@
     "trigger": "【】このカードを登場させる。",
     "getInfo": "百獣海賊団【ST-04】",
     "seriesTitle": "百獣海賊団",
-    "seriesCode": "ST-04",
-    "sourceModalId": "ST04-010_p1"
+    "seriesCode": "ST-04"
   },
   {
     "uniqueId": "ST04-011_dummy.gif",
@@ -64666,8 +64200,7 @@
     "trigger": "",
     "getInfo": "百獣海賊団【ST-04】",
     "seriesTitle": "百獣海賊団",
-    "seriesCode": "ST-04",
-    "sourceModalId": "ST04-011_p1"
+    "seriesCode": "ST-04"
   },
   {
     "uniqueId": "ST04-012_dummy.gif",
@@ -65411,10 +64944,9 @@
     "block": 1,
     "effectText": "【起動メイン】このキャラをレストにできる：相手のキャラ1枚までを、このターン中、コスト-2。",
     "trigger": "",
-    "getInfo": "スタンダードバトルパック Vol.3 カードリスト",
-    "seriesTitle": "スタンダードバトルパック Vol.3 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "ST06-006_p1"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "ST06-007_dummy.gif",
@@ -65459,13 +64991,12 @@
     "features": [
       "海軍"
     ],
-    "block": 4,
+    "block": 1,
     "effectText": "【登場時】相手のキャラ1枚までを、このターン中、コスト-4。",
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
     "seriesCode": "PRB-02",
-    "sourceModalId": "ST06-008_p3",
     "blockIconOverride": "4"
   },
   {
@@ -65867,8 +65398,7 @@
     "trigger": "【】このカードを登場させる。",
     "getInfo": "ビッグ・マム海賊団【ST-07】",
     "seriesTitle": "ビッグ・マム海賊団",
-    "seriesCode": "ST-07",
-    "sourceModalId": "ST07-007_p1"
+    "seriesCode": "ST-07"
   },
   {
     "uniqueId": "ST07-008_dummy.gif",
@@ -65893,8 +65423,7 @@
     "trigger": "",
     "getInfo": "ビッグ・マム海賊団【ST-07】",
     "seriesTitle": "ビッグ・マム海賊団",
-    "seriesCode": "ST-07",
-    "sourceModalId": "ST07-008_p1"
+    "seriesCode": "ST-07"
   },
   {
     "uniqueId": "ST07-009_dummy.gif",
@@ -65945,8 +65474,7 @@
     "trigger": "",
     "getInfo": "ビッグ・マム海賊団【ST-07】",
     "seriesTitle": "ビッグ・マム海賊団",
-    "seriesCode": "ST-07",
-    "sourceModalId": "ST07-010_p2"
+    "seriesCode": "ST-07"
   },
   {
     "uniqueId": "ST07-011_dummy.gif",
@@ -66806,8 +66334,7 @@
     "trigger": "",
     "getInfo": "Side ヤマト【ST-09】",
     "seriesTitle": "Side ヤマト",
-    "seriesCode": "ST-09",
-    "sourceModalId": "ST09-012_p1"
+    "seriesCode": "ST-09"
   },
   {
     "uniqueId": "ST09-013_dummy.gif",
@@ -66985,8 +66512,7 @@
     "trigger": "",
     "getInfo": "“三船長”集結【ST-10】",
     "seriesTitle": "“三船長”集結",
-    "seriesCode": "ST-10",
-    "sourceModalId": "ST10-004_p1"
+    "seriesCode": "ST-10"
   },
   {
     "uniqueId": "ST10-005_dummy.gif",
@@ -67037,8 +66563,7 @@
     "trigger": "",
     "getInfo": "“三船長”集結【ST-10】",
     "seriesTitle": "“三船長”集結",
-    "seriesCode": "ST-10",
-    "sourceModalId": "ST10-006_p2"
+    "seriesCode": "ST-10"
   },
   {
     "uniqueId": "ST10-007_dummy.gif",
@@ -67088,8 +66613,7 @@
     "trigger": "",
     "getInfo": "“三船長”集結【ST-10】",
     "seriesTitle": "“三船長”集結",
-    "seriesCode": "ST-10",
-    "sourceModalId": "ST10-008_p1"
+    "seriesCode": "ST-10"
   },
   {
     "uniqueId": "ST10-009_dummy.gif",
@@ -67139,8 +66663,7 @@
     "trigger": "",
     "getInfo": "“三船長”集結【ST-10】",
     "seriesTitle": "“三船長”集結",
-    "seriesCode": "ST-10",
-    "sourceModalId": "ST10-010_p2"
+    "seriesCode": "ST-10"
   },
   {
     "uniqueId": "ST10-011_dummy.gif",
@@ -67216,8 +66739,7 @@
     "trigger": "",
     "getInfo": "“三船長”集結【ST-10】",
     "seriesTitle": "“三船長”集結",
-    "seriesCode": "ST-10",
-    "sourceModalId": "ST10-013_p1"
+    "seriesCode": "ST-10"
   },
   {
     "uniqueId": "ST10-014_dummy.gif",
@@ -67393,8 +66915,7 @@
     "trigger": "",
     "getInfo": "スタートデッキ 緑 ウタ【ST-16】",
     "seriesTitle": "スタートデッキ 緑 ウタ",
-    "seriesCode": "ST-16",
-    "sourceModalId": "ST11-003_p1"
+    "seriesCode": "ST-16"
   },
   {
     "uniqueId": "ST11-004_dummy.gif",
@@ -67420,8 +66941,7 @@
     "trigger": "",
     "getInfo": "スタートデッキ 緑 ウタ【ST-16】",
     "seriesTitle": "スタートデッキ 緑 ウタ",
-    "seriesCode": "ST-16",
-    "sourceModalId": "ST11-004_p1"
+    "seriesCode": "ST-16"
   },
   {
     "uniqueId": "ST11-005_dummy.gif",
@@ -67447,8 +66967,7 @@
     "trigger": "【】自分のリーダーかキャラ1枚までを、このターン中、パワー+1000。",
     "getInfo": "スタートデッキ 緑 ウタ【ST-16】",
     "seriesTitle": "スタートデッキ 緑 ウタ",
-    "seriesCode": "ST-16",
-    "sourceModalId": "ST11-005_p1"
+    "seriesCode": "ST-16"
   },
   {
     "uniqueId": "ST12-001_dummy.gif",
@@ -67525,8 +67044,7 @@
     "trigger": "",
     "getInfo": "ゾロ&サンジ【ST-12】",
     "seriesTitle": "ゾロ&サンジ",
-    "seriesCode": "ST-12",
-    "sourceModalId": "ST12-003_p1"
+    "seriesCode": "ST-12"
   },
   {
     "uniqueId": "ST12-004_dummy.gif",
@@ -69126,8 +68644,7 @@
     "trigger": "",
     "getInfo": "スタートデッキ 青 ドンキホーテ・ドフラミンゴ【ST-17】",
     "seriesTitle": "スタートデッキ 青 ドンキホーテ・ドフラミンゴ",
-    "seriesCode": "ST-17",
-    "sourceModalId": "ST17-003_p1"
+    "seriesCode": "ST-17"
   },
   {
     "uniqueId": "ST17-004_dummy.gif",
@@ -69229,8 +68746,7 @@
     "trigger": "",
     "getInfo": "スタートデッキ 紫 モンキー・D・ルフィ【ST-18】",
     "seriesTitle": "スタートデッキ 紫 モンキー・D・ルフィ",
-    "seriesCode": "ST-18",
-    "sourceModalId": "ST18-002_p1"
+    "seriesCode": "ST-18"
   },
   {
     "uniqueId": "ST18-003_dummy.gif",
@@ -69355,8 +68871,7 @@
     "trigger": "",
     "getInfo": "ONE PIECE CARD THE BEST vol.2【PRB-02】",
     "seriesTitle": "ONE PIECE CARD THE BEST vol.2",
-    "seriesCode": "PRB-02",
-    "sourceModalId": "ST19-002_p1"
+    "seriesCode": "PRB-02"
   },
   {
     "uniqueId": "ST19-003_dummy.gif",
@@ -69914,8 +69429,7 @@
     "trigger": "",
     "getInfo": "スタートデッキEX ギア5【ST-21】",
     "seriesTitle": "スタートデッキEX ギア5",
-    "seriesCode": "ST-21",
-    "sourceModalId": "ST21-014_p2"
+    "seriesCode": "ST-21"
   },
   {
     "uniqueId": "ST21-015_dummy.gif",
@@ -70449,8 +69963,7 @@
     "trigger": "",
     "getInfo": "スタートデッキ 赤 シャンクス【ST-23】",
     "seriesTitle": "スタートデッキ 赤 シャンクス",
-    "seriesCode": "ST-23",
-    "sourceModalId": "ST23-001_p1"
+    "seriesCode": "ST-23"
   },
   {
     "uniqueId": "ST23-002_dummy.gif",
@@ -71429,10 +70942,9 @@
     "block": 4,
     "effectText": "【ブロッカー】(相手のアタックの後、このカードをレストにし、アタックの対象をこのカードにできる)",
     "trigger": "【】自分のリーダーが「モンキー・Ｄ・ルフィ」の場合、このカードを登場させる。",
-    "getInfo": "プロモーションパックEX Vol.4 カードリスト",
-    "seriesTitle": "プロモーションパックEX Vol.4 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "ST29-009_p2"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "ST29-010_dummy.gif",
@@ -71954,8 +71466,7 @@
     "trigger": "",
     "getInfo": "スタートデッキEX ルフィ&エース【ST-30】",
     "seriesTitle": "スタートデッキEX ルフィ&エース",
-    "seriesCode": "ST-30",
-    "sourceModalId": "ST30-012_p2"
+    "seriesCode": "ST-30"
   },
   {
     "uniqueId": "ST30-013_dummy.gif",
@@ -72234,10 +71745,9 @@
     "block": 5,
     "effectText": "【登場時】自分の、属性(斬)を持つリーダーかドン!!1枚をレストにできる：カード2枚を引き、自分の手札1枚を捨てる。",
     "trigger": "",
-    "getInfo": "プロモーションパックEX vol.5 カードリスト",
-    "seriesTitle": "プロモーションパックEX vol.5 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "ST32-001_p1"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "ST32-002_dummy.gif",
@@ -72287,10 +71797,9 @@
     "block": 5,
     "effectText": "【自分のターン中】このキャラがレストになった時、カード1枚を引き、自分の手札1枚を捨てる。【登場時】自分のリーダーが属性(斬)を持つ場合、自分の手札からコスト5以下の、「ペローナ」か属性(斬)を持つキャラカード1枚までを、登場させる。",
     "trigger": "",
-    "getInfo": "フラッグシップバトル2026 10月優勝記念品 カードリスト",
-    "seriesTitle": "フラッグシップバトル2026 10月優勝記念品 カードリスト",
-    "seriesCode": "",
-    "sourceModalId": "ST32-003_p1"
+    "getInfo": "",
+    "seriesTitle": "",
+    "seriesCode": ""
   },
   {
     "uniqueId": "ST32-004_dummy.gif",
