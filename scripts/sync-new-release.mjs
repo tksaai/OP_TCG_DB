@@ -167,7 +167,10 @@ if (!skipManifest) {
 }
 
 if (!skipFeatures) {
-    run(pythonCommand, [path.join('scripts', 'build-card-features.py')]);
+    run(pythonCommand, [
+        path.join('scripts', 'build-card-features.py'),
+        ...(hasArg('force') ? ['--force'] : [])
+    ]);
 }
 
 console.log('\nNew release sync complete.');

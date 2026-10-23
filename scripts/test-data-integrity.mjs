@@ -9,6 +9,7 @@ const readJson = async (name) => JSON.parse(await readFile(new URL(`../${name}`,
 const cards = await readJson('cards.json');
 const manifest = await readJson('image-manifest.json');
 const cardFeatures = await readJson('card-features.json');
+const cardFeatureCache = await readJson('card-feature-cache.json');
 const provisional = await readJson('provisional-cards.json');
 const indexHtml = await readFile(new URL('../index.html', import.meta.url), 'utf8');
 const appJs = await readFile(new URL('../app.js', import.meta.url), 'utf8');
@@ -57,6 +58,14 @@ assert.equal(
   manifest.totalImages,
   variants.length,
   'image-manifest.json の totalImages が実際の件数と合っていません'
+);
+assert.equal(cardFeatureCache.featureVersion, cardFeatures.version, '特徴量キャッシュのバージョンが一致しません');
+assert.equal(cardFeatureCache.width, cardFeatures.width, '特徴量キャッシュの幅が一致しません');
+assert.equal(cardFeatureCache.height, cardFeatures.height, '特徴量キャッシュの高さが一致しません');
+assert.equal(
+  Object.keys(cardFeatureCache.entries || {}).length,
+  cardFeatures.totalImages,
+  '特徴量キャッシュの画像数が特徴量データと一致しません'
 );
 
 // 配信するのは WebP のみ。元画像 (Cards/) はリポジトリに置かない

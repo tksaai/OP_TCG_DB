@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import base64
+import hashlib
 import json
 import math
 from pathlib import Path
@@ -13,6 +14,8 @@ from PIL import Image, ImageOps
 FEATURE_VERSION = 1
 FEATURE_WIDTH = 12
 FEATURE_HEIGHT = 17
+FEATURE_CHANNELS = "normalized-ycbcr"
+FEATURE_CACHE_VERSION = 1
 MIN_LUMA_STDDEV = 12.0
 
 
@@ -68,6 +71,66 @@ def image_feature(path: Path) -> str:
             max(0, min(255, cr)),
         ))
     return base64.b64encode(feature).decode("ascii")
+
+
+def entry_identity(entry: dict[str, Any]) -> str:
+    return f'{entry["n"]}\t{str(entry["p"]).lower()}'
+
+
+def entry_digest(entry: dict[str, Any]) -> str:
+    digest = hashlib.sha256()
+    for key in ("p", "_fallback"):
+        path_value = entry.get(key)
+        if not path_value:
+            continue
+        path = Path(path_value)
+        digest.update(key.encode("ascii"))
+        digest.update(b"\0")
+        with path.open("rb") as source:
+            for chunk in iter(lambda: source.read(1024 * 1024), b""):
+                digest.update(chunk)
+        digest.update(b"\0")
+    return digest.hexdigest()
+
+
+def valid_feature(value: Any) -> bool:
+    if not isinstance(value, str) or not value:
+        return False
+    try:
+        decoded = base64.b64decode(value, validate=True)
+    except (ValueError, TypeError):
+        return False
+    return len(decoded) == FEATURE_WIDTH * FEATURE_HEIGHT * 3
+
+
+def compatible_feature_payload(payload: Any) -> bool:
+    return (
+        isinstance(payload, dict)
+        and payload.get("version") == FEATURE_VERSION
+        and payload.get("width") == FEATURE_WIDTH
+        and payload.get("height") == FEATURE_HEIGHT
+        and payload.get("channels") == FEATURE_CHANNELS
+        and isinstance(payload.get("features"), list)
+    )
+
+
+def compatible_cache_payload(payload: Any) -> bool:
+    return (
+        isinstance(payload, dict)
+        and payload.get("cacheVersion") == FEATURE_CACHE_VERSION
+        and payload.get("featureVersion") == FEATURE_VERSION
+        and payload.get("width") == FEATURE_WIDTH
+        and payload.get("height") == FEATURE_HEIGHT
+        and payload.get("channels") == FEATURE_CHANNELS
+        and isinstance(payload.get("entries"), dict)
+    )
+
+
+def write_json(path: Path, payload: Any) -> None:
+    path.write_text(
+        json.dumps(payload, ensure_ascii=False, separators=(",", ":")) + "\n",
+        encoding="utf-8",
+    )
 
 
 def collect_entries(
@@ -135,12 +198,29 @@ def main() -> int:
     parser.add_argument("--cards", default="cards.json")
     parser.add_argument("--provisional", default="provisional-cards.json")
     parser.add_argument("--output", default="card-features.json")
+    parser.add_argument("--cache", default="card-feature-cache.json")
     parser.add_argument("--limit", type=int, default=0)
+    parser.add_argument("--force", action="store_true")
     args = parser.parse_args()
 
     manifest = load_json(Path(args.manifest), {"cards": {}})
     cards = load_json(Path(args.cards), [])
     provisional = load_json(Path(args.provisional), [])
+    output_path = Path(args.output)
+    cache_path = Path(args.cache)
+    previous_payload = load_json(output_path, {})
+    previous_cache = load_json(cache_path, {})
+    can_reuse = (
+        not args.force
+        and compatible_feature_payload(previous_payload)
+        and compatible_cache_payload(previous_cache)
+    )
+    previous_features = {
+        entry_identity(entry): entry
+        for entry in previous_payload.get("features", [])
+        if isinstance(entry, dict) and entry.get("n") and entry.get("p")
+    } if can_reuse else {}
+    previous_digests = previous_cache.get("entries", {}) if can_reuse else {}
     card_types = build_card_type_map(cards, provisional)
     entries = collect_entries(manifest, provisional, card_types)
     if args.limit > 0:
@@ -148,15 +228,27 @@ def main() -> int:
 
     features: list[dict[str, Any]] = []
     failures: list[dict[str, str]] = []
+    next_digests: dict[str, str] = {}
+    generated = 0
+    reused = 0
     for index, entry in enumerate(entries, start=1):
         try:
-            try:
-                feature = image_feature(Path(entry["p"]))
-            except Exception:
-                fallback_path = entry.get("_fallback")
-                if not fallback_path:
-                    raise
-                feature = image_feature(Path(fallback_path))
+            identity = entry_identity(entry)
+            digest = entry_digest(entry)
+            previous = previous_features.get(identity)
+            if previous_digests.get(identity) == digest and valid_feature(previous.get("f") if previous else None):
+                feature = previous["f"]
+                reused += 1
+            else:
+                try:
+                    feature = image_feature(Path(entry["p"]))
+                except Exception:
+                    fallback_path = entry.get("_fallback")
+                    if not fallback_path:
+                        raise
+                    feature = image_feature(Path(fallback_path))
+                generated += 1
+            next_digests[identity] = digest
             features.append({
                 key: value
                 for key, value in {**entry, "f": feature}.items()
@@ -171,14 +263,29 @@ def main() -> int:
         "version": FEATURE_VERSION,
         "width": FEATURE_WIDTH,
         "height": FEATURE_HEIGHT,
-        "channels": "normalized-ycbcr",
+        "channels": FEATURE_CHANNELS,
         "totalImages": len(features),
         "features": features,
     }
-    Path(args.output).write_text(
-        json.dumps(payload, ensure_ascii=False, separators=(",", ":")) + "\n",
-        encoding="utf-8",
-    )
+    cache_payload = {
+        "cacheVersion": FEATURE_CACHE_VERSION,
+        "featureVersion": FEATURE_VERSION,
+        "width": FEATURE_WIDTH,
+        "height": FEATURE_HEIGHT,
+        "channels": FEATURE_CHANNELS,
+        "entries": next_digests,
+    }
+    removed = len(set(previous_features) - set(next_digests)) if can_reuse else 0
+    write_json(output_path, payload)
+    write_json(cache_path, cache_payload)
+    print(json.dumps({
+        "total": len(features),
+        "generated": generated,
+        "reused": reused,
+        "removed": removed,
+        "failures": len(failures),
+        "forced": args.force,
+    }, ensure_ascii=False))
     print(f"Wrote {args.output}: {len(features)} image features")
     if failures:
         print(json.dumps({"failures": failures[:20], "failureCount": len(failures)}, ensure_ascii=False, indent=2))

@@ -37,6 +37,7 @@ ONE PIECE カードゲームのカード検索・デッキ構築・コレクシ�
 | `furigana-master.json` | カード名単位の読みと確認状態 |
 | `image-manifest.json` | カード番号 → 画像パスの対応表 |
 | `card-features.json` | デッキ画像解析に使う画像特徴量 |
+| `card-feature-cache.json` | 変更画像だけ特徴量を再生成するための画像ハッシュ |
 | `CardsWebP/` | カード画像（WebP） |
 
 ### 画像について
@@ -117,7 +118,7 @@ node scripts/test-data-integrity.mjs
 | `sync-akihabara-cards.mjs` / `sync-provisional-images.mjs` | 仮DBの取得 |
 | `convert-images-to-webp.py` | WebP 変換（`--prune` で元画像が消えた WebP を掃除） |
 | `build-image-manifest.mjs` | `image-manifest.json` の生成 |
-| `build-card-features.py` | デッキ画像解析用の特徴量生成 |
+| `build-card-features.py` | デッキ画像解析用の特徴量生成（画像ハッシュによる差分更新、`--force`で全件再生成） |
 | `update-provisional-image-paths.mjs` | 仮DBの画像参照を WebP に差し替え |
 
 ## データ整備（フリガナ）
