@@ -76,11 +76,6 @@
       "status": "verified",
       "source": "manual"
     },
-    "「リリス」を頼む！！！": {
-      "reading": "リリスヲタノム",
-      "status": "verified",
-      "source": "manual"
-    },
     "「火炎」竜王": {
       "reading": "カエンリュウオウ",
       "status": "verified",
@@ -2096,11 +2091,6 @@
       "status": "verified",
       "source": "existing-card-data"
     },
-    "シャーロットプリン様だ‼": {
-      "reading": "シャーロットプリンサマダ",
-      "status": "verified",
-      "source": "manual"
-    },
     "ジャイロ": {
       "reading": "ジャイロ",
       "status": "verified",
@@ -3671,11 +3661,6 @@
       "status": "verified",
       "source": "existing-card-data"
     },
-    "ベロ・べティ": {
-      "reading": "ベロ・ベティ",
-      "status": "suggested",
-      "source": "kana-rule"
-    },
     "ペローナ": {
       "reading": "ペローナ",
       "status": "verified",
@@ -4831,11 +4816,6 @@
       "status": "verified",
       "source": "manual"
     },
-    "開国するんだ‼一緒に戦わせて欲しい!!!": {
-      "reading": "カイコクスルンダイッショニタタカワセテホシイ",
-      "status": "verified",
-      "source": "manual"
-    },
     "鎧合体": {
       "reading": "ヨロイガッタイ",
       "status": "verified",
@@ -5213,11 +5193,6 @@
     },
     "私と一緒に死んで!!!": {
       "reading": "ワタシトイッショニシンデ",
-      "status": "verified",
-      "source": "manual"
-    },
-    "私のこと必要なんでしょ‼?": {
-      "reading": "ワタシノコトヒツヨウナンデショ",
       "status": "verified",
       "source": "manual"
     },
