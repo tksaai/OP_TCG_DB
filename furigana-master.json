@@ -17,9 +17,9 @@
       "source": "existing-card-data"
     },
     "“シャーロット”“プリン”様だ!!": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "シャーロットプリンサマダ",
+      "status": "verified",
+      "source": "manual"
     },
     "\"ハウリング\"ガブ": {
       "reading": "ハウリングガブ",
@@ -72,9 +72,9 @@
       "source": "existing-card-data"
     },
     "「リリス」を頼む!!!": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "リリスヲタノム",
+      "status": "verified",
+      "source": "manual"
     },
     "「リリス」を頼む！！！": {
       "reading": "リリスヲタノム",
@@ -938,7 +938,7 @@
     },
     "おれ達の力を見せてやれ!!!": {
       "reading": "オレタチノチカラヲミセテヤレ",
-      "status": "pending",
+      "status": "verified",
       "source": "manual"
     },
     "おロビ": {
@@ -4827,9 +4827,9 @@
       "source": "existing-card-data"
     },
     "開国するんだ!!一緒に戦わせて欲しい!!!": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "カイコクスルンダイッショニタタカワセテホシイ",
+      "status": "verified",
+      "source": "manual"
     },
     "開国するんだ‼一緒に戦わせて欲しい!!!": {
       "reading": "カイコクスルンダイッショニタタカワセテホシイ",
@@ -5222,9 +5222,9 @@
       "source": "manual"
     },
     "私のこと必要なんでしょ!!?♡": {
-      "reading": "",
-      "status": "pending",
-      "source": "new-card"
+      "reading": "ワタシノコトヒツヨウナンデショ",
+      "status": "verified",
+      "source": "manual"
     },
     "私のしもべになる？": {
       "reading": "ワタシノシモベニナル",
@@ -5303,7 +5303,7 @@
     },
     "酒龍八卦": {
       "reading": "シュロンハッケ",
-      "status": "suggested",
+      "status": "verified",
       "source": "manual"
     },
     "首領・マーロン": {
