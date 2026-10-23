@@ -5,7 +5,7 @@
  */
 
 // === 1. 定数 ===
-const CACHE_APP_SHELL = 'app-shell-v62';
+const CACHE_APP_SHELL = 'app-shell-v63';
 const CACHE_CARD_DATA = 'card-data-v19';
 // v2: 配信を WebP に一本化したタイミングで、古い JPEG/PNG のキャッシュを捨てる
 const CACHE_IMAGES = 'card-images-v2';
@@ -37,17 +37,18 @@ const CARD_DATA_FILES = [
 const APP_SHELL_FILES = [
     './', // ルート (index.html を想定)
     './index.html',
-    './style.css?v=1.17.0',
-    './image-import.js?v=1.17.0',
+    './style.css?v=1.18.0',
+    './image-import.js?v=1.18.0',
     './image-import-worker.js',
-    './eight-pack-leader.js?v=1.17.0',
-    './deck-adjustments.js?v=1.17.0',
-    './deck-records.js?v=1.17.0',
-    './deck-variants.js?v=1.17.0',
-    './proxy-print.js?v=1.17.0',
-    './optcgsim-deck.js?v=1.17.0',
-    './google-drive-sync.js?v=1.17.0',
-    './app.js?v=1.17.0',
+    './eight-pack-leader.js?v=1.18.0',
+    './deck-adjustments.js?v=1.18.0',
+    './deck-records.js?v=1.18.0',
+    './deck-variants.js?v=1.18.0',
+    './proxy-print.js?v=1.18.0',
+    './optcgsim-deck.js?v=1.18.0',
+    './google-drive-sync.js?v=1.18.0',
+    './card-data-diff.js?v=1.18.0',
+    './app.js?v=1.18.0',
     './admin.html',
     './furigana-review.html',
     './furigana-review.css?v=1.0.0',

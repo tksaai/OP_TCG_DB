@@ -21,7 +21,7 @@ test('cache refresh UI preserves user data stores', async () => {
 
 test('service worker cache version is advanced for the current data release', async () => {
     const source = await readFile(new URL('service-worker.js', root), 'utf8');
-    assert.match(source, /CACHE_APP_SHELL = 'app-shell-v62'/);
+    assert.match(source, /CACHE_APP_SHELL = 'app-shell-v63'/);
     assert.match(source, /CACHE_CARD_DATA = 'card-data-v19'/);
     assert.match(source, /BLOCK_ICON_RULES_PATH/);
     assert.match(source, /FURIGANA_MASTER_PATH/);
@@ -70,8 +70,17 @@ test('official card master updates automatically without touching user stores', 
         versionCheck,
         /await fetchAndUpdateCardData\(serverLastModified, cardsData, serverHash, diff\)/
     );
+    assert.match(versionCheck, /if \(!hasCardsDiff\(diff\)\)/);
     assert.doesNotMatch(versionCheck, /showDbUpdateNotification/);
     assert.doesNotMatch(versionCheck, /STORE_DECKS|STORE_COLLECTION|STORE_OPENING_SESSIONS/);
+});
+
+test('auxiliary card updates are not labeled as card corrections', async () => {
+    const source = await readFile(new URL('app.js', root), 'utf8');
+
+    assert.match(source, /diff\.infoChanged\?\.length/u);
+    assert.match(source, /情報更新\$\{diff\.infoChanged\.length\}枚/u);
+    assert.match(source, /window\.OPTCGCardDataDiff\.diffCardsData/u);
 });
 
 test('app shell loads a revisioned script and bypasses stale HTTP cache', async () => {
@@ -88,13 +97,16 @@ test('app shell loads a revisioned script and bypasses stale HTTP cache', async 
     assert.match(html, new RegExp(`proxy-print\\.js\\?v=${version}`));
     assert.match(html, new RegExp(`optcgsim-deck\\.js\\?v=${version}`));
     assert.match(html, new RegExp(`google-drive-sync\\.js\\?v=${version}`));
+    assert.match(html, new RegExp(`card-data-diff\\.js\\?v=${version}`));
     assert.match(html, new RegExp(`app\\.js\\?v=${version}`));
+    assert.ok(html.indexOf('card-data-diff.js') < html.indexOf('app.js'));
     assert.match(workerSource, new RegExp(`image-import\\.js\\?v=${version}`));
     assert.match(workerSource, new RegExp(`eight-pack-leader\\.js\\?v=${version}`));
     assert.match(workerSource, new RegExp(`deck-variants\\.js\\?v=${version}`));
     assert.match(workerSource, new RegExp(`proxy-print\\.js\\?v=${version}`));
     assert.match(workerSource, new RegExp(`optcgsim-deck\\.js\\?v=${version}`));
     assert.match(workerSource, new RegExp(`google-drive-sync\\.js\\?v=${version}`));
+    assert.match(workerSource, new RegExp(`card-data-diff\\.js\\?v=${version}`));
     assert.match(workerSource, new RegExp(`app\\.js\\?v=${version}`));
     assert.match(workerSource, new RegExp(`style\\.css\\?v=${version}`));
     assert.match(workerSource, /cache: 'reload'/);

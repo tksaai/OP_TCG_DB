@@ -59,7 +59,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.17.0'; // バージョン更新
+    const APP_VERSION = '1.18.0'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -1314,13 +1314,18 @@
         return hashText(stableStringify(normalizeCardsData(cardsData)));
     }
 
-    // サーバーのカードデータとローカルDBを比較し、実質的な差分を求める
+    // サーバーのカードデータとローカルDBを比較し、実質的な差分を求める。
+    // フリガナや内部IDだけの更新はカード内容の「修正」と分けて表示する。
     function diffCardsData(serverCards, localCards) {
+        if (window.OPTCGCardDataDiff?.diffCardsData) {
+            return window.OPTCGCardDataDiff.diffCardsData(serverCards, localCards);
+        }
         const localMap = new Map(
             localCards.filter(c => c && c.cardNumber).map(c => [c.cardNumber, c])
         );
         const added = [];
         const changed = [];
+        const infoChanged = [];
         const serverNumbers = new Set();
 
         serverCards.forEach(card => {
@@ -1334,7 +1339,15 @@
         });
 
         const removed = [...localMap.keys()].filter(num => !serverNumbers.has(num));
-        return { added, changed, removed };
+        return { added, changed, infoChanged, removed };
+    }
+
+    function hasCardsDiff(diff) {
+        if (window.OPTCGCardDataDiff?.hasChanges) {
+            return window.OPTCGCardDataDiff.hasChanges(diff);
+        }
+        return ['added', 'changed', 'infoChanged', 'removed']
+            .some(key => Array.isArray(diff?.[key]) && diff[key].length > 0);
     }
 
     function formatCardsDiffSummary(diff) {
@@ -1342,6 +1355,7 @@
         const parts = [];
         if (diff.added.length > 0) parts.push(`新規${diff.added.length}枚`);
         if (diff.changed.length > 0) parts.push(`修正${diff.changed.length}枚`);
+        if (diff.infoChanged?.length > 0) parts.push(`情報更新${diff.infoChanged.length}枚`);
         if (diff.removed.length > 0) parts.push(`削除${diff.removed.length}枚`);
         return parts.join(' / ');
     }
@@ -2358,8 +2372,9 @@
                     // カード単位の実差分を確認し、書式・並び順だけの変化なら通知しない
                     const localCards = await db.getAll(STORE_CARDS);
                     ensureEightPackLeader(localCards);
+                    applyBlockIconRulesToCards(localCards);
                     const diff = diffCardsData(normalizeCardsData(cardsData), localCards);
-                    if (diff.added.length === 0 && diff.changed.length === 0 && diff.removed.length === 0) {
+                    if (!hasCardsDiff(diff)) {
                         await db.put(STORE_METADATA, { key: 'cardsContentHash', value: serverHash });
                         if (serverLastModified) {
                             await db.put(STORE_METADATA, { key: 'cardsLastModified', value: serverLastModified });
