@@ -231,6 +231,11 @@
       "status": "verified",
       "source": "existing-card-data"
     },
+    "Mr.4&ミス・メリークリスマス": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
     "Mr.5(ジェム)": {
       "reading": "ミスターファイブジェム",
       "status": "verified",
@@ -1225,6 +1230,11 @@
       "reading": "キラー",
       "status": "verified",
       "source": "existing-card-data"
+    },
+    "キリンガム聖": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
     },
     "ギルド・テゾーロ": {
       "reading": "ギルド・テゾーロ",
@@ -2490,6 +2500,11 @@
       "reading": "ソノクサリヲキリニキタ",
       "status": "verified",
       "source": "manual"
+    },
+    "ソマーズ聖": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
     },
     "ソリティア": {
       "reading": "ソリティア",
