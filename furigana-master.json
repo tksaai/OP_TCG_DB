@@ -2511,6 +2511,11 @@
       "status": "verified",
       "source": "existing-card-data"
     },
+    "ゾロ＆そげキング": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
     "ゾロ十郎": {
       "reading": "ゾロジュウロウ",
       "status": "verified",
