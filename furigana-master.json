@@ -5506,6 +5506,11 @@
       "status": "verified",
       "source": "existing-card-data"
     },
+    "戦いを!!!やめて下さい!!!": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
     "戦えるかルフィ!!!勿論だ!!!": {
       "reading": "タタカエルカルフィモチロンダ",
       "status": "verified",
