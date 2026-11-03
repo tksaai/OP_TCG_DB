@@ -4631,6 +4631,11 @@
       "status": "verified",
       "source": "existing-card-data"
     },
+    "悪魔風脚 画竜点睛ショット": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
     "悪魔風脚 野獣肉シュート": {
       "reading": "ディアブルジャンブヴネゾンシュート",
       "status": "verified",
@@ -5890,6 +5895,11 @@
       "reading": "フフクカ",
       "status": "verified",
       "source": "existing-card-data"
+    },
+    "武運を祈る": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
     },
     "武装色の覇気": {
       "reading": "ブソウショクノハキ",
