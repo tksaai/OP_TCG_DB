@@ -55,11 +55,14 @@
     const GITHUB_TOKEN_STORAGE_KEY = 'githubToken';
     const FURIGANA_EDITOR_VISIBLE_STORAGE_KEY = 'furiganaEditorVisible';
     const LIST_BADGES_VISIBLE_STORAGE_KEY = 'listBadgesVisible';
+    const DECK_BUILDER_SPLIT_STORAGE_KEY = 'deckBuilderSplitRatio';
+    const DECK_BUILDER_DEFAULT_SPLIT_RATIO = 0.42;
+    const DECK_BUILDER_KEYBOARD_STEP = 24;
     const STANDARD_REGULATION_BASE_YEAR = 2026;
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.18.0'; // バージョン更新
+    const APP_VERSION = '1.18.1'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -116,6 +119,8 @@
     let deckParallelSelectionEnabled = false;
     let leaderSelectionPurpose = 'create'; // create | replace
     let editingDeckMeta = {};   // { name, leader, colors: string[], createdAt }
+    let deckBuilderSplitRatio = DECK_BUILDER_DEFAULT_SPLIT_RATIO;
+    let deckBuilderResizeState = null;
     let cardElementMap = {};    // { cardNumber: HTMLElement } DOM高速アクセス用
     let activeCardView = 'cards'; // 'cards' | 'new'
     let openDeckActionMenu = null;
@@ -356,6 +361,7 @@
             deckListPreviewBtn: $('#deck-list-preview-btn'),
             deckAdjustmentHistoryBtn: $('#deck-adjustment-history-btn'),
             deckParallelToggle: $('#deck-parallel-toggle'),
+            deckBuilderResizer: $('#deck-builder-resizer'),
             deckBuilderPanel: $('#deck-builder-panel'),
             deckBuilderMainCount: $('#deck-builder-main-count'),
             deckBuilderMainGrid: $('#deck-builder-main-grid'),
@@ -6812,20 +6818,154 @@
         return Object.values(editingDeckData).reduce((sum, n) => sum + n, 0);
     }
 
+    function normalizeDeckBuilderSplitRatio(value) {
+        if (value === null || value === undefined || value === '') {
+            return DECK_BUILDER_DEFAULT_SPLIT_RATIO;
+        }
+        const ratio = Number(value);
+        if (!Number.isFinite(ratio)) return DECK_BUILDER_DEFAULT_SPLIT_RATIO;
+        return Math.min(0.8, Math.max(0.2, ratio));
+    }
+
+    function loadDeckBuilderSplitRatio() {
+        try {
+            return normalizeDeckBuilderSplitRatio(localStorage.getItem(DECK_BUILDER_SPLIT_STORAGE_KEY));
+        } catch (error) {
+            return DECK_BUILDER_DEFAULT_SPLIT_RATIO;
+        }
+    }
+
+    function persistDeckBuilderSplitRatio() {
+        try {
+            localStorage.setItem(DECK_BUILDER_SPLIT_STORAGE_KEY, String(deckBuilderSplitRatio));
+        } catch (error) {
+            // 保存できない環境でも、現在の表示調整はそのまま利用できる。
+        }
+    }
+
+    function getDeckBuilderSplitMetrics() {
+        if (!dom.mainContent || !dom.deckBuilderResizer || dom.deckBuilderResizer.hidden) return null;
+        const style = getComputedStyle(dom.mainContent);
+        const paddingTop = Number.parseFloat(style.paddingTop) || 0;
+        const paddingBottom = Number.parseFloat(style.paddingBottom) || 0;
+        const resizerHeight = dom.deckBuilderResizer.getBoundingClientRect().height || 24;
+        const availableHeight = Math.max(
+            1,
+            dom.mainContent.clientHeight - paddingTop - paddingBottom - resizerHeight
+        );
+        const minPanelHeight = Math.min(160, availableHeight * 0.4);
+        const minCardListHeight = Math.min(180, availableHeight * 0.4);
+        return {
+            availableHeight,
+            minPanelHeight,
+            maxPanelHeight: Math.max(minPanelHeight, availableHeight - minCardListHeight)
+        };
+    }
+
+    function applyDeckBuilderPanelHeight(height, { persist = false } = {}) {
+        const metrics = getDeckBuilderSplitMetrics();
+        if (!metrics || !dom.mainContent || !dom.deckBuilderResizer) return;
+        const panelHeight = Math.min(
+            metrics.maxPanelHeight,
+            Math.max(metrics.minPanelHeight, Number(height) || 0)
+        );
+        deckBuilderSplitRatio = panelHeight / metrics.availableHeight;
+        dom.mainContent.style.setProperty('--deck-builder-panel-height', `${Math.round(panelHeight)}px`);
+
+        const minPercent = Math.round((metrics.minPanelHeight / metrics.availableHeight) * 100);
+        const maxPercent = Math.round((metrics.maxPanelHeight / metrics.availableHeight) * 100);
+        const currentPercent = Math.round(deckBuilderSplitRatio * 100);
+        dom.deckBuilderResizer.setAttribute('aria-valuemin', String(minPercent));
+        dom.deckBuilderResizer.setAttribute('aria-valuemax', String(maxPercent));
+        dom.deckBuilderResizer.setAttribute('aria-valuenow', String(currentPercent));
+        dom.deckBuilderResizer.setAttribute('aria-valuetext', `デッキ一覧 ${currentPercent}%`);
+        if (persist) persistDeckBuilderSplitRatio();
+    }
+
+    function applyDeckBuilderSplitRatio(ratio = deckBuilderSplitRatio) {
+        const metrics = getDeckBuilderSplitMetrics();
+        if (!metrics) return;
+        applyDeckBuilderPanelHeight(metrics.availableHeight * normalizeDeckBuilderSplitRatio(ratio));
+    }
+
+    function finishDeckBuilderResize(event) {
+        if (!deckBuilderResizeState || event.pointerId !== deckBuilderResizeState.pointerId) return;
+        if (dom.deckBuilderResizer?.hasPointerCapture?.(event.pointerId)) {
+            dom.deckBuilderResizer.releasePointerCapture(event.pointerId);
+        }
+        deckBuilderResizeState = null;
+        document.body.classList.remove('deck-builder-resizing');
+        persistDeckBuilderSplitRatio();
+    }
+
+    function setupDeckBuilderResizer() {
+        if (!dom.deckBuilderResizer) return;
+        deckBuilderSplitRatio = loadDeckBuilderSplitRatio();
+
+        dom.deckBuilderResizer.addEventListener('pointerdown', event => {
+            if (event.pointerType === 'mouse' && event.button !== 0) return;
+            const metrics = getDeckBuilderSplitMetrics();
+            if (!metrics || !dom.deckBuilderPanel) return;
+            event.preventDefault();
+            deckBuilderResizeState = {
+                pointerId: event.pointerId,
+                startY: event.clientY,
+                startPanelHeight: dom.deckBuilderPanel.getBoundingClientRect().height
+            };
+            dom.deckBuilderResizer.setPointerCapture?.(event.pointerId);
+            document.body.classList.add('deck-builder-resizing');
+        });
+
+        dom.deckBuilderResizer.addEventListener('pointermove', event => {
+            if (!deckBuilderResizeState || event.pointerId !== deckBuilderResizeState.pointerId) return;
+            event.preventDefault();
+            applyDeckBuilderPanelHeight(
+                deckBuilderResizeState.startPanelHeight + deckBuilderResizeState.startY - event.clientY
+            );
+        });
+        dom.deckBuilderResizer.addEventListener('pointerup', finishDeckBuilderResize);
+        dom.deckBuilderResizer.addEventListener('pointercancel', finishDeckBuilderResize);
+
+        dom.deckBuilderResizer.addEventListener('keydown', event => {
+            const metrics = getDeckBuilderSplitMetrics();
+            if (!metrics || !dom.deckBuilderPanel) return;
+            const currentHeight = dom.deckBuilderPanel.getBoundingClientRect().height;
+            let nextHeight = null;
+            if (event.key === 'ArrowUp') nextHeight = currentHeight + DECK_BUILDER_KEYBOARD_STEP;
+            if (event.key === 'ArrowDown') nextHeight = currentHeight - DECK_BUILDER_KEYBOARD_STEP;
+            if (event.key === 'Home') nextHeight = metrics.minPanelHeight;
+            if (event.key === 'End') nextHeight = metrics.maxPanelHeight;
+            if (nextHeight === null) return;
+            event.preventDefault();
+            applyDeckBuilderPanelHeight(nextHeight, { persist: true });
+        });
+
+        const refreshSplit = () => {
+            if (currentMode !== 'deck_edit' || dom.deckBuilderResizer.hidden) return;
+            requestAnimationFrame(() => applyDeckBuilderSplitRatio());
+        };
+        window.addEventListener('resize', refreshSplit);
+        window.visualViewport?.addEventListener('resize', refreshSplit);
+    }
+
     function setDeckBuilderPanelVisible(visible) {
         if (!dom.deckBuilderPanel) return;
         const wasHidden = dom.deckBuilderPanel.hidden;
         dom.deckBuilderPanel.hidden = !visible;
+        if (dom.deckBuilderResizer) dom.deckBuilderResizer.hidden = !visible;
         document.body.classList.toggle('deck-builder-active', visible);
+        if (!visible) {
+            deckBuilderResizeState = null;
+            document.body.classList.remove('deck-builder-resizing');
+        }
         if (dom.mainContent) dom.mainContent.style.display = visible ? 'flex' : 'block';
         if (visible) {
             renderDeckBuilderPanel();
-            if (wasHidden) {
-                dom.deckBuilderPanel.scrollTop = 0;
-                requestAnimationFrame(() => {
-                    if (!dom.deckBuilderPanel.hidden) dom.deckBuilderPanel.scrollTop = 0;
-                });
-            }
+            requestAnimationFrame(() => {
+                if (dom.deckBuilderPanel.hidden) return;
+                applyDeckBuilderSplitRatio();
+                if (wasHidden) dom.deckBuilderPanel.scrollTop = 0;
+            });
         }
     }
 
@@ -8482,6 +8622,7 @@
     // === 10. イベントリスナー設定 ===
     function setupEventListeners() {
         setupAppDialogEvents();
+        setupDeckBuilderResizer();
 
         if (!dom.searchBar) return;
 

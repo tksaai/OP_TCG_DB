@@ -26,6 +26,7 @@
     --header-height: 56px;
     --footer-height: 50px;
     --footer-nav-offset: min(10px, var(--safe-area-bottom));
+    --deck-builder-panel-height: min(42dvh, 390px);
 
     /* カードグリッドの列数 (JSで変更可能) */
     --grid-columns: 3;
@@ -48,6 +49,15 @@ html, body {
     overflow: hidden; /* ★ 修正: スクロールを禁止 (main-contentで制御) */
     overscroll-behavior: none; /* ★ 修正: バウンスを無効化 */
     /* ★ 修正: position: fixed; を削除 */
+}
+
+html {
+    background-color: var(--color-surface);
+    color-scheme: dark;
+}
+
+body {
+    min-height: 100dvh;
 }
 
 button {
@@ -87,6 +97,7 @@ input[type="search"]::-webkit-search-cancel-button {
     position: relative; /* 子の absolute 配置の基準 */
     width: 100%;
     height: 100%;
+    height: 100dvh;
     min-height: 100dvh;
     overflow: hidden; /* .main-content 以外は隠す */
     background-color: var(--color-background);
@@ -207,7 +218,7 @@ input[type="search"]::-webkit-search-cancel-button {
     
     /* ★ 修正: height: 100% を設定 */
     height: 100%;
-    min-height: 100dvh;
+    min-height: 0;
 
     overflow-y: auto; /* ここだけスクロール */
     overflow-x: hidden;
@@ -2482,8 +2493,53 @@ body.deck-image-import-open {
 }
 
 /* デッキ編集: 全カード一覧の直下に選択済みデッキを常設 */
+.deck-builder-resizer[hidden],
 .deck-builder-panel[hidden] {
     display: none !important;
+}
+
+.deck-builder-resizer {
+    position: relative;
+    width: 100%;
+    min-height: 24px;
+    flex: 0 0 24px;
+    border-top: 1px solid #353a41;
+    border-bottom: 1px solid #2a2e34;
+    background-color: var(--color-surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: row-resize;
+    touch-action: none;
+    z-index: 3;
+}
+
+.deck-builder-resizer-grip {
+    width: 44px;
+    height: 3px;
+    border-radius: 2px;
+    background-color: #737a84;
+    box-shadow: 0 -5px 0 #4e555e, 0 5px 0 #4e555e;
+    pointer-events: none;
+}
+
+.deck-builder-resizer:hover .deck-builder-resizer-grip,
+.deck-builder-resizer:focus-visible .deck-builder-resizer-grip,
+body.deck-builder-resizing .deck-builder-resizer-grip {
+    background-color: var(--color-secondary);
+    box-shadow: 0 -5px 0 #087d73, 0 5px 0 #087d73;
+}
+
+.deck-builder-resizer:focus-visible {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: -2px;
+}
+
+body.deck-builder-resizing,
+body.deck-builder-resizing * {
+    cursor: row-resize !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
 }
 
 .deck-builder-panel {
@@ -2508,8 +2564,8 @@ body.deck-builder-active .main-content {
 }
 
 body.deck-builder-active .card-list-container {
-    flex: 1 1 56%;
-    min-height: 180px;
+    flex: 1 1 auto;
+    min-height: 0;
     grid-auto-rows: max-content;
     margin-right: calc(var(--safe-area-right) + 4px);
     margin-left: calc(var(--safe-area-left) + 4px);
@@ -2521,8 +2577,9 @@ body.deck-builder-active .card-list-container {
 }
 
 body.deck-builder-active .deck-builder-panel {
-    flex: 0 0 min(42dvh, 390px);
-    max-height: 48%;
+    flex: 0 0 var(--deck-builder-panel-height);
+    min-height: 0;
+    max-height: none;
 }
 
 .deck-builder-divider {

@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <!-- 1. PWAとモバイル対応のためのメタタグ (viewport-fit=cover が重要) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#1e1e1e">
+    <meta name="color-scheme" content="dark">
     <title>OP-TCG DB PWA</title>
     <!-- CSSファイル -->
-    <link rel="stylesheet" href="style.css?v=1.18.0">
+    <link rel="stylesheet" href="style.css?v=1.18.1">
     
     <!-- 2. Web App Manifest -->
     <link rel="manifest" href="manifest.json">
@@ -77,6 +79,21 @@
             </div>
             <div id="card-list-container" class="card-list-container">
                 <!-- カード画像はJavaScriptによってここに挿入されます -->
+            </div>
+            <div
+                id="deck-builder-resizer"
+                class="deck-builder-resizer"
+                role="separator"
+                aria-label="カード一覧とデッキ一覧の表示領域を調整"
+                aria-controls="card-list-container deck-builder-panel"
+                aria-orientation="horizontal"
+                aria-valuemin="20"
+                aria-valuemax="80"
+                aria-valuenow="42"
+                tabindex="0"
+                hidden
+            >
+                <span class="deck-builder-resizer-grip" aria-hidden="true"></span>
             </div>
             <section id="deck-builder-panel" class="deck-builder-panel" aria-label="選択中のデッキ" hidden>
                 <div class="deck-builder-divider">
@@ -1048,16 +1065,16 @@
     </div>
 
     <!-- 22. メインスクリプト (defer を追加) -->
-    <script src="image-import.js?v=1.18.0" defer></script>
-    <script src="eight-pack-leader.js?v=1.18.0" defer></script>
-    <script src="deck-adjustments.js?v=1.18.0" defer></script>
-    <script src="deck-records.js?v=1.18.0" defer></script>
-    <script src="deck-variants.js?v=1.18.0" defer></script>
-    <script src="proxy-print.js?v=1.18.0" defer></script>
-    <script src="optcgsim-deck.js?v=1.18.0" defer></script>
-    <script src="google-drive-sync.js?v=1.18.0" defer></script>
-    <script src="card-data-diff.js?v=1.18.0" defer></script>
-    <script src="app.js?v=1.18.0" defer></script>
+    <script src="image-import.js?v=1.18.1" defer></script>
+    <script src="eight-pack-leader.js?v=1.18.1" defer></script>
+    <script src="deck-adjustments.js?v=1.18.1" defer></script>
+    <script src="deck-records.js?v=1.18.1" defer></script>
+    <script src="deck-variants.js?v=1.18.1" defer></script>
+    <script src="proxy-print.js?v=1.18.1" defer></script>
+    <script src="optcgsim-deck.js?v=1.18.1" defer></script>
+    <script src="google-drive-sync.js?v=1.18.1" defer></script>
+    <script src="card-data-diff.js?v=1.18.1" defer></script>
+    <script src="app.js?v=1.18.1" defer></script>
 
 </body>
 </html>
