@@ -33,6 +33,11 @@ test('deck builder exposes an accessible horizontal resize separator', () => {
 
 test('deck builder resize supports pointer, keyboard, persistence, and viewport changes', () => {
     assert.match(source, /DECK_BUILDER_SPLIT_STORAGE_KEY = 'deckBuilderSplitRatio'/);
+    assert.match(source, /DECK_BUILDER_SPLIT_RATIO_LIMIT = 0\.05/);
+    assert.match(source, /DECK_BUILDER_MIN_PANE_HEIGHT = 72/);
+    assert.match(source, /DECK_BUILDER_COMPACT_MIN_PANE_RATIO = 0\.25/);
+    assert.match(source, /minPanelHeight: minPaneHeight/);
+    assert.match(source, /availableHeight - minPaneHeight/);
     assert.match(source, /addEventListener\('pointerdown'/);
     assert.match(source, /addEventListener\('pointermove'/);
     assert.match(source, /addEventListener\('pointerup'/);

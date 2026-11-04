@@ -57,12 +57,15 @@
     const LIST_BADGES_VISIBLE_STORAGE_KEY = 'listBadgesVisible';
     const DECK_BUILDER_SPLIT_STORAGE_KEY = 'deckBuilderSplitRatio';
     const DECK_BUILDER_DEFAULT_SPLIT_RATIO = 0.42;
+    const DECK_BUILDER_SPLIT_RATIO_LIMIT = 0.05;
+    const DECK_BUILDER_MIN_PANE_HEIGHT = 72;
+    const DECK_BUILDER_COMPACT_MIN_PANE_RATIO = 0.25;
     const DECK_BUILDER_KEYBOARD_STEP = 24;
     const STANDARD_REGULATION_BASE_YEAR = 2026;
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.18.1'; // バージョン更新
+    const APP_VERSION = '1.18.2'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -6824,7 +6827,10 @@
         }
         const ratio = Number(value);
         if (!Number.isFinite(ratio)) return DECK_BUILDER_DEFAULT_SPLIT_RATIO;
-        return Math.min(0.8, Math.max(0.2, ratio));
+        return Math.min(
+            1 - DECK_BUILDER_SPLIT_RATIO_LIMIT,
+            Math.max(DECK_BUILDER_SPLIT_RATIO_LIMIT, ratio)
+        );
     }
 
     function loadDeckBuilderSplitRatio() {
@@ -6853,12 +6859,14 @@
             1,
             dom.mainContent.clientHeight - paddingTop - paddingBottom - resizerHeight
         );
-        const minPanelHeight = Math.min(160, availableHeight * 0.4);
-        const minCardListHeight = Math.min(180, availableHeight * 0.4);
+        const minPaneHeight = Math.min(
+            DECK_BUILDER_MIN_PANE_HEIGHT,
+            availableHeight * DECK_BUILDER_COMPACT_MIN_PANE_RATIO
+        );
         return {
             availableHeight,
-            minPanelHeight,
-            maxPanelHeight: Math.max(minPanelHeight, availableHeight - minCardListHeight)
+            minPanelHeight: minPaneHeight,
+            maxPanelHeight: Math.max(minPaneHeight, availableHeight - minPaneHeight)
         };
     }
 
