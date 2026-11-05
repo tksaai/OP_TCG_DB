@@ -3116,6 +3116,11 @@
       "status": "verified",
       "source": "existing-card-data"
     },
+    "バスターコール": {
+      "reading": "バスターコール",
+      "status": "suggested",
+      "source": "kana-rule"
+    },
     "バスティーユ": {
       "reading": "バスティーユ",
       "status": "verified",
@@ -5005,6 +5010,11 @@
       "reading": "モトモトナイデハナイカ",
       "status": "verified",
       "source": "existing-card-data"
+    },
+    "呼ぶぞ": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
     },
     "五色糸": {
       "reading": "ゴシキイト",
