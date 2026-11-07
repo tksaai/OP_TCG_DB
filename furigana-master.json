@@ -2146,6 +2146,11 @@
       "status": "verified",
       "source": "existing-card-data"
     },
+    "シャムロック聖": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
     "ジャルマック聖": {
       "reading": "ジャルマックセイ",
       "status": "verified",
