@@ -32,7 +32,40 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-002_OP18-002.jpg",
+    "cardNumber": "OP18-002",
+    "rawNumber": "OP18-002",
+    "cardName": "イガラム",
+    "furigana": "イガラム",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "color": [
+      "赤"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 1,
+    "power": 2000,
+    "counter": 1000,
+    "attribute": "射",
+    "features": [
+      "アラバスタ王国"
+    ],
+    "block": 5,
+    "effectText": "登場時 自分の手札から特徴《アラバスタ王国》を持つカード1枚を捨てることができる：カード2枚を引く。",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-002",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-002_OP18-002.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-002.jpg",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-003_OP18-003.png",
@@ -66,7 +99,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-004_OP18-004.png",
@@ -100,7 +133,142 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-005_OP18-005.jpg",
+    "cardNumber": "OP18-005",
+    "rawNumber": "OP18-005",
+    "cardName": "クンフージュゴン",
+    "furigana": "クンフージュゴン",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "赤"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 1,
+    "power": "-",
+    "counter": 1000,
+    "attribute": "打",
+    "features": [
+      "動物",
+      "アラバスタ王国"
+    ],
+    "block": 5,
+    "effectText": "自分のターン中 このキャラは、自分の「クンフージュゴン」1枚につき、パワー+1000。",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-005",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-005_OP18-005.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-005.jpg",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-006_OP18-006.png",
+    "cardNumber": "OP18-006",
+    "rawNumber": "OP18-006",
+    "cardName": "コーザ",
+    "furigana": "コーザ",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "赤"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 3,
+    "power": 4000,
+    "counter": 2000,
+    "attribute": "斬",
+    "features": [
+      "アラバスタ王国"
+    ],
+    "block": 5,
+    "effectText": "自分の「ネフェルタリ・ビビ」がいる場合、このキャラは速攻を得て、パワー+1000。(このカードは登場したターンにアタックできる)",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-006",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-006_OP18-006.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-006.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-007_OP18-007.jpg",
+    "cardNumber": "OP18-007",
+    "rawNumber": "OP18-007",
+    "cardName": "スモーカー",
+    "furigana": "スモーカー",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "赤"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 4,
+    "power": 5000,
+    "counter": 1000,
+    "attribute": "特",
+    "features": [
+      "アラバスタ王国",
+      "海軍"
+    ],
+    "block": 5,
+    "effectText": "自分のリーダーが特徴《海軍》を持つ場合、このキャラはバニッシュを得て、パワー+1000。(このカードがダメージを与えた場合、トリガーは発動せずそのカードはトラッシュに置かれる)",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-007",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-007_OP18-007.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-007.jpg",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-009_OP18-009.jpg",
+    "cardNumber": "OP18-009",
+    "rawNumber": "OP18-009",
+    "cardName": "超カルガモ部隊",
+    "furigana": "チョウカルガモブタイ",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "color": [
+      "赤"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 4,
+    "power": 5000,
+    "counter": "-",
+    "attribute": "打",
+    "features": [
+      "動物",
+      "アラバスタ王国"
+    ],
+    "block": 5,
+    "effectText": "速攻 起動メイン このキャラをトラッシュに置くことができる：自分の場のドン!!が9枚以上ある場合、自分の手札から「カルー」1枚までを、登場させる。",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-009",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-009_OP18-009.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-009.jpg",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-010_OP18-010.png",
@@ -135,7 +303,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-011_OP18-011.png",
@@ -168,7 +336,41 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-012_OP18-012.jpg",
+    "cardNumber": "OP18-012",
+    "rawNumber": "OP18-012",
+    "cardName": "ハサミ",
+    "furigana": "",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "color": [
+      "赤"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 1,
+    "power": "-",
+    "counter": 2000,
+    "attribute": "打",
+    "features": [
+      "動物",
+      "アラバスタ王国"
+    ],
+    "block": 5,
+    "effectText": "アタック時 自分の特徴《動物》と《アラバスタ王国》を両方持つキャラ1枚までは、このターン中、パワー+1000。",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-012",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-012_OP18-012.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-012.jpg",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-013_OP18-013.png",
@@ -201,7 +403,41 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-014_OP18-014.jpg",
+    "cardNumber": "OP18-014",
+    "rawNumber": "OP18-014",
+    "cardName": "ポートガス・D・エース",
+    "furigana": "ポートガス・ディー・エース",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "赤"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 3,
+    "power": 5000,
+    "counter": "-",
+    "attribute": "特",
+    "features": [
+      "アラバスラ王国",
+      "白ひげ海賊団"
+    ],
+    "block": 5,
+    "effectText": "アタック時 自分の特徴《アラバスタ王国》を持つキャラ1枚までは、このターン中、速攻 を得る。",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-014",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-014_OP18-014.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-014.jpg",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-015_OP18-015.png",
@@ -235,7 +471,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-016_OP18-016.png",
@@ -268,10 +504,10 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
-    "uniqueId": "OP18-017_OP18-017.png",
+    "uniqueId": "OP18-017_OP18-017.jpg",
     "cardNumber": "OP18-017",
     "rawNumber": "OP18-017",
     "cardName": "ロロノア・ゾロ",
@@ -291,18 +527,85 @@
       "麦わらの一味"
     ],
     "block": 5,
-    "effectText": "【ターン1回】自分の特徴《アラバスタ王国》を持つキャラが相手の効果で場を離れる場合、代わりに自分のリーダーを、このターン中、パワー−2000できる。 【アタック時】自分の特徴《アラバスタ王国》を持つキャラ1枚までは、このターン中、速攻を得る。",
+    "effectText": "ターン1回 自分の特徴《アラバスタ王国》を持つキャラが相手の効果で場を離れる場合、代わりに自分のリーダーを、このターン中、パワー-2000できる。アタック時 自分の特徴《アラバスタ王国》を持つキャラ1枚までは、このターン中、速攻を得る。",
     "trigger": "",
     "getInfo": "ブースターパック 神の支配【OP-18】",
     "seriesTitle": "ブースターパック 神の支配",
     "seriesCode": "OP-18",
     "sourceModalId": "OP18-017",
     "imagePath": "CardsWebP/Provisional/OP18/OP18-017_OP18-017.webp",
-    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-017.png",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-017.jpg",
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-018_OP18-018.png",
+    "cardNumber": "OP18-018",
+    "rawNumber": "OP18-018",
+    "cardName": "行くわよ カルー!!!",
+    "furigana": "",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "赤"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 1,
+    "power": "-",
+    "counter": "-",
+    "attribute": "-",
+    "features": [
+      "アラバスタ王国"
+    ],
+    "block": 5,
+    "effectText": "メイン自分の特徴《アラバスタ王国》を持つキャラすべてを、このターン中、パワー+1000。",
+    "trigger": "トリガー 自分のリーダーかキャラ1枚までを、このターン中、パワー+2000。",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-018",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-018_OP18-018.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-018.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-019_OP18-019.jpg",
+    "cardNumber": "OP18-019",
+    "rawNumber": "OP18-019",
+    "cardName": "クエ～ッ!!!",
+    "furigana": "",
+    "rarity": "R",
+    "cardType": "EVENT",
+    "color": [
+      "赤"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 1,
+    "power": "-",
+    "counter": "-",
+    "attribute": "-",
+    "features": [
+      "動物",
+      "アラバスタ王国"
+    ],
+    "block": 5,
+    "effectText": "メイン 自分の元々のパワー7000以上のキャラがいない場合、相手のキャラ1枚までを、このターン中、パー-3000。カウンター 自分のリーダーを、このバトル中、パワー+3000。",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-019",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-019_OP18-019.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-019.jpg",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-020_OP18-0200.png",
@@ -335,7 +638,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-021_OP18-021L.png",
@@ -371,7 +674,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-022_OP18-022.png",
@@ -405,7 +708,40 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-023_OP18-023.png",
+    "cardNumber": "OP18-023",
+    "rawNumber": "OP18-023",
+    "cardName": "ガイモン",
+    "furigana": "ガイモン",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "緑"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 1,
+    "power": "-",
+    "counter": 2000,
+    "attribute": "知",
+    "features": [
+      "東の海"
+    ],
+    "block": 5,
+    "effectText": "登場時自分の特徴《東の海》を持つ、リーダーかキャラ1枚までは、このターン中、バニッシュを得る。(このカードがダメージを与えた場合、トリガーは発動せずそのカードはトラッシュに置かれる)",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-023",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-023_OP18-023.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-023.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-024_OP18-024.png",
@@ -439,7 +775,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-025_OP18-025.png",
@@ -473,7 +809,41 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-026_OP18-026.png",
+    "cardNumber": "OP18-026",
+    "rawNumber": "OP18-026",
+    "cardName": "サンジ",
+    "furigana": "サンジ",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "color": [
+      "緑"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 2,
+    "power": 2000,
+    "counter": 2000,
+    "attribute": "打",
+    "features": [
+      "W7",
+      "麦わらの一味"
+    ],
+    "block": 5,
+    "effectText": "自分の特徴《麦わらの一味》を持つキャラが相手の効果で場を離れる場合、代わりにこのキャラをトラッシュに置くことができる。",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-026",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-026_OP18-026.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-026.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-027_OP18-027.png",
@@ -508,7 +878,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-028_OP18-028.png",
@@ -541,7 +911,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-029_OP18-029.png",
@@ -576,7 +946,41 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-030_OP18-030.jpg",
+    "cardNumber": "OP18-030",
+    "rawNumber": "OP18-030",
+    "cardName": "ナミ",
+    "furigana": "ナミ",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "color": [
+      "緑"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 4,
+    "power": 6000,
+    "counter": 2000,
+    "attribute": "知",
+    "features": [
+      "Ｗ7",
+      "麦わらの一味"
+    ],
+    "block": 5,
+    "effectText": "相手のターン中 このキャラがレストの場合、このキャラのパワー-2000。",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-030",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-030_OP18-030.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-030.jpg",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-031_OP18-031.jpg",
@@ -610,7 +1014,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-032_OP18-032.png",
@@ -644,7 +1048,40 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-033_OP18-033.jpg",
+    "cardNumber": "OP18-033",
+    "rawNumber": "OP18-033",
+    "cardName": "バンバン爺",
+    "furigana": "",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "緑"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 2,
+    "power": 1000,
+    "counter": "-",
+    "attribute": "知",
+    "features": [
+      "W7"
+    ],
+    "block": 5,
+    "effectText": "ブロッカー 自分のターン終了時 このキャラをトラッシュに置くことができる：自分のキャラ1枚までを、アクティブにする。",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-033",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-033_OP18-033.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-033.jpg",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-034_OP18-034.png",
@@ -679,7 +1116,40 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-035_OP18-035.png",
+    "cardNumber": "OP18-035",
+    "rawNumber": "OP18-035",
+    "cardName": "マイケル&ホイケル",
+    "furigana": "",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "緑"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 3,
+    "power": 5000,
+    "counter": 1000,
+    "attribute": "知",
+    "features": [
+      "W7"
+    ],
+    "block": 5,
+    "effectText": "–",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-035",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-035_OP18-035.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-035.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-036_OP18-036.png",
@@ -713,7 +1183,109 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-037_OP18-037.jpg",
+    "cardNumber": "OP18-037",
+    "rawNumber": "OP18-037",
+    "cardName": "ヨコヅナ",
+    "furigana": "ヨコヅナ",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "color": [
+      "緑"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 4,
+    "power": 2000,
+    "counter": 1000,
+    "attribute": "打",
+    "features": [
+      "動物",
+      "Ｗ7"
+    ],
+    "block": 5,
+    "effectText": "ブロッカー KO時 相手のカード1枚までを、レストにする。",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-037",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-037_OP18-037.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-037.jpg",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-038_OP18-038.jpg",
+    "cardNumber": "OP18-038",
+    "rawNumber": "OP18-038",
+    "cardName": "あの旗 撃ち抜け",
+    "furigana": "",
+    "rarity": "R",
+    "cardType": "EVENT",
+    "color": [
+      "緑"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 1,
+    "power": "-",
+    "counter": "-",
+    "attribute": "-",
+    "features": [
+      "W7",
+      "麦わらの一味"
+    ],
+    "block": 5,
+    "effectText": "メイン 自分のデッキの上から5枚を見て、「そげキング」か特徴《麦わらの一味》を持つカード1枚までを公開し、手札に加える。その後、残りを好きな順番でデッキの下に置く。トリガー カード1枚を引く。",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-038",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-038_OP18-038.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-038.jpg",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-039_OP18-039.jpg",
+    "cardNumber": "OP18-039",
+    "rawNumber": "OP18-039",
+    "cardName": "ゴムゴムの巨人の斧",
+    "furigana": "",
+    "rarity": "R",
+    "cardType": "EVENT",
+    "color": [
+      "緑"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 1,
+    "power": "-",
+    "counter": "-",
+    "attribute": "-",
+    "features": [
+      "W7",
+      "麦わらの一味"
+    ],
+    "block": 5,
+    "effectText": "カウンター 自分の「モンキー・D・ルフィ」1枚までを、このバトル中、パワー+2000。その後、自分のリーダーがアクティブの場合、カード1枚を引く。",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-039",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-039_OP18-039.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-039.jpg",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-040_OP18-040.png",
@@ -747,7 +1319,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-041_OP18-041.png",
@@ -780,7 +1352,77 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-042_OP18-042.jpg",
+    "cardNumber": "OP18-042",
+    "rawNumber": "OP18-042",
+    "cardName": "ハック",
+    "furigana": "ハック",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "青"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 3,
+    "power": 4000,
+    "counter": "-",
+    "attribute": "打",
+    "features": [
+      "魚人族",
+      "ドレスローザ",
+      "革命軍"
+    ],
+    "block": 5,
+    "effectText": "KO時 カード1枚を引く。起動メイン ターン1回自分の特徴《ドレスローザ》を持つ、リーダーかキャラ1枚にレストのドン!!1枚までを、付与する。",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-042",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-042_OP18-042.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-042.jpg",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-043_OP18-043.png",
+    "cardNumber": "OP18-043",
+    "rawNumber": "OP18-043",
+    "cardName": "F-ワニ",
+    "furigana": "",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "青"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 4,
+    "power": 6000,
+    "counter": 1000,
+    "attribute": "打",
+    "features": [
+      "動物",
+      "アラバスタ王国",
+      "B・W"
+    ],
+    "block": 5,
+    "effectText": "–",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-043",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-043_OP18-043.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-043.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-044_OP18-044.png",
@@ -813,7 +1455,41 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-045_OP18-045.jpg",
+    "cardNumber": "OP18-045",
+    "rawNumber": "OP18-045",
+    "cardName": "Mr.プリンス",
+    "furigana": "",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "青"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 3,
+    "power": 4000,
+    "counter": 2000,
+    "attribute": "打",
+    "features": [
+      "アラバスタ王国",
+      "麦わらの一味"
+    ],
+    "block": 5,
+    "effectText": "ルール上、このカードはカード名を「サンジ」としても扱う。このキャラは、自分のトラッシュにあるイベント5枚につき、パワー+1000。",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-045",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-045_OP18-045.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-045.jpg",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-046_OP18-046.png",
@@ -847,7 +1523,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-047_OP18-047.png",
@@ -881,7 +1557,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-048_OP18-048.png",
@@ -914,7 +1590,73 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-049_OP18-049.jpg",
+    "cardNumber": "OP18-049",
+    "rawNumber": "OP18-049",
+    "cardName": "Mr.2・ボン・クレー(ベンサム)",
+    "furigana": "ミスターツー・ボン・クレーベンサム",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "青"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 5,
+    "power": 6000,
+    "counter": 1000,
+    "attribute": "打",
+    "features": [
+      "B・W"
+    ],
+    "block": 5,
+    "effectText": "登場時 自分のデッキの上から5枚を見て、『B・W』を含む特徴を持つカード1枚までを公開し、手札に加え、残りを好きな順番でデッキの下に置く。その後、自分のリーダーかキャラ1枚にレストのドン!!1枚までを、付与する。",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-049",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-049_OP18-049.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-049.jpg",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-050_OP18-050.jpg",
+    "cardNumber": "OP18-050",
+    "rawNumber": "OP18-050",
+    "cardName": "Mr.3&ミス・ゴールデンウィーク",
+    "furigana": "",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "color": [
+      "青"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 5,
+    "power": 6000,
+    "counter": 1000,
+    "attribute": "-",
+    "features": [
+      "B・W"
+    ],
+    "block": 5,
+    "effectText": "ブロッカー 登場時 自分のリーダーが『B・W』を含む特徴を持つ場合、相手のコスト7以下のキャラ1枚までは、次の相手のエンドフェイズ終了時まで、アタックできない。",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-050",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-050_OP18-050.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-050.jpg",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-051_OP18-051.png",
@@ -947,7 +1689,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-052_OP18-052.png",
@@ -980,7 +1722,73 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-053_OP18-053.png",
+    "cardNumber": "OP18-053",
+    "rawNumber": "OP18-053",
+    "cardName": "Mr.7&ミス・ファーザーズデー",
+    "furigana": "",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "青"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 2,
+    "power": 3000,
+    "counter": 2000,
+    "attribute": "射",
+    "features": [
+      "B・W"
+    ],
+    "block": 5,
+    "effectText": "ドン!!×1 このキャラのパワー+1000。登場時 自分のデッキの上から1枚を見て、好きな順番に並び替え、デッキの上か下に置く。",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-053",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-053_OP18-053.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-053.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-054_OP18-054.jpg",
+    "cardNumber": "OP18-054",
+    "rawNumber": "OP18-054",
+    "cardName": "Mr.8&ミス・マンデー",
+    "furigana": "",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "color": [
+      "青"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 2,
+    "power": 3000,
+    "counter": 2000,
+    "attribute": "-",
+    "features": [
+      "B・W"
+    ],
+    "block": 5,
+    "effectText": "ドン!!×1このキャラのパワー+1000。自分のターン中 ターン1回 自分の『B・W』を含む特徴を持つキャラが相手の効果で場を離れる場合、代わりに自分の手札1枚を捨てることができる。",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-054",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-054_OP18-054.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-054.jpg",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-055_OP18-055.png",
@@ -1013,7 +1821,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-056_OP18-056.png",
@@ -1047,7 +1855,74 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-057_OP18-057.jpg",
+    "cardNumber": "OP18-057",
+    "rawNumber": "OP18-057",
+    "cardName": "微塵斬",
+    "furigana": "",
+    "rarity": "UC",
+    "cardType": "EVENT",
+    "color": [
+      "青"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 1,
+    "power": "-",
+    "counter": "-",
+    "attribute": "-",
+    "features": [
+      "B・W"
+    ],
+    "block": 5,
+    "effectText": "メイン 自分のドン!!3枚をレストにできる：コスト5以下のキャラ1枚までを、持ち主の手札に戻す。カウンター 自分のリーダーを、このバトル中、パワー+3000。",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-057",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-057_OP18-057.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-057.jpg",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-058_OP18-058.jpg",
+    "cardNumber": "OP18-058",
+    "rawNumber": "OP18-058",
+    "cardName": "お前に国は救えない",
+    "furigana": "",
+    "rarity": "C",
+    "cardType": "EVENT",
+    "color": [
+      "青"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 3,
+    "power": "-",
+    "counter": "-",
+    "attribute": "-",
+    "features": [
+      "王下七武海",
+      "B・W"
+    ],
+    "block": 5,
+    "effectText": "メイン 自分のキャラ1枚を持ち主の手札に戻すことができる：コスト4以下のキャラ1枚までを、持ち主のデッキの下に置く。トリガー このカードのメイン効果を発動する。",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-058",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-058_OP18-058.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-058.jpg",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-059_OP18-059.png",
@@ -1081,7 +1956,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-060_OP18-060L.png",
@@ -1116,7 +1991,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-061_OP18-061.png",
@@ -1150,7 +2025,41 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-062_OP18-062.png",
+    "cardNumber": "OP18-062",
+    "rawNumber": "OP18-062",
+    "cardName": "オイモ＆カーシー",
+    "furigana": "",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "紫"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 8,
+    "power": 10000,
+    "counter": 1000,
+    "attribute": "打",
+    "features": [
+      "巨人族",
+      "世界政府"
+    ],
+    "block": 5,
+    "effectText": "–",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-062",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-062_OP18-062.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-062.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-063_OP18-0630.png",
@@ -1184,7 +2093,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-064_OP18-064.png",
@@ -1218,7 +2127,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-065_P18-065.jpg",
@@ -1252,7 +2161,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-066_OP18-066.png",
@@ -1286,7 +2195,73 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-067_OP18-067.png",
+    "cardNumber": "OP18-067",
+    "rawNumber": "OP18-067",
+    "cardName": "シャーロット・スムージー",
+    "furigana": "シャーロット・スムージー",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "紫"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 1,
+    "power": 2000,
+    "counter": 1000,
+    "attribute": "斬",
+    "features": [
+      "ビッグ・マム海賊団"
+    ],
+    "block": 5,
+    "effectText": "登場時 自分の手札から特徴《ビッグ・マム海賊団》を持つカード1枚を捨てることができる：カード2枚を引く。",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-067",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-067_OP18-067.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-067.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-068_OP18-068.png",
+    "cardNumber": "OP18-068",
+    "rawNumber": "OP18-068",
+    "cardName": "セニョール・ピンク",
+    "furigana": "セニョール・ピンク",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "紫"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 8,
+    "power": 9000,
+    "counter": "-",
+    "attribute": "特",
+    "features": [
+      "ドンキホーテ海賊団"
+    ],
+    "block": 5,
+    "effectText": "ターン1回 このキャラがKOされる場合、代わりにドン!!-1できる。登場時 ドン!!-1：相手のコスト7以下のキャラ1枚までは、次の相手のエンドフェイズ終了時まで、レストにできない。",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-068",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-068_OP18-068.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-068.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-069_OP18-069.png",
@@ -1321,7 +2296,142 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-071_OP18-071.png",
+    "cardNumber": "OP18-071",
+    "rawNumber": "OP18-071",
+    "cardName": "トレーボル",
+    "furigana": "トレーボル",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "紫"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 5,
+    "power": 6000,
+    "counter": 1000,
+    "attribute": "特",
+    "features": [
+      "ドンキホーテ海賊団"
+    ],
+    "block": 5,
+    "effectText": "ターン1回自分の特徴《ドンキホーテ海賊団》を持つキャラが相手の効果で場を離れる場合、代わりにドン!!-1できる。相手のターン中自分のリーダーが「シュガー」の場合、このキャラはブロッカーを得て、パワー+2000。",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-071",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-071_OP18-071.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-071.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-072_OP18-072.jpg",
+    "cardNumber": "OP18-072",
+    "rawNumber": "OP18-072",
+    "cardName": "フランキー一家",
+    "furigana": "",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "color": [
+      "紫"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 5,
+    "power": 6000,
+    "counter": 1000,
+    "attribute": "斬",
+    "features": [
+      "W7",
+      "フランキー一家"
+    ],
+    "block": 5,
+    "effectText": "ブロッカー 起動メイン ターン1回 自分のコスト5以下のステージ1枚をKOできる：このキャラが登場したターンの場合、相手のキャラ1枚までを、このターン中、パワー-3000。",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-072",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-072_OP18-072.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-072.jpg",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-073_OP18-073.png",
+    "cardNumber": "OP18-073",
+    "rawNumber": "OP18-073",
+    "cardName": "Tボーン",
+    "furigana": "ティーボーン",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "紫"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 5,
+    "power": 7000,
+    "counter": 1000,
+    "attribute": "斬",
+    "features": [
+      "W7",
+      "海軍"
+    ],
+    "block": 5,
+    "effectText": "–",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-073",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-073_OP18-073.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-073.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-074_OP18-074.jpg",
+    "cardNumber": "OP18-074",
+    "rawNumber": "OP18-074",
+    "cardName": "おれの造ったその船に乗ってってくれねェか!!!?",
+    "furigana": "",
+    "rarity": "R",
+    "cardType": "EVENT",
+    "color": [
+      "紫"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 1,
+    "power": "-",
+    "counter": "-",
+    "attribute": "-",
+    "features": [
+      "W7",
+      "フランキー一家"
+    ],
+    "block": 5,
+    "effectText": "カウンター 自分のコスト5以上のステージがある場合、自分のリーダーかキャラ1枚までを、このバトル中、パワー+4000。トリガー ドン!!-1：自分のトラッシュからステージカード2枚までを、手札に加える。",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-074",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-074_OP18-074.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-074.jpg",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-075_OP18-075.png",
@@ -1354,7 +2464,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-076_OP18-076.png",
@@ -1387,7 +2497,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-077_OP18-0770.png",
@@ -1420,7 +2530,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-078_OP18-078.png",
@@ -1453,46 +2563,12 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
-    "uniqueId": "OP18-079_OP18-079.jpg",
+    "uniqueId": "OP18-079_OP18-079L.jpg",
     "cardNumber": "OP18-079",
     "rawNumber": "OP18-079",
-    "cardName": "スパンダム",
-    "furigana": "スパンダム",
-    "rarity": "パラレル",
-    "cardType": "LEADER",
-    "color": [
-      "黒",
-      "黄"
-    ],
-    "costLifeType": "ライフ",
-    "costLifeValue": 4,
-    "power": 5000,
-    "counter": "-",
-    "attribute": "斬",
-    "features": [
-      "CP9"
-    ],
-    "block": 5,
-    "effectText": "起動メイン自分のドン!!2枚とこのリーダーをレストにし、自分の手札から『CP』を含む特徴を持つカード1枚を捨てることができる:自分のデッキの上から1枚までを、ライフの上に加える。",
-    "trigger": "",
-    "getInfo": "ブースターパック 神の支配【OP-18】",
-    "seriesTitle": "ブースターパック 神の支配",
-    "seriesCode": "OP-18",
-    "sourceModalId": "OP18-079",
-    "imagePath": "CardsWebP/Provisional/OP18/OP18-079_OP18-079.webp",
-    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-079.jpg",
-    "provisionalSource": "akihabara-cardshop",
-    "provisionalScope": "OP18",
-    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
-  },
-  {
-    "uniqueId": "OP18-080_OP18-080L.png",
-    "cardNumber": "OP18-080",
-    "rawNumber": "OP18-080",
     "cardName": "スパンダム",
     "furigana": "スパンダム",
     "rarity": "L",
@@ -1515,13 +2591,115 @@
     "getInfo": "ブースターパック 神の支配【OP-18】",
     "seriesTitle": "ブースターパック 神の支配",
     "seriesCode": "OP-18",
-    "sourceModalId": "OP18-080",
-    "imagePath": "CardsWebP/Provisional/OP18/OP18-080_OP18-080L.webp",
-    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-080L.png",
+    "sourceModalId": "OP18-079",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-079_OP18-079L.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-079L.jpg",
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-080_OP18-0800.png",
+    "cardNumber": "OP18-080",
+    "rawNumber": "OP18-080",
+    "cardName": "ヴァン・オーガー",
+    "furigana": "ヴァン・オーガー",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "color": [
+      "黒"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 4,
+    "power": 5000,
+    "counter": 1000,
+    "attribute": "射",
+    "features": [
+      "エッグヘッド",
+      "黒ひげ海賊団"
+    ],
+    "block": 5,
+    "effectText": "自分のターン中 ターン1回 自分のリーダー「マーシャル・D・ティーチ」の効果で自分の手札が捨てられた時、自分の他の「ヴァン・オーガー」がいない場合、カード1枚を引く。KO時 カード1枚を引く。",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-080",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-080_OP18-0800.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-0800.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-081_OP18-081.jpg",
+    "cardNumber": "OP18-081",
+    "rawNumber": "OP18-081",
+    "cardName": "オーズ",
+    "furigana": "オーズ",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "黒"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 10,
+    "power": 11000,
+    "counter": "-",
+    "attribute": "打",
+    "features": [
+      "巨人族",
+      "スリラーバーク海賊団"
+    ],
+    "block": 5,
+    "effectText": "自分のキャラの「ゲッコー・モリア」がいる場合、このキャラはダブルアタックとブロッカーを得る。トリガー 自分のトラッシュからコスト4以下の特徴《スリラーバーク海賊団》を持つキャラカード1枚までを、レストで登場させる。",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-081",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-081_OP18-081.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-081.jpg",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-082_OP18-082.png",
+    "cardNumber": "OP18-082",
+    "rawNumber": "OP18-082",
+    "cardName": "カタリーナ・デボン",
+    "furigana": "カタリーナ・デボン",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "黒"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 5,
+    "power": 3000,
+    "counter": 2000,
+    "attribute": "特",
+    "features": [
+      "エッグヘッド",
+      "黒ひげ海賊団"
+    ],
+    "block": 5,
+    "effectText": "アタック時 このキャラの元々のパワーは、このターン中、相手のリーダーと同じパワーになる。KO時 自分の手札1枚を捨てることができる：自分のリーダーが特徴《黒ひげ海賊団》を持つ場合、このキャラカードをトラッシュから登場させる。",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-082",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-082_OP18-082.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-082.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-083_OP18-0830.png",
@@ -1555,7 +2733,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-084_OP18-084.png",
@@ -1589,7 +2767,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-085_OP18-085.png",
@@ -1622,7 +2800,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-086_OP18-086.png",
@@ -1657,10 +2835,45 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
-    "uniqueId": "OP18-088_OP18-0880.png",
+    "uniqueId": "OP18-087_OP18-087.png",
+    "cardNumber": "OP18-087",
+    "rawNumber": "OP18-087",
+    "cardName": "スタンセン",
+    "furigana": "",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "黒"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 3,
+    "power": 4000,
+    "counter": 1000,
+    "attribute": "打",
+    "features": [
+      "巨人族",
+      "エルバフ",
+      "新巨兵海賊団"
+    ],
+    "block": 5,
+    "effectText": "このキャラのコスト+12。自分のキャラがコスト12以上のキャラのみの場合、このキャラのパワー+2000。",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-087",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-087_OP18-087.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-087.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-088_OP18-088.png",
     "cardNumber": "OP18-088",
     "rawNumber": "OP18-088",
     "cardName": "ソマーズ聖",
@@ -1686,12 +2899,12 @@
     "seriesTitle": "ブースターパック 神の支配",
     "seriesCode": "OP-18",
     "sourceModalId": "OP18-088",
-    "imagePath": "CardsWebP/Provisional/OP18/OP18-088_OP18-0880.webp",
-    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-0880.png",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-088_OP18-088.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-088.png",
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-089_OP18-089.png",
@@ -1726,7 +2939,40 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-090_OP18-090.png",
+    "cardNumber": "OP18-090",
+    "rawNumber": "OP18-090",
+    "cardName": "ブルック",
+    "furigana": "ブルック",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "黒"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 7,
+    "power": 9000,
+    "counter": 1000,
+    "attribute": "斬",
+    "features": [
+      "麦わらの一味"
+    ],
+    "block": 5,
+    "effectText": "–",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-090",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-090_OP18-090.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-090.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-091_OP18-091.png",
@@ -1761,7 +3007,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-092_OP18-092.png",
@@ -1795,7 +3041,109 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-093_OP18-093.png",
+    "cardNumber": "OP18-093",
+    "rawNumber": "OP18-093",
+    "cardName": "MMA",
+    "furigana": "",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "color": [
+      "黒"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 9,
+    "power": 3000,
+    "counter": 2000,
+    "attribute": "特",
+    "features": [
+      "エルバフ"
+    ],
+    "block": 5,
+    "effectText": "ルール上、このカードはデッキに何枚でも入れることができる。 ブロッカー(相手のアタックの後、このカードをレストにし、アタックの対象をこのカードにできる)",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-093",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-093_OP18-093.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-093.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-094_OP18-094.jpg",
+    "cardNumber": "OP18-094",
+    "rawNumber": "OP18-094",
+    "cardName": "ししし!!冒険の匂いがプンプンする!!",
+    "furigana": "",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "黒"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 1,
+    "power": "-",
+    "counter": "-",
+    "attribute": "-",
+    "features": [
+      "エルバフ",
+      "四皇",
+      "麦わらの一味"
+    ],
+    "block": 5,
+    "effectText": "メイン 自分のデッキの上から5枚を見て、特徴《エルバフ》を持つカード1枚までを公開し、手札に加える。その後、残りを好きな順番でデッキの下に置く。トリガー カード1枚を引く。",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-094",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-094_OP18-094.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-094.jpg",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-095_OP18-095.png",
+    "cardNumber": "OP18-095",
+    "rawNumber": "OP18-095",
+    "cardName": "遅刻だ遅刻ゥ～!!",
+    "furigana": "",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "color": [
+      "黒"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 1,
+    "power": "-",
+    "counter": "-",
+    "attribute": "-",
+    "features": [
+      "天竜人",
+      "神の騎士団"
+    ],
+    "block": 5,
+    "effectText": "メイン 自分のリーダーが特徴《天竜人》を持つ場合、自分のデッキの上から5枚を見て、「MMA」か特徴《神の騎士団》を持つカード1枚までを公開し、手札に加える。その後、残りを好きな順番でデッキの下に置く。",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-095",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-095_OP18-095.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-095.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-096_OP18-096.png",
@@ -1829,15 +3177,84 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
-    "uniqueId": "OP18-099_OP18-099.jpg",
+    "uniqueId": "OP18-097_OP18-097.jpg",
+    "cardNumber": "OP18-097",
+    "rawNumber": "OP18-097",
+    "cardName": "五芒星",
+    "furigana": "",
+    "rarity": "UC",
+    "cardType": "STAGE",
+    "color": [
+      "黒"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 1,
+    "power": "-",
+    "counter": "-",
+    "attribute": "-",
+    "features": [
+      "天竜人",
+      "神の騎士団",
+      "五老星"
+    ],
+    "block": 5,
+    "effectText": "自分のリーダーが特徴《天竜人》を持つ場合、自分が手札から登場させるコスト2以上の特徴《神の騎士団》か《五老星》を持つキャラカードの支払うコストは1少なくなる。登場時 カード1枚を引き、自分のデッキの上から2枚をトラッシュに置く。",
+    "trigger": "トリガーこのカードのメイン効果を発動する。",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-097",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-097_OP18-097.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-097.jpg",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-098_OP18-098.png",
+    "cardNumber": "OP18-098",
+    "rawNumber": "OP18-098",
+    "cardName": "オニグモ",
+    "furigana": "オニグモ",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "黄"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 7,
+    "power": 7000,
+    "counter": 2000,
+    "attribute": "斬",
+    "features": [
+      "中将",
+      "海軍"
+    ],
+    "block": 5,
+    "effectText": "ブロック不可 (このカードはブロックされない)",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-098",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-098_OP18-098.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-098.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-099_OP18-099.png",
     "cardNumber": "OP18-099",
     "rawNumber": "OP18-099",
     "cardName": "カク",
     "furigana": "カク",
-    "rarity": "パラレル",
+    "rarity": "R",
     "cardType": "CHARACTER",
     "color": [
       "黄"
@@ -1851,18 +3268,18 @@
       "CP9"
     ],
     "block": 5,
-    "effectText": "登場時自分の手札から「CP」を含む特徴を持つカード1枚までを、自分のライフの上から下に表向きで加える。",
-    "trigger": "自分のリーダーが「CP」を含む特徴を持つ場合、カード1枚を引き、コスト8以下のキャラ1枚までを、持ち主のデッキの下に置く。",
+    "effectText": "登場時 自分の手札から『CP』を含む特徴を持つカード1枚までを、自分のライフの上か下に表向きで加える。",
+    "trigger": "トリガー 自分のリーダーが『CP』を含む特徴を持つ場合、カード1枚を引き、コスト8以下のキャラ1枚までを、持ち主のデッキの下に置く。",
     "getInfo": "ブースターパック 神の支配【OP-18】",
     "seriesTitle": "ブースターパック 神の支配",
     "seriesCode": "OP-18",
     "sourceModalId": "OP18-099",
     "imagePath": "CardsWebP/Provisional/OP18/OP18-099_OP18-099.webp",
-    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-099.jpg",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-099.png",
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-100_OP18-100.png",
@@ -1895,7 +3312,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-101_OP18-0101.png",
@@ -1928,7 +3345,40 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-102_OP18-102.png",
+    "cardNumber": "OP18-102",
+    "rawNumber": "OP18-102",
+    "cardName": "ジェリー",
+    "furigana": "ジェリー",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "黄"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 4,
+    "power": 6000,
+    "counter": 1000,
+    "attribute": "打",
+    "features": [
+      "CP6"
+    ],
+    "block": 5,
+    "effectText": "–",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-102",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-102_OP18-102.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-102.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-103_OP18-103.png",
@@ -1961,7 +3411,74 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-104_OP18-104.png",
+    "cardNumber": "OP18-104",
+    "rawNumber": "OP18-104",
+    "cardName": "ストロベリー",
+    "furigana": "ストロベリー",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "黄"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 7,
+    "power": 7000,
+    "counter": 2000,
+    "attribute": "斬",
+    "features": [
+      "中将",
+      "海軍"
+    ],
+    "block": 5,
+    "effectText": "バニッシュ(このカードがダメージを与えた場合、トリガーは発動せずそのカードはトラッシュに置かれる)",
+    "trigger": "",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-104",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-104_OP18-104.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-104.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-105_OP18-105.png",
+    "cardNumber": "OP18-105",
+    "rawNumber": "OP18-105",
+    "cardName": "スパンダム",
+    "furigana": "スパンダム",
+    "rarity": "R",
+    "cardType": "CHARACTER",
+    "color": [
+      "黄"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 1,
+    "power": 1000,
+    "counter": "-",
+    "attribute": "斬",
+    "features": [
+      "CP9"
+    ],
+    "block": 5,
+    "effectText": "–",
+    "trigger": "トリガー 自分のリーダーが『CP』を含む特徴を持つ場合、自分の手札から「スパンダム」以外の『CP』を含む特徴を持つカード1枚までを公開する。公開したカードのトリガー効果を発動する。",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-105",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-105_OP18-105.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-105.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-106_OP18-106.png",
@@ -1995,7 +3512,40 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-107_OP18-107.png",
+    "cardNumber": "OP18-107",
+    "rawNumber": "OP18-107",
+    "cardName": "ネロ",
+    "furigana": "ネロ",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "color": [
+      "黄"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 4,
+    "power": 4000,
+    "counter": 1000,
+    "attribute": "射",
+    "features": [
+      "CP9"
+    ],
+    "block": 5,
+    "effectText": "ブロッカー",
+    "trigger": "トリガー 自分のリーダーが『CP』を含む特徴を持つ場合、コスト5以下のキャラ1枚までを、持ち主のデッキの下に置く。",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-107",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-107_OP18-107.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-107.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-108_OP18-108.png",
@@ -2028,7 +3578,40 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-109_OP18-109.png",
+    "cardNumber": "OP18-109",
+    "rawNumber": "OP18-109",
+    "cardName": "フクロウ",
+    "furigana": "フクロウ",
+    "rarity": "UC",
+    "cardType": "CHARACTER",
+    "color": [
+      "黄"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 5,
+    "power": 4000,
+    "counter": 2000,
+    "attribute": "打",
+    "features": [
+      "CP9"
+    ],
+    "block": 5,
+    "effectText": "ブロッカー",
+    "trigger": "トリガー自分のリーダーが『CP』を含む特徴を持つ場合、相手のコスト6以下のキャラ1枚までを、KOするか、レストにする",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-109",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-109_OP18-109.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-109.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-111_OP18-111.png",
@@ -2062,7 +3645,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-112_OP18-112.png",
@@ -2096,7 +3679,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-113_OP18-113.png",
@@ -2129,7 +3712,106 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-114_OP18-114.png",
+    "cardNumber": "OP18-114",
+    "rawNumber": "OP18-114",
+    "cardName": "ワンゼ",
+    "furigana": "ワンゼ",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "黄"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 3,
+    "power": 4000,
+    "counter": "-",
+    "attribute": "斬",
+    "features": [
+      "CP7"
+    ],
+    "block": 5,
+    "effectText": "登場時 自分のライフすべてを見て、好きな順番で置く。",
+    "trigger": "トリガー 自分のリーダーが『CP』を含む特徴を持つ場合、コスト5以下のキャラ1枚までを、持ち主のデッキの下に置く。",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-114",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-114_OP18-114.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-114.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-115_OP18-115.png",
+    "cardNumber": "OP18-115",
+    "rawNumber": "OP18-115",
+    "cardName": "十指銃",
+    "furigana": "",
+    "rarity": "C",
+    "cardType": "EVENT",
+    "color": [
+      "黄"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 4,
+    "power": "-",
+    "counter": "-",
+    "attribute": "-",
+    "features": [
+      "CP9"
+    ],
+    "block": 5,
+    "effectText": "メイン 相手のコスト5以下のキャラ1枚までを、KOする。",
+    "trigger": "トリガー 自分のリーダーが『CP』を含む特徴を持つ場合、カード1枚を引き、コスト7以下のキャラ1枚までを、持ち主のデッキの下に置く。",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-115",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-115_OP18-115.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-115.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
+  },
+  {
+    "uniqueId": "OP18-116_OP18-116.png",
+    "cardNumber": "OP18-116",
+    "rawNumber": "OP18-116",
+    "cardName": "鉄塊 空木",
+    "furigana": "",
+    "rarity": "C",
+    "cardType": "EVENT",
+    "color": [
+      "黄"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": "-",
+    "power": "-",
+    "counter": "-",
+    "attribute": "-",
+    "features": [
+      "CP9"
+    ],
+    "block": 5,
+    "effectText": "カウンター 自分の手札1枚を捨てることができる：自分のリーダーかキャラ1枚までを、このバトル中、パワー+3000。",
+    "trigger": "トリガー 自分のリーダーが『CP』を含む特徴を持つ場合、相手のキャラ1枚までを、レストにする。",
+    "getInfo": "ブースターパック 神の支配【OP-18】",
+    "seriesTitle": "ブースターパック 神の支配",
+    "seriesCode": "OP-18",
+    "sourceModalId": "OP18-116",
+    "imagePath": "CardsWebP/Provisional/OP18/OP18-116_OP18-116.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/OP18-116.png",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "OP18",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-117_OP18-117.png",
@@ -2163,7 +3845,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-118_OP18-118.jpg",
@@ -2197,7 +3879,7 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "OP18",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/op18/",
-    "provisionalUpdatedAt": "2026-11-07"
+    "provisionalUpdatedAt": "2026-11-09"
   },
   {
     "uniqueId": "OP18-119_OP18-119FC.jpg",

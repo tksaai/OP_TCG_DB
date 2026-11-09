@@ -161,6 +161,11 @@
       "status": "verified",
       "source": "existing-card-data"
     },
+    "F-ワニ": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
     "GERMA 66": {
       "reading": "ジェルマダブルシックス",
       "status": "verified",
@@ -175,6 +180,11 @@
       "reading": "キープアウト",
       "status": "verified",
       "source": "existing-card-data"
+    },
+    "MMA": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
     },
     "Mr.0（クロコダイル）": {
       "reading": "",
@@ -226,6 +236,11 @@
       "status": "pending",
       "source": "new-card"
     },
+    "Mr.3&ミス・ゴールデンウィーク": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
     "Mr.4(ベーブ)": {
       "reading": "ミスターフォーベーブ",
       "status": "verified",
@@ -251,6 +266,16 @@
       "status": "pending",
       "source": "new-card"
     },
+    "Mr.7&ミス・ファーザーズデー": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "Mr.8&ミス・マンデー": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
     "Mr.9": {
       "reading": "ミスターナイン",
       "status": "verified",
@@ -262,6 +287,11 @@
       "source": "new-card"
     },
     "Mr.ビーンズ&ミス・キャサリーナ": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "Mr.プリンス": {
       "reading": "",
       "status": "pending",
       "source": "new-card"
@@ -395,6 +425,11 @@
       "reading": "アトラス",
       "status": "verified",
       "source": "existing-card-data"
+    },
+    "あの旗 撃ち抜け": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
     },
     "アバロ・ピサロ": {
       "reading": "アバロ・ピサロ",
@@ -801,6 +836,11 @@
       "status": "verified",
       "source": "existing-card-data"
     },
+    "オイモ＆カーシー": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
     "オーズ": {
       "reading": "オーズ",
       "status": "verified",
@@ -911,6 +951,11 @@
       "status": "verified",
       "source": "existing-card-data"
     },
+    "おれの造ったその船に乗ってってくれねェか!!!?": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
     "おれはルフィ!!海賊王になる男だ!!": {
       "reading": "オレハルフィカイゾクオウニナルオトコダ",
       "status": "verified",
@@ -980,6 +1025,11 @@
       "reading": "オマエジャタイクツシノギニモナリャシネェ",
       "status": "verified",
       "source": "existing-card-data"
+    },
+    "お前に国は救えない": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
     },
     "お鶴": {
       "reading": "オツル",
@@ -1275,6 +1325,11 @@
       "reading": "クイナ",
       "status": "verified",
       "source": "existing-card-data"
+    },
+    "クエ～ッ!!!": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
     },
     "クザン": {
       "reading": "クザン",
@@ -1651,6 +1706,11 @@
       "status": "verified",
       "source": "existing-card-data"
     },
+    "ゴムゴムの巨人の斧": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
     "ゴムゴムの業火拳銃": {
       "reading": "ゴムゴムノレッドロック",
       "status": "verified",
@@ -1935,6 +1995,11 @@
       "reading": "シキ",
       "status": "verified",
       "source": "existing-card-data"
+    },
+    "ししし!!冒険の匂いがプンプンする!!": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
     },
     "シシリアン": {
       "reading": "シシリアン",
@@ -2325,6 +2390,11 @@
       "reading": "スコッパー・ギャバン",
       "status": "verified",
       "source": "existing-card-data"
+    },
+    "スタンセン": {
+      "reading": "スタンセン",
+      "status": "suggested",
+      "source": "kana-rule"
     },
     "すっかり衰えた……!!!": {
       "reading": "スッカリオトロエタ",
@@ -3271,6 +3341,11 @@
       "status": "verified",
       "source": "existing-card-data"
     },
+    "バンバン爺": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
     "ビアン": {
       "reading": "ビアン",
       "status": "verified",
@@ -3495,6 +3570,11 @@
       "reading": "フランキー",
       "status": "verified",
       "source": "existing-card-data"
+    },
+    "フランキー一家": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
     },
     "フランキー将軍": {
       "reading": "フランキーショウグン",
@@ -3860,6 +3940,11 @@
       "reading": "マーメイドカフェダンサーズ",
       "status": "suggested",
       "source": "kana-rule"
+    },
+    "マイケル&ホイケル": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
     },
     "マキノ": {
       "reading": "マキノ",
@@ -5031,6 +5116,11 @@
       "status": "verified",
       "source": "existing-card-data"
     },
+    "五芒星": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
     "光月おでん": {
       "reading": "コウヅキオデン",
       "status": "verified",
@@ -5075,6 +5165,11 @@
       "reading": "イクゾーーーカイグンホンブーーー",
       "status": "verified",
       "source": "manual"
+    },
+    "行くわよ カルー!!!": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
     },
     "降三世 引奈落": {
       "reading": "コウザンゼラグナラク",
@@ -5330,6 +5425,11 @@
       "reading": "シュウジンタチガアバレダシタァ",
       "status": "verified",
       "source": "image-ocr-confirmed"
+    },
+    "十指銃": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
     },
     "十字火": {
       "reading": "ジュウジカ",
@@ -5621,6 +5721,11 @@
       "status": "verified",
       "source": "existing-card-data"
     },
+    "遅刻だ遅刻ゥ～!!": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
     "仲間がいる゛よ!!!!": {
       "reading": "ナカマガイルヨ",
       "status": "verified",
@@ -5685,6 +5790,11 @@
       "reading": "テッカイガセン",
       "status": "verified",
       "source": "existing-card-data"
+    },
+    "鉄塊 空木": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
     },
     "天狗山飛徹": {
       "reading": "テングヤマヒテツ",
@@ -5865,6 +5975,11 @@
       "reading": "スワローボンナバン",
       "status": "verified",
       "source": "manual"
+    },
+    "微塵斬": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
     },
     "鼻唄三丁矢筈斬り": {
       "reading": "ハナウタサンチョウヤハズギリ",
