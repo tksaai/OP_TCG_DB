@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-12T17:40:00.371Z",
-  "totalCards": 2899,
-  "totalImages": 5081,
+  "generatedAt": "2026-11-13T17:01:22.096Z",
+  "totalCards": 3018,
+  "totalImages": 5200,
   "cards": {
     "EB01-001": [
       {
@@ -53206,6 +53206,1791 @@
         "path": "CardsWebP/OP17/official/OP17-119_p1.webp",
         "fallbackPath": "",
         "variantIndex": 1
+      }
+    ],
+    "OP18-001": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-001.png?261113",
+        "cardName": "カルー",
+        "rarity": "L",
+        "cardType": "LEADER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-001.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-002": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-002.png?261113",
+        "cardName": "イガラム",
+        "rarity": "UC",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-002.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-003": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-003.png?261113",
+        "cardName": "海ネコ",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-003.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-004": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-004.png?261113",
+        "cardName": "カルー",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-004.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-005": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-005.png?261113",
+        "cardName": "クンフージュゴン",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-005.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-006": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-006.png?261113",
+        "cardName": "コーザ",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-006.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-007": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-007.png?261113",
+        "cardName": "スモーカー",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-007.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-008": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-008.png?261113",
+        "cardName": "チャカ",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-008.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-009": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-009.png?261113",
+        "cardName": "超カルガモ部隊",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-009.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-010": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-010.png?261113",
+        "cardName": "トニートニー・チョッパー",
+        "rarity": "UC",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-010.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-011": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-011.png?261113",
+        "cardName": "ネフェルタリ・ビビ",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-011.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-012": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-012.png?261113",
+        "cardName": "ハサミ",
+        "rarity": "UC",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-012.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-013": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-013.png?261113",
+        "cardName": "ペル",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-013.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-014": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-014.png?261113",
+        "cardName": "ポートガス・Ｄ・エース",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-014.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-015": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-015.png?261113",
+        "cardName": "マツゲ",
+        "rarity": "UC",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-015.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-016": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-016.png?261113",
+        "cardName": "モンキー・Ｄ・ルフィ",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-016.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-017": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-017.png?261113",
+        "cardName": "ロロノア・ゾロ",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-017.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-018": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-018.png?261113",
+        "cardName": "行くわよ カルー!!!",
+        "rarity": "C",
+        "cardType": "EVENT",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-018.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-019": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-019.png?261113",
+        "cardName": "クエ～ッ!!!",
+        "rarity": "R",
+        "cardType": "EVENT",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-019.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-020": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-020.png?261113",
+        "cardName": "戦いを!!!やめて下さい!!!",
+        "rarity": "UC",
+        "cardType": "EVENT",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-020.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-021": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-021.png?261113",
+        "cardName": "フランキー",
+        "rarity": "L",
+        "cardType": "LEADER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-021.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-022": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-022.png?261113",
+        "cardName": "モンキー・Ｄ・ルフィ",
+        "rarity": "L",
+        "cardType": "LEADER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-022.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-023": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-023.png?261113",
+        "cardName": "ガイモン",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-023.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-024": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-024.png?261113",
+        "cardName": "ココロ",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-024.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-025": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-025.png?261113",
+        "cardName": "ゴンベ",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-025.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-026": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-026.png?261113",
+        "cardName": "サンジ",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-026.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-027": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-027.png?261113",
+        "cardName": "ゾロ＆そげキング",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-027.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-028": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-028.png?261113",
+        "cardName": "チムニー",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-028.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-029": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-029.png?261113",
+        "cardName": "トニートニー・チョッパー",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-029.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-030": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-030.png?261113",
+        "cardName": "ナミ",
+        "rarity": "UC",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-030.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-031": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-031.png?261113",
+        "cardName": "ニコ・ロビン",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "block": "X",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-031.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-032": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-032.png?261113",
+        "cardName": "バギー",
+        "rarity": "UC",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-032.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-033": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-033.png?261113",
+        "cardName": "バンバン爺",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-033.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-034": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-034.png?261113",
+        "cardName": "フランキー",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-034.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-035": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-035.png?261113",
+        "cardName": "マイケル＆ホイケル",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-035.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-036": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-036.png?261113",
+        "cardName": "モンキー・Ｄ・ルフィ",
+        "rarity": "UC",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-036.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-037": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-037.png?261113",
+        "cardName": "ヨコヅナ",
+        "rarity": "UC",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-037.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-038": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-038.png?261113",
+        "cardName": "あの旗 撃ち抜け",
+        "rarity": "UC",
+        "cardType": "EVENT",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-038.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-039": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-039.png?261113",
+        "cardName": "ゴムゴムの巨人の斧",
+        "rarity": "R",
+        "cardType": "EVENT",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-039.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-040": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-040.png?261113",
+        "cardName": "悪魔風脚 画竜点睛ショット",
+        "rarity": "C",
+        "cardType": "EVENT",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-040.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-041": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-041.png?261113",
+        "cardName": "ミス・オールサンデー",
+        "rarity": "L",
+        "cardType": "LEADER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-041.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-042": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-042.png?261113",
+        "cardName": "ハック",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-042.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-043": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-043.png?261113",
+        "cardName": "Ｆ-ワニ",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-043.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-044": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-044.png?261113",
+        "cardName": "Mr.ビーンズ＆ミス・キャサリーナ",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-044.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-045": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-045.png?261113",
+        "cardName": "Mr.プリンス",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-045.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-046": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-046.png?261113",
+        "cardName": "Mr.0＆ミス・オールサンデー",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-046.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-047": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-047.png?261113",
+        "cardName": "Mr.1(ダズ・ボーネス)",
+        "rarity": "UC",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-047.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-048": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-048.png?261113",
+        "cardName": "Mr.1＆ミス・ダブルフィンガー",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-048.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-049": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-049.png?261113",
+        "cardName": "Mr.2・ボン・クレー(ベンサム)",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-049.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-050": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-050.png?261113",
+        "cardName": "Mr.3＆ミス・ゴールデンウィーク",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-050.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-051": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-051.png?261113",
+        "cardName": "Mr.4＆ミス・メリークリスマス",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-051.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-052": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-052.png?261113",
+        "cardName": "Mr.5＆ミス・バレンタイン",
+        "rarity": "UC",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-052.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-053": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-053.png?261113",
+        "cardName": "Mr.7＆ミス・ファーザーズデー",
+        "rarity": "UC",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-053.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-054": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-054.png?261113",
+        "cardName": "Mr.8＆ミス・マンデー",
+        "rarity": "UC",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-054.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-055": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-055.png?261113",
+        "cardName": "Mr.9＆ミス・ウェンズデー",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-055.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-056": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-056.png?261113",
+        "cardName": "Mr.13＆ミス・フライデー",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-056.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-057": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-057.png?261113",
+        "cardName": "微塵斬",
+        "rarity": "UC",
+        "cardType": "EVENT",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-057.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-058": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-058.png?261113",
+        "cardName": "お前に国は救えない",
+        "rarity": "C",
+        "cardType": "EVENT",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-058.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-059": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-059.png?261113",
+        "cardName": "武運を祈る",
+        "rarity": "R",
+        "cardType": "EVENT",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-059.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-060": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-060.png?261113",
+        "cardName": "軍子宮",
+        "rarity": "L",
+        "cardType": "LEADER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-060.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-061": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-061.png?261113",
+        "cardName": "アイスバーグ",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-061.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-062": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-062.png?261113",
+        "cardName": "オイモ＆カーシー",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-062.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-063": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-063.png?261113",
+        "cardName": "キウイ＆モズ",
+        "rarity": "UC",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-063.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-064": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-064.png?261113",
+        "cardName": "キリンガム聖",
+        "rarity": "UC",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-064.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-065": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-065.png?261113",
+        "cardName": "軍子宮",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "block": "X",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-065.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-066": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-066.png?261113",
+        "cardName": "ザンバイ",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-066.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-067": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-067.png?261113",
+        "cardName": "シャーロット・スムージー",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-067.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-068": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-068.png?261113",
+        "cardName": "セニョール・ピンク",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-068.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-069": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-069.png?261113",
+        "cardName": "ソドム＆ゴモラ",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-069.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-070": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-070.png?261113",
+        "cardName": "トム",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-070.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-071": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-071.png?261113",
+        "cardName": "トレーボル",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-071.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-072": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-072.png?261113",
+        "cardName": "フランキー一家",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-072.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-073": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-073.png?261113",
+        "cardName": "Tボーン",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-073.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-074": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-074.png?261113",
+        "cardName": "おれの造ったその船に乗ってってくれねェか!!!?",
+        "rarity": "R",
+        "cardType": "EVENT",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-074.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-075": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-075.png?261113",
+        "cardName": "サウザンド・サニー号",
+        "rarity": "R",
+        "cardType": "STAGE",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-075.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-076": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-076.png?261113",
+        "cardName": "シャークサブマージ3号",
+        "rarity": "UC",
+        "cardType": "STAGE",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-076.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-077": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-077.png?261113",
+        "cardName": "シロモクバ1号",
+        "rarity": "UC",
+        "cardType": "STAGE",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-077.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-078": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-078.png?261113",
+        "cardName": "ミニメリー2号",
+        "rarity": "UC",
+        "cardType": "STAGE",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-078.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-079": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-079.png?261113",
+        "cardName": "スパンダム",
+        "rarity": "L",
+        "cardType": "LEADER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-079.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-080": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-080.png?261113",
+        "cardName": "ヴァン・オーガー",
+        "rarity": "UC",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-080.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-081": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-081.png?261113",
+        "cardName": "オーズ",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-081.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-082": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-082.png?261113",
+        "cardName": "カタリーナ・デボン",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-082.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-083": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-083.png?261113",
+        "cardName": "キリンガム聖",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-083.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-084": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-084.png?261113",
+        "cardName": "軍子宮",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-084.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-085": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-085.png?261113",
+        "cardName": "ケルベロス",
+        "rarity": "UC",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-085.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-086": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-086.png?261113",
+        "cardName": "ゴールドバーグ",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-086.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-087": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-087.png?261113",
+        "cardName": "スタンセン",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-087.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-088": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-088.png?261113",
+        "cardName": "ソマーズ聖",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-088.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-089": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-089.png?261113",
+        "cardName": "ドリー",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-089.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-090": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-090.png?261113",
+        "cardName": "ブルック",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-090.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-091": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-091.png?261113",
+        "cardName": "ブロギー",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-091.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-092": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-092.png?261113",
+        "cardName": "ロロノア・ゾロ",
+        "rarity": "UC",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-092.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-093": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-093.png?261113",
+        "cardName": "MMA",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-093.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-094": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-094.png?261113",
+        "cardName": "ししし!!冒険の匂いがプンプンする!!",
+        "rarity": "C",
+        "cardType": "EVENT",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-094.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-095": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-095.png?261113",
+        "cardName": "遅刻だ遅刻ゥ～!!",
+        "rarity": "UC",
+        "cardType": "EVENT",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-095.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-096": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-096.png?261113",
+        "cardName": "呼ぶぞ",
+        "rarity": "R",
+        "cardType": "EVENT",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-096.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-097": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-097.png?261113",
+        "cardName": "五芒星",
+        "rarity": "UC",
+        "cardType": "STAGE",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-097.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-098": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-098.png?261113",
+        "cardName": "オニグモ",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-098.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-099": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-099.png?261113",
+        "cardName": "カク",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-099.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-100": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-100.png?261113",
+        "cardName": "カリファ",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-100.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-101": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-101.png?261113",
+        "cardName": "クマドリ",
+        "rarity": "UC",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-101.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-102": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-102.png?261113",
+        "cardName": "ジェリー",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-102.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-103": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-103.png?261113",
+        "cardName": "ジャブラ",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-103.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-104": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-104.png?261113",
+        "cardName": "ストロベリー",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-104.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-105": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-105.png?261113",
+        "cardName": "スパンダム",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-105.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-106": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-106.png?261113",
+        "cardName": "ドーベルマン",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-106.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-107": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-107.png?261113",
+        "cardName": "ネロ",
+        "rarity": "UC",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-107.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-108": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-108.png?261113",
+        "cardName": "ファンクフリード",
+        "rarity": "UC",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-108.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-109": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-109.png?261113",
+        "cardName": "フクロウ",
+        "rarity": "UC",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-109.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-110": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-110.png?261113",
+        "cardName": "ブルーノ",
+        "rarity": "R",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-110.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-111": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-111.png?261113",
+        "cardName": "モモンガ",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-111.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-112": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-112.png?261113",
+        "cardName": "ヤマカジ",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-112.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-113": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-113.png?261113",
+        "cardName": "ロブ・ルッチ",
+        "rarity": "SR",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-113.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-114": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-114.png?261113",
+        "cardName": "ワンゼ",
+        "rarity": "C",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-114.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-115": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-115.png?261113",
+        "cardName": "十指銃",
+        "rarity": "UC",
+        "cardType": "EVENT",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-115.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-116": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-116.png?261113",
+        "cardName": "鉄塊 空木",
+        "rarity": "C",
+        "cardType": "EVENT",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-116.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-117": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-117.png?261113",
+        "cardName": "バスターコール",
+        "rarity": "R",
+        "cardType": "EVENT",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-117.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-118": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-118.png?261113",
+        "cardName": "モンキー・Ｄ・ルフィ",
+        "rarity": "SEC",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-118.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
+      }
+    ],
+    "OP18-119": [
+      {
+        "source": "official",
+        "sourceUrl": "https://www.onepiece-cardgame.com/images/cardlist/card/OP18-119.png?261113",
+        "cardName": "シャムロック聖",
+        "rarity": "SEC",
+        "cardType": "CHARACTER",
+        "block": "5",
+        "getInfo": "ブースターパック 神の支配【OP-18】                                    \n                    カードリスト\n                                        商品情報",
+        "label": "通常",
+        "path": "CardsWebP/OP18/official/OP18-119.webp",
+        "fallbackPath": "",
+        "variantIndex": 0
       }
     ],
     "P": [

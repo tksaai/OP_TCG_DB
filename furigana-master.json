@@ -161,6 +161,11 @@
       "status": "verified",
       "source": "existing-card-data"
     },
+    "Ｆ-ワニ": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
     "F-ワニ": {
       "reading": "",
       "status": "pending",
@@ -191,6 +196,11 @@
       "status": "pending",
       "source": "new-card"
     },
+    "Mr.0＆ミス・オールサンデー": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
     "Mr.0&ミス・オールサンデー": {
       "reading": "",
       "status": "pending",
@@ -201,6 +211,11 @@
       "status": "verified",
       "source": "existing-card-data"
     },
+    "Mr.1＆ミス・ダブルフィンガー": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
     "Mr.1&ミス・ダブルフィンガー": {
       "reading": "",
       "status": "pending",
@@ -210,6 +225,11 @@
       "reading": "ミスターサーティーンアンドミス・フライデー",
       "status": "verified",
       "source": "existing-card-data"
+    },
+    "Mr.13＆ミス・フライデー": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
     },
     "Mr.2・ボン・クレー(ベンサム)": {
       "reading": "ミスターツー・ボン・クレーベンサム",
@@ -236,6 +256,11 @@
       "status": "pending",
       "source": "new-card"
     },
+    "Mr.3＆ミス・ゴールデンウィーク": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
     "Mr.3&ミス・ゴールデンウィーク": {
       "reading": "",
       "status": "pending",
@@ -245,6 +270,11 @@
       "reading": "ミスターフォーベーブ",
       "status": "verified",
       "source": "existing-card-data"
+    },
+    "Mr.4＆ミス・メリークリスマス": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
     },
     "Mr.4&ミス・メリークリスマス": {
       "reading": "",
@@ -261,12 +291,27 @@
       "status": "pending",
       "source": "new-card"
     },
+    "Mr.5＆ミス・バレンタイン": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
     "Mr.5&ミス・バレンタイン": {
       "reading": "",
       "status": "pending",
       "source": "new-card"
     },
+    "Mr.7＆ミス・ファーザーズデー": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
     "Mr.7&ミス・ファーザーズデー": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "Mr.8＆ミス・マンデー": {
       "reading": "",
       "status": "pending",
       "source": "new-card"
@@ -281,7 +326,17 @@
       "status": "verified",
       "source": "existing-card-data"
     },
+    "Mr.9＆ミス・ウェンズデー": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
     "Mr.9&ミス・ウェンズデー": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
+    "Mr.ビーンズ＆ミス・キャサリーナ": {
       "reading": "",
       "status": "pending",
       "source": "new-card"
@@ -1825,6 +1880,11 @@
       "reading": "コンスロット",
       "status": "verified",
       "source": "existing-card-data"
+    },
+    "ゴンベ": {
+      "reading": "ゴンベ",
+      "status": "suggested",
+      "source": "kana-rule"
     },
     "ゴンべ": {
       "reading": "ゴンベ",
@@ -3940,6 +4000,11 @@
       "reading": "マーメイドカフェダンサーズ",
       "status": "suggested",
       "source": "kana-rule"
+    },
+    "マイケル＆ホイケル": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
     },
     "マイケル&ホイケル": {
       "reading": "",
