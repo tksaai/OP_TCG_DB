@@ -149,6 +149,14 @@ run(process.execPath, [
 ]);
 run(process.execPath, [path.join('scripts', 'apply-block-icon-overrides.mjs'), ...(dryRun ? ['--dry-run'] : [])]);
 run(process.execPath, [
+    path.join('scripts', 'sync-series-master.mjs'),
+    ...(dryRun ? ['--dry-run'] : [])
+]);
+run(process.execPath, [
+    path.join('scripts', 'normalize-card-series.mjs'),
+    ...(dryRun ? ['--dry-run'] : [])
+]);
+run(process.execPath, [
     path.join('scripts', 'sync-furigana-master.mjs'),
     ...(dryRun ? [] : ['--write'])
 ]);

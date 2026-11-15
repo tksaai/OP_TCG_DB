@@ -5,8 +5,8 @@
  */
 
 // === 1. 定数 ===
-const CACHE_APP_SHELL = 'app-shell-v65';
-const CACHE_CARD_DATA = 'card-data-v19';
+const CACHE_APP_SHELL = 'app-shell-v66';
+const CACHE_CARD_DATA = 'card-data-v20';
 // v2: 配信を WebP に一本化したタイミングで、古い JPEG/PNG のキャッシュを捨てる
 const CACHE_IMAGES = 'card-images-v2';
 const OWNED_CACHE_PREFIXES = ['app-shell-', 'card-data-', 'card-images-'];
@@ -18,6 +18,7 @@ let imageCacheWritesSinceTrim = 0;
 const CARDS_JSON_PATH = './cards.json';
 const PROVISIONAL_CARDS_JSON_PATH = './provisional-cards.json';
 const IMAGE_MANIFEST_PATH = './image-manifest.json';
+const SERIES_MASTER_PATH = './series-master.json';
 const BLOCK_ICON_RULES_PATH = './block-icon-overrides.json';
 const CARD_FEATURES_PATH = './card-features.json';
 const FURIGANA_MASTER_PATH = './furigana-master.json';
@@ -26,6 +27,7 @@ const CARD_DATA_FILES = [
     CARDS_JSON_PATH,
     PROVISIONAL_CARDS_JSON_PATH,
     IMAGE_MANIFEST_PATH,
+    SERIES_MASTER_PATH,
     BLOCK_ICON_RULES_PATH,
     CARD_FEATURES_PATH,
     FURIGANA_MASTER_PATH,
@@ -37,18 +39,18 @@ const CARD_DATA_FILES = [
 const APP_SHELL_FILES = [
     './', // ルート (index.html を想定)
     './index.html',
-    './style.css?v=1.18.2',
-    './image-import.js?v=1.18.2',
+    './style.css?v=1.18.3',
+    './image-import.js?v=1.18.3',
     './image-import-worker.js',
-    './eight-pack-leader.js?v=1.18.2',
-    './deck-adjustments.js?v=1.18.2',
-    './deck-records.js?v=1.18.2',
-    './deck-variants.js?v=1.18.2',
-    './proxy-print.js?v=1.18.2',
-    './optcgsim-deck.js?v=1.18.2',
-    './google-drive-sync.js?v=1.18.2',
-    './card-data-diff.js?v=1.18.2',
-    './app.js?v=1.18.2',
+    './eight-pack-leader.js?v=1.18.3',
+    './deck-adjustments.js?v=1.18.3',
+    './deck-records.js?v=1.18.3',
+    './deck-variants.js?v=1.18.3',
+    './proxy-print.js?v=1.18.3',
+    './optcgsim-deck.js?v=1.18.3',
+    './google-drive-sync.js?v=1.18.3',
+    './card-data-diff.js?v=1.18.3',
+    './app.js?v=1.18.3',
     './admin.html',
     './furigana-review.html',
     './furigana-review.css?v=1.0.0',

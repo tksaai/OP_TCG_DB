@@ -46,6 +46,7 @@
     const CARDS_JSON_PATH = './cards.json';
     const PROVISIONAL_CARDS_JSON_PATH = './provisional-cards.json';
     const IMAGE_MANIFEST_PATH = './image-manifest.json';
+    const SERIES_MASTER_PATH = './series-master.json';
     const BLOCK_ICON_RULES_PATH = './block-icon-overrides.json';
     const FURIGANA_MASTER_PATH = './furigana-master.json';
     const FURIGANA_OVERRIDES_PATH = './furigana-overrides.json';
@@ -65,7 +66,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.18.2'; // バージョン更新
+    const APP_VERSION = '1.18.3'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -90,6 +91,7 @@
     let currentLightboxIndex = -1;
     let currentLightboxVariantIndex = 0;
     let imageManifest = { cards: {} };
+    let seriesMaster = { version: 1, entries: {} };
     let blockIconRules = { loaded: false, superParallelXCardNumbers: new Set(), blockIconOverrides: {} };
     let cardSeriesIdCache = new Map(); // cardNumber -> Set<正規化済みシリーズID>
     let lastAddedCardSet = new Set(); // 前回のデータ更新で追加されたカード番号
@@ -520,6 +522,7 @@
             await initDB();
             await loadWantedCards();
             await loadImageManifest();
+            await loadSeriesMaster();
             await loadBlockIconRules();
             await loadFuriganaMaster();
             await loadFuriganaOverrides();
@@ -596,6 +599,18 @@
             imageManifest = { cards: {} };
         }
         cardSeriesIdCache.clear();
+    }
+
+    async function loadSeriesMaster() {
+        try {
+            const response = await fetch(SERIES_MASTER_PATH, { cache: 'no-cache' });
+            if (!response.ok) throw new Error(`Failed to fetch series master: ${response.status}`);
+            const master = await response.json();
+            seriesMaster = master?.entries ? master : { version: 1, entries: {} };
+        } catch (error) {
+            console.warn('Failed to load series master. Falling back to card metadata.', error);
+            seriesMaster = { version: 1, entries: {} };
+        }
     }
 
     async function loadBlockIconRules() {
@@ -1156,6 +1171,25 @@
 
     function normalizeSeriesId(value) {
         return String(value || '').replace(/-/g, '').toUpperCase();
+    }
+
+    function getSeriesMasterEntry(seriesId) {
+        return seriesMaster.entries?.[normalizeSeriesId(seriesId)] || null;
+    }
+
+    function getCanonicalSeriesTitle(card) {
+        const seriesId = normalizeSeriesId(card?.cardNumber?.split('-')[0]);
+        return getSeriesMasterEntry(seriesId)?.title
+            || card?.seriesTitle
+            || String(card?.series || '').split(' - ').slice(1).join(' - ')
+            || '';
+    }
+
+    function getSeriesOptionLabel(seriesId, card = null) {
+        const normalizedId = normalizeSeriesId(seriesId);
+        const title = getSeriesMasterEntry(normalizedId)?.title
+            || (card ? getCanonicalSeriesTitle(card) : '');
+        return `${normalizedId}${title ? ` - ${title}` : ' - (シリーズ情報なし)'}`;
     }
 
     function extractSeriesIdsFromText(text, target) {
@@ -1805,6 +1839,7 @@
 
             // テキスト検索
             if (searchWords.length > 0 || excludeWords.length > 0) {
+                const canonicalSeriesTitle = getCanonicalSeriesTitle(card);
                 let searchableText = [
                     card.cardName || '',
                     card.furigana || '',
@@ -1812,6 +1847,7 @@
                     (card.features || []).join(' '),
                     card.cardNumber || '',
                     card.trigger || '',
+                    canonicalSeriesTitle,
                     card.seriesTitle || '',
                     card.seriesCode || '',
                     card.getInfo || '',
@@ -2042,17 +2078,7 @@
 
             const seriesId = card.cardNumber.split('-')[0];
             if (!seriesId || seriesSet.has(seriesId)) return;
-            if (seriesId === 'P') {
-                seriesSet.set('P', 'P - プロモカード');
-            } else if (card.seriesTitle) {
-                seriesSet.set(seriesId, `${seriesId} - ${card.seriesTitle}`);
-            } else if (card.series) {
-                const seriesParts = card.series.split(' - ');
-                const seriesName = seriesParts[1] || card.series;
-                seriesSet.set(seriesId, `${seriesId} - ${seriesName}`);
-            } else {
-                seriesSet.set(seriesId, `${seriesId} - (シリーズ情報なし)`);
-            }
+            seriesSet.set(seriesId, getSeriesOptionLabel(seriesId, card));
         });
 
         const sortedColors = [...colors].sort();
@@ -5616,8 +5642,7 @@
         getDeckCardPool().forEach(card => {
             const prefix = normalizeSeriesId(card?.cardNumber?.split('-')[0]);
             if (prefix) {
-                const title = card.seriesTitle || String(card.series || '').split(' - ').slice(1).join(' - ');
-                labels.set(prefix, prefix === 'P' ? 'P - プロモカード' : `${prefix}${title ? ` - ${title}` : ''}`);
+                labels.set(prefix, getSeriesOptionLabel(prefix, card));
             }
             getCardSeriesIds(card).forEach(seriesId => {
                 if (!labels.has(seriesId)) labels.set(seriesId, seriesId);

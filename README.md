@@ -34,6 +34,7 @@ ONE PIECE カードゲームのカード検索・デッキ構築・コレクシ�
 | `service-worker.js` | オフライン対応。カードデータ=network-first、シェル=SWR、画像=cache-first |
 | `cards.json` | カードデータ（公式サイト由来） |
 | `provisional-cards.json` | 仮DB（公式データ収録前の新カード） |
+| `series-master.json` | 公式カードリスト準拠の収録弾コード・正式名称 |
 | `furigana-master.json` | カード名単位の読みと確認状態 |
 | `image-manifest.json` | カード番号 → 画像パスの対応表 |
 | `card-features.json` | デッキ画像解析に使う画像特徴量 |
@@ -51,11 +52,15 @@ ONE PIECE カードゲームのカード検索・デッキ構築・コレクシ�
 
 | ワークフロー | 実行時刻 | 内容 |
 | --- | --- | --- |
-| `sync-new-release.yml` | 毎日 18:00 JST | 公式サイトからOP・EB・ST・PRB等の各系列の最新弾と未収録弾を自動検出し、カード・画像・フリガナ辞書・WebP・マニフェスト・特徴量を更新 |
+| `sync-new-release.yml` | 毎日 18:00 JST | 公式サイトからOP・EB・ST・PRB等の各系列の最新弾と未収録弾を自動検出し、収録弾名・カード・画像・フリガナ辞書・WebP・マニフェスト・特徴量を更新 |
 | `sync-provisional-cards.yml` | 毎日 18:20 JST | 秋葉原カードショップから仮DBを取得し、フリガナ辞書へ新しい名前を追加 |
 
 どちらも手動実行（workflow_dispatch）に対応しています。`dry_run` を指定すると
 ファイルを書き換えずに確認だけできます。
+
+収録弾名は `series-master.json` を正とし、カード番号の接頭辞から初出商品を決定します。
+再録・パラレル画像の配布元は `getInfo` と画像マニフェストに分けて保持するため、
+収録弾フィルターでは初出弾と再録先のどちらからも検索できます。
 
 ## ローカルでの実行
 
@@ -113,6 +118,7 @@ node scripts/test-data-integrity.mjs
 | スクリプト | 内容 |
 | --- | --- |
 | `sync-new-release.mjs` | 公式収録弾を系列名に依存せず検出する新弾同期一式（カード → 画像 → WebP → マニフェスト → 特徴量） |
+| `sync-series-master.mjs` / `normalize-card-series.mjs` | 公式の収録弾名を更新し、カード番号の初出弾へ正規化 |
 | `sync-official-cards.mjs` / `sync-official-images.mjs` | 公式サイトからのカード・画像取得 |
 | `ensure-eight-pack-leader.mjs` | 外部スクレイパー更新後に8パックバトル用ルフィを復元 |
 | `sync-akihabara-cards.mjs` / `sync-provisional-images.mjs` | 仮DBの取得 |
