@@ -1,6 +1,6 @@
 {
   "sourceUrl": "https://www.onepiece-cardgame.com/news/blockicon-card.html",
-  "updatedAt": "2026-10-30",
+  "updatedAt": "2026-11-20",
   "superParallelXCardNumbers": [
     "EB01-006",
     "EB02-061",
@@ -39,7 +39,9 @@
     "OP17-022",
     "OP17-062",
     "OP17-112",
-    "OP17-118"
+    "OP17-118",
+    "OP18-031",
+    "OP18-065"
   ],
   "blockIconOverrides": {
     "OP01-039": "4",
