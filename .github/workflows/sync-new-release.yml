@@ -58,8 +58,10 @@ jobs:
       - name: Test data integrity
         run: |
           node scripts/test-card-features-incremental.mjs
+          node scripts/test-don-cards.mjs
           node scripts/test-official-series-discovery.mjs
           node scripts/test-series-master.mjs
+          node scripts/test-don-cards.mjs
           node scripts/test-data-integrity.mjs
 
       # 入力値は env 経由で渡す。${{ }} を run の中へ直接展開すると、

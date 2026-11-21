@@ -145,6 +145,8 @@ def collect_entries(
         number = str(card_number or "").strip().upper()
         if not number or not isinstance(variants, list):
             continue
+        if number.startswith("DON-"):
+            continue
         for fallback_index, variant in enumerate(variants):
             if not isinstance(variant, dict):
                 continue
@@ -175,6 +177,8 @@ def collect_entries(
         number = str(card.get("cardNumber") or "").strip().upper()
         path = local_image_path(card.get("imagePath"))
         if not number or path is None or not path.is_file():
+            continue
+        if number.startswith("DON-"):
             continue
         web_path = path.as_posix()
         identity = (number, web_path.lower())

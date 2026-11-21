@@ -56,6 +56,7 @@
     const GITHUB_TOKEN_STORAGE_KEY = 'githubToken';
     const FURIGANA_EDITOR_VISIBLE_STORAGE_KEY = 'furiganaEditorVisible';
     const LIST_BADGES_VISIBLE_STORAGE_KEY = 'listBadgesVisible';
+    const DON_CARDS_VISIBLE_STORAGE_KEY = 'donCardsVisible';
     const DECK_BUILDER_SPLIT_STORAGE_KEY = 'deckBuilderSplitRatio';
     const DECK_BUILDER_DEFAULT_SPLIT_RATIO = 0.42;
     const DECK_BUILDER_SPLIT_RATIO_LIMIT = 0.05;
@@ -66,7 +67,7 @@
     const STANDARD_REGULATION_BASE_BLOCK = 2;
     const STANDARD_REGULATION_BLOCK_COUNT = 4;
     const STANDARD_REGULATION_EXTRA_BLOCKS = ['X'];
-    const APP_VERSION = '1.18.3'; // バージョン更新
+    const APP_VERSION = '1.19.0'; // バージョン更新
     const SERVICE_WORKER_PATH = './service-worker.js';
 
     let db;
@@ -316,6 +317,7 @@
             githubTokenStatus: $('#github-token-status'),
             furiganaEditorToggle: $('#furigana-editor-toggle'),
             listBadgesToggle: $('#list-badges-toggle'),
+            donCardsToggle: $('#don-cards-toggle'),
             appVersionInfo: $('#app-version-info'),
             cardDataVersionInfo: $('#card-data-version-info'),
 
@@ -754,6 +756,29 @@
         if (dom.listBadgesToggle) {
             dom.listBadgesToggle.checked = areListBadgesVisible();
         }
+    }
+
+    function isDonCard(card) {
+        const cardType = String(card?.cardType || '').toUpperCase();
+        const cardNumber = String(card?.cardNumber || '').toUpperCase();
+        return cardType === 'DON!!' || cardType === 'ドン!!' || cardNumber.startsWith('DON-');
+    }
+
+    function areDonCardsVisible() {
+        return localStorage.getItem(DON_CARDS_VISIBLE_STORAGE_KEY) === 'true';
+    }
+
+    function syncDonCardsVisibility() {
+        if (dom.donCardsToggle) {
+            dom.donCardsToggle.checked = areDonCardsVisible();
+        }
+    }
+
+    function setDonCardsVisible(visible) {
+        localStorage.setItem(DON_CARDS_VISIBLE_STORAGE_KEY, visible ? 'true' : 'false');
+        syncDonCardsVisibility();
+        populateFilters(getActiveCardSource());
+        applyFiltersAndDisplay();
     }
 
     function syncGitHubTokenSettings() {
@@ -1250,7 +1275,8 @@
     }
 
     function getRarityLabel(card) {
-        return card?.rarity ? String(card.rarity) : '';
+        const rarity = card?.rarity ? String(card.rarity) : '';
+        return rarity === '-' ? '' : rarity;
     }
 
     async function loadProvisionalCards() {
@@ -1815,6 +1841,11 @@
         let filteredCards = sourceCards.filter(card => {
             if (!card || !card.cardNumber) return false;
 
+            if (isDonCard(card)) {
+                if (['leader_select', 'deck_edit', 'deck_view'].includes(currentMode)) return false;
+                if (!areDonCardsVisible()) return false;
+            }
+
             if (wantedSelectionMode && wantedShowOnlySelected && !wantedCards[card.cardNumber]) {
                 return false;
             }
@@ -2031,9 +2062,13 @@
 
         sourceCards.forEach(card => {
             if (!card || !card.cardNumber) return;
+            if (isDonCard(card) && (
+                !areDonCardsVisible()
+                || ['leader_select', 'deck_edit', 'deck_view'].includes(currentMode)
+            )) return;
 
             if (Array.isArray(card.color)) card.color.forEach(c => colors.add(c));
-            if (card.cardType && card.cardType !== 'ドン!!') types.add(card.cardType); 
+            if (card.cardType && !isDonCard(card)) types.add(card.cardType);
             if (card.rarity) rarities.add(card.rarity); 
             
             if (card.costLifeType === 'コスト') {
@@ -2626,6 +2661,9 @@
             const count = Number(entry[1]);
             if (!cardNumber || !Number.isInteger(count) || count < 1 || count > DECK_MAX_COPIES) {
                 throw new Error('カード番号または枚数が正しくありません。');
+            }
+            if (cardNumber.startsWith('DON-')) {
+                throw new Error('ドン!!カードは通常デッキ50枚には含められません。');
             }
             if (cardNumber === leader) continue;
             cards[cardNumber] = (cards[cardNumber] || 0) + count;
@@ -3277,6 +3315,7 @@
         const uniqueCards = new Map();
         getDeckCardPool().forEach(card => {
             if (!card?.cardNumber || uniqueCards.has(card.cardNumber)) return;
+            if (isDonCard(card)) return;
             const isLeader = card.cardType === 'LEADER';
             if ((role === 'leader' && !isLeader) || (role !== 'leader' && isLeader)) return;
             const searchable = normalizeImageImportSearchText([
@@ -7323,6 +7362,10 @@
     function toggleDeckCardCount(card) {
         const cardNumber = card?.cardNumber;
         if (!cardNumber) return;
+        if (isDonCard(card)) {
+            showMessageToast('ドン!!カードは通常デッキ50枚には含められません。', 'info');
+            return;
+        }
         if (deckParallelSelectionEnabled) {
             const key = getCardDisplayVariantKey(card);
             const current = Number(editingDeckVariantData[key] || 0);
@@ -7969,7 +8012,8 @@
             gridColumns: Math.min(5, Math.max(3, Number.parseInt(localStorage.getItem('gridColumns') || '3', 10) || 3)),
             variantDisplayMode: getStoredVariantDisplayMode(),
             furiganaEditorVisible: isFuriganaEditorVisible(),
-            listBadgesVisible: areListBadgesVisible()
+            listBadgesVisible: areListBadgesVisible(),
+            donCardsVisible: areDonCardsVisible()
         };
     }
 
@@ -8065,7 +8109,8 @@
                     ? settings.variantDisplayMode
                     : 'normal',
                 furiganaEditorVisible: settings.furiganaEditorVisible === true,
-                listBadgesVisible: settings.listBadgesVisible !== false
+                listBadgesVisible: settings.listBadgesVisible !== false,
+                donCardsVisible: settings.donCardsVisible === true
             }
         };
     }
@@ -8108,6 +8153,7 @@
         localStorage.setItem(VARIANT_DISPLAY_MODE_STORAGE_KEY, normalized.settings.variantDisplayMode);
         localStorage.setItem(FURIGANA_EDITOR_VISIBLE_STORAGE_KEY, normalized.settings.furiganaEditorVisible ? 'true' : 'false');
         localStorage.setItem(LIST_BADGES_VISIBLE_STORAGE_KEY, normalized.settings.listBadgesVisible ? 'true' : 'false');
+        localStorage.setItem(DON_CARDS_VISIBLE_STORAGE_KEY, normalized.settings.donCardsVisible ? 'true' : 'false');
         localStorage.setItem(GOOGLE_DRIVE_LAST_SYNC_STORAGE_KEY, new Date().toISOString());
         showMessageToast('Google Driveから復元しました。アプリを再読み込みします。', 'success');
         setTimeout(() => window.location.reload(), 900);
@@ -8756,6 +8802,7 @@
             syncGitHubTokenSettings();
             syncFuriganaEditorVisibility();
             syncListBadgesVisibility();
+            syncDonCardsVisibility();
             syncGoogleDriveSettings();
             dom.settingsModal.style.display = 'flex';
         });
@@ -8878,6 +8925,12 @@
                 setListBadgesVisible(dom.listBadgesToggle.checked);
             });
             syncListBadgesVisibility();
+        }
+        if (dom.donCardsToggle) {
+            dom.donCardsToggle.addEventListener('change', () => {
+                setDonCardsVisible(dom.donCardsToggle.checked);
+            });
+            syncDonCardsVisibility();
         }
         if (dom.deckImagePreviewCloseBtn) {
             dom.deckImagePreviewCloseBtn.addEventListener('click', closeDeckImagePreview);

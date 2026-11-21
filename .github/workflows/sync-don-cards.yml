@@ -1,0 +1,71 @@
+name: Sync DON cards
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Check the official PDF without writing files"
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-don-cards
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install PDF dependencies
+        run: python -m pip install --upgrade pillow pypdf
+
+      - name: Sync official DON cards
+        env:
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          ARGS=()
+          if [ "$DRY_RUN" = "true" ]; then ARGS+=("--dry-run"); fi
+          python scripts/sync-don-cards.py "${ARGS[@]}"
+
+      - name: Rebuild image data
+        if: ${{ inputs.dry_run != true }}
+        run: |
+          node scripts/build-image-manifest.mjs
+          python scripts/build-card-features.py
+
+      - name: Test DON card data
+        if: ${{ inputs.dry_run != true }}
+        run: |
+          node scripts/test-don-cards.mjs
+          node scripts/test-data-integrity.mjs
+
+      - name: Commit and push
+        if: ${{ inputs.dry_run != true }}
+        run: |
+          if [ -z "$(git status --short)" ]; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add cards.json series-master.json don-card-sources.json image-manifest.json card-features.json card-feature-cache.json CardsWebP/DON
+          git commit -m "Sync DON cards"
+          git push

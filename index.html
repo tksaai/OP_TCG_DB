@@ -8,7 +8,7 @@
     <meta name="color-scheme" content="dark">
     <title>OP-TCG DB PWA</title>
     <!-- CSSファイル -->
-    <link rel="stylesheet" href="style.css?v=1.18.3">
+    <link rel="stylesheet" href="style.css?v=1.19.0">
     
     <!-- 2. Web App Manifest -->
     <link rel="manifest" href="manifest.json">
@@ -353,6 +353,11 @@
                                 <input id="list-badges-toggle" type="checkbox">
                                 <span>リスト上のレアリティ・別イラスト表示を表示</span>
                             </label>
+                            <label class="settings-toggle-label">
+                                <input id="don-cards-toggle" type="checkbox">
+                                <span>ドン!!カードをカード一覧に表示</span>
+                            </label>
+                            <p class="settings-toggle-help">所持カード管理用です。デッキ作成・50枚判定には含まれません。</p>
                             <p>フリガナの修正を本体データへ保存するには、<a href="admin.html">データ整備ページ</a>で GitHub token を登録してください（データ整備者向けの機能です）。</p>
                         </div>
                     </fieldset>
@@ -1065,16 +1070,16 @@
     </div>
 
     <!-- 22. メインスクリプト (defer を追加) -->
-    <script src="image-import.js?v=1.18.3" defer></script>
-    <script src="eight-pack-leader.js?v=1.18.3" defer></script>
-    <script src="deck-adjustments.js?v=1.18.3" defer></script>
-    <script src="deck-records.js?v=1.18.3" defer></script>
-    <script src="deck-variants.js?v=1.18.3" defer></script>
-    <script src="proxy-print.js?v=1.18.3" defer></script>
-    <script src="optcgsim-deck.js?v=1.18.3" defer></script>
-    <script src="google-drive-sync.js?v=1.18.3" defer></script>
-    <script src="card-data-diff.js?v=1.18.3" defer></script>
-    <script src="app.js?v=1.18.3" defer></script>
+    <script src="image-import.js?v=1.19.0" defer></script>
+    <script src="eight-pack-leader.js?v=1.19.0" defer></script>
+    <script src="deck-adjustments.js?v=1.19.0" defer></script>
+    <script src="deck-records.js?v=1.19.0" defer></script>
+    <script src="deck-variants.js?v=1.19.0" defer></script>
+    <script src="proxy-print.js?v=1.19.0" defer></script>
+    <script src="optcgsim-deck.js?v=1.19.0" defer></script>
+    <script src="google-drive-sync.js?v=1.19.0" defer></script>
+    <script src="card-data-diff.js?v=1.19.0" defer></script>
+    <script src="app.js?v=1.19.0" defer></script>
 
 </body>
 </html>

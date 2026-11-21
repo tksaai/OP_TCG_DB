@@ -1215,6 +1215,12 @@ body.optcgsim-text-open {
     height: 18px;
 }
 
+.settings-toggle-help {
+    margin: -2px 0 6px 26px;
+    font-size: 12px;
+    opacity: 0.78;
+}
+
 .settings-status {
     min-height: 18px;
     font-size: 12px;

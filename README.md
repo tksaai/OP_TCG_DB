@@ -18,6 +18,7 @@ ONE PIECE カードゲームのカード検索・デッキ構築・コレクシ�
 - 作成中または保存済みデッキの5列リスト表示と枚数調整
 - デッキ表の画像からのデッキ取り込み（解析は端末内で完結）
 - 欲しいカードリスト、所持カード管理、パックの開封記録
+- 公式ドン!!カード262種の検索・所持管理（設定で表示、初期値は非表示）
 - 任意のGoogle Drive同期（ログインなしでも従来どおり利用可能）
 - デッキに対する不足カードの一覧と共有
 - NEW タブ：公式データ収録前の新カード（仮DB）
@@ -54,8 +55,9 @@ ONE PIECE カードゲームのカード検索・デッキ構築・コレクシ�
 | --- | --- | --- |
 | `sync-new-release.yml` | 毎日 18:00 JST | 公式サイトからOP・EB・ST・PRB等の各系列の最新弾と未収録弾を自動検出し、収録弾名・カード・画像・フリガナ辞書・WebP・マニフェスト・特徴量を更新 |
 | `sync-provisional-cards.yml` | 毎日 18:20 JST | 秋葉原カードショップから仮DBを取得し、フリガナ辞書へ新しい名前を追加 |
+| `sync-don-cards.yml` | 手動 | 公式ドン!!カードリストPDFからカード画像と専用IDを同期 |
 
-どちらも手動実行（workflow_dispatch）に対応しています。`dry_run` を指定すると
+すべて手動実行（workflow_dispatch）に対応しています。`dry_run` を指定すると
 ファイルを書き換えずに確認だけできます。
 
 収録弾名は `series-master.json` を正とし、カード番号の接頭辞から初出商品を決定します。
@@ -120,6 +122,7 @@ node scripts/test-data-integrity.mjs
 | `sync-new-release.mjs` | 公式収録弾を系列名に依存せず検出する新弾同期一式（カード → 画像 → WebP → マニフェスト → 特徴量） |
 | `sync-series-master.mjs` / `normalize-card-series.mjs` | 公式の収録弾名を更新し、カード番号の初出弾へ正規化 |
 | `sync-official-cards.mjs` / `sync-official-images.mjs` | 公式サイトからのカード・画像取得 |
+| `sync-don-cards.py` | 公式ドン!!カードリストPDFから画像を抽出し、安定した専用IDで同期 |
 | `ensure-eight-pack-leader.mjs` | 外部スクレイパー更新後に8パックバトル用ルフィを復元 |
 | `sync-akihabara-cards.mjs` / `sync-provisional-images.mjs` | 仮DBの取得 |
 | `convert-images-to-webp.py` | WebP 変換（`--prune` で元画像が消えた WebP を掃除） |

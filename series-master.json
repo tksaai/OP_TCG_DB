@@ -2,6 +2,11 @@
   "version": 1,
   "source": "https://www.onepiece-cardgame.com/cardlist/",
   "entries": {
+    "DON": {
+      "code": "DON",
+      "title": "ドン!!カード",
+      "label": "ドン!!カード"
+    },
     "EB01": {
       "code": "EB-01",
       "title": "エクストラブースター メモリアルコレクション",
@@ -116,6 +121,11 @@
       "code": "OP-18",
       "title": "ブースターパック 神の支配",
       "label": "ブースターパック 神の支配【OP-18】"
+    },
+    "P": {
+      "code": "P",
+      "title": "プロモーションカード",
+      "label": "プロモーションカード"
     },
     "PRB01": {
       "code": "PRB-01",
@@ -306,11 +316,6 @@
       "code": "ST-36",
       "title": "スタートデッキ 黄 ユースタス・キッド",
       "label": "スタートデッキ 黄 ユースタス・キッド【ST-36】"
-    },
-    "P": {
-      "code": "P",
-      "title": "プロモーションカード",
-      "label": "プロモーションカード"
     }
   }
 }
