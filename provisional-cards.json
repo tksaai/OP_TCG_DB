@@ -32,7 +32,109 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "ST37",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/ST-37/",
-    "provisionalUpdatedAt": "2026-10-13"
+    "provisionalUpdatedAt": "2026-11-21"
+  },
+  {
+    "uniqueId": "ST37-006_ST37-006.jpg",
+    "cardNumber": "ST37-006",
+    "rawNumber": "ST37-006",
+    "cardName": "ポートガス・Ｄ・エース",
+    "furigana": "ポートガス・ディー・エース",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "赤"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 8,
+    "power": 8000,
+    "counter": "-",
+    "attribute": "特",
+    "features": [
+      "アラバスタ王国",
+      "白ひげ海賊団"
+    ],
+    "block": 5,
+    "effectText": "ブロッカー 登場時 相手のキャラ1枚までを、このターン中、パワー3000",
+    "trigger": "",
+    "getInfo": "スタートデッキ 砂漠の王女と海賊たち【ST-37】",
+    "seriesTitle": "スタートデッキ 砂漠の王女と海賊たち",
+    "seriesCode": "ST-37",
+    "sourceModalId": "ST37-006",
+    "imagePath": "CardsWebP/Provisional/ST37/ST37-006_ST37-006.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/ST37-006.jpg",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "ST37",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/ST-37/",
+    "provisionalUpdatedAt": "2026-11-21"
+  },
+  {
+    "uniqueId": "ST37-007_ST37-007.jpg",
+    "cardNumber": "ST37-007",
+    "rawNumber": "ST37-007",
+    "cardName": "モンキー・D・ルフィ",
+    "furigana": "モンキー・ディー・ルフィ",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "color": [
+      "赤"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 7,
+    "power": 9000,
+    "counter": "-",
+    "attribute": "打",
+    "features": [
+      "アラバスタ王国",
+      "麦わらの一味"
+    ],
+    "block": 5,
+    "effectText": "速攻 起動メイン ターン1回 自分の手札1枚を捨てることができる:相手のパワー10000以下のキャラ1枚までを、このターン中、効果を無効にする。",
+    "trigger": "",
+    "getInfo": "スタートデッキ 砂漠の王女と海賊たち【ST-37】",
+    "seriesTitle": "スタートデッキ 砂漠の王女と海賊たち",
+    "seriesCode": "ST-37",
+    "sourceModalId": "ST37-007",
+    "imagePath": "CardsWebP/Provisional/ST37/ST37-007_ST37-007.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/ST37-007.jpg",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "ST37",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/ST-37/",
+    "provisionalUpdatedAt": "2026-11-21"
+  },
+  {
+    "uniqueId": "ST37-015_ST37-015.jpg",
+    "cardNumber": "ST37-015",
+    "rawNumber": "ST37-015",
+    "cardName": "お前の方が 小物だろ!!!",
+    "furigana": "",
+    "rarity": "C",
+    "cardType": "EVENT",
+    "color": [
+      "赤"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 1,
+    "power": "-",
+    "counter": "-",
+    "attribute": "-",
+    "features": [
+      "アラバスタ王国",
+      "麦わらの一味"
+    ],
+    "block": 5,
+    "effectText": "カウンター 自分のキャラが特徴（アラバスタ王国）を持つキャラのみの場合、自分のリーダーかキャラ1枚までを、このバトル中、パワー+4000。トリガー 相手のパワー5000以下のキャラ1枚までを、トラッシュに置く。",
+    "trigger": "",
+    "getInfo": "スタートデッキ 砂漠の王女と海賊たち【ST-37】",
+    "seriesTitle": "スタートデッキ 砂漠の王女と海賊たち",
+    "seriesCode": "ST-37",
+    "sourceModalId": "ST37-015",
+    "imagePath": "CardsWebP/Provisional/ST37/ST37-015_ST37-015.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/ST37-015.jpg",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "ST37",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/ST-37/",
+    "provisionalUpdatedAt": "2026-11-21"
   },
   {
     "uniqueId": "ST38-001_ST38-001.png",
@@ -67,6 +169,107 @@
     "provisionalSource": "akihabara-cardshop",
     "provisionalScope": "ST38",
     "provisionalSourceUrl": "https://akihabara-cardshop.com/ST-38/",
-    "provisionalUpdatedAt": "2026-10-13"
+    "provisionalUpdatedAt": "2026-11-21"
+  },
+  {
+    "uniqueId": "ST38-004_ST38-004.jpg",
+    "cardNumber": "ST38-004",
+    "rawNumber": "ST38-004",
+    "cardName": "ミス・ゴールデンウィーク(マリアンヌ)",
+    "furigana": "ミス・ゴールデンウィークマリアンヌ",
+    "rarity": "C",
+    "cardType": "CHARACTER",
+    "color": [
+      "青"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 4,
+    "power": 5000,
+    "counter": 1000,
+    "attribute": "知",
+    "features": [
+      "B・W"
+    ],
+    "block": 5,
+    "effectText": "登場時/KO時 コスト2以下のキャラ1枚までを、持ち主の手札に戻す。",
+    "trigger": "",
+    "getInfo": "スタートデッキ バロックワークス【ST-38】",
+    "seriesTitle": "スタートデッキ バロックワークス",
+    "seriesCode": "ST-38",
+    "sourceModalId": "ST38-004",
+    "imagePath": "CardsWebP/Provisional/ST38/ST38-004_ST38-004.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/ST38-004.jpg",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "ST38",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/ST-38/",
+    "provisionalUpdatedAt": "2026-11-21"
+  },
+  {
+    "uniqueId": "ST38-008_ST38-008.jpg",
+    "cardNumber": "ST38-008",
+    "rawNumber": "ST38-008",
+    "cardName": "Mr.0（クロコダイル）",
+    "furigana": "",
+    "rarity": "SR",
+    "cardType": "CHARACTER",
+    "color": [
+      "黒"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 7,
+    "power": 7000,
+    "counter": "-",
+    "attribute": "特",
+    "features": [
+      "王下七武海",
+      "B・W"
+    ],
+    "block": 5,
+    "effectText": "登場時/KO時以下から1つを選ぶ。・自分のトラッシュからコスト5以下の『B･W』を含む特徴を持つキャラカード1枚までを、登場させる。・相手のコスト5以下のキャラ1枚までを、KOする。",
+    "trigger": "",
+    "getInfo": "スタートデッキ バロックワークス【ST-38】",
+    "seriesTitle": "スタートデッキ バロックワークス",
+    "seriesCode": "ST-38",
+    "sourceModalId": "ST38-008",
+    "imagePath": "CardsWebP/Provisional/ST38/ST38-008_ST38-008.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/ST38-008.jpg",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "ST38",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/ST-38/",
+    "provisionalUpdatedAt": "2026-11-21"
+  },
+  {
+    "uniqueId": "ST38-015_SR38-015.jpg",
+    "cardNumber": "ST38-015",
+    "rawNumber": "ST38-015",
+    "cardName": "自惚れるなよ 小物が……",
+    "furigana": "",
+    "rarity": "C",
+    "cardType": "EVENT",
+    "color": [
+      "青"
+    ],
+    "costLifeType": "コスト",
+    "costLifeValue": 1,
+    "power": "-",
+    "counter": "-",
+    "attribute": "-",
+    "features": [
+      "王下七武海",
+      "B・W"
+    ],
+    "block": 5,
+    "effectText": "メイン 自分のリーダーが『B･W』を含む特徴を持つ場合、コスト2以下のキャラ1枚までを、持ち主の手札かデッキの下に戻す。カウンター 自分のリーダーを、このバトル中、パワー+3000。",
+    "trigger": "",
+    "getInfo": "スタートデッキ バロックワークス【ST-38】",
+    "seriesTitle": "スタートデッキ バロックワークス",
+    "seriesCode": "ST-38",
+    "sourceModalId": "ST38-015",
+    "imagePath": "CardsWebP/Provisional/ST38/ST38-015_SR38-015.webp",
+    "provisionalImageUrl": "https://akihabara-cardshop.com/wp-content/themes/wp/img/product/info/SR38-015.jpg",
+    "provisionalSource": "akihabara-cardshop",
+    "provisionalScope": "ST38",
+    "provisionalSourceUrl": "https://akihabara-cardshop.com/ST-38/",
+    "provisionalUpdatedAt": "2026-11-21"
   }
 ]

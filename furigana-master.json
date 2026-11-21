@@ -1036,6 +1036,11 @@
       "status": "pending",
       "source": "new-card"
     },
+    "お前の方が 小物だろ!!!": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
+    },
     "お鶴": {
       "reading": "オツル",
       "status": "verified",
@@ -5370,6 +5375,11 @@
       "reading": "パンクヴァイス",
       "status": "verified",
       "source": "existing-card-data"
+    },
+    "自惚れるなよ 小物が……": {
+      "reading": "",
+      "status": "pending",
+      "source": "new-card"
     },
     "式をブッ壊そう!!!": {
       "reading": "シキヲブッコワソウ",
