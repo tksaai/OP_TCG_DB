@@ -53,8 +53,8 @@ ONE PIECE カードゲームのカード検索・デッキ構築・コレクシ�
 
 | ワークフロー | 実行時刻 | 内容 |
 | --- | --- | --- |
-| `sync-new-release.yml` | 毎日 18:00 JST | 公式サイトからOP・EB・ST・PRB等の各系列の最新弾と未収録弾を自動検出し、収録弾名・カード・画像・フリガナ辞書・WebP・マニフェスト・特徴量を更新 |
-| `sync-provisional-cards.yml` | 毎日 18:20 JST | 秋葉原カードショップから仮DBを取得し、フリガナ辞書へ新しい名前を追加 |
+| `sync-new-release.yml` | 3時間ごと（0・3・6・9・12・15・18・21時の00分 JST） | 公式サイトからOP・EB・ST・PRB等の各系列の最新弾と未収録弾を自動検出し、収録弾名・カード・画像・フリガナ辞書・WebP・マニフェスト・特徴量を更新 |
+| `sync-provisional-cards.yml` | 3時間ごと（0・3・6・9・12・15・18・21時の20分 JST） | 秋葉原カードショップから仮DBを取得し、フリガナ辞書へ新しい名前を追加 |
 | `sync-don-cards.yml` | 手動 | 公式ドン!!カードリストPDFからカード画像と専用IDを同期 |
 
 すべて手動実行（workflow_dispatch）に対応しています。`dry_run` を指定すると
@@ -124,6 +124,7 @@ node scripts/test-data-integrity.mjs
 | `sync-official-cards.mjs` / `sync-official-images.mjs` | 公式サイトからのカード・画像取得 |
 | `sync-don-cards.py` | 公式ドン!!カードリストPDFから画像を抽出し、安定した専用IDで同期 |
 | `ensure-eight-pack-leader.mjs` | 外部スクレイパー更新後に8パックバトル用ルフィを復元 |
+| `ensure-don-cards.mjs` | 外部スクレイパー更新後に保存済み同期情報・画像から欠落したドン!!カードを復元 |
 | `sync-akihabara-cards.mjs` / `sync-provisional-images.mjs` | 仮DBの取得 |
 | `convert-images-to-webp.py` | WebP 変換（`--prune` で元画像が消えた WebP を掃除） |
 | `build-image-manifest.mjs` | `image-manifest.json` の生成 |
@@ -133,7 +134,7 @@ node scripts/test-data-integrity.mjs
 ## データ整備（フリガナ）
 
 カード名の読みは `furigana-master.json` で一元管理します。同じ名前のカードへ同じ読みを適用し、
-`verified`（確認済み）の項目だけを通常のカード検索へ反映します。日次同期で初めて見つかった名前は
+`verified`（確認済み）の項目だけを通常のカード検索へ反映します。定期同期で初めて見つかった名前は
 `pending` または `suggested` として追加され、自動確定されません。
 
 1. `admin.html` を開き、token を登録します（必要な権限は Contents の Read and write のみ）

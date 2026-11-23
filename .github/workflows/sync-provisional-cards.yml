@@ -2,7 +2,7 @@ name: Sync provisional cards
 
 on:
   schedule:
-    - cron: "20 9 * * *" # 18:20 JST daily
+    - cron: "20 */3 * * *" # Every 3 hours, at 00:20, 03:20, ..., 21:20 JST
   workflow_dispatch:
     inputs:
       series:

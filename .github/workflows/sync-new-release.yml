@@ -2,7 +2,7 @@ name: Sync new release
 
 on:
   schedule:
-    - cron: "0 9 * * *" # 18:00 JST daily
+    - cron: "0 */3 * * *" # Every 3 hours, at 00:00, 03:00, ..., 21:00 JST
   workflow_dispatch:
     inputs:
       series:
@@ -54,6 +54,9 @@ jobs:
       - name: Restore 8 pack battle leader
         run: node scripts/ensure-eight-pack-leader.mjs
 
+      - name: Restore DON cards from saved sources
+        run: node scripts/ensure-don-cards.mjs
+
       # 同期の前に、いま入っているデータと画面の前提が壊れていないかを確認する
       - name: Test data integrity
         run: |
@@ -61,7 +64,6 @@ jobs:
           node scripts/test-don-cards.mjs
           node scripts/test-official-series-discovery.mjs
           node scripts/test-series-master.mjs
-          node scripts/test-don-cards.mjs
           node scripts/test-data-integrity.mjs
 
       # 入力値は env 経由で渡す。${{ }} を run の中へ直接展開すると、
@@ -84,6 +86,7 @@ jobs:
 
       - name: Test final data integrity
         run: |
+          node scripts/test-don-cards.mjs
           node scripts/test-series-master.mjs
           node scripts/test-data-integrity.mjs
 
