@@ -2936,6 +2936,11 @@
       "status": "verified",
       "source": "existing-card-data"
     },
+    "ドン!!カード": {
+      "reading": "ドンカード",
+      "status": "verified",
+      "source": "existing-card-data"
+    },
     "ドンキホーテ・ドフラミンゴ": {
       "reading": "ドンキホーテ・ドフラミンゴ",
       "status": "verified",
